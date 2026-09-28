@@ -1,0 +1,20 @@
+newmtl StationDark
+Ka 0 0 0
+Kd 0.02 0.07 0.09
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl StationMetal
+Ka 0 0 0
+Kd 0.24 0.36 0.39
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl StationGlow
+Ka 0 0 0
+Kd 0.02 0.92 0.38
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2

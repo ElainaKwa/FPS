@@ -1,0 +1,41 @@
+newmtl Metal
+Ka 0 0 0
+Kd 0.09 0.12 0.15
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl Steel
+Ka 0 0 0
+Kd 0.38 0.43 0.47
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl Polymer
+Ka 0 0 0
+Kd 0.026 0.032 0.037
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl Wood
+Ka 0 0 0
+Kd 0.32 0.105 0.035
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl Sand
+Ka 0 0 0
+Kd 0.4 0.31 0.19
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2
+
+newmtl Mark
+Ka 0 0 0
+Kd 0.72 0.78 0.68
+Ks 0.4 0.4 0.4
+Ns 80
+illum 2

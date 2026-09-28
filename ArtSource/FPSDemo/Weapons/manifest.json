@@ -1,0 +1,44 @@
+{
+  "AK": {
+    "mesh": "SM_WP_AK",
+    "muzzle_x": 57,
+    "sight_z": 6,
+    "vertices": 310,
+    "triangles": 516
+  },
+  "M4": {
+    "mesh": "SM_WP_M4",
+    "muzzle_x": 56,
+    "sight_z": 7,
+    "vertices": 500,
+    "triangles": 804
+  },
+  "MP5": {
+    "mesh": "SM_WP_MP5",
+    "muzzle_x": 38,
+    "sight_z": 6,
+    "vertices": 228,
+    "triangles": 376
+  },
+  "UMP45": {
+    "mesh": "SM_WP_UMP45",
+    "muzzle_x": 39,
+    "sight_z": 7,
+    "vertices": 312,
+    "triangles": 492
+  },
+  "M9": {
+    "mesh": "SM_WP_M9",
+    "muzzle_x": 21,
+    "sight_z": 5,
+    "vertices": 224,
+    "triangles": 364
+  },
+  "HeavyPistol": {
+    "mesh": "SM_WP_HeavyPistol",
+    "muzzle_x": 26,
+    "sight_z": 5,
+    "vertices": 224,
+    "triangles": 364
+  }
+}
