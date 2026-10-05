@@ -4,6 +4,7 @@
 #include "FPSDemoGameMode.h"
 #include "FPSDemoPlayerController.h"
 #include "AIController.h"
+#include "FPSDifficulty.h"
 #include "GameFramework/GameStateBase.h"
 #include "FPSMatchFlow.generated.h"
 
@@ -35,6 +36,7 @@ public:
     virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
     virtual void BeginPlay() override;
     virtual void InitGameState() override;
+    virtual void PostLogin(APlayerController* NewPlayer) override;
     virtual void PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage) override;
     virtual FString InitNewPlayer(APlayerController* NewPlayer, const FUniqueNetIdRepl& UniqueId, const FString& Options, const FString& Portal = TEXT("")) override;
     virtual void HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer) override;
@@ -43,6 +45,7 @@ public:
     void SwitchTeam(APlayerController* Requester);
     bool CanDamage(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const;
     bool IsCombatActive() const;
+    float DamageMultiplier(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const;
 private:
     friend struct FFPSFlowSmoke;
     void FinishRound();
@@ -50,6 +53,8 @@ private:
     void SpawnBots();
     int32 BotCount = 3;
     FString ModeName;
+    EFPSDifficulty Difficulty = EFPSDifficulty::Normal;
+    float BotPlayerDamageMultiplier = .65f;
     FString RoomName;
     FTimerHandle RoundTimer;
 };
@@ -90,9 +95,19 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void SetupInputComponent() override;
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    virtual void ClientWasKicked_Implementation(const FText& ReturnReason) override;
+    void BeginWeaponContentCheck();
+    bool IsWeaponContentVerified() const { return bWeaponContentVerified; }
     UFUNCTION(Server, Reliable) void ServerStartRound();
     UFUNCTION(Server, Reliable) void ServerSwitchTeam();
 private:
+    UPROPERTY(Replicated) bool bWeaponContentVerified = false;
+    FGuid WeaponContentChallenge;
+    FTimerHandle WeaponContentTimeout;
+    UFUNCTION(Client, Reliable) void ClientCheckWeaponContent(FGuid Challenge, int32 Version, const TArray<FName>& Ids, const FString& Digest);
+    UFUNCTION(Server, Reliable) void ServerConfirmWeaponContent(FGuid Challenge, const FString& Digest, const FString& ErrorMessage);
+    void RejectWeaponContent(const FString& Reason);
     void RefreshMenu();
     void ShowMenu();
     void HideMenu();
@@ -104,6 +119,7 @@ private:
     TSharedPtr<SEditableTextBox> AddressInput;
     TSharedPtr<SEditableTextBox> RoomInput;
     FString Error;
+    EFPSDifficulty SelectedDifficulty = EFPSDifficulty::Normal;
     bool bWasWaiting = false;
     UPROPERTY() TObjectPtr<class UInputMappingContext> MenuContext;
     UPROPERTY() TObjectPtr<class UInputAction> MenuAction;

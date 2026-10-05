@@ -12,6 +12,7 @@ public:
     virtual void Init() override;
     virtual void Shutdown() override;
     FString ConnectionError;
+    FString PendingWeaponContentError;
 private:
     void NetworkFailure(UWorld* World, UNetDriver* Driver, ENetworkFailure::Type Type, const FString& Message);
     void TravelFailure(UWorld* World, ETravelFailure::Type Type, const FString& Message);

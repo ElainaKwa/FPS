@@ -31,6 +31,8 @@ public:
 	GAMEPLAYATTRIBUTE_VALUE_SETTER(MaxHealth)
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxHealth)
 
+	// Current equipment display cache only. Effects modifying this attribute do not modify shot damage.
+	// Authoritative shots capture definition damage and apply it through a GAS SetByCaller effect.
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_WeaponDamage, Category="FPS Demo")
 	FGameplayAttributeData WeaponDamage;
 	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UFPSDemoAttributeSet, WeaponDamage)

@@ -70,7 +70,22 @@ def environment(length,width):
 def rack(x,y,model,yaw=0):
     box('WeaponPlinth',(x,y,18),(115,100,36),'Dark')
     box('WeaponStripe',(x,y,37),(110,90,2),'Gold',False)
-    marker('FPSWeapon'+str(model),(x,y,75),yaw,unreal.TargetPoint)
+    # Explicit source configuration, independent of enum ordinals.
+    definitions = {
+        1: '/Game/FPSDemo/Weapons/Definitions/DA_AK',
+        2: '/Game/FPSDemo/Weapons/Definitions/DA_M4',
+        3: '/Game/FPSDemo/Weapons/Definitions/DA_MP5',
+        4: '/Game/FPSDemo/Weapons/Definitions/DA_UMP45',
+        5: '/Game/FPSDemo/Weapons/Definitions/DA_M9',
+        6: '/Game/FPSDemo/Weapons/Definitions/DA_HeavyPistol',
+    }
+    definition = unreal.load_asset(definitions[model])
+    assert definition, definitions[model]
+    stand = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).spawn_actor_from_class(
+        unreal.FPSWeaponStand, unreal.Vector(x,y,75), unreal.Rotator(0,yaw,0))
+    stand.set_actor_label('WeaponStand_' + str(model))
+    stand.set_editor_property('definition', definition)
+    stand.set_editor_property('display_order', model-1)
 
 def create(name,training):
     path=ROOT+'/'+name

@@ -13,4 +13,7 @@ public:
     virtual float GetMaxSpeed() const override;
     virtual void UpdateFromCompressedFlags(uint8 Flags) override;
     virtual FNetworkPredictionData_Client* GetPredictionData_Client() const override;
+    virtual void OnMovementUpdated(float DeltaSeconds, const FVector& OldLocation, const FVector& OldVelocity) override;
+private:
+    bool bWasSprinting = false;
 };

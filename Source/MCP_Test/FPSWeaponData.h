@@ -3,41 +3,81 @@
 #include "Engine/DataAsset.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Curves/CurveVector.h"
+#include "Engine/TargetPoint.h"
 #include "FPSWeaponData.generated.h"
 
+class USoundBase;
 UENUM(BlueprintType)
 enum class EFPSWeaponSlot : uint8 { Primary, Secondary };
 UENUM(BlueprintType)
 enum class EFPSWeaponCategory : uint8 { Rifle, SMG, Pistol };
 UENUM(BlueprintType)
-enum class EFPSWeaponModel : uint8 { None, AK, M4, MP5, UMP45, M9, HeavyPistol };
-UENUM(BlueprintType)
 enum class EFPSWeaponAction : uint8 { Idle, Reloading, Switching, Inspecting };
+UENUM(BlueprintType)
+enum class EFPSFireMode : uint8 { Single, Automatic, Burst };
 
-/** Immutable definition. No current ammunition or other per-instance state lives here. */
+USTRUCT(BlueprintType)
+struct FFPSWeaponPresentation
+{
+    GENERATED_BODY()
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) TSoftObjectPtr<UStaticMesh> Mesh;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) FTransform Transform;
+};
+
+/** Saved assets are the sole editable source. WeaponId survives package rename/move. */
 UCLASS(BlueprintType)
 class MCP_TEST_API UFPSWeaponDefinition : public UPrimaryDataAsset
 {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) EFPSWeaponModel Model = EFPSWeaponModel::None;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) EFPSWeaponSlot Slot = EFPSWeaponSlot::Primary;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) EFPSWeaponCategory Category = EFPSWeaponCategory::Rifle;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FText DisplayName;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) int32 MagazineSize = 30;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) int32 InitialReserve = 90;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float Damage = 25;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float FireInterval = .1f;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float ReloadDuration = 2;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float Range = 6000;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float AimFOV = 65;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bAutomatic = true;
-    // X=pitch, Y=yaw (degrees per shot), Z=visual kick. Curve time is shot number.
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<UCurveVector> RecoilCurve;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TSoftObjectPtr<UStaticMesh> Mesh;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FVector PresentationScale = FVector(1);
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FVector MuzzleLocation = FVector(56, 0, 0);
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float SightHeight = 7;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, AssetRegistrySearchable, Category="Identity") FName WeaponId;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Identity") FText DisplayName;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Identity") EFPSWeaponSlot Slot = EFPSWeaponSlot::Primary;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Identity") EFPSWeaponCategory Category = EFPSWeaponCategory::Rifle;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Ammunition") int32 MagazineSize = 30;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Ammunition") int32 InitialMagazine = 30;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Ammunition") int32 InitialReserve = 90;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float Damage = 25;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float FireInterval = .1f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float Range = 6000;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") EFPSFireMode FireMode = EFPSFireMode::Automatic;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") int32 BurstCount = 3;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float BurstInterval = .3f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Operations") float ReloadDuration = 2;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Operations") float InspectDuration = 2;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Operations") float EquipReadyTime = .35f;
+    // Exact visual completion durations in seconds; zero reaches the target immediately.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Operations") float EquipBlendTime = .35f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Operations") float AimTransitionTime = .2f;
+    // X/Y/Z are per-shot pitch/yaw/visual kick. Time is zero-based shot index.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Recoil") bool bNoRecoil = false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Recoil") TSoftObjectPtr<UCurveVector> RecoilCurve;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Recoil") float AimRecoilMultiplier = .65f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Recoil") float RecoilRecoveryTime = .5f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation FirstPerson;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation ThirdPerson;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation Pickup;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FVector HipLocation = FVector(42,18,-18);
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FVector AimLocation = FVector(38,0,-6.7);
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FVector MuzzleLocation = FVector(56,0,0);
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") float AimFOV = 65;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> FireSound;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> ReloadStartSound;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> ReloadEndSound;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> EquipSound;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> InspectSound;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> EmptySound;
+    // Generated by editor save from referenced resource packages; included in cooked definitions.
+    UPROPERTY(VisibleAnywhere, Category="Content") TMap<FSoftObjectPath, FString> SavedResourceVersions;
+    virtual FPrimaryAssetId GetPrimaryAssetId() const override { return FPrimaryAssetId(TEXT("WeaponDefinition"), WeaponId); }
+    void ValidateDefinition(TArray<FString>& Errors) const;
+    FVector RecoilAt(int32 Shot) const;
+    TArray<FSoftObjectPath> Resources() const;
+    FString ContentDigest(TArray<FString>& Errors) const;
+#if WITH_EDITOR
+    virtual EDataValidationResult IsDataValid(FDataValidationContext& Context) const override;
+    virtual void PreSave(FObjectPreSaveContext SaveContext) override;
+#endif
 };
 
 USTRUCT(BlueprintType)
@@ -45,10 +85,14 @@ struct FFPSWeaponInstance
 {
     GENERATED_BODY()
     UPROPERTY(BlueprintReadOnly) FGuid InstanceId;
-    UPROPERTY(BlueprintReadOnly) EFPSWeaponModel Model = EFPSWeaponModel::None;
+    UPROPERTY(BlueprintReadOnly) FName WeaponId;
     UPROPERTY(BlueprintReadOnly) int32 Magazine = 0;
     UPROPERTY(BlueprintReadOnly) int32 Reserve = 0;
-    bool IsValid() const { return Model != EFPSWeaponModel::None && InstanceId.IsValid(); }
+    UPROPERTY(BlueprintReadOnly) double NextShotAt = 0;
+    UPROPERTY(BlueprintReadOnly) double LastShotAt = -100;
+    UPROPERTY(BlueprintReadOnly) int32 RecoilIndex = 0;
+    UPROPERTY() uint32 ShotSerial = 0;
+    bool IsValid() const { return !WeaponId.IsNone() && InstanceId.IsValid(); }
 };
 
 USTRUCT(BlueprintType)
@@ -61,17 +105,65 @@ struct FFPSWeaponLoadout
     UPROPERTY(BlueprintReadOnly) EFPSWeaponAction Action = EFPSWeaponAction::Idle;
     UPROPERTY(BlueprintReadOnly) double ActionEndsAt = 0;
     UPROPERTY(BlueprintReadOnly) bool bAiming = false;
+    UPROPERTY(BlueprintReadOnly) double EquipStartedAt = 0;
+    UPROPERTY() int32 FirePredictionKey = 0;
+    UPROPERTY() bool bFireActive = false;
 };
 
-/** Code-backed definitions for this stage, using the same schema as editable data assets. */
+/** Remote presentation never contains inventory or reserve ammunition. */
+USTRUCT()
+struct FFPSWeaponVisibleState
+{
+    GENERATED_BODY()
+    UPROPERTY() FName WeaponId;
+    UPROPERTY() FGuid InstanceId;
+    UPROPERTY() EFPSWeaponAction Action = EFPSWeaponAction::Idle;
+    UPROPERTY() double ActionEndsAt = 0;
+    UPROPERTY() double EquipStartedAt = 0;
+    UPROPERTY() bool bAiming = false;
+};
+
+/** Explicit map reference; DisplayOrder never participates in identity or spawning. */
 UCLASS()
+class MCP_TEST_API AFPSWeaponStand : public ATargetPoint
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Weapon") TSoftObjectPtr<UFPSWeaponDefinition> Definition;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Weapon") int32 DisplayOrder = 0;
+#if WITH_EDITOR
+    virtual EDataValidationResult IsDataValid(FDataValidationContext& Context) const override;
+#endif
+};
+
+UCLASS(Config=Game)
 class MCP_TEST_API UFPSWeaponCatalog : public UGameInstanceSubsystem
 {
     GENERATED_BODY()
 public:
     virtual void Initialize(FSubsystemCollectionBase& Collection) override;
-    const UFPSWeaponDefinition* Find(EFPSWeaponModel Model) const;
-    FFPSWeaponInstance CreateInstance(EFPSWeaponModel Model) const;
+    virtual void Deinitialize() override;
+    bool PrepareWorld(UWorld* World, bool bRequireStands = false);
+    bool PrepareDependencies(const TArray<FName>& Ids);
+    void ReleaseSession();
+    bool IsReady() const { return bReady; }
+    const TArray<FName>& RequiredIds() const { return SessionIds; }
+    const FString& Digest() const { return SessionDigest; }
+    static constexpr int32 ManifestVersion = 2;
+    const UFPSWeaponDefinition* Find(FName WeaponId) const;
+    FFPSWeaponInstance CreateInstance(FName WeaponId) const;
+    UPROPERTY(Config) FName StartingPrimary;
+    UPROPERTY(Config) FName StartingSecondary;
+    FString ValidationError;
+    static void Discover(TArray<UFPSWeaponDefinition*>& Out, TArray<FString>& Errors);
+    static void ValidateCatalog(const TArray<UFPSWeaponDefinition*>& Items, TArray<FString>& Errors);
 private:
-    UPROPERTY() TMap<EFPSWeaponModel, TObjectPtr<UFPSWeaponDefinition>> Definitions;
+    UPROPERTY() TMap<FName, TObjectPtr<UFPSWeaponDefinition>> Definitions;
+    TArray<FName> SessionIds;
+    FString SessionDigest;
+    bool bReady = false;
+    TWeakObjectPtr<UWorld> SessionWorld;
+    TSharedPtr<struct FStreamableHandle> DefinitionHandle;
+    TSharedPtr<struct FStreamableHandle> ResourceHandle;
+    FDelegateHandle WorldInitHandle, WorldCleanupHandle;
 };

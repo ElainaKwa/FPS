@@ -1,6 +1,7 @@
 #include "FPSMatchFlow.h"
 #include "FPSBotNavigation.h"
 #include "FPSAISmoke.h"
+#include "FPSDifficultySmoke.h"
 #include "FPSWeaponComponent.h"
 
 #include "FPSDemoCharacter.h"
@@ -43,6 +44,10 @@ void AFPSMatchMode::InitGame(const FString& MapName, const FString& Options, FSt
     ModeName = UGameplayStatics::ParseOption(Options, TEXT("Mode"));
     if (ModeName.IsEmpty() && MapName.Contains(TEXT("LV_FPSTraining"))) ModeName = TEXT("Training");
     if (ModeName != TEXT("LAN") && ModeName != TEXT("Training")) ModeName = TEXT("Solo");
+    const FString DifficultyOption = UGameplayStatics::ParseOption(Options, TEXT("Difficulty"));
+    Difficulty = DifficultyOption == TEXT("Easy") ? EFPSDifficulty::Easy : DifficultyOption == TEXT("Hard") ? EFPSDifficulty::Hard : EFPSDifficulty::Normal;
+    BotPlayerDamageMultiplier = GetDefault<UFPSDifficultySettings>()->Multiplier(Difficulty);
+    if (!FMath::IsFinite(BotPlayerDamageMultiplier) || BotPlayerDamageMultiplier <= 0) ErrorMessage = TEXT("Invalid bot damage difficulty configuration");
     BotCount = FMath::Clamp(UGameplayStatics::GetIntOption(Options, TEXT("Bots"), 3), 0, 9);
     RoomName = UGameplayStatics::ParseOption(Options, TEXT("Room")).Left(24);
     if (RoomName.IsEmpty()) RoomName = TEXT("FPS Room");
@@ -56,6 +61,10 @@ void AFPSMatchMode::InitGameState()
     GS->bTraining = ModeName == TEXT("Training");
     GS->bWaiting = ModeName == TEXT("LAN");
     GS->RoomName = RoomName;
+    auto* Catalog = GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+    Catalog->PrepareWorld(GetWorld(), true);
+    GS->WeaponDataError = Catalog->ValidationError;
+    if (!GS->WeaponDataError.IsEmpty()) UE_LOG(LogTemp, Error, TEXT("FPS_WEAPON_DATA MATCH BLOCKED %s"), *GS->WeaponDataError);
 }
 
 void AFPSMatchMode::BeginPlay()
@@ -63,22 +72,29 @@ void AFPSMatchMode::BeginPlay()
     Super::BeginPlay();
     auto* GS = GetGameState<AFPSDemoGameState>();
     const auto* Catalog = GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
-    bool bHasWeaponMarkers = false;
-    for (TActorIterator<ATargetPoint> It(GetWorld()); It; ++It)
-        for (int32 Index = 1; Index <= 6; ++Index)
-            if (It->ActorHasTag(FName(*FString::Printf(TEXT("FPSWeapon%d"), Index))))
-            {
-                bHasWeaponMarkers = true;
-                auto* Pickup = GetWorld()->SpawnActor<AFPSWeaponPickup>(It->GetActorLocation(), It->GetActorRotation());
-                if (Pickup) Pickup->Initialize(Catalog->CreateInstance(static_cast<EFPSWeaponModel>(Index)));
-            }
-    if (!bHasWeaponMarkers)
-    for (int32 Side = 0; Side < (GS->bTraining ? 1 : 2); ++Side)
-        for (int32 Index = 1; Index <= 6; ++Index)
+    if (!GS->WeaponDataError.IsEmpty())
+    {
+#if !UE_BUILD_SHIPPING
+        if (FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponInvalidDataTest")))
         {
-            auto* Pickup = GetWorld()->SpawnActor<AFPSWeaponPickup>(FVector(Side == 0 ? -1860 : 1860, -1200 + Index * 320, 30), FRotator(0, Side == 0 ? 0 : 180, 0));
-            if (Pickup) Pickup->Initialize(Catalog->CreateInstance(static_cast<EFPSWeaponModel>(Index)));
+            FTimerHandle CheckTimer;
+            GetWorldTimerManager().SetTimer(CheckTimer, [this]()
+            {
+                int32 Pawns = 0, Pickups = 0;
+                for (TActorIterator<AFPSDemoCharacter> It(GetWorld()); It; ++It) ++Pawns;
+                for (TActorIterator<AFPSWeaponPickup> It(GetWorld()); It; ++It) ++Pickups;
+                UE_LOG(LogTemp, Display, TEXT("FPS_WEAPON_INVALID %s pawns=%d pickups=%d combat=%d"), Pawns == 0 && Pickups == 0 && !IsCombatActive() ? TEXT("PASS") : TEXT("FAIL"), Pawns, Pickups, IsCombatActive());
+                FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/WindowsEditor/WeaponDataBlocked.png"), false, false);
+            }, 3.f, false);
         }
+#endif
+        return;
+    }
+    for (TActorIterator<AFPSWeaponStand> It(GetWorld()); It; ++It)
+    {
+        auto* Pickup = GetWorld()->SpawnActor<AFPSWeaponPickup>(It->GetActorLocation(), It->GetActorRotation());
+        if (Pickup) Pickup->Initialize(Catalog->CreateInstance(It->Definition->WeaponId));
+    }
     if (ModeName == TEXT("Solo"))
     {
         SpawnBots();
@@ -94,6 +110,7 @@ void AFPSMatchMode::BeginPlay()
     FFPSFlowSmoke::Start(this);
     FFPSWeaponSmoke::Start(this);
     FFPSAISmoke::Start(this);
+    FFPSDifficultySmoke::Start(this);
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("FPSMapSmoke")))
     {
@@ -117,7 +134,7 @@ void AFPSMatchMode::BeginPlay()
             }
             for (TActorIterator<AFPSWeaponPickup> It(GetWorld()); It; ++It) ++Pickups;
             const bool bTraining = GetGameState<AFPSDemoGameState>()->bTraining;
-            const bool bPass = bClear && Starts == (bTraining ? 4 : 10) && Pickups == (bTraining ? 6 : 12) && Pawns == (bTraining ? 4 : BotCount + 1);
+            const bool bPass = bClear && Starts == (bTraining ? 4 : 10) && Pickups == (bTraining ? 7 : 14) && Pawns == (bTraining ? 4 : BotCount + 1);
             UE_LOG(LogTemp, Display, TEXT("FPS_MAP_SMOKE %s map=%s starts=%d pickups=%d pawns=%d clear=%d"), bPass ? TEXT("PASS") : TEXT("FAIL"), *GetWorld()->GetMapName(), Starts, Pickups, Pawns, bClear);
             FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/WindowsEditor/") / (bTraining ? TEXT("TrainingMap.png") : TEXT("FoundryMap.png")), false, false);
         }, 8.f, false);
@@ -125,9 +142,16 @@ void AFPSMatchMode::BeginPlay()
 #endif
 }
 
+void AFPSMatchMode::PostLogin(APlayerController* NewPlayer)
+{
+    Super::PostLogin(NewPlayer);
+    if (auto* PC = Cast<AFPSFrontController>(NewPlayer)) PC->BeginWeaponContentCheck();
+}
+
 void AFPSMatchMode::PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage)
 {
     Super::PreLogin(Options, Address, UniqueId, ErrorMessage);
+    if (const auto* GS = GetGameState<AFPSDemoGameState>(); GS && !GS->WeaponDataError.IsEmpty()) ErrorMessage = GS->WeaponDataError;
     if (!ErrorMessage.IsEmpty()) return;
     if (ModeName != TEXT("LAN")) ErrorMessage = TEXT("This is a single-player mode.");
     else if (GetNumPlayers() >= 10) ErrorMessage = TEXT("Room full (10/10).");
@@ -161,13 +185,15 @@ FString AFPSMatchMode::InitNewPlayer(APlayerController* NewPlayer, const FUnique
 
 void AFPSMatchMode::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
 {
-    if (!GetGameState<AFPSDemoGameState>()->bWaiting)
+    const auto* PC = Cast<AFPSFrontController>(NewPlayer);
+    if (PC && PC->IsWeaponContentVerified() && !GetGameState<AFPSDemoGameState>()->bWaiting)
         Super::HandleStartingNewPlayer_Implementation(NewPlayer);
 }
 
 void AFPSMatchMode::RestartPlayer(AController* NewPlayer)
 {
     if (!NewPlayer || !IsCombatActive()) return;
+    if (const auto* PC = Cast<AFPSFrontController>(NewPlayer); PC && !PC->IsWeaponContentVerified()) return;
     auto* PS = NewPlayer->GetPlayerState<AFPSDemoPlayerState>();
     const int32 Team = PS ? PS->TeamId : 0;
     const int32 Lane = PS ? FMath::Abs(PS->GetPlayerId()) % 5 : 0;
@@ -189,7 +215,7 @@ void AFPSMatchMode::RestartPlayer(AController* NewPlayer)
 bool AFPSMatchMode::IsCombatActive() const
 {
     const auto* GS = GetGameState<AFPSDemoGameState>();
-    return GS && !GS->bWaiting && !GS->bFinished && (GS->bTraining || GS->RoundEndsAt <= 0 || GS->GetServerWorldTimeSeconds() < GS->RoundEndsAt);
+    return GS && GS->WeaponDataError.IsEmpty() && !GS->bWaiting && !GS->bFinished && (GS->bTraining || GS->RoundEndsAt <= 0 || GS->GetServerWorldTimeSeconds() < GS->RoundEndsAt);
 }
 
 bool AFPSMatchMode::CanDamage(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const
@@ -212,9 +238,12 @@ void AFPSMatchMode::SwitchTeam(APlayerController* Requester)
 
 void AFPSMatchMode::StartRound(APlayerController* Requester)
 {
+    if (!GetGameState<AFPSDemoGameState>()->WeaponDataError.IsEmpty()) return;
     auto* GS = GetGameState<AFPSDemoGameState>();
     // Only the listen server's local controller may start the room.
     if (!Requester || !Requester->IsLocalController() || !GS->bWaiting || TeamSize(0) == 0 || TeamSize(1) == 0) return;
+    for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+        if (const auto* PC = Cast<AFPSFrontController>(It->Get()); PC && !PC->IsWeaponContentVerified()) return;
     GS->bWaiting = false;
     GS->RoundEndsAt = GS->GetServerWorldTimeSeconds() + 300;
     GS->ForceNetUpdate();
@@ -414,4 +443,10 @@ void AFPSBotController::Tick(float DeltaSeconds)
             else NextShot = Now + .1f;
         }
     }
+}
+
+float AFPSMatchMode::DamageMultiplier(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const
+{
+    return ModeName == TEXT("Solo") && Attacker && Victim && Cast<AFPSBotController>(Attacker->GetController()) &&
+        Victim->GetController() && Victim->GetController()->IsPlayerController() ? BotPlayerDamageMultiplier : 1.f;
 }

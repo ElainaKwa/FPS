@@ -8,6 +8,7 @@
 #include "FPSWeaponPickup.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
+#include "Engine/GameInstance.h"
 
 void AFPSDemoHUD::DrawHUD()
 {
@@ -18,6 +19,15 @@ void AFPSDemoHUD::DrawHUD()
 	const AFPSDemoGameState* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
 	if (GS && GS->bStructuredMatch)
 	{
+        const auto* Catalog = GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+        const FString Error = !GS->WeaponDataError.IsEmpty() ? GS->WeaponDataError : Catalog->ValidationError;
+        if (!Error.IsEmpty())
+        {
+            DrawRect(FLinearColor(.05f,0,0,.95f), 10,10,Canvas->SizeX-20,Canvas->SizeY-20);
+            DrawText(TEXT("WEAPON DATA INVALID - MATCH BLOCKED"), FLinearColor::Red, 30,30);
+            DrawText(Error, FLinearColor::White, 30,65);
+            return;
+        }
 		if (GS->bWaiting || GS->bFinished) return;
 		const auto* PS = GetOwningPlayerController()->GetPlayerState<AFPSDemoPlayerState>();
 		const bool bAlive = Pawn && !Pawn->IsEliminated();
@@ -90,7 +100,7 @@ void AFPSDemoHUD::DrawHUD()
 			DrawText(TEXT("1/2 switch | G drop | F pickup"), FLinearColor::White, Canvas->SizeX - 310, Canvas->SizeY - 35);
 			DrawText(TEXT("SHIFT sprint | CTRL crouch"), FLinearColor::White, 35, Canvas->SizeY - 40);
 			if (const auto* Pickup = Weapons->FindPickup())
-                if (const auto* PickupDef = Weapons->Catalog()->Find(Pickup->GetInstance().Model))
+                if (const auto* PickupDef = Weapons->Catalog()->Find(Pickup->GetInstance().WeaponId))
 					DrawText(FString::Printf(TEXT("[F] %s  %d / %d"), *PickupDef->DisplayName.ToString(), Pickup->GetInstance().Magazine, Pickup->GetInstance().Reserve), FLinearColor::Yellow, X - 100, Y0 + 60);
 		}
 		return;

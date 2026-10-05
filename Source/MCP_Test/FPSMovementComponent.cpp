@@ -39,6 +39,16 @@ bool UFPSMovementComponent::IsSprinting() const
     const auto* Pawn = Cast<AFPSDemoCharacter>(CharacterOwner);
     return bWantsSprint && Pawn && !Pawn->bIsCrouched && !IsFalling() && Pawn->GetWeapons()->CanSprint();
 }
+void UFPSMovementComponent::OnMovementUpdated(float DeltaSeconds, const FVector& OldLocation, const FVector& OldVelocity)
+{
+    Super::OnMovementUpdated(DeltaSeconds, OldLocation, OldVelocity);
+    const bool bSprinting = IsSprinting();
+    if (bWasSprinting != bSprinting)
+    {
+        bWasSprinting = bSprinting;
+        if (auto* Pawn = Cast<AFPSDemoCharacter>(CharacterOwner)) Pawn->GetWeapons()->OnFireReadinessChanged.Broadcast();
+    }
+}
 float UFPSMovementComponent::GetMaxSpeed() const
 {
     const auto* Pawn = Cast<AFPSDemoCharacter>(CharacterOwner);

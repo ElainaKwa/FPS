@@ -1,6 +1,7 @@
 #include "FPSAvatarVisuals.h"
 #include "FPSDemoCharacter.h"
 #include "FPSWeaponComponent.h"
+#include "FPSWeaponVisualTiming.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/GameStateBase.h"
@@ -108,11 +109,12 @@ void UFPSAvatarVisuals::UpdatePose(AFPSDemoCharacter* Character, USceneComponent
     const auto* GS = GetWorld()->GetGameState();
     const double Now = GS ? GS->GetServerWorldTimeSeconds() : GetWorld()->GetTimeSeconds();
     const float Duration = Def ? Def->ReloadDuration : 2.f;
-    const float ReloadProgress = FMath::Clamp(1.f - float(State.ActionEndsAt - Now) / Duration, 0.f, 1.f);
+    const float ReloadProgress = FPSWeaponVisualTiming::Progress(Duration - (State.ActionEndsAt - Now), Duration);
     // Hand leaves the support, reaches below the magazine well, then returns.
     const float ReloadReach = State.Action == EFPSWeaponAction::Reloading ? FMath::Sin(PI * ReloadProgress) : 0.f;
     const FTransform GunToCamera = Gun->GetComponentTransform().GetRelativeTransform(Camera->GetComponentTransform());
-    WorldGun->SetRelativeLocation(FVector(bPistol ? 39 : 43, 8, FMath::Lerp(17.f, 8.f, CrouchBlend)));
+    const float EquipDrop = Def ? 28.f * (1.f - FPSWeaponVisualTiming::Smooth(FPSWeaponVisualTiming::Progress(Now - State.EquipStartedAt, Def->EquipBlendTime))) : 0.f;
+    WorldGun->SetRelativeLocation((Def ? Def->ThirdPerson.Transform.GetLocation() : FVector(43,8,17)) + FVector(0,0,-9.f * CrouchBlend - EquipDrop));
     FRotator WorldPose = WorldGun->GetRelativeRotation();
     WorldPose.Pitch += FMath::Clamp(FRotator::NormalizeAxis(Character->GetBaseAimRotation().Pitch), -60.f, 60.f);
     WorldGun->SetRelativeRotation(WorldPose);

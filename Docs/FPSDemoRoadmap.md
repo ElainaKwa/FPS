@@ -1,8 +1,10 @@
 # FPS Demo 制作记录
 
-## 枪械架构重构交接（2026-09-28）
+## 枪械架构重构现状（2026-09-30）
 
-已完成设计讨论与文档交接，代码重构尚未开始。最终规则见 [设计决策](FPSWeaponRefactorDecisions.md)，实施顺序与验收见 [待改清单](FPSWeaponRefactorChecklist.md)，延期内容见 [待拓展想法](FPSWeaponFutureIdeas.md)。以下已实现记录描述重构前状态，不代表新的 Ability 架构已经落地。
+原三阶段重构已实施并完成文档所列局部验收：稳定身份与真实资产、GAS Ability 行为、BR-3 三连发步枪，见 [第三阶段与证据](FPSWeaponRefactorStage3.md) 和 [进度清单](FPSWeaponRefactorChecklist.md)。完整项目验收尚未结束。最终规则见 [设计决策](FPSWeaponRefactorDecisions.md)，后续架构建议见 [纠正版评审](FPSWeaponArchitectureReview.md)，延期内容见 [待拓展想法](FPSWeaponFutureIdeas.md)。全目录见 [文档索引](README.md)。
+
+下文“制作阶段”和早期测试记录保留为历史背景，不应覆盖上述最新状态。
 
 ## 目标与分期
 
@@ -35,7 +37,7 @@
 - 人机使用服务器共享平面栅格 A* 路径、胶囊净空检查与局部避让，巡逻、追踪最后可见位置并短点射；弹药不足时换弹、换副武器或寻找地面枪械。当前适配 Foundry 平面竞技场，不使用行为树/NavMesh，边界见 FPSBots.md。
 - 原教学 HUD 与规则保留；PlayerState 计分内部升级为 GAS。
 
-## 后续武器数据设计
+## 最初武器数据规划（历史）
 
 | 数据 | 类型及归属 |
 | --- | --- |
@@ -48,7 +50,7 @@
 | 开镜/检视/换弹/疾跑状态 | GameplayTag 和 GameplayAbility，定义冲突、取消和预测规则 |
 | 地面武器 | 可复制 Actor，持有实例数据；服务器检查距离、槽位、拾取竞态 |
 
-此表为最初规划。第二阶段实际实现与边界以 [FPSWeapons.md](FPSWeapons.md) 为准：当前使用复制动作状态机与 GameplayTag，尚未将动作调度迁移为 GameplayAbility。
+此表为最初规划，不是当前架构说明。新 Demo 已由 GameplayAbility 调度武器动作，见 [重构第二阶段](FPSWeaponRefactorStage2.md)；实际实现差距与后续建议见 [架构评审](FPSWeaponArchitectureReview.md)。
 
 ## 运行检查
 

@@ -15,9 +15,7 @@
 void UFPSAudioSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
     Super::Initialize(Collection);
-    for (const TCHAR* Name : {TEXT("Fire_AK"), TEXT("Fire_M4"), TEXT("Fire_MP5"), TEXT("Fire_UMP45"),
-        TEXT("Fire_M9"), TEXT("Fire_HeavyPistol"), TEXT("ReloadStart"), TEXT("ReloadEnd"),
-        TEXT("Equip"), TEXT("Inspect"), TEXT("Empty"), TEXT("Hit"), TEXT("Kill")})
+    for (const TCHAR* Name : {TEXT("Hit"), TEXT("Kill")})
     {
         const FString Path = FString::Printf(TEXT("/Game/FPSDemo/Audio/S_%s.S_%s"), Name, Name);
         if (auto* Sound = LoadObject<USoundBase>(nullptr, *Path)) Sounds.Add(FName(Name), Sound);
@@ -41,10 +39,14 @@ UFPSAudioSubsystem* UFPSAudioSubsystem::Get(const UObject* Context)
 
 void UFPSAudioSubsystem::Play(FName Cue, const FVector& Location, bool bLocal)
 {
-    auto* World = GetWorld();
-    if (!World || World->GetNetMode() == NM_DedicatedServer) return;
     const auto* Found = Sounds.Find(Cue);
-    if (!Found) return;
+    if (Found) PlaySound(*Found, Location, bLocal);
+}
+
+void UFPSAudioSubsystem::PlaySound(USoundBase* Sound, const FVector& Location, bool bLocal, bool bShot)
+{
+    auto* World = GetWorld();
+    if (!Sound || !World || World->GetNetMode() == NM_DedicatedServer) return;
 #if !UE_BUILD_SHIPPING
     if (!bRecordingStarted && FParse::Param(FCommandLine::Get(), TEXT("FPSAudioTrace")))
     {
@@ -65,15 +67,14 @@ void UFPSAudioSubsystem::Play(FName Cue, const FVector& Location, bool bLocal)
         }, 20.f, false);
     }
 #endif
-    const bool bShot = Cue.ToString().StartsWith(TEXT("Fire_"));
     const float Volume = bShot ? .55f : .35f;
     UAudioComponent* Voice = bLocal
-        ? UGameplayStatics::SpawnSound2D(World, *Found, Volume, 1, 0, Concurrency)
-        : UGameplayStatics::SpawnSoundAtLocation(World, *Found, Location, FRotator::ZeroRotator, Volume, 1, 0, Attenuation, Concurrency);
+        ? UGameplayStatics::SpawnSound2D(World, Sound, Volume, 1, 0, Concurrency)
+        : UGameplayStatics::SpawnSoundAtLocation(World, Sound, Location, FRotator::ZeroRotator, Volume, 1, 0, Attenuation, Concurrency);
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("FPSAudioTrace")))
         UE_LOG(LogTemp, Display, TEXT("FPS_AUDIO %s cue=%s route=%s net=%d active=%d"), Voice && Voice->IsPlaying() ? TEXT("PASS") : TEXT("FAIL"),
-            *Cue.ToString(), bLocal ? TEXT("LOCAL") : TEXT("SPATIAL"), int32(World->GetNetMode()), Voice && Voice->IsPlaying());
+            *Sound->GetName(), bLocal ? TEXT("LOCAL") : TEXT("SPATIAL"), int32(World->GetNetMode()), Voice && Voice->IsPlaying());
 #endif
 }
 

@@ -18,7 +18,9 @@ void UFPSFrontGameInstance::Shutdown()
 void UFPSFrontGameInstance::NetworkFailure(UWorld* World, UNetDriver* Driver, ENetworkFailure::Type Type, const FString& Message)
 {
     if (World && World->GetGameInstance() != this) return;
-    ConnectionError = TEXT("连接失败或房主已关闭房间：") + Message;
+    ConnectionError = PendingWeaponContentError.IsEmpty() ? TEXT("连接失败或房主已关闭房间：") + Message : PendingWeaponContentError;
+    if (!PendingWeaponContentError.IsEmpty()) UE_LOG(LogTemp, Warning, TEXT("FPS_WEAPON_CONTENT RETURN reason=%s"), *PendingWeaponContentError);
+    PendingWeaponContentError.Empty();
     // The engine's network failure handler returns clients to GameDefaultMap.
 }
 

@@ -1,62 +1,148 @@
 #include "FPSWeaponData.h"
+#include "AssetRegistry/AssetRegistryModule.h"
+#include "Engine/AssetManager.h"
+#include "Engine/StaticMesh.h"
+#include "Misc/DataValidation.h"
+#include "Sound/SoundBase.h"
+#include "Misc/CommandLine.h"
 
-void UFPSWeaponCatalog::Initialize(FSubsystemCollectionBase& Collection)
+void UFPSWeaponDefinition::ValidateDefinition(TArray<FString>& Errors) const
 {
-    Super::Initialize(Collection);
-    auto Add = [this](EFPSWeaponModel Model, const TCHAR* Name, EFPSWeaponCategory Category, int32 Magazine, int32 Reserve,
-        float Damage, float Interval, float Reload, float Kick, bool bAuto)
+    auto Require = [&](bool bValid, const TCHAR* Reason) { if (!bValid) Errors.Add(GetPathName() + TEXT(": ") + Reason); };
+    auto SavedResource = [](const UObject* Object) { return Object && Object->IsAsset() && !Object->HasAnyFlags(RF_Transient) && Object->GetOutermost() != GetTransientPackage(); };
+    const FString Id = WeaponId.ToString();
+    Require(Id.StartsWith(TEXT("Weapon.")) && Id.Len() > 7 && !Id.Contains(TEXT(" ")) && !Id.Contains(TEXT(":")), TEXT("WeaponId must be Weapon.<stable name>"));
+    Require(!DisplayName.IsEmpty(), TEXT("DisplayName required"));
+    Require(Slot == EFPSWeaponSlot::Primary || Slot == EFPSWeaponSlot::Secondary, TEXT("Invalid slot"));
+    Require(Category == EFPSWeaponCategory::Rifle || Category == EFPSWeaponCategory::SMG || Category == EFPSWeaponCategory::Pistol, TEXT("Invalid category"));
+    Require(MagazineSize > 0 && InitialMagazine >= 0 && InitialMagazine <= MagazineSize && InitialReserve >= 0, TEXT("Invalid ammunition capacity or initial ammunition"));
+    auto Numeric = [&](float Value, const TCHAR* Field, bool AllowZero = false)
     {
-        auto* Def = NewObject<UFPSWeaponDefinition>(this);
-        Def->Model = Model;
-        Def->DisplayName = FText::FromString(Name);
-        Def->Category = Category;
-        Def->Slot = Category == EFPSWeaponCategory::Pistol ? EFPSWeaponSlot::Secondary : EFPSWeaponSlot::Primary;
-        Def->MagazineSize = Magazine; Def->InitialReserve = Reserve; Def->Damage = Damage;
-        Def->FireInterval = Interval; Def->ReloadDuration = Reload; Def->bAutomatic = bAuto;
-        Def->AimFOV = Category == EFPSWeaponCategory::Rifle ? 62 : 72;
-        Def->Range = Category == EFPSWeaponCategory::Rifle ? 9000 : 5000;
-        Def->PresentationScale = FVector(1);
-        const FString MeshName = TEXT("SM_WP_") + StaticEnum<EFPSWeaponModel>()->GetNameStringByValue(static_cast<int64>(Model));
-        Def->Mesh = TSoftObjectPtr<UStaticMesh>(FSoftObjectPath(FString::Printf(TEXT("/Game/FPSDemo/Weapons/Meshes/%s.%s"), *MeshName, *MeshName)));
-        switch (Model)
-        {
-        case EFPSWeaponModel::AK: Def->MuzzleLocation.X = 57; Def->SightHeight = 6; break;
-        case EFPSWeaponModel::MP5: Def->MuzzleLocation.X = 38; Def->SightHeight = 6; break;
-        case EFPSWeaponModel::UMP45: Def->MuzzleLocation.X = 39; break;
-        case EFPSWeaponModel::M9: Def->MuzzleLocation = FVector(21, 0, .6f); Def->SightHeight = 5; break;
-        case EFPSWeaponModel::HeavyPistol: Def->MuzzleLocation = FVector(26, 0, .6f); Def->SightHeight = 5; break;
-        default: break;
-        }
-        Def->RecoilCurve = NewObject<UCurveVector>(Def);
-        for (int32 Shot = 0; Shot < 8; ++Shot)
-        {
-            Def->RecoilCurve->FloatCurves[0].AddKey(Shot, Kick * (1.f + Shot * .1f));
-            Def->RecoilCurve->FloatCurves[1].AddKey(Shot, Kick * (Shot % 2 == 0 ? .22f : -.3f));
-            Def->RecoilCurve->FloatCurves[2].AddKey(Shot, 1.f + Shot * .04f);
-        }
-        Definitions.Add(Model, Def);
+        if (!FMath::IsFinite(Value) || (AllowZero ? Value < 0 : Value <= 0))
+            Errors.Add(FString::Printf(TEXT("%s: %s=%g must be finite and %s"), *GetPathName(), Field, Value, AllowZero ? TEXT("nonnegative") : TEXT("positive")));
     };
-    Add(EFPSWeaponModel::AK, TEXT("AK"), EFPSWeaponCategory::Rifle, 30, 90, 34, .11f, 2.4f, 1.25f, true);
-    Add(EFPSWeaponModel::M4, TEXT("M4"), EFPSWeaponCategory::Rifle, 30, 120, 25, .085f, 2.1f, .8f, true);
-    Add(EFPSWeaponModel::MP5, TEXT("MP5"), EFPSWeaponCategory::SMG, 30, 150, 20, .065f, 1.8f, .5f, true);
-    Add(EFPSWeaponModel::UMP45, TEXT("UMP45"), EFPSWeaponCategory::SMG, 25, 125, 29, .105f, 2.2f, .9f, true);
-    Add(EFPSWeaponModel::M9, TEXT("M9"), EFPSWeaponCategory::Pistol, 15, 60, 25, .2f, 1.4f, .85f, false);
-    Add(EFPSWeaponModel::HeavyPistol, TEXT("Heavy Pistol"), EFPSWeaponCategory::Pistol, 7, 35, 55, .38f, 1.9f, 2.f, false);
+    Numeric(Damage, TEXT("Damage"));
+    Numeric(FireInterval, TEXT("FireInterval"));
+    Numeric(Range, TEXT("Range"));
+    Require(FireMode == EFPSFireMode::Single || FireMode == EFPSFireMode::Automatic || FireMode == EFPSFireMode::Burst, TEXT("Invalid fire mode"));
+    Require(BurstCount >= 2, TEXT("BurstCount must be at least two"));
+    Numeric(BurstInterval, TEXT("BurstInterval"));
+    Numeric(RecoilRecoveryTime, TEXT("RecoilRecoveryTime"));
+    Numeric(ReloadDuration, TEXT("ReloadDuration"));
+    Numeric(InspectDuration, TEXT("InspectDuration"));
+    Numeric(EquipReadyTime, TEXT("EquipReadyTime"), true);
+    Numeric(EquipBlendTime, TEXT("EquipBlendTime"), true);
+    Numeric(AimTransitionTime, TEXT("AimTransitionTime"), true);
+    Numeric(AimRecoilMultiplier, TEXT("AimRecoilMultiplier"), true);
+    Require(FMath::IsFinite(AimFOV) && AimFOV > 0 && AimFOV < 180, TEXT("AimFOV must be between 0 and 180"));
+    Require(!HipLocation.ContainsNaN() && !AimLocation.ContainsNaN() && !MuzzleLocation.ContainsNaN(), TEXT("Invalid presentation location"));
+    for (const auto* View : {&FirstPerson, &ThirdPerson, &Pickup})
+    {
+        Require(SavedResource(View->Mesh.Get()), TEXT("All three presentation meshes must reference saved assets"));
+        const FVector Scale = View->Transform.GetScale3D();
+        Require(View->Transform.IsValid() && Scale.X > 0 && Scale.Y > 0 && Scale.Z > 0, TEXT("Presentation transform must be finite with positive scale"));
+    }
+    for (const auto* Sound : {FireSound.Get(), ReloadStartSound.Get(), ReloadEndSound.Get(), EquipSound.Get(), InspectSound.Get(), EmptySound.Get()})
+        Require(SavedResource(Sound), TEXT("All firing/operation sounds must reference saved assets"));
+    Require(bNoRecoil ? RecoilCurve.IsNull() : RecoilCurve.IsValid(), TEXT("Explicit no-recoil requires no curve; otherwise a curve is mandatory"));
+    if (RecoilCurve)
+    {
+        Require(SavedResource(RecoilCurve.Get()), TEXT("Recoil curve must be a saved asset"));
+        for (const FRichCurve& Curve : RecoilCurve->FloatCurves)
+        {
+            Require(Curve.GetNumKeys() >= 2 && Curve.GetFirstKey().Time <= 0 && Curve.GetLastKey().Time >= MagazineSize - 1, TEXT("Each recoil channel must cover shot 0 through MagazineSize-1"));
+            for (const auto& Key : Curve.GetConstRefOfKeys())
+                Require(FMath::IsFinite(Key.Time) && FMath::IsFinite(Key.Value) && FMath::IsFinite(Key.ArriveTangent) && FMath::IsFinite(Key.LeaveTangent), TEXT("Nonfinite recoil key"));
+        }
+    }
 }
 
-const UFPSWeaponDefinition* UFPSWeaponCatalog::Find(EFPSWeaponModel Model) const
+FVector UFPSWeaponDefinition::RecoilAt(int32 Shot) const
 {
-    const auto* Found = Definitions.Find(Model);
+    if (bNoRecoil || !RecoilCurve) return FVector::ZeroVector;
+    FVector Result;
+    for (int32 Axis = 0; Axis < 3; ++Axis)
+    {
+        const FRichCurve& Curve = RecoilCurve->FloatCurves[Axis];
+        Result[Axis] = Curve.Eval(FMath::Clamp(float(Shot), Curve.GetFirstKey().Time, Curve.GetLastKey().Time));
+    }
+    return Result;
+}
+
+void UFPSWeaponCatalog::Discover(TArray<UFPSWeaponDefinition*>& Out, TArray<FString>& Errors)
+{
+    auto& Registry = FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry")).Get();
+    Registry.SearchAllAssets(true);
+    TArray<FAssetData> Assets;
+    Registry.GetAssetsByClass(UFPSWeaponDefinition::StaticClass()->GetClassPathName(), Assets, true);
+    for (const FAssetData& Asset : Assets)
+        if (Asset.PackageName.ToString().StartsWith(TEXT("/Game/")))
+        {
+            auto* Def = Cast<UFPSWeaponDefinition>(Asset.GetAsset());
+            if (Def) { for (const auto& Path : Def->Resources()) Path.TryLoad(); Out.Add(Def); }
+            else Errors.Add(Asset.GetObjectPathString() + TEXT(": failed to load definition"));
+        }
+    Out.Sort([](const auto& A, const auto& B) { return A.WeaponId.LexicalLess(B.WeaponId); });
+}
+
+void UFPSWeaponCatalog::ValidateCatalog(const TArray<UFPSWeaponDefinition*>& Items, TArray<FString>& Errors)
+{
+    TMap<FName, const UFPSWeaponDefinition*> Seen;
+    for (const auto* Def : Items)
+    {
+        Def->ValidateDefinition(Errors);
+        Def->ContentDigest(Errors);
+        if (const auto* Previous = Seen.Find(Def->WeaponId))
+            Errors.Add(FString::Printf(TEXT("Duplicate WeaponId %s: %s and %s"), *Def->WeaponId.ToString(), *(*Previous)->GetPathName(), *Def->GetPathName()));
+        Seen.Add(Def->WeaponId, Def);
+        if (UAssetManager::Get().GetPrimaryAssetPath(Def->GetPrimaryAssetId()) != FSoftObjectPath(Def))
+            Errors.Add(Def->GetPathName() + TEXT(": Asset Manager identity/path mismatch; check scan/cook settings"));
+    }
+    const auto* Settings = GetDefault<UFPSWeaponCatalog>();
+    for (const auto Slot : {EFPSWeaponSlot::Primary, EFPSWeaponSlot::Secondary})
+    {
+        const FName Id = Slot == EFPSWeaponSlot::Primary ? Settings->StartingPrimary : Settings->StartingSecondary;
+        const auto* Found = Seen.Find(Id);
+        if (!Found || (*Found)->Slot != Slot) Errors.Add(TEXT("Missing or wrong-slot starting weapon: ") + Id.ToString());
+    }
+}
+
+const UFPSWeaponDefinition* UFPSWeaponCatalog::Find(FName WeaponId) const
+{
+    const auto* Found = Definitions.Find(WeaponId);
     return Found ? Found->Get() : nullptr;
 }
 
-FFPSWeaponInstance UFPSWeaponCatalog::CreateInstance(EFPSWeaponModel Model) const
+FFPSWeaponInstance UFPSWeaponCatalog::CreateInstance(FName WeaponId) const
 {
     FFPSWeaponInstance Instance;
-    if (const auto* Def = Find(Model))
+    if (const auto* Def = Find(WeaponId))
     {
-        Instance.InstanceId = FGuid::NewGuid(); Instance.Model = Model;
-        Instance.Magazine = Def->MagazineSize; Instance.Reserve = Def->InitialReserve;
+        Instance.InstanceId = FGuid::NewGuid(); Instance.WeaponId = WeaponId;
+        Instance.Magazine = Def->InitialMagazine; Instance.Reserve = Def->InitialReserve;
     }
+    else UE_LOG(LogTemp, Error, TEXT("FPS_WEAPON_DATA cannot create %s"), *WeaponId.ToString());
     return Instance;
 }
+
+#if WITH_EDITOR
+EDataValidationResult UFPSWeaponDefinition::IsDataValid(FDataValidationContext& Context) const
+{
+    TArray<FString> Errors;
+    for (const auto& Path : Resources()) Path.TryLoad();
+    ValidateDefinition(Errors);
+    ContentDigest(Errors);
+    TArray<UFPSWeaponDefinition*> Items;
+    UFPSWeaponCatalog::Discover(Items, Errors);
+    for (const auto* Other : Items)
+        if (Other != this && Other->WeaponId == WeaponId) Errors.Add(TEXT("Duplicate WeaponId: ") + Other->GetPathName());
+    for (const auto& Error : Errors) Context.AddError(FText::FromString(Error));
+    return Errors.IsEmpty() ? EDataValidationResult::Valid : EDataValidationResult::Invalid;
+}
+EDataValidationResult AFPSWeaponStand::IsDataValid(FDataValidationContext& Context) const
+{
+    if (auto* Def = Definition.LoadSynchronous()) return Def->IsDataValid(Context);
+    Context.AddError(FText::FromString(GetPathName() + TEXT(": weapon stand requires explicit definition")));
+    return EDataValidationResult::Invalid;
+}
+#endif

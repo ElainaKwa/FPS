@@ -14,6 +14,7 @@ public:
     virtual void Initialize(FSubsystemCollectionBase& Collection) override;
     static UFPSAudioSubsystem* Get(const UObject* Context);
     void Play(FName Cue, const FVector& Location = FVector::ZeroVector, bool bLocal = true);
+    void PlaySound(USoundBase* Sound, const FVector& Location = FVector::ZeroVector, bool bLocal = true, bool bShot = false);
 private:
     bool bRecordingStarted = false;
     UPROPERTY() TMap<FName, TObjectPtr<USoundBase>> Sounds;

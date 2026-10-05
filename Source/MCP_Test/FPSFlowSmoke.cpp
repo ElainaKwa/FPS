@@ -1,3 +1,5 @@
+#include "FPSWeaponShot.h"
+#include "FPSWeaponComponent.h"
 #include "FPSFlowSmoke.h"
 #include "FPSMatchFlow.h"
 #include "FPSDemoCharacter.h"
@@ -85,7 +87,7 @@ void FFPSFlowSmoke::Start(AFPSMatchMode* Mode)
             const int32 OldTeam = B->TeamId;
             B->TeamId = A->TeamId;
             const float Before = Victim->GetHealth();
-            Shooter->ApplyDamageEffectTo(Victim.Get());
+            Shooter->ApplyDamageEffectTo(Victim.Get(), FFPSWeaponShotContext::Capture(Shooter.Get(), Shooter->GetWeapons()->Equipped(), *Shooter->GetWeapons()->Definition()));
             Check(Victim->GetHealth() == Before, TEXT("friendly damage rejected"));
             B->TeamId = OldTeam;
             Check(Rules->CanDamage(Shooter.Get(), Victim.Get()), TEXT("enemy damage allowed"));
@@ -124,7 +126,7 @@ void FFPSFlowSmoke::Start(AFPSMatchMode* Mode)
             {
                 auto* Respawned = Cast<AFPSDemoCharacter>(VictimController->GetPawn());
                 const float Before = Respawned ? Respawned->GetHealth() : -1;
-                Shooter->ApplyDamageEffectTo(Respawned);
+                Shooter->ApplyDamageEffectTo(Respawned, FFPSWeaponShotContext::Capture(Shooter.Get(), Shooter->GetWeapons()->Equipped(), *Shooter->GetWeapons()->Definition()));
                 Check(Respawned && Respawned->GetHealth() == Before, TEXT("post-match damage rejected"));
             }
         }

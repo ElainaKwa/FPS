@@ -4,7 +4,11 @@
 #include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "FPSWeaponVisualTiming.h"
 #include "FPSDemoCharacter.generated.h"
+
+class USoundBase;
+struct FFPSWeaponShotContext;
 
 class UAbilitySystemComponent;
 class UCameraComponent;
@@ -41,15 +45,20 @@ public:
 	void MarkEliminated(const FString& KillerName = TEXT("World"));
 	float GetRespawnSeconds() const;
 	const FString& GetKillerName() const { return EliminatedBy; }
-	void ApplyDamageEffectTo(AFPSDemoCharacter* Target);
+	void ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot);
 	void FireBotShot();
 	class UFPSWeaponComponent* GetWeapons() const { return Weapons; }
-	void ResolveWeaponShot(float Range);
+	void ResolveWeaponShot(const FFPSWeaponShotContext& Shot);
 	void PlayWeaponShot(const FVector& Kick);
 	void RefreshWeaponPresentation();
 	void StopCombatInput();
 
 protected:
+    // Camera/avatar settings, independent of weapon equip or gameplay recoil recovery.
+    UPROPERTY(EditAnywhere, Category="FPS|Camera", meta=(ClampMin="30", ClampMax="150"))
+    float BaseFieldOfView = 92.f;
+    UPROPERTY(EditAnywhere, Category="FPS|Presentation", meta=(ClampMin="0"))
+    float VisualRecoilReturnTime = .25f;
 	UPROPERTY(VisibleAnywhere, Category="FPS")
 	TObjectPtr<class UFPSAvatarVisuals> AvatarVisuals;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="FPS")
@@ -112,9 +121,14 @@ protected:
 	UFUNCTION(Server, Reliable)
 	void ServerRequestHeal();
 	UFUNCTION(NetMulticast, Unreliable)
-	void MulticastShotFX(FVector_NetQuantize Start, FName ShotCue);
+	void MulticastShotFX(FVector_NetQuantize Start, USoundBase* ShotSound);
 
 private:
+	void ResolveShot(float Range, USoundBase* FireSound, const FFPSWeaponShotContext* WeaponShot);
+	void ApplyTeachingDamageEffectTo(AFPSDemoCharacter* Target);
+    friend struct FFPSTeachingSmoke;
+    friend struct FFPSWeaponAbilitySmoke;
+    friend struct FFPSWeaponPresentationSmoke;
 	void ReleaseFire();
 	void SprintOn();
 	void SprintOff();
@@ -141,6 +155,9 @@ private:
 	void ReleaseJump();
 	void TriggerLocalShotAnimation();
 
+    FPSWeaponVisualTiming::FTransition AimVisualBlend, CameraFOVBlend{92.f}, SprintVisualBlend;
+    float RecoilKick = 0;
+    double RecoilStartedAt = -100;
 	float Recoil = 0.0f;
 	float LastLocalFire = -10.0f;
 	float LastServerFire = -10.0f;

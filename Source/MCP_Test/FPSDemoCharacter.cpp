@@ -1,6 +1,9 @@
 #include "FPSDemoCharacter.h"
+#include "FPSWeaponShot.h"
+#include "FPSTeachingSmoke.h"
 #include "FPSAvatarVisuals.h"
 #include "FPSAudioSubsystem.h"
+#include "Sound/SoundBase.h"
 
 #include "FPSDemoAttributeSet.h"
 #include "FPSWeaponComponent.h"
@@ -68,7 +71,7 @@ AFPSDemoCharacter::AFPSDemoCharacter(const FObjectInitializer& ObjectInitializer
 	FirstPersonCamera->SetupAttachment(GetCapsuleComponent());
 	FirstPersonCamera->SetRelativeLocation(FVector(0, 0, 64));
 	FirstPersonCamera->bUsePawnControlRotation = true;
-	FirstPersonCamera->FieldOfView = 92.0f;
+	FirstPersonCamera->FieldOfView = BaseFieldOfView;
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> Cube(TEXT("/Engine/BasicShapes/Cube.Cube"));
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> Sphere(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
@@ -180,6 +183,11 @@ AFPSDemoCharacter::AFPSDemoCharacter(const FObjectInitializer& ObjectInitializer
 void AFPSDemoCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+    if (Weapons->IsEnabled())
+    {
+        CameraFOVBlend = FPSWeaponVisualTiming::FTransition(BaseFieldOfView);
+        FirstPersonCamera->SetFieldOfView(BaseFieldOfView);
+    }
 	AbilitySystem->InitAbilityActorInfo(this, this);
 	if (IsLocallyControlled()) AddInputMap();
 }
@@ -210,6 +218,7 @@ void AFPSDemoCharacter::PawnClientRestart()
 void AFPSDemoCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+    FFPSTeachingSmoke::Tick(this);
 	if (const auto* PS = GetPlayerState<AFPSDemoPlayerState>(); PS && PS->TeamId >= 0)
 	{
 		TeamMarker->SetText(FText::FromString(PS->TeamId == 0 ? TEXT("BLUE") : TEXT("RED")));
@@ -219,7 +228,9 @@ void AFPSDemoCharacter::Tick(float DeltaSeconds)
 			TeamMarker->SetWorldRotation((Local->GetPawn()->GetPawnViewLocation() - TeamMarker->GetComponentLocation()).Rotation());
 	}
 	const float Now = GetWorld()->GetTimeSeconds();
-	Recoil = FMath::FInterpTo(Recoil, 0.0f, DeltaSeconds, 12.0f);
+	Recoil = Weapons->IsEnabled()
+        ? RecoilKick * (1.f - FPSWeaponVisualTiming::Smooth(FPSWeaponVisualTiming::Progress(Now - RecoilStartedAt, VisualRecoilReturnTime)))
+        : FMath::FInterpTo(Recoil, 0.0f, DeltaSeconds, 12.0f);
 	const float MoveAlpha = FMath::Clamp(GetVelocity().Size2D() / 570.0f, 0.0f, 1.0f);
 	const float Bob = FMath::Sin(Now * 13.0f) * 1.7f * MoveAlpha;
 	const float WalkSwing = FMath::Sin(Now * 12.0f) * 23.0f * MoveAlpha;
@@ -239,23 +250,33 @@ void AFPSDemoCharacter::Tick(float DeltaSeconds)
 		const auto& State = Weapons->GetLoadout();
 		const auto* Def = Weapons->Definition();
 		FirstPersonRifle->SetVisibility(Def != nullptr);
-		FirstPersonCamera->SetFieldOfView(FMath::FInterpTo(FirstPersonCamera->FieldOfView, State.bAiming && Def ? Def->AimFOV : 92.f, DeltaSeconds, 14.f));
-		FirstPersonCamera->SetRelativeLocation(FVector(0, 0, BaseEyeHeight));
-		const bool bPistol = Def && Def->Category == EFPSWeaponCategory::Pistol;
-		FVector Offset = bPistol ? FVector(32, 12, -14 + Bob) : FVector(42, 18, -18 + Bob);
-		if (State.bAiming && Def) Offset = FVector(bPistol ? 24 : 38, 0, -Def->SightHeight + .3f);
-		FRotator Rotation(Recoil * 6, 0, 0);
-		if (State.Action == EFPSWeaponAction::Inspecting) Rotation += FRotator(12, 30, 60 * FMath::Sin(Now * 2.f));
-		if (State.Action == EFPSWeaponAction::Reloading) { Offset.Z -= 12; Rotation.Roll = -40; }
-		if (State.Action == EFPSWeaponAction::Switching) Offset.Z -= 28;
-		if (GetVelocity().Size2D() > 650.f && !State.bAiming)
-		{
-			Offset += FVector(-5, -4, -5);
-			Rotation += FRotator(-12, -15, 12);
-		}
-		GunRoot->SetRelativeLocation(FMath::VInterpTo(GunRoot->GetRelativeLocation(), Offset - FVector(Recoil * 12, 0, 0), DeltaSeconds, 16.f));
-		GunRoot->SetRelativeRotation(FMath::RInterpTo(GunRoot->GetRelativeRotation(), Rotation, DeltaSeconds, 16.f));
-		WorldRifle->SetRelativeRotation(FRotator(State.Action == EFPSWeaponAction::Reloading ? -35 : 0, 0, State.Action == EFPSWeaponAction::Inspecting ? 40 : 0));
+        const float AimDuration = Def ? Def->AimTransitionTime : 0;
+        const float AimAlpha = AimVisualBlend.Update(Now, State.bAiming && Def ? 1.f : 0.f, AimDuration);
+        FirstPersonCamera->SetFieldOfView(CameraFOVBlend.Update(Now, State.bAiming && Def ? Def->AimFOV : BaseFieldOfView, AimDuration));
+        FirstPersonCamera->SetRelativeLocation(FVector(0, 0, BaseEyeHeight));
+        FVector Offset = Def ? FMath::Lerp(Def->HipLocation, Def->AimLocation, AimAlpha) : FVector::ZeroVector;
+        Offset.Z += Bob * (1.f - AimAlpha);
+        FRotator Rotation(Recoil * 6, 0, 0);
+        const double ServerNow = Weapons->ServerTime();
+        if (Def && State.Action == EFPSWeaponAction::Inspecting)
+        {
+            const float Phase = FPSWeaponVisualTiming::Progress(Def->InspectDuration - (State.ActionEndsAt - ServerNow), Def->InspectDuration);
+            Rotation += FRotator(12, 30, 60 * FMath::Sin(Phase * 4.f)) * FMath::Sin(PI * Phase);
+        }
+        if (Def && State.Action == EFPSWeaponAction::Reloading)
+        {
+            const float Phase = FPSWeaponVisualTiming::Progress(Def->ReloadDuration - (State.ActionEndsAt - ServerNow), Def->ReloadDuration);
+            const float Reach = FMath::Sin(PI * Phase);
+            Offset.Z -= 12 * Reach; Rotation.Roll -= 40 * Reach;
+        }
+        // Equip is an additive offset, never the smoothing speed for ADS, reload or recoil.
+        if (Def) Offset.Z -= 28 * (1.f - FPSWeaponVisualTiming::Smooth(FPSWeaponVisualTiming::Progress(ServerNow - State.EquipStartedAt, Def->EquipBlendTime)));
+        const float SprintAlpha = SprintVisualBlend.Update(Now, GetVelocity().Size2D() > 650.f && !State.bAiming ? 1.f : 0.f, .15f);
+        Offset += FVector(-5, -4, -5) * SprintAlpha;
+        Rotation += FRotator(-12, -15, 12) * SprintAlpha;
+        GunRoot->SetRelativeLocation(Offset - FVector(Recoil * 12, 0, 0));
+        GunRoot->SetRelativeRotation(Rotation);
+		WorldRifle->SetRelativeRotation((Def ? Def->ThirdPerson.Transform.Rotator() : FRotator::ZeroRotator) + FRotator(State.Action == EFPSWeaponAction::Reloading ? -35 : 0, 0, State.Action == EFPSWeaponAction::Inspecting ? 40 : 0));
 	}
 	AvatarVisuals->UpdatePose(this, FirstPersonCamera, GunRoot, WorldRifle, DeltaSeconds);
 }
@@ -338,9 +359,8 @@ void AFPSDemoCharacter::TriggerLocalShotAnimation()
 {
 	Recoil = 1.0f;
 	LocalFlashUntil = GetWorld()->GetTimeSeconds() + 0.07f;
-	const auto Model = Weapons->IsEnabled() ? Weapons->Equipped().Model : EFPSWeaponModel::M4;
-	const FName Cue(*(TEXT("Fire_") + StaticEnum<EFPSWeaponModel>()->GetNameStringByValue(static_cast<int64>(Model))));
-	if (auto* Audio = UFPSAudioSubsystem::Get(this)) Audio->Play(Cue);
+	const auto* Def = Weapons->IsEnabled() ? Weapons->Definition() : Weapons->Catalog()->Find(Weapons->Catalog()->StartingPrimary);
+	if (auto* Audio = UFPSAudioSubsystem::Get(this); Audio && Def) Audio->PlaySound(Def->FireSound.Get(), FVector::ZeroVector, true, true);
 }
 
 void AFPSDemoCharacter::PressFire()
@@ -355,16 +375,23 @@ void AFPSDemoCharacter::PressFire()
 
 void AFPSDemoCharacter::ServerFire_Implementation()
 {
-	if (Weapons->IsEnabled()) { Weapons->FireAuthority(); return; }
+	if (Weapons->IsEnabled()) return; // Structured matches use GAS only; this RPC belongs to the teaching map.
 	if (AFPSMatchMode* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>())
 		if (!Rules->IsCombatActive()) return;
 	const float Now = GetWorld()->GetTimeSeconds();
 	if (!HasAuthority() || bEliminated || Now - LastServerFire < 0.27f || !Controller) return;
 	LastServerFire = Now;
-	ResolveWeaponShot(6000.f);
+	const auto* Def = Weapons->Catalog()->Find(Weapons->Catalog()->StartingPrimary);
+	ResolveShot(6000.f, Def ? Def->FireSound.Get() : nullptr, nullptr);
 }
 
-void AFPSDemoCharacter::ResolveWeaponShot(float Range)
+void AFPSDemoCharacter::ResolveWeaponShot(const FFPSWeaponShotContext& Shot)
+{
+	if (Shot.Source.Get() != this || !Shot.InstanceId.IsValid() || Shot.WeaponId.IsNone() || !FMath::IsFinite(Shot.Range) || Shot.Range <= 0) return;
+	ResolveShot(Shot.Range, Shot.FireSound.Get(), &Shot);
+}
+
+void AFPSDemoCharacter::ResolveShot(float Range, USoundBase* FireSound, const FFPSWeaponShotContext* WeaponShot)
 {
 	if (!HasAuthority() || !Controller || bEliminated) return;
 	const FVector Start = GetPawnViewLocation();
@@ -374,16 +401,15 @@ void AFPSDemoCharacter::ResolveWeaponShot(float Range)
 	Query.AddIgnoredActor(this);
 	FHitResult Hit;
 	GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Query);
-	const auto Model = Weapons->IsEnabled() ? Weapons->Equipped().Model : EFPSWeaponModel::M4;
-	const FName ShotCue(*(TEXT("Fire_") + StaticEnum<EFPSWeaponModel>()->GetNameStringByValue(static_cast<int64>(Model))));
-	MulticastShotFX(Start, ShotCue);
+	MulticastShotFX(Start, FireSound);
 	if (AFPSDemoCharacter* Target = Cast<AFPSDemoCharacter>(Hit.GetActor()))
 	{
 		if (!Target->IsEliminated())
 		{
 			if (const auto* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>())
 				if (!Rules->CanDamage(this, Target)) return;
-			ApplyDamageEffectTo(Target);
+			if (WeaponShot) ApplyDamageEffectTo(Target, *WeaponShot);
+			else ApplyTeachingDamageEffectTo(Target);
 			const bool bKilled = Target->GetHealth() <= 0.0f;
 			if (AFPSDemoPlayerController* PC = Cast<AFPSDemoPlayerController>(Controller)) PC->ConfirmHit(bKilled);
 			if (bKilled)
@@ -395,20 +421,37 @@ void AFPSDemoCharacter::ResolveWeaponShot(float Range)
 	}
 }
 
-void AFPSDemoCharacter::ApplyDamageEffectTo(AFPSDemoCharacter* Target)
+void AFPSDemoCharacter::ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot)
 {
-	if (!HasAuthority() || !Target || !Target->AbilitySystem) return;
-	if (AFPSMatchMode* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>())
+	if (!HasAuthority() || Shot.Source.Get() != this || !Shot.InstanceId.IsValid() || Shot.WeaponId.IsNone() ||
+		!FMath::IsFinite(Shot.BaseDamage) || Shot.BaseDamage < 0 || !Target || Target->IsEliminated() || !Target->AbilitySystem) return;
+	const auto* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>();
+	if (Rules && !Rules->CanDamage(this, Target)) return;
+	FGameplayEffectSpecHandle Spec = AbilitySystem->MakeOutgoingSpec(UFPSWeaponDamageEffect::StaticClass(), 1.0f, AbilitySystem->MakeEffectContext());
+	if (!Spec.IsValid()) return;
+	// Target-dependent match policy is evaluated at impact; weapon values were captured at commit.
+	const float Multiplier = Rules ? Rules->DamageMultiplier(this, Target) : 1.f;
+	Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WeaponDamage")), -Shot.BaseDamage * Multiplier);
+	Target->AbilitySystem->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
+}
+
+void AFPSDemoCharacter::ApplyTeachingDamageEffectTo(AFPSDemoCharacter* Target)
+{
+	if (!HasAuthority() || !Target || Target->IsEliminated() || !Target->AbilitySystem) return;
+	if (const auto* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>())
 		if (!Rules->CanDamage(this, Target)) return;
-	FGameplayEffectSpecHandle Spec = AbilitySystem->MakeOutgoingSpec(Weapons->IsEnabled() ? UFPSWeaponDamageEffect::StaticClass() : UFPSDemoDamageEffect::StaticClass(), 1.0f, AbilitySystem->MakeEffectContext());
-	if (Spec.IsValid() && Weapons->IsEnabled()) Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WeaponDamage")), -Attributes->GetWeaponDamage());
+	const auto Spec = AbilitySystem->MakeOutgoingSpec(UFPSDemoDamageEffect::StaticClass(), 1.0f, AbilitySystem->MakeEffectContext());
 	if (Spec.IsValid()) Target->AbilitySystem->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
 }
 
 void AFPSDemoCharacter::FireBotShot()
 {
 	if (!HasAuthority()) return;
-	if (Weapons->IsEnabled() && Weapons->Equipped().Magazine <= 0) Weapons->Reload();
+	if (Weapons->IsEnabled())
+	{
+		if (Weapons->Equipped().Magazine <= 0) Weapons->Reload();
+		else { Weapons->StartFire(); Weapons->StopFire(); }
+	}
 	else ServerFire_Implementation();
 }
 
@@ -432,7 +475,7 @@ void AFPSDemoCharacter::ServerRequestHeal_Implementation()
 	if (Spec.IsValid()) AbilitySystem->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
 }
 
-void AFPSDemoCharacter::MulticastShotFX_Implementation(FVector_NetQuantize Start, FName ShotCue)
+void AFPSDemoCharacter::MulticastShotFX_Implementation(FVector_NetQuantize Start, USoundBase* ShotSound)
 {
 	// Hitscan remains authoritative; no debug ray is rendered.
 	const bool bLocalPlayer = IsLocallyControlled() && Controller && Controller->IsPlayerController();
@@ -440,7 +483,7 @@ void AFPSDemoCharacter::MulticastShotFX_Implementation(FVector_NetQuantize Start
 	{
 		Recoil = 1.0f;
 		RemoteFlashUntil = GetWorld()->GetTimeSeconds() + 0.08f;
-		if (auto* Audio = UFPSAudioSubsystem::Get(this)) Audio->Play(ShotCue, Start, false);
+		if (auto* Audio = UFPSAudioSubsystem::Get(this)) Audio->PlaySound(ShotSound, Start, false, true);
 	}
 }
 
@@ -478,7 +521,7 @@ void AFPSDemoCharacter::StopCombatInput() { Weapons->CancelForMenu(); SprintOff(
 void AFPSDemoCharacter::PlayWeaponShot(const FVector& Kick)
 {
 	TriggerLocalShotAnimation();
-	Recoil = Kick.Z;
+	Recoil = Kick.Z; RecoilKick = Kick.Z; RecoilStartedAt = GetWorld()->GetTimeSeconds();
 	if (Controller && IsLocallyControlled())
 	{
 		FRotator View = Controller->GetControlRotation();
@@ -494,11 +537,11 @@ void AFPSDemoCharacter::RefreshWeaponPresentation()
 	GunRoot->SetVisibility(Def != nullptr, true);
 	WorldRifle->SetVisibility(Def != nullptr);
 	if (!Def) return;
-	UStaticMesh* WeaponMesh = Def->Mesh.LoadSynchronous();
-	FirstPersonRifle->SetStaticMesh(WeaponMesh);
-	WorldRifle->SetStaticMesh(WeaponMesh);
-	FirstPersonRifle->SetRelativeScale3D(Def->PresentationScale);
-	WorldRifle->SetRelativeScale3D(Def->PresentationScale);
+	FirstPersonRifle->SetStaticMesh(Def->FirstPerson.Mesh.Get());
+	WorldRifle->SetStaticMesh(Def->ThirdPerson.Mesh.Get());
+	FirstPersonRifle->SetRelativeTransform(Def->FirstPerson.Transform);
+	WorldRifle->SetRelativeTransform(Def->ThirdPerson.Transform);
+	MuzzleLight->AttachToComponent(FirstPersonRifle, FAttachmentTransformRules::KeepRelativeTransform);
 	MuzzleLight->SetRelativeLocation(Def->MuzzleLocation);
 	RemoteMuzzleLight->AttachToComponent(WorldRifle, FAttachmentTransformRules::KeepRelativeTransform);
 	RemoteMuzzleLight->SetRelativeLocation(Def->MuzzleLocation);

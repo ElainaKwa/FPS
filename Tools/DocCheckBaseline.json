@@ -1,0 +1,160 @@
+{
+  "recorded": "2026-09-30",
+  "reason": "Existing documentation pending separate migration; do not extend exceptions for new defects.",
+  "exceptions": {
+    "Docs/Archive/FPSWeaponArchitectureReview.2026-09-29.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围"
+    ],
+    "Docs/Archive/README.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围"
+    ],
+    "Docs/AstraInstructionAudit/README.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围"
+    ],
+    "Docs/AstraInstructionAudit/global-AGENTS.proposed.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围"
+    ],
+    "Docs/FPSAudio.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSAvatarArt.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSBots.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSCombatFeedback.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSDemoRoadmap.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSLobbyFlow.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSMaps.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponArchitectureReview.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponArt.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponAssetReview.md": [
+      "root-placement"
+    ],
+    "Docs/FPSWeaponFutureIdeas.md": [
+      "metadata:最后更新",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponRefactorChecklist.md": [
+      "root-placement"
+    ],
+    "Docs/FPSWeaponRefactorDecisions.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponRefactorStage1.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponRefactorStage2.md": [
+      "metadata:最后更新",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeaponRefactorStage3.md": [
+      "metadata:最后更新",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/FPSWeapons.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/NetSyncFPSDemo.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/NetworkBasicsLesson.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "root-placement"
+    ],
+    "Docs/知识锁_玩法策划案.md": [
+      "metadata:最后更新",
+      "metadata:状态",
+      "metadata:用途",
+      "metadata:适用范围",
+      "naming",
+      "root-placement"
+    ]
+  }
+}

@@ -191,12 +191,15 @@ void AFPSFrontController::ShowMenu()
     {
         AddLabel(TEXT("单机模式 · 输入人机数量（0–9）"));
         Rows->AddSlot().AutoHeight()[SAssignNew(BotInput, SEditableTextBox).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).Text(FText::FromString(TEXT("3")))];
+        Rows->AddSlot().AutoHeight().Padding(0, 8)
+            [SNew(SButton).OnClicked_Lambda([this]() { SelectedDifficulty = EFPSDifficulty((int32(SelectedDifficulty) + 1) % 3); return FReply::Handled(); })
+                [SNew(STextBlock).Text_Lambda([this]() { return FText::FromString(SelectedDifficulty == EFPSDifficulty::Easy ? TEXT("单机难度：简单（点击切换）") : SelectedDifficulty == EFPSDifficulty::Hard ? TEXT("单机难度：困难（点击切换）") : TEXT("单机难度：普通（点击切换）")); }).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20))]];
         AddButton(TEXT("开始单机对局 · 5 分钟"), [this]()
         {
             const FString Value = BotInput->GetText().ToString().TrimStartAndEnd();
             bool bValid = !Value.IsEmpty() && Value.Len() <= 1 && Value[0] >= '0' && Value[0] <= '9';
             if (!bValid) { Error = TEXT("请输入 0–9 的整数人机数量。"); return FReply::Handled(); }
-            Travel(FString::Printf(TEXT("Mode=Solo?Bots=%d"), FCString::Atoi(*Value)));
+            Travel(FString::Printf(TEXT("Mode=Solo?Bots=%d?Difficulty=%s"), FCString::Atoi(*Value), SelectedDifficulty == EFPSDifficulty::Easy ? TEXT("Easy") : SelectedDifficulty == EFPSDifficulty::Hard ? TEXT("Hard") : TEXT("Normal")));
             return FReply::Handled();
         });
         AddButton(TEXT("进入靶场 · 单人"), [this]() { Travel(TEXT("Mode=Training")); return FReply::Handled(); });
