@@ -53,7 +53,12 @@ void AFPSFrontController::ServerConfirmWeaponContent_Implementation(FGuid Challe
     bWeaponContentVerified = true;
     ForceNetUpdate();
     UE_LOG(LogTemp, Display, TEXT("FPS_WEAPON_CONTENT SERVER ACCEPT definitions=%d"), Catalog->RequiredIds().Num());
-    if (auto* Mode = GetWorld()->GetAuthGameMode<AFPSMatchMode>(); Mode && !Mode->GetGameState<AFPSDemoGameState>()->bWaiting) Mode->RestartPlayer(this);
+    if (auto* Mode = GetWorld()->GetAuthGameMode<AFPSMatchMode>())
+    {
+        // Restart before trying to begin: BeginRound respawns all admitted players once.
+        if (!Mode->GetGameState<AFPSDemoGameState>()->bWaiting) Mode->RestartPlayer(this);
+        Mode->TryStartDedicatedRound();
+    }
 }
 
 void AFPSFrontController::RejectWeaponContent(const FString& Reason)

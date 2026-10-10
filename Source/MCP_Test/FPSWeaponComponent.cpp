@@ -1,9 +1,15 @@
 #include "FPSWeaponComponent.h"
 #include "FPSWeaponShot.h"
+#include "FPSRecoilSmoke.h"
+#include "Misc/CommandLine.h"
 #include "FPSMatchFlow.h"
 #include "FPSWeaponAbilities.h"
 #include "FPSAudioSubsystem.h"
 #include "FPSDemoCharacter.h"
+#include "FPSActionPolicy.h"
+#include "FPSModeRules.h"
+#include "FPSBaseMembership.h"
+#include "FPSDemoPlayerState.h"
 #include "FPSDemoGameState.h"
 #include "FPSDemoAttributeSet.h"
 #include "FPSWeaponPickup.h"
@@ -13,6 +19,7 @@
 #include "FPSWeaponDamageSmoke.h"
 #include "FPSWeaponPresentationSmoke.h"
 #include "Engine/GameInstance.h"
+#include "Engine/StaticMesh.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
 #include "Net/UnrealNetwork.h"
@@ -39,13 +46,10 @@ bool UFPSWeaponComponent::IsEnabled() const
 }
 bool UFPSWeaponComponent::CanAct() const
 {
-    const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
-    return IsEnabled() && Character() && !Character()->IsEliminated() && Character()->GetController() &&
-        (!Cast<AFPSFrontController>(Character()->GetController()) || Cast<AFPSFrontController>(Character()->GetController())->IsWeaponContentVerified()) &&
-        GS && GS->WeaponDataError.IsEmpty() && Catalog()->IsReady() && Catalog()->ValidationError.IsEmpty() && !GS->bWaiting && !GS->bFinished &&
-        (GS->bTraining || GS->RoundEndsAt <= 0 || ServerTime() < GS->RoundEndsAt);
+    return IsEnabled() && Character() && !Character()->IsEliminated() && Character()->GetActionPolicy()->CanAct() &&
+        Catalog()->IsReady() && Catalog()->ValidationError.IsEmpty();
 }
-bool UFPSWeaponComponent::CanSprint() const { return CanAct() && !Loadout.bAiming && Loadout.Action == EFPSWeaponAction::Idle; }
+bool UFPSWeaponComponent::CanSprint() const { return !Loadout.bAiming && Loadout.Action == EFPSWeaponAction::Idle; }
 bool UFPSWeaponComponent::CanStart(EFPSWeaponRequest Command) const
 {
     if (Command == EFPSWeaponRequest::Cancel) return IsEnabled();
@@ -56,14 +60,14 @@ bool UFPSWeaponComponent::CanStart(EFPSWeaponRequest Command) const
     case EFPSWeaponRequest::Primary: return Loadout.ActiveSlot != EFPSWeaponSlot::Primary && Loadout.Primary.IsValid();
     case EFPSWeaponRequest::Secondary: return Loadout.ActiveSlot != EFPSWeaponSlot::Secondary && Loadout.Secondary.IsValid();
     case EFPSWeaponRequest::Pickup: return FindPickup() != nullptr;
-    case EFPSWeaponRequest::Drop: return Equipped().IsValid();
+    case EFPSWeaponRequest::Drop: return Character()->GetActionPolicy()->CanDrop() && Equipped().IsValid();
     case EFPSWeaponRequest::Cancel: return true;
     case EFPSWeaponRequest::AimOff: return false; // input release is not an Ability activation
     case EFPSWeaponRequest::Equip: return true; // internal server-initiated preparation
     case EFPSWeaponRequest::AimOn: return Def && Loadout.Action != EFPSWeaponAction::Switching;
     case EFPSWeaponRequest::Reload: return Def && Equipped().Magazine < Def->MagazineSize && Equipped().Reserve > 0 && Loadout.Action != EFPSWeaponAction::Reloading && Loadout.Action != EFPSWeaponAction::Switching;
     case EFPSWeaponRequest::Inspect: return Def && Loadout.Action == EFPSWeaponAction::Idle;
-    case EFPSWeaponRequest::Fire: return Def && (Def->FireMode == EFPSFireMode::Automatic || Loadout.Action == EFPSWeaponAction::Inspecting || (Equipped().Magazine > 0 && ServerTime() + .002 >= Equipped().NextShotAt && Loadout.Action != EFPSWeaponAction::Reloading && Loadout.Action != EFPSWeaponAction::Switching));
+    case EFPSWeaponRequest::Fire: return Character()->GetActionPolicy()->CanAttack() && Def && (Def->FireMode == EFPSFireMode::Automatic || Loadout.Action == EFPSWeaponAction::Inspecting || (Equipped().Magazine > 0 && ServerTime() + .002 >= Equipped().NextShotAt && Loadout.Action != EFPSWeaponAction::Reloading && Loadout.Action != EFPSWeaponAction::Switching));
     }
     return false;
 }
@@ -72,11 +76,64 @@ void UFPSWeaponComponent::BeginPlay()
     Super::BeginPlay();
     if (GetOwner()->HasAuthority() && IsEnabled())
     {
-        Loadout.Primary = Catalog()->CreateInstance(Catalog()->StartingPrimary);
-        Loadout.Secondary = Catalog()->CreateInstance(Catalog()->StartingSecondary);
-        Changed();
+        InitializeSpawnLoadout();
         GrantAbilities();
     }
+}
+void UFPSWeaponComponent::InitializeSpawnLoadout()
+{
+    if (!GetOwner()->HasAuthority() || !IsEnabled()) return;
+    const auto* Rules = UFPSModeRules::ForWorld(GetWorld());
+    if (!Rules || !Rules->DefaultLoadout || !Catalog()->IsReady()) return;
+    auto* PS = Character()->GetPlayerState<AFPSDemoPlayerState>();
+    if (PS) PS->EnsureLoadout(Rules);
+    const auto* Primary = Rules->DefaultLoadout->Primary.LoadSynchronous();
+    const auto* Secondary = Rules->DefaultLoadout->Secondary.LoadSynchronous();
+    if (!Primary || !Secondary) return;
+    const auto NewPrimary = Catalog()->CreateInstance(PS ? PS->SpawnPrimary() : Primary->WeaponId);
+    const auto NewSecondary = Catalog()->CreateInstance(PS ? PS->SpawnSecondary() : Secondary->WeaponId);
+    if (!NewPrimary.IsValid() || !NewSecondary.IsValid()) return;
+    Loadout.Primary = NewPrimary; Loadout.Secondary = NewSecondary;
+    ++Loadout.PrimaryInventoryRevision; ++Loadout.SecondaryInventoryRevision;
+    Changed();
+    if (bAbilitiesGranted) Character()->GetAbilitySystemComponent()->TryActivateAbilityByClass(UFPSEquipAbility::StaticClass());
+}
+bool UFPSWeaponComponent::SelectDefinition(FName Id, FString& Failure)
+{
+    auto Fail = [&](const TCHAR* Reason) { Failure = Reason; return false; };
+    auto* Membership = Character()->FindComponentByClass<UFPSBaseMembership>();
+    if (!GetOwner()->HasAuthority() || !CanAct() || !Membership) return Fail(TEXT("角色或阶段已失效。"));
+    Membership->RefreshAuthority();
+    if (!Membership->CanSelect()) return Fail(TEXT("本次生命已离开基地，或当前无法选枪。"));
+    const auto* Rules = UFPSModeRules::ForWorld(GetWorld());
+    const auto* Def = Catalog()->Find(Id);
+    if (!Rules || !Def || !Catalog()->RequiredIds().Contains(Id)) return Fail(TEXT("武器未通过本局内容准入。"));
+    bool Allowed = false;
+    for (const auto& Ref : Rules->SelectableWeapons) if (Ref.Get() && Ref->WeaponId == Id) Allowed = true;
+    if (!Allowed) return Fail(TEXT("该武器不在本局可选列表中。"));
+    auto* PS = Character()->GetPlayerState<AFPSDemoPlayerState>();
+    if (!PS || !Character()->GetController()->IsPlayerController()) return Fail(TEXT("缺少玩家身份。"));
+    const auto NewInstance = Catalog()->CreateInstance(Id);
+    if (!NewInstance.IsValid()) return Fail(TEXT("创建武器失败。"));
+    auto& Destination = Def->Slot == EFPSWeaponSlot::Primary ? Loadout.Primary : Loadout.Secondary;
+    // All fallible work precedes cancellation/commit. One game-thread operation owns this transition.
+    if (Rules->Replacement == EFPSReplacementPolicy::Drop && Destination.IsValid() && !SpawnDrop(Destination)) return Fail(TEXT("旧枪掉落创建失败；配装未变。"));
+    StopAllActions();
+    Destination = NewInstance; Loadout.ActiveSlot = Def->Slot;
+    if (Def->Slot == EFPSWeaponSlot::Primary) ++Loadout.PrimaryInventoryRevision; else ++Loadout.SecondaryInventoryRevision;
+    if (Rules->Kind == EFPSGameplayKind::TeamMatch)
+    {
+        if (Def->Slot == EFPSWeaponSlot::Primary) PS->SelectedPrimary = Id; else PS->SelectedSecondary = Id;
+        PS->ForceNetUpdate();
+    }
+    Changed();
+    Character()->GetAbilitySystemComponent()->TryActivateAbilityByClass(UFPSEquipAbility::StaticClass());
+    return true;
+}
+void UFPSWeaponComponent::CancelAttack()
+{
+    StopFire();
+    if (FireAbility) FireAbility->CancelWeaponAbility();
 }
 void UFPSWeaponComponent::GrantAbilities()
 {
@@ -111,7 +168,23 @@ void UFPSWeaponComponent::Changed()
 }
 void UFPSWeaponComponent::OnRep_OwnerState()
 {
+    // Replication may coalesce a drop and pickup of the same GUID into one snapshot.
+    // Invalidate only that slot's prior ownership predictions before merging shot state.
+    if (Loadout.PrimaryInventoryRevision != OwnerState.PrimaryInventoryRevision)
+    {
+        PredictedShots.Remove(Loadout.Primary.InstanceId);
+        PredictedShots.Remove(OwnerState.Primary.InstanceId);
+    }
+    if (Loadout.SecondaryInventoryRevision != OwnerState.SecondaryInventoryRevision)
+    {
+        PredictedShots.Remove(Loadout.Secondary.InstanceId);
+        PredictedShots.Remove(OwnerState.Secondary.InstanceId);
+    }
     Loadout = OwnerState;
+    // Prediction belongs to an instance while it is in this owner's inventory.
+    // A later pickup of the same GUID must start from its transferred authority state.
+    for (auto It = PredictedShots.CreateIterator(); It; ++It)
+        if (It.Key() != OwnerState.Primary.InstanceId && It.Key() != OwnerState.Secondary.InstanceId) It.RemoveCurrent();
     // Keep unacknowledged shot presentation on its local cadence. Final authority acknowledgement
     // (including an interrupted trigger) always wins; reload ammo is accepted during a held trigger.
     if (OwnerState.FirePredictionKey == LastPredictedFireKey && !OwnerState.bFireActive) PredictedShots.Empty();
@@ -152,6 +225,7 @@ void UFPSWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
     FFPSWeaponSmoke::Tick(this);
+    FFPSRecoilSmoke::Tick(this);
     FFPSWeaponAbilitySmoke::Tick(this);
     FFPSWeaponDamageSmoke::Tick(this);
     FFPSWeaponPresentationSmoke::Tick(this);
@@ -160,7 +234,7 @@ void UFPSWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 void UFPSWeaponComponent::StartFire()
 {
     if (const auto* PC = Cast<APlayerController>(Character()->GetController()); PC && PC->IsLocalController() && PC->IsMoveInputIgnored()) return;
-    if (!CanAct() || bTriggerHeld) return;
+    if (!CanAct() || !Character()->GetActionPolicy()->CanAttack() || bTriggerHeld) return;
     bTriggerHeld = true;
     if (Definition() && Equipped().Magazine <= 0 && ServerTime() - LastEmptyClick > .25)
     {
@@ -198,7 +272,7 @@ void UFPSWeaponComponent::Request(EFPSWeaponRequest Command, AFPSWeaponPickup* T
     if (Command == EFPSWeaponRequest::AimOff) { AimOff(); return; }
     if (const auto* PC = Cast<APlayerController>(Character()->GetController()); PC && PC->IsLocalController() && PC->IsMoveInputIgnored()) return;
     // Selection is server-derived. Explicit callers cannot nominate a distant or stale pickup.
-    if (Command == EFPSWeaponRequest::Pickup && Target && Target != FindPickup()) return;
+    if (Command == EFPSWeaponRequest::Pickup && Target && !CanPickup(Target)) return;
     auto* ASC = Character()->GetAbilitySystemComponent();
     if (Command == EFPSWeaponRequest::Pickup)
     {
@@ -355,7 +429,7 @@ bool UFPSWeaponComponent::EndAim(const FFPSWeaponActionTicket& Ticket)
 EFPSFireReadiness UFPSWeaponComponent::FireReadiness(const FFPSWeaponActionTicket& Ticket, double& Deadline) const
 {
     Deadline = 0;
-    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Definition()) return EFPSFireReadiness::Invalid;
+    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Character()->GetActionPolicy()->CanAttack() || !Definition()) return EFPSFireReadiness::Invalid;
     if (Equipped().Magazine <= 0 || Loadout.Action == EFPSWeaponAction::Reloading || Loadout.Action == EFPSWeaponAction::Switching) return EFPSFireReadiness::WaitingForState;
     if (const auto* Move = Cast<UFPSMovementComponent>(Character()->GetCharacterMovement()); Move && Move->IsSprinting()) return EFPSFireReadiness::WaitingForState;
     Deadline = Equipped().NextShotAt;
@@ -365,7 +439,7 @@ bool UFPSWeaponComponent::CommitShot(const FFPSWeaponActionTicket& Ticket)
 {
     // Only an active shared fire Ability can request a shot; clients never supply hit or damage data.
     const auto* Def = Definition();
-    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Def || Equipped().Magazine <= 0 || Loadout.Action == EFPSWeaponAction::Reloading || Loadout.Action == EFPSWeaponAction::Switching) return false;
+    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Character()->GetActionPolicy()->CanAttack() || !Def || Equipped().Magazine <= 0 || Loadout.Action == EFPSWeaponAction::Reloading || Loadout.Action == EFPSWeaponAction::Switching) return false;
     if (const auto* Move = Cast<UFPSMovementComponent>(Character()->GetCharacterMovement()); Move && Move->IsSprinting()) return false;
     const double Now = ServerTime();
     auto& Gun = EquippedMutable();
@@ -378,7 +452,16 @@ bool UFPSWeaponComponent::CommitShot(const FFPSWeaponActionTicket& Ticket)
     Changed();
     if (Character()->IsLocallyControlled() && Character()->GetController()->IsPlayerController())
     {
+        const FRotator Before = Character()->GetController()->GetControlRotation();
         Character()->PlayWeaponShot(Kick * (Loadout.bAiming ? Def->AimRecoilMultiplier : 1.f));
+#if !UE_BUILD_SHIPPING
+        if (FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke")))
+        {
+            const auto After = Character()->GetController()->GetControlRotation();
+            UE_LOG(LogTemp, Display, TEXT("FPS_RECOIL_SAMPLE PRED serial=%u time=%.6f beforePitch=%.6f beforeYaw=%.6f pitch=%.6f yaw=%.6f kickPitch=%.6f kickYaw=%.6f"),
+                Gun.ShotSerial, ServerTime(), Before.Pitch, Before.Yaw, After.Pitch, After.Yaw, Kick.X, Kick.Y);
+        }
+#endif
 #if !UE_BUILD_SHIPPING
         ++LocalShotPresentations;
 #endif
@@ -396,19 +479,24 @@ bool UFPSWeaponComponent::Transfer(const FFPSWeaponActionTicket& Ticket, AFPSWea
         if (!SpawnDrop(Equipped())) return false;
         CancelOperation(true); CancelBurst();
         EquippedMutable() = FFPSWeaponInstance();
+        if (Loadout.ActiveSlot == EFPSWeaponSlot::Primary) ++Loadout.PrimaryInventoryRevision; else ++Loadout.SecondaryInventoryRevision;
         Loadout.ActiveSlot = Loadout.ActiveSlot == EFPSWeaponSlot::Primary ? EFPSWeaponSlot::Secondary : EFPSWeaponSlot::Primary;
     }
     else if (Command == EFPSWeaponRequest::Pickup)
     {
-        if (!IsValid(Target) || !Target->IsAvailable() || Target != FindPickup()) return false;
+        if (!CanPickup(Target)) return false;
         const auto* Def = Catalog()->Find(Target->GetInstance().WeaponId);
         if (!Def) return false;
+        if (!Target->Claim()) return false; // reserve before cap enforcement can retire other drops
         auto& Destination = Def->Slot == EFPSWeaponSlot::Primary ? Loadout.Primary : Loadout.Secondary;
+        const bool ShouldEquip = Loadout.ActiveSlot == Def->Slot || !Equipped().IsValid();
         auto* Replacement = Destination.IsValid() ? SpawnDrop(Destination) : nullptr;
-        if (Destination.IsValid() && !Replacement) return false;
-        if (!Target->Claim()) { if (Replacement) Replacement->Destroy(); return false; }
+        if (Destination.IsValid() && !Replacement) { Target->ReleaseClaim(); return false; }
         CancelOperation(true); CancelBurst();
-        Destination = Target->GetInstance(); Loadout.ActiveSlot = Def->Slot; Target->Destroy();
+        Destination = Target->GetInstance();
+        if (Def->Slot == EFPSWeaponSlot::Primary) ++Loadout.PrimaryInventoryRevision; else ++Loadout.SecondaryInventoryRevision;
+        if (ShouldEquip) Loadout.ActiveSlot = Def->Slot;
+        Target->Destroy();
     }
     else return false;
     Changed(); return true;
@@ -420,25 +508,44 @@ AFPSWeaponPickup* UFPSWeaponComponent::FindPickup() const
     for (TActorIterator<AFPSWeaponPickup> It(GetWorld()); It; ++It)
     {
         const float D = FVector::DistSquared(GetOwner()->GetActorLocation(), It->GetActorLocation());
-        if (!It->IsAvailable() || D >= Distance) continue;
-        FHitResult Hit;
-        FCollisionQueryParams Query(SCENE_QUERY_STAT(WeaponPickup), false, GetOwner());
-        GetWorld()->LineTraceSingleByChannel(Hit, Character()->GetPawnViewLocation(), It->GetActorLocation(), ECC_Visibility, Query);
-        if (Hit.bBlockingHit && Hit.GetActor() != *It) continue;
+        if (D >= Distance || !CanPickup(*It)) continue;
         Best = *It; Distance = D;
     }
     return Best;
 }
+bool UFPSWeaponComponent::CanPickup(const AFPSWeaponPickup* Target) const
+{
+    if (!IsValid(Target) || !Target->IsAvailable() || FVector::DistSquared(GetOwner()->GetActorLocation(), Target->GetActorLocation()) >= FMath::Square(200.f)) return false;
+    FHitResult Hit;
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(WeaponPickup), false, GetOwner());
+    Query.AddIgnoredActor(Target);
+    GetWorld()->LineTraceSingleByChannel(Hit, Character()->GetPawnViewLocation(), Target->GetActorLocation(), ECC_Visibility, Query);
+    return !Hit.bBlockingHit;
+}
 AFPSWeaponPickup* UFPSWeaponComponent::SpawnDrop(const FFPSWeaponInstance& Instance)
 {
-    if (!Instance.IsValid()) return nullptr;
-    const FVector Start = GetOwner()->GetActorLocation();
-    FVector Position = Start + GetOwner()->GetActorForwardVector() * 90;
+    if (!GetOwner()->HasAuthority() || !Instance.IsValid()) return nullptr;
+    const auto* Rules = UFPSModeRules::ForWorld(GetWorld());
+    if (!Rules || Rules->DynamicDropLimit < 1 || Rules->DynamicDropLifetime <= 0) return nullptr;
+    const FVector Start = GetOwner()->GetActorLocation() + FVector(0,0,20);
+    FVector Position = Start + GetOwner()->GetActorForwardVector() * 75;
     FHitResult Hit;
     FCollisionQueryParams Query(SCENE_QUERY_STAT(WeaponDrop), false, GetOwner());
-    if (GetWorld()->LineTraceSingleByChannel(Hit, Start, Position, ECC_Visibility, Query)) Position = Start;
-    if (GetWorld()->LineTraceSingleByChannel(Hit, Position, Position - FVector(0, 0, 250), ECC_Visibility, Query)) Position = Hit.ImpactPoint + FVector(0, 0, 20);
+    FCollisionObjectQueryParams Objects; Objects.AddObjectTypesToQuery(ECC_WorldStatic); Objects.AddObjectTypesToQuery(ECC_WorldDynamic);
+    const auto* Def = Catalog()->Find(Instance.WeaponId);
+    if (!Def || !Def->Pickup.Mesh.Get()) return nullptr;
+    const FVector Extent = Def->Pickup.Mesh.Get()->GetBoundingBox().TransformBy(Def->Pickup.Transform).GetExtent().ComponentMax(FVector(3));
+    const auto Shape = FCollisionShape::MakeBox(Extent + FVector(2));
+    const FQuat Rotation = GetOwner()->GetActorQuat();
+    if (GetWorld()->SweepSingleByObjectType(Hit, Start, Position, Rotation, Objects, Shape, Query)) Position = Hit.Location;
+    if (GetWorld()->OverlapAnyTestByObjectType(Position, Rotation, Objects, Shape, Query)) Position = Start;
+    if (GetWorld()->OverlapAnyTestByObjectType(Position, Rotation, Objects, Shape, Query)) return nullptr;
     auto* Pickup = GetWorld()->SpawnActor<AFPSWeaponPickup>(Position, GetOwner()->GetActorRotation());
-    if (Pickup) { Pickup->Initialize(Instance); Pickup->SetLifeSpan(180); }
+    if (Pickup)
+    {
+        Pickup->Initialize(Instance);
+        const FVector Velocity = GetOwner()->GetActorForwardVector() * 160 + FVector(0,0,110) + GetOwner()->GetVelocity().GetClampedToMaxSize(600) * .35;
+        if (!Pickup->LaunchDynamic(Velocity, FVector(90,140,50))) { Pickup->Destroy(); return nullptr; }
+    }
     return Pickup;
 }

@@ -101,6 +101,9 @@ struct FFPSWeaponLoadout
     GENERATED_BODY()
     UPROPERTY(BlueprintReadOnly) FFPSWeaponInstance Primary;
     UPROPERTY(BlueprintReadOnly) FFPSWeaponInstance Secondary;
+    // Owner inventory transitions, independent of a gun's persistent GUID and shot runtime.
+    UPROPERTY() uint32 PrimaryInventoryRevision = 0;
+    UPROPERTY() uint32 SecondaryInventoryRevision = 0;
     UPROPERTY(BlueprintReadOnly) EFPSWeaponSlot ActiveSlot = EFPSWeaponSlot::Primary;
     UPROPERTY(BlueprintReadOnly) EFPSWeaponAction Action = EFPSWeaponAction::Idle;
     UPROPERTY(BlueprintReadOnly) double ActionEndsAt = 0;
@@ -149,7 +152,7 @@ public:
     bool IsReady() const { return bReady; }
     const TArray<FName>& RequiredIds() const { return SessionIds; }
     const FString& Digest() const { return SessionDigest; }
-    static constexpr int32 ManifestVersion = 2;
+    static constexpr int32 ManifestVersion = 6;
     const UFPSWeaponDefinition* Find(FName WeaponId) const;
     FFPSWeaponInstance CreateInstance(FName WeaponId) const;
     UPROPERTY(Config) FName StartingPrimary;

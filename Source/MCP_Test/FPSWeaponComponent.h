@@ -48,6 +48,8 @@ struct FFPSWeaponActionTicket
 UCLASS(ClassGroup=(FPS), meta=(BlueprintSpawnableComponent))
 class MCP_TEST_API UFPSWeaponComponent : public UActorComponent
 {
+    friend struct FFPSCharacterSmoke;
+    friend struct FFPSLoadoutSmoke;
     GENERATED_BODY()
 public:
     UFPSWeaponComponent();
@@ -55,6 +57,9 @@ public:
     virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     void GrantAbilities();
+    void InitializeSpawnLoadout();
+    bool SelectDefinition(FName WeaponId, FString& Failure);
+    void CancelAttack();
     bool IsEnabled() const;
     bool CanAct() const;
     bool CanSprint() const;
@@ -64,6 +69,7 @@ public:
     const UFPSWeaponDefinition* Definition() const;
     const UFPSWeaponCatalog* Catalog() const;
     AFPSWeaponPickup* FindPickup() const;
+    bool CanPickup(const AFPSWeaponPickup* Target) const;
     void StartFire();
     void StopFire();
     void Reload();
@@ -97,6 +103,7 @@ public:
     FFPSFireReadinessChanged OnFireReadinessChanged;
 private:
     friend struct FFPSWeaponSmoke;
+    friend struct FFPSDropSmoke;
     friend struct FFPSWeaponAbilitySmoke;
     friend struct FFPSWeaponDamageSmoke;
     friend struct FFPSWeaponPresentationSmoke;

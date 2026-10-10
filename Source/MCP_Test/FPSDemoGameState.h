@@ -19,6 +19,7 @@ class MCP_TEST_API AFPSDemoGameState : public AGameStateBase
 {
 	GENERATED_BODY()
 public:
+    bool IsCombatActive() const;
 	// Used by FPSMatchMode only. The teaching map leaves bStructuredMatch false.
 	UPROPERTY(Replicated) bool bStructuredMatch = false;
 	UPROPERTY(Replicated) bool bTraining = false;

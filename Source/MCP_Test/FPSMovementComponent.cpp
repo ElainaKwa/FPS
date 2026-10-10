@@ -1,7 +1,10 @@
 #include "FPSMovementComponent.h"
 #include "FPSDemoCharacter.h"
+#include "FPSActionPolicy.h"
+#include "FPSDemoGameState.h"
 #include "FPSDemoAttributeSet.h"
 #include "FPSWeaponComponent.h"
+#include "FPSBaseMembership.h"
 
 namespace
 {
@@ -37,11 +40,13 @@ public:
 bool UFPSMovementComponent::IsSprinting() const
 {
     const auto* Pawn = Cast<AFPSDemoCharacter>(CharacterOwner);
-    return bWantsSprint && Pawn && !Pawn->bIsCrouched && !IsFalling() && Pawn->GetWeapons()->CanSprint();
+    return bWantsSprint && Pawn && !Pawn->bIsCrouched && !IsFalling() && Pawn->GetActionPolicy()->CanMove() && !Pawn->IsEliminated() && Pawn->GetWeapons()->CanSprint();
 }
 void UFPSMovementComponent::OnMovementUpdated(float DeltaSeconds, const FVector& OldLocation, const FVector& OldVelocity)
 {
     Super::OnMovementUpdated(DeltaSeconds, OldLocation, OldVelocity);
+    if (const auto* Pawn = Cast<AFPSDemoCharacter>(CharacterOwner))
+        if (auto* Membership = Pawn->FindComponentByClass<UFPSBaseMembership>()) Membership->EnforceMovement(OldLocation);
     const bool bSprinting = IsSprinting();
     if (bWasSprinting != bSprinting)
     {
@@ -52,7 +57,9 @@ void UFPSMovementComponent::OnMovementUpdated(float DeltaSeconds, const FVector&
 float UFPSMovementComponent::GetMaxSpeed() const
 {
     const auto* Pawn = Cast<AFPSDemoCharacter>(CharacterOwner);
-    if (!Pawn || !Pawn->GetWeapons() || !Pawn->GetWeapons()->IsEnabled()) return Super::GetMaxSpeed();
+    const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
+    if (!Pawn || !GS || !GS->bStructuredMatch) return Super::GetMaxSpeed();
+    if (Pawn->IsEliminated() || !Pawn->GetActionPolicy()->CanMove()) return 0;
     const float Walk = Pawn->GetAbilitySystemComponent()->GetNumericAttribute(UFPSDemoAttributeSet::GetMoveSpeedAttribute());
     if (IsCrouching()) return Walk * .5f;
     if (Pawn->GetWeapons()->GetLoadout().bAiming) return Walk * .65f;

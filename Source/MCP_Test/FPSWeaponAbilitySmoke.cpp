@@ -1,4 +1,5 @@
 #include "FPSWeaponAbilitySmoke.h"
+#include "FPSDemoEffects.h"
 #include "FPSWeaponComponent.h"
 #include "FPSWeaponAbilities.h"
 #include "AbilitySystemComponent.h"
@@ -25,6 +26,9 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
     const double Time = W->ServerTime() - (GS->RoundEndsAt - 300);
     struct FProgress { TSet<int32> Done; bool Failed = false; FGuid Id; double Cooldown = 0; int32 Recoil = 0; int32 DeathAmmo = 0; uint32 BeforeDeathSerial = 0; FFPSWeaponActionTicket OldAction, OldAim, OldFire; uint32 SleepingSteps = 0; int32 SecondaryAmmo = 0; };
     static TMap<TWeakObjectPtr<UFPSWeaponComponent>, FProgress> Progress;
+    // A real GAS death now destroys this fixture body and respawns it after 2.5 seconds.
+    // A replacement body must not replay the old life's timed fixture.
+    if (Time > 50 && !Progress.Contains(W)) return;
     auto& P = Progress.FindOrAdd(W);
     auto Check = [&](bool Pass, const TCHAR* What)
     {
@@ -160,6 +164,12 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
         At(252, [&]() { W->Loadout.Secondary = W->Catalog()->CreateInstance(TEXT("Weapon.M9")); W->EquippedMutable().Magazine = 10; W->Changed(); });
         At(269, [&]() { P.Id = W->Equipped().InstanceId; P.Cooldown = W->Equipped().NextShotAt; P.Recoil = W->Equipped().RecoilIndex; });
         At(281, [&]() { Check(!W->Loadout.Primary.IsValid(), TEXT("drop relinquishes instance")); });
+        At(282, [&]()
+        {
+            for (TActorIterator<AFPSWeaponPickup> It(Pawn->GetWorld()); It; ++It)
+                if (It->GetInstance().InstanceId == P.Id)
+                    Pawn->SetActorLocation(It->GetActorLocation() + FVector(0,0,90), false, nullptr, ETeleportType::TeleportPhysics);
+        });
         At(296, [&]() { Check(W->Loadout.Primary.InstanceId == P.Id && W->Loadout.Primary.NextShotAt == P.Cooldown && W->Loadout.Primary.RecoilIndex == P.Recoil, TEXT("drop/pickup retains cooldown and recoil state")); });
         At(307, [&]() { Check(W->Equipped().RecoilIndex == P.Recoil + 3, TEXT("pickup does not reset recoil before recovery wait")); });
         At(320, [&]() { W->EquippedMutable().NextShotAt = W->ServerTime() + 2; W->Changed(); });
@@ -169,7 +179,10 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
         if (Time >= 55 && W->Equipped().ShotSerial > P.BeforeDeathSerial && !Pawn->IsEliminated())
         {
             Check(W->Equipped().RecoilIndex == 1, TEXT("recoil resets only after recovery wait"));
-            Pawn->MarkEliminated(TEXT("Ability smoke")); P.DeathAmmo = W->Equipped().Magazine;
+            auto* ASC = Pawn->GetAbilitySystemComponent();
+            const auto Spec = ASC->MakeOutgoingSpec(UFPSDemoDamageEffect::StaticClass(), 1, ASC->MakeEffectContext());
+            for (int32 Hit = 0; Hit < 4; ++Hit) ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
+            P.DeathAmmo = W->Equipped().Magazine;
         }
         At(565, [&]() { Check(Pawn->IsEliminated() && W->Equipped().Magazine == P.DeathAmmo && !W->FireAbility && !W->ActionAbility && !W->AimAbility, TEXT("death cancels remaining burst and abilities")); });
     }
@@ -218,6 +231,7 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
         At(261, [&]() { W->StartFire(); W->StopFire(); });
         At(273, [&]() { W->Drop(); });
         At(286, [&]() { W->Pickup(); });
+        At(293, [&]() { W->Primary(); }); // Stored-slot pickup no longer switches the held weapon.
         At(300, [&]() { W->StartFire(); W->StopFire(); });
         At(327, [&]() { W->EquippedMutable().NextShotAt = 0; W->StartFire(); W->StopFire(); });
         At(340, [&]() { Check(W->Equipped().Magazine == 4 && !W->FireAbility, TEXT("GAS rejection rolls back predicted ammunition")); });
@@ -232,7 +246,7 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
         At(551, [&]() { W->StartFire(); W->StopFire(); });
         At(566, [&]() { Check(Pawn->IsEliminated() && !W->Loadout.bAiming && !W->FireAbility && !W->bTriggerHeld && !W->bAimHeld, TEXT("death clears owner intent and predicted abilities")); });
     }
-    At(580, [&]() { if (!Server && FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponCapture"))) FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/WindowsEditor/WeaponAbilities.png"), false, false); });
-    At(600, [&]() { Check(!P.Failed, TEXT("COMPLETE")); });
+    At(568, [&]() { if (!Server && FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponCapture"))) FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/WindowsEditor/WeaponAbilities.png"), false, false); });
+    At(570, [&]() { Check(!P.Failed, TEXT("COMPLETE")); });
 #endif
 }

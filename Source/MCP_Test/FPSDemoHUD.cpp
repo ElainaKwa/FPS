@@ -6,6 +6,7 @@
 #include "FPSDemoPlayerState.h"
 #include "FPSWeaponComponent.h"
 #include "FPSWeaponPickup.h"
+#include "FPSModeRules.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
@@ -98,7 +99,9 @@ void AFPSDemoHUD::DrawHUD()
 			}
 			DrawText(TEXT("R reload | RMB aim | Q inspect"), FLinearColor::White, Canvas->SizeX - 310, Canvas->SizeY - 55);
 			DrawText(TEXT("1/2 switch | G drop | F pickup"), FLinearColor::White, Canvas->SizeX - 310, Canvas->SizeY - 35);
-			DrawText(TEXT("SHIFT sprint | CTRL crouch"), FLinearColor::White, 35, Canvas->SizeY - 40);
+			DrawText(TEXT("SHIFT sprint | CTRL crouch | P loadout"), FLinearColor::White, 35, Canvas->SizeY - 40);
+            if (const auto* Rules = UFPSModeRules::ForWorld(GetWorld()))
+                DrawText(FString::Printf(TEXT("Drops: max %d | %.0fs | oldest recycled"), Rules->DynamicDropLimit, Rules->DynamicDropLifetime), FLinearColor(.7f,.8f,.9f), 35, Canvas->SizeY - 60);
 			if (const auto* Pickup = Weapons->FindPickup())
                 if (const auto* PickupDef = Weapons->Catalog()->Find(Pickup->GetInstance().WeaponId))
 					DrawText(FString::Printf(TEXT("[F] %s  %d / %d"), *PickupDef->DisplayName.ToString(), Pickup->GetInstance().Magazine, Pickup->GetInstance().Reserve), FLinearColor::Yellow, X - 100, Y0 + 60);

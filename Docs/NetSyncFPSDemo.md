@@ -1,6 +1,13 @@
 # UE 5.8 网络同步 FPS 教学 Demo
 
+- 用途：当前使用说明
+- 适用范围：LV_NetSyncFPS 教学地图；角色重构后的独立教学适配
+- 状态：教学操作保留；2026-10-10 当前新包实际服务器/客户端教学回归通过
+- 最后更新：2026-10-10
+
 ## 打开与游玩
+
+当前构建、双端日志与验收边界见 [角色扩展验收](FPS/Characters/ExtendedAcceptance.md)。原教学关卡资产保持不变，25 点伤害、35 点治疗、死亡计分和重生均已在新包复验。
 
 - 地图：`/Game/Maps/LV_NetSyncFPS`。本地图单独覆盖 `AFPSDemoGameMode`，不改变原来的地图。
 - 在编辑器的播放设置中选 **2 Players**、**Play As Listen Server**、**New Editor Window (PIE)**，然后播放。一个窗口为 Server 0，另一个为 Client 1。
@@ -19,7 +26,8 @@
   → GAS AttributeSet 的 Health 复制到客户端
   → 服务器只向射手发送 Client RPC 命中确认
   → 服务器向所有端发送不可靠 Multicast 射击线与远端枪口效果
-  → 生命归零时 GameMode 判定击倒、记分和计时重生
+  → 生命归零时目标 AttributeSet 通知自身 LifeComponent，一次性广播死亡
+  → GameMode 记分和计时重生，Character 执行身体状态变化
 ```
 
 教学关键点：客户端请求“开枪”，不提交“我打中了谁”。伤害和击倒由服务器决定。本地动画是预测式即时反馈，远端特效可以丢包，所以用不可靠 Multicast；生命与比分是可靠的状态复制。这里的射线检测是入门版，并未实现延迟补偿。
@@ -65,4 +73,4 @@ OBJ/MTL 建模源文件保存在项目的 `ArtSource/FPSDemo`，`Tools/generate_
 1. 双窗口同时观察：客户端开枪时立即出现枪口动作；服务器确认命中后才变色显示命中提示。
 2. 射击对手四次：两边生命条、击倒数和 K/D 变化；2.5 秒后重生，个人比分保留。
 3. 让受伤玩家到中心按 `E`：服务器验证距离、冷却并应用治疗 Effect；两边看到 Health 变化。
-4. 比较两端 `SERVER` / `CLIENT` 标签，并在代码中定位 `ServerFire_Implementation`、`MulticastShotFX_Implementation`、`OnRep_Health`、`HandleElimination`，对应 RPC、状态复制和 GameMode 权限。
+4. 比较两端 `SERVER` / `CLIENT` 标签，并在代码中定位 `ServerFire_Implementation`、`MulticastShotFX_Implementation`、`OnRep_Health`、`NotifyHealthExhausted`、`HandleLifeEnded`，对应 RPC、属性复制、目标侧死亡通知和 GameMode 权限。固定教学射击/治疗 RPC 位于 `FPSTeachingAdapter.cpp`；职责拆分见 [角色第一阶段记录](FPS/Characters/StageOneImplementation.md)，2026-10-06 第三阶段最终版本的教学双端回归见 [第三阶段记录](FPS/Characters/StageThreeImplementation.md)，第二阶段证据保留于 [历史记录](FPS/Characters/StageTwoImplementation.md)。

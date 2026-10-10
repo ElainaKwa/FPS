@@ -1,5 +1,13 @@
 #include "FPSMatchFlow.h"
-#include "FPSBotNavigation.h"
+#include "FPSAcceptanceSmoke.h"
+#include "FPSCharacterSmoke.h"
+#include "FPSLoadoutSmoke.h"
+#include "FPSDynamicDrops.h"
+#include "FPSDropSmoke.h"
+#include "FPSModeRules.h"
+#include "FPSBaseRegion.h"
+#include "Camera/CameraActor.h"
+#include "FPSBotSettings.h"
 #include "FPSAISmoke.h"
 #include "FPSDifficultySmoke.h"
 #include "FPSWeaponComponent.h"
@@ -48,6 +56,7 @@ void AFPSMatchMode::InitGame(const FString& MapName, const FString& Options, FSt
     Difficulty = DifficultyOption == TEXT("Easy") ? EFPSDifficulty::Easy : DifficultyOption == TEXT("Hard") ? EFPSDifficulty::Hard : EFPSDifficulty::Normal;
     BotPlayerDamageMultiplier = GetDefault<UFPSDifficultySettings>()->Multiplier(Difficulty);
     if (!FMath::IsFinite(BotPlayerDamageMultiplier) || BotPlayerDamageMultiplier <= 0) ErrorMessage = TEXT("Invalid bot damage difficulty configuration");
+    if (!GetDefault<UFPSBotSettings>()->IsValid()) ErrorMessage = TEXT("Invalid FPS bot navigation configuration");
     BotCount = FMath::Clamp(UGameplayStatics::GetIntOption(Options, TEXT("Bots"), 3), 0, 9);
     RoomName = UGameplayStatics::ParseOption(Options, TEXT("Room")).Left(24);
     if (RoomName.IsEmpty()) RoomName = TEXT("FPS Room");
@@ -58,12 +67,16 @@ void AFPSMatchMode::InitGameState()
     Super::InitGameState();
     auto* GS = GetGameState<AFPSDemoGameState>();
     GS->bStructuredMatch = true;
-    GS->bTraining = ModeName == TEXT("Training");
+    TArray<FString> ModeErrors;
+    ModeRules = UFPSModeRules::ForWorld(GetWorld(), &ModeErrors);
+    GS->bTraining = ModeRules && ModeRules->Kind == EFPSGameplayKind::Training;
     GS->bWaiting = ModeName == TEXT("LAN");
     GS->RoomName = RoomName;
     auto* Catalog = GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
     Catalog->PrepareWorld(GetWorld(), true);
     GS->WeaponDataError = Catalog->ValidationError;
+    if (ModeRules && !GS->bTraining) AFPSBaseRegion::ValidateWorld(GetWorld(), ModeErrors);
+    if (!ModeErrors.IsEmpty()) GS->WeaponDataError += FString::Join(ModeErrors, TEXT("\n"));
     if (!GS->WeaponDataError.IsEmpty()) UE_LOG(LogTemp, Error, TEXT("FPS_WEAPON_DATA MATCH BLOCKED %s"), *GS->WeaponDataError);
 }
 
@@ -95,7 +108,7 @@ void AFPSMatchMode::BeginPlay()
         auto* Pickup = GetWorld()->SpawnActor<AFPSWeaponPickup>(It->GetActorLocation(), It->GetActorRotation());
         if (Pickup) Pickup->Initialize(Catalog->CreateInstance(It->Definition->WeaponId));
     }
-    if (ModeName == TEXT("Solo"))
+    if (!GS->bTraining && ModeName != TEXT("LAN"))
     {
         SpawnBots();
         GS->RoundEndsAt = GS->GetServerWorldTimeSeconds() + 300;
@@ -108,6 +121,9 @@ void AFPSMatchMode::BeginPlay()
         SpawnBots();
     }
     FFPSFlowSmoke::Start(this);
+    FFPSCharacterSmoke::Start(this);
+    FFPSLoadoutSmoke::Start(this);
+    FFPSDropSmoke::Start(this);
     FFPSWeaponSmoke::Start(this);
     FFPSAISmoke::Start(this);
     FFPSDifficultySmoke::Start(this);
@@ -137,6 +153,27 @@ void AFPSMatchMode::BeginPlay()
             const bool bPass = bClear && Starts == (bTraining ? 4 : 10) && Pickups == (bTraining ? 7 : 14) && Pawns == (bTraining ? 4 : BotCount + 1);
             UE_LOG(LogTemp, Display, TEXT("FPS_MAP_SMOKE %s map=%s starts=%d pickups=%d pawns=%d clear=%d"), bPass ? TEXT("PASS") : TEXT("FAIL"), *GetWorld()->GetMapName(), Starts, Pickups, Pawns, bClear);
             FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/WindowsEditor/") / (bTraining ? TEXT("TrainingMap.png") : TEXT("FoundryMap.png")), false, false);
+            if (!bTraining && FParse::Param(FCommandLine::Get(), TEXT("FPSRegionCapture")))
+            {
+                // Dedicated visual evidence for the new boundaries; ordinary spawn screenshots do not face the signs.
+                for (int32 Team = 0; Team < 2; ++Team)
+                {
+                    FTimerHandle ViewTimer;
+                    GetWorldTimerManager().SetTimer(ViewTimer, FTimerDelegate::CreateWeakLambda(this, [this, Team]()
+                    {
+                        const FVector Location(Team == 0 ? -1100 : 1100, -650, 700);
+                        const FVector Target(Team == 0 ? -2050 : 2050, 0, 190);
+                        auto* Camera = GetWorld()->SpawnActor<ACameraActor>(Location, (Target - Location).Rotation());
+                        if (Camera) GetWorld()->GetFirstPlayerController()->SetViewTarget(Camera);
+                        FTimerHandle CaptureTimer;
+                        GetWorldTimerManager().SetTimer(CaptureTimer, FTimerDelegate::CreateWeakLambda(this, [Team]()
+                        {
+                            FScreenshotRequest::RequestScreenshot(FPaths::ProjectSavedDir() / TEXT("Screenshots/WindowsEditor/") /
+                                (Team == 0 ? TEXT("CharacterBlueRegion.png") : TEXT("CharacterRedRegion.png")), false, false);
+                        }), .8f, false);
+                    }), 2.f + Team * 2.f, false);
+                }
+            }
         }, 8.f, false);
     }
 #endif
@@ -146,6 +183,12 @@ void AFPSMatchMode::PostLogin(APlayerController* NewPlayer)
 {
     Super::PostLogin(NewPlayer);
     if (auto* PC = Cast<AFPSFrontController>(NewPlayer)) PC->BeginWeaponContentCheck();
+}
+void AFPSMatchMode::Logout(AController* Exiting)
+{
+    if (auto* Timer = SpawnRetries.Find(Exiting)) GetWorldTimerManager().ClearTimer(*Timer);
+    SpawnRetries.Remove(Exiting);
+    Super::Logout(Exiting);
 }
 
 void AFPSMatchMode::PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage)
@@ -198,24 +241,40 @@ void AFPSMatchMode::RestartPlayer(AController* NewPlayer)
     const int32 Team = PS ? PS->TeamId : 0;
     const int32 Lane = PS ? FMath::Abs(PS->GetPlayerId()) % 5 : 0;
     FName SpawnTag(*FString::Printf(TEXT("FPS%s%d"), Team == 0 ? TEXT("Blue") : TEXT("Red"), Lane));
-    if (ModeName == TEXT("Training"))
+    if (ModeRules && ModeRules->Kind == EFPSGameplayKind::Training)
         SpawnTag = NewPlayer->IsPlayerController() ? FName(TEXT("FPSTrainingPlayer"))
             : FName(*FString::Printf(TEXT("FPSTarget%d"), PS ? FMath::Clamp(FCString::Atoi(*PS->GetPlayerName().Right(2)) - 1, 0, 2) : 0));
+    if (ModeRules && ModeRules->Kind == EFPSGameplayKind::TeamMatch)
+    {
+        for (TActorIterator<AFPSBaseRegion> It(GetWorld()); It; ++It)
+            if (It->TeamId == Team)
+            {
+                FTransform Spawn;
+                if (It->FindSpawn(NewPlayer, Spawn))
+                {
+                    if (auto* Retry = SpawnRetries.Find(NewPlayer)) GetWorldTimerManager().ClearTimer(*Retry);
+                    SpawnRetries.Remove(NewPlayer);
+                    RestartPlayerAtTransform(NewPlayer, Spawn);
+                }
+                else
+                {
+                    auto& Timer = SpawnRetries.FindOrAdd(NewPlayer);
+                    if (!GetWorldTimerManager().IsTimerActive(Timer))
+                        GetWorldTimerManager().SetTimer(Timer, FTimerDelegate::CreateWeakLambda(NewPlayer, [this, NewPlayer]()
+                        { SpawnRetries.Remove(NewPlayer); if (IsCombatActive() && !NewPlayer->GetPawn()) RestartPlayer(NewPlayer); }), .25f, false);
+                }
+                return;
+            }
+        return;
+    }
     for (TActorIterator<APlayerStart> It(GetWorld()); It; ++It)
-        if (It->ActorHasTag(SpawnTag))
-        {
-            RestartPlayerAtTransform(NewPlayer, It->GetActorTransform());
-            return;
-        }
-    // Keep teams at opposite ends of the existing arena, outside its cover geometry.
-    const FVector Position(Team == 0 ? -1650.f : 1650.f, -1000.f + Lane * 470.f, 110.f);
-    RestartPlayerAtTransform(NewPlayer, FTransform(FRotator(0, Team == 0 ? 0 : 180, 0), Position));
+        if (It->ActorHasTag(SpawnTag)) { RestartPlayerAtTransform(NewPlayer, It->GetActorTransform()); return; }
 }
 
 bool AFPSMatchMode::IsCombatActive() const
 {
     const auto* GS = GetGameState<AFPSDemoGameState>();
-    return GS && GS->WeaponDataError.IsEmpty() && !GS->bWaiting && !GS->bFinished && (GS->bTraining || GS->RoundEndsAt <= 0 || GS->GetServerWorldTimeSeconds() < GS->RoundEndsAt);
+    return GS && GS->IsCombatActive();
 }
 
 bool AFPSMatchMode::CanDamage(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const
@@ -238,10 +297,21 @@ void AFPSMatchMode::SwitchTeam(APlayerController* Requester)
 
 void AFPSMatchMode::StartRound(APlayerController* Requester)
 {
-    if (!GetGameState<AFPSDemoGameState>()->WeaponDataError.IsEmpty()) return;
+    // Player requests retain the existing listen-host-only rule.
+    if (!Requester || !Requester->IsLocalController()) return;
+    BeginRound();
+}
+
+void AFPSMatchMode::TryStartDedicatedRound()
+{
+    if (GetNetMode() == NM_DedicatedServer) BeginRound();
+}
+
+void AFPSMatchMode::BeginRound()
+{
     auto* GS = GetGameState<AFPSDemoGameState>();
-    // Only the listen server's local controller may start the room.
-    if (!Requester || !Requester->IsLocalController() || !GS->bWaiting || TeamSize(0) == 0 || TeamSize(1) == 0) return;
+    if (!HasAuthority() || !GS->WeaponDataError.IsEmpty() || !GS->bWaiting || TeamSize(0) == 0 || TeamSize(1) == 0) return;
+    if (!FFPSAcceptanceSmoke::ReadyToStart(GetWorld())) return;
     for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
         if (const auto* PC = Cast<AFPSFrontController>(It->Get()); PC && !PC->IsWeaponContentVerified()) return;
     GS->bWaiting = false;
@@ -256,6 +326,7 @@ void AFPSMatchMode::FinishRound()
 {
     auto* GS = GetGameState<AFPSDemoGameState>();
     GS->bFinished = true;
+    GetWorld()->GetSubsystem<UFPSDynamicDrops>()->ClearRound();
     GS->Podium.Reset();
     for (const APlayerState* Base : GS->PlayerArray)
         if (const auto* PS = Cast<AFPSDemoPlayerState>(Base))
@@ -287,166 +358,16 @@ void AFPSMatchMode::SpawnBots()
         if (!Bot) continue;
         if (auto* PS = Bot->GetPlayerState<AFPSDemoPlayerState>())
         {
-            PS->SetPlayerName(FString::Printf(TEXT("%s %02d"), ModeName == TEXT("Training") ? TEXT("Target") : TEXT("Bot"), Index + 1));
-            PS->TeamId = ModeName == TEXT("Training") ? 1 : (TeamSize(0) <= TeamSize(1) ? 0 : 1);
+            const bool bTraining = ModeRules && ModeRules->Kind == EFPSGameplayKind::Training;
+            PS->SetPlayerName(FString::Printf(TEXT("%s %02d"), bTraining ? TEXT("Target") : TEXT("Bot"), Index + 1));
+            PS->TeamId = bTraining ? 1 : (TeamSize(0) <= TeamSize(1) ? 0 : 1);
             RestartPlayer(Bot);
-        }
-    }
-}
-
-AFPSBotController::AFPSBotController()
-{
-    bWantsPlayerState = true;
-    PrimaryActorTick.bCanEverTick = true;
-}
-
-void AFPSBotController::Tick(float DeltaSeconds)
-{
-    Super::Tick(DeltaSeconds);
-#if !UE_BUILD_SHIPPING
-    if (FParse::Param(FCommandLine::Get(), TEXT("FPSFlowSmoke")) || FParse::Param(FCommandLine::Get(), TEXT("FPSMapSmoke"))) return;
-#endif
-    auto* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>();
-    auto* Self = Cast<AFPSDemoCharacter>(GetPawn());
-    const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
-    if (!HasAuthority() || !Rules || !GS || GS->bTraining || !Rules->IsCombatActive() || !Self || Self->IsEliminated()) return;
-    const float Now = GetWorld()->GetTimeSeconds();
-    auto* Navigation = GetWorld()->GetSubsystem<UFPSBotNavigation>();
-    auto* Weapon = Self->GetWeapons();
-    if (PreviousPawn.Get() != Self)
-    {
-        PreviousPawn = Self; Enemy.Reset(); Route.Reset(); RouteIndex = 0;
-        NextRoute = NextSense = NextShot = 0; BurstShots = 0;
-        ProgressLocation = Self->GetActorLocation(); ProgressTime = Now;
-        PatrolIndex = GetPlayerState<AFPSDemoPlayerState>() ? GetPlayerState<AFPSDemoPlayerState>()->GetPlayerId() % 4 : 0;
-    }
-    if (Now >= NextSense)
-    {
-        NextSense = Now + .25f;
-        AFPSDemoCharacter* Visible = nullptr;
-        float Best = FMath::Square(3200.f);
-        for (TActorIterator<AFPSDemoCharacter> It(GetWorld()); It; ++It)
-        {
-            if (It->IsEliminated() || !Rules->CanDamage(Self, *It)) continue;
-            float Distance = FVector::DistSquared2D(Self->GetActorLocation(), It->GetActorLocation());
-            if (*It == Enemy.Get()) Distance *= .7f; // retain targets instead of switching every scan
-            if (Distance >= Best || !LineOfSightTo(*It)) continue;
-            Best = Distance; Visible = *It;
-        }
-        bVisibleEnemy = Visible != nullptr;
-        if (!bVisibleEnemy) ClearFocus(EAIFocusPriority::Gameplay);
-        if (Visible)
-        {
-            if (Enemy.Get() != Visible) { ReactionUntil = Now + .45f; BurstShots = 0; }
-            Enemy = Visible; LastSeenTime = Now; LastSeenLocation = Visible->GetActorLocation();
-        }
-        else if (!Enemy.IsValid() || Enemy->IsEliminated() || Now - LastSeenTime > 3.f) Enemy.Reset();
-    }
-    // Pursue only a visible opponent or its last observed position. Otherwise patrol.
-    static const FVector Patrol[] = {FVector(-1050,-1250,90), FVector(1050,-1250,90), FVector(1050,1250,90), FVector(-1050,1250,90)};
-    if (Enemy.IsValid()) Destination = LastSeenLocation;
-    else
-    {
-        if (FVector::DistSquared2D(Self->GetActorLocation(), Patrol[PatrolIndex % 4]) < FMath::Square(180.f))
-        { ++PatrolIndex; NextRoute = 0; }
-        Destination = Patrol[PatrolIndex % 4];
-    }
-    bool bNeedAmmo = false;
-    if (Weapon->Equipped().Magazine <= 0)
-    {
-        if (Weapon->Equipped().Reserve > 0) Weapon->Reload();
-        else if (Weapon->GetLoadout().ActiveSlot == EFPSWeaponSlot::Primary &&
-            Weapon->GetLoadout().Secondary.Magazine + Weapon->GetLoadout().Secondary.Reserve > 0) Weapon->Secondary();
-        else bNeedAmmo = true;
-    }
-    if (bNeedAmmo)
-    {
-        AFPSWeaponPickup* Ammo = nullptr;
-        float Nearest = MAX_flt;
-        for (TActorIterator<AFPSWeaponPickup> It(GetWorld()); It; ++It)
-        {
-            const float D = FVector::DistSquared2D(Self->GetActorLocation(), It->GetActorLocation());
-            if (It->IsAvailable() && It->GetInstance().Magazine + It->GetInstance().Reserve > 0 && D < Nearest)
-            { Nearest = D; Ammo = *It; }
-        }
-        if (Ammo)
-        {
-            // Stop beside the display plinth rather than asking for a path inside it.
-            const FVector Toward = (Self->GetActorLocation() - Ammo->GetActorLocation()).GetSafeNormal2D();
-            Destination = Ammo->GetActorLocation() + Toward * 125;
-            if (Nearest < FMath::Square(180.f)) Weapon->Request(EFPSWeaponRequest::Pickup, Ammo);
-        }
-    }
-    const bool bEngage = Enemy.IsValid() && bVisibleEnemy && !bNeedAmmo &&
-        FVector::DistSquared2D(Self->GetActorLocation(), LastSeenLocation) < FMath::Square(1450.f);
-    if (!bEngage)
-    {
-        if (Now >= NextRoute)
-        {
-            NextRoute = Now + .9f;
-            Navigation->FindRoute(Self->GetActorLocation(), Destination, Route);
-            RouteIndex = 0;
-        }
-        while (RouteIndex < Route.Num() && FVector::DistSquared2D(Self->GetActorLocation(), Route[RouteIndex]) < FMath::Square(65.f))
-        {
-            if (RouteIndex + 1 < Route.Num() && !Navigation->ClearSegment(Self->GetActorLocation(), Route[RouteIndex + 1])) break;
-            ++RouteIndex;
-        }
-        if (RouteIndex < Route.Num())
-        {
-            FVector Direction = (Route[RouteIndex] - Self->GetActorLocation()).GetSafeNormal2D();
-            // A small local separation steers around teammates without changing the static grid.
-            for (TActorIterator<AFPSDemoCharacter> It(GetWorld()); It; ++It)
-                if (*It != Self && !It->IsEliminated())
-                {
-                    const FVector Away = Self->GetActorLocation() - It->GetActorLocation();
-                    const float Distance = Away.Size2D();
-                    if (Distance > 1 && Distance < 120) Direction += Away.GetSafeNormal2D() * (1.f - Distance / 120.f);
-                }
-            Direction = Direction.GetSafeNormal2D();
-            if (!Navigation->ClearSegment(Self->GetActorLocation(), Self->GetActorLocation() + Direction * 65))
-                Direction = (Route[RouteIndex] - Self->GetActorLocation()).GetSafeNormal2D();
-            Self->AddMovementInput(Direction, 1.f);
-            if (!bVisibleEnemy)
-            {
-                ClearFocus(EAIFocusPriority::Gameplay);
-                SetControlRotation(Direction.Rotation());
-                Self->FaceRotation(GetControlRotation(), DeltaSeconds);
-            }
-        }
-        if (Now - ProgressTime > 2.f)
-        {
-            if (FVector::DistSquared2D(Self->GetActorLocation(), ProgressLocation) < FMath::Square(80.f))
-            { NextRoute = 0; if (!Enemy.IsValid()) ++PatrolIndex; }
-            ProgressTime = Now; ProgressLocation = Self->GetActorLocation();
-        }
-    }
-    if (Enemy.IsValid() && bVisibleEnemy)
-    {
-        SetFocus(Enemy.Get());
-        const FRotator Aim = (Enemy->GetPawnViewLocation() - Self->GetPawnViewLocation()).Rotation();
-        SetControlRotation(FMath::RInterpTo(GetControlRotation(), Aim, DeltaSeconds, 9.f));
-        Self->FaceRotation(GetControlRotation(), DeltaSeconds);
-        if (bEngage && Now >= NextShot && Now >= ReactionUntil && Weapon->Equipped().Magazine > 0)
-        {
-            FHitResult Hit;
-            FCollisionQueryParams Query(SCENE_QUERY_STAT(FPSBotAim), true, Self);
-            GetWorld()->LineTraceSingleByChannel(Hit, Self->GetPawnViewLocation(), Enemy->GetPawnViewLocation(), ECC_Visibility, Query);
-            if (Hit.GetActor() == Enemy.Get() && FMath::Abs(FRotator::NormalizeAxis(GetControlRotation().Yaw - Aim.Yaw)) < 5.f)
-            {
-                // Brief bursts with modest spread. Damage still goes through the normal server shot path.
-                SetControlRotation(Aim + FRotator(FMath::FRandRange(-1.f, 1.f), FMath::FRandRange(-1.5f, 1.5f), 0));
-                Self->FireBotShot();
-                NextShot = Now + (++BurstShots >= 3 ? .85f : .24f);
-                if (BurstShots >= 3) BurstShots = 0;
-            }
-            else NextShot = Now + .1f;
         }
     }
 }
 
 float AFPSMatchMode::DamageMultiplier(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const
 {
-    return ModeName == TEXT("Solo") && Attacker && Victim && Cast<AFPSBotController>(Attacker->GetController()) &&
+    return ModeRules && ModeRules->Kind == EFPSGameplayKind::TeamMatch && Attacker && Victim && Cast<AFPSBotController>(Attacker->GetController()) &&
         Victim->GetController() && Victim->GetController()->IsPlayerController() ? BotPlayerDamageMultiplier : 1.f;
 }

@@ -76,7 +76,15 @@ void UFPSAvatarVisuals::Segment(const FString& Name, FVector Start, FVector End)
 void UFPSAvatarVisuals::UpdatePose(AFPSDemoCharacter* Character, USceneComponent* Camera,
     USceneComponent* Gun, UStaticMeshComponent* WorldGun, float DeltaSeconds)
 {
-    if (!Character || GetNetMode() == NM_DedicatedServer || !Character->GetWeapons()->IsEnabled() || bBuildFailed) return;
+    if (!Character || GetNetMode() == NM_DedicatedServer || !Character->GetWeapons()->IsEnabled()) return;
+    const auto* PoseDef = Character->GetWeapons()->Definition();
+    const auto& PoseState = Character->GetWeapons()->GetLoadout();
+    // Absolute base every frame, including the legacy mesh fallback. Never accumulate aim pitch.
+    if (PoseDef) WorldGun->SetRelativeTransform(PoseDef->ThirdPerson.Transform);
+    WorldGun->SetRelativeRotation((PoseDef ? PoseDef->ThirdPerson.Transform.Rotator() : FRotator::ZeroRotator) +
+        FRotator(PoseState.Action == EFPSWeaponAction::Reloading ? -35 : 0, 0, PoseState.Action == EFPSWeaponAction::Inspecting ? 40 : 0));
+    WorldGun->SetVisibility(PoseDef && !Character->IsEliminated());
+    if (bBuildFailed) return;
     if (!bBuilt && !Build(Character, Camera)) return;
     const bool bAlive = !Character->IsEliminated();
     for (const auto& Pair : Parts) Pair.Value->SetVisibility(bAlive);

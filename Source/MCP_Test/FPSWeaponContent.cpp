@@ -1,4 +1,5 @@
 #include "FPSWeaponData.h"
+#include "FPSModeRules.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Engine/AssetManager.h"
 #include "Engine/StreamableManager.h"
@@ -155,6 +156,7 @@ bool UFPSWeaponCatalog::PrepareWorld(UWorld* World, bool bRequireStands)
     TArray<FName> Ids;
     TArray<FString> Errors;
     auto& Manager = UAssetManager::Get();
+    const UFPSModeRules* ModeRules = nullptr;
     int32 StandCount = 0;
     for (TActorIterator<AFPSWeaponStand> It(World); It; ++It)
     {
@@ -165,11 +167,36 @@ bool UFPSWeaponCatalog::PrepareWorld(UWorld* World, bool bRequireStands)
     }
     if (bRequireStands || StandCount)
     {
-        Ids.AddUnique(StartingPrimary); Ids.AddUnique(StartingSecondary);
+        ModeRules = UFPSModeRules::ForWorld(World, &Errors);
+        if (ModeRules) ModeRules->GatherWeaponIds(Ids, Errors);
         if (!StandCount) Errors.Add(TEXT("Map has no explicit weapon stands"));
     }
     else if (World->GetMapName().Contains(TEXT("LV_NetSyncFPS"))) Ids.AddUnique(StartingPrimary);
     PrepareDependencies(Ids);
+    if (bReady && ModeRules && Errors.IsEmpty())
+    {
+        // Admission covers rule identity/preferences as well as the required definition/resource set.
+        // Stable weapon IDs participate, never package paths or GUIDs of spawned instances.
+        TArray<uint8> Bytes;
+        FMemoryWriter Writer(Bytes);
+        FString WeaponDigest = SessionDigest;
+        Writer << WeaponDigest;
+        uint8 Kind = uint8(ModeRules->Kind), Selection = uint8(ModeRules->Selection), Replacement = uint8(ModeRules->Replacement), DeathDrop = uint8(ModeRules->DeathDrop);
+        Writer << Kind; Writer << Selection; Writer << Replacement; Writer << DeathDrop;
+        float Lifetime = ModeRules->DynamicDropLifetime; int32 Limit = ModeRules->DynamicDropLimit;
+        float SelectionInterval = ModeRules->SelectionRequestInterval;
+        Writer << SelectionInterval;
+        Writer << Lifetime; Writer << Limit;
+        auto WriteId = [&](const TSoftObjectPtr<UFPSWeaponDefinition>& Reference)
+        {
+            FString Id = Manager.GetPrimaryAssetIdForPath(Reference.ToSoftObjectPath()).PrimaryAssetName.ToString().ToLower();
+            Writer << Id;
+        };
+        WriteId(ModeRules->DefaultLoadout->Primary); WriteId(ModeRules->DefaultLoadout->Secondary);
+        int32 Count = ModeRules->SelectableWeapons.Num(); Writer << Count;
+        for (const auto& Reference : ModeRules->SelectableWeapons) WriteId(Reference);
+        SessionDigest = Hash(Bytes);
+    }
     if (!Errors.IsEmpty())
     {
         const FString Failure = ValidationError + FString::Join(Errors, TEXT("\n"));

@@ -7,6 +7,11 @@
 #include "FPSWeaponVisualTiming.h"
 #include "FPSDemoCharacter.generated.h"
 
+class UFPSLifeComponent;
+class UFPSActionPolicy;
+class UFPSCharacterInput;
+class UFPSCharacterPresentation;
+struct FFPSDeathContext;
 class USoundBase;
 struct FFPSWeaponShotContext;
 
@@ -24,6 +29,8 @@ class UStaticMeshComponent;
 UCLASS()
 class MCP_TEST_API AFPSDemoCharacter : public ACharacter, public IAbilitySystemInterface
 {
+	friend struct FFPSLoadoutSmoke;
+    friend struct FFPSDropSmoke;
 	GENERATED_BODY()
 
 public:
@@ -38,11 +45,12 @@ public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	virtual FVector GetPawnViewLocation() const override;
 
+	UFPSLifeComponent* GetLife() const { return Life; }
+	UFPSActionPolicy* GetActionPolicy() const { return ActionPolicy; }
 	float GetHealth() const;
 	float GetMaxHealth() const;
 	bool IsEliminated() const { return bEliminated; }
 	static constexpr float RespawnDelay = 2.5f;
-	void MarkEliminated(const FString& KillerName = TEXT("World"));
 	float GetRespawnSeconds() const;
 	const FString& GetKillerName() const { return EliminatedBy; }
 	void ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot);
@@ -54,6 +62,11 @@ public:
 	void StopCombatInput();
 
 protected:
+	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<UFPSLifeComponent> Life;
+	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<class UFPSBaseMembership> BaseMembership;
+	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<UFPSActionPolicy> ActionPolicy;
+	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<UFPSCharacterInput> CharacterInput;
+	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<UFPSCharacterPresentation> Presentation;
     // Camera/avatar settings, independent of weapon equip or gameplay recoil recovery.
     UPROPERTY(EditAnywhere, Category="FPS|Camera", meta=(ClampMin="30", ClampMax="150"))
     float BaseFieldOfView = 92.f;
@@ -91,23 +104,6 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category="FPS")
 	TObjectPtr<class UTextRenderComponent> TeamMarker;
 
-	UPROPERTY()
-	TObjectPtr<UInputMappingContext> InputMap;
-	UPROPERTY()
-	TObjectPtr<UInputAction> ForwardAction;
-	UPROPERTY()
-	TObjectPtr<UInputAction> RightAction;
-	UPROPERTY()
-	TObjectPtr<UInputAction> YawAction;
-	UPROPERTY()
-	TObjectPtr<UInputAction> PitchAction;
-	UPROPERTY()
-	TObjectPtr<UInputAction> FireAction;
-	UPROPERTY()
-	TObjectPtr<UInputAction> JumpAction;
-	UPROPERTY()
-	TObjectPtr<UInputAction> HealAction;
-
 	UPROPERTY(ReplicatedUsing=OnRep_Eliminated)
 	bool bEliminated = false;
 	UPROPERTY(Replicated)
@@ -124,6 +120,11 @@ protected:
 	void MulticastShotFX(FVector_NetQuantize Start, USoundBase* ShotSound);
 
 private:
+    friend struct FFPSCharacterSmoke;
+	void MarkEliminated(const FString& KillerName);
+	friend class UFPSCharacterInput;
+	friend class UFPSCharacterPresentation;
+	void OnLifeEnded(UFPSLifeComponent* Component, const FFPSDeathContext& Context);
 	void ResolveShot(float Range, USoundBase* FireSound, const FFPSWeaponShotContext* WeaponShot);
 	void ApplyTeachingDamageEffectTo(AFPSDemoCharacter* Target);
     friend struct FFPSTeachingSmoke;
@@ -134,17 +135,7 @@ private:
 	void SprintOff();
 	void CrouchOn();
 	void CrouchOff();
-	UPROPERTY() TObjectPtr<UInputAction> ReloadAction;
-	UPROPERTY() TObjectPtr<UInputAction> AimAction;
-	UPROPERTY() TObjectPtr<UInputAction> InspectAction;
-	UPROPERTY() TObjectPtr<UInputAction> PrimaryAction;
-	UPROPERTY() TObjectPtr<UInputAction> SecondaryAction;
-	UPROPERTY() TObjectPtr<UInputAction> DropAction;
-	UPROPERTY() TObjectPtr<UInputAction> PickupAction;
-	UPROPERTY() TObjectPtr<UInputAction> SprintAction;
-	UPROPERTY() TObjectPtr<UInputAction> CrouchAction;
 	void AddInputMap();
-	TWeakObjectPtr<UEnhancedInputLocalPlayerSubsystem> RegisteredInputSubsystem;
 	void MoveForward(const FInputActionValue& Value);
 	void MoveRight(const FInputActionValue& Value);
 	void LookYaw(const FInputActionValue& Value);
@@ -155,13 +146,7 @@ private:
 	void ReleaseJump();
 	void TriggerLocalShotAnimation();
 
-    FPSWeaponVisualTiming::FTransition AimVisualBlend, CameraFOVBlend{92.f}, SprintVisualBlend;
-    float RecoilKick = 0;
-    double RecoilStartedAt = -100;
-	float Recoil = 0.0f;
 	float LastLocalFire = -10.0f;
 	float LastServerFire = -10.0f;
 	float LastServerHeal = -10.0f;
-	float LocalFlashUntil = 0.0f;
-	float RemoteFlashUntil = 0.0f;
 };

@@ -23,3 +23,9 @@ void AFPSDemoGameState::RecordElimination(const FString& AttackerName, const FSt
 	LastEvent = FString::Printf(TEXT("%s eliminated %s"), *AttackerName, *VictimName);
 	ForceNetUpdate();
 }
+
+bool AFPSDemoGameState::IsCombatActive() const
+{
+    return bStructuredMatch && WeaponDataError.IsEmpty() && !bWaiting && !bFinished &&
+        (bTraining || RoundEndsAt <= 0 || GetServerWorldTimeSeconds() < RoundEndsAt);
+}

@@ -1,17 +1,24 @@
-param([string]$EngineRoot = 'D:\UE\UE_5.8')
+param([string]$EngineRoot = 'D:\UE\UE_5.8', [string]$PackageExecutable = '', [string]$LogRoot = '')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $exe = Join-Path $EngineRoot 'Engine\Binaries\Win64\UnrealEditor.exe'
+$launchPrefix = @("`"$root/MCP_Test.uproject`"")
+if ($PackageExecutable) { $exe = [System.IO.Path]::GetFullPath($PackageExecutable); $launchPrefix = @() }
+if (!(Test-Path -LiteralPath $exe)) { throw "Unreal executable missing: $exe" }
+if (!$LogRoot) { $LogRoot = Join-Path $root 'Saved/FPSFlowTests' }
+$LogRoot = [System.IO.Path]::GetFullPath($LogRoot)
+New-Item -ItemType Directory -Path $LogRoot -Force | Out-Null
 foreach ($change in @('capacity', 'interval')) {
-    $serverLog = Join-Path $root "Saved/FPSFlowTests/Content-$change-server.log"
-    $clientLog = Join-Path $root "Saved/FPSFlowTests/Content-$change-client.log"
+    $serverLog = Join-Path $LogRoot "Content-$change-server.log"
+    $clientLog = Join-Path $LogRoot "Content-$change-client.log"
     $owned = @()
     $started = Get-Date
     try {
         $common = @('-game', '-nullrhi', '-nosound', '-unattended', '-nosplash', '-FPSWeaponDamageSmoke', '-ExecCmds="t.MaxFPS 60"', '-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False')
-        $owned += Start-Process -FilePath $exe -ArgumentList (@("`"$root/MCP_Test.uproject`"", '/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?listen', '-port=17781', "-abslog=`"$serverLog`"") + $common) -PassThru -WindowStyle Hidden
+        if ($PackageExecutable) { $common += "-UserDir=`"$LogRoot/$change/User`"" }
+        $owned += Start-Process -FilePath $exe -ArgumentList ($launchPrefix + @('/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?listen', '-port=17781', "-abslog=`"$serverLog`"") + $common) -PassThru -WindowStyle Hidden
         Start-Sleep -Seconds 6
-        $owned += Start-Process -FilePath $exe -ArgumentList (@("`"$root/MCP_Test.uproject`"", '127.0.0.1:17781', "-FPSContentChange=$change", "-abslog=`"$clientLog`"") + $common) -PassThru -WindowStyle Hidden
+        $owned += Start-Process -FilePath $exe -ArgumentList ($launchPrefix + @('127.0.0.1:17781', "-FPSContentChange=$change", "-abslog=`"$clientLog`"") + $common) -PassThru -WindowStyle Hidden
         $deadline = (Get-Date).AddSeconds(60)
         do {
             Start-Sleep -Seconds 1

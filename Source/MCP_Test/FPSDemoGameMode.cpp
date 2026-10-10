@@ -1,6 +1,7 @@
 #include "FPSDemoGameMode.h"
 
 #include "FPSDemoCharacter.h"
+#include "FPSLifeComponent.h"
 #include "FPSDemoGameState.h"
 #include "FPSDemoHUD.h"
 #include "FPSDemoPlayerController.h"
@@ -20,22 +21,23 @@ AFPSDemoGameMode::AFPSDemoGameMode()
 	HUDClass = AFPSDemoHUD::StaticClass();
 }
 
-void AFPSDemoGameMode::HandleElimination(AFPSDemoCharacter* Victim, AController* Attacker)
+void AFPSDemoGameMode::HandleLifeEnded(UFPSLifeComponent* Life, const FFPSDeathContext& Context)
 {
-	if (!HasAuthority() || !IsValid(Victim) || Victim->IsEliminated()) return;
+	if (!HasAuthority() || !Life) return;
+	AActor* Victim = Life->GetOwner();
+	const auto* Pawn = Cast<APawn>(Victim);
 	if (const AFPSMatchMode* Rules = Cast<AFPSMatchMode>(this))
 		if (!Rules->IsCombatActive()) return;
-	AController* VictimController = Victim->GetController();
+	AController* VictimController = Pawn ? Pawn->GetController() : nullptr;
 	AFPSDemoPlayerState* VictimState = VictimController ? VictimController->GetPlayerState<AFPSDemoPlayerState>() : nullptr;
-	AFPSDemoPlayerState* AttackerState = Attacker ? Attacker->GetPlayerState<AFPSDemoPlayerState>() : nullptr;
+	AFPSDemoPlayerState* AttackerState = Cast<AFPSDemoPlayerState>(Context.AttackerState.Get());
 	if (VictimState) VictimState->AddDeath();
-	if (AttackerState && Attacker != VictimController) AttackerState->AddElimination();
+	if (AttackerState && AttackerState != VictimState) AttackerState->AddElimination();
 	if (AFPSDemoGameState* State = GetGameState<AFPSDemoGameState>())
-		State->RecordElimination(AttackerState ? FString::Printf(TEXT("P%d"), AttackerState->GetPlayerId()) : TEXT("World"),
+		State->RecordElimination(AttackerState ? FString::Printf(TEXT("P%d"), AttackerState->GetPlayerId()) : Context.SourceName,
 			VictimState ? FString::Printf(TEXT("P%d"), VictimState->GetPlayerId()) : TEXT("Player"));
-	Victim->MarkEliminated(AttackerState ? AttackerState->GetPlayerName() : TEXT("World"));
 
-	TWeakObjectPtr<AFPSDemoCharacter> WeakVictim(Victim);
+	TWeakObjectPtr<AActor> WeakVictim(Victim);
 	TWeakObjectPtr<AController> WeakController(VictimController);
 	FTimerHandle RespawnTimer;
 	GetWorldTimerManager().SetTimer(RespawnTimer, [this, WeakVictim, WeakController]()

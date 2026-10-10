@@ -1,6 +1,8 @@
+#include "FPSFlowSmoke.h"
+#include "AbilitySystemComponent.h"
+#include "FPSDemoEffects.h"
 #include "FPSWeaponShot.h"
 #include "FPSWeaponComponent.h"
-#include "FPSFlowSmoke.h"
 #include "FPSMatchFlow.h"
 #include "FPSDemoCharacter.h"
 #include "FPSDemoGameState.h"
@@ -117,7 +119,10 @@ void FFPSFlowSmoke::Start(AFPSMatchMode* Mode)
             if (VictimController.IsValid())
             {
                 Victim = Cast<AFPSDemoCharacter>(VictimController->GetPawn());
-                Rules->HandleElimination(Victim.Get(), nullptr);
+                auto* ASC = Victim->GetAbilitySystemComponent();
+                const auto Spec = ASC->MakeOutgoingSpec(UFPSWeaponDamageEffect::StaticClass(), 1, FGameplayEffectContextHandle(new FGameplayEffectContext()));
+                Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WeaponDamage")), -1000.f);
+                ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
             }
             Rules->FinishRound();
             Check(GS->bFinished && GS->Podium.Num() > 0 && GS->Podium.Num() <= 3, TEXT("final podium snapshot"));

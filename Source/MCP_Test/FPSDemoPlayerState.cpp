@@ -1,6 +1,7 @@
 #include "FPSDemoPlayerState.h"
 #include "Net/UnrealNetwork.h"
 #include "FPSScoreSet.h"
+#include "FPSModeRules.h"
 
 AFPSDemoPlayerState::AFPSDemoPlayerState()
 {
@@ -25,6 +26,8 @@ void AFPSDemoPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AFPSDemoPlayerState, TeamId);
 	DOREPLIFETIME(AFPSDemoPlayerState, DeathCount);
+	DOREPLIFETIME_CONDITION(AFPSDemoPlayerState, SelectedPrimary, COND_OwnerOnly);
+	DOREPLIFETIME_CONDITION(AFPSDemoPlayerState, SelectedSecondary, COND_OwnerOnly);
 }
 
 void AFPSDemoPlayerState::AddElimination()
@@ -38,4 +41,14 @@ void AFPSDemoPlayerState::AddElimination()
 void AFPSDemoPlayerState::AddDeath()
 {
 	if (HasAuthority()) { ++DeathCount; ForceNetUpdate(); }
+}
+
+void AFPSDemoPlayerState::EnsureLoadout(const UFPSModeRules* Rules)
+{
+    if (!HasAuthority() || bLoadoutInitialized || !Rules || !Rules->DefaultLoadout) return;
+    const auto* Primary = Rules->DefaultLoadout->Primary.LoadSynchronous();
+    const auto* Secondary = Rules->DefaultLoadout->Secondary.LoadSynchronous();
+    if (!Primary || !Secondary) return;
+    SelectedPrimary = Primary->WeaponId; SelectedSecondary = Secondary->WeaponId;
+    bLoadoutInitialized = true; ForceNetUpdate();
 }

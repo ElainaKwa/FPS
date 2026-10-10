@@ -3,7 +3,7 @@
 - 用途：总索引
 - 适用范围：项目 Docs 文档
 - 状态：现有路径导航有效；已确认实体分类规则，旧文件迁移待单独执行
-- 最后更新：2026-09-30
+- 最后更新：2026-10-10
 
 分类与维护以 [文档分类规则](DocumentationRules.md) 为准：先按 Demo/系统主题，再按用途细分。目前索引暂时保留旧路径，迁移时同步更新。“早期 Demo 制作阶段”和“枪械架构重构阶段”是两条不同时间线。
 
@@ -14,6 +14,7 @@
 - 整体进度：[FPS 路线图](FPSDemoRoadmap.md)。
 - 接手枪械：[设计决策](FPSWeaponRefactorDecisions.md) → [重构进度清单](FPSWeaponRefactorChecklist.md) → [纠正版架构评审与后续建议](FPSWeaponArchitectureReview.md)。
 - 架构后续修正：[枪械维护主题](FPS/Weapons/README.md)，按 R1 → R2 → R5 → R3/R4 → R6/R7 推进。
+- 角色与模式：[角色重构、配装和安全区](FPS/Characters/README.md)，三阶段实现、新包 14 项、实际 Dedicated 十客户端五分钟和连续切图通过；版本、证据与人工体验边界见主题验收记录。
 - 最近交付：[重构第三阶段 BR-3](FPSWeaponRefactorStage3.md)。
 - 保存的枪械参数：[自动生成的资产清单](FPSWeaponAssetReview.md)，禁止手工修改作为配置源。
 
@@ -59,4 +60,4 @@
 
 统一规则已集中到 [DocumentationRules.md](DocumentationRules.md)，此处不再重复维护。
 
-当前项目仍待完整五分钟、十真实客户端、完整打包/Cook 和性能压力验收；文档整理不改变这些完成状态。
+角色与模式本轮已完成完整 Cook/打包、实际 Dedicated 十客户端五分钟及专项自动运行验收，范围见 [扩展验收](FPS/Characters/ExtendedAcceptance.md)。真人体验、性能压力认证和独立 Server Target 包仍待验证；其他主题的完成状态以各自记录为准。

@@ -1,6 +1,6 @@
+#include "FPSDifficultySmoke.h"
 #include "FPSWeaponShot.h"
 #include "FPSWeaponComponent.h"
-#include "FPSDifficultySmoke.h"
 #include "FPSMatchFlow.h"
 #include "FPSDemoCharacter.h"
 #include "FPSDemoAttributeSet.h"

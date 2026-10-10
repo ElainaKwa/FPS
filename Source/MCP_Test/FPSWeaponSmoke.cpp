@@ -16,7 +16,7 @@
 void FFPSWeaponSmoke::Start(AFPSMatchMode* Mode)
 {
 #if !UE_BUILD_SHIPPING
-    if (!FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponAbilitySmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponPresentationSmoke"))) return;
+    if (!FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponAbilitySmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponPresentationSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke"))) return;
     FTimerHandle Timer;
     TWeakObjectPtr<AFPSMatchMode> WeakMode(Mode);
     Mode->GetWorldTimerManager().SetTimer(Timer, [WeakMode]()
@@ -76,6 +76,12 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
         At(94, [&]() { Check(W->Loadout.Primary.Magazine == 4 && W->Loadout.Action == EFPSWeaponAction::Idle, TEXT("fire interrupts inspect")); });
         At(104, [&]() { Check(W->Loadout.Primary.Magazine == 4 && W->Loadout.Secondary.Magazine == 14, TEXT("slots retain independent ammunition")); });
         At(116, [&]() { Check(!W->Loadout.Primary.IsValid(), TEXT("drop removes owned instance")); });
+        At(117, [&]()
+        {
+            for (TActorIterator<AFPSWeaponPickup> It(Pawn->GetWorld()); It; ++It)
+                if (It->GetInstance().InstanceId == P.Original)
+                    Pawn->SetActorLocation(It->GetActorLocation() + FVector(0,0,90), false, nullptr, ETeleportType::TeleportPhysics);
+        });
         At(126, [&]() { Check(W->Loadout.Primary.InstanceId == P.Original && W->Loadout.Primary.Magazine == 4, TEXT("pickup preserves identity and ammo")); });
         At(132, [&]()
         {
@@ -125,6 +131,7 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
         At(106, [&]() { W->Primary(); });
         At(112, [&]() { W->Drop(); });
         At(120, [&]() { W->Pickup(); });
+        At(125, [&]() { W->Primary(); });
         At(130, [&]() { Check(W->Loadout.Primary.InstanceId == P.Original && W->Loadout.Primary.Magazine == 4, TEXT("pickup identity replicated")); });
         At(140, [&]() { W->Request(EFPSWeaponRequest::Pickup, Find(FName(TEXT("Weapon.HeavyPistol")), 3)); });
         At(160, [&]() { auto* Pickup = Find(FName(TEXT("Weapon.AK")), 7); W->Request(EFPSWeaponRequest::Pickup, Pickup); W->Request(EFPSWeaponRequest::Pickup, Pickup); });
@@ -212,10 +219,17 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
         At(487, [&]() { Check(W->Equipped().Magazine == 24, TEXT("saved BR3 fresh press fires next burst")); });
         At(520, [&]() { Check(W->Equipped().Magazine == 30 && W->Equipped().Reserve == 84, TEXT("saved BR3 reload conserves ammunition")); });
         At(580, [&]() { Check(W->Equipped().InstanceId == P.BurstId && W->Equipped().Reserve == 84, TEXT("saved BR3 drop pickup preserves instance")); });
+        At(552, [&]()
+        {
+            for (TActorIterator<AFPSWeaponPickup> It(Pawn->GetWorld()); It; ++It)
+                if (It->GetInstance().InstanceId == P.BurstId)
+                    Pawn->SetActorLocation(It->GetActorLocation() + FVector(0,0,90), false, nullptr, ETeleportType::TeleportPhysics);
+        });
     }
     else
     {
         At(430, [&]() { W->Pickup(); });
+        At(435, [&]() { W->Primary(); }); // Ordinary pickup keeps the active secondary slot.
         At(445, [&]()
         {
             P.BurstId = W->Equipped().InstanceId; W->LocalShotPresentations = 0;
@@ -236,6 +250,7 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
         });
         At(540, [&]() { W->Drop(); });
         At(560, [&]() { W->Pickup(); });
+        At(565, [&]() { W->Primary(); });
         At(583, [&]() { Check(W->Equipped().InstanceId == P.BurstId && W->Equipped().Reserve == 84, TEXT("saved BR3 transferred identity reaches owner")); });
     }
     At(600, [&]() { Check(!P.bFailed, TEXT("COMPLETE")); });

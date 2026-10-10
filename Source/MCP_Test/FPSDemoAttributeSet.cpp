@@ -1,4 +1,6 @@
 #include "FPSDemoAttributeSet.h"
+#include "FPSLifeComponent.h"
+#include "FPSBaseMembership.h"
 
 #include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
@@ -33,7 +35,18 @@ void UFPSDemoAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCal
 {
 	Super::PostGameplayEffectExecute(Data);
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
-		SetHealth(FMath::Clamp(GetHealth(), 0.0f, GetMaxHealth()));
+    {
+        SetHealth(FMath::Clamp(GetHealth(), 0.0f, GetMaxHealth()));
+        if (GetHealth() <= 0 && GetOwningActor())
+            if (auto* Life = GetOwningActor()->FindComponentByClass<UFPSLifeComponent>())
+                Life->NotifyHealthExhausted(Data.EffectSpec.GetContext());
+    }
+}
+bool UFPSDemoAttributeSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData& Data)
+{
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute() && Data.EvaluatedData.Magnitude < 0 &&
+        UFPSBaseMembership::BlocksHostileDamage(GetOwningActor(), Data.EffectSpec.GetContext())) return false;
+    return Super::PreGameplayEffectExecute(Data);
 }
 
 void UFPSDemoAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)

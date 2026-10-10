@@ -1,6 +1,8 @@
 #include "FPSWeaponPresentationSmoke.h"
 #include "FPSWeaponComponent.h"
 #include "FPSDemoCharacter.h"
+#include "FPSCharacterPresentation.h"
+#include "FPSBaseMembership.h"
 #include "FPSDemoGameState.h"
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -19,7 +21,11 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
     const bool Server = Pawn->HasAuthority();
     const auto* GS = W->GetWorld()->GetGameState<AFPSDemoGameState>();
     if (!GS || GS->bWaiting || GS->bFinished) return;
-    const double Time = W->ServerTime() - (GS->RoundEndsAt - 300);
+    // Both processes derive the same test epoch from the replicated round deadline.
+    // Let the first rendered frames and resources warm up before any timed actions.
+    const double Epoch = GS->RoundEndsAt - 300 + 10;
+    const double Time = W->ServerTime() - Epoch;
+    if (Time < 0) return;
     if (LateObserver)
     {
         if (Server || Pawn->IsLocallyControlled()) return;
@@ -56,7 +62,17 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
         UE_LOG(LogTemp, Display, TEXT("FPS_PRESENTATION_SMOKE %s %s %s starts=%u commits=%u dedup=%u"), Pass ? TEXT("PASS") : TEXT("FAIL"), Server ? TEXT("SERVER") : TEXT("CLIENT"), What, W->ReloadStartPresentations, W->ReloadCommitPresentations, W->ConfirmedStartDuplicates);
     };
     auto* Def = const_cast<UFPSWeaponDefinition*>(W->Catalog()->Find(TEXT("Weapon.M4")));
-    At(0, [&]() { Def->ReloadDuration = 1.f; Def->InspectDuration = 20.f; });
+    At(0, [&]()
+    {
+        UE_LOG(LogTemp,Display,TEXT("FPS_PRESENTATION_SMOKE EPOCH %s server_seconds=%.3f render_warmup_seconds=10"),Server ? TEXT("SERVER") : TEXT("CLIENT"),Epoch);
+        Def->ReloadDuration = 1.f; Def->InspectDuration = 20.f;
+        // Recoil/fire presentation is an outside-base fixture; the host's allowed reload/inspect stays in base.
+        if (Server && !Pawn->IsLocallyControlled())
+        {
+            Pawn->SetActorLocation(FVector(400,0,100));
+            Pawn->FindComponentByClass<UFPSBaseMembership>()->RefreshAuthority();
+        }
+    });
     // Listen host performs a separate action, observed on the actual remote client proxy.
     if (Server && Pawn->IsLocallyControlled())
     {
@@ -113,9 +129,9 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
         At(114, [&]() { W->AimOff(); });
         At(117, [&]() { Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, 100.f), TEXT("ADS exit restores camera-owned base FOV")); });
         At(120, [&]() { Def->AimTransitionTime = 0; W->AimOn(); });
-        At(121, [&]() { Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, Def->AimFOV) && Pawn->AimVisualBlend.Value(W->GetWorld()->GetTimeSeconds()) == 1.f, TEXT("zero ADS duration snaps camera and gun blend")); });
+        At(121, [&]() { Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, Def->AimFOV) && Pawn->Presentation->GetAimBlend(W->GetWorld()->GetTimeSeconds()) == 1.f, TEXT("zero ADS duration snaps camera and gun blend")); });
         At(122, [&]() { Pawn->PlayWeaponShot(FVector(0,0,1)); });
-        At(126, [&]() { Check(Pawn->Recoil == 0, TEXT("visual recoil returns exactly without waiting for equip blend")); });
+        At(126, [&]() { Check(Pawn->Presentation->GetRecoil() == 0, TEXT("visual recoil returns exactly without waiting for equip blend")); });
         At(141, [&]() { Def->EquipBlendTime = 0; W->Secondary(); W->Primary(); });
         At(145, [&]() { Check(FVector::Dist(Pawn->GunRoot->GetRelativeLocation(), Def->HipLocation) < .1f, TEXT("zero equip duration reaches exact hip pose after real switch")); });
         At(146, [&]() { Def->EquipBlendTime = 1.f; W->Secondary(); W->Primary(); });

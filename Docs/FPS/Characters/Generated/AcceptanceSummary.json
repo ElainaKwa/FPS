@@ -1,0 +1,3772 @@
+{
+  "purpose": "自动生成资料",
+  "scope": "FPS Characters expanded acceptance",
+  "status": "Automated checks passed; manual experience and independent Server Target unverified",
+  "generated_utc": "2026-10-10T13:47:40.133402+00:00",
+  "generator": "Tools/RecordFPSCharacterAcceptance.py",
+  "generator_sha256": "a47744a07bb31e3ded8ac3c545656d146d474288458b722e35a4d6be25eafc26",
+  "maintenance": "Do not edit manually; regenerate from the named harness records.",
+  "build": {
+    "record": "Saved/FPSCharacterAcceptance/Build/20261010-DedicatedFix/run.json",
+    "sha256": "ed06b05ac98e8e73aa868a69d694461dc67a15bd0b96d34458dd00c90ffc9952",
+    "data": {
+      "started": "2026-10-10T17:21:56.8130700+08:00",
+      "project": "MCP_Test.uproject",
+      "engine": "D:/UE/UE_5.8",
+      "engine_version": {
+        "MajorVersion": 5,
+        "MinorVersion": 8,
+        "PatchVersion": 1,
+        "Changelist": 56057345,
+        "CompatibleChangelist": 55116800,
+        "IsLicenseeVersion": 0,
+        "IsPromotedBuild": 1,
+        "BranchName": "++UE5+Release-5.8"
+      },
+      "archive": "Saved/Packages/CharacterAcceptance",
+      "build_arguments": [
+        "MCP_TestEditor",
+        "Win64",
+        "Development",
+        "-Project=MCP_Test.uproject",
+        "-WaitMutex",
+        "-NoHotReload"
+      ],
+      "package_arguments": [
+        "BuildCookRun",
+        "-project=MCP_Test.uproject",
+        "-noP4",
+        "-platform=Win64",
+        "-clientconfig=Development",
+        "-build",
+        "-skipbuildeditor",
+        "-cook",
+        "-AdditionalCookerOptions=-SkipZenStore",
+        "-stage",
+        "-pak",
+        "-archive",
+        "-archivedirectory=Saved/Packages/CharacterAcceptance",
+        "-unattended",
+        "-utf8output"
+      ],
+      "input_files": [
+        {
+          "path": "Config/DefaultEditor.ini",
+          "sha256": "25920e87560682479062a06afef5e0046d23789e72200634d852becbe1db407b"
+        },
+        {
+          "path": "Config/DefaultEngine.ini",
+          "sha256": "830e9951ea7dcfa872615124e25d3d71ff8533eafc936e6fed2a520c951cf72e"
+        },
+        {
+          "path": "Config/DefaultGame.ini",
+          "sha256": "d5533a6d2e746455d1bfcc2841b852db5d919970dc5ab85751057c193ee0676a"
+        },
+        {
+          "path": "Config/DefaultInput.ini",
+          "sha256": "fc9bf4eb5d2727bb6f80f24ffcb846698ddc717dae0dc9455524ebf472eeced0"
+        },
+        {
+          "path": "MCP_Test.uproject",
+          "sha256": "cdb5a898e2305980a0d4c794c4048fbb852b4259e0330a86c6ef957fa73b9c19"
+        },
+        {
+          "path": "Source/MCP_Test.Target.cs",
+          "sha256": "d2927285d625d583e977790bab642a3cd7af953a533792b3250a23f83155af71"
+        },
+        {
+          "path": "Source/MCP_Test/BreakablePlatform.cpp",
+          "sha256": "6ef08a24a1150ea1873b1ca15ec41045270354132ca353b423c8d6e2cf018033"
+        },
+        {
+          "path": "Source/MCP_Test/BreakablePlatform.h",
+          "sha256": "af05dddee921f6ac2302cd1745470af567ff9ca05e8013514a9785db4909c4ad"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAcceptanceSmoke.cpp",
+          "sha256": "a74005180b545461a5002f026a5e666ae286cd94be39b31385b6bc24df631029"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAcceptanceSmoke.h",
+          "sha256": "c0875adb584ddab00d5aa7a1b167ad64008615cb74926e139aabdf82f10e9170"
+        },
+        {
+          "path": "Source/MCP_Test/FPSActionPolicy.cpp",
+          "sha256": "000166fab63cf3b0003a8f7cee877ac5baa230eddc6bf3c04cb075a1a84f37fe"
+        },
+        {
+          "path": "Source/MCP_Test/FPSActionPolicy.h",
+          "sha256": "6d417be64a60f6752ea089d6733bc8b6240f8b8911de781fedf55ed01e265b7a"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAISmoke.cpp",
+          "sha256": "7bf0a93b7286a52dc8807fee54bc108d473ec8a7f940eacc4b71e11537f98e32"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAISmoke.h",
+          "sha256": "4848adb287c896b6dd5855385375c4b489b65d26fe785f857acbe2547b3f57bc"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAudioSubsystem.cpp",
+          "sha256": "b629d5c77ba5db25f23fee8e1648f7e8bfd160dbab2f06158c4f628202fe10bd"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAudioSubsystem.h",
+          "sha256": "a7514940249bd3f5ec45bfcf2f233fbe7a34d737c57b2f19b18f1f5e0a8d4da0"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAvatarVisuals.cpp",
+          "sha256": "ed119d2d8f1409b22aa5a17c57479e2860a0aa6195649d026a8bdaae1eea0014"
+        },
+        {
+          "path": "Source/MCP_Test/FPSAvatarVisuals.h",
+          "sha256": "9f053b60e99113aea024d0051dcd0c3b3092bea2904c481e7b5215d6c03f6dd7"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBaseMembership.cpp",
+          "sha256": "d8edd6bc50006e3a1857858726eb932ab8a37928fd6571f47efc5eecae786c1b"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBaseMembership.h",
+          "sha256": "d27f5f6d6093afbd72bd9b75b1237d02e689f57278e1fa9687b270035fbb2782"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBaseRegion.cpp",
+          "sha256": "fa949d443c0665e82e42ba97d1aaf2d1a6a8a721a7e80982d90cf56745b12b39"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBaseRegion.h",
+          "sha256": "93b4a6927304954716f221212e3b8b503215d6b00dc2712e44aa67424c7aab88"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBotController.cpp",
+          "sha256": "cb84ccb72fdd10c3c000da3d0d1b798ab31452b45f3698eac75286be66fabdff"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBotNavigation.cpp",
+          "sha256": "d9e1142b38abc038899f13d8d0ee3005ba981a20de384124d541613db5eff92c"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBotNavigation.h",
+          "sha256": "c683d9e20a01cc3e211fe7ff9a3e6696986f4edb732ce2d87994351c5720ee44"
+        },
+        {
+          "path": "Source/MCP_Test/FPSBotSettings.h",
+          "sha256": "46579b4349e481ff6bf4f69ef99e0298fb148fdcdf0e183abf0816cecc788fd6"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterInput.cpp",
+          "sha256": "728ca0a0f6e6d3236d65cd90ac8d6ef430cc9ecc62bf3275312d5135c715ec9e"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterInput.h",
+          "sha256": "87081f02f0fcb8e5777aac2cab05262b5bded638f0797b95b07d575af2154c15"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterPresentation.cpp",
+          "sha256": "22a7196c6f43bbb62befc062e45450463bd379d3c4f4684faa9ac7f737d2d38b"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterPresentation.h",
+          "sha256": "35bc2598937f93d169d4620fdaa59f6ae0fb1c931966bf79e4e385580e1100dd"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterSmoke.cpp",
+          "sha256": "72f17fab865ab5d0fe321a9e497b6ea4bd9b53e289c6879fbcaae1f1a409363d"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterSmoke.h",
+          "sha256": "148fed640f9620a71f62028e15a93b2f91fdab387b68bc9a4095c03aa3529cd5"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterTravelSmoke.cpp",
+          "sha256": "ac14c6107bea4007a96e4d39fe2790ac5d451fe6c6ddf3f385536a9ba551f396"
+        },
+        {
+          "path": "Source/MCP_Test/FPSCharacterTravelSmoke.h",
+          "sha256": "b7478312bee6908c432d7a4d0abef003ae7f8f1f63d655507e546420b1a3c0d0"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoArena.cpp",
+          "sha256": "e5a6f8d4f0205b4ac47ab93931e1d79bdcf33ab67a6a0d7638992ce0b846154c"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoArena.h",
+          "sha256": "96d6c2ff2a5f9752e91972336f41e3885a89402cb7215a319fbf46dca8dc74c2"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoAttributeSet.cpp",
+          "sha256": "acba8b05f31ce05d79912a203562a102a9609c9f00e46b2c0317eee2d432cfed"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoAttributeSet.h",
+          "sha256": "161f3883826737de894b34c8483517133d0406d7a99eb7e7d772f9666102897a"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoCharacter.cpp",
+          "sha256": "c4facd437c8119bb6b89f3f764c8573d3447890b9fdf9a833127792800f935db"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoCharacter.h",
+          "sha256": "4f92e00a27ff4525480c5d4532647216d514f5b08a405aebb25545952df28389"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoEffects.cpp",
+          "sha256": "58f60e9286a83c0c968e13d0dc0ba962aa623883b88f3f896c314fe9bba2e75f"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoEffects.h",
+          "sha256": "50fe785ff1b76bafb5417d32ffe1cb747589175b1c0ee0f546dbf7348c51e305"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoGameMode.cpp",
+          "sha256": "6f6d8a8f4892b64cf6530b0a9ed4090fa6fdd95f91c764f2e15716daef9fbdaa"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoGameMode.h",
+          "sha256": "24e554a67aebed4bc985c37a2dda28fd16ed0964158c5e6416cbc33eb9fa2e79"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoGameState.cpp",
+          "sha256": "ffbc378b78c4fb7a9543d4f86c5cfcd4961bff82c0cd12cf1665999f3112d5d9"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoGameState.h",
+          "sha256": "5390b5c40bd8e0dc26fc899f799ec9e56efe422987ab5a868da6c882e0dbe0e5"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoHealStation.cpp",
+          "sha256": "cb73809dfd546f5e6196acaa8f4648a088f2429aaa287cbb7fb3bbd04031b22c"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoHealStation.h",
+          "sha256": "e7157977b51e7f06d00fb23727f81d77d77f5d091e62c78c8942de6bd638b4ff"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoHUD.cpp",
+          "sha256": "9d8573b5aee6a391aacbe0d44a2949a8821618ce71f3a82035c3807ff1662258"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoHUD.h",
+          "sha256": "bf0dfdfe74ebbdecd8275174fcd38d6526f47cb10066641dc87e6f7fb11050d7"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoPlayerController.cpp",
+          "sha256": "29356bc72361281dee9afdfd6b727d7824a13778e63e46a6dabae79b59de7928"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoPlayerController.h",
+          "sha256": "b8167e3c064e741b892cc32b669f6773895d35536c6c294ba274701e202bfd01"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoPlayerState.cpp",
+          "sha256": "8a012c3794f2db897e749b265374dfa0fb4f694ce407433e16d51704d0395b80"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDemoPlayerState.h",
+          "sha256": "676736aa20695b0f50fe1aef7e58acb7b142d441024400e5d33afd237d883e98"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDifficulty.h",
+          "sha256": "5eea2cd82fe86dbed459880591e7989ca1e9d5ce045bad139370d0947f8a2787"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDifficultySmoke.cpp",
+          "sha256": "fa7f629acf1f49c6752bde632b98d80c01cb5f65d88433f0cf8a44f07660bc82"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDifficultySmoke.h",
+          "sha256": "533a689c261c37f1bdd38e81ad0e6cd6282e6361430e2fa1675a72eb4d82a00a"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDropSmoke.cpp",
+          "sha256": "df63184cd9e1bcf5e22b94c6d663ea6e3fb305aed94b14cecf1ba7fdca7cb43e"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDropSmoke.h",
+          "sha256": "064ecb077c0e345c1a14fd4de3eaaf0fd3e154b30e17e1f9e6c28e406998c24e"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDynamicDrops.cpp",
+          "sha256": "ef341c43b2a5ba523bbd7834b26f084b25de2b12deb95a54c9e5c95482688c9e"
+        },
+        {
+          "path": "Source/MCP_Test/FPSDynamicDrops.h",
+          "sha256": "3a9a1804b4d7512679ede471b2d3f56d590a8b1e9f6b71525fcc2ca0cc9fbaed"
+        },
+        {
+          "path": "Source/MCP_Test/FPSFlowSmoke.cpp",
+          "sha256": "44169deddcbc080301018d80a5b3e532be32b2fde390051f5dc61da47cea6800"
+        },
+        {
+          "path": "Source/MCP_Test/FPSFlowSmoke.h",
+          "sha256": "329a33d4a1cba5197c1cfa93db5d3f29f9c01530964462ef33e021d9b4f287df"
+        },
+        {
+          "path": "Source/MCP_Test/FPSFrontController.cpp",
+          "sha256": "3bd7cbf17afae7027d9bff8bede55ecb07c6d61dd365467d8a6a3eeb23502c12"
+        },
+        {
+          "path": "Source/MCP_Test/FPSFrontGameInstance.cpp",
+          "sha256": "e4608289929865fc3f2394cdfab3b583ea40e90f7acab9da0b0c5e4a25a067f9"
+        },
+        {
+          "path": "Source/MCP_Test/FPSFrontGameInstance.h",
+          "sha256": "65ebdaa45fb0549de7a9065767085161aabb22133e45f6a20d67081295537048"
+        },
+        {
+          "path": "Source/MCP_Test/FPSLifeComponent.cpp",
+          "sha256": "36eedaa1da6d7e0cb15833ed6a0df0d8013dc401d3f0cf4a47b5d94eb317c97e"
+        },
+        {
+          "path": "Source/MCP_Test/FPSLifeComponent.h",
+          "sha256": "cf05193afb888c373f1d22e1fbd0582382af72cf4889887c62e7ebca46fef1e3"
+        },
+        {
+          "path": "Source/MCP_Test/FPSLoadoutMenu.cpp",
+          "sha256": "6daab12a96abde4d53cabb9d2c9c763b908734e0ec6c5ef876ccfd09087e33e9"
+        },
+        {
+          "path": "Source/MCP_Test/FPSLoadoutMenu.h",
+          "sha256": "8920c579879802353ccad040d0f432305452bf5c95a7da7d18be786a3d39f6d2"
+        },
+        {
+          "path": "Source/MCP_Test/FPSLoadoutSmoke.cpp",
+          "sha256": "f3ea49c296136562464fb0c50f4a49f06ba2d0e3fa7320b936d86382abc19937"
+        },
+        {
+          "path": "Source/MCP_Test/FPSLoadoutSmoke.h",
+          "sha256": "343ee06878d518f90e4e807ba0d1df5e1f2694b83fb006894d46ba0810b91458"
+        },
+        {
+          "path": "Source/MCP_Test/FPSMatchFlow.cpp",
+          "sha256": "3d1452174a6cd0148df4fb2f6f6639eb4950fe570aa36fd34ca4200861b0d01a"
+        },
+        {
+          "path": "Source/MCP_Test/FPSMatchFlow.h",
+          "sha256": "cc22d20a31c8a1e7a8b5c85bdcf1b0862111fc7c83abda49e42507ec63f458dc"
+        },
+        {
+          "path": "Source/MCP_Test/FPSModeRules.cpp",
+          "sha256": "b3a7022daa446d2cc02db9607e214f15f5cd0766efb1d2c41478fa2ac61ffa56"
+        },
+        {
+          "path": "Source/MCP_Test/FPSModeRules.h",
+          "sha256": "44244c05f86b8ac83aca0e055e652dbf21e931facaa7eab099407a7876995026"
+        },
+        {
+          "path": "Source/MCP_Test/FPSMovementComponent.cpp",
+          "sha256": "b372fc0173c6bbc6af169b20c1c70dc4cc974320957a8a0ed4bd9edf1f8056f2"
+        },
+        {
+          "path": "Source/MCP_Test/FPSMovementComponent.h",
+          "sha256": "8e9bd2024722d243df13275b04a73bbd1b8eb0ec2d444ecfecaf0012c1399248"
+        },
+        {
+          "path": "Source/MCP_Test/FPSRecoilSmoke.cpp",
+          "sha256": "5c433f733bef54e497d938a902389906356f825e8c8ca33a741d2dd710d1645c"
+        },
+        {
+          "path": "Source/MCP_Test/FPSRecoilSmoke.h",
+          "sha256": "9945574261cdb7c876d5d4da9a784b7d085f504872d2c1a73d783982a1561205"
+        },
+        {
+          "path": "Source/MCP_Test/FPSScoreSet.cpp",
+          "sha256": "debaca6bd564511df4edd7b488ca431c5060143e1b6368d7ef897cb04c0c2a39"
+        },
+        {
+          "path": "Source/MCP_Test/FPSScoreSet.h",
+          "sha256": "aa6b8676f52702052f5db898cbb0cde0464306f07ba4a2f877dece5ad4b87f21"
+        },
+        {
+          "path": "Source/MCP_Test/FPSTeachingAdapter.cpp",
+          "sha256": "f6de39c286ab3d32b0b12eff313d06d87c85359fb3bf0dddc5a6a761cea64163"
+        },
+        {
+          "path": "Source/MCP_Test/FPSTeachingSmoke.cpp",
+          "sha256": "8b68644826167162d42aa4edd63979cf87910a9103f856f4574af1977e87a74c"
+        },
+        {
+          "path": "Source/MCP_Test/FPSTeachingSmoke.h",
+          "sha256": "53d62902dc445c8e3027ad8ac90b6a57ab50a8f3be7dcb455d6a4c8b40883113"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponAbilities.cpp",
+          "sha256": "510fa71598c7551cf1226d8cb94116f4274a5d3c42a0051c5431e0e4e349296a"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponAbilities.h",
+          "sha256": "434a788d3d6f3257852bc37aa350f71c1765983ffb3ec7c83bebb26329aed1eb"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponAbilitySmoke.cpp",
+          "sha256": "3d99b93289513a0f68a91a19aad0bfcc633bc6417eee4c8e6db5d5e5872814d1"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponAbilitySmoke.h",
+          "sha256": "02adcdb7c8a7bae26e192ae20c1aa96a3c5d5e9f4b0173fd7fd176084c9a006c"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponAdmission.cpp",
+          "sha256": "4378f022064b7d826ef37a5b6f30dec2913d818dba9634feceb22278823a59b3"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponComponent.cpp",
+          "sha256": "04734d237262fa0f88cbe7b34c3f760f74f20113710f5a2d564664d4068a21d0"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponComponent.h",
+          "sha256": "7e9521877b4f4c206be93930e658ee8c7ba4b1c192c83218f8d9c1a2bc924c0f"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponContent.cpp",
+          "sha256": "c5e70888602f25c27b9c68b827d37f6f08a59cf2288373aa9101e4642f5e4c8f"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponDamageSmoke.cpp",
+          "sha256": "f33889df5353ad84da33891e2bc4ab543f2d99ac9fe2e1db001521560802e2b1"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponDamageSmoke.h",
+          "sha256": "1cedf4101e56cc6a41722c6c2822e3d3129ca09be1243f0e80e5552e7705a2db"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponData.cpp",
+          "sha256": "f8a14792efe95db15b4a163279c76055bcb25e67495de0ce75fc7478c4c060c0"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponData.h",
+          "sha256": "8335e1d2484987492ca9a01697d194526792582424a2f0f17657015784948c50"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponDataCommandlet.cpp",
+          "sha256": "17f5489a237210d4c1627d032760014ae8c6b88403add5a2644485379c013086"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponDataCommandlet.h",
+          "sha256": "b3fae79b6cfcdf1c4f1fe346d4c734408aa1121a4a59f5f7bbd512cc69224b1b"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponPickup.cpp",
+          "sha256": "62f6575a718f2baf17b0597992a292fd314bfd0dfbb785ceca6c8b70a3388628"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponPickup.h",
+          "sha256": "a88a197b6c98eb93d029fad85ee022a588396c02bcf4eb10f3a389aa48cf5676"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponPresentation.cpp",
+          "sha256": "8bf73a361f7b5320a7990c21ab142c8b09be61593f3bf5d7d56d8ed1acd17839"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponPresentationSmoke.cpp",
+          "sha256": "816cc4d15fc4d6b97d82cca0adc44934dcb13de61bddc2ca5d36910005355988"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponPresentationSmoke.h",
+          "sha256": "8498f8a8ed4e15ec59e985892e398d7e2d72fdec1cc4c8a8d701c3d3e0eee8bc"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponShot.cpp",
+          "sha256": "6f003652944f991b7b3551eddbb583a3197e62707175fcd119ba70172c7b7e20"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponShot.h",
+          "sha256": "0d7dc09d2134e90771a7d20dbbe15a8657e3c2fb9d7179d22acf5cc7f9610258"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponSmoke.cpp",
+          "sha256": "d4b920fe6b0270c1b24aeb341fc657432d7473172c825bec20e0cdd1ae6b8858"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponSmoke.h",
+          "sha256": "e927800f0417f2787556c90ffd608368b60a70ff0d4fcbb7f96497d4a393f3eb"
+        },
+        {
+          "path": "Source/MCP_Test/FPSWeaponVisualTiming.h",
+          "sha256": "2f46453d931bb52ff3834671f98cd8bfc6817e6ae866988f8b8c037a4dd44301"
+        },
+        {
+          "path": "Source/MCP_Test/MCP_Test.Build.cs",
+          "sha256": "edffbfbef5ed0181d7d3fcc2a9af2830c251cfd5a54e2626b9696bdcc20ae88d"
+        },
+        {
+          "path": "Source/MCP_Test/MCP_Test.cpp",
+          "sha256": "125883eb7b3ece27dc1350404b90cd083f96b146bb65a4d131ba475248a9a604"
+        },
+        {
+          "path": "Source/MCP_Test/MCP_Test.h",
+          "sha256": "4694b655856b269fc41b195971214f8e629857c7e5d6f34002a066cd4af3037c"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonCharacter.cpp",
+          "sha256": "e44e6b669580f96176694b49162a2aa9879f22f9bfdd72532565330c162f37c5"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonCharacter.h",
+          "sha256": "46faf222386f726615373bf3947ebf6ba9d6f190e5cef69df8e2ef055e8c29c0"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonGameMode.cpp",
+          "sha256": "b1f6dee999b04d703b212f7b92dae0a800f28b6cc46bc111823f39f8a605c730"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonGameMode.h",
+          "sha256": "12bba9ec2f8acf3206f1675e8d9db9241771377d9db444580f0d7fdd0eb19715"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonGameState.cpp",
+          "sha256": "c0041ff1fe00a008365459e867026f7fdf976338e5b31ab14bd86192a7e3ebca"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonGameState.h",
+          "sha256": "05d495eb3fd02b1c97e7f1182d4cbbffc4eb633d6378833d08122f97ff4d453d"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonHUD.cpp",
+          "sha256": "f3ab5d0ed0b1c8be7ac2890a22ec2a3d359fa603563587290a7da3c231ea1a6f"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonHUD.h",
+          "sha256": "7453b248387d04b471dc725b5ef0218ca933246ca9aff8135140291b69cc4f5b"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonPlayerController.cpp",
+          "sha256": "5e9d4fc7ab201a968eafd57400869852128144a7db2763bd5b3899994c01c89f"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonPlayerController.h",
+          "sha256": "6255ee01488b160cd9d5b6e04c8a048a94ebab642682a7dec4fdc2fed416b92e"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonPlayerState.cpp",
+          "sha256": "f783c2ef7e21aee33ba9dc5eb7fafbf89efc79b902f868a2ebf865848c003dc9"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonPlayerState.h",
+          "sha256": "38c71f31b3c7508c1d09447dd73abf993d520039011c5d00450bb0a9b20c7622"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonStage.cpp",
+          "sha256": "509602597569dcc01e5069886c4da27082655cd95cb605a322994f89482bd1b2"
+        },
+        {
+          "path": "Source/MCP_Test/NetLessonStage.h",
+          "sha256": "0bc34d5990d0f33929c915eb5ec27113d9a0d956476d63306775c0707018682a"
+        },
+        {
+          "path": "Source/MCP_Test/PlatformerCharacter.cpp",
+          "sha256": "b36c31d28332f578e9a3c9ee7280bafaf5ed905e12036e7c2b502a4e86f4a54e"
+        },
+        {
+          "path": "Source/MCP_Test/PlatformerCharacter.h",
+          "sha256": "7497a1aeb1ffac91723bf012de4722bf680faa4f5bda94bd46711c5ffb3935f9"
+        },
+        {
+          "path": "Source/MCP_Test/PlatformerGameMode.cpp",
+          "sha256": "c267fb92236d0252efff9b055cdafa51d8e60ffd772944c0358347bc893e1c4c"
+        },
+        {
+          "path": "Source/MCP_Test/PlatformerGameMode.h",
+          "sha256": "bcbe82b6ede0152e1fe05d58948f8f7a49b4b66e66c4bbc69c07e07496c4fb53"
+        },
+        {
+          "path": "Source/MCP_TestEditor.Target.cs",
+          "sha256": "1c9f489eb163ef01828bd672ebb78956429fb4066cd7ccea887f473c222627f1"
+        }
+      ],
+      "editor_exit_code": 0,
+      "package_exit_code": 0,
+      "result": "PASS",
+      "artifacts": [
+        {
+          "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+          "bytes": 2128896,
+          "last_modified": "2026-10-10T17:22:29.3216628+08:00",
+          "sha256": "44a03dff422679c70db2f139b2dbc537f9eae85729c40be499c223b67b201425"
+        },
+        {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "bytes": 337538560,
+          "last_modified": "2026-10-10T17:23:23.5003580+08:00",
+          "sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64"
+        },
+        {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Content/Paks/global.ucas",
+          "bytes": 3341552,
+          "last_modified": "2026-10-10T17:23:51.1938524+08:00",
+          "sha256": "972bd7184acb704764d8451b8deb27cf339bfd741b88f39d1fd7da46e00ec61a"
+        },
+        {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Content/Paks/global.utoc",
+          "bytes": 806,
+          "last_modified": "2026-10-10T17:23:51.4482765+08:00",
+          "sha256": "f29cb183dc65e040b620bfab511159d03a49d4c3d25c73844dedd4636502a620"
+        },
+        {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Content/Paks/MCP_Test-Windows.pak",
+          "bytes": 11485145,
+          "last_modified": "2026-10-10T17:23:49.7672018+08:00",
+          "sha256": "5dab915cccf6680fa83f82c08c787f73b41f2fe0e2b137fd8e320a75d9e26f65"
+        },
+        {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Content/Paks/MCP_Test-Windows.ucas",
+          "bytes": 252004992,
+          "last_modified": "2026-10-10T17:23:51.4462762+08:00",
+          "sha256": "70b87584a87a9651abfefab0849b40df3b15742c35421e62f35332a15be21642"
+        },
+        {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Content/Paks/MCP_Test-Windows.utoc",
+          "bytes": 222338,
+          "last_modified": "2026-10-10T17:23:51.4492762+08:00",
+          "sha256": "44cc639130f5b1a75965efcecbc5345191ea18559fe24a9137ff8215558bdbc5"
+        }
+      ],
+      "finished": "2026-10-10T17:23:53.6497757+08:00"
+    }
+  },
+  "content": [
+    {
+      "path": "Content/FPSDemo/Modes/DA_DefaultSpawnLoadout.uasset",
+      "sha256": "eb8bb4b37d77fdce806c5a56574534af0a42c042acedb8dc11ab28a3b3501ca9"
+    },
+    {
+      "path": "Content/FPSDemo/Modes/DA_TeamMatch.uasset",
+      "sha256": "4f94983ccaa2b0c61f625385f6168b60bd35bfe59e7b1a7b6f7e2dcd5af8e75d"
+    },
+    {
+      "path": "Content/FPSDemo/Modes/DA_Training.uasset",
+      "sha256": "dea71e8a08b0e36be2f3c3033eab1a9e5d2cb7bbc6a108b0a0f4d2f24d23d76e"
+    },
+    {
+      "path": "Content/FPSDemo/Maps/LV_FPSFoundry.umap",
+      "sha256": "3772eb623185f68f5139815934b6b4a23fd55c59d7491cd663cbe6b13b3e009d"
+    },
+    {
+      "path": "Content/FPSDemo/Maps/LV_FPSTraining.umap",
+      "sha256": "c9ec7b176586aefd68f0f3f0ba06b85dc92b18c37d5c8bbc02fcbc8cb811c27f"
+    }
+  ],
+  "sample": {
+    "record": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/run.json",
+    "sha256": "bcb94a40bdb84035c1178d6f06a3e03894aa23903f525d0f3245a389db132a7b",
+    "data": {
+      "started_utc": "2026-10-10T13:23:38.1363509Z",
+      "completed_utc": "2026-10-10T13:24:41.1852173Z",
+      "result": "PASS_SAMPLE_ONLY",
+      "logs": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108",
+      "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+      "project": "MCP_Test.uproject",
+      "server_binary": {
+        "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+        "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311",
+        "bytes": 512952,
+        "modified_utc": "2026-08-19T19:06:26.7301115Z",
+        "file_version": "++UE5+Release-5.8-CL-56057345"
+      },
+      "client_binary": {
+        "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "bytes": 337538560,
+        "modified_utc": "2026-10-10T09:23:23.5003580Z",
+        "file_version": "5.8.1"
+      },
+      "editor_module": {
+        "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+        "sha256": "44a03dff422679c70db2f139b2dbc537f9eae85729c40be499c223b67b201425",
+        "bytes": 2128896,
+        "modified_utc": "2026-10-10T09:22:29.3216628Z",
+        "file_version": "5.8.1"
+      },
+      "engine_build": {
+        "MajorVersion": 5,
+        "MinorVersion": 8,
+        "PatchVersion": 1,
+        "Changelist": 56057345,
+        "CompatibleChangelist": 55116800,
+        "IsLicenseeVersion": 0,
+        "IsPromotedBuild": 1,
+        "BranchName": "++UE5+Release-5.8"
+      },
+      "protocol": 6,
+      "fixture": "FPSAcceptance",
+      "mode": "LAN",
+      "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+      "bots": 0,
+      "expected_players": 2,
+      "round_seconds": 300,
+      "expected_server_netmode": 1,
+      "expected_client_netmode": 3,
+      "latency_ms": 150,
+      "packet_loss_percent": 3,
+      "reconnect": false,
+      "blackout_seconds": 20,
+      "sample_seconds": 40,
+      "timeout_seconds": 140,
+      "nullrhi": true,
+      "process_records": [
+        {
+          "pid": 39740,
+          "role": "SERVER",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/server.log",
+          "user_dir": "ENGINE_DEFAULT_SHARED_CACHE",
+          "arguments": [
+            "\"MCP_Test.uproject\"",
+            "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+            "-server",
+            "-port=17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/server.log\"",
+            "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:23:38.7238833Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 36388,
+          "role": "CLIENT-1",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-1.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/User-client-1",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-1.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/User-client-1\"",
+            "-FPSAcceptanceClient=1",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+            "-FPSAcceptanceBlackout"
+          ],
+          "started_utc": "2026-10-10T13:23:54.8274799Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 34216,
+          "role": "CLIENT-2",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-2.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/User-client-2",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-2.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/User-client-2\"",
+            "-FPSAcceptanceClient=2",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:23:55.6565763Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        }
+      ],
+      "client_arguments": [
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-1.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/User-client-1\"",
+          "-FPSAcceptanceClient=1",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=2",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+          "-FPSAcceptanceBlackout"
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-2.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/User-client-2\"",
+          "-FPSAcceptanceClient=2",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=2",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ]
+      ],
+      "server_arguments": [
+        "\"MCP_Test.uproject\"",
+        "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "-server",
+        "-port=17785",
+        "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/server.log\"",
+        "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+        "-nullrhi",
+        "-nosound",
+        "-unattended",
+        "-nosplash",
+        "-FPSAcceptance",
+        "-FPSExpectedPlayers=2",
+        "-PktLag=150",
+        "-PktLoss=3",
+        "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+      ],
+      "reconnect_events": [],
+      "verified_logs": [
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/server.log",
+          "role": "SERVER",
+          "active": true,
+          "fresh": true,
+          "complete": false,
+          "sha256": "d30a9d2485646ede1e8424b6d6f1158e6466190802df8635899418b8919f309e",
+          "modified_utc": "2026-10-10T13:24:40.6074701Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-1.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": false,
+          "sha256": "dc1912e0e1b52db0402d687c29a8f3cae72404c363970e0acd00aa8ea0f5ea5e",
+          "modified_utc": "2026-10-10T13:24:40.8281935Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisiteFinal-20261010-212338-108/client-2.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": false,
+          "sha256": "abada63545254e30149feffea86e3341bfec26568c9b74329a5ff156d3e7b3e3",
+          "modified_utc": "2026-10-10T13:24:40.8332405Z"
+        }
+      ],
+      "error": null,
+      "server_world_ready_utc": "2026-10-10T13:23:52.9691443Z"
+    }
+  },
+  "full_round": {
+    "record": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/run.json",
+    "sha256": "0c36d620614edf8a9ee4e371e10193acaafee70bcbb17bd66b12d7bc2ff328a4",
+    "data": {
+      "started_utc": "2026-10-10T13:26:42.2724657Z",
+      "completed_utc": "2026-10-10T13:32:18.5418702Z",
+      "result": "PASS_FULL_ROUND",
+      "logs": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244",
+      "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+      "project": "MCP_Test.uproject",
+      "server_binary": {
+        "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+        "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311",
+        "bytes": 512952,
+        "modified_utc": "2026-08-19T19:06:26.7301115Z",
+        "file_version": "++UE5+Release-5.8-CL-56057345"
+      },
+      "client_binary": {
+        "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "bytes": 337538560,
+        "modified_utc": "2026-10-10T09:23:23.5003580Z",
+        "file_version": "5.8.1"
+      },
+      "editor_module": {
+        "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+        "sha256": "44a03dff422679c70db2f139b2dbc537f9eae85729c40be499c223b67b201425",
+        "bytes": 2128896,
+        "modified_utc": "2026-10-10T09:22:29.3216628Z",
+        "file_version": "5.8.1"
+      },
+      "engine_build": {
+        "MajorVersion": 5,
+        "MinorVersion": 8,
+        "PatchVersion": 1,
+        "Changelist": 56057345,
+        "CompatibleChangelist": 55116800,
+        "IsLicenseeVersion": 0,
+        "IsPromotedBuild": 1,
+        "BranchName": "++UE5+Release-5.8"
+      },
+      "protocol": 6,
+      "fixture": "FPSAcceptance",
+      "mode": "LAN",
+      "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+      "bots": 0,
+      "expected_players": 10,
+      "round_seconds": 300,
+      "expected_server_netmode": 1,
+      "expected_client_netmode": 3,
+      "latency_ms": 150,
+      "packet_loss_percent": 3,
+      "reconnect": true,
+      "blackout_seconds": 20,
+      "sample_seconds": 0,
+      "timeout_seconds": 470,
+      "nullrhi": true,
+      "process_records": [
+        {
+          "pid": 39312,
+          "role": "SERVER",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/server.log",
+          "user_dir": "ENGINE_DEFAULT_SHARED_CACHE",
+          "arguments": [
+            "\"MCP_Test.uproject\"",
+            "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+            "-server",
+            "-port=17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/server.log\"",
+            "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:26:42.8784837Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 36408,
+          "role": "CLIENT-1",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-1.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-1",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-1.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-1\"",
+            "-FPSAcceptanceClient=1",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+            "-FPSAcceptanceBlackout"
+          ],
+          "started_utc": "2026-10-10T13:26:58.0045081Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 16980,
+          "role": "CLIENT-2",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-2.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-2",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-2.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-2\"",
+            "-FPSAcceptanceClient=2",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:26:58.8482930Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 21628,
+          "role": "CLIENT-3",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-3.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-3",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-3.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-3\"",
+            "-FPSAcceptanceClient=3",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:01.4420854Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 32428,
+          "role": "CLIENT-4",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-4.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-4",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-4.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-4\"",
+            "-FPSAcceptanceClient=4",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:02.3215208Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 34640,
+          "role": "CLIENT-5",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-5.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-5",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-5.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-5\"",
+            "-FPSAcceptanceClient=5",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:04.7199980Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 28356,
+          "role": "CLIENT-6",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-6.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-6",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-6.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-6\"",
+            "-FPSAcceptanceClient=6",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:05.5079023Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 34520,
+          "role": "CLIENT-7",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-7.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-7",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-7.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-7\"",
+            "-FPSAcceptanceClient=7",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:07.8488084Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 3168,
+          "role": "CLIENT-8",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-8.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-8",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-8.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-8\"",
+            "-FPSAcceptanceClient=8",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:08.6437359Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 21132,
+          "role": "CLIENT-9",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-9.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-9",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-9.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-9\"",
+            "-FPSAcceptanceClient=9",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:11.1070211Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        },
+        {
+          "pid": 37468,
+          "role": "CLIENT-10",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-10",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-10\"",
+            "-FPSAcceptanceClient=10",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:27:11.9355716Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": true
+        },
+        {
+          "pid": 37004,
+          "role": "CLIENT-10-rejoined",
+          "log": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10-rejoined.log",
+          "user_dir": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-10-rejoined",
+          "arguments": [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10-rejoined.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-10-rejoined\"",
+            "-FPSAcceptanceClient=10",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=10",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ],
+          "started_utc": "2026-10-10T13:30:29.5528845Z",
+          "exit_code": -1,
+          "owned_cleanup": true,
+          "intentionally_disconnected": false
+        }
+      ],
+      "client_arguments": [
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-1.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-1\"",
+          "-FPSAcceptanceClient=1",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+          "-FPSAcceptanceBlackout"
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-2.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-2\"",
+          "-FPSAcceptanceClient=2",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-3.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-3\"",
+          "-FPSAcceptanceClient=3",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-4.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-4\"",
+          "-FPSAcceptanceClient=4",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-5.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-5\"",
+          "-FPSAcceptanceClient=5",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-6.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-6\"",
+          "-FPSAcceptanceClient=6",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-7.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-7\"",
+          "-FPSAcceptanceClient=7",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-8.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-8\"",
+          "-FPSAcceptanceClient=8",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-9.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-9\"",
+          "-FPSAcceptanceClient=9",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-10\"",
+          "-FPSAcceptanceClient=10",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        [
+          "127.0.0.1:17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10-rejoined.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/User-client-10-rejoined\"",
+          "-FPSAcceptanceClient=10",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=10",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ]
+      ],
+      "server_arguments": [
+        "\"MCP_Test.uproject\"",
+        "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "-server",
+        "-port=17785",
+        "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/server.log\"",
+        "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+        "-nullrhi",
+        "-nosound",
+        "-unattended",
+        "-nosplash",
+        "-FPSAcceptance",
+        "-FPSExpectedPlayers=10",
+        "-PktLag=150",
+        "-PktLoss=3",
+        "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+      ],
+      "reconnect_events": [
+        {
+          "event": "owned-client-stop",
+          "client": 10,
+          "pid": 37468,
+          "utc": "2026-10-10T13:29:16.4629809Z"
+        },
+        {
+          "event": "real-client-rejoin",
+          "client": 10,
+          "pid": 37004,
+          "utc": "2026-10-10T13:30:29.6128808Z"
+        }
+      ],
+      "verified_logs": [
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/server.log",
+          "role": "SERVER",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "45de1f6389ed712b62b8a26db15177770563549c8278ed388e343cb07a179737",
+          "modified_utc": "2026-10-10T13:32:15.4240768Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-1.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "b683ac118c7624388f6c9fd924ec182780cf5987d7a2dcbaab8cbfb36401f9f5",
+          "modified_utc": "2026-10-10T13:32:15.5600509Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-2.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "794a7624b7a49ad9f542129060360a7e01b6b98df6ac6b765a5b59a5723584de",
+          "modified_utc": "2026-10-10T13:32:15.5161945Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-3.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "8ed3d2967c4df981a36a5b6f34967179f7335f033b39a1da29d40fae4684f48a",
+          "modified_utc": "2026-10-10T13:32:15.6150459Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-4.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "1d0924a46e860c381cda3983bbd4c56a6f1043ef837fafd7ca9714924584c6ed",
+          "modified_utc": "2026-10-10T13:32:15.5051920Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-5.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "715d0f77a8f46f5610f9a6fd11dfd2b9a2e125e62ddfd6be947fe4f41ef4d945",
+          "modified_utc": "2026-10-10T13:32:15.5490546Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-6.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "46f2b012e41895e1aefdaeec7df65af45c59ebf5470903db53caa41cab4a0167",
+          "modified_utc": "2026-10-10T13:32:15.5490546Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-7.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "43e7fab3cf902c27b20f24434a554aa66c80d527e854a9e4497f5ec345a8acbc",
+          "modified_utc": "2026-10-10T13:32:15.6260503Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-8.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "612b754242121dfefe52bdc5b21e42bbda17cf9d0f56ef1b901c32007783461c",
+          "modified_utc": "2026-10-10T13:32:15.6590513Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-9.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "22f317c77191309e86719396b05067de41051bf9729e503c8a1866d2f40f4da0",
+          "modified_utc": "2026-10-10T13:32:15.5490546Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10.log",
+          "role": "CLIENT",
+          "active": false,
+          "fresh": true,
+          "complete": false,
+          "sha256": "5ac134b332e0192bb2cc438538307e4e3f82f3c72e16cb305a07d3c7d4c37306",
+          "modified_utc": "2026-10-10T13:29:15.5600997Z"
+        },
+        {
+          "path": "Saved/FPSCharacterAcceptance/DedicatedTenFullRound-20261010-212642-244/client-10-rejoined.log",
+          "role": "CLIENT",
+          "active": true,
+          "fresh": true,
+          "complete": true,
+          "sha256": "0d7e1e4330b46fdcd468b43d56acdad64d9cd0a400d2215b8453782379e2e7d6",
+          "modified_utc": "2026-10-10T13:32:15.5600509Z"
+        }
+      ],
+      "error": null,
+      "server_world_ready_utc": "2026-10-10T13:26:56.1116386Z",
+      "relevance_observers": 8
+    }
+  },
+  "travel": [
+    {
+      "record": "Saved/FPSCharacterAcceptance/TravelPackageFixed20261010/run.json",
+      "sha256": "e9f1953d237eb1073014faa1da221873e9a3bee5630377d18dbf46945e7c1382",
+      "data": {
+        "started": "2026-10-10T21:21:46.4921489+08:00",
+        "completed": "2026-10-10T21:22:19.3257646+08:00",
+        "result": "passed",
+        "process_id": 38380,
+        "mode": "Standalone same-process OpenLevel",
+        "injection": "Native P/Esc input, public selection, OpenLevel",
+        "seamless": false,
+        "packaged": true,
+        "visual": false,
+        "user_dir": "Saved/FPSCharacterAcceptance/TravelPackageFixed20261010/User-20261010-212146-492",
+        "arguments": [
+          "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=Solo?Bots=0",
+          "-game",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSCharacterTravelSmoke",
+          "-ExecCmds=\"t.MaxFPS 60\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/TravelPackageFixed20261010/User-20261010-212146-492\"",
+          "-abslog=\"Saved/FPSCharacterAcceptance/TravelPackageFixed20261010/travel.log\"",
+          "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+          "-nullrhi"
+        ],
+        "binaries": [
+          {
+            "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+            "sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64"
+          }
+        ],
+        "sources": [
+          {
+            "path": "Source/MCP_Test/FPSCharacterTravelSmoke.h",
+            "sha256": "b7478312bee6908c432d7a4d0abef003ae7f8f1f63d655507e546420b1a3c0d0"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterTravelSmoke.cpp",
+            "sha256": "ac14c6107bea4007a96e4d39fe2790ac5d451fe6c6ddf3f385536a9ba551f396"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFrontController.cpp",
+            "sha256": "3bd7cbf17afae7027d9bff8bede55ecb07c6d61dd365467d8a6a3eeb23502c12"
+          },
+          {
+            "path": "Tools/TestFPSCharacterTravel.ps1",
+            "sha256": "ce0606c595efa12ea7f5b8ab8e3f2d7d187b14ac4877f30e31b95c4552b266ab"
+          }
+        ],
+        "log_sha256": "6237d936dd5d2213cf1bd4fc8c535aaa01b947b4951f89dc7d635c19d1ad75f9"
+      }
+    }
+  ],
+  "package_suites": [
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Abilities/run.json",
+      "sha256": "1a33503b836802a89645bc268a5ec8db3087d593312b00065c99731b88cc373d",
+      "data": {
+        "suite": "Abilities",
+        "started": "2026-10-10T21:34:14.7471178+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSWeapons.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Abilities",
+          "-Abilities"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.35.25:165][960]LogTemp: Display: FPS_ABILITY_SMOKE PASS SERVER COMPLETE mag=9 reserve=0 recoil=1 action=0 ads=0",
+          "[2026.10.10-13.35.25:194][484]LogTemp: Display: FPS_ABILITY_SMOKE PASS CLIENT COMPLETE mag=9 reserve=0 recoil=1 action=0 ads=0"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Abilities/Abilities-server.log",
+            "sha256": "21840fa33c438e14c0afd27c1357a9ffef227f06af57687c16d33bc7582d6eab"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Abilities/Abilities-client.log",
+            "sha256": "ff6b05b084d252d3201bcc94a53da2ff3f734984f387c2aa07f04e2c1d6282e9"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Abilities",
+        "finished": "2026-10-10T21:35:27.0559989+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/run.json",
+      "sha256": "3b29f51b22b1d73d5147b486494663087d6649d8a07d850bb65eb8061033d7a4",
+      "data": {
+        "suite": "Audio",
+        "started": "2026-10-10T21:37:03.2767192+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSWeapons.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio",
+          "-Audio"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.38.16:275][ 80]LogTemp: Display: FPS_WEAPON_SMOKE PASS SERVER COMPLETE",
+          "[2026.10.10-13.38.16:303][626]LogTemp: Display: FPS_WEAPON_SMOKE PASS CLIENT COMPLETE"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/Weapons-server.log",
+            "sha256": "e0398747115cb4f05fa5316bb024be75228d66aee373d7e0bb106e71289c7d8e"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/Weapons-client.log",
+            "sha256": "007d55c2dcb8d3b9c26f9130b5402bace8017f17124200ff2834940a46862f9f"
+          }
+        ],
+        "captures": [
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/User/Saved/FPSFlowTests/Audio-server.wav",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/Captures/Audio-server.wav",
+            "sha256": "89693210bc1fa0a41d532e99be017e1506ca80728c4f8e97b78193ed99cca757"
+          },
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/User/Saved/FPSFlowTests/Audio-client.wav",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio/Captures/Audio-client.wav",
+            "sha256": "71d0406ed3598ec582d0c8083c013f47bd8d5312fe8b46c6e72c789ef713e27e"
+          }
+        ],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Audio",
+        "finished": "2026-10-10T21:38:19.2731924+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Characters/run.json",
+      "sha256": "9ddd0a9cf3a6eb30adee993a099a9c427641abfbe4e1971384305f82244de488",
+      "data": {
+        "suite": "Characters",
+        "started": "2026-10-10T21:31:36.4009845+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSCharacters.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Characters"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.31.57:096][996]LogTemp: Display: FPS_CHARACTER_SMOKE PASS SERVER COMPLETE",
+          "[2026.10.10-13.31.57:143][551]LogTemp: Display: FPS_CHARACTER_SMOKE PASS CLIENT COMPLETE"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Characters/lag0-loss0/server.log",
+            "sha256": "c11be4f86358a018d1a5e045cd65d9bf9b9e954fcec4091161233cae4fe94631"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Characters/lag0-loss0/client.log",
+            "sha256": "fe631407ab55180db7aff91dbe2692dc8006b0487a031d039825c9880bf3b5ea"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Characters",
+        "finished": "2026-10-10T21:31:58.7769769+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content/run.json",
+      "sha256": "c426506c08b4778da13d956cd7258a73c94d46b1497a9473c60e5f9e1d562961",
+      "data": {
+        "suite": "Content",
+        "started": "2026-10-10T21:32:32.8978058+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSWeaponContent.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.32.45:120][451]LogTemp: Error: FPS_WEAPON_CONTENT SERVER REJECT pawn=0 reason=Weapon content mismatch: required definitions or resource revision differs",
+          "[2026.10.10-13.32.45:170][ 10]LogTemp: Display: FPS_WEAPON_CONTENT RELEASE definitions=7 handles=0",
+          "[2026.10.10-13.32.57:298][447]LogTemp: Error: FPS_WEAPON_CONTENT SERVER REJECT pawn=0 reason=Weapon content mismatch: required definitions or resource revision differs",
+          "[2026.10.10-13.32.57:338][  9]LogTemp: Display: FPS_WEAPON_CONTENT RELEASE definitions=7 handles=0"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content/Content-capacity-server.log",
+            "sha256": "4d299e924c6e4c24109b3ee7b250c87f008afe806abaf3f73ec1b69a18dab8ab"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content/Content-capacity-client.log",
+            "sha256": "da72392012cf015abba59c6e41acc5cbf31bafd3d5cf49f06d270ed47712d002"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content/Content-interval-server.log",
+            "sha256": "5f205d043e1e40ba25d42bb1976c04578671abaaf1418fd4118d6565e0ca907a"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content/Content-interval-client.log",
+            "sha256": "4a7393fb6558c07afa8db903d65e398882e833677c1a63463dd20a92d8f6ad8f"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Content",
+        "finished": "2026-10-10T21:33:00.1487242+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops/run.json",
+      "sha256": "1aa892f7a22d3a999a0b6b41acca52cfadf05f9667613662c2f901bd4945a204",
+      "data": {
+        "suite": "Drops",
+        "started": "2026-10-10T21:21:55.6874347+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSDrops.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops",
+          "-Visual",
+          "-Observer"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.23.35:461][796]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER COMPLETE time=78.01",
+          "[2026.10.10-13.23.35:500][276]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT COMPLETE time=78.01",
+          "[2026.10.10-13.22.49:432][ 10]LogTemp: Display: FPS_DROP_OBSERVER PASS CLIENT COMPLETE late join resting physics snapshot"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops/lag0-loss0-visual-observer/server.log",
+            "sha256": "5437f73f0860cf99bc2ee70d30d34203984139aa5750e91866e2c1e5ef333722"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops/lag0-loss0-visual-observer/client.log",
+            "sha256": "5f55395f7b00ef2dd6e6885e879faa850f9c64a546c666fffcaf1cc1bdd6149a"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops/lag0-loss0-visual-observer/observer.log",
+            "sha256": "152803bf894b97f9b3bd022539d01966842faa8209cbd69041a147581cffe0b4"
+          }
+        ],
+        "captures": [
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops/lag0-loss0-visual-observer/User/Saved/Screenshots/WindowsEditor/PhysicalDrop.png",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops/Captures/PhysicalDrop.png",
+            "sha256": "011541ae021858da907b746d9bb78b7cab1141838b0e6d8b1bd5381630f2d073"
+          }
+        ],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Drops",
+        "finished": "2026-10-10T21:23:37.7820997+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLag/run.json",
+      "sha256": "edaaa4b56cd40b0c83df03656cf6435cf7ba167616e7f697234f0853171bc9ce",
+      "data": {
+        "suite": "DropsLag",
+        "started": "2026-10-10T21:23:37.7871209+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSDrops.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLag",
+          "-Latency",
+          "100",
+          "-PacketLoss",
+          "1",
+          "-Observer"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.25.20:071][820]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER COMPLETE time=78.02",
+          "[2026.10.10-13.25.20:199][358]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT COMPLETE time=78.00",
+          "[2026.10.10-13.24.35:838][ 73]LogTemp: Display: FPS_DROP_OBSERVER PASS CLIENT COMPLETE late join resting physics snapshot"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLag/lag100-loss1-observer/server.log",
+            "sha256": "944503937684868fa8ddf1700767c2f760e59088f0eb12c01df6f00bdd441524"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLag/lag100-loss1-observer/client.log",
+            "sha256": "0d11c8f151050be195a63c11423b4d0efaca1743412b74fa045d5897398a6002"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLag/lag100-loss1-observer/observer.log",
+            "sha256": "d9fcc0e4ad1e20679b945ccb10867d24c9c4a3b2dcddd6576d96b9aba2c344b6"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLag",
+        "finished": "2026-10-10T21:25:22.8485488+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLifetime/run.json",
+      "sha256": "2859488d0fc37f48f6fd9b3a2704aeb503f7e10720bc2e7491a83652d722cfe7",
+      "data": {
+        "suite": "DropsLifetime",
+        "started": "2026-10-10T21:25:22.8504676+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSDrops.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLifetime",
+          "-Lifetime"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.28.50:761][167]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER COMPLETE time=185.01",
+          "[2026.10.10-13.28.50:781][713]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT COMPLETE time=185.01"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLifetime/lag0-loss0-lifetime/server.log",
+            "sha256": "4ae457c5d76573d618c4c9e79ddce27b3eb79e42a92bb12395fcb38e204b38a1"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLifetime/lag0-loss0-lifetime/client.log",
+            "sha256": "149b165edf329d0623abe5c835c48797e53960ab9c56cb8e237672675fd56105"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/DropsLifetime",
+        "finished": "2026-10-10T21:28:52.6405257+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Loadout/run.json",
+      "sha256": "200310e4d7d073a17daeeb1901a983591e0990b649b2316fd75d8c69df51bcf2",
+      "data": {
+        "suite": "Loadout",
+        "started": "2026-10-10T21:30:29.4435790+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSLoadout.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Loadout"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.31.15:601][616]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER COMPLETE",
+          "[2026.10.10-13.31.13:146][ 25]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT COMPLETE"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Loadout/lag0-loss0/server.log",
+            "sha256": "021103db8605c1c41b3e06e87c81862f129f9d19d0860c801c1f7c1f40e71ad7"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Loadout/lag0-loss0/client.log",
+            "sha256": "11e750301146526d40dd090d9594b8519f6a3a91cf0f194a4aa2233d8ed7fd28"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Loadout",
+        "finished": "2026-10-10T21:31:17.9115065+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/run.json",
+      "sha256": "5b80288d20e0686f458ae84a963bddd9f03ed64ccc7ec9370b6e2d400f88f6c1",
+      "data": {
+        "suite": "Maps",
+        "started": "2026-10-10T21:31:58.7799735+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSMaps.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.32.12:813][450]LogTemp: Display: FPS_MAP_SMOKE PASS map=LV_FPSFoundry starts=10 pickups=14 pawns=10 clear=1",
+          "[2026.10.10-13.32.28:513][462]LogTemp: Display: FPS_MAP_SMOKE PASS map=LV_FPSTraining starts=4 pickups=7 pawns=4 clear=1"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/Map-Solo.log",
+            "sha256": "4551a5ff91a78fdf96327b2b10cfdb0cb5ad7ad2c1732d2f02f08a7cb3d1a100"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/Map-Training.log",
+            "sha256": "968056e97d517315e0b5b63bd298a58e26305d8fce540ff7e75b06c49a8d7808"
+          }
+        ],
+        "captures": [
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/Solo/User/Saved/Screenshots/WindowsEditor/FoundryMap.png",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/Captures/FoundryMap.png",
+            "sha256": "d9c0c4c6769b0df77133190d301bd1d94402b6021f70a8034053931098375164"
+          },
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/Training/User/Saved/Screenshots/WindowsEditor/TrainingMap.png",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps/Captures/TrainingMap.png",
+            "sha256": "2f33d3214d6ed02d464076325470f5b6cdbef7119e3959034bf59a61fcfdf838"
+          }
+        ],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Maps",
+        "finished": "2026-10-10T21:32:32.8927827+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation/run.json",
+      "sha256": "10d3e2457cb18630076deff7ce32e1ee0a2cd1fa4bcb1f12ed2a0f70eb80eba8",
+      "data": {
+        "suite": "Presentation",
+        "started": "2026-10-10T21:35:55.5529726+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSWeapons.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation",
+          "-Presentation",
+          "-Visual"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.37.00:250][600]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS SERVER COMPLETE starts=2 commits=1 dedup=0",
+          "[2026.10.10-13.37.00:296][ 10]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT COMPLETE starts=3 commits=1 dedup=9",
+          "[2026.10.10-13.36.56:789][  4]LogTemp: Display: FPS_PRESENTATION_OBSERVER PASS CLIENT COMPLETE pose=1 action=0 event=6"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation/Presentation-server.log",
+            "sha256": "a46fee25257f59588ba11cb846b248fe88fcdbe71e7804099f453f4b5499a578"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation/Presentation-client.log",
+            "sha256": "c5eaf81f6c521aa32e68ee7a142d52630713a748eb7f700f17b432e9e6cf4260"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation/Presentation-observer.log",
+            "sha256": "828ce3ac57e71c22457507bbf0461c707384825b19697df6e125ff07b3528070"
+          }
+        ],
+        "captures": [
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation/User/Saved/Screenshots/WindowsEditor/WeaponPresentation.png",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation/Captures/WeaponPresentation.png",
+            "sha256": "f135e94b57992689465aec8cbe54f0a2843eacfbad948fc9cbc77c32a57c10f7"
+          }
+        ],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Presentation",
+        "finished": "2026-10-10T21:37:03.2697251+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Teaching/run.json",
+      "sha256": "4847b6b8edcef64d366b630960c89dfad6b13371ea4eeb4867e1e4a06b657009",
+      "data": {
+        "suite": "Teaching",
+        "started": "2026-10-10T21:35:27.0589938+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSWeapons.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Teaching",
+          "-Teaching"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.35.53:893][350]LogTemp: Display: FPS_TEACHING_SMOKE PASS SERVER COMPLETE",
+          "[2026.10.10-13.35.53:941][908]LogTemp: Display: FPS_TEACHING_SMOKE PASS CLIENT COMPLETE"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Teaching/Teaching-server.log",
+            "sha256": "8397d8dbe7177ee389ed1b659000231f4318dc030ae27eb60a4b7c675ee83d6b"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Teaching/Teaching-client.log",
+            "sha256": "b03f84ea842a015490d855cceebc118b30105237927e7724807dbe0f4fba881b"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Teaching",
+        "finished": "2026-10-10T21:35:55.5499710+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingDrops/run.json",
+      "sha256": "d03ebd9592e3cf7ff2a0c328809eaf05f7bd2ed62bff564ee84f3b7b42c00665",
+      "data": {
+        "suite": "TrainingDrops",
+        "started": "2026-10-10T21:28:52.6425208+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSDrops.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingDrops",
+          "-Training",
+          "-Visual"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.30.27:589][281]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER COMPLETE time=78.01"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingDrops/training-visual/server.log",
+            "sha256": "42981699e1782c4a3f2f68b6b5e710a7696d67db1c86440719a518fbbad7e353"
+          }
+        ],
+        "captures": [
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingDrops/training-visual/User/Saved/Screenshots/WindowsEditor/DropLoadoutMenu.png",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingDrops/Captures/DropLoadoutMenu.png",
+            "sha256": "c7647bed23295b2c399d8922356dd4b21b9279a5b27deead934e4121f1bf9779"
+          }
+        ],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingDrops",
+        "finished": "2026-10-10T21:30:29.4395693+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingLoadout/run.json",
+      "sha256": "4f3cd7c9665deea8072e71557fc449fe3cabe7185a8f6456c32260c34a8d1255",
+      "data": {
+        "suite": "TrainingLoadout",
+        "started": "2026-10-10T21:31:17.9134997+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSLoadout.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingLoadout",
+          "-Training",
+          "-Visual"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.31.34:316][569]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER COMPLETE"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingLoadout/training-visual/server.log",
+            "sha256": "9542139cf0fac495ab16ed71af2e29717b9ae6c800f7a1faaf48e5c4f247c308"
+          }
+        ],
+        "captures": [
+          {
+            "source": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingLoadout/training-visual/User/Saved/Screenshots/WindowsEditor/LoadoutMenu.png",
+            "snapshot": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingLoadout/Captures/LoadoutMenu.png",
+            "sha256": "c68188504ae5a5e7c325fd7c4154822548ad8ec25eeb3dc80c69a4c53305c596"
+          }
+        ],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/TrainingLoadout",
+        "finished": "2026-10-10T21:31:36.3970650+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Weapons/run.json",
+      "sha256": "0bd9e21b9cd477e8c45a642c9c11468b4fc385aadce71fed776eafba9fd962ae",
+      "data": {
+        "suite": "Weapons",
+        "started": "2026-10-10T21:33:00.1527102+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSWeapons.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Weapons"
+        ],
+        "result": "PASS",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-13.34.12:652][ 80]LogTemp: Display: FPS_WEAPON_SMOKE PASS SERVER COMPLETE",
+          "[2026.10.10-13.34.12:677][633]LogTemp: Display: FPS_WEAPON_SMOKE PASS CLIENT COMPLETE"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Weapons/Weapons-server.log",
+            "sha256": "48393a8d98872d5fee497e6cca9a96c56d7ba1196e399783036888bbf2d6e89f"
+          },
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Weapons/Weapons-client.log",
+            "sha256": "11daa3140363d6d8289dc3591721dadfdef187d0d49f0f1223ffbbb0765692db"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-2eb12413-all/Weapons",
+        "finished": "2026-10-10T21:34:14.7451058+08:00"
+      }
+    }
+  ],
+  "failed_attempts": [
+    {
+      "record": "Saved/FPSCharacterAcceptance/Build/CurrentCharacters/run.json",
+      "sha256": "6ead1630ccfe44d4aa2de38ff9e6ca8e0cb4aadf5e49cf2d66869f96b16e25fa",
+      "data": {
+        "started": "2026-10-06T22:06:28.6897186+08:00",
+        "project": "MCP_Test.uproject",
+        "engine": "D:/UE/UE_5.8",
+        "engine_version": {
+          "MajorVersion": 5,
+          "MinorVersion": 8,
+          "PatchVersion": 1,
+          "Changelist": 56057345,
+          "CompatibleChangelist": 55116800,
+          "IsLicenseeVersion": 0,
+          "IsPromotedBuild": 1,
+          "BranchName": "++UE5+Release-5.8"
+        },
+        "archive": "Saved/Packages/CharacterAcceptance",
+        "build_arguments": [
+          "MCP_TestEditor",
+          "Win64",
+          "Development",
+          "-Project=MCP_Test.uproject",
+          "-WaitMutex",
+          "-NoHotReload"
+        ],
+        "package_arguments": [
+          "BuildCookRun",
+          "-project=MCP_Test.uproject",
+          "-noP4",
+          "-platform=Win64",
+          "-clientconfig=Development",
+          "-build",
+          "-skipbuildeditor",
+          "-cook",
+          "-AdditionalCookerOptions=-SkipZenStore",
+          "-stage",
+          "-pak",
+          "-archive",
+          "-archivedirectory=Saved/Packages/CharacterAcceptance",
+          "-unattended",
+          "-utf8output"
+        ],
+        "input_files": [
+          {
+            "path": "Config/DefaultEditor.ini",
+            "sha256": "25920e87560682479062a06afef5e0046d23789e72200634d852becbe1db407b"
+          },
+          {
+            "path": "Config/DefaultEngine.ini",
+            "sha256": "830e9951ea7dcfa872615124e25d3d71ff8533eafc936e6fed2a520c951cf72e"
+          },
+          {
+            "path": "Config/DefaultGame.ini",
+            "sha256": "d5533a6d2e746455d1bfcc2841b852db5d919970dc5ab85751057c193ee0676a"
+          },
+          {
+            "path": "Config/DefaultInput.ini",
+            "sha256": "fc9bf4eb5d2727bb6f80f24ffcb846698ddc717dae0dc9455524ebf472eeced0"
+          },
+          {
+            "path": "MCP_Test.uproject",
+            "sha256": "cdb5a898e2305980a0d4c794c4048fbb852b4259e0330a86c6ef957fa73b9c19"
+          },
+          {
+            "path": "Source/MCP_Test.Target.cs",
+            "sha256": "d2927285d625d583e977790bab642a3cd7af953a533792b3250a23f83155af71"
+          },
+          {
+            "path": "Source/MCP_Test/BreakablePlatform.cpp",
+            "sha256": "6ef08a24a1150ea1873b1ca15ec41045270354132ca353b423c8d6e2cf018033"
+          },
+          {
+            "path": "Source/MCP_Test/BreakablePlatform.h",
+            "sha256": "af05dddee921f6ac2302cd1745470af567ff9ca05e8013514a9785db4909c4ad"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAcceptanceSmoke.cpp",
+            "sha256": "a74005180b545461a5002f026a5e666ae286cd94be39b31385b6bc24df631029"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAcceptanceSmoke.h",
+            "sha256": "c0875adb584ddab00d5aa7a1b167ad64008615cb74926e139aabdf82f10e9170"
+          },
+          {
+            "path": "Source/MCP_Test/FPSActionPolicy.cpp",
+            "sha256": "000166fab63cf3b0003a8f7cee877ac5baa230eddc6bf3c04cb075a1a84f37fe"
+          },
+          {
+            "path": "Source/MCP_Test/FPSActionPolicy.h",
+            "sha256": "6d417be64a60f6752ea089d6733bc8b6240f8b8911de781fedf55ed01e265b7a"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAISmoke.cpp",
+            "sha256": "7bf0a93b7286a52dc8807fee54bc108d473ec8a7f940eacc4b71e11537f98e32"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAISmoke.h",
+            "sha256": "4848adb287c896b6dd5855385375c4b489b65d26fe785f857acbe2547b3f57bc"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAudioSubsystem.cpp",
+            "sha256": "b629d5c77ba5db25f23fee8e1648f7e8bfd160dbab2f06158c4f628202fe10bd"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAudioSubsystem.h",
+            "sha256": "a7514940249bd3f5ec45bfcf2f233fbe7a34d737c57b2f19b18f1f5e0a8d4da0"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAvatarVisuals.cpp",
+            "sha256": "ed119d2d8f1409b22aa5a17c57479e2860a0aa6195649d026a8bdaae1eea0014"
+          },
+          {
+            "path": "Source/MCP_Test/FPSAvatarVisuals.h",
+            "sha256": "9f053b60e99113aea024d0051dcd0c3b3092bea2904c481e7b5215d6c03f6dd7"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBaseMembership.cpp",
+            "sha256": "d8edd6bc50006e3a1857858726eb932ab8a37928fd6571f47efc5eecae786c1b"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBaseMembership.h",
+            "sha256": "d27f5f6d6093afbd72bd9b75b1237d02e689f57278e1fa9687b270035fbb2782"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBaseRegion.cpp",
+            "sha256": "3b30a8f63aa23c09e53cbdaabc1170c1610332aaec6b752daf0020929985e009"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBaseRegion.h",
+            "sha256": "93b4a6927304954716f221212e3b8b503215d6b00dc2712e44aa67424c7aab88"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBotController.cpp",
+            "sha256": "cb84ccb72fdd10c3c000da3d0d1b798ab31452b45f3698eac75286be66fabdff"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBotNavigation.cpp",
+            "sha256": "d9e1142b38abc038899f13d8d0ee3005ba981a20de384124d541613db5eff92c"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBotNavigation.h",
+            "sha256": "c683d9e20a01cc3e211fe7ff9a3e6696986f4edb732ce2d87994351c5720ee44"
+          },
+          {
+            "path": "Source/MCP_Test/FPSBotSettings.h",
+            "sha256": "46579b4349e481ff6bf4f69ef99e0298fb148fdcdf0e183abf0816cecc788fd6"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterInput.cpp",
+            "sha256": "728ca0a0f6e6d3236d65cd90ac8d6ef430cc9ecc62bf3275312d5135c715ec9e"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterInput.h",
+            "sha256": "87081f02f0fcb8e5777aac2cab05262b5bded638f0797b95b07d575af2154c15"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterPresentation.cpp",
+            "sha256": "2eeb469a208702e4e04f2c900625b1cd436304568ee47873c65af83bd40372e1"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterPresentation.h",
+            "sha256": "35bc2598937f93d169d4620fdaa59f6ae0fb1c931966bf79e4e385580e1100dd"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterSmoke.cpp",
+            "sha256": "72f17fab865ab5d0fe321a9e497b6ea4bd9b53e289c6879fbcaae1f1a409363d"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterSmoke.h",
+            "sha256": "148fed640f9620a71f62028e15a93b2f91fdab387b68bc9a4095c03aa3529cd5"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterTravelSmoke.cpp",
+            "sha256": "591aa98af8546bdd9b183862b15c3643ce3f23197313fa9cb066b7477e3b97c8"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterTravelSmoke.h",
+            "sha256": "b7478312bee6908c432d7a4d0abef003ae7f8f1f63d655507e546420b1a3c0d0"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoArena.cpp",
+            "sha256": "e5a6f8d4f0205b4ac47ab93931e1d79bdcf33ab67a6a0d7638992ce0b846154c"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoArena.h",
+            "sha256": "96d6c2ff2a5f9752e91972336f41e3885a89402cb7215a319fbf46dca8dc74c2"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoAttributeSet.cpp",
+            "sha256": "acba8b05f31ce05d79912a203562a102a9609c9f00e46b2c0317eee2d432cfed"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoAttributeSet.h",
+            "sha256": "161f3883826737de894b34c8483517133d0406d7a99eb7e7d772f9666102897a"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoCharacter.cpp",
+            "sha256": "c4facd437c8119bb6b89f3f764c8573d3447890b9fdf9a833127792800f935db"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoCharacter.h",
+            "sha256": "4f92e00a27ff4525480c5d4532647216d514f5b08a405aebb25545952df28389"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoEffects.cpp",
+            "sha256": "58f60e9286a83c0c968e13d0dc0ba962aa623883b88f3f896c314fe9bba2e75f"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoEffects.h",
+            "sha256": "50fe785ff1b76bafb5417d32ffe1cb747589175b1c0ee0f546dbf7348c51e305"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoGameMode.cpp",
+            "sha256": "6f6d8a8f4892b64cf6530b0a9ed4090fa6fdd95f91c764f2e15716daef9fbdaa"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoGameMode.h",
+            "sha256": "24e554a67aebed4bc985c37a2dda28fd16ed0964158c5e6416cbc33eb9fa2e79"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoGameState.cpp",
+            "sha256": "ffbc378b78c4fb7a9543d4f86c5cfcd4961bff82c0cd12cf1665999f3112d5d9"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoGameState.h",
+            "sha256": "5390b5c40bd8e0dc26fc899f799ec9e56efe422987ab5a868da6c882e0dbe0e5"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoHealStation.cpp",
+            "sha256": "21ec0354b1c8fed782535252f162c4fd51026c4b245c7aeafd5bb749607ff8cc"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoHealStation.h",
+            "sha256": "e7157977b51e7f06d00fb23727f81d77d77f5d091e62c78c8942de6bd638b4ff"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoHUD.cpp",
+            "sha256": "9d8573b5aee6a391aacbe0d44a2949a8821618ce71f3a82035c3807ff1662258"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoHUD.h",
+            "sha256": "bf0dfdfe74ebbdecd8275174fcd38d6526f47cb10066641dc87e6f7fb11050d7"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoPlayerController.cpp",
+            "sha256": "29356bc72361281dee9afdfd6b727d7824a13778e63e46a6dabae79b59de7928"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoPlayerController.h",
+            "sha256": "b8167e3c064e741b892cc32b669f6773895d35536c6c294ba274701e202bfd01"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoPlayerState.cpp",
+            "sha256": "8a012c3794f2db897e749b265374dfa0fb4f694ce407433e16d51704d0395b80"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDemoPlayerState.h",
+            "sha256": "676736aa20695b0f50fe1aef7e58acb7b142d441024400e5d33afd237d883e98"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDifficulty.h",
+            "sha256": "5eea2cd82fe86dbed459880591e7989ca1e9d5ce045bad139370d0947f8a2787"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDifficultySmoke.cpp",
+            "sha256": "fa7f629acf1f49c6752bde632b98d80c01cb5f65d88433f0cf8a44f07660bc82"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDifficultySmoke.h",
+            "sha256": "533a689c261c37f1bdd38e81ad0e6cd6282e6361430e2fa1675a72eb4d82a00a"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDropSmoke.cpp",
+            "sha256": "df63184cd9e1bcf5e22b94c6d663ea6e3fb305aed94b14cecf1ba7fdca7cb43e"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDropSmoke.h",
+            "sha256": "064ecb077c0e345c1a14fd4de3eaaf0fd3e154b30e17e1f9e6c28e406998c24e"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDynamicDrops.cpp",
+            "sha256": "ef341c43b2a5ba523bbd7834b26f084b25de2b12deb95a54c9e5c95482688c9e"
+          },
+          {
+            "path": "Source/MCP_Test/FPSDynamicDrops.h",
+            "sha256": "3a9a1804b4d7512679ede471b2d3f56d590a8b1e9f6b71525fcc2ca0cc9fbaed"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFlowSmoke.cpp",
+            "sha256": "44169deddcbc080301018d80a5b3e532be32b2fde390051f5dc61da47cea6800"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFlowSmoke.h",
+            "sha256": "329a33d4a1cba5197c1cfa93db5d3f29f9c01530964462ef33e021d9b4f287df"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFrontController.cpp",
+            "sha256": "3bd7cbf17afae7027d9bff8bede55ecb07c6d61dd365467d8a6a3eeb23502c12"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFrontGameInstance.cpp",
+            "sha256": "e4608289929865fc3f2394cdfab3b583ea40e90f7acab9da0b0c5e4a25a067f9"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFrontGameInstance.h",
+            "sha256": "65ebdaa45fb0549de7a9065767085161aabb22133e45f6a20d67081295537048"
+          },
+          {
+            "path": "Source/MCP_Test/FPSLifeComponent.cpp",
+            "sha256": "36eedaa1da6d7e0cb15833ed6a0df0d8013dc401d3f0cf4a47b5d94eb317c97e"
+          },
+          {
+            "path": "Source/MCP_Test/FPSLifeComponent.h",
+            "sha256": "cf05193afb888c373f1d22e1fbd0582382af72cf4889887c62e7ebca46fef1e3"
+          },
+          {
+            "path": "Source/MCP_Test/FPSLoadoutMenu.cpp",
+            "sha256": "6daab12a96abde4d53cabb9d2c9c763b908734e0ec6c5ef876ccfd09087e33e9"
+          },
+          {
+            "path": "Source/MCP_Test/FPSLoadoutMenu.h",
+            "sha256": "8920c579879802353ccad040d0f432305452bf5c95a7da7d18be786a3d39f6d2"
+          },
+          {
+            "path": "Source/MCP_Test/FPSLoadoutSmoke.cpp",
+            "sha256": "f3ea49c296136562464fb0c50f4a49f06ba2d0e3fa7320b936d86382abc19937"
+          },
+          {
+            "path": "Source/MCP_Test/FPSLoadoutSmoke.h",
+            "sha256": "343ee06878d518f90e4e807ba0d1df5e1f2694b83fb006894d46ba0810b91458"
+          },
+          {
+            "path": "Source/MCP_Test/FPSMatchFlow.cpp",
+            "sha256": "3d1452174a6cd0148df4fb2f6f6639eb4950fe570aa36fd34ca4200861b0d01a"
+          },
+          {
+            "path": "Source/MCP_Test/FPSMatchFlow.h",
+            "sha256": "cc22d20a31c8a1e7a8b5c85bdcf1b0862111fc7c83abda49e42507ec63f458dc"
+          },
+          {
+            "path": "Source/MCP_Test/FPSModeRules.cpp",
+            "sha256": "b3a7022daa446d2cc02db9607e214f15f5cd0766efb1d2c41478fa2ac61ffa56"
+          },
+          {
+            "path": "Source/MCP_Test/FPSModeRules.h",
+            "sha256": "44244c05f86b8ac83aca0e055e652dbf21e931facaa7eab099407a7876995026"
+          },
+          {
+            "path": "Source/MCP_Test/FPSMovementComponent.cpp",
+            "sha256": "b372fc0173c6bbc6af169b20c1c70dc4cc974320957a8a0ed4bd9edf1f8056f2"
+          },
+          {
+            "path": "Source/MCP_Test/FPSMovementComponent.h",
+            "sha256": "8e9bd2024722d243df13275b04a73bbd1b8eb0ec2d444ecfecaf0012c1399248"
+          },
+          {
+            "path": "Source/MCP_Test/FPSRecoilSmoke.cpp",
+            "sha256": "5c433f733bef54e497d938a902389906356f825e8c8ca33a741d2dd710d1645c"
+          },
+          {
+            "path": "Source/MCP_Test/FPSRecoilSmoke.h",
+            "sha256": "9945574261cdb7c876d5d4da9a784b7d085f504872d2c1a73d783982a1561205"
+          },
+          {
+            "path": "Source/MCP_Test/FPSScoreSet.cpp",
+            "sha256": "debaca6bd564511df4edd7b488ca431c5060143e1b6368d7ef897cb04c0c2a39"
+          },
+          {
+            "path": "Source/MCP_Test/FPSScoreSet.h",
+            "sha256": "aa6b8676f52702052f5db898cbb0cde0464306f07ba4a2f877dece5ad4b87f21"
+          },
+          {
+            "path": "Source/MCP_Test/FPSTeachingAdapter.cpp",
+            "sha256": "f6de39c286ab3d32b0b12eff313d06d87c85359fb3bf0dddc5a6a761cea64163"
+          },
+          {
+            "path": "Source/MCP_Test/FPSTeachingSmoke.cpp",
+            "sha256": "8b68644826167162d42aa4edd63979cf87910a9103f856f4574af1977e87a74c"
+          },
+          {
+            "path": "Source/MCP_Test/FPSTeachingSmoke.h",
+            "sha256": "53d62902dc445c8e3027ad8ac90b6a57ab50a8f3be7dcb455d6a4c8b40883113"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponAbilities.cpp",
+            "sha256": "510fa71598c7551cf1226d8cb94116f4274a5d3c42a0051c5431e0e4e349296a"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponAbilities.h",
+            "sha256": "434a788d3d6f3257852bc37aa350f71c1765983ffb3ec7c83bebb26329aed1eb"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponAbilitySmoke.cpp",
+            "sha256": "3d99b93289513a0f68a91a19aad0bfcc633bc6417eee4c8e6db5d5e5872814d1"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponAbilitySmoke.h",
+            "sha256": "02adcdb7c8a7bae26e192ae20c1aa96a3c5d5e9f4b0173fd7fd176084c9a006c"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponAdmission.cpp",
+            "sha256": "4378f022064b7d826ef37a5b6f30dec2913d818dba9634feceb22278823a59b3"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponComponent.cpp",
+            "sha256": "04734d237262fa0f88cbe7b34c3f760f74f20113710f5a2d564664d4068a21d0"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponComponent.h",
+            "sha256": "7e9521877b4f4c206be93930e658ee8c7ba4b1c192c83218f8d9c1a2bc924c0f"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponContent.cpp",
+            "sha256": "c5e70888602f25c27b9c68b827d37f6f08a59cf2288373aa9101e4642f5e4c8f"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponDamageSmoke.cpp",
+            "sha256": "f33889df5353ad84da33891e2bc4ab543f2d99ac9fe2e1db001521560802e2b1"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponDamageSmoke.h",
+            "sha256": "1cedf4101e56cc6a41722c6c2822e3d3129ca09be1243f0e80e5552e7705a2db"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponData.cpp",
+            "sha256": "f8a14792efe95db15b4a163279c76055bcb25e67495de0ce75fc7478c4c060c0"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponData.h",
+            "sha256": "8335e1d2484987492ca9a01697d194526792582424a2f0f17657015784948c50"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponDataCommandlet.cpp",
+            "sha256": "17f5489a237210d4c1627d032760014ae8c6b88403add5a2644485379c013086"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponDataCommandlet.h",
+            "sha256": "b3fae79b6cfcdf1c4f1fe346d4c734408aa1121a4a59f5f7bbd512cc69224b1b"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponPickup.cpp",
+            "sha256": "746c092cea4dab25f2cb91edae57193b3066a996a4086ad209ef2d1e60533ec1"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponPickup.h",
+            "sha256": "a88a197b6c98eb93d029fad85ee022a588396c02bcf4eb10f3a389aa48cf5676"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponPresentation.cpp",
+            "sha256": "8bf73a361f7b5320a7990c21ab142c8b09be61593f3bf5d7d56d8ed1acd17839"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponPresentationSmoke.cpp",
+            "sha256": "816cc4d15fc4d6b97d82cca0adc44934dcb13de61bddc2ca5d36910005355988"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponPresentationSmoke.h",
+            "sha256": "8498f8a8ed4e15ec59e985892e398d7e2d72fdec1cc4c8a8d701c3d3e0eee8bc"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponShot.cpp",
+            "sha256": "6f003652944f991b7b3551eddbb583a3197e62707175fcd119ba70172c7b7e20"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponShot.h",
+            "sha256": "0d7dc09d2134e90771a7d20dbbe15a8657e3c2fb9d7179d22acf5cc7f9610258"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponSmoke.cpp",
+            "sha256": "d4b920fe6b0270c1b24aeb341fc657432d7473172c825bec20e0cdd1ae6b8858"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponSmoke.h",
+            "sha256": "e927800f0417f2787556c90ffd608368b60a70ff0d4fcbb7f96497d4a393f3eb"
+          },
+          {
+            "path": "Source/MCP_Test/FPSWeaponVisualTiming.h",
+            "sha256": "2f46453d931bb52ff3834671f98cd8bfc6817e6ae866988f8b8c037a4dd44301"
+          },
+          {
+            "path": "Source/MCP_Test/MCP_Test.Build.cs",
+            "sha256": "edffbfbef5ed0181d7d3fcc2a9af2830c251cfd5a54e2626b9696bdcc20ae88d"
+          },
+          {
+            "path": "Source/MCP_Test/MCP_Test.cpp",
+            "sha256": "125883eb7b3ece27dc1350404b90cd083f96b146bb65a4d131ba475248a9a604"
+          },
+          {
+            "path": "Source/MCP_Test/MCP_Test.h",
+            "sha256": "4694b655856b269fc41b195971214f8e629857c7e5d6f34002a066cd4af3037c"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonCharacter.cpp",
+            "sha256": "e44e6b669580f96176694b49162a2aa9879f22f9bfdd72532565330c162f37c5"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonCharacter.h",
+            "sha256": "46faf222386f726615373bf3947ebf6ba9d6f190e5cef69df8e2ef055e8c29c0"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonGameMode.cpp",
+            "sha256": "b1f6dee999b04d703b212f7b92dae0a800f28b6cc46bc111823f39f8a605c730"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonGameMode.h",
+            "sha256": "12bba9ec2f8acf3206f1675e8d9db9241771377d9db444580f0d7fdd0eb19715"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonGameState.cpp",
+            "sha256": "c0041ff1fe00a008365459e867026f7fdf976338e5b31ab14bd86192a7e3ebca"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonGameState.h",
+            "sha256": "05d495eb3fd02b1c97e7f1182d4cbbffc4eb633d6378833d08122f97ff4d453d"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonHUD.cpp",
+            "sha256": "f3ab5d0ed0b1c8be7ac2890a22ec2a3d359fa603563587290a7da3c231ea1a6f"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonHUD.h",
+            "sha256": "7453b248387d04b471dc725b5ef0218ca933246ca9aff8135140291b69cc4f5b"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonPlayerController.cpp",
+            "sha256": "5e9d4fc7ab201a968eafd57400869852128144a7db2763bd5b3899994c01c89f"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonPlayerController.h",
+            "sha256": "6255ee01488b160cd9d5b6e04c8a048a94ebab642682a7dec4fdc2fed416b92e"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonPlayerState.cpp",
+            "sha256": "f783c2ef7e21aee33ba9dc5eb7fafbf89efc79b902f868a2ebf865848c003dc9"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonPlayerState.h",
+            "sha256": "38c71f31b3c7508c1d09447dd73abf993d520039011c5d00450bb0a9b20c7622"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonStage.cpp",
+            "sha256": "509602597569dcc01e5069886c4da27082655cd95cb605a322994f89482bd1b2"
+          },
+          {
+            "path": "Source/MCP_Test/NetLessonStage.h",
+            "sha256": "0bc34d5990d0f33929c915eb5ec27113d9a0d956476d63306775c0707018682a"
+          },
+          {
+            "path": "Source/MCP_Test/PlatformerCharacter.cpp",
+            "sha256": "b36c31d28332f578e9a3c9ee7280bafaf5ed905e12036e7c2b502a4e86f4a54e"
+          },
+          {
+            "path": "Source/MCP_Test/PlatformerCharacter.h",
+            "sha256": "7497a1aeb1ffac91723bf012de4722bf680faa4f5bda94bd46711c5ffb3935f9"
+          },
+          {
+            "path": "Source/MCP_Test/PlatformerGameMode.cpp",
+            "sha256": "c267fb92236d0252efff9b055cdafa51d8e60ffd772944c0358347bc893e1c4c"
+          },
+          {
+            "path": "Source/MCP_Test/PlatformerGameMode.h",
+            "sha256": "bcbe82b6ede0152e1fe05d58948f8f7a49b4b66e66c4bbc69c07e07496c4fb53"
+          },
+          {
+            "path": "Source/MCP_TestEditor.Target.cs",
+            "sha256": "1c9f489eb163ef01828bd672ebb78956429fb4066cd7ccea887f473c222627f1"
+          }
+        ],
+        "editor_exit_code": 6,
+        "package_exit_code": null,
+        "result": "FAIL",
+        "artifacts": [],
+        "error": "Editor build failed: 6",
+        "finished": "2026-10-06T22:06:56.2900113+08:00"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/run.json",
+      "sha256": "f6ddbff3d406d1ad568f7e10de45af93306fcd5998ca155242a4b01d366071f9",
+      "data": {
+        "started_utc": "2026-10-10T13:21:49.6586015Z",
+        "completed_utc": "2026-10-10T13:22:52.8029609Z",
+        "result": "FAIL",
+        "logs": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621",
+        "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+        "project": "MCP_Test.uproject",
+        "server_binary": {
+          "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+          "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311",
+          "bytes": 512952,
+          "modified_utc": "2026-08-19T19:06:26.7301115Z",
+          "file_version": "++UE5+Release-5.8-CL-56057345"
+        },
+        "client_binary": {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "sha256": "2eb12413d4e7c8021a80f412bb3f75a300e454bf058c392a169b919d6afc5b64",
+          "bytes": 337538560,
+          "modified_utc": "2026-10-10T09:23:23.5003580Z",
+          "file_version": "5.8.1"
+        },
+        "editor_module": {
+          "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+          "sha256": "44a03dff422679c70db2f139b2dbc537f9eae85729c40be499c223b67b201425",
+          "bytes": 2128896,
+          "modified_utc": "2026-10-10T09:22:29.3216628Z",
+          "file_version": "5.8.1"
+        },
+        "engine_build": {
+          "MajorVersion": 5,
+          "MinorVersion": 8,
+          "PatchVersion": 1,
+          "Changelist": 56057345,
+          "CompatibleChangelist": 55116800,
+          "IsLicenseeVersion": 0,
+          "IsPromotedBuild": 1,
+          "BranchName": "++UE5+Release-5.8"
+        },
+        "protocol": 6,
+        "fixture": "FPSAcceptance",
+        "mode": "LAN",
+        "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "bots": 0,
+        "expected_players": 2,
+        "round_seconds": 300,
+        "expected_server_netmode": 1,
+        "expected_client_netmode": 3,
+        "latency_ms": 150,
+        "packet_loss_percent": 3,
+        "reconnect": false,
+        "blackout_seconds": 20,
+        "sample_seconds": 40,
+        "timeout_seconds": 140,
+        "nullrhi": true,
+        "process_records": [
+          {
+            "pid": 38660,
+            "role": "SERVER",
+            "log": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/server.log",
+            "user_dir": "ENGINE_DEFAULT_SHARED_CACHE",
+            "arguments": [
+              "\"MCP_Test.uproject\"",
+              "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+              "-server",
+              "-port=17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/server.log\"",
+              "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T13:21:50.2279506Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 39348,
+            "role": "CLIENT-1",
+            "log": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/client-1.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/User-client-1",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/client-1.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/User-client-1\"",
+              "-FPSAcceptanceClient=1",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+              "-FPSAcceptanceBlackout"
+            ],
+            "started_utc": "2026-10-10T13:22:06.3853100Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 39476,
+            "role": "CLIENT-2",
+            "log": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/client-2.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/User-client-2",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/client-2.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/User-client-2\"",
+              "-FPSAcceptanceClient=2",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T13:22:07.2864904Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          }
+        ],
+        "client_arguments": [
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/client-1.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/User-client-1\"",
+            "-FPSAcceptanceClient=1",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+            "-FPSAcceptanceBlackout"
+          ],
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/client-2.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/User-client-2\"",
+            "-FPSAcceptanceClient=2",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ]
+        ],
+        "server_arguments": [
+          "\"MCP_Test.uproject\"",
+          "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+          "-server",
+          "-port=17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/server.log\"",
+          "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=2",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        "reconnect_events": [],
+        "verified_logs": [],
+        "error": "The process cannot access the file 'Saved/FPSCharacterAcceptance/DedicatedFixPrerequisite-20261010-212149-621/server.log' because it is being used by another process.",
+        "server_world_ready_utc": "2026-10-10T13:22:04.7287893Z"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/run.json",
+      "sha256": "c60c4bcc0916d696b199ae46d2ecc0fd781b71cd31cc26337d41a9ebfbea6c14",
+      "data": {
+        "started_utc": "2026-10-10T09:09:19.8703292Z",
+        "completed_utc": "2026-10-10T09:09:36.2801316Z",
+        "result": "FAIL",
+        "logs": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847",
+        "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+        "project": "MCP_Test.uproject",
+        "server_binary": {
+          "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+          "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311",
+          "bytes": 512952,
+          "modified_utc": "2026-08-19T19:06:26.7301115Z",
+          "file_version": "++UE5+Release-5.8-CL-56057345"
+        },
+        "client_binary": {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "sha256": "f8f5ee36124606fe99218a0e4fa101f56fedcf4621cd79f658572ad243eaabd5",
+          "bytes": 337537024,
+          "modified_utc": "2026-10-10T09:01:50.7080760Z",
+          "file_version": "5.8.1"
+        },
+        "editor_module": {
+          "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+          "sha256": "ec9d4c2d1b30cfbdfc0d52804e1cba4db7253fb4c41d4aa98b1c99a516f1d224",
+          "bytes": 2126336,
+          "modified_utc": "2026-10-10T08:59:32.9935834Z",
+          "file_version": "5.8.1"
+        },
+        "engine_build": {
+          "MajorVersion": 5,
+          "MinorVersion": 8,
+          "PatchVersion": 1,
+          "Changelist": 56057345,
+          "CompatibleChangelist": 55116800,
+          "IsLicenseeVersion": 0,
+          "IsPromotedBuild": 1,
+          "BranchName": "++UE5+Release-5.8"
+        },
+        "protocol": 6,
+        "fixture": "FPSAcceptance",
+        "mode": "LAN",
+        "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "bots": 0,
+        "expected_players": 2,
+        "round_seconds": 300,
+        "expected_server_netmode": 1,
+        "expected_client_netmode": 3,
+        "latency_ms": 150,
+        "packet_loss_percent": 3,
+        "reconnect": false,
+        "blackout_seconds": 20,
+        "sample_seconds": 40,
+        "timeout_seconds": 140,
+        "nullrhi": true,
+        "process_records": [
+          {
+            "pid": 36280,
+            "role": "SERVER",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/server.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-server",
+            "arguments": [
+              "\"MCP_Test.uproject\"/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0 -server -port=17785 -abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/server.log\" -UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-server\" -ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False-nullrhi -nosound -unattended -nosplash -FPSAcceptance -FPSExpectedPlayers=2 -PktLag=150 -PktLoss=3 -ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"-DDC=InstalledNoZenLocalFallback -DDC-ForceMemoryCache -NoZenAutoLaunch"
+            ],
+            "started_utc": "2026-10-10T09:09:20.5347548Z",
+            "exit_code": 1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 14320,
+            "role": "CLIENT-1",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/client-1.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-client-1",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/client-1.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-client-1\"",
+              "-FPSAcceptanceClient=1",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+              "-FPSAcceptanceBlackout"
+            ],
+            "started_utc": "2026-10-10T09:09:32.5004605Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 31672,
+            "role": "CLIENT-2",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/client-2.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-client-2",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/client-2.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-client-2\"",
+              "-FPSAcceptanceClient=2",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T09:09:33.3405262Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          }
+        ],
+        "client_arguments": [
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/client-1.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-client-1\"",
+            "-FPSAcceptanceClient=1",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+            "-FPSAcceptanceBlackout"
+          ],
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/client-2.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-client-2\"",
+            "-FPSAcceptanceClient=2",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ]
+        ],
+        "server_arguments": "\"MCP_Test.uproject\"/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0 -server -port=17785 -abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/server.log\" -UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-170919-847/User-server\" -ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False-nullrhi -nosound -unattended -nosplash -FPSAcceptance -FPSExpectedPlayers=2 -PktLag=150 -PktLoss=3 -ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"-DDC=InstalledNoZenLocalFallback -DDC-ForceMemoryCache -NoZenAutoLaunch",
+        "reconnect_events": [],
+        "verified_logs": [],
+        "error": "Dedicated server exited before completion."
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/run.json",
+      "sha256": "2e322b7b17b0f007fff2eb6dee62b5c1c9f024682fa66e613909b8865500a588",
+      "data": {
+        "started_utc": "2026-10-10T09:10:25.5300567Z",
+        "completed_utc": "2026-10-10T09:11:46.4817736Z",
+        "result": "FAIL",
+        "logs": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499",
+        "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+        "project": "MCP_Test.uproject",
+        "server_binary": {
+          "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+          "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311",
+          "bytes": 512952,
+          "modified_utc": "2026-08-19T19:06:26.7301115Z",
+          "file_version": "++UE5+Release-5.8-CL-56057345"
+        },
+        "client_binary": {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "sha256": "f8f5ee36124606fe99218a0e4fa101f56fedcf4621cd79f658572ad243eaabd5",
+          "bytes": 337537024,
+          "modified_utc": "2026-10-10T09:01:50.7080760Z",
+          "file_version": "5.8.1"
+        },
+        "editor_module": {
+          "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+          "sha256": "ec9d4c2d1b30cfbdfc0d52804e1cba4db7253fb4c41d4aa98b1c99a516f1d224",
+          "bytes": 2126336,
+          "modified_utc": "2026-10-10T08:59:32.9935834Z",
+          "file_version": "5.8.1"
+        },
+        "engine_build": {
+          "MajorVersion": 5,
+          "MinorVersion": 8,
+          "PatchVersion": 1,
+          "Changelist": 56057345,
+          "CompatibleChangelist": 55116800,
+          "IsLicenseeVersion": 0,
+          "IsPromotedBuild": 1,
+          "BranchName": "++UE5+Release-5.8"
+        },
+        "protocol": 6,
+        "fixture": "FPSAcceptance",
+        "mode": "LAN",
+        "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "bots": 0,
+        "expected_players": 2,
+        "round_seconds": 300,
+        "expected_server_netmode": 1,
+        "expected_client_netmode": 3,
+        "latency_ms": 150,
+        "packet_loss_percent": 3,
+        "reconnect": false,
+        "blackout_seconds": 20,
+        "sample_seconds": 40,
+        "timeout_seconds": 140,
+        "nullrhi": true,
+        "process_records": [
+          {
+            "pid": 15008,
+            "role": "SERVER",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/server.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-server",
+            "arguments": [
+              "\"MCP_Test.uproject\"",
+              "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+              "-server",
+              "-port=17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/server.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-server\"",
+              "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+              "-DDC=InstalledNoZenLocalFallback",
+              "-DDC-ForceMemoryCache",
+              "-NoZenAutoLaunch"
+            ],
+            "started_utc": "2026-10-10T09:10:26.1930489Z",
+            "exit_code": 3,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 33864,
+            "role": "CLIENT-1",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/client-1.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-client-1",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/client-1.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-client-1\"",
+              "-FPSAcceptanceClient=1",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+              "-FPSAcceptanceBlackout"
+            ],
+            "started_utc": "2026-10-10T09:10:38.2452029Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 34932,
+            "role": "CLIENT-2",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/client-2.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-client-2",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/client-2.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-client-2\"",
+              "-FPSAcceptanceClient=2",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T09:10:39.0638956Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          }
+        ],
+        "client_arguments": [
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/client-1.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-client-1\"",
+            "-FPSAcceptanceClient=1",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+            "-FPSAcceptanceBlackout"
+          ],
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/client-2.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-client-2\"",
+            "-FPSAcceptanceClient=2",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ]
+        ],
+        "server_arguments": [
+          "\"MCP_Test.uproject\"",
+          "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+          "-server",
+          "-port=17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/server.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/EditorPrerequisite-20261010-171025-499/User-server\"",
+          "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=2",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+          "-DDC=InstalledNoZenLocalFallback",
+          "-DDC-ForceMemoryCache",
+          "-NoZenAutoLaunch"
+        ],
+        "reconnect_events": [],
+        "verified_logs": [],
+        "error": "Dedicated server exited before completion."
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/EditorPrerequisiteSharedDDC-20261010-171619-751/run.json",
+      "sha256": "d66819bac176f48f2ce48cd6ea3f1a93bc27b475f083eba634b0bb26fdbda3cb",
+      "data": {
+        "started_utc": "2026-10-10T09:16:19.7792007Z",
+        "completed_utc": "2026-10-10T09:16:35.6651916Z",
+        "result": "FAIL",
+        "logs": "Saved/FPSCharacterAcceptance/EditorPrerequisiteSharedDDC-20261010-171619-751",
+        "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+        "project": "MCP_Test.uproject",
+        "server_binary": {
+          "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+          "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311",
+          "bytes": 512952,
+          "modified_utc": "2026-08-19T19:06:26.7301115Z",
+          "file_version": "++UE5+Release-5.8-CL-56057345"
+        },
+        "client_binary": {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "sha256": "f8f5ee36124606fe99218a0e4fa101f56fedcf4621cd79f658572ad243eaabd5",
+          "bytes": 337537024,
+          "modified_utc": "2026-10-10T09:01:50.7080760Z",
+          "file_version": "5.8.1"
+        },
+        "editor_module": {
+          "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+          "sha256": "ec9d4c2d1b30cfbdfc0d52804e1cba4db7253fb4c41d4aa98b1c99a516f1d224",
+          "bytes": 2126336,
+          "modified_utc": "2026-10-10T08:59:32.9935834Z",
+          "file_version": "5.8.1"
+        },
+        "engine_build": {
+          "MajorVersion": 5,
+          "MinorVersion": 8,
+          "PatchVersion": 1,
+          "Changelist": 56057345,
+          "CompatibleChangelist": 55116800,
+          "IsLicenseeVersion": 0,
+          "IsPromotedBuild": 1,
+          "BranchName": "++UE5+Release-5.8"
+        },
+        "protocol": 6,
+        "fixture": "FPSAcceptance",
+        "mode": "LAN",
+        "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "bots": 0,
+        "expected_players": 2,
+        "round_seconds": 300,
+        "expected_server_netmode": 1,
+        "expected_client_netmode": 3,
+        "latency_ms": 150,
+        "packet_loss_percent": 3,
+        "reconnect": false,
+        "blackout_seconds": 20,
+        "sample_seconds": 40,
+        "timeout_seconds": 140,
+        "nullrhi": true,
+        "process_records": [
+          {
+            "pid": 29116,
+            "role": "SERVER",
+            "log": "Saved/FPSCharacterAcceptance/EditorPrerequisiteSharedDDC-20261010-171619-751/server.log",
+            "user_dir": "ENGINE_DEFAULT_SHARED_CACHE",
+            "arguments": [
+              "\"MCP_Test.uproject\"",
+              "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+              "-server",
+              "-port=17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisiteSharedDDC-20261010-171619-751/server.log\"",
+              "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T09:16:20.3763407Z",
+            "exit_code": 3,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          }
+        ],
+        "client_arguments": [],
+        "server_arguments": [
+          "\"MCP_Test.uproject\"",
+          "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+          "-server",
+          "-port=17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/EditorPrerequisiteSharedDDC-20261010-171619-751/server.log\"",
+          "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=2",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        "reconnect_events": [],
+        "verified_logs": [],
+        "error": "Dedicated server failed before its world finished loading."
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/run.json",
+      "sha256": "02bdcde44c249bbc97f6e807ad2ba874f8525ce9749492bfef21fd682f4f4a4f",
+      "data": {
+        "started_utc": "2026-10-10T09:06:57.9453813Z",
+        "completed_utc": "2026-10-10T09:08:10.5322671Z",
+        "result": "FAIL",
+        "logs": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920",
+        "package_root": "Saved/Packages/CharacterAcceptance/Windows",
+        "project": "MCP_Test.uproject",
+        "server_binary": {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "sha256": "f8f5ee36124606fe99218a0e4fa101f56fedcf4621cd79f658572ad243eaabd5",
+          "bytes": 337537024,
+          "modified_utc": "2026-10-10T09:01:50.7080760Z",
+          "file_version": "5.8.1"
+        },
+        "client_binary": {
+          "path": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "sha256": "f8f5ee36124606fe99218a0e4fa101f56fedcf4621cd79f658572ad243eaabd5",
+          "bytes": 337537024,
+          "modified_utc": "2026-10-10T09:01:50.7080760Z",
+          "file_version": "5.8.1"
+        },
+        "editor_module": null,
+        "engine_build": {
+          "MajorVersion": 5,
+          "MinorVersion": 8,
+          "PatchVersion": 1,
+          "Changelist": 56057345,
+          "CompatibleChangelist": 55116800,
+          "IsLicenseeVersion": 0,
+          "IsPromotedBuild": 1,
+          "BranchName": "++UE5+Release-5.8"
+        },
+        "protocol": 6,
+        "fixture": "FPSAcceptance",
+        "mode": "LAN",
+        "map": "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+        "bots": 0,
+        "expected_players": 2,
+        "round_seconds": 300,
+        "expected_server_netmode": 1,
+        "expected_client_netmode": 3,
+        "latency_ms": 150,
+        "packet_loss_percent": 3,
+        "reconnect": false,
+        "blackout_seconds": 20,
+        "sample_seconds": 40,
+        "timeout_seconds": 140,
+        "nullrhi": true,
+        "process_records": [
+          {
+            "pid": 26696,
+            "role": "SERVER",
+            "log": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/server.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-server",
+            "arguments": [
+              "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+              "-server",
+              "-port=17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/server.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-server\"",
+              "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T09:07:01.0443348Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 36564,
+            "role": "CLIENT-1",
+            "log": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/client-1.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-client-1",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/client-1.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-client-1\"",
+              "-FPSAcceptanceClient=1",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+              "-FPSAcceptanceBlackout"
+            ],
+            "started_utc": "2026-10-10T09:07:20.3334674Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          },
+          {
+            "pid": 15808,
+            "role": "CLIENT-2",
+            "log": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/client-2.log",
+            "user_dir": "Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-client-2",
+            "arguments": [
+              "127.0.0.1:17785",
+              "-abslog=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/client-2.log\"",
+              "-UserDir=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-client-2\"",
+              "-FPSAcceptanceClient=2",
+              "-nullrhi",
+              "-nosound",
+              "-unattended",
+              "-nosplash",
+              "-FPSAcceptance",
+              "-FPSExpectedPlayers=2",
+              "-PktLag=150",
+              "-PktLoss=3",
+              "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+            ],
+            "started_utc": "2026-10-10T09:07:21.1854205Z",
+            "exit_code": -1,
+            "owned_cleanup": true,
+            "intentionally_disconnected": false
+          }
+        ],
+        "client_arguments": [
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/client-1.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-client-1\"",
+            "-FPSAcceptanceClient=1",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\"",
+            "-FPSAcceptanceBlackout"
+          ],
+          [
+            "127.0.0.1:17785",
+            "-abslog=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/client-2.log\"",
+            "-UserDir=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-client-2\"",
+            "-FPSAcceptanceClient=2",
+            "-nullrhi",
+            "-nosound",
+            "-unattended",
+            "-nosplash",
+            "-FPSAcceptance",
+            "-FPSExpectedPlayers=2",
+            "-PktLag=150",
+            "-PktLoss=3",
+            "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+          ]
+        ],
+        "server_arguments": [
+          "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0",
+          "-server",
+          "-port=17785",
+          "-abslog=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/server.log\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/Prerequisite-20261010-170657-920/User-server\"",
+          "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+          "-nullrhi",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSAcceptance",
+          "-FPSExpectedPlayers=2",
+          "-PktLag=150",
+          "-PktLoss=3",
+          "-ExecCmds=\"t.MaxFPS 30,net.EnableNetStats 1\""
+        ],
+        "reconnect_events": [],
+        "verified_logs": [],
+        "error": "Dedicated server exited before completion."
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/TravelEditor20261010/run.json",
+      "sha256": "2c414a7ab956f00eee797e83be25ce47c896f6855091192b39e3e2898f2f9c51",
+      "data": {
+        "started": "2026-10-10T17:01:09.9625789+08:00",
+        "completed": "2026-10-10T17:03:27.9604190+08:00",
+        "result": "failed",
+        "process_id": 28360,
+        "mode": "Standalone same-process OpenLevel",
+        "injection": "Native P/Esc input, public selection, OpenLevel",
+        "seamless": false,
+        "packaged": false,
+        "visual": false,
+        "user_dir": "Saved/FPSCharacterAcceptance/TravelEditor20261010/User-20261010-170109-962",
+        "arguments": [
+          "\"MCP_Test.uproject\"",
+          "/Game/FPSDemo/Maps/LV_FPSFoundry?game=/Script/MCP_Test.FPSMatchMode?Mode=Solo?Bots=0",
+          "-game",
+          "-nosound",
+          "-unattended",
+          "-nosplash",
+          "-FPSCharacterTravelSmoke",
+          "-ExecCmds=\"t.MaxFPS 60\"",
+          "-UserDir=\"Saved/FPSCharacterAcceptance/TravelEditor20261010/User-20261010-170109-962\"",
+          "-abslog=\"Saved/FPSCharacterAcceptance/TravelEditor20261010/travel.log\"",
+          "-ini:EditorPerProjectUserSettings:[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]:bAutoStartServer=False",
+          "-nullrhi"
+        ],
+        "binaries": [
+          {
+            "path": "D:/UE/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe",
+            "sha256": "de28527cc2dae4c235a0cea01a182913862c9dcd10c08b36dc8be342a7f62311"
+          },
+          {
+            "path": "Binaries/Win64/UnrealEditor-MCP_Test.dll",
+            "sha256": "ec9d4c2d1b30cfbdfc0d52804e1cba4db7253fb4c41d4aa98b1c99a516f1d224"
+          }
+        ],
+        "sources": [
+          {
+            "path": "Source/MCP_Test/FPSCharacterTravelSmoke.h",
+            "sha256": "b7478312bee6908c432d7a4d0abef003ae7f8f1f63d655507e546420b1a3c0d0"
+          },
+          {
+            "path": "Source/MCP_Test/FPSCharacterTravelSmoke.cpp",
+            "sha256": "c417ee6d37800f76477659955abb2dc00d7a879c64ce7dc5965845c349db72d2"
+          },
+          {
+            "path": "Source/MCP_Test/FPSFrontController.cpp",
+            "sha256": "3bd7cbf17afae7027d9bff8bede55ecb07c6d61dd365467d8a6a3eeb23502c12"
+          },
+          {
+            "path": "Tools/TestFPSCharacterTravel.ps1",
+            "sha256": "430389c7c11f6b88c7b141c28232f089bfd2975068ef18b5e2f0d9f885068d1c"
+          }
+        ],
+        "error": "Editor startup DDC/Zen environment failure before fixture; owned PID stopped to avoid interfering with UAT. Script final hash initially raced process log handle release.",
+        "fixture_entered": false,
+        "log_sha256": "54cbb565708d1d6b36e1aa9a2257641f719d5df11ea47d006af37258f57e5c41"
+      }
+    },
+    {
+      "record": "Saved/FPSCharacterAcceptance/Package/20261010-f8f5ee36-all/Drops/run.json",
+      "sha256": "5896608acbd6852b8af72d41e233fb1be22bda6504580a1f2873d7603a881ab1",
+      "data": {
+        "suite": "Drops",
+        "started": "2026-10-10T17:14:45.0322114+08:00",
+        "executable": "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+        "executable_sha256": "f8f5ee36124606fe99218a0e4fa101f56fedcf4621cd79f658572ad243eaabd5",
+        "arguments": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "Tools/TestFPSDrops.ps1",
+          "-PackageExecutable",
+          "Saved/Packages/CharacterAcceptance/Windows/MCP_Test/Binaries/Win64/MCP_Test.exe",
+          "-LogRoot",
+          "Saved/FPSCharacterAcceptance/Package/20261010-f8f5ee36-all/Drops",
+          "-Visual",
+          "-Observer"
+        ],
+        "result": "FAIL",
+        "exit_code": 0,
+        "completion_lines": [
+          "[2026.10.10-09.16.29:674][964]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER COMPLETE time=78.00",
+          "[2026.10.10-09.16.29:710][234]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT COMPLETE time=78.01"
+        ],
+        "logs": [
+          {
+            "path": "Saved/FPSCharacterAcceptance/Package/20261010-f8f5ee36-all/Drops/lag0-loss0-visual-observer/server.log",
+            "sha256": "72fbac29b115c9af1e237e1f15d0f1aa02dd9553cb1375d6c09ff4f68fbf13f4"
+          }
+        ],
+        "captures": [],
+        "output": "Saved/FPSCharacterAcceptance/Package/20261010-f8f5ee36-all/Drops",
+        "error": "The file 'Saved/FPSCharacterAcceptance/Package/20261010-f8f5ee36-all/Drops/lag0-loss0-visual-observer/client.log' cannot be read: The process cannot access the file 'Saved/FPSCharacterAcceptance/Package/20261010-f8f5ee36-all/Drops/lag0-loss0-visual-observer/client.log' because it is being used by another process.",
+        "finished": "2026-10-10T17:16:31.5387027+08:00"
+      }
+    }
+  ]
+}

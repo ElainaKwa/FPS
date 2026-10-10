@@ -37,26 +37,33 @@ public:
     virtual void BeginPlay() override;
     virtual void InitGameState() override;
     virtual void PostLogin(APlayerController* NewPlayer) override;
+    virtual void Logout(AController* Exiting) override;
     virtual void PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage) override;
     virtual FString InitNewPlayer(APlayerController* NewPlayer, const FUniqueNetIdRepl& UniqueId, const FString& Options, const FString& Portal = TEXT("")) override;
     virtual void HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer) override;
     virtual void RestartPlayer(AController* NewPlayer) override;
     void StartRound(APlayerController* Requester);
+    void TryStartDedicatedRound();
     void SwitchTeam(APlayerController* Requester);
     bool CanDamage(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const;
     bool IsCombatActive() const;
+    const class UFPSModeRules* GetModeRules() const { return ModeRules; }
     float DamageMultiplier(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const;
 private:
     friend struct FFPSFlowSmoke;
+    friend struct FFPSDropSmoke;
     void FinishRound();
+    void BeginRound();
     int32 TeamSize(int32 Team) const;
     void SpawnBots();
     int32 BotCount = 3;
     FString ModeName;
+    UPROPERTY() TObjectPtr<class UFPSModeRules> ModeRules;
     EFPSDifficulty Difficulty = EFPSDifficulty::Normal;
     float BotPlayerDamageMultiplier = .65f;
     FString RoomName;
     FTimerHandle RoundTimer;
+    TMap<TWeakObjectPtr<AController>, FTimerHandle> SpawnRetries;
 };
 
 UCLASS()
@@ -99,8 +106,19 @@ public:
     virtual void ClientWasKicked_Implementation(const FText& ReturnReason) override;
     void BeginWeaponContentCheck();
     bool IsWeaponContentVerified() const { return bWeaponContentVerified; }
+    UFUNCTION(Server, Reliable) void ServerAcceptanceProbe();
+    UFUNCTION(Client, Reliable) void ClientAcceptanceProbe();
     UFUNCTION(Server, Reliable) void ServerStartRound();
     UFUNCTION(Server, Reliable) void ServerSwitchTeam();
+    void ToggleLoadout();
+    void HideLoadout();
+    void RequestSelection(FName WeaponId);
+    bool IsLoadoutOpen() const { return LoadoutMenu.IsValid(); }
+    const FString& GetSelectionFeedback() const { return SelectionFeedback; }
+    bool LastSelectionSucceeded() const { return bSelectionSuccess; }
+    uint32 SelectionReply() const { return LastSelectionReply; }
+    UFUNCTION(Server, Reliable) void ServerSelectWeapon(class AFPSDemoCharacter* Body, FGuid Life, FName WeaponId, uint32 RequestId);
+    UFUNCTION(Client, Reliable) void ClientSelectionResult(class AFPSDemoCharacter* Body, FGuid Life, uint32 RequestId, bool Success, const FString& Reason);
 private:
     UPROPERTY(Replicated) bool bWeaponContentVerified = false;
     FGuid WeaponContentChallenge;
@@ -115,6 +133,12 @@ private:
     void Travel(const FString& Options);
     FString StatusText() const;
     TSharedPtr<SWidget> Menu;
+    TSharedPtr<SWidget> LoadoutMenu;
+    TWeakObjectPtr<class AFPSDemoCharacter> LoadoutBody;
+    FString SelectionFeedback;
+    uint32 NextSelectionRequest = 0, LastSelectionReply = 0;
+    bool bSelectionSuccess = false;
+    double NextSelectionAllowedAt = 0;
     TSharedPtr<SEditableTextBox> BotInput;
     TSharedPtr<SEditableTextBox> AddressInput;
     TSharedPtr<SEditableTextBox> RoomInput;
@@ -123,4 +147,5 @@ private:
     bool bWasWaiting = false;
     UPROPERTY() TObjectPtr<class UInputMappingContext> MenuContext;
     UPROPERTY() TObjectPtr<class UInputAction> MenuAction;
+    UPROPERTY() TObjectPtr<class UInputAction> LoadoutAction;
 };

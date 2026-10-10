@@ -191,8 +191,10 @@ void UFPSTransferWeaponAbility::ActivateAbility(const FGameplayAbilitySpecHandle
     Super::ActivateAbility(Handle, Info, ActivationInfo, Event);
     auto* W = Weapon();
     if (!Info->IsNetAuthority()) { Complete(); return; }
+    const FGuid Previous = W ? W->Equipped().InstanceId : FGuid();
     const bool bSuccess = W && W->Transfer(Ticket, Event ? Cast<AFPSWeaponPickup>(const_cast<UObject*>(Event->OptionalObject.Get())) : nullptr);
-    if (bSuccess) Info->AbilitySystemComponent->TryActivateAbilityByClass(UFPSEquipAbility::StaticClass());
+    if (bSuccess && W->Equipped().IsValid() && W->Equipped().InstanceId != Previous)
+        Info->AbilitySystemComponent->TryActivateAbilityByClass(UFPSEquipAbility::StaticClass());
     Complete(!bSuccess);
 }
 

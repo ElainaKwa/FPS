@@ -19,8 +19,15 @@ public:
 	void AddDeath();
 	int32 GetEliminationCount() const;
 	int32 GetDeathCount() const { return DeathCount; }
+	void EnsureLoadout(const class UFPSModeRules* Rules);
+	FName SpawnPrimary() const { return SelectedPrimary; }
+	FName SpawnSecondary() const { return SelectedSecondary; }
 
 private:
+	friend class UFPSWeaponComponent;
+	UPROPERTY(Replicated) FName SelectedPrimary;
+	UPROPERTY(Replicated) FName SelectedSecondary;
+	bool bLoadoutInitialized = false;
 	UPROPERTY() TObjectPtr<UAbilitySystemComponent> ScoreAbilitySystem;
 	UPROPERTY() TObjectPtr<class UFPSScoreSet> ScoreAttributes;
 	UPROPERTY(Replicated)

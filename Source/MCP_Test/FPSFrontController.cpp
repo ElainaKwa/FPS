@@ -1,8 +1,14 @@
 #include "FPSMatchFlow.h"
+#include "FPSAcceptanceSmoke.h"
+#include "FPSLoadoutSmoke.h"
+#include "FPSDropSmoke.h"
+#include "FPSCharacterTravelSmoke.h"
 
 #include "FPSDemoGameState.h"
 #include "FPSDemoPlayerState.h"
 #include "FPSDemoCharacter.h"
+#include "FPSBaseMembership.h"
+#include "FPSLoadoutMenu.h"
 #include "FPSFrontGameInstance.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
@@ -56,10 +62,16 @@ void AFPSFrontController::BeginPlay()
     MenuAction->ValueType = EInputActionValueType::Boolean;
     MenuContext = NewObject<UInputMappingContext>(this);
     MenuContext->MapKey(MenuAction, EKeys::Escape);
+    LoadoutAction = NewObject<UInputAction>(this);
+    LoadoutAction->ValueType = EInputActionValueType::Boolean;
+    MenuContext->MapKey(LoadoutAction, EKeys::P);
     if (auto* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
         Subsystem->AddMappingContext(MenuContext, 20);
     if (auto* Input = Cast<UEnhancedInputComponent>(InputComponent))
+    {
         Input->BindAction(MenuAction, ETriggerEvent::Started, this, &AFPSFrontController::ToggleMenu);
+        Input->BindAction(LoadoutAction, ETriggerEvent::Started, this, &AFPSFrontController::ToggleLoadout);
+    }
     RefreshMenu();
 }
 
@@ -71,7 +83,17 @@ void AFPSFrontController::SetupInputComponent()
 void AFPSFrontController::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    FFPSAcceptanceSmoke::Tick(this, DeltaSeconds);
+    FFPSLoadoutSmoke::Tick(this);
+    FFPSDropSmoke::Tick(this);
+    FFPSCharacterTravelSmoke::Tick(this);
     if (!IsLocalController()) return;
+    if (LoadoutMenu.IsValid())
+    {
+        auto* Body = Cast<AFPSDemoCharacter>(GetPawn());
+        const auto* Membership = Body ? Body->FindComponentByClass<UFPSBaseMembership>() : nullptr;
+        if (Body != LoadoutBody.Get() || !Membership || !Membership->CanSelect()) HideLoadout();
+    }
     const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
 #if !UE_BUILD_SHIPPING
     if (GS && FParse::Param(FCommandLine::Get(), TEXT("FPSFlowSmoke")))
@@ -107,6 +129,7 @@ void AFPSFrontController::RefreshMenu()
 
 void AFPSFrontController::EndPlay(const EEndPlayReason::Type Reason)
 {
+    HideLoadout();
     HideMenu();
     if (GetLocalPlayer())
         if (auto* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
@@ -116,6 +139,7 @@ void AFPSFrontController::EndPlay(const EEndPlayReason::Type Reason)
 
 void AFPSFrontController::ToggleMenu()
 {
+    if (LoadoutMenu.IsValid()) { HideLoadout(); return; }
     if (bWasWaiting) return;
     if (Menu.IsValid()) HideMenu(); else ShowMenu();
 }
@@ -172,6 +196,7 @@ FString AFPSFrontController::StatusText() const
 void AFPSFrontController::ShowMenu()
 {
     if (!IsLocalController() || !GetLocalPlayer() || Menu.IsValid() || !GetWorld()->GetGameViewport()) return;
+    HideLoadout();
     if (auto* Fighter = Cast<AFPSDemoCharacter>(GetPawn())) Fighter->StopCombatInput();
     auto Rows = SNew(SVerticalBox);
     Rows->AddSlot().AutoHeight().Padding(0, 0, 0, 18)

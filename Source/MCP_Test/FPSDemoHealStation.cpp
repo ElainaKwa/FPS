@@ -36,7 +36,7 @@ void AFPSDemoHealStation::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 	const float Pulse = 0.5f + 0.5f * FMath::Sin(GetWorld()->GetTimeSeconds() * 2.5f);
-	CoreLight->SetIntensity(3000.0f + 1200.0f * Pulse);
+	if (CoreLight) CoreLight->SetIntensity(3000.0f + 1200.0f * Pulse);
 }
 
 bool AFPSDemoHealStation::IsWithinUseRange(const FVector& PlayerLocation) const
