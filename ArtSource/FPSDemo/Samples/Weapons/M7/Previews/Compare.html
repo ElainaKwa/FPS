@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M7 样品 · 前后渲染对照</title>
+  <style>
+    :root { color-scheme: dark; --bg:#151718; --panel:#202325; --line:#444a4d; --text:#edf0ef; --muted:#aeb8b7; --signal:#ccb365; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.65 system-ui,"Microsoft YaHei",sans-serif; }
+    main { width:min(1240px, calc(100% - 36px)); margin:36px auto; }
+    header { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; }
+    h1 { margin:0 0 6px; font-size:clamp(24px,4vw,36px); font-weight:650; line-height:1.25; }
+    p { margin:0 0 12px; }
+    .eyebrow { color:var(--signal); letter-spacing:.14em; font-size:12px; margin-bottom:12px; }
+    .subtitle,.note { color:var(--muted); }
+    .badge { flex:none; border:1px solid var(--line); padding:5px 11px; border-radius:4px; color:var(--muted); font-size:12px; }
+    .scope { margin:20px 0 18px; padding:12px 16px; background:var(--panel); border-left:3px solid var(--signal); }
+    .views { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+    button { font:inherit; cursor:pointer; color:var(--muted); background:transparent; border:1px solid var(--line); border-radius:4px; padding:8px 16px; }
+    button[aria-pressed="true"] { color:var(--text); background:#333837; border-color:var(--signal); }
+    button:hover { color:var(--text); }
+    button:focus-visible,a:focus-visible,input:focus-visible { outline:2px solid var(--signal); outline-offset:4px; }
+    .stage { position:relative; width:100%; height:min(64vh,690px); min-height:290px; overflow:hidden; border:1px solid var(--line); background:#101213; border-radius:5px; --split:50%; }
+    .stage img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; user-select:none; }
+    .stage .before { clip-path:inset(0 calc(100% - var(--split)) 0 0); }
+    .divider { position:absolute; top:0; bottom:0; left:var(--split); width:2px; background:var(--signal); transform:translateX(-1px); pointer-events:none; }
+    .divider::after { content:'↔'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; display:grid; place-items:center; color:#171a1b; background:var(--signal); border:3px solid #252a2b; border-radius:50%; font-size:23px; }
+    .image-label { position:absolute; top:14px; padding:5px 10px; font-size:12px; background:#151819dc; border:1px solid #596260; border-radius:3px; pointer-events:none; }
+    .left-label { left:14px; } .right-label { right:14px; }
+    .controls { display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center; padding:16px 0 12px; }
+    .controls label,.controls output { font-size:13px; color:var(--muted); }
+    input[type="range"] { width:100%; accent-color:var(--signal); cursor:ew-resize; }
+    .details { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; border-top:1px solid var(--line); padding-top:14px; }
+    #view-description { flex:1; color:var(--muted); }
+    .files { display:flex; gap:14px; flex:none; }
+    a { color:#c9d8d5; text-decoration-thickness:1px; text-underline-offset:4px; }
+    .footer { margin-top:24px; color:var(--muted); font-size:12px; }
+    .error { position:absolute; inset:auto 16px 16px; background:#392d25ed; color:#f1cfab; padding:10px 14px; border:1px solid #806043; border-radius:3px; }
+    [hidden] { display:none !important; }
+    @media(max-width:650px) { main { width:calc(100% - 24px); margin:24px auto; } header { display:block; } .badge { display:inline-block; margin-top:8px; } .stage { height:48vh; min-height:250px; } button { padding:7px 11px; } .details { display:block; } .files { margin-top:10px; } .controls { gap:10px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <div class="eyebrow">M7 / MATERIAL STUDY</div>
+      <h1>前后渲染对照</h1>
+      <p class="subtitle">四组 Blender 真实渲染 · 相同机位与统一灯光</p>
+    </div>
+    <span class="badge">样品 · 待视觉验收 · 未验证 Unreal</span>
+  </header>
+  <p class="scope">当前样品同时包含<strong>护木／镂空外壳长度与侧壳体积、前端轮廓、连续顶导轨，以及材质和功能标记变化</strong>。上方三角肩更窄，两斜面向窄顶轨台汇拢，收肩处有明确折线与坡度转折；仅中段圆鼓，并沿护木全长度保持相同鼓度，下缘回收，侧板跟随曲面。护木后中段加长，外露圆管恢复参考比例。全枪前后差异不能全部归因于材质。改前为 GeometryV2 基线，改后为当前样品的实际渲染。</p>
+  <p class="note" id="iteration-status">当前几何已修订，前鼻连接改为连续外凸弧，弧顶圆润；最终几何、贴图、导出和渲染核对以匹配当前源文件的 <a href="../Validation.json">Validation.json</a> 为准。尚未验证 Unreal 或完成用户视觉验收，技术检查成功不代表外观已被接受。</p>
+  <nav class="views" aria-label="对照视角">
+    <button type="button" data-view="tidal" aria-pressed="true">堤风全枪</button>
+    <button type="button" data-view="receiver" aria-pressed="false">机匣与弹匣</button>
+    <button type="button" data-view="grip" aria-pressed="false">共振一代握把</button>
+    <button type="button" data-view="rail" aria-pressed="false">上导轨</button>
+  </nav>
+  <div class="stage" id="stage" role="group" aria-label="堤风全枪前后渲染对照">
+    <img id="after-image" src="Preview_Equipped_Tidal.png" alt="改后：当前堤风全枪样品">
+    <img id="before-image" class="before" src="Before_Equipped_Tidal.png" alt="改前：GeometryV2 堤风全枪基线">
+    <div class="divider" aria-hidden="true"></div>
+    <span class="image-label left-label">改前 · 几何基线</span>
+    <span class="image-label right-label">改后 · 当前样品</span>
+    <p id="image-error" class="error" hidden>当前视图图片尚未生成或无法读取，请核对 README 中的实际渲染流程。</p>
+  </div>
+  <div class="controls">
+    <label for="split">改前显示比例</label>
+    <input id="split" type="range" min="0" max="100" value="50" aria-controls="stage">
+    <output id="split-value" for="split">50%</output>
+  </div>
+  <div class="details">
+    <p id="view-description" aria-live="polite">观察更窄的上方三角肩、收肩处明确的折线与坡度转折，以及沿护木全长度保持相同鼓度的中段圆鼓和下缘回收。侧板跟随曲面，顶导轨连续，外露圆管保持参考比例；该视图包含几何和材质的共同变化。</p>
+    <div class="files">
+      <a id="before-link" href="Before_Equipped_Tidal.png" target="_blank" rel="noopener">打开改前原图</a>
+      <a id="after-link" href="Preview_Equipped_Tidal.png" target="_blank" rel="noopener">打开改后原图</a>
+    </div>
+  </div>
+  <p class="note">拖动滑块查看两幅原始渲染，左右方向键也可调整。对照页仅裁切显示图片，不编辑图像；金属、聚合物、橡胶的表现以克制工业风格为依据。</p>
+  <p class="note"><a href="Preview_Tidal_Nose_Detail.png" target="_blank" rel="noopener">查看前端轮廓近景原图</a> · 该单图为 Blender 真实渲染，观察连续外凸的连接弧和圆润弧顶。</p>
+  <p class="footer"><a href="../README.md">资产交接与完整重建命令</a> · 预览结果不代表 Unreal 中的实际材质表现或视觉验收通过。</p>
+</main>
+<script>
+(() => {
+  const views = {
+    tidal: { title:'堤风全枪', before:'Before_Equipped_Tidal.png', after:'Preview_Equipped_Tidal.png', description:'观察更窄的上方三角肩、收肩处明确的折线与坡度转折，以及沿护木全长度保持相同鼓度的中段圆鼓和下缘回收。侧板跟随曲面，顶导轨连续，外露圆管保持参考比例；该视图包含几何和材质的共同变化。' },
+    receiver: { title:'机匣与弹匣', before:'Before_Receiver_Magazine_Detail.png', after:'Preview_Receiver_Magazine_Detail.png', description:'观察涂装金属、五金、聚合物的粗糙度和接触区局部磨损，核对功能标记的清晰度。' },
+    grip: { title:'共振一代握把', before:'Before_ResonanceGen1_Detail.png', after:'Preview_ResonanceGen1_Detail.png', description:'观察握持区的材质分层、橡胶颗粒、聚合物和五金区分；同机位对照保留附近配件的几何差异。' },
+    rail: { title:'上导轨', before:'Before_UpperRail_Detail.png', after:'Preview_UpperRail_Detail.png', description:'观察顶导轨是否连续接入机匣、轨齿高度与节距，以及护木表面层次。Before / After 按本轮相同机位成对渲染；最终技术核对以 Validation.json 为准，不代表外观验收。' }
+  };
+  const stage = document.getElementById('stage');
+  const before = document.getElementById('before-image');
+  const after = document.getElementById('after-image');
+  const split = document.getElementById('split');
+  const value = document.getElementById('split-value');
+  const error = document.getElementById('image-error');
+  const description = document.getElementById('view-description');
+  const beforeLink = document.getElementById('before-link');
+  const afterLink = document.getElementById('after-link');
+  let currentView = 'tidal';
+  let failed = new Set();
+  function updateSplit() {
+    stage.style.setProperty('--split', split.value + '%');
+    value.value = split.value + '%';
+    split.setAttribute('aria-valuetext', '改前显示 ' + split.value + '%');
+  }
+  function reportImageState(kind, ok) {
+    if (ok) failed.delete(kind); else failed.add(kind);
+    error.hidden = failed.size === 0;
+  }
+  before.addEventListener('load', () => reportImageState('before', true));
+  after.addEventListener('load', () => reportImageState('after', true));
+  before.addEventListener('error', () => reportImageState('before', false));
+  after.addEventListener('error', () => reportImageState('after', false));
+  function showView(key) {
+    const view = views[key];
+    if (!view || key === currentView) return;
+    currentView = key;
+    failed = new Set();
+    error.hidden = true;
+    before.src = view.before;
+    after.src = view.after;
+    before.alt = '改前：GeometryV2 ' + view.title + '基线';
+    after.alt = '改后：当前' + view.title + '样品';
+    stage.setAttribute('aria-label', view.title + '前后渲染对照');
+    beforeLink.href = view.before;
+    afterLink.href = view.after;
+    description.textContent = view.description;
+    document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === key)));
+  }
+  document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => showView(button.dataset.view)));
+  split.addEventListener('input', updateSplit);
+  updateSplit();
+  if (before.complete && before.naturalWidth === 0) reportImageState('before', false);
+  if (after.complete && after.naturalWidth === 0) reportImageState('after', false);
+})();
+</script>
+</body>
+</html>

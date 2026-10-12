@@ -7,6 +7,8 @@
 #include "FPSWeaponData.generated.h"
 
 class USoundBase;
+class UFPSAttachmentDefinition;
+struct FFPSResolvedWeaponStats;
 UENUM(BlueprintType)
 enum class EFPSWeaponSlot : uint8 { Primary, Secondary };
 UENUM(BlueprintType)
@@ -32,6 +34,12 @@ class MCP_TEST_API UFPSWeaponDefinition : public UPrimaryDataAsset
 public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, AssetRegistrySearchable, Category="Identity") FName WeaponId;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Identity") FText DisplayName;
+    // Empty means this legacy weapon has no attachment interfaces yet.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments") FName PlatformId;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments") TArray<FName> MountIds;
+    // Explicit offer set also defines this weapon's session content dependency closure.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments") TArray<TSoftObjectPtr<UFPSAttachmentDefinition>> AvailableAttachments;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments") TArray<FName> DefaultAttachments;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Identity") EFPSWeaponSlot Slot = EFPSWeaponSlot::Primary;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Identity") EFPSWeaponCategory Category = EFPSWeaponCategory::Rifle;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Ammunition") int32 MagazineSize = 30;
@@ -86,6 +94,8 @@ struct FFPSWeaponInstance
     GENERATED_BODY()
     UPROPERTY(BlueprintReadOnly) FGuid InstanceId;
     UPROPERTY(BlueprintReadOnly) FName WeaponId;
+    UPROPERTY(BlueprintReadOnly) TArray<FName> AttachmentIds;
+    UPROPERTY() uint32 ConfigurationRevision = 1;
     UPROPERTY(BlueprintReadOnly) int32 Magazine = 0;
     UPROPERTY(BlueprintReadOnly) int32 Reserve = 0;
     UPROPERTY(BlueprintReadOnly) double NextShotAt = 0;
@@ -107,6 +117,8 @@ struct FFPSWeaponLoadout
     UPROPERTY(BlueprintReadOnly) EFPSWeaponSlot ActiveSlot = EFPSWeaponSlot::Primary;
     UPROPERTY(BlueprintReadOnly) EFPSWeaponAction Action = EFPSWeaponAction::Idle;
     UPROPERTY(BlueprintReadOnly) double ActionEndsAt = 0;
+    UPROPERTY(BlueprintReadOnly) double ActionStartedAt = 0;
+    UPROPERTY() FGuid ActionToken;
     UPROPERTY(BlueprintReadOnly) bool bAiming = false;
     UPROPERTY(BlueprintReadOnly) double EquipStartedAt = 0;
     UPROPERTY() int32 FirePredictionKey = 0;
@@ -120,8 +132,11 @@ struct FFPSWeaponVisibleState
     GENERATED_BODY()
     UPROPERTY() FName WeaponId;
     UPROPERTY() FGuid InstanceId;
+    UPROPERTY() TArray<FName> AttachmentIds;
+    UPROPERTY() uint32 ConfigurationRevision = 1;
     UPROPERTY() EFPSWeaponAction Action = EFPSWeaponAction::Idle;
     UPROPERTY() double ActionEndsAt = 0;
+    UPROPERTY() double ActionStartedAt = 0;
     UPROPERTY() double EquipStartedAt = 0;
     UPROPERTY() bool bAiming = false;
 };
@@ -152,8 +167,10 @@ public:
     bool IsReady() const { return bReady; }
     const TArray<FName>& RequiredIds() const { return SessionIds; }
     const FString& Digest() const { return SessionDigest; }
-    static constexpr int32 ManifestVersion = 6;
+    static constexpr int32 ManifestVersion = 9;
     const UFPSWeaponDefinition* Find(FName WeaponId) const;
+    const UFPSAttachmentDefinition* FindAttachment(FName AttachmentId) const;
+    bool Resolve(FName WeaponId, const TArray<FName>& AttachmentIds, FFPSResolvedWeaponStats& Out, TArray<FString>& Errors) const;
     FFPSWeaponInstance CreateInstance(FName WeaponId) const;
     UPROPERTY(Config) FName StartingPrimary;
     UPROPERTY(Config) FName StartingSecondary;
@@ -162,11 +179,13 @@ public:
     static void ValidateCatalog(const TArray<UFPSWeaponDefinition*>& Items, TArray<FString>& Errors);
 private:
     UPROPERTY() TMap<FName, TObjectPtr<UFPSWeaponDefinition>> Definitions;
+    UPROPERTY() TMap<FName, TObjectPtr<UFPSAttachmentDefinition>> Attachments;
     TArray<FName> SessionIds;
     FString SessionDigest;
     bool bReady = false;
     TWeakObjectPtr<UWorld> SessionWorld;
     TSharedPtr<struct FStreamableHandle> DefinitionHandle;
+    TSharedPtr<struct FStreamableHandle> AttachmentHandle;
     TSharedPtr<struct FStreamableHandle> ResourceHandle;
     FDelegateHandle WorldInitHandle, WorldCleanupHandle;
 };

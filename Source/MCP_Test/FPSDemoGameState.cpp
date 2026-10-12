@@ -11,6 +11,8 @@ void AFPSDemoGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	DOREPLIFETIME(AFPSDemoGameState, RoundEndsAt);
 	DOREPLIFETIME(AFPSDemoGameState, RoomName);
 	DOREPLIFETIME(AFPSDemoGameState, WeaponDataError);
+    DOREPLIFETIME(AFPSDemoGameState, DropNoticeUntil);
+    DOREPLIFETIME(AFPSDemoGameState, HostPlayerId);
 	DOREPLIFETIME(AFPSDemoGameState, Podium);
 	DOREPLIFETIME(AFPSDemoGameState, Eliminations);
 	DOREPLIFETIME(AFPSDemoGameState, LastEvent);

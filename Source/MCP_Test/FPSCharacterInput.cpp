@@ -1,6 +1,8 @@
 #include "FPSCharacterInput.h"
 #include "FPSDemoCharacter.h"
 #include "FPSWeaponComponent.h"
+#include "FPSMovementComponent.h"
+#include "FPSInputSettings.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
@@ -51,6 +53,7 @@ UFPSCharacterInput::UFPSCharacterInput()
 }
 void UFPSCharacterInput::Bind(AFPSDemoCharacter* Character, UInputComponent* PlayerInputComponent)
 {
+    InputCharacter = Character;
     auto* Weapons = Character->GetWeapons();
 	if (UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
@@ -70,19 +73,21 @@ void UFPSCharacterInput::Bind(AFPSDemoCharacter* Character, UInputComponent* Pla
 		Input->BindAction(SecondaryAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Secondary);
 		Input->BindAction(DropAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Drop);
 		Input->BindAction(PickupAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Pickup);
-		Input->BindAction(SprintAction, ETriggerEvent::Started, Character, &AFPSDemoCharacter::SprintOn);
-		Input->BindAction(SprintAction, ETriggerEvent::Completed, Character, &AFPSDemoCharacter::SprintOff);
-		Input->BindAction(SprintAction, ETriggerEvent::Canceled, Character, &AFPSDemoCharacter::SprintOff);
-		Input->BindAction(CrouchAction, ETriggerEvent::Started, Character, &AFPSDemoCharacter::CrouchOn);
-		Input->BindAction(CrouchAction, ETriggerEvent::Completed, Character, &AFPSDemoCharacter::CrouchOff);
-		Input->BindAction(CrouchAction, ETriggerEvent::Canceled, Character, &AFPSDemoCharacter::CrouchOff);
+		Input->BindAction(SprintAction, ETriggerEvent::Started, this, &UFPSCharacterInput::SprintPressed);
+		Input->BindAction(SprintAction, ETriggerEvent::Completed, this, &UFPSCharacterInput::SprintReleased);
+		Input->BindAction(SprintAction, ETriggerEvent::Canceled, this, &UFPSCharacterInput::SprintCanceled);
+		Input->BindAction(CrouchAction, ETriggerEvent::Started, this, &UFPSCharacterInput::CrouchPressed);
+		Input->BindAction(CrouchAction, ETriggerEvent::Completed, this, &UFPSCharacterInput::CrouchReleased);
+		Input->BindAction(CrouchAction, ETriggerEvent::Canceled, this, &UFPSCharacterInput::CrouchCanceled);
 		Input->BindAction(HealAction, ETriggerEvent::Started, Character, &AFPSDemoCharacter::PressHeal);
 		Input->BindAction(JumpAction, ETriggerEvent::Started, Character, &AFPSDemoCharacter::PressJump);
 		Input->BindAction(JumpAction, ETriggerEvent::Completed, Character, &AFPSDemoCharacter::ReleaseJump);
+		Input->BindAction(JumpAction, ETriggerEvent::Canceled, Character, &AFPSDemoCharacter::ReleaseJump);
 	}
 }
 void UFPSCharacterInput::Register(AFPSDemoCharacter* Character)
 {
+    InputCharacter = Character;
 	if (APlayerController* PC = Cast<APlayerController>(Character->GetController()))
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer()))
@@ -99,6 +104,65 @@ void UFPSCharacterInput::Register(AFPSDemoCharacter* Character)
 
 void UFPSCharacterInput::Unregister()
 {
+    if (auto* Character = InputCharacter.Get())
+        if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules())
+            Movement->ClearMovementIntents();
     if (auto* Subsystem = RegisteredInputSubsystem.Get()) Subsystem->RemoveMappingContext(InputMap);
     RegisteredInputSubsystem.Reset();
+    InputCharacter.Reset();
+}
+
+void UFPSCharacterInput::SprintPressed()
+{
+    auto* Character = InputCharacter.Get();
+    if (!Character) return;
+    if (auto* PC = Cast<APlayerController>(Character->GetController()); PC && PC->IsMoveInputIgnored()) return;
+    if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules())
+        Movement->RequestSprint(UFPSInputSettings::Get()->bSprintToggle ? !Movement->HasSprintIntent() : true);
+    else Character->SprintOn();
+}
+void UFPSCharacterInput::SprintReleased()
+{
+    auto* Character = InputCharacter.Get();
+    if (!Character) return;
+    if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules())
+    {
+        if (!UFPSInputSettings::Get()->bSprintToggle) Movement->RequestSprint(false);
+    }
+    else Character->SprintOff();
+}
+void UFPSCharacterInput::SprintCanceled()
+{
+    if (auto* Character = InputCharacter.Get())
+    {
+        if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules()) Movement->RequestSprint(false);
+        else Character->SprintOff();
+    }
+}
+void UFPSCharacterInput::CrouchPressed()
+{
+    auto* Character = InputCharacter.Get();
+    if (!Character) return;
+    if (auto* PC = Cast<APlayerController>(Character->GetController()); PC && PC->IsMoveInputIgnored()) return;
+    if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules())
+        Movement->RequestCrouch(UFPSInputSettings::Get()->bCrouchToggle ? !Character->bIsCrouched : true);
+    else Character->CrouchOn();
+}
+void UFPSCharacterInput::CrouchReleased()
+{
+    auto* Character = InputCharacter.Get();
+    if (!Character) return;
+    if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules())
+    {
+        if (!UFPSInputSettings::Get()->bCrouchToggle) Movement->RequestCrouch(false);
+    }
+    else Character->CrouchOff();
+}
+void UFPSCharacterInput::CrouchCanceled()
+{
+    if (auto* Character = InputCharacter.Get())
+    {
+        if (auto* Movement = Cast<UFPSMovementComponent>(Character->GetCharacterMovement()); Movement && Movement->UsesMovementRules()) Movement->RequestCrouch(false);
+        else Character->CrouchOff();
+    }
 }

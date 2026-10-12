@@ -28,13 +28,16 @@ void AFPSBotController::Tick(float DeltaSeconds)
     const auto& Settings = *GetDefault<UFPSBotSettings>();
     const float Now = GetWorld()->GetTimeSeconds();
     auto* Navigation = GetWorld()->GetSubsystem<UFPSBotNavigation>();
+    if (!Navigation) return;
+    const auto& Patrol = Navigation->GetPatrolPoints();
+    if (Patrol.IsEmpty()) return;
     auto* Weapon = Self->GetWeapons();
     if (PreviousPawn.Get() != Self)
     {
         PreviousPawn = Self; Enemy.Reset(); Route.Reset(); RouteIndex = 0;
         NextRoute = NextSense = NextShot = 0; BurstShots = 0;
         ProgressLocation = Self->GetActorLocation(); ProgressTime = Now;
-        PatrolIndex = GetPlayerState<AFPSDemoPlayerState>() ? GetPlayerState<AFPSDemoPlayerState>()->GetPlayerId() % Settings.PatrolPoints.Num() : 0;
+        PatrolIndex = GetPlayerState<AFPSDemoPlayerState>() ? GetPlayerState<AFPSDemoPlayerState>()->GetPlayerId() % Patrol.Num() : 0;
     }
     if (Now >= NextSense)
     {
@@ -59,7 +62,6 @@ void AFPSBotController::Tick(float DeltaSeconds)
         else if (!Enemy.IsValid() || Enemy->IsEliminated() || Now - LastSeenTime > 3.f) Enemy.Reset();
     }
     // Pursue only a visible opponent or its last observed position. Otherwise patrol.
-    const auto& Patrol = Settings.PatrolPoints;
     if (Enemy.IsValid()) Destination = LastSeenLocation;
     else
     {

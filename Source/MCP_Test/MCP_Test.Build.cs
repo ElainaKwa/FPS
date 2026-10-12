@@ -10,9 +10,11 @@ public class MCP_Test : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "GameplayAbilities", "GameplayTags", "GameplayTasks" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "AIModule", "AudioMixer", "AssetRegistry" });
+		PublicDependencyModuleNames.Add("UMG");
+		PublicDependencyModuleNames.Add("DeveloperSettings");
+		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "AIModule", "AudioMixer", "AssetRegistry", "NetCore" });
 
-		if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd" });
+		if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd", "UMGEditor", "KismetCompiler", "PropertyEditor", "AssetTools", "ToolMenus" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

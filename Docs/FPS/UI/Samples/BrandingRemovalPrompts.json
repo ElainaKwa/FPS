@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-10",
+  "tool": "built-in image_gen edit",
+  "input_files": {
+    "lobby": "Lobby.png",
+    "hud": "CombatHUD.png",
+    "loadout": "Loadout.png"
+  },
+  "output_files": {
+    "lobby": "Lobby-v2.png",
+    "hud": "CombatHUD-v2.png",
+    "loadout": "Loadout-v2.png"
+  },
+  "prompts": {
+    "lobby": "Use case: precise-object-edit. Edit only the supplied UI mockup. Remove the entire small top-left 'MCP / FPS' label, the small 'MCP' above TRAINING FACILITY at upper right beside the scene preview, and the bottom-left 'PC · 键鼠' footer including its decorative dash. Restore the clean matching background/grid underneath; leave natural negative space. Also remove any other MCP lettering in the environment if present. Do not replace these with any new logo, invented game name or text. Keep every other label, Chinese glyph, button, value, rectangle, color, arena preview, crop and layout exactly unchanged. Preserve the small bottom-right '视觉样稿 · 非实机画面' notice. Preserve original aspect ratio. This is a local removal edit, not a redesign.",
+    "hud": "Use case: precise-object-edit. Edit only the supplied combat HUD mockup. Remove ALL 'MCP' lettering from the scene, especially the large lettering on the upper middle-right concrete tower and the left foreground storage crate. Restore the matching concrete/paint/metal textures seamlessly. Keep the yellow stripes and other generic functional markings. Do not add any new logo, brand, project code or replacement text. Keep all HUD labels, score 12/09, time 03:42, HP 100, ammo 30/120, crosshair, weapon, hands, target, scene geometry, camera, lighting and the small bottom-right non-gameplay-screenshot notice unchanged. Preserve aspect ratio. Change only this lettering removal.",
+    "loadout": "Use case: precise-object-edit. Edit only the supplied loadout mockup. Remove ALL 'MCP' branding from the scene, including the entire 'MCP / FPS' lettering on the left wall and 'MCP' on the yellow right-hand hanging banner. Restore the underlying wall and banner materials; preserve yellow/black industrial stripe geometry. Do not introduce replacement text, brand or logo. Keep every part of the central loadout panel exactly unchanged, including all Chinese labels, gun line drawings, equipped badges, column layout, status notes and P / Esc close hint. Preserve the environment camera, weapon, colors, proportions, original aspect ratio and bottom-right '视觉样稿 · 非实机画面' notice. A precise local edit only."
+  }
+}

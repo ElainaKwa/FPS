@@ -1,0 +1,1786 @@
+{
+  "generated_by": "Tools/record_industrial_delivery.py",
+  "generated_utc": "2026-10-11T11:46:58.231220+00:00",
+  "repository_head_at_recording": "6c98bad89fe9c8aec8a3731261033ece0dadc759",
+  "scope": "Industrial art library and runtime binding. Integration report records saved data; visual/gameplay acceptance is documented separately in Docs/FPS/Art/Integration.md.",
+  "source_validation": {
+    "checks": [
+      "23 FBX files present; static exports have faces and UVs",
+      "All three blend libraries reopen",
+      "16-bone operator: all skin vertices weighted to total 1",
+      "Forearm pose moves attached hand by >5 cm; source file not changed",
+      "7 UI icons contain visible silhouettes and transparent surroundings",
+      "RuntimeParts.blend reopens; 15 runtime parts contain faces, UVs and FBX exports"
+    ],
+    "success": true
+  },
+  "unreal_import_validation": {
+    "source": "ArtSource\\FPSDemo\\Industrial",
+    "assets": [
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          94.29999923706055,
+          9.65000033378601,
+          30.64315414428711
+        ],
+        "expected_dimensions_cm": [
+          94.29999887943268,
+          9.650000557303429,
+          30.643154680728912
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          94.75,
+          9.65000033378601,
+          33.61704444885254
+        ],
+        "expected_dimensions_cm": [
+          94.74999904632568,
+          9.650000557303429,
+          33.61704498529434
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          96.80000305175781,
+          9.65000033378601,
+          30.64315414428711
+        ],
+        "expected_dimensions_cm": [
+          96.80000245571136,
+          9.650000557303429,
+          30.643154680728912
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          71.9000015258789,
+          9.65000033378601,
+          29.443153381347656
+        ],
+        "expected_dimensions_cm": [
+          71.90000116825104,
+          9.650000557303429,
+          29.443153738975525
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          73.09999465942383,
+          10.150000095367432,
+          31.700000762939453
+        ],
+        "expected_dimensions_cm": [
+          73.09999763965607,
+          10.15000008046627,
+          31.700000166893005
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic"
+        ],
+        "dimensions_cm": [
+          27.652193069458008,
+          5.0,
+          20.950000762939453
+        ],
+        "expected_dimensions_cm": [
+          27.65219360589981,
+          5.000000074505806,
+          20.95000073313713
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Steel",
+          "MI_IND_Polymer",
+          "MI_IND_Rubber",
+          "MI_IND_Graphite",
+          "MI_IND_Ceramic"
+        ],
+        "dimensions_cm": [
+          32.65219306945801,
+          5.190000057220459,
+          20.950000762939453
+        ],
+        "expected_dimensions_cm": [
+          32.65219330787659,
+          5.189999938011169,
+          20.95000073313713
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Floor400",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Concrete",
+          "MI_IND_Rubber"
+        ],
+        "dimensions_cm": [
+          400.0,
+          400.0,
+          20.599999725818634
+        ],
+        "expected_dimensions_cm": [
+          400.0,
+          400.0,
+          20.600000023841858
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Wall400",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Concrete",
+          "MI_IND_Graphite",
+          "MI_IND_Yellow",
+          "MI_IND_Steel"
+        ],
+        "dimensions_cm": [
+          400.0,
+          42.29999923706055,
+          300.0
+        ],
+        "expected_dimensions_cm": [
+          400.0,
+          42.30000078678131,
+          300.0
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Pillar300",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          44.0,
+          44.0,
+          300.0
+        ],
+        "expected_dimensions_cm": [
+          43.99999976158142,
+          43.99999976158142,
+          300.0
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Cargo240",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Polymer",
+          "MI_IND_Steel",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          245.0,
+          140.89999389648438,
+          141.00001525878906
+        ],
+        "expected_dimensions_cm": [
+          245.00000476837158,
+          140.89999198913574,
+          141.00000858306885
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Barrier200",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Concrete",
+          "MI_IND_Graphite",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          200.0,
+          75.0,
+          102.0
+        ],
+        "expected_dimensions_cm": [
+          200.0,
+          75.0,
+          101.99999809265137
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Railing200",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          209.0,
+          19.0,
+          112.70001220703125
+        ],
+        "expected_dimensions_cm": [
+          209.0000033378601,
+          18.99999976158142,
+          112.7000093460083
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Gateway400",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Concrete",
+          "MI_IND_Graphite",
+          "MI_IND_Yellow",
+          "MI_IND_Light"
+        ],
+        "dimensions_cm": [
+          399.99998474121094,
+          56.900001525878906,
+          304.0
+        ],
+        "expected_dimensions_cm": [
+          399.99998807907104,
+          56.89999908208847,
+          303.99999618530273
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_Deck400",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Steel"
+        ],
+        "dimensions_cm": [
+          400.0,
+          200.0,
+          41.39999985694885
+        ],
+        "expected_dimensions_cm": [
+          400.0,
+          200.0,
+          41.4000004529953
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_WeaponRack",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Rubber",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          150.0,
+          66.3499984741211,
+          145.5
+        ],
+        "expected_dimensions_cm": [
+          150.0,
+          66.34999811649323,
+          145.50000429153442
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_TargetStand",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Red"
+        ],
+        "dimensions_cm": [
+          65.0,
+          65.0,
+          167.0
+        ],
+        "expected_dimensions_cm": [
+          64.99999761581421,
+          64.99999761581421,
+          166.99999570846558
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_WorkLight",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Light",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          65.0,
+          55.0,
+          323.5
+        ],
+        "expected_dimensions_cm": [
+          64.99999761581421,
+          55.000001192092896,
+          323.4999895095825
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Environment/SM_IND_BaseBeacon",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Blue",
+          "MI_IND_Ceramic",
+          "MI_IND_Light"
+        ],
+        "dimensions_cm": [
+          60.000003814697266,
+          17.199999809265137,
+          140.0
+        ],
+        "expected_dimensions_cm": [
+          60.00000238418579,
+          17.19999983906746,
+          139.9999976158142
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Character/SM_IND_Operator",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Fabric",
+          "MI_IND_Graphite",
+          "MI_IND_Steel",
+          "MI_IND_Ceramic",
+          "MI_IND_Yellow",
+          "MI_IND_Rubber",
+          "MI_IND_Visor"
+        ],
+        "dimensions_cm": [
+          70.97228622436523,
+          40.64999961853027,
+          175.9999861717224
+        ],
+        "expected_dimensions_cm": [
+          70.97228467464447,
+          40.64999967813492,
+          175.99998712539673
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Character/SK_IND_Operator",
+        "class": "SkeletalMesh",
+        "materials": [
+          "MI_IND_Graphite",
+          "MI_IND_Rubber",
+          "MI_IND_Ceramic",
+          "MI_IND_Fabric",
+          "MI_IND_Yellow",
+          "MI_IND_Visor",
+          "MI_IND_Steel"
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Character/SM_IND_FPArm_L",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Fabric",
+          "MI_IND_Ceramic",
+          "MI_IND_Graphite",
+          "MI_IND_Rubber",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          12.660551071166992,
+          11.98400068283081,
+          41.649993896484375
+        ],
+        "expected_dimensions_cm": [
+          12.660552561283112,
+          11.984000727534294,
+          41.64999723434448
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/Character/SM_IND_FPArm_R",
+        "class": "StaticMesh",
+        "materials": [
+          "MI_IND_Fabric",
+          "MI_IND_Ceramic",
+          "MI_IND_Graphite",
+          "MI_IND_Rubber",
+          "MI_IND_Yellow"
+        ],
+        "dimensions_cm": [
+          12.660551071166992,
+          11.98400068283081,
+          41.649993896484375
+        ],
+        "expected_dimensions_cm": [
+          12.660552561283112,
+          11.984000727534294,
+          41.64999723434448
+        ],
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_AK",
+        "class": "Texture2D",
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_BR3",
+        "class": "Texture2D",
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_HeavyPistol",
+        "class": "Texture2D",
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_M4",
+        "class": "Texture2D",
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_M9",
+        "class": "Texture2D",
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_MP5",
+        "class": "Texture2D",
+        "saved": true
+      },
+      {
+        "path": "/Game/FPSDemo/Art/Industrial/UI/T_IND_UMP45",
+        "class": "Texture2D",
+        "saved": true
+      }
+    ],
+    "errors": [],
+    "showcase": "/Game/FPSDemo/Art/Industrial/Maps/LV_IndustrialShowcase",
+    "success": true
+  },
+  "runtime_integration": {
+    "generator": "Tools/integrate_industrial_art.py",
+    "runtime_parts": [
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Torso.SM_IND_RT_Torso",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Helmet.SM_IND_RT_Helmet",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Pelvis.SM_IND_RT_Pelvis",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LUpperArm.SM_IND_RT_LUpperArm",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LForearm.SM_IND_RT_LForearm",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LThigh.SM_IND_RT_LThigh",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LShin.SM_IND_RT_LShin",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LGlove.SM_IND_RT_LGlove",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LBoot.SM_IND_RT_LBoot",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RUpperArm.SM_IND_RT_RUpperArm",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RForearm.SM_IND_RT_RForearm",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RThigh.SM_IND_RT_RThigh",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RShin.SM_IND_RT_RShin",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RGlove.SM_IND_RT_RGlove",
+      "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RBoot.SM_IND_RT_RBoot"
+    ],
+    "weapons": [
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_AK.DA_AK",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.SM_IND_AK",
+        "gameplay_values_unchanged": true
+      },
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_M4.DA_M4",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.SM_IND_M4",
+        "gameplay_values_unchanged": true
+      },
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_BR3.DA_BR3",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.SM_IND_BR3",
+        "gameplay_values_unchanged": true
+      },
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_MP5.DA_MP5",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.SM_IND_MP5",
+        "gameplay_values_unchanged": true
+      },
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_UMP45.DA_UMP45",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.SM_IND_UMP45",
+        "gameplay_values_unchanged": true
+      },
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_M9.DA_M9",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.SM_IND_M9",
+        "gameplay_values_unchanged": true
+      },
+      {
+        "path": "/Game/FPSDemo/Weapons/Definitions/DA_HeavyPistol.DA_HeavyPistol",
+        "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.SM_IND_HeavyPistol",
+        "gameplay_values_unchanged": true
+      }
+    ],
+    "maps": [
+      {
+        "map": "LV_FPSFoundry",
+        "cosmetic_shells": 72,
+        "original_transforms_and_collision_preserved": true
+      },
+      {
+        "map": "LV_FPSTraining",
+        "cosmetic_shells": 70,
+        "original_transforms_and_collision_preserved": true
+      }
+    ],
+    "success": true
+  },
+  "unreal_capture_present": true,
+  "unreal_capture_log_evidence": [
+    "[2026.10.10-19.09.46:647][  0]MapCheck: 地图检测完成：0个错误、0个警告、完成用时0.05毫秒。",
+    "[2026.10.10-19.09.49:492][  2]MapCheck: 地图检测完成：0个错误、0个警告、完成用时0.065毫秒。",
+    "[2026.10.10-19.10.19:896][769]LogPython: INDUSTRIAL_CAPTURE REQUESTED",
+    "[2026.10.10-19.10.21:735][871]LogPython: INDUSTRIAL_CAPTURE PASS D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Industrial\\Previews\\UnrealShowcase.png"
+  ],
+  "files": [
+    {
+      "path": "ArtSource/FPSDemo/Industrial/EnvironmentKit.blend",
+      "bytes": 166669,
+      "sha256": "47a834c7bd9a83c99d27f5447b83fc8b9885a26a9adf9eba0b83092a93530f6e",
+      "modified_utc": "2026-10-10T15:07:03.082788+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SK_IND_Operator.fbx",
+      "bytes": 951452,
+      "sha256": "8c82c370d2dee8bc672cb7a502e847380e075857f8f38b520bbccfb3c926a73a",
+      "modified_utc": "2026-10-10T15:10:32.197387+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_AK.fbx",
+      "bytes": 373980,
+      "sha256": "10e6acd3d97fae7ad0a2a1f5ef1e056438c0892c8760941929842b10b410ecbf",
+      "modified_utc": "2026-10-10T15:06:47.579818+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Barrier200.fbx",
+      "bytes": 87436,
+      "sha256": "ff864aa70292e9b930737bfc9c70be5df9b87a09d23e27be4ef25eb4aa19663e",
+      "modified_utc": "2026-10-10T15:07:02.366381+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_BaseBeacon.fbx",
+      "bytes": 31276,
+      "sha256": "035c0dd8e1ce0b85f5b58db2abf70202594843669f82b66406adc5b33da34cd6",
+      "modified_utc": "2026-10-10T15:07:03.069294+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_BR3.fbx",
+      "bytes": 381052,
+      "sha256": "53a29ae65e54c1746cf1b3a38616e51bee9e1dd8872aa4b324cee91e54056279",
+      "modified_utc": "2026-10-10T15:06:49.169972+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Cargo240.fbx",
+      "bytes": 106108,
+      "sha256": "6e88259c8e07931325850377641bc9df055665eabb525c8bd56a14421e631d7d",
+      "modified_utc": "2026-10-10T15:07:02.246576+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Deck400.fbx",
+      "bytes": 87964,
+      "sha256": "0d8ef2eb80444246cabeac913b7ffda3297ccdde6b7caba9ce6deaa8b176ad7d",
+      "modified_utc": "2026-10-10T15:07:02.727919+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Floor400.fbx",
+      "bytes": 33404,
+      "sha256": "a1a481fac9a6aecf2107d002c4ec21ef45eae28c25a863ee11cbbc97085e72b6",
+      "modified_utc": "2026-10-10T15:07:02.044531+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_FPArm_L.fbx",
+      "bytes": 90076,
+      "sha256": "61c4c7dfa02e75d6b865e8d83b2b6c89d9b49dc9a0b469538dc7690e544a5561",
+      "modified_utc": "2026-10-10T15:10:32.214688+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_FPArm_R.fbx",
+      "bytes": 90924,
+      "sha256": "e31d251e9c126114015147fcaa609b2d8b5cef7cc026f0c3be00e32508f268ac",
+      "modified_utc": "2026-10-10T15:10:32.230997+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Gateway400.fbx",
+      "bytes": 54588,
+      "sha256": "f64b1857512326c7bd3d197e0ab3786a21852de93a1fa5f20a84202352f862c4",
+      "modified_utc": "2026-10-10T15:07:02.515868+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_HeavyPistol.fbx",
+      "bytes": 205852,
+      "sha256": "6261f659daf45be8f52b7913cdb4869e6ea6f78c634518c97cb4081518dcba1d",
+      "modified_utc": "2026-10-10T15:06:56.051673+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_M4.fbx",
+      "bytes": 380460,
+      "sha256": "e9709fbe5c6001a6bbc55baa8fff58354a3250487a6de301691bf42bc8dcd087",
+      "modified_utc": "2026-10-10T15:06:46.597416+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_M9.fbx",
+      "bytes": 205324,
+      "sha256": "5aea236965f1e489d7f8ffc4bcf2b678a70a60894577a493aaf9af6c041c0db3",
+      "modified_utc": "2026-10-10T15:06:54.292600+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_MP5.fbx",
+      "bytes": 276092,
+      "sha256": "f07792434175dd8760caa530b719df971484358f396d26f9e055cc4d86ad0bf4",
+      "modified_utc": "2026-10-10T15:06:50.506031+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Operator.fbx",
+      "bytes": 626044,
+      "sha256": "0d9c9881eaefbd87833b90acb13520275c9be8f6d71d2dca77d56c6481d5419e",
+      "modified_utc": "2026-10-10T15:10:31.872826+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Pillar300.fbx",
+      "bytes": 35372,
+      "sha256": "759b7b0d2015fff001b5aeb1625357fa3fbfad2749060c8ac3ed91fbc6303278",
+      "modified_utc": "2026-10-10T15:07:02.125773+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Railing200.fbx",
+      "bytes": 55452,
+      "sha256": "cf8119a854d902604fe8d045098416258fb4fa4dd7a0a631ef92cd3298105d01",
+      "modified_utc": "2026-10-10T15:07:02.426678+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_Helmet.fbx",
+      "bytes": 109852,
+      "sha256": "38d16b9d050809e6f5a031acdbb538f6c1101abe384392c9aefa4dc26e5e677f",
+      "modified_utc": "2026-10-11T05:04:35.477731+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LBoot.fbx",
+      "bytes": 47180,
+      "sha256": "b5290bcccb95ea3c3bf8df7e8a1189c032edfad70ff44e6ce762f6d69a86e881",
+      "modified_utc": "2026-10-11T05:04:35.555611+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LForearm.fbx",
+      "bytes": 63388,
+      "sha256": "832fb6a697276051b80f4e31f40b2c085d4577b0046ecd70a7656661e52f22d8",
+      "modified_utc": "2026-10-11T05:04:35.512661+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LGlove.fbx",
+      "bytes": 45212,
+      "sha256": "2929310a73edbbd1bf1047061eea3c5a1cdab41bdbafdf2e420f59e60ab1ff30",
+      "modified_utc": "2026-10-11T05:04:35.544902+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LShin.fbx",
+      "bytes": 62396,
+      "sha256": "0a09aea9ee3746a3bc040cf3a6fc56b0e8db5bc69d6fcc951e20dad73f4f8b13",
+      "modified_utc": "2026-10-11T05:04:35.534974+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LThigh.fbx",
+      "bytes": 57132,
+      "sha256": "ee4b7bda2deb0e098014eaf18cea280f6789f7ccf8dac47ee3d91ee1cf9bbb36",
+      "modified_utc": "2026-10-11T05:04:35.523200+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LUpperArm.fbx",
+      "bytes": 64636,
+      "sha256": "5da9a4ab2b53c74a3abfd42b8843d0b30a48bae45274f0164ea6cdea61fd6043",
+      "modified_utc": "2026-10-11T05:04:35.500925+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_Pelvis.fbx",
+      "bytes": 45052,
+      "sha256": "211dcfb749da1a561bbd041e6b1b2ab22354a10949bf4c970fc794e1b9f92e3d",
+      "modified_utc": "2026-10-11T05:04:35.488475+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RBoot.fbx",
+      "bytes": 47324,
+      "sha256": "8e893994447a6bdbb0175c769eb42c502428d8251c033ef740285239485b414e",
+      "modified_utc": "2026-10-11T05:04:35.622622+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RForearm.fbx",
+      "bytes": 61644,
+      "sha256": "be4d401964301225393aa60d18b073edd2c6b1dd731fd593c5548dc3b29e5659",
+      "modified_utc": "2026-10-11T05:04:35.579341+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RGlove.fbx",
+      "bytes": 45276,
+      "sha256": "03c3454778d2141f56c5b27f9b19e1214500f7bc7b7c22a1edeb6ae7a836d364",
+      "modified_utc": "2026-10-11T05:04:35.612088+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RShin.fbx",
+      "bytes": 62332,
+      "sha256": "2acdad6744edfbc79513c16cc332d1cc15ba45bf67eaa577699f9eb22808dd6e",
+      "modified_utc": "2026-10-11T05:04:35.602547+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RThigh.fbx",
+      "bytes": 57196,
+      "sha256": "5d94adae2d7561de6e7789e1f3eb278c43d4d134e2d90278f2d663367bfd281b",
+      "modified_utc": "2026-10-11T05:04:35.591870+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RUpperArm.fbx",
+      "bytes": 64700,
+      "sha256": "79dc2a4a2503e4a35448ca53263877121b9b223473a989b9920cfa4196fdf49c",
+      "modified_utc": "2026-10-11T05:04:35.566826+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_Torso.fbx",
+      "bytes": 68300,
+      "sha256": "f4155cd3d3e6fca695e24baaaf59a9fe4ff9ed07bd27b4e3c46094c077cdcf73",
+      "modified_utc": "2026-10-11T05:04:35.459673+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_TargetStand.fbx",
+      "bytes": 66748,
+      "sha256": "651aca26b24f3a07581e00513fda57299e121e5194cf65e94112d7904341f54d",
+      "modified_utc": "2026-10-10T15:07:02.935084+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_UMP45.fbx",
+      "bytes": 330332,
+      "sha256": "0e05d009ba8f4cddda6509c306e9c8e4b1f491d01c49e54f77802fcabb8647fe",
+      "modified_utc": "2026-10-10T15:06:52.771402+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Wall400.fbx",
+      "bytes": 66492,
+      "sha256": "f3f4e1ab8ad715f6f50b89a7cd34d8a7bbfa9bcdcee860718a56e86c38f83f03",
+      "modified_utc": "2026-10-10T15:07:02.100227+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_WeaponRack.fbx",
+      "bytes": 56620,
+      "sha256": "de16df01a91b949673650b1ba050438bdc0c82848fc88859c0253a41bdc4b3a6",
+      "modified_utc": "2026-10-10T15:07:02.855815+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Exports/SM_IND_WorkLight.fbx",
+      "bytes": 42604,
+      "sha256": "1d54c074db011671320a2a791f210dc08edea6e46669a6c44b3aba96f81488cd",
+      "modified_utc": "2026-10-10T15:07:03.014216+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_AK.png",
+      "bytes": 58498,
+      "sha256": "af0859011decc69f0922a09f2b63d714f7008bf6fb4f209e8895dd135d531753",
+      "modified_utc": "2026-10-10T15:07:18.205000+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_BR3.png",
+      "bytes": 57488,
+      "sha256": "f48bf72c92c9d97327778710229d5a89fcd860ac50dc93fd6a145ede3295af8d",
+      "modified_utc": "2026-10-10T15:07:18.679922+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_HeavyPistol.png",
+      "bytes": 67456,
+      "sha256": "638461386d4d1730585716a284540486eff731504743c386f56296b7669520b3",
+      "modified_utc": "2026-10-10T15:07:19.155582+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_M4.png",
+      "bytes": 58805,
+      "sha256": "92b02acf06828ae1b6a1db106634d6077cc4b85d31a41e7118ded8bd4e1cc8d5",
+      "modified_utc": "2026-10-10T15:07:19.645020+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_M9.png",
+      "bytes": 64927,
+      "sha256": "ae902ca12a371573cc4f76eecef53ebb239a45bdf1489775fc3d070c29323df6",
+      "modified_utc": "2026-10-10T15:07:20.108327+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_MP5.png",
+      "bytes": 60473,
+      "sha256": "14a1e8db648b8ceb854ccf7b7c68bec89b4b44f6cfeccb9d6cb7d74ec054eef8",
+      "modified_utc": "2026-10-10T15:07:20.567522+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Icons/T_IND_UMP45.png",
+      "bytes": 68503,
+      "sha256": "83c27fd54a9beab93bf5ed2692e22c34d8fd6207f2b483ad1600f22aad4bb255",
+      "modified_utc": "2026-10-10T15:07:21.033067+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Operator.blend",
+      "bytes": 595749,
+      "sha256": "9077d039e794961189e45bd438c3a6364b6b22df44c631af68c2360dd6308975",
+      "modified_utc": "2026-10-10T15:10:32.246002+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Environment.png",
+      "bytes": 1756490,
+      "sha256": "f4b18ce0f9e790b156769cb4f83dfda60a86a01ddc6c33adb32ce0e42df7a813",
+      "modified_utc": "2026-10-10T15:07:09.144145+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Aim-1920x1080.png",
+      "bytes": 2551231,
+      "sha256": "bd938ebb142a76d97f331ca57af5477a6a3817e60150b9975faccb564cd397ca",
+      "modified_utc": "2026-10-11T11:37:29.473886+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Character-1920x1080.png",
+      "bytes": 2343947,
+      "sha256": "26916119b3e5dec67efc80fede15128a2563b16270a22d015398ac76875636bd",
+      "modified_utc": "2026-10-11T11:38:11.556501+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/CharacterCrouch-1920x1080.png",
+      "bytes": 2457311,
+      "sha256": "e79ec8024d057fdc5521ce9df119a0cf6cf338a17e0201d1cb7f5d9e5f87a9e6",
+      "modified_utc": "2026-10-11T11:38:07.575763+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Death-1920x1080.png",
+      "bytes": 2273129,
+      "sha256": "8be3e95ce57d59f15980dca1d92cf41798704db187f185c9b9310bb88fd03954",
+      "modified_utc": "2026-10-11T11:38:17.670024+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Foundry.png",
+      "bytes": 1027280,
+      "sha256": "f2b785844f07871ded662fda9826c6207776db467129c9467083790343938148",
+      "modified_utc": "2026-10-11T11:46:17.765744+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/HUD-1920x1080.png",
+      "bytes": 2156446,
+      "sha256": "576e8311eeaa159c03b65652b7836ae3bde605202ee4505b987046b5ded4266c",
+      "modified_utc": "2026-10-11T11:37:20.294512+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Inspect-1920x1080.png",
+      "bytes": 2154284,
+      "sha256": "047e3df13b5f817490d840896d853d64b0980770bd1b7826da65d60c22db7d23",
+      "modified_utc": "2026-10-11T11:37:41.324157+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Loadout-1280x800.png",
+      "bytes": 585054,
+      "sha256": "0634f56c229438a8c447c60f4618e625603e0278ba4e1ceb0d46c735debb1533",
+      "modified_utc": "2026-10-11T11:39:07.199347+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Loadout-1920x1080.png",
+      "bytes": 1195480,
+      "sha256": "3344c8f116ed620c80fbbe8c8420802f6c140ff04ff40387c7f8dab99cb58f26",
+      "modified_utc": "2026-10-11T11:37:23.225360+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Loadout-2560x1440.png",
+      "bytes": 2046811,
+      "sha256": "f6b9970c0e40b7f00cb0d16e2170b29a4916d8ff102ca2a994863a332e250e86",
+      "modified_utc": "2026-10-11T11:35:06.935363+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Lobby-1280x800.png",
+      "bytes": 87840,
+      "sha256": "bd33cce4ea34186d6e1099be06a9b27110fd5cabc8701c9d7b84b0642a3a269a",
+      "modified_utc": "2026-10-11T11:36:24.972541+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/LowAmmo-1920x1080.png",
+      "bytes": 2313773,
+      "sha256": "4fed57e951c441981e541fc61792a7cc237d4d29a1c6115fe6bb252af402e403",
+      "modified_utc": "2026-10-11T11:37:35.945678+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/LowHealth-1920x1080.png",
+      "bytes": 1929533,
+      "sha256": "5c6d32b5e35c9588e1d072aeedcccb270bdb7bb9255d34d09f0651ad2f8744a6",
+      "modified_utc": "2026-10-11T11:38:14.575345+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Reload-1920x1080.png",
+      "bytes": 2327076,
+      "sha256": "601a2de5d6a6f19b7174d59795401b943f4ffe2033be90427f10392b6d22109a",
+      "modified_utc": "2026-10-11T11:37:38.153016+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Report-1280x800.png",
+      "bytes": 151168,
+      "sha256": "067072c38e03a1db2310bcc807689bd707b64de211aab84e11400fabff72789b",
+      "modified_utc": "2026-10-11T11:37:07.623680+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Game/Waiting-1280x800.png",
+      "bytes": 130173,
+      "sha256": "04ac5fdfb9f39e3591d0b45f79aae4bd69f2ea8d93956c261003404bd2e4a51b",
+      "modified_utc": "2026-10-11T11:36:45.528710+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Operator.png",
+      "bytes": 1714521,
+      "sha256": "4f0ab0e53b9d4cebcec4548f1cda2bddc98f2f9473cee63d6e063ab9776425fd",
+      "modified_utc": "2026-10-10T15:10:38.727687+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/UnrealShowcase.png",
+      "bytes": 675401,
+      "sha256": "d3290ce342e1827067a8ef0478bc74c11d0cfaacbc29c2161be414f4c203dd0a",
+      "modified_utc": "2026-10-10T19:10:21.716421+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/Previews/Weapons.png",
+      "bytes": 1703310,
+      "sha256": "3c30cd7af69b2ade665e6fb7f6f4c393d3dc0d443c21428b2b1b7d0b169d7562",
+      "modified_utc": "2026-10-10T15:07:01.934754+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/RuntimeParts.blend",
+      "bytes": 904953,
+      "sha256": "efc5243ae3be9725cc3c12a046edc6fb720921ca6062f7039fc99f7a279e3881",
+      "modified_utc": "2026-10-11T05:04:35.650935+00:00"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/WeaponLibrary.blend",
+      "bytes": 311774,
+      "sha256": "6a0ca64beba074380694b9a5b6d9b21d8bbc1557ac1423c06b68b4394418e56a",
+      "modified_utc": "2026-10-10T15:06:56.084738+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Helmet.uasset",
+      "bytes": 149353,
+      "sha256": "788028fef7aa3b0d43a88cba50f21e0b1adcc4bf2deef3bcd112aa12244ef1bb",
+      "modified_utc": "2026-10-11T05:10:57.934896+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LBoot.uasset",
+      "bytes": 62278,
+      "sha256": "0cb1196bf78d88867a0c095334d88f3fdff556fd8885dfb8636aa43951f7d11c",
+      "modified_utc": "2026-10-11T05:10:59.371844+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LForearm.uasset",
+      "bytes": 87666,
+      "sha256": "2305daeefb5a9c98756bf35c44e7be0b851bcf4075ba2476e96015fadf82bb36",
+      "modified_utc": "2026-10-11T05:10:58.500621+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LGlove.uasset",
+      "bytes": 51840,
+      "sha256": "881075614293e4ac812dcb19273a77b4e110f7d9242eb995953ecf98b2c63f05",
+      "modified_utc": "2026-10-11T05:10:59.200882+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LShin.uasset",
+      "bytes": 86275,
+      "sha256": "cb59771054c356c6d1083efbbf8c5140f05d2d517466ebfab6b8d8f76490d3fe",
+      "modified_utc": "2026-10-11T05:10:58.992015+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LThigh.uasset",
+      "bytes": 77718,
+      "sha256": "2a1e5616ed74fac45cf538bc39283f2318e291a343f48ab409537e203d0306cd",
+      "modified_utc": "2026-10-11T05:10:58.747453+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LUpperArm.uasset",
+      "bytes": 89854,
+      "sha256": "00bb896b62680d95715ce0c088c2e406a342e0cb093aad5a70e76f49083c0020",
+      "modified_utc": "2026-10-11T05:10:58.291142+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Pelvis.uasset",
+      "bytes": 50831,
+      "sha256": "ba393661195b11b0df80b5fc1aef5c3f38cd58b6e8fff762f4b698aba0596c4c",
+      "modified_utc": "2026-10-11T05:10:58.094614+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RBoot.uasset",
+      "bytes": 62277,
+      "sha256": "3574582f1a6f89e63fa8707ae6e96a91ef0c19824c32fcb35d3d2c5e2495af92",
+      "modified_utc": "2026-10-11T05:11:00.533248+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RForearm.uasset",
+      "bytes": 85266,
+      "sha256": "26c3f11d31a2c64b6d757c66c5da76d9ef90d35c34395c8388edcee9b0faca40",
+      "modified_utc": "2026-10-11T05:10:59.796426+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RGlove.uasset",
+      "bytes": 51728,
+      "sha256": "24f2dbacbd9428c19e55fce1cb7b1c20a88d8cb7076eebe66cbeed060bad18e5",
+      "modified_utc": "2026-10-11T05:11:00.378369+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RShin.uasset",
+      "bytes": 86022,
+      "sha256": "96a010feeaa2d939ea8f3fc22c21c27f95dc28b9d0de81b5f45752e8260e5d62",
+      "modified_utc": "2026-10-11T05:11:00.223419+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RThigh.uasset",
+      "bytes": 77731,
+      "sha256": "543772046bf82683c3e8ce949eff075bea51ec09512f86bb7069ca49aebad40f",
+      "modified_utc": "2026-10-11T05:11:00.007822+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RUpperArm.uasset",
+      "bytes": 90205,
+      "sha256": "b783a3131fb8fef25e7f388307a328e986fe422e4ec982c13fb9c5a37525e0ca",
+      "modified_utc": "2026-10-11T05:10:59.597604+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Torso.uasset",
+      "bytes": 92098,
+      "sha256": "42745af6095f4d44aff16efe08b7b06d1b92d637eadb717edd90033bc099fc59",
+      "modified_utc": "2026-10-11T05:10:57.614358+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/SK_IND_Operator.uasset",
+      "bytes": 11446410,
+      "sha256": "ede93365f3cf3266962c52ec6b74c6a48a463d1dc5d650ec029961a44e01f99a",
+      "modified_utc": "2026-10-10T19:07:21.140301+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/SK_IND_Operator_PhysicsAsset.uasset",
+      "bytes": 5210,
+      "sha256": "e8a6a1a0cfa655489423cabab1b0499889cb1a59b4ae980c4d7d35cf03261a35",
+      "modified_utc": "2026-10-10T15:19:17.312687+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/SK_IND_Operator_Skeleton.uasset",
+      "bytes": 4992,
+      "sha256": "77e0909d677169f37b774f0b286dbc056ac3eb505f874a9815be3424f796e152",
+      "modified_utc": "2026-10-10T15:19:17.309683+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/SM_IND_FPArm_L.uasset",
+      "bytes": 125787,
+      "sha256": "937ed80500645df9530353e7a3ad86b39f932d75c92fd2e0e63c03830143390e",
+      "modified_utc": "2026-10-10T19:07:21.363609+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/SM_IND_FPArm_R.uasset",
+      "bytes": 125659,
+      "sha256": "8c763533ff9dab534b4e9beaf2bcc6a528794b1071fa62d266eed837443bc5c2",
+      "modified_utc": "2026-10-10T19:07:21.586393+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Character/SM_IND_Operator.uasset",
+      "bytes": 790955,
+      "sha256": "de34be190422b6c7730ccd06658800aa90b121d91157abe8ee10a37be79b8c3e",
+      "modified_utc": "2026-10-10T19:07:18.825798+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Barrier200.uasset",
+      "bytes": 122459,
+      "sha256": "1b686774ed25084bcad64d7910d400f16503b5b93979072ea6ecddfff9184578",
+      "modified_utc": "2026-10-10T19:07:16.218406+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_BaseBeacon.uasset",
+      "bytes": 37199,
+      "sha256": "3cea44244ce7a03879b9ba9a3eca792497cd4a8918d960f18e07c4900ee2924b",
+      "modified_utc": "2026-10-10T19:07:17.162240+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Cargo240.uasset",
+      "bytes": 151326,
+      "sha256": "bbeea915ead5e8be17878becc0da223a270e6b694c5ffc815185982101658c31",
+      "modified_utc": "2026-10-10T19:07:16.004127+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Deck400.uasset",
+      "bytes": 125953,
+      "sha256": "fb260451b975c1f31f793ce60f5ec76a0ea0309d59d6d5d7821545be63d73f0a",
+      "modified_utc": "2026-10-10T19:07:16.686811+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Floor400.uasset",
+      "bytes": 42387,
+      "sha256": "0907d08782901fbe4341090baa85228e40a78b47b698d323b4ade991120f6340",
+      "modified_utc": "2026-10-10T19:07:15.512743+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Gateway400.uasset",
+      "bytes": 72971,
+      "sha256": "1f363e642c1ca912fa0388c310ad6253580c106b2d1605fc05b4ee5d02018b38",
+      "modified_utc": "2026-10-10T19:07:16.474191+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Pillar300.uasset",
+      "bytes": 43670,
+      "sha256": "63696d7621bfe7bb2959b4b406054ea9f862f502f91178ec3c4aea9666f305ce",
+      "modified_utc": "2026-10-10T19:07:15.748168+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Railing200.uasset",
+      "bytes": 70047,
+      "sha256": "0cee47261515beb99e37f9b8d72fbdf34199487ed2eb605e2262e0074457cd6f",
+      "modified_utc": "2026-10-10T19:07:16.345413+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_TargetStand.uasset",
+      "bytes": 91319,
+      "sha256": "094460dec804ac37327f089ea278ce34a903b3333d5ba948f4e761c3e6518e23",
+      "modified_utc": "2026-10-10T19:07:16.984810+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Wall400.uasset",
+      "bytes": 86252,
+      "sha256": "718a5078f98362c4fd163c241119d1a70f9b880137c03d05c6b5feaaa9d19e45",
+      "modified_utc": "2026-10-10T19:07:15.666870+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_WeaponRack.uasset",
+      "bytes": 75107,
+      "sha256": "6583c4ae8aa5e319ce002e6d95ebfd9691b0d8ce8f2c2e80eb032cd96c60d198",
+      "modified_utc": "2026-10-10T19:07:16.830521+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Environment/SM_IND_WorkLight.uasset",
+      "bytes": 52578,
+      "sha256": "c72217028cf6f6f012c09e60f772ff4ea4220fa750f84b570aff1936760d4909",
+      "modified_utc": "2026-10-10T19:07:17.093534+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Maps/LV_IndustrialShowcase.umap",
+      "bytes": 104911,
+      "sha256": "e11a1f06d5388d54b4a36ef9e197930671e21a78cfa49169786c9cd03df554ab",
+      "modified_utc": "2026-10-10T19:07:21.867405+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/M_IND_Surface.uasset",
+      "bytes": 7107,
+      "sha256": "347a43fe2f8071a66b96e91dc6ef7891023c5c0f7b9e149745a970156a878f60",
+      "modified_utc": "2026-10-10T19:07:09.832637+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Blue.uasset",
+      "bytes": 4781,
+      "sha256": "1cbf84a91aea4dcc131b3d9e47d285241053204faeb5f9962d2c334598cc2c7d",
+      "modified_utc": "2026-10-10T19:07:09.909261+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Ceramic.uasset",
+      "bytes": 4796,
+      "sha256": "9149a358150016211d2f66f08fe810cb204d9c5367f73bcc90f4f6ee1ac8dd80",
+      "modified_utc": "2026-10-10T19:07:09.867263+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Concrete.uasset",
+      "bytes": 4801,
+      "sha256": "aba2fe394bf19e0677cea06af9d10ad31e27fc1e485a38f7063cc9da1e44dd4f",
+      "modified_utc": "2026-10-10T19:07:09.875262+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Fabric.uasset",
+      "bytes": 4791,
+      "sha256": "47ce2aab11c373c4f20db8471740aabe27e3e80e9d0da6ac3368bc7711c4b421",
+      "modified_utc": "2026-10-10T19:07:09.896262+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Graphite.uasset",
+      "bytes": 4801,
+      "sha256": "cd8040494f9262b1e617ceed8fa4d514bb6d6249edd52cbe49d69b3e153de01e",
+      "modified_utc": "2026-10-10T19:07:09.845637+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Light.uasset",
+      "bytes": 4786,
+      "sha256": "c62385770aee3fdad97da430448ffbad56ef552511e54eadc031a934613a4ca0",
+      "modified_utc": "2026-10-10T19:07:09.923400+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Polymer.uasset",
+      "bytes": 4796,
+      "sha256": "5c25cd2fa082a1a5e2922e73398d0307d8262f0743fe5c839f5cf15f0cffd11b",
+      "modified_utc": "2026-10-10T19:07:09.860636+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Red.uasset",
+      "bytes": 4776,
+      "sha256": "c8d32c8ada143d043af169182adcc722c4c85909e4d79ec113c9b01650f9eab2",
+      "modified_utc": "2026-10-10T19:07:09.916261+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Rubber.uasset",
+      "bytes": 4791,
+      "sha256": "aea1196bba90b5291c0fd4e8d856a4b9be18b97dc0e2be1b1f691ec063594989",
+      "modified_utc": "2026-10-10T19:07:09.889270+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Steel.uasset",
+      "bytes": 4786,
+      "sha256": "1770204587dacfec68580c556d8adba6d44231387f9d847d30c9555c14948e58",
+      "modified_utc": "2026-10-10T19:07:09.853637+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Visor.uasset",
+      "bytes": 4786,
+      "sha256": "51f68f4b2d518c6449150100c3ec7ea643e173edafffe4d5fec9578243a268d9",
+      "modified_utc": "2026-10-10T19:07:09.902261+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Yellow.uasset",
+      "bytes": 4791,
+      "sha256": "7debd66b57127ca8cb69f15e9e241043a0680be6a4e2471ba4b75222f59a4031",
+      "modified_utc": "2026-10-10T19:07:09.882261+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_AK.uasset",
+      "bytes": 62484,
+      "sha256": "0bfbcbb0dcd092d370e82067235d3af75f10d8ef2632e0826136df424850a452",
+      "modified_utc": "2026-10-10T19:07:21.629864+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_BR3.uasset",
+      "bytes": 60935,
+      "sha256": "ee3882f13255f2ca4066a6d1092c61e8c2feea342712829d8eaf5d8fd8fc6d5b",
+      "modified_utc": "2026-10-10T19:07:21.648872+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_HeavyPistol.uasset",
+      "bytes": 66029,
+      "sha256": "97f2e094bcff03bdd70eac0e06cf09a8d5dce344ad0267b3e2a3fd3168cc9acc",
+      "modified_utc": "2026-10-10T19:07:21.666193+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_M4.uasset",
+      "bytes": 61906,
+      "sha256": "cc72557e7591b45ef48c5635b49cbf504b090e9f1c7a13ee3a54bedd624328e1",
+      "modified_utc": "2026-10-10T19:07:21.681202+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_M9.uasset",
+      "bytes": 63579,
+      "sha256": "dee73abb08c7127f9548c78d6805028b419616b4c1976257b6b10b0b6032b8fe",
+      "modified_utc": "2026-10-10T19:07:21.697191+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_MP5.uasset",
+      "bytes": 61090,
+      "sha256": "f70eef174fa19428ce7e44f0d78f90a3d03a4bd5d34e12d2c8145c8517a6d0aa",
+      "modified_utc": "2026-10-10T19:07:21.712637+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_UMP45.uasset",
+      "bytes": 67032,
+      "sha256": "b2e5830382cf5f13a115bff24f97e76ebbfa1f24869a8886eec54d8e47323742",
+      "modified_utc": "2026-10-10T19:07:21.727635+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.uasset",
+      "bytes": 505586,
+      "sha256": "8b261d7c28be406b25ec5c4b16bd00ca3ab6b2de5aa623459fee3df1405d859a",
+      "modified_utc": "2026-10-10T19:07:12.012350+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.uasset",
+      "bytes": 470758,
+      "sha256": "e616075326e7603ba097fde60663d8fe93a43fd3b063a4e3f73b99f92c5405ea",
+      "modified_utc": "2026-10-10T19:07:12.978564+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.uasset",
+      "bytes": 293026,
+      "sha256": "70015828cc15600cb54796bf9cd6760c80abf8e87f3bba558d685599a5e63616",
+      "modified_utc": "2026-10-10T19:07:15.437786+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.uasset",
+      "bytes": 470801,
+      "sha256": "35ff326921ef6353ce9be5cf09746e6ec2ff9ae604d1316ba3037bda6b0784e8",
+      "modified_utc": "2026-10-10T19:07:11.042733+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.uasset",
+      "bytes": 292958,
+      "sha256": "713a7cdb05807b62c552777e90c665f4909de94cfcb748e47e473ace6caa8b8d",
+      "modified_utc": "2026-10-10T19:07:14.966496+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.uasset",
+      "bytes": 333893,
+      "sha256": "3a5a5a205dceaabad51c2f010813b7c369c4b6995269827fa857cc69f69ae5f2",
+      "modified_utc": "2026-10-10T19:07:13.653896+00:00"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.uasset",
+      "bytes": 424859,
+      "sha256": "dfbdf2794d020cbaf4872399a444550da57d9c55552e96823dd5a1fb1195464e",
+      "modified_utc": "2026-10-10T19:07:14.504100+00:00"
+    },
+    {
+      "path": "Tools/build_industrial_art.py",
+      "bytes": 29422,
+      "sha256": "f7482886c4817094769809fff3d0259c643a9a7a780377f9092882d237d9f7db",
+      "modified_utc": "2026-10-10T15:10:28.239967+00:00"
+    },
+    {
+      "path": "Tools/render_industrial_icons.py",
+      "bytes": 1753,
+      "sha256": "a90d4582a0fa4a737126f31d0f3eddf5939bb512dd9667f9c9ddd0eee7b7c72a",
+      "modified_utc": "2026-10-10T15:06:44.000645+00:00"
+    },
+    {
+      "path": "Tools/validate_industrial_blender.py",
+      "bytes": 2890,
+      "sha256": "60cdfcec9d7b3202104657d7fe3a2c12450aa56157ad2f04abd7337f9251e332",
+      "modified_utc": "2026-10-11T05:20:09.309008+00:00"
+    },
+    {
+      "path": "Tools/import_industrial_art.py",
+      "bytes": 13000,
+      "sha256": "dc93e3c30a40e02affe0d8cb5c1184ea246bdffde78c8bb2b2e6ca246b8fd31b",
+      "modified_utc": "2026-10-10T19:06:55.045004+00:00"
+    },
+    {
+      "path": "Tools/ImportIndustrialArt.ps1",
+      "bytes": 1189,
+      "sha256": "15ef8688961435f0de77ead2b0291bc1e7db9eefdf8b696d3401be6ef911d9b5",
+      "modified_utc": "2026-10-10T15:15:40.541138+00:00"
+    },
+    {
+      "path": "Tools/capture_industrial_art.py",
+      "bytes": 2022,
+      "sha256": "310513494bf56015cb214cb544c98fe8d2b5f6f000dd1aa17561926b94208e2c",
+      "modified_utc": "2026-10-10T19:09:23.036017+00:00"
+    },
+    {
+      "path": "Tools/record_industrial_delivery.py",
+      "bytes": 5858,
+      "sha256": "4ba8c9405a2076879ac28a17087f8162064469e53fe6bc66b03140f4dd4e962d",
+      "modified_utc": "2026-10-11T11:46:57.349667+00:00"
+    },
+    {
+      "path": "Tools/CaptureIndustrialArt.ps1",
+      "bytes": 1115,
+      "sha256": "9231a9f50f6df7bfbc46d11416fcda5fbc50e53c97dec0efacbe0ab63871e512",
+      "modified_utc": "2026-10-10T19:07:30.159475+00:00"
+    },
+    {
+      "path": "Tools/export_industrial_runtime_parts.py",
+      "bytes": 3187,
+      "sha256": "75ca9179453809c9b176c0a24a544d2cc01d22d5fb8db50fca75b1f9173ff361",
+      "modified_utc": "2026-10-11T05:04:25.312974+00:00"
+    },
+    {
+      "path": "Tools/integrate_industrial_art.py",
+      "bytes": 8572,
+      "sha256": "b1971ccb28b68d4c4cd4c4f7f1a96affe4c130bdcff8b473b86df5f9607bb428",
+      "modified_utc": "2026-10-11T05:10:42.712100+00:00"
+    },
+    {
+      "path": "Tools/CaptureFPSArt.ps1",
+      "bytes": 2384,
+      "sha256": "4ed27fa6e361ca4352ebb64ee9a45283038f99c8049153b48e0ffbac2d5db5c4",
+      "modified_utc": "2026-10-11T11:29:10.521736+00:00"
+    },
+    {
+      "path": "Tools/BuildFPSArt.ps1",
+      "bytes": 2324,
+      "sha256": "a21102800751176aefe30910006b585fc4f3d7d4f1b6af521d56a09eae41626d",
+      "modified_utc": "2026-10-11T05:23:23.601286+00:00"
+    }
+  ],
+  "integration_verification": {
+    "editor_build": {
+      "result": "PASS",
+      "logs": [
+        {
+          "path": "Saved/IndustrialArt/IntegrationBuild.log",
+          "bytes": 60385,
+          "sha256": "a681162111c6d66c719ccc833b18d0a3a0401dd180180efd28ad203b91712fa2",
+          "modified_utc": "2026-10-11T11:42:59.801277+00:00"
+        }
+      ],
+      "markers": [
+        "[2026.10.11-11.42.42:575][  0]LogTemp: Display: FPS_WEAPON_DATA PASS definitions=7",
+        "[2026.10.11-11.42.58:453][  0]LogTemp: Display: FPS_WEAPON_DATA PASS definitions=7",
+        "Saved\\Logs\\FPSWeaponDataValidation.log:1854:[2026.10.11-11.42.58:453][  0]LogTemp: Display: FPS_WEAPON_DATA PASS defini"
+      ]
+    },
+    "loadout_lan": {
+      "result": "PASS",
+      "logs": [
+        {
+          "path": "Saved/IndustrialArt/LoadoutTests/lag0-loss0-visual/server.log",
+          "bytes": 207143,
+          "sha256": "a9f544d0d22f0780bb82a9b08b9bd16f36c6ef5539d5c0b641622ec75452076f",
+          "modified_utc": "2026-10-11T05:21:50.323555+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/LoadoutTests/lag0-loss0-visual/client.log",
+          "bytes": 218335,
+          "sha256": "893944d3b24dc5131d75d4f1ab621529ba9b626d630a56b9289caf5f99f991fd",
+          "modified_utc": "2026-10-11T05:21:47.991903+00:00"
+        }
+      ],
+      "markers": [
+        "[2026.10.11-05.21.14:634][450]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER uniform initial loadout and current-life permission",
+        "[2026.10.11-05.21.14:634][450]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER base protection forbids attack and active drop",
+        "[2026.10.11-05.21.16:135][540]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER RPC selection grants new instance equips and preserves other slot",
+        "[2026.10.11-05.21.16:135][540]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER successful selection is immediately saved per player",
+        "[2026.10.11-05.21.17:934][648]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER same-model supply creates fresh GUID and initial ammunition",
+        "[2026.10.11-05.21.17:934][648]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER two players have independent preferences",
+        "[2026.10.11-05.21.18:935][708]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER illegal selection leaves inventory unchanged and gives failure feedback",
+        "[2026.10.11-05.21.19:735][756]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER P input opens selection menu owns mouse and suspends local game input",
+        "[2026.10.11-05.21.19:735][756]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER menu cannot leave a held trigger",
+        "[2026.10.11-05.21.21:635][870]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER first exit revokes selection and permits outside actions",
+        "[2026.10.11-05.21.22:637][930]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER own-base return restores protection but not selection",
+        "[2026.10.11-05.21.22:637][930]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER direct hostile GAS execution is blocked without depending on shot trace",
+        "[2026.10.11-05.21.22:637][930]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER protection does not heal and permits positive health effects",
+        "[2026.10.11-05.21.22:638][930]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER overlap regions and external effect retain separate sources",
+        "[2026.10.11-05.21.24:136][ 20]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER existing periodic hostile effect remains timed but cannot damage inside",
+        "[2026.10.11-05.21.24:136][ 20]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER leaving one source removes only its effect",
+        "[2026.10.11-05.21.24:137][ 20]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER last region exit preserves independent protection",
+        "[2026.10.11-05.21.25:637][110]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER periodic hostile damage resumes outside before natural expiry",
+        "[2026.10.11-05.21.25:637][110]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER enemy exceptional teleport is expelled from forbidden base",
+        "[2026.10.11-05.21.25:637][110]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER swept passage cannot tunnel across enemy region",
+        "[2026.10.11-05.21.25:637][110]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER outside-to-outside ray crossing a base is blocked",
+        "[2026.10.11-05.21.29:121][319]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER entering cancels attack and leaving cannot resume old trigger",
+        "[2026.10.11-05.21.29:922][367]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER active drop changes inventory but not saved preference",
+        "[2026.10.11-05.21.30:122][379]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER life can end before exiting after a saved selection",
+        "[2026.10.11-05.21.31:122][439]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER pickup recovers instance without rewriting saved preference",
+        "[2026.10.11-05.21.33:623][589]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER respawn reads saved model with fresh GUID and initial ammunition",
+        "[2026.10.11-05.21.33:623][589]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER new life receives new base selection permission",
+        "[2026.10.11-05.21.36:123][739]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER old-life selection payload cannot mutate new life",
+        "[2026.10.11-05.21.36:123][739]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER fresh match identity initializes uniform defaults",
+        "[2026.10.11-05.21.37:122][799]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER configured fallback passes the same floor capsule and spacing checks",
+        "[2026.10.11-05.21.37:123][799]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER occupied sampling and occupied fallback both reject spawn",
+        "[2026.10.11-05.21.38:423][877]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER occupied base leaves controller waiting instead of forcing a spawn",
+        "[2026.10.11-05.21.40:623][  9]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER server retry spawns valid fresh saved loadout after obstruction clears",
+        "[2026.10.11-05.21.46:624][369]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER actual client movement RPC stops at enemy base on server",
+        "[2026.10.11-05.21.49:626][549]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER real client disconnect destroys pawn and its region effect sources",
+        "[2026.10.11-05.21.50:125][579]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER COMPLETE",
+        "[2026.10.11-05.21.14:618][ 36]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT uniform initial loadout and current-life permission",
+        "[2026.10.11-05.21.14:618][ 36]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT base protection forbids attack and active drop",
+        "[2026.10.11-05.21.16:151][128]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT RPC selection grants new instance equips and preserves other slot",
+        "[2026.10.11-05.21.16:151][128]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT successful selection is immediately saved per player",
+        "[2026.10.11-05.21.17:968][237]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT same-model supply creates fresh GUID and initial ammunition",
+        "[2026.10.11-05.21.18:968][297]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT illegal selection leaves inventory unchanged and gives failure feedback",
+        "[2026.10.11-05.21.19:768][345]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT P input opens selection menu owns mouse and suspends local game input",
+        "[2026.10.11-05.21.19:768][345]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT menu cannot leave a held trigger",
+        "[2026.10.11-05.21.21:260][397]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT authoritative exit closes owner menu and revokes permission",
+        "[2026.10.11-05.21.22:527][473]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT return protection replicates without reopening selection",
+        "[2026.10.11-05.21.24:111][568]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT late outside request rejected with inventory and health protection replicated",
+        "[2026.10.11-05.21.31:444][  8]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT death clears owner UI",
+        "[2026.10.11-05.21.34:229][175]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT owner receives saved fresh respawn and renewed life permission",
+        "[2026.10.11-05.21.41:213][594]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT owner receives deferred occupied-base respawn",
+        "[2026.10.11-05.21.46:763][927]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT owner predicts enemy boundary without crossing it",
+        "[2026.10.11-05.21.47:663][981]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT COMPLETE"
+      ]
+    },
+    "drop_notice_lan": {
+      "result": "PASS",
+      "logs": [
+        {
+          "path": "Saved/IndustrialArt/DropTests/lag0-loss0/server.log",
+          "bytes": 205582,
+          "sha256": "ad81315f67bb7977a77b1ade3dd05197079757a1b1e2fd84d7928f77b1e93b11",
+          "modified_utc": "2026-10-11T11:32:55.746716+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/DropTests/lag0-loss0/client.log",
+          "bytes": 200821,
+          "sha256": "af6ac52c0c8cec8fab8027ba63475fced5650e586032cf27fa97b06a46652feb",
+          "modified_utc": "2026-10-11T11:32:55.848241+00:00"
+        }
+      ],
+      "markers": [
+        "[2026.10.11-11.31.38:227][680]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER mode policy cap=30 lifetime=180 interval=.1 time=0.50",
+        "[2026.10.11-11.31.38:227][680]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER real GAS weapon abilities available time=0.50",
+        "[2026.10.11-11.31.38:427][692]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER .1-second selection gate rejects second request without another grant time=0.70",
+        "[2026.10.11-11.31.38:427][692]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER rate-limited selection preserves ownership revision time=0.70",
+        "[2026.10.11-11.31.38:728][710]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER physical fixture launched on server time=1.00",
+        "[2026.10.11-11.31.38:728][710]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER scene collisions enabled while pawn and bullet query are ignored time=1.00",
+        "[2026.10.11-11.31.38:728][710]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER actual visibility bullet trace and capsule pawn sweep pass through airborne gun time=1.00",
+        "[2026.10.11-11.31.39:729][770]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER actual Drop ability transfers complete instance into physical actor time=2.00",
+        "[2026.10.11-11.31.41:227][860]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER remote GAS RPC pickup retains GUID ammo and original cooldown across holders time=3.50",
+        "[2026.10.11-11.31.43:227][980]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER completed new-holder equip cannot bypass instance firing deadline time=5.50",
+        "[2026.10.11-11.31.46:228][160]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER held fire still consumes no ammunition before original deadline time=8.50",
+        "[2026.10.11-11.31.47:927][262]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER real held-fire ability resumes only after original deadline time=10.20",
+        "[2026.10.11-11.31.48:728][310]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER server actual scene-wall contact and floor landing reach resting dormancy time=11.00",
+        "[2026.10.11-11.31.49:229][340]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER shared race pickup exists for both players time=11.50",
+        "[2026.10.11-11.31.51:227][460]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER two actual GAS pickup requests produce one owner and one GUID time=13.50",
+        "[2026.10.11-11.31.52:234][518]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER thirty dynamic drops exclude all map presets from cap time=14.50",
+        "[2026.10.11-11.31.52:234][518]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER thirty-first dynamic drop retires exactly oldest available actor time=14.50",
+        "[2026.10.11-11.31.52:235][518]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER claim oldest before full-slot replacement cap keeps transfer atomic time=14.50",
+        "[2026.10.11-11.31.52:235][518]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER ordinary non-current pickup keeps active slot and does not re-equip unchanged held gun time=14.50",
+        "[2026.10.11-11.31.52:235][518]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER non-current pickup increments only destination slot ownership revision time=14.50",
+        "[2026.10.11-11.31.53:230][578]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER capacity recycling notice reaches server and client time=15.50",
+        "[2026.10.11-11.31.53:731][608]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER rollback fixture reaches claim with clear pickup query time=16.00",
+        "[2026.10.11-11.31.53:731][608]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER failed safe replacement drop releases claim and preserves both inventories time=16.00",
+        "[2026.10.11-11.31.53:731][608]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER failed pickup transaction changes neither ownership revision time=16.00",
+        "[2026.10.11-11.31.55:734][728]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER out-of-world physical actor launched below configured KillZ time=18.00",
+        "[2026.10.11-11.31.56:230][758]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER KillZ cleanup survives disabled engine world-bounds checks time=18.50",
+        "[2026.10.11-11.31.56:731][788]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER distant nominated pickup cannot mutate inventory time=19.00",
+        "[2026.10.11-11.31.56:731][788]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER occluded pickup cannot pass server action admission time=19.00",
+        "[2026.10.11-11.31.58:732][908]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER real GAS death creates no gun drops and leaves old dynamic actor alive time=21.00",
+        "[2026.10.11-11.32.03:231][178]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER actual delayed respawn creates fresh gun without deleting old physical drop time=25.50",
+        "[2026.10.11-11.32.05:732][328]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER late-observer resting fixture ready time=28.00",
+        "[2026.10.11-11.32.10:032][586]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER remote held-trigger Drop RPC moves shot instance out of inventory once time=32.30",
+        "[2026.10.11-11.32.10:832][634]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER remote real pickup RPC reacquires same GUID with exact dropped shot runtime time=33.10",
+        "[2026.10.11-11.32.13:233][778]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER same-GUID re-equip resumes held fire then authoritative stop leaves one instance time=35.51",
+        "[2026.10.11-11.32.16:733][988]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER coalesced frame actual GAS Drop creates one instance time=39.01",
+        "[2026.10.11-11.32.16:733][988]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER same-frame GAS Drop and Pickup restore authority without replicating intermediate empty slot time=39.01",
+        "[2026.10.11-11.32.16:733][988]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER same-frame successful Drop and Pickup increment only affected ownership revision twice time=39.01",
+        "[2026.10.11-11.32.53:741][207]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER round cleanup fixture has dynamic and map preset actors time=76.01",
+        "[2026.10.11-11.32.53:741][207]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER actual FinishRound clears only dynamic drops time=76.01",
+        "[2026.10.11-11.32.55:741][327]LogTemp: Display: FPS_DROP_SMOKE PASS SERVER COMPLETE time=78.01",
+        "[2026.10.11-11.31.38:272][815]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT mode policy cap=30 lifetime=180 interval=.1 time=0.51",
+        "[2026.10.11-11.31.38:272][815]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT real GAS weapon abilities available time=0.51",
+        "[2026.10.11-11.31.38:972][857]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client does not own authority FIFO registry time=1.21",
+        "[2026.10.11-11.31.40:172][929]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client can actively nominate replicated airborne gun time=2.41",
+        "[2026.10.11-11.31.41:372][  1]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner receives complete cross-holder instance and authoritative destruction time=3.61",
+        "[2026.10.11-11.31.43:773][145]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT predicted firing waits after equip until original gun cooldown time=6.01",
+        "[2026.10.11-11.31.46:273][295]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner still has no predicted shots before original deadline time=8.51",
+        "[2026.10.11-11.31.48:073][403]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner observes firing only after original deadline time=10.31",
+        "[2026.10.11-11.31.49:374][481]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client physical resting transform converges to server within 25cm time=11.61",
+        "[2026.10.11-11.31.49:774][505]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client sends real contested pickup RPC time=12.01",
+        "[2026.10.11-11.31.51:776][622]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner receives race winner or unchanged losing inventory time=14.01",
+        "[2026.10.11-11.31.53:277][712]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT capacity recycling notice reaches server and client time=15.51",
+        "[2026.10.11-11.31.59:777][102]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client receives death without death drops or old-drop deletion time=22.01",
+        "[2026.10.11-11.32.03:781][342]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client receives fresh respawn while old physical drop persists time=26.02",
+        "[2026.10.11-11.32.08:781][642]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner receives fresh automatic-gun reacquire fixture time=31.01",
+        "[2026.10.11-11.32.10:081][720]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner authoritative drop removes departed-GUID predictions while retaining trigger intent time=32.31",
+        "[2026.10.11-11.32.10:182][726]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner nominates its own moving dropped GUID for real pickup RPC time=32.41",
+        "[2026.10.11-11.32.10:981][774]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner reacquires exact dropped instance without stale prediction overwrite time=33.21",
+        "[2026.10.11-11.32.12:082][840]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner explicit re-equip resumes held fire with current-instance predictions time=34.31",
+        "[2026.10.11-11.32.14:281][972]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT stopped owner ammo NextShot and ShotSerial exactly converge after same-GUID reacquire time=36.51",
+        "[2026.10.11-11.32.15:782][ 62]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT owner receives coalesced transfer fixture time=38.01",
+        "[2026.10.11-11.32.16:382][ 98]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT coalesced fixture retains an unacknowledged prediction under actual held-fire ability time=38.61",
+        "[2026.10.11-11.32.17:782][182]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT coalesced same-GUID transfer discards former ownership predictions without an empty-slot snapshot time=40.01",
+        "[2026.10.11-11.32.17:782][182]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT coalesced primary transfer preserves unchanged secondary ownership and prediction time=40.01",
+        "[2026.10.11-11.32.18:982][254]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT ordinary switch changes active slot without changing either inventory revision time=41.21",
+        "[2026.10.11-11.32.55:255][429]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT client receives end-of-round dynamic destruction and unchanged presets time=77.51",
+        "[2026.10.11-11.32.55:772][460]LogTemp: Display: FPS_DROP_SMOKE PASS CLIENT COMPLETE time=78.01"
+      ]
+    },
+    "packaged_presentation": {
+      "result": "PASS",
+      "logs": [
+        {
+          "path": "Saved/IndustrialArt/PackagedPresentation/Presentation-server.log",
+          "bytes": 78973,
+          "sha256": "aa75dcf10c5a9fb8ea8145f856f04e2ae3e45a2878ea237dc07ea6442ff80910",
+          "modified_utc": "2026-10-11T11:37:17.860482+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/PackagedPresentation/Presentation-client.log",
+          "bytes": 77541,
+          "sha256": "e2ef2b0e6e6fc5ad436363d1ab7bd998f85e3132f521754c09fca8509222716a",
+          "modified_utc": "2026-10-11T11:37:17.794856+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/PackagedPresentation/Presentation-observer.log",
+          "bytes": 73638,
+          "sha256": "9a29eed271e444653e462aad8876c8d7608bd8f72461608435226ce1243e4716",
+          "modified_utc": "2026-10-11T11:37:14.334316+00:00"
+        }
+      ],
+      "markers": [
+        "[2026.10.11-11.36.41:913][392]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS SERVER switch cancels reload without commit or completion sound starts=2 commits=1 dedup=0",
+        "[2026.10.11-11.36.48:012][758]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS SERVER rejected client reload never commits on authority starts=2 commits=1 dedup=0",
+        "[2026.10.11-11.36.50:712][920]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS SERVER duration endpoints, continuous reversal and zero equip duration starts=2 commits=1 dedup=0",
+        "[2026.10.11-11.37.17:707][537]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS SERVER COMPLETE starts=2 commits=1 dedup=0",
+        "[2026.10.11-11.36.40:449][780]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT predicted reload start and authority confirmation play once starts=1 commits=1 dedup=1",
+        "[2026.10.11-11.36.40:449][780]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT ammo correction does not infer reload completion starts=1 commits=1 dedup=1",
+        "[2026.10.11-11.36.40:449][780]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT duplicate authority result is ignored starts=1 commits=1 dedup=1",
+        "[2026.10.11-11.36.41:933][869]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT cancelled predicted reload has no completion cue starts=2 commits=1 dedup=3",
+        "[2026.10.11-11.36.43:234][947]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT remote proxy receives reload state and one spatial start starts=1 commits=0 dedup=0",
+        "[2026.10.11-11.36.43:234][947]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT persistent snapshot restores in-progress pose without replaying audio or exposing ammo starts=1 commits=0 dedup=0",
+        "[2026.10.11-11.36.43:434][959]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT remote rendered component has reload pose starts=1 commits=0 dedup=0",
+        "[2026.10.11-11.36.44:234][  7]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT remote receives exactly one authoritative reload completion starts=1 commits=1 dedup=0",
+        "[2026.10.11-11.36.48:036][235]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT real GAS rejection restores ammo without false completion starts=3 commits=1 dedup=5",
+        "[2026.10.11-11.36.49:036][295]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT ADS reaches exact FOV within declared duration independent of equip starts=3 commits=1 dedup=5",
+        "[2026.10.11-11.36.49:435][319]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT ADS exit restores camera-owned base FOV starts=3 commits=1 dedup=5",
+        "[2026.10.11-11.36.49:836][343]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT zero ADS duration snaps camera and gun blend starts=3 commits=1 dedup=5",
+        "[2026.10.11-11.36.50:335][373]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT visual recoil returns exactly without waiting for equip blend starts=3 commits=1 dedup=5",
+        "[2026.10.11-11.36.50:736][397]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT duration endpoints, continuous reversal and zero equip duration starts=3 commits=1 dedup=5",
+        "[2026.10.11-11.36.52:235][487]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT zero equip duration reaches exact hip pose after real switch starts=3 commits=1 dedup=7",
+        "[2026.10.11-11.36.52:436][499]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT positive equip duration retains independent lowering offset starts=3 commits=1 dedup=9",
+        "[2026.10.11-11.36.53:636][571]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT positive equip endpoint age=1.273 duration=1.000 location=X=42.000 Y=18.000 Z=-18.000 expected=X=42.000 Y=18.000 Z=-18.000 starts=3 commits=1 dedup=9",
+        "[2026.10.11-11.37.00:240][967]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT authoritative equip deadline observed within test window starts=3 commits=1 dedup=9",
+        "[2026.10.11-11.37.17:740][ 15]LogTemp: Display: FPS_PRESENTATION_SMOKE PASS CLIENT COMPLETE starts=3 commits=1 dedup=9",
+        "[2026.10.11-11.36.59:136][ 11]LogTemp: Display: FPS_PRESENTATION_OBSERVER PASS CLIENT joins during inspect; state restored without past start event remaining=14.60",
+        "[2026.10.11-11.37.14:249][917]LogTemp: Display: FPS_PRESENTATION_OBSERVER PASS CLIENT COMPLETE pose=1 action=0 event=6"
+      ]
+    },
+    "packaged_maps": {
+      "result": "PASS",
+      "logs": [
+        {
+          "path": "Saved/IndustrialArt/PackagedMaps/Map-Solo.log",
+          "bytes": 92815,
+          "sha256": "62d71968f82a434f2515cc9831212ca78a6c418177808992f7679f0054baaa20",
+          "modified_utc": "2026-10-11T11:46:17.277630+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/PackagedMaps/Map-Training.log",
+          "bytes": 93007,
+          "sha256": "9acb1cc7e8e398c2910695e518a05e7ff69f680d9920b7e7cce227f530adad9b",
+          "modified_utc": "2026-10-11T11:46:35.406088+00:00"
+        }
+      ],
+      "markers": [
+        "[2026.10.11-11.46.17:128][135]LogTemp: Display: FPS_MAP_SMOKE PASS map=LV_FPSFoundry starts=10 pickups=14 pawns=10 clear=1",
+        "[2026.10.11-11.46.35:225][131]LogTemp: Display: FPS_MAP_SMOKE PASS map=LV_FPSTraining starts=4 pickups=7 pawns=4 clear=1"
+      ]
+    },
+    "captures": {
+      "result": "PASS",
+      "logs": [
+        {
+          "path": "Saved/IndustrialArt/Captures/Lobby-1280x800/Capture.log",
+          "bytes": 92216,
+          "sha256": "cab38202fe85b3f138969d0cf83b3bae7f7ffa2fd1762a5fa481c36c5ad645e7",
+          "modified_utc": "2026-10-11T11:36:28.864010+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/Captures/Waiting-1280x800/Capture.log",
+          "bytes": 97523,
+          "sha256": "b8700fb7b4b3c94c323988a3e80429e91610779de3f8e1289d3c88dda85facf7",
+          "modified_utc": "2026-10-11T11:36:49.532854+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/Captures/Report-1280x800/Capture.log",
+          "bytes": 98593,
+          "sha256": "eedae6c404cc7ae991b3e49eed0b1da1a3ffe7eea727553009a00181ebeea03b",
+          "modified_utc": "2026-10-11T11:37:11.738262+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/Captures/Training-1280x800/Capture.log",
+          "bytes": 99648,
+          "sha256": "584e8372de779c95c8715694f14f9f40208a0e80d02db39859cd25e654be2be5",
+          "modified_utc": "2026-10-11T11:39:28.186757+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/Captures/Training-1920x1080/Capture.log",
+          "bytes": 101581,
+          "sha256": "367e7fe9606553b18d828905d0f6ea826afddde891cf5b478cefcff8b64f8d7c",
+          "modified_utc": "2026-10-11T11:38:21.771246+00:00"
+        },
+        {
+          "path": "Saved/IndustrialArt/Captures/Training-2560x1440/Capture.log",
+          "bytes": 214187,
+          "sha256": "cd8878782ceca67db44847ff391ab88ba8fcb80e3ba53513287e3e5819644035",
+          "modified_utc": "2026-10-11T11:35:31.116552+00:00"
+        }
+      ],
+      "markers": [
+        "[2026.10.11-11.36.27:923][771]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete",
+        "[2026.10.11-11.36.48:479][744]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete",
+        "[2026.10.11-11.37.10:573][863]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete",
+        "[2026.10.11-11.39.27:094][759]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete",
+        "[2026.10.11-11.38.17:193][298]LogTemp: Display: FPS_ART_CAPTURE PASS death-state",
+        "[2026.10.11-11.38.21:272][515]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete",
+        "[2026.10.11-11.35.29:700][662]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    }
+  },
+  "verification_scope": "Functional packaged tests and most captures use v2. Final v3 changes only HUD red-team label/marker spacing; packaged map smoke and Foundry preview are refreshed on v3. Exact launch paths remain in evidence logs.",
+  "windows_package": {
+    "evidence": {
+      "path": "Saved/IndustrialArt/Package/ArtIntegration-20261011-v3/Report.json",
+      "bytes": 47864,
+      "sha256": "e0af9ab82162c525e1f84ad63a13ce87a884c134ccf4b5fb2cc0c071ee696a7f",
+      "modified_utc": "2026-10-11T11:45:06.492082+00:00"
+    },
+    "result": "PASS",
+    "executable": "D:\\Unreal Projects\\MCP_Test\\Saved\\Packages\\IndustrialArt\\ArtIntegration-20261011-v3\\Windows\\MCP_Test\\Binaries\\Win64\\MCP_Test.exe",
+    "executable_sha256": "CFBF1A6F819CA7942C93770AC276165A75F44A81FC74ADF577DA39145102FED1",
+    "inputs_unchanged": true
+  }
+}

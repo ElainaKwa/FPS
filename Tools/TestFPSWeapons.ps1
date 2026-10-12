@@ -7,8 +7,9 @@ if ($PackageExecutable) {
     if (!(Test-Path -LiteralPath $PackageExecutable -PathType Leaf)) { throw "Packaged executable missing: $PackageExecutable" }
     $editorExe = (Resolve-Path -LiteralPath $PackageExecutable).Path
 }
-$launchPrefix = if ($PackageExecutable) { @() } else { @("`"$projectFile`"") }
+[string[]]$launchPrefix = if ($PackageExecutable) { @() } else { @("`"$projectFile`"") }
 if (!$LogRoot) { $LogRoot = Join-Path $projectRoot 'Saved\FPSFlowTests' }
+$LogRoot = [System.IO.Path]::GetFullPath($LogRoot)
 New-Item -ItemType Directory -Path $logRoot -Force | Out-Null
 $testName = if ($Recoil) { 'Recoil' } elseif ($Presentation) { 'Presentation' } elseif ($Damage) { 'Damage' } elseif ($Teaching) { 'Teaching' } elseif ($Abilities) { 'Abilities' } else { 'Weapons' }
 $marker = if ($Recoil) { 'FPS_RECOIL_SMOKE' } elseif ($Presentation) { 'FPS_PRESENTATION_SMOKE' } elseif ($Damage) { 'FPS_DAMAGE_SMOKE' } elseif ($Teaching) { 'FPS_TEACHING_SMOKE' } elseif ($Abilities) { 'FPS_ABILITY_SMOKE' } else { 'FPS_WEAPON_SMOKE' }

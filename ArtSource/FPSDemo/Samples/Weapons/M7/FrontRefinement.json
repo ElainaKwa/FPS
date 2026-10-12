@@ -1,0 +1,30 @@
+{
+  "modified_shell": "TIDAL_HandguardShell",
+  "selected_edges": 90,
+  "maximum_radius_m": 0.002,
+  "segments": 8,
+  "localized_region": "Front positive-Z shoulder only; X >= .570 m",
+  "through_openings": [
+    {
+      "x": 0.358,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "x": 0.449,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "x": 0.495,
+      "z": 0.024,
+      "open": true
+    },
+    {
+      "x": 0.529,
+      "z": 0.001,
+      "open": true
+    }
+  ],
+  "success": true
+}

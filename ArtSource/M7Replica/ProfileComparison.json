@@ -1,0 +1,24 @@
+{
+  "silhouette_iou": 0.9004,
+  "reference_bounds_px": [
+    27,
+    179,
+    1983,
+    825
+  ],
+  "render_bounds_px": [
+    26,
+    178,
+    1985,
+    834
+  ],
+  "regional_iou": {
+    "handguard": 0.9091,
+    "receiver": 0.9201,
+    "stock": 0.8801,
+    "magazine": 0.9536,
+    "rear_grip": 0.9125
+  },
+  "meaning": "2D exterior overlap only; does not establish topology, surface detail or hidden-side accuracy.",
+  "alignment": "Same 2000x1000 image canvas and trace coordinates; no post-render rescale or warp."
+}

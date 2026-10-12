@@ -1,0 +1,19 @@
+{
+  "generated_by": "Tools/build_fps_font_comparison.py",
+  "status": "PASS",
+  "variant": "HarmonyOS",
+  "assets": [
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/DA_FPSUITheme.DA_FPSUITheme",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Fonts/F_UI_Text.F_UI_Text",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Fonts/F_UI_Text_Bold.F_UI_Text_Bold",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Fonts/F_UI_Text_Regular.F_UI_Text_Regular",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Widgets/WBP_FPSLobby.WBP_FPSLobby",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Widgets/WBP_FPSPause.WBP_FPSPause",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Widgets/WBP_FPSReport.WBP_FPSReport",
+    "/Game/FPSDemo/Art/FontComparisons/HarmonyOS/UI/Widgets/WBP_FPSWaiting.WBP_FPSWaiting"
+  ],
+  "base_ui_assets_unchanged": 46,
+  "profile": "Regular/Bold Chinese; existing Rajdhani English/numbers; same sizes/layout"
+}

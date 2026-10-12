@@ -1,0 +1,76 @@
+{
+  "success": true,
+  "refined_shells": [
+    {
+      "shell": "TIDAL_HandguardShell",
+      "vertices_before": 19739,
+      "vertices_after": 59900,
+      "faces_after": 119948
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "vertices_before": 19774,
+      "vertices_after": 56906,
+      "faces_after": 114010
+    },
+    {
+      "shell": "CORE_UpperForgedContour",
+      "vertices_before": 2650,
+      "vertices_after": 15212,
+      "faces_after": 30420
+    },
+    {
+      "shell": "CORE_LowerForgedContour",
+      "vertices_before": 784,
+      "vertices_after": 9774,
+      "faces_after": 19544
+    }
+  ],
+  "refined_bevel_modifiers": 960,
+  "through_openings": [
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.4735,
+      "z": 0.0235,
+      "open": true
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.462,
+      "z": -0.0015,
+      "open": true
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.466,
+      "z": -0.026,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.358,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.449,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.495,
+      "z": 0.024,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.529,
+      "z": 0.001,
+      "open": true
+    }
+  ],
+  "method": "Fresh samples of curved skins, triangulated small surface cells, smooth normal transitions, 6–8 segment edge bevels.",
+  "continuous_surface_normals": true
+}

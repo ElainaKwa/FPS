@@ -1,0 +1,88 @@
+{
+  "version": "AmmoSupplyCrate-20261012-v1",
+  "generated_by": "Scripts/build_crate.py",
+  "blender": "5.2.2 LTS",
+  "triangles": 29894,
+  "source_parts": 158,
+  "bounds_m": [
+    [
+      -0.39399999380111694,
+      -0.27650001645088196,
+      0.0
+    ],
+    [
+      0.39399999380111694,
+      0.24899999797344208,
+      0.429500013589859
+    ]
+  ],
+  "materials": {
+    "Graphite": {
+      "color": [
+        0.038,
+        0.051,
+        0.057
+      ],
+      "metallic": 0.48,
+      "roughness": 0.46
+    },
+    "Panel": {
+      "color": [
+        0.075,
+        0.095,
+        0.1
+      ],
+      "metallic": 0.3,
+      "roughness": 0.54
+    },
+    "Metal": {
+      "color": [
+        0.24,
+        0.27,
+        0.28
+      ],
+      "metallic": 0.85,
+      "roughness": 0.36
+    },
+    "Rubber": {
+      "color": [
+        0.013,
+        0.018,
+        0.021
+      ],
+      "metallic": 0,
+      "roughness": 0.77
+    },
+    "Yellow": {
+      "color": [
+        0.95,
+        0.64,
+        0.035
+      ],
+      "metallic": 0.2,
+      "roughness": 0.43
+    },
+    "Markings": {
+      "color": [
+        0.79,
+        0.84,
+        0.81
+      ],
+      "metallic": 0.0,
+      "roughness": 0.55
+    }
+  },
+  "source": "Source/AmmoSupplyCrate.blend",
+  "fbx": "Exports/SM_AmmoSupplyCrate.fbx",
+  "pivot": "bottom center",
+  "front": "-Y",
+  "font_sources": [
+    "ArtSource/FPSDemo/Industrial/UI/Fonts/Rajdhani-Bold.ttf",
+    "ArtSource/FPSDemo/Industrial/UI/Fonts/MiSans-Bold.ttf"
+  ],
+  "sha256": {
+    "Source/AmmoSupplyCrate.blend": "a7709b4da222e5acb1cb46982de2eb5e689e4dc93e9f842a4662366605765e78",
+    "Exports/SM_AmmoSupplyCrate.fbx": "a8fd83bdb3d6e4bf9862f18e889fd9e2412b42dd2b86dffd85b5857afb668bea"
+  },
+  "scope": "Static exterior asset; no gameplay interaction, no opening animation"
+}

@@ -33,6 +33,10 @@ void FFPSFlowSmoke::Start(AFPSMatchMode* Mode)
         if (Step == 0)
         {
             if (!Host || (GS->bWaiting && GS->PlayerArray.Num() < 2)) return;
+            // Joining the PlayerArray precedes the reliable content handshake. A larger
+            // map can finish loading between timer ticks; wait for actual admission.
+            for (auto It = Rules->GetWorld()->GetPlayerControllerIterator(); It; ++It)
+                if (const auto* PC = Cast<AFPSFrontController>(It->Get()); PC && !PC->IsWeaponContentVerified()) return;
             Check(GS->bStructuredMatch, TEXT("structured game state"));
             if (GS->bWaiting)
             {

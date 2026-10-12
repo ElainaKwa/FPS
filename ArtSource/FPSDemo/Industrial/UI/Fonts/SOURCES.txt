@@ -1,0 +1,22 @@
+FPS UI font sources — retrieved 2026-10-12
+
+Active Chinese UI font: MiSans Regular / Bold (selected by user 2026-10-12)
+https://hyperos.mi.com/font/zh/download/
+https://hyperos.mi.com/font-download/MiSans.zip
+License: MiSans-License.pdf
+https://hyperos.mi.com/font-download/MiSans字体知识产权许可协议.pdf
+The lobby credits MiSans. Original TTF bytes are embedded without modification.
+
+SourceHanSansSC-Regular.otf and SourceHanSansSC-Bold.otf
+Historical reference fonts; no longer used by the production UI.
+https://github.com/adobe-fonts/source-han-sans/tree/release/OTF/SimplifiedChinese
+https://github.com/adobe-fonts/source-han-sans/blob/master/LICENSE.txt
+License text: SourceHanSans-LICENSE.txt (SIL Open Font License 1.1)
+
+Rajdhani-SemiBold.ttf and Rajdhani-Bold.ttf
+https://github.com/google/fonts/tree/main/ofl/rajdhani
+License text: Rajdhani-OFL.txt (SIL Open Font License 1.1)
+
+Original font binaries are kept unmodified. Unreal font faces embed the payload.
+BuildFPSArt.ps1 includes these notices in Windows/ThirdPartyNotices/FPSUIFonts.
+The package report records the SHA-256 of source fonts and copied notices.

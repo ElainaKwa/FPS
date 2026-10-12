@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "appearance": "Restrained realistic black M7 material sample",
+  "color_space": "linear RGB",
+  "coordinate_space": "source_assembly_world_metres",
+  "axes": "+X muzzle, +Z up",
+  "parameter_semantics": {
+    "base_color": "Three linear RGB values; alpha is 1 for these opaque roles.",
+    "roughness_variation": "Symmetric amplitude about the role roughness; clamp to 0.02 through 0.98.",
+    "finegrain_scale_per_m": "Spatial frequency in cycles per metre, evaluated in source world space before atlas baking.",
+    "grain_strength": "Dimensionless multiplier for the finegrain normal or bump contribution.",
+    "grain_height_m": "Maximum finegrain relief in metres; does not modify silhouette geometry.",
+    "wear_amount": "Small baseline fraction for coating loss, only inside explicit contact masks and convex edges. Zero disables baseline loss.",
+    "object_role_overrides": "Apply in list order. Last matching object_regex wins for slots matching only_source_materials; preserve all other slots.",
+    "wear_masks": "Suggestions for localized baking. A regex selects source objects; ellipsoid coordinates are not catalog or display-scene coordinates. Effect finish_polish changes color and roughness only. Effect coating_loss can blend toward exposed_steel.",
+    "mirror_y": "Also evaluate the same mask with center_m[1] negated; combine mirrored values using max, not sum."
+  },
+  "global_settings": {
+    "use_existing_large_grain_textures": false,
+    "grain_sampling_policy": "Filter or attenuate subpixel grain during baking; never enlarge its world-space size to make it visible.",
+    "base_color_noise_amplitude": 0.003,
+    "base_color_noise_scale_per_m": 120.0,
+    "wear_combine": "max",
+    "coating_loss_requires_convex_edge": true,
+    "coating_loss_sparse_noise_threshold": 0.95,
+    "coating_loss_speck_scale_per_m": 1400.0,
+    "coating_loss_max_visible_area_fraction": 0.006,
+    "coating_loss_max_blend": 0.34,
+    "no_global_edge_outline": true,
+    "no_dirt_in_open_apertures": true,
+    "preserve_materials": [
+      "M7R_08_Glass",
+      "M7R_09_CoatedLens"
+    ],
+    "notes": "Keep the black coating dielectric. Small bare hardware carries metal reflections; edge exposure is sparse, narrow and dark gray. Convex-edge masks must exclude recess rims that cannot be contacted."
+  },
+  "roles": {
+    "coated_receiver": {
+      "base_color": [
+        0.0105,
+        0.0117,
+        0.013
+      ],
+      "roughness": 0.43,
+      "metallic": 0.03,
+      "finegrain_scale_per_m": 3600.0,
+      "grain_strength": 0.065,
+      "grain_height_m": 4e-06,
+      "roughness_variation": 0.024,
+      "wear_amount": 0.0035,
+      "specular_ior_level": 0.42
+    },
+    "coated_handguard": {
+      "base_color": [
+        0.008,
+        0.009,
+        0.01
+      ],
+      "roughness": 0.47,
+      "metallic": 0.025,
+      "finegrain_scale_per_m": 4000.0,
+      "grain_strength": 0.055,
+      "grain_height_m": 4e-06,
+      "roughness_variation": 0.022,
+      "wear_amount": 0.0025,
+      "specular_ior_level": 0.4
+    },
+    "coated_magazine": {
+      "base_color": [
+        0.012,
+        0.0132,
+        0.014
+      ],
+      "roughness": 0.53,
+      "metallic": 0.045,
+      "finegrain_scale_per_m": 4300.0,
+      "grain_strength": 0.05,
+      "grain_height_m": 3e-06,
+      "roughness_variation": 0.028,
+      "wear_amount": 0.004,
+      "specular_ior_level": 0.39
+    },
+    "coated_optic": {
+      "base_color": [
+        0.006,
+        0.007,
+        0.0085
+      ],
+      "roughness": 0.39,
+      "metallic": 0.045,
+      "finegrain_scale_per_m": 5000.0,
+      "grain_strength": 0.04,
+      "grain_height_m": 3e-06,
+      "roughness_variation": 0.018,
+      "wear_amount": 0.0015,
+      "specular_ior_level": 0.44
+    },
+    "polymer_stock": {
+      "base_color": [
+        0.01,
+        0.011,
+        0.012
+      ],
+      "roughness": 0.65,
+      "metallic": 0.0,
+      "finegrain_scale_per_m": 4400.0,
+      "grain_strength": 0.085,
+      "grain_height_m": 9e-06,
+      "roughness_variation": 0.03,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.33
+    },
+    "polymer_grip": {
+      "base_color": [
+        0.009,
+        0.01,
+        0.011
+      ],
+      "roughness": 0.71,
+      "metallic": 0.0,
+      "finegrain_scale_per_m": 4700.0,
+      "grain_strength": 0.085,
+      "grain_height_m": 1e-05,
+      "roughness_variation": 0.032,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.29
+    },
+    "polymer_inner": {
+      "base_color": [
+        0.0034,
+        0.0038,
+        0.0044
+      ],
+      "roughness": 0.9,
+      "metallic": 0.0,
+      "finegrain_scale_per_m": 4800.0,
+      "grain_strength": 0.03,
+      "grain_height_m": 4e-06,
+      "roughness_variation": 0.012,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.08
+    },
+    "rubber_black": {
+      "base_color": [
+        0.0035,
+        0.004,
+        0.0045
+      ],
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "finegrain_scale_per_m": 3800.0,
+      "grain_strength": 0.075,
+      "grain_height_m": 1.5e-05,
+      "roughness_variation": 0.025,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.24
+    },
+    "dark_steel_hardware": {
+      "base_color": [
+        0.022,
+        0.027,
+        0.031
+      ],
+      "roughness": 0.42,
+      "metallic": 0.9,
+      "finegrain_scale_per_m": 5600.0,
+      "grain_strength": 0.025,
+      "grain_height_m": 2e-06,
+      "roughness_variation": 0.027,
+      "wear_amount": 0.001,
+      "specular_ior_level": 0.45
+    },
+    "exposed_steel": {
+      "base_color": [
+        0.052,
+        0.061,
+        0.071
+      ],
+      "roughness": 0.4,
+      "metallic": 0.95,
+      "finegrain_scale_per_m": 6000.0,
+      "grain_strength": 0.022,
+      "grain_height_m": 2e-06,
+      "roughness_variation": 0.02,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.45
+    },
+    "recess_black": {
+      "base_color": [
+        0.0025,
+        0.003,
+        0.0035
+      ],
+      "roughness": 0.78,
+      "metallic": 0.0,
+      "finegrain_scale_per_m": 4500.0,
+      "grain_strength": 0.02,
+      "grain_height_m": 3e-06,
+      "roughness_variation": 0.01,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.18
+    },
+    "etched_gray": {
+      "base_color": [
+        0.09,
+        0.095,
+        0.1
+      ],
+      "roughness": 0.61,
+      "metallic": 0.0,
+      "finegrain_scale_per_m": 0.0,
+      "grain_strength": 0.0,
+      "grain_height_m": 0.0,
+      "roughness_variation": 0.0,
+      "wear_amount": 0.0,
+      "specular_ior_level": 0.28
+    }
+  },
+  "source_material_roles": {
+    "M7R_01_AnodizedBlack": "coated_receiver",
+    "M7R_02_PolymerBlack": "polymer_stock",
+    "M7R_03_RubberBlack": "rubber_black",
+    "M7R_04_DarkHardware": "dark_steel_hardware",
+    "M7R_05_BurnishedSteel": "dark_steel_hardware",
+    "M7R_06_RecessBlack": "recess_black",
+    "M7R_07_EngravingGray": "etched_gray",
+    "M7R_10_MatteInnerPolymer": "polymer_inner"
+  },
+  "object_role_overrides": [
+    {
+      "object_regex": "^(CORE_DefaultHandguardOutline|CORE_Handguard|CORE_Barrel|CORE_LowerRail|BARREL_Default_|TIDAL_)",
+      "only_source_materials": [
+        "M7R_01_AnodizedBlack"
+      ],
+      "role": "coated_handguard"
+    },
+    {
+      "object_regex": "^(Mag_20|Mag_Extended)_(StraightBoxBody|UpperSlantedCollar|FloorPlate)(?!BottomLip)",
+      "only_source_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack"
+      ],
+      "role": "coated_magazine"
+    },
+    {
+      "object_regex": "^RFN_Mag_(20|Extended)_ContinuousFloorRoll",
+      "only_source_materials": [
+        "M7R_02_PolymerBlack"
+      ],
+      "role": "coated_magazine"
+    },
+    {
+      "object_regex": "^GEO_M7_Optic_(LPVO|Combat)_",
+      "only_source_materials": [
+        "M7R_01_AnodizedBlack"
+      ],
+      "role": "coated_optic"
+    },
+    {
+      "object_regex": "^(Grip_Default|Grip_D2|GEO_M7_ResonanceGen1|GEO_M7_Foregrip_Vertical)_",
+      "only_source_materials": [
+        "M7R_02_PolymerBlack"
+      ],
+      "role": "polymer_grip"
+    },
+    {
+      "object_regex": "^GEO_M7_ResonanceGen1_(Clamp|Bolt)",
+      "only_source_materials": [
+        "M7R_01_AnodizedBlack"
+      ],
+      "role": "coated_handguard"
+    }
+  ],
+  "wear_mask_settings": {
+    "shape": "ellipsoid",
+    "falloff": "smoothstep from normalized_radius 0.55 through 1.0",
+    "sample_transform": "Evaluate on original source vertices after matrix_world; source roots are zero. Bake before relocating attachments into the equipped assembly.",
+    "foregrip_source_mount_m": [
+      0.3075,
+      0.0,
+      -0.0435
+    ],
+    "foregrip_tidal_instance_delta_m": [
+      0.0395,
+      0.0,
+      0.0025
+    ],
+    "polish_color_multiplier_cap": 1.045,
+    "polish_roughness_floor": 0.28,
+    "mask_notes": "Ellipsoids limit where contact can occur; curvature and sparse noise decide individual chips. Polishing is stronger than coating loss. Never apply metal exposure to polymer, rubber or transparent lenses."
+  },
+  "wear_masks": [
+    {
+      "id": "receiver_charging_handle_contact",
+      "object_regex": "^CORE_ChargingHandle",
+      "center_m": [
+        0.126,
+        0.038,
+        -0.003
+      ],
+      "radii_m": [
+        0.03,
+        0.009,
+        0.012
+      ],
+      "mirror_y": false,
+      "effect": "finish_polish",
+      "strength": 0.32,
+      "roughness_delta": -0.055,
+      "color_multiplier": 1.025
+    },
+    {
+      "id": "receiver_selector_thumb_contact",
+      "object_regex": "^CORE_(SelectorLever|SelectorHub|HorizontalCatch|BoltCatchButton)",
+      "center_m": [
+        -0.059,
+        0.03,
+        -0.055
+      ],
+      "radii_m": [
+        0.031,
+        0.011,
+        0.019
+      ],
+      "mirror_y": true,
+      "effect": "finish_polish",
+      "strength": 0.23,
+      "roughness_delta": -0.045,
+      "color_multiplier": 1.02
+    },
+    {
+      "id": "receiver_magwell_entry_edge",
+      "object_regex": "^CORE_(MagwellFlaredLip|LowerForgedContour)",
+      "center_m": [
+        0.076,
+        0.0245,
+        -0.098
+      ],
+      "radii_m": [
+        0.054,
+        0.008,
+        0.015
+      ],
+      "mirror_y": true,
+      "effect": "coating_loss",
+      "strength": 0.12,
+      "edge_width_m": 0.00028,
+      "sparse_noise_threshold": 0.96,
+      "exposed_role": "exposed_steel"
+    },
+    {
+      "id": "handguard_support_hand_contact",
+      "object_regex": "^(CORE_DefaultHandguardOutline|TIDAL_HandguardShell|TIDAL_LowerReinforcement|TIDAL_UpperSideShoulder)",
+      "center_m": [
+        0.347,
+        0.032,
+        -0.003
+      ],
+      "radii_m": [
+        0.087,
+        0.011,
+        0.029
+      ],
+      "mirror_y": true,
+      "effect": "finish_polish",
+      "strength": 0.18,
+      "roughness_delta": -0.032,
+      "color_multiplier": 1.018
+    },
+    {
+      "id": "handguard_front_sling_and_outer_corner",
+      "object_regex": "^(CORE_HandguardQD|TIDAL_QDSocket|CORE_DefaultHandguardOutline|TIDAL_HandguardShell)",
+      "center_m": [
+        0.227,
+        0.03,
+        -0.001
+      ],
+      "radii_m": [
+        0.022,
+        0.01,
+        0.016
+      ],
+      "mirror_y": true,
+      "effect": "coating_loss",
+      "strength": 0.065,
+      "edge_width_m": 0.00018,
+      "sparse_noise_threshold": 0.97,
+      "exposed_role": "exposed_steel"
+    },
+    {
+      "id": "magazine_insertion_neck",
+      "object_regex": "^(Mag_20|Mag_Extended)_(StraightBoxBody|UpperSlantedCollar|InsertionNeck)",
+      "center_m": [
+        0.08,
+        0.021,
+        -0.111
+      ],
+      "radii_m": [
+        0.062,
+        0.009,
+        0.021
+      ],
+      "mirror_y": true,
+      "effect": "coating_loss",
+      "strength": 0.17,
+      "edge_width_m": 0.00035,
+      "sparse_noise_threshold": 0.945,
+      "exposed_role": "exposed_steel"
+    },
+    {
+      "id": "magazine_broad_hand_contact",
+      "object_regex": "^(Mag_20|Mag_Extended)_StraightBoxBody",
+      "center_m": [
+        0.077,
+        0.021,
+        -0.173
+      ],
+      "radii_m": [
+        0.04,
+        0.007,
+        0.041
+      ],
+      "mirror_y": true,
+      "effect": "finish_polish",
+      "strength": 0.2,
+      "roughness_delta": -0.038,
+      "color_multiplier": 1.025
+    },
+    {
+      "id": "magazine_20_floor_contact",
+      "object_regex": "^(Mag_20_FloorPlate|RFN_Mag_20_ContinuousFloorRoll)",
+      "center_m": [
+        0.074,
+        0.021,
+        -0.22
+      ],
+      "radii_m": [
+        0.047,
+        0.009,
+        0.01
+      ],
+      "mirror_y": true,
+      "effect": "coating_loss",
+      "strength": 0.09,
+      "edge_width_m": 0.00025,
+      "sparse_noise_threshold": 0.965,
+      "exposed_role": "exposed_steel"
+    },
+    {
+      "id": "magazine_extended_floor_contact",
+      "object_regex": "^(Mag_Extended_FloorPlate|RFN_Mag_Extended_ContinuousFloorRoll)",
+      "center_m": [
+        0.074,
+        0.021,
+        -0.275
+      ],
+      "radii_m": [
+        0.047,
+        0.009,
+        0.01
+      ],
+      "mirror_y": true,
+      "effect": "coating_loss",
+      "strength": 0.09,
+      "edge_width_m": 0.00025,
+      "sparse_noise_threshold": 0.965,
+      "exposed_role": "exposed_steel"
+    },
+    {
+      "id": "stock_cheek_contact",
+      "object_regex": "^Stock_(Default_RoundCheekShell|Skeleton_SlopedCheekCover)",
+      "center_m": [
+        -0.278,
+        0.0,
+        0.01
+      ],
+      "radii_m": [
+        0.058,
+        0.035,
+        0.022
+      ],
+      "mirror_y": false,
+      "effect": "finish_polish",
+      "strength": 0.32,
+      "roughness_delta": -0.075,
+      "color_multiplier": 1.022
+    },
+    {
+      "id": "stock_length_latch_contact",
+      "object_regex": "^Stock_Default_(LengthLatchPanel|LowerForwardStrut|LengthLock)",
+      "center_m": [
+        -0.262,
+        0.022,
+        -0.053
+      ],
+      "radii_m": [
+        0.054,
+        0.008,
+        0.016
+      ],
+      "mirror_y": true,
+      "effect": "finish_polish",
+      "strength": 0.18,
+      "roughness_delta": -0.05,
+      "color_multiplier": 1.02
+    },
+    {
+      "id": "stock_rubber_shoulder_contact",
+      "object_regex": "^Stock_(Default_(CurvedRubberShoulderPad|ButtContactTread)|Skeleton_ThinButtRubber)",
+      "center_m": [
+        -0.355,
+        0.0,
+        -0.065
+      ],
+      "radii_m": [
+        0.034,
+        0.035,
+        0.084
+      ],
+      "mirror_y": false,
+      "effect": "finish_polish",
+      "strength": 0.17,
+      "roughness_delta": -0.06,
+      "color_multiplier": 1.015
+    },
+    {
+      "id": "optic_zoom_ring_finger_contact",
+      "object_regex": "^GEO_M7_Optic_LPVO_(Zoom_Collar|Focus_Band|Zoom_ThrowTab)",
+      "center_m": [
+        -0.105,
+        0.0,
+        0.103
+      ],
+      "radii_m": [
+        0.03,
+        0.026,
+        0.029
+      ],
+      "mirror_y": false,
+      "effect": "finish_polish",
+      "strength": 0.25,
+      "roughness_delta": -0.052,
+      "color_multiplier": 1.025
+    },
+    {
+      "id": "optic_turret_cap_contact",
+      "object_regex": "^GEO_M7_Optic_LPVO_(Elevation_Cap|Elevation_TopInset|Windage_Cap)",
+      "center_m": [
+        -0.006,
+        0.0,
+        0.123
+      ],
+      "radii_m": [
+        0.017,
+        0.029,
+        0.014
+      ],
+      "mirror_y": false,
+      "effect": "finish_polish",
+      "strength": 0.2,
+      "roughness_delta": -0.043,
+      "color_multiplier": 1.02
+    },
+    {
+      "id": "optic_mount_clamp_edge",
+      "object_regex": "^GEO_M7_Optic_LPVO_Mount_",
+      "center_m": [
+        -0.006,
+        0.02,
+        0.073
+      ],
+      "radii_m": [
+        0.061,
+        0.009,
+        0.018
+      ],
+      "mirror_y": true,
+      "effect": "coating_loss",
+      "strength": 0.065,
+      "edge_width_m": 0.00016,
+      "sparse_noise_threshold": 0.975,
+      "exposed_role": "exposed_steel"
+    },
+    {
+      "id": "resonance_gen1_hand_contact",
+      "object_regex": "^GEO_M7_ResonanceGen1_(CurvedGripAndOpenRearFrame|GripInsetPanel|FineGripGrain|CurvedFrontRubberWrap)",
+      "center_m": [
+        0.329,
+        0.019,
+        -0.102
+      ],
+      "radii_m": [
+        0.031,
+        0.008,
+        0.043
+      ],
+      "mirror_y": true,
+      "effect": "finish_polish",
+      "strength": 0.28,
+      "roughness_delta": -0.065,
+      "color_multiplier": 1.028
+    },
+    {
+      "id": "rear_grip_palm_contact",
+      "object_regex": "^(Grip_Default|Grip_D2)_(Rounded|Grip|Side|Broad|Rear|Front|Palm|Finger|Rubber)",
+      "center_m": [
+        -0.108,
+        0.024,
+        -0.153
+      ],
+      "radii_m": [
+        0.037,
+        0.01,
+        0.057
+      ],
+      "mirror_y": true,
+      "effect": "finish_polish",
+      "strength": 0.24,
+      "roughness_delta": -0.062,
+      "color_multiplier": 1.025
+    }
+  ],
+  "review_targets": [
+    "Receiver and handguard remain black under frontal lighting, with subdued broad highlights that reveal the shell volume.",
+    "Hardware may reflect bright environment lights, but no white material is assigned to edge chips or to large grip window walls.",
+    "Magazine pressed fields read through geometry and restrained roughness differences, without bright painted outlines.",
+    "Polymer and rubber have distinct broad highlights; grain is primarily a close-up effect, invisible as large spots at normal view distance.",
+    "Contact polish can be seen locally around controls, cheek rest and gripping surfaces. Visible coating damage remains sparse.",
+    "Lens transmission and anti-reflection treatment remain from the source materials; the opaque material sample does not recolor glass."
+  ],
+  "style_basis": "Docs/FPS/Art/DesignDecisions.md, sections 2 and 5",
+  "style_interpretation": "Restrained industrial black/gray, clearly separated coated metal, bare hardware, polymer and rubber; local wear for readability, no broad grime or mirror finish, no project codename markings."
+}

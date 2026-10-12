@@ -1,0 +1,4736 @@
+{
+  "schema_version": 1,
+  "success": true,
+  "blender_version": "5.2.2 LTS",
+  "tolerance_m": 5e-05,
+  "source_sha256_before": "ed482a3cf66c1aec643a28780ffed84f8e25da86735229f72b6b4f9059a53e11",
+  "source_sha256_after": "ed482a3cf66c1aec643a28780ffed84f8e25da86735229f72b6b4f9059a53e11",
+  "source_unchanged": true,
+  "library": {
+    "obsolete_data": {
+      "scenes": [],
+      "objects": []
+    },
+    "default_instances": [
+      {
+        "collection": "SM_M7_Core",
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Stock_Default",
+        "position_m": [
+          -0.17900000512599945,
+          0.0,
+          -0.0024999999441206455
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            5.12599945823311e-09,
+            0.0,
+            5.5879354528970415e-11
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Mag_20",
+        "position_m": [
+          0.07999999821186066,
+          0.0,
+          -0.10000000149011612
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            1.7881393449270533e-09,
+            0.0,
+            1.4901161138336505e-09
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Grip_Default",
+        "position_m": [
+          -0.0625,
+          0.0,
+          -0.06499999761581421
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.384185793236071e-09
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Muzzle_Standard",
+        "position_m": [
+          0.5979999899864197,
+          0.0,
+          0.0
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            1.0013580298284808e-08,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Sights_Iron",
+        "position_m": [
+          0.0,
+          0.0,
+          0.054999999701976776
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.980232241545089e-10
+          ]
+        }
+      }
+    ],
+    "catalog_instances": [
+      {
+        "collection": "SM_M7_Stock_Default",
+        "position_m": [
+          -0.675000011920929,
+          0.0,
+          0.4650000035762787
+        ]
+      },
+      {
+        "collection": "SM_M7_Stock_Skeleton",
+        "position_m": [
+          -0.22499999403953552,
+          0.0,
+          0.4650000035762787
+        ]
+      },
+      {
+        "collection": "SM_M7_Mag_20",
+        "position_m": [
+          0.22499999403953552,
+          0.0,
+          0.4650000035762787
+        ]
+      },
+      {
+        "collection": "SM_M7_Mag_Extended",
+        "position_m": [
+          0.675000011920929,
+          0.0,
+          0.4650000035762787
+        ]
+      },
+      {
+        "collection": "SM_M7_Grip_Default",
+        "position_m": [
+          -0.675000011920929,
+          0.0,
+          0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Grip_D2",
+        "position_m": [
+          -0.22499999403953552,
+          0.0,
+          0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Optic_LPVO",
+        "position_m": [
+          0.22499999403953552,
+          0.0,
+          0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Optic_Combat",
+        "position_m": [
+          0.675000011920929,
+          0.0,
+          0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Foregrip_K1",
+        "position_m": [
+          -0.675000011920929,
+          0.0,
+          -0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Foregrip_Vertical",
+        "position_m": [
+          -0.22499999403953552,
+          0.0,
+          -0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Muzzle_Standard",
+        "position_m": [
+          0.22499999403953552,
+          0.0,
+          -0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Muzzle_Brake",
+        "position_m": [
+          0.675000011920929,
+          0.0,
+          -0.1550000011920929
+        ]
+      },
+      {
+        "collection": "SM_M7_Muzzle_Suppressor",
+        "position_m": [
+          -0.675000011920929,
+          0.0,
+          -0.4650000035762787
+        ]
+      },
+      {
+        "collection": "SM_M7_Sights_Iron",
+        "position_m": [
+          -0.22499999403953552,
+          0.0,
+          -0.4650000035762787
+        ]
+      }
+    ],
+    "suppressed_instances": [
+      {
+        "collection": "SM_M7_Core",
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Stock_Default",
+        "position_m": [
+          -0.17900000512599945,
+          0.0,
+          -0.0024999999441206455
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            5.12599945823311e-09,
+            0.0,
+            5.5879354528970415e-11
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Mag_Extended",
+        "position_m": [
+          0.07999999821186066,
+          0.0,
+          -0.10000000149011612
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            1.7881393449270533e-09,
+            0.0,
+            1.4901161138336505e-09
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Grip_D2",
+        "position_m": [
+          -0.0625,
+          0.0,
+          -0.06499999761581421
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.384185793236071e-09
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Optic_LPVO",
+        "position_m": [
+          0.0,
+          0.0,
+          0.054999999701976776
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.980232241545089e-10
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Foregrip_K1",
+        "position_m": [
+          0.3075000047683716,
+          0.0,
+          -0.04349999874830246
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            4.768371586472142e-09,
+            0.0,
+            1.251697537285601e-09
+          ]
+        }
+      },
+      {
+        "collection": "SM_M7_Muzzle_Suppressor",
+        "position_m": [
+          0.5979999899864197,
+          0.0,
+          0.0
+        ],
+        "mount_comparison": {
+          "pass": true,
+          "absolute_error_m": [
+            1.0013580298284808e-08,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "packed_textures": [
+      {
+        "name": "M7R_edge_Normal",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 93996,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "M7R_edge_ORM",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 78044,
+        "packed_png": true,
+        "role": "ORM"
+      },
+      {
+        "name": "M7R_metal_Normal",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 108645,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "M7R_metal_ORM",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 86863,
+        "packed_png": true,
+        "role": "ORM"
+      },
+      {
+        "name": "M7R_polymer_Normal",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 120781,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "M7R_polymer_ORM",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 93537,
+        "packed_png": true,
+        "role": "ORM"
+      },
+      {
+        "name": "M7R_rubber_Normal",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 130573,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "M7R_rubber_ORM",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 96497,
+        "packed_png": true,
+        "role": "ORM"
+      },
+      {
+        "name": "M7R_steel_Normal",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 89093,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "M7R_steel_ORM",
+        "size": [
+          256,
+          256
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 75185,
+        "packed_png": true,
+        "role": "ORM"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "name": "SM_M7_Core",
+      "category": "Core",
+      "source": {
+        "geometry_objects": 392,
+        "mesh_objects": 392,
+        "vertices": 55004,
+        "triangles": 108580,
+        "nonfinite_vertices": 0,
+        "uv_layers": 392,
+        "uv_coordinates": 217226,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.18000000715255737,
+            -0.0348999984562397,
+            -0.1238730326294899
+          ],
+          "max": [
+            0.6000000238418579,
+            0.04100000113248825,
+            0.054499998688697815
+          ]
+        },
+        "dimensions_m": [
+          0.7800000309944153,
+          0.07589999958872795,
+          0.1783730313181877
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 400,
+      "collection_offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.18000000715255737,
+          -0.0348999984562397,
+          -0.1238730326294899
+        ],
+        "max": [
+          0.6000000238418579,
+          0.04100000113248825,
+          0.054499998688697815
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 55004,
+        "triangles": 108580,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 217226,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.18000000715255737,
+            -0.034900013357400894,
+            -0.1238730326294899
+          ],
+          "max": [
+            0.6000000238418579,
+            0.04099998623132706,
+            0.054499998688697815
+          ]
+        },
+        "dimensions_m": [
+          0.7800000309944153,
+          0.07589999958872795,
+          0.1783730313181877
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Core.fbx",
+        "file_bytes": 3070844,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.4901161193847656e-08,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.4901161193847656e-08,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 188860,
+        "triangles": 108580,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 325740,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.18000000715255737,
+            -0.0348999984562397,
+            -0.1238730326294899
+          ],
+          "max": [
+            0.6000000238418579,
+            0.04100000113248825,
+            0.054499998688697815
+          ]
+        },
+        "dimensions_m": [
+          0.7800000309944153,
+          0.07589999958872795,
+          0.1783730313181877
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Core.glb",
+        "file_bytes": 7903868,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Core_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": [
+            {
+              "name": "Mount_Foregrip",
+              "in_active_scene": true,
+              "position_m": [
+                0.3075000047683716,
+                -0.0,
+                -0.04349999874830246
+              ],
+              "gltf_position_m": [
+                0.3075000047683716,
+                -0.04349999874830246,
+                0.0
+              ]
+            },
+            {
+              "name": "Mount_Iron",
+              "in_active_scene": true,
+              "position_m": [
+                0.0,
+                -0.0,
+                0.054999999701976776
+              ],
+              "gltf_position_m": [
+                0.0,
+                0.054999999701976776,
+                0.0
+              ]
+            },
+            {
+              "name": "Mount_Magazine",
+              "in_active_scene": true,
+              "position_m": [
+                0.07999999821186066,
+                -0.0,
+                -0.10000000149011612
+              ],
+              "gltf_position_m": [
+                0.07999999821186066,
+                -0.10000000149011612,
+                0.0
+              ]
+            },
+            {
+              "name": "Mount_Muzzle",
+              "in_active_scene": true,
+              "position_m": [
+                0.5979999899864197,
+                -0.0,
+                0.0
+              ],
+              "gltf_position_m": [
+                0.5979999899864197,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "Mount_Optic",
+              "in_active_scene": true,
+              "position_m": [
+                0.0,
+                -0.0,
+                0.054999999701976776
+              ],
+              "gltf_position_m": [
+                0.0,
+                0.054999999701976776,
+                0.0
+              ]
+            },
+            {
+              "name": "Mount_RearGrip",
+              "in_active_scene": true,
+              "position_m": [
+                -0.0625,
+                -0.0,
+                -0.06499999761581421
+              ],
+              "gltf_position_m": [
+                -0.0625,
+                -0.06499999761581421,
+                0.0
+              ]
+            },
+            {
+              "name": "Mount_Stock",
+              "in_active_scene": true,
+              "position_m": [
+                -0.17900000512599945,
+                -0.0,
+                -0.0024999999441206455
+              ],
+              "gltf_position_m": [
+                -0.17900000512599945,
+                -0.0024999999441206455,
+                0.0
+              ]
+            }
+          ]
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "mount_comparison": [
+          {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              5.5879354528970415e-11
+            ],
+            "name": "Mount_Stock",
+            "expected_position_m": [
+              -0.179,
+              0,
+              -0.0025
+            ],
+            "actual_position_m": [
+              -0.17900000512599945,
+              -0.0,
+              -0.0024999999441206455
+            ],
+            "in_active_scene": true
+          },
+          {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ],
+            "name": "Mount_RearGrip",
+            "expected_position_m": [
+              -0.0625,
+              0,
+              -0.065
+            ],
+            "actual_position_m": [
+              -0.0625,
+              -0.0,
+              -0.06499999761581421
+            ],
+            "in_active_scene": true
+          },
+          {
+            "pass": true,
+            "absolute_error_m": [
+              1.7881393449270533e-09,
+              0.0,
+              1.4901161138336505e-09
+            ],
+            "name": "Mount_Magazine",
+            "expected_position_m": [
+              0.08,
+              0,
+              -0.1
+            ],
+            "actual_position_m": [
+              0.07999999821186066,
+              -0.0,
+              -0.10000000149011612
+            ],
+            "in_active_scene": true
+          },
+          {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.980232241545089e-10
+            ],
+            "name": "Mount_Optic",
+            "expected_position_m": [
+              0,
+              0,
+              0.055
+            ],
+            "actual_position_m": [
+              0.0,
+              -0.0,
+              0.054999999701976776
+            ],
+            "in_active_scene": true
+          },
+          {
+            "pass": true,
+            "absolute_error_m": [
+              4.768371586472142e-09,
+              0.0,
+              1.251697537285601e-09
+            ],
+            "name": "Mount_Foregrip",
+            "expected_position_m": [
+              0.3075,
+              0,
+              -0.0435
+            ],
+            "actual_position_m": [
+              0.3075000047683716,
+              -0.0,
+              -0.04349999874830246
+            ],
+            "in_active_scene": true
+          },
+          {
+            "pass": true,
+            "absolute_error_m": [
+              1.0013580298284808e-08,
+              0.0,
+              0.0
+            ],
+            "name": "Mount_Muzzle",
+            "expected_position_m": [
+              0.598,
+              0,
+              0
+            ],
+            "actual_position_m": [
+              0.5979999899864197,
+              -0.0,
+              0.0
+            ],
+            "in_active_scene": true
+          },
+          {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.980232241545089e-10
+            ],
+            "name": "Mount_Iron",
+            "expected_position_m": [
+              0,
+              0,
+              0.055
+            ],
+            "actual_position_m": [
+              0.0,
+              -0.0,
+              0.054999999701976776
+            ],
+            "in_active_scene": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "SM_M7_Stock_Default",
+      "category": "Stock",
+      "source": {
+        "geometry_objects": 73,
+        "mesh_objects": 73,
+        "vertices": 12584,
+        "triangles": 24888,
+        "nonfinite_vertices": 0,
+        "uv_layers": 73,
+        "uv_coordinates": 49186,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.36775001883506775,
+            -0.02887631766498089,
+            -0.13095876574516296
+          ],
+          "max": [
+            -0.1790078729391098,
+            0.02887631766498089,
+            0.03700000047683716
+          ]
+        },
+        "dimensions_m": [
+          0.18874214589595795,
+          0.05775263532996178,
+          0.16795876622200012
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 74,
+      "collection_offset_m": [
+        -0.17900000512599945,
+        0.0,
+        -0.0024999999441206455
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.18875001883506776,
+          -0.02887631766498089,
+          -0.12845876574516296
+        ],
+        "max": [
+          -7.872939109809796e-06,
+          0.02887631766498089,
+          0.03950000047683716
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 12584,
+        "triangles": 24888,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 49186,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.1887500137090683,
+            -0.02887628972530365,
+            -0.12845876812934875
+          ],
+          "max": [
+            -7.863854079914745e-06,
+            0.028876345604658127,
+            0.039500001817941666
+          ]
+        },
+        "dimensions_m": [
+          0.18874214985498838,
+          0.05775263532996178,
+          0.16795876994729042
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Stock_Default.fbx",
+        "file_bytes": 1245388,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              2.7939677238464355e-08,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              9.085029895050667e-09,
+              2.7939677238464355e-08,
+              1.341104505225843e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              3.959030436817557e-09,
+              0.0,
+              3.725290298461914e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 39461,
+        "triangles": 24888,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 74664,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.1887500137090683,
+            -0.02887631766498089,
+            -0.12845876812934875
+          ],
+          "max": [
+            -7.867813110351562e-06,
+            0.02887631766498089,
+            0.039500001817941666
+          ]
+        },
+        "dimensions_m": [
+          0.18874214589595795,
+          0.05775263532996178,
+          0.16795876994729042
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Stock_Default.glb",
+        "file_bytes": 2227840,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Stock_Default_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              1.341104505225843e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              3.725290298461914e-09
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Stock_Skeleton",
+      "category": "Stock",
+      "source": {
+        "geometry_objects": 41,
+        "mesh_objects": 41,
+        "vertices": 8232,
+        "triangles": 16316,
+        "nonfinite_vertices": 0,
+        "uv_layers": 41,
+        "uv_coordinates": 32158,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.40400001406669617,
+            -0.027249999344348907,
+            -0.1086953654885292
+          ],
+          "max": [
+            -0.1784999966621399,
+            0.027249999344348907,
+            0.03885483369231224
+          ]
+        },
+        "dimensions_m": [
+          0.22550001740455627,
+          0.054499998688697815,
+          0.14755019918084145
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 42,
+      "collection_offset_m": [
+        -0.17900000512599945,
+        0.0,
+        -0.0024999999441206455
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.22500001406669617,
+          -0.027249999344348907,
+          -0.1061953654885292
+        ],
+        "max": [
+          0.0005000033378600999,
+          0.027249999344348907,
+          0.04135483369231224
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 8232,
+        "triangles": 16316,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 32158,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.22500000894069672,
+            -0.02724996581673622,
+            -0.106195367872715
+          ],
+          "max": [
+            0.0005000123637728393,
+            0.027250036597251892,
+            0.04135483503341675
+          ]
+        },
+        "dimensions_m": [
+          0.22550002130446956,
+          0.05450000241398811,
+          0.14755020290613174
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Stock_Skeleton.fbx",
+        "file_bytes": 966092,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              3.3527612686157227e-08,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              9.025912739435427e-09,
+              3.725290298461914e-08,
+              1.341104505225843e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              3.899913281202316e-09,
+              3.725290298461914e-09,
+              3.725290298461914e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 24956,
+        "triangles": 16316,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 48948,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.22500000894069672,
+            -0.027249999344348907,
+            -0.106195367872715
+          ],
+          "max": [
+            0.0005000084638595581,
+            0.027249999344348907,
+            0.04135483503341675
+          ]
+        },
+        "dimensions_m": [
+          0.22550001740455627,
+          0.054499998688697815,
+          0.14755020290613174
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Stock_Skeleton.glb",
+        "file_bytes": 1712236,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Stock_Skeleton_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              1.341104505225843e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              3.725290298461914e-09
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Mag_20",
+      "category": "Magazine",
+      "source": {
+        "geometry_objects": 32,
+        "mesh_objects": 32,
+        "vertices": 3272,
+        "triangles": 6416,
+        "nonfinite_vertices": 0,
+        "uv_layers": 32,
+        "uv_coordinates": 13080,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.020043663680553436,
+            -0.024700000882148743,
+            -0.22750000655651093
+          ],
+          "max": [
+            0.1279774308204651,
+            0.024700000882148743,
+            -0.07663072645664215
+          ]
+        },
+        "dimensions_m": [
+          0.10793376713991165,
+          0.049400001764297485,
+          0.15086928009986877
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 33,
+      "collection_offset_m": [
+        0.07999999821186066,
+        0.0,
+        -0.10000000149011612
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.059956336319446565,
+          -0.024700000882148743,
+          -0.12750000655651092
+        ],
+        "max": [
+          0.047977430820465086,
+          0.024700000882148743,
+          0.023369273543357855
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 3272,
+        "triangles": 6416,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 13080,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.05995633825659752,
+            -0.02470000647008419,
+            -0.1274999976158142
+          ],
+          "max": [
+            0.04797743633389473,
+            0.02470001019537449,
+            0.02336927503347397
+          ]
+        },
+        "dimensions_m": [
+          0.10793377459049225,
+          0.04940001666545868,
+          0.15086927264928818
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Mag_20.fbx",
+        "file_bytes": 696988,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.9371509535348608e-09,
+              5.587935447692871e-09,
+              8.940696710757479e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              5.513429643388967e-09,
+              9.313225746154785e-09,
+              1.4901161138336505e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              7.450580596923828e-09,
+              1.4901161193847656e-08,
+              7.450580596923828e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 12346,
+        "triangles": 6416,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 19248,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.05995633453130722,
+            -0.024700000882148743,
+            -0.1274999976158142
+          ],
+          "max": [
+            0.04797743260860443,
+            0.024700000882148743,
+            0.02336927503347397
+          ]
+        },
+        "dimensions_m": [
+          0.10793376713991165,
+          0.049400001764297485,
+          0.15086927264928818
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Mag_20.glb",
+        "file_bytes": 1249260,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Mag_20_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.7881393449270533e-09,
+              0.0,
+              8.940696710757479e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.7881393449270533e-09,
+              0.0,
+              1.4901161138336505e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              7.450580596923828e-09
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Mag_Extended",
+      "category": "Magazine",
+      "source": {
+        "geometry_objects": 38,
+        "mesh_objects": 38,
+        "vertices": 3848,
+        "triangles": 7544,
+        "nonfinite_vertices": 0,
+        "uv_layers": 38,
+        "uv_coordinates": 15384,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.020043663680553436,
+            -0.024700000882148743,
+            -0.2824999988079071
+          ],
+          "max": [
+            0.1279774308204651,
+            0.024700000882148743,
+            -0.07663072645664215
+          ]
+        },
+        "dimensions_m": [
+          0.10793376713991165,
+          0.049400001764297485,
+          0.20586927235126495
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 39,
+      "collection_offset_m": [
+        0.07999999821186066,
+        0.0,
+        -0.10000000149011612
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.059956336319446565,
+          -0.024700000882148743,
+          -0.1824999988079071
+        ],
+        "max": [
+          0.047977430820465086,
+          0.024700000882148743,
+          0.023369273543357855
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 3848,
+        "triangles": 7544,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 15384,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.05995633825659752,
+            -0.02470000647008419,
+            -0.18250000476837158
+          ],
+          "max": [
+            0.04797743633389473,
+            0.02470001019537449,
+            0.02336927503347397
+          ]
+        },
+        "dimensions_m": [
+          0.10793377459049225,
+          0.04940001666545868,
+          0.20586927980184555
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Mag_Extended.fbx",
+        "file_bytes": 727900,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.9371509535348608e-09,
+              5.587935447692871e-09,
+              5.960464483090178e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              5.513429643388967e-09,
+              9.313225746154785e-09,
+              1.4901161138336505e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              7.450580596923828e-09,
+              1.4901161193847656e-08,
+              7.450580596923828e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 14459,
+        "triangles": 7544,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 22632,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.05995633453130722,
+            -0.024700000882148743,
+            -0.18250000476837158
+          ],
+          "max": [
+            0.04797743260860443,
+            0.024700000882148743,
+            0.02336927503347397
+          ]
+        },
+        "dimensions_m": [
+          0.10793376713991165,
+          0.049400001764297485,
+          0.20586927980184555
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Mag_Extended.glb",
+        "file_bytes": 1323672,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Mag_Extended_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.7881393449270533e-09,
+              0.0,
+              5.960464483090178e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.7881393449270533e-09,
+              0.0,
+              1.4901161138336505e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              7.450580596923828e-09
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Grip_Default",
+      "category": "RearGrip",
+      "source": {
+        "geometry_objects": 59,
+        "mesh_objects": 59,
+        "vertices": 16254,
+        "triangles": 26248,
+        "nonfinite_vertices": 0,
+        "uv_layers": 59,
+        "uv_coordinates": 51136,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.14940145611763,
+            -0.025429999455809593,
+            -0.20499999821186066
+          ],
+          "max": [
+            -0.045083969831466675,
+            0.025429999455809593,
+            -0.04811398312449455
+          ]
+        },
+        "dimensions_m": [
+          0.10431748628616333,
+          0.050859998911619186,
+          0.1568860150873661
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 60,
+      "collection_offset_m": [
+        -0.0625,
+        0.0,
+        -0.06499999761581421
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.08690145611763,
+          -0.025429999455809593,
+          -0.13999999821186065
+        ],
+        "max": [
+          0.017416030168533325,
+          0.025429999455809593,
+          0.01688601687550545
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 16254,
+        "triangles": 26248,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 51136,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.08690145611763,
+            -0.025429999455809593,
+            -0.14000000059604645
+          ],
+          "max": [
+            0.017416030168533325,
+            0.025430001318454742,
+            0.016886014491319656
+          ]
+        },
+        "dimensions_m": [
+          0.10431748628616333,
+          0.050860000774264336,
+          0.1568860150873661
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Grip_Default.fbx",
+        "file_bytes": 1169084,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.862645149230957e-09,
+              2.384185793236071e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.862645149230957e-09,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 46344,
+        "triangles": 26248,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 78744,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.08690145611763,
+            -0.025429999455809593,
+            -0.14000000059604645
+          ],
+          "max": [
+            0.017416030168533325,
+            0.025429999455809593,
+            0.016886014491319656
+          ]
+        },
+        "dimensions_m": [
+          0.10431748628616333,
+          0.050859998911619186,
+          0.1568860150873661
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Grip_Default.glb",
+        "file_bytes": 2456272,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Grip_Default_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Grip_D2",
+      "category": "RearGrip",
+      "source": {
+        "geometry_objects": 58,
+        "mesh_objects": 58,
+        "vertices": 12813,
+        "triangles": 22058,
+        "nonfinite_vertices": 0,
+        "uv_layers": 58,
+        "uv_coordinates": 43452,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.14985164999961853,
+            -0.025429999455809593,
+            -0.21035830676555634
+          ],
+          "max": [
+            -0.04500000178813934,
+            0.025429999455809593,
+            -0.048114337027072906
+          ]
+        },
+        "dimensions_m": [
+          0.10485164821147919,
+          0.050859998911619186,
+          0.16224396973848343
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 59,
+      "collection_offset_m": [
+        -0.0625,
+        0.0,
+        -0.06499999761581421
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.08735164999961853,
+          -0.025429999455809593,
+          -0.14535830676555633
+        ],
+        "max": [
+          0.017499998211860657,
+          0.025429999455809593,
+          0.016885662972927096
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 12813,
+        "triangles": 22058,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 43452,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.08735165745019913,
+            -0.025429999455809593,
+            -0.14535830914974213
+          ],
+          "max": [
+            0.017499998211860657,
+            0.025430001318454742,
+            0.016885660588741302
+          ]
+        },
+        "dimensions_m": [
+          0.10485165566205978,
+          0.050860000774264336,
+          0.16224396973848343
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Grip_D2.fbx",
+        "file_bytes": 1094156,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              7.450580596923828e-09,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.862645149230957e-09,
+              2.384185793236071e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              7.450580596923828e-09,
+              1.862645149230957e-09,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 36928,
+        "triangles": 22058,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 66174,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.08735164999961853,
+            -0.025429999455809593,
+            -0.14535830914974213
+          ],
+          "max": [
+            0.017499998211860657,
+            0.025429999455809593,
+            0.016885660588741302
+          ]
+        },
+        "dimensions_m": [
+          0.10485164821147919,
+          0.050859998911619186,
+          0.16224396973848343
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Grip_D2.glb",
+        "file_bytes": 2129788,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Grip_D2_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Optic_LPVO",
+      "category": "Optic",
+      "source": {
+        "geometry_objects": 91,
+        "mesh_objects": 87,
+        "vertices": 59616,
+        "triangles": 114084,
+        "nonfinite_vertices": 0,
+        "uv_layers": 91,
+        "uv_coordinates": 230706,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.14000000059604645,
+            -0.024255000054836273,
+            0.05400000140070915
+          ],
+          "max": [
+            0.10999999940395355,
+            0.024025000631809235,
+            0.13240499794483185
+          ]
+        },
+        "dimensions_m": [
+          0.25,
+          0.04828000068664551,
+          0.0784049965441227
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray",
+          "M7R_09_CoatedLens"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 92,
+      "collection_offset_m": [
+        0.0,
+        0.0,
+        0.054999999701976776
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.14000000059604645,
+          -0.024255000054836273,
+          -0.000999998599290848
+        ],
+        "max": [
+          0.10999999940395355,
+          0.024025000631809235,
+          0.07740499794483185
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 59616,
+        "triangles": 114084,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 461412,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.14000000059604645,
+            -0.024254998192191124,
+            -0.0009999996982514858
+          ],
+          "max": [
+            0.10999999940395355,
+            0.024025002494454384,
+            0.07740499824285507
+          ]
+        },
+        "dimensions_m": [
+          0.25,
+          0.04828000068664551,
+          0.07840499794110656
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray",
+          "M7R_09_CoatedLens"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Optic_LPVO.fbx",
+        "file_bytes": 4560796,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.862645149230957e-09,
+              1.0989606377687089e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.862645149230957e-09,
+              2.98023217215615e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              1.3969838619232178e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 169244,
+        "triangles": 114084,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 684504,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.14000000059604645,
+            -0.024255000054836273,
+            -0.0009999996982514858
+          ],
+          "max": [
+            0.10999999940395355,
+            0.024025000631809235,
+            0.07740499824285507
+          ]
+        },
+        "dimensions_m": [
+          0.25,
+          0.04828000068664551,
+          0.07840499794110656
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray",
+          "M7R_09_CoatedLens"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Optic_LPVO.glb",
+        "file_bytes": 8674616,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Optic_LPVO_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              1.0989606377687089e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.98023217215615e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              1.3969838619232178e-09
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Optic_Combat",
+      "category": "Optic",
+      "source": {
+        "geometry_objects": 45,
+        "mesh_objects": 43,
+        "vertices": 31344,
+        "triangles": 60048,
+        "nonfinite_vertices": 0,
+        "uv_layers": 45,
+        "uv_coordinates": 121248,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.019999999552965164,
+            -0.02917499840259552,
+            0.05350000038743019
+          ],
+          "max": [
+            0.07500000298023224,
+            0.02304000034928322,
+            0.13910000026226044
+          ]
+        },
+        "dimensions_m": [
+          0.0950000025331974,
+          0.05221499875187874,
+          0.08559999987483025
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray",
+          "M7R_08_Glass",
+          "M7R_09_CoatedLens"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 46,
+      "collection_offset_m": [
+        0.0,
+        0.0,
+        0.054999999701976776
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.019999999552965164,
+          -0.02917499840259552,
+          -0.0014999996125698092
+        ],
+        "max": [
+          0.07500000298023224,
+          0.02304000034928322,
+          0.08410000026226044
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 31344,
+        "triangles": 60048,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 242496,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.020000003278255463,
+            -0.029175003990530968,
+            -0.001500000711530447
+          ],
+          "max": [
+            0.07500000298023224,
+            0.02304000034928322,
+            0.08410000056028366
+          ]
+        },
+        "dimensions_m": [
+          0.0950000062584877,
+          0.052215004339814186,
+          0.08560000127181411
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray",
+          "M7R_08_Glass",
+          "M7R_09_CoatedLens"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Optic_Combat.fbx",
+        "file_bytes": 2668700,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              3.725290298461914e-09,
+              5.587935447692871e-09,
+              1.0989606377687089e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.98023217215615e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              3.725290298461914e-09,
+              5.587935447692871e-09,
+              1.3969838619232178e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 86106,
+        "triangles": 60048,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 360288,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.019999999552965164,
+            -0.02917499840259552,
+            -0.001500000711530447
+          ],
+          "max": [
+            0.07500000298023224,
+            0.02304000034928322,
+            0.08410000056028366
+          ]
+        },
+        "dimensions_m": [
+          0.0950000025331974,
+          0.05221499875187874,
+          0.08560000127181411
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack",
+          "M7R_07_EngravingGray",
+          "M7R_08_Glass",
+          "M7R_09_CoatedLens"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Optic_Combat.glb",
+        "file_bytes": 4790472,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Optic_Combat_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              1.0989606377687089e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.98023217215615e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              1.3969838619232178e-09
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Foregrip_K1",
+      "category": "Foregrip",
+      "source": {
+        "geometry_objects": 40,
+        "mesh_objects": 39,
+        "vertices": 6840,
+        "triangles": 13480,
+        "nonfinite_vertices": 0,
+        "uv_layers": 40,
+        "uv_coordinates": 27090,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.2919999957084656,
+            -0.01334999967366457,
+            -0.13196881115436554
+          ],
+          "max": [
+            0.3919447660446167,
+            0.01334999967366457,
+            -0.04349999874830246
+          ]
+        },
+        "dimensions_m": [
+          0.09994477033615112,
+          0.02669999934732914,
+          0.08846881240606308
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 41,
+      "collection_offset_m": [
+        0.3075000047683716,
+        0.0,
+        -0.04349999874830246
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.01550000429153442,
+          -0.01334999967366457,
+          -0.08846881115436554
+        ],
+        "max": [
+          0.0844447660446167,
+          0.01334999967366457,
+          1.251697537285601e-09
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 6840,
+        "triangles": 13480,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 54180,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.015500010922551155,
+            -0.013350010849535465,
+            -0.08846881240606308
+          ],
+          "max": [
+            0.08444476127624512,
+            0.013350000604987144,
+            4.656612873077393e-10
+          ]
+        },
+        "dimensions_m": [
+          0.09994477219879627,
+          0.02670001145452261,
+          0.08846881287172437
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Foregrip_K1.fbx",
+        "file_bytes": 1001308,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              6.631016735703099e-09,
+              1.1175870895385742e-08,
+              1.251697537285601e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              4.768371586472142e-09,
+              9.313225746154785e-10,
+              7.860362499778617e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              1.862645149230957e-09,
+              1.210719347000122e-08,
+              4.656612873077393e-10
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 21143,
+        "triangles": 13480,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 80880,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.015500009059906006,
+            -0.01334999967366457,
+            -0.08846881240606308
+          ],
+          "max": [
+            0.08444476127624512,
+            0.01334999967366457,
+            4.656612873077393e-10
+          ]
+        },
+        "dimensions_m": [
+          0.09994477033615112,
+          0.02669999934732914,
+          0.08846881287172437
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Foregrip_K1.glb",
+        "file_bytes": 1908816,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Foregrip_K1_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              4.768371586472142e-09,
+              0.0,
+              1.251697537285601e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              4.768371586472142e-09,
+              0.0,
+              7.860362499778617e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              4.656612873077393e-10
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Foregrip_Vertical",
+      "category": "Foregrip",
+      "source": {
+        "geometry_objects": 23,
+        "mesh_objects": 22,
+        "vertices": 14504,
+        "triangles": 28476,
+        "nonfinite_vertices": 0,
+        "uv_layers": 23,
+        "uv_coordinates": 56978,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.304999977350235,
+            -0.016839999705553055,
+            -0.15644000470638275
+          ],
+          "max": [
+            0.3449999988079071,
+            0.016839999705553055,
+            -0.042799998074769974
+          ]
+        },
+        "dimensions_m": [
+          0.04000002145767212,
+          0.03367999941110611,
+          0.11364000663161278
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 24,
+      "collection_offset_m": [
+        0.3075000047683716,
+        0.0,
+        -0.04349999874830246
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.00250002264976501,
+          -0.016839999705553055,
+          -0.11294000470638275
+        ],
+        "max": [
+          0.03749999880790711,
+          0.016839999705553055,
+          0.0007000019252300232
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 14504,
+        "triangles": 28476,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 113956,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.002500018337741494,
+            -0.016840003430843353,
+            -0.11294000595808029
+          ],
+          "max": [
+            0.037499986588954926,
+            0.016839997842907906,
+            0.0007000002078711987
+          ]
+        },
+        "dimensions_m": [
+          0.04000000492669642,
+          0.03368000127375126,
+          0.11364000616595149
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Foregrip_Vertical.fbx",
+        "file_bytes": 1258828,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              4.3120235160287734e-09,
+              3.725290298461914e-09,
+              1.251697537285601e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.221895218339597e-08,
+              1.862645149230957e-09,
+              1.7173588245933402e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              1.6530975699424744e-08,
+              1.862645149230957e-09,
+              4.656612873077393e-10
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 27089,
+        "triangles": 28476,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 170856,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.0025000162422657013,
+            -0.016839999705553055,
+            -0.11294000595808029
+          ],
+          "max": [
+            0.03749998286366463,
+            0.016839999705553055,
+            0.0007000002078711987
+          ]
+        },
+        "dimensions_m": [
+          0.03999999910593033,
+          0.03367999941110611,
+          0.11364000616595149
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_02_PolymerBlack",
+          "M7R_03_RubberBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Foregrip_Vertical.glb",
+        "file_bytes": 2236660,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Foregrip_Vertical_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              6.4074993089136e-09,
+              0.0,
+              1.251697537285601e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.5944242481857884e-08,
+              0.0,
+              1.7173588245933402e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              2.2351741790771484e-08,
+              0.0,
+              4.656612873077393e-10
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Muzzle_Standard",
+      "category": "Muzzle",
+      "source": {
+        "geometry_objects": 4,
+        "mesh_objects": 4,
+        "vertices": 10912,
+        "triangles": 21024,
+        "nonfinite_vertices": 0,
+        "uv_layers": 4,
+        "uv_coordinates": 43248,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.5920000076293945,
+            -0.011695568449795246,
+            -0.011695568449795246
+          ],
+          "max": [
+            0.6119999885559082,
+            0.011695568449795246,
+            0.011695568449795246
+          ]
+        },
+        "dimensions_m": [
+          0.019999980926513672,
+          0.023391136899590492,
+          0.023391136899590492
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 5,
+      "collection_offset_m": [
+        0.5979999899864197,
+        0.0,
+        0.0
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.005999992370605445,
+          -0.011695568449795246,
+          -0.011695568449795246
+        ],
+        "max": [
+          0.013999988555908227,
+          0.011695568449795246,
+          0.011695568449795246
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 10912,
+        "triangles": 21024,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 43248,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.005999984219670296,
+            -0.01169556938111782,
+            -0.011695568449795246
+          ],
+          "max": [
+            0.014000000432133675,
+            0.01169556938111782,
+            0.011695568449795246
+          ]
+        },
+        "dimensions_m": [
+          0.01999998465180397,
+          0.02339113876223564,
+          0.023391136899590492
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Muzzle_Standard.fbx",
+        "file_bytes": 900188,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              8.15093514905385e-09,
+              9.313225746154785e-10,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.1876225447515765e-08,
+              9.313225746154785e-10,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              3.725290298461914e-09,
+              1.862645149230957e-09,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 33517,
+        "triangles": 21024,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 63072,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.0059999823570251465,
+            -0.011695568449795246,
+            -0.011695568449795246
+          ],
+          "max": [
+            0.013999998569488525,
+            0.011695568449795246,
+            0.011695568449795246
+          ]
+        },
+        "dimensions_m": [
+          0.019999980926513672,
+          0.023391136899590492,
+          0.023391136899590492
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Muzzle_Standard.glb",
+        "file_bytes": 1570452,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Muzzle_Standard_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.0013580298284808e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.0013580298284808e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Muzzle_Brake",
+      "category": "Muzzle",
+      "source": {
+        "geometry_objects": 5,
+        "mesh_objects": 5,
+        "vertices": 7712,
+        "triangles": 15360,
+        "nonfinite_vertices": 0,
+        "uv_layers": 5,
+        "uv_coordinates": 30976,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.5995000004768372,
+            -0.014150000177323818,
+            -0.014150000177323818
+          ],
+          "max": [
+            0.6460250020027161,
+            0.014150000177323818,
+            0.014150000177323818
+          ]
+        },
+        "dimensions_m": [
+          0.046525001525878906,
+          0.028300000354647636,
+          0.028300000354647636
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 6,
+      "collection_offset_m": [
+        0.5979999899864197,
+        0.0,
+        0.0
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          0.0015000004768371822,
+          -0.014150000177323818,
+          -0.014150000177323818
+        ],
+        "max": [
+          0.04802500200271609,
+          0.014150000177323818,
+          0.014150000177323818
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 7712,
+        "triangles": 15360,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 30976,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.0015000085113570094,
+            -0.014150007627904415,
+            -0.014150000177323818
+          ],
+          "max": [
+            0.048025015741586685,
+            0.014149992726743221,
+            0.014150000177323818
+          ]
+        },
+        "dimensions_m": [
+          0.046525007230229676,
+          0.028300000354647636,
+          0.028300000354647636
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Muzzle_Brake.fbx",
+        "file_bytes": 643196,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              8.034519827226916e-09,
+              7.450580596923828e-09,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.3738870596746722e-08,
+              7.450580596923828e-09,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              5.704350769519806e-09,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 20171,
+        "triangles": 15360,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 46080,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.0015000104904174805,
+            -0.014150000177323818,
+            -0.014150000177323818
+          ],
+          "max": [
+            0.04802501201629639,
+            0.014150000177323818,
+            0.014150000177323818
+          ]
+        },
+        "dimensions_m": [
+          0.046525001525878906,
+          0.028300000354647636,
+          0.028300000354647636
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Muzzle_Brake.glb",
+        "file_bytes": 1108372,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Muzzle_Brake_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.0013580298284808e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.0013580298284808e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Muzzle_Suppressor",
+      "category": "Muzzle",
+      "source": {
+        "geometry_objects": 29,
+        "mesh_objects": 27,
+        "vertices": 19688,
+        "triangles": 34980,
+        "nonfinite_vertices": 0,
+        "uv_layers": 29,
+        "uv_coordinates": 71906,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.6000000238418579,
+            -0.023499999195337296,
+            -0.023499999195337296
+          ],
+          "max": [
+            0.7481749653816223,
+            0.023499999195337296,
+            0.023499999195337296
+          ]
+        },
+        "dimensions_m": [
+          0.1481749415397644,
+          0.04699999839067459,
+          0.04699999839067459
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 30,
+      "collection_offset_m": [
+        0.5979999899864197,
+        0.0,
+        0.0
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          0.002000023841857934,
+          -0.023499999195337296,
+          -0.023499999195337296
+        ],
+        "max": [
+          0.15017496538162234,
+          0.023499999195337296,
+          0.023499999195337296
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 19688,
+        "triangles": 34980,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 143812,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.0020000312943011522,
+            -0.023500002920627594,
+            -0.023499999195337296
+          ],
+          "max": [
+            0.15017499029636383,
+            0.023499999195337296,
+            0.023499999195337296
+          ]
+        },
+        "dimensions_m": [
+          0.14817495900206268,
+          0.04700000211596489,
+          0.04699999839067459
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Muzzle_Suppressor.fbx",
+        "file_bytes": 1182556,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              7.452443218092242e-09,
+              3.725290298461914e-09,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              2.4914741492132464e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              1.7462298274040222e-08,
+              3.725290298461914e-09,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 38888,
+        "triangles": 34980,
+        "nonfinite_vertices": 0,
+        "uv_layers": 2,
+        "uv_coordinates": 209880,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            0.0020000338554382324,
+            -0.023499999195337296,
+            -0.023499999195337296
+          ],
+          "max": [
+            0.15017499029636383,
+            0.023499999195337296,
+            0.023499999195337296
+          ]
+        },
+        "dimensions_m": [
+          0.1481749564409256,
+          0.04699999839067459,
+          0.04699999839067459
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Muzzle_Suppressor.glb",
+        "file_bytes": 2137624,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Muzzle_Suppressor_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              1.0013580298284808e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              2.4914741492132464e-08,
+              0.0,
+              0.0
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              1.4901161193847656e-08,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "SM_M7_Sights_Iron",
+      "category": "Sights",
+      "source": {
+        "geometry_objects": 32,
+        "mesh_objects": 32,
+        "vertices": 13536,
+        "triangles": 26776,
+        "nonfinite_vertices": 0,
+        "uv_layers": 32,
+        "uv_coordinates": 53616,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.09549999982118607,
+            -0.015140000730752945,
+            0.04800000041723251
+          ],
+          "max": [
+            0.5394999980926514,
+            0.015140000730752945,
+            0.10064999759197235
+          ]
+        },
+        "dimensions_m": [
+          0.6349999979138374,
+          0.03028000146150589,
+          0.05264999717473984
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 33,
+      "collection_offset_m": [
+        0.0,
+        0.0,
+        0.054999999701976776
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.09549999982118607,
+          -0.015140000730752945,
+          -0.006999999582767487
+        ],
+        "max": [
+          0.5394999980926514,
+          0.015140000730752945,
+          0.04564999759197235
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 13536,
+        "triangles": 26776,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 53616,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.09549999982118607,
+            -0.0151399876922369,
+            -0.006999999284744263
+          ],
+          "max": [
+            0.5394999980926514,
+            0.015140014700591564,
+            0.045649997889995575
+          ]
+        },
+        "dimensions_m": [
+          0.6349999979138374,
+          0.030280002392828465,
+          0.05264999717473984
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Sights_Iron.fbx",
+        "file_bytes": 1187356,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.30385160446167e-08,
+              2.980232241545089e-10
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.3969838619232178e-08,
+              2.980232241545089e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              9.313225746154785e-10,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 41900,
+        "triangles": 26776,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 80328,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.09549999982118607,
+            -0.015140000730752945,
+            -0.006999999284744263
+          ],
+          "max": [
+            0.5394999980926514,
+            0.015140000730752945,
+            0.045649997889995575
+          ]
+        },
+        "dimensions_m": [
+          0.6349999979138374,
+          0.03028000146150589,
+          0.05264999717473984
+        ],
+        "used_materials": [
+          "M7R_01_AnodizedBlack",
+          "M7R_04_DarkHardware",
+          "M7R_05_BurnishedSteel",
+          "M7R_06_RecessBlack"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Sights_Iron.glb",
+        "file_bytes": 2038780,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Sights_Iron_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": []
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.980232241545089e-10
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.980232241545089e-10
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "default_assembled": {
+    "name": "SM_M7_Default_Assembled",
+    "parts": [
+      "SM_M7_Core",
+      "SM_M7_Stock_Default",
+      "SM_M7_Mag_20",
+      "SM_M7_Grip_Default",
+      "SM_M7_Muzzle_Standard",
+      "SM_M7_Sights_Iron"
+    ],
+    "expected": {
+      "bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.0348999984562397,
+          -0.22750000655651093
+        ],
+        "max": [
+          0.6119999885559082,
+          0.04100000113248825,
+          0.10064999759197235
+        ]
+      },
+      "dimensions_m": [
+        0.979750007390976,
+        0.07589999958872795,
+        0.3281500041484833
+      ],
+      "triangles": 213932,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_07_EngravingGray"
+      ]
+    },
+    "fbx": {
+      "geometry_objects": 1,
+      "mesh_objects": 1,
+      "vertices": 111562,
+      "triangles": 213932,
+      "nonfinite_vertices": 0,
+      "uv_layers": 1,
+      "uv_coordinates": 427492,
+      "nonfinite_uv_coordinates": 0,
+      "missing_uv_objects": 0,
+      "bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.034900013357400894,
+          -0.22749999165534973
+        ],
+        "max": [
+          0.6119999885559082,
+          0.04099998623132706,
+          0.10064999759197235
+        ]
+      },
+      "dimensions_m": [
+        0.979750007390976,
+        0.07589999958872795,
+        0.3281499892473221
+      ],
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_07_EngravingGray"
+      ],
+      "uv_finite": true,
+      "uv_present": true,
+      "missing_uv_examples": [],
+      "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Default_Assembled.fbx",
+      "file_bytes": 6463836,
+      "comparison": {
+        "min": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            1.4901161193847656e-08,
+            1.4901161193847656e-08
+          ]
+        },
+        "max": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            1.4901161193847656e-08,
+            0.0
+          ]
+        },
+        "dimensions": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            1.4901161193847656e-08
+          ]
+        }
+      }
+    },
+    "glb": {
+      "geometry_objects": 6,
+      "mesh_objects": 6,
+      "vertices": 362428,
+      "triangles": 213932,
+      "nonfinite_vertices": 0,
+      "uv_layers": 6,
+      "uv_coordinates": 641796,
+      "nonfinite_uv_coordinates": 0,
+      "missing_uv_objects": 0,
+      "bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.0348999984562397,
+          -0.22749999165534973
+        ],
+        "max": [
+          0.6119999885559082,
+          0.04100000113248825,
+          0.10064999759197235
+        ]
+      },
+      "dimensions_m": [
+        0.979750007390976,
+        0.07589999958872795,
+        0.3281499892473221
+      ],
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_07_EngravingGray"
+      ],
+      "uv_finite": true,
+      "uv_present": true,
+      "missing_uv_examples": [],
+      "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Default_Assembled.glb",
+      "file_bytes": 14336040,
+      "scene_graph": {
+        "roots": [
+          {
+            "name": "SM_M7_Default_Assembled_Root",
+            "translation_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "origin_at_zero": true
+          }
+        ],
+        "root_origin_at_zero": true,
+        "mesh_definitions": 6,
+        "mount_nodes": [
+          {
+            "name": "Mount_Foregrip",
+            "in_active_scene": true,
+            "position_m": [
+              0.3075000047683716,
+              -0.0,
+              -0.04349999874830246
+            ],
+            "gltf_position_m": [
+              0.3075000047683716,
+              -0.04349999874830246,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Iron",
+            "in_active_scene": true,
+            "position_m": [
+              0.0,
+              -0.0,
+              0.054999999701976776
+            ],
+            "gltf_position_m": [
+              0.0,
+              0.054999999701976776,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Magazine",
+            "in_active_scene": true,
+            "position_m": [
+              0.07999999821186066,
+              -0.0,
+              -0.10000000149011612
+            ],
+            "gltf_position_m": [
+              0.07999999821186066,
+              -0.10000000149011612,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Muzzle",
+            "in_active_scene": true,
+            "position_m": [
+              0.5979999899864197,
+              -0.0,
+              0.0
+            ],
+            "gltf_position_m": [
+              0.5979999899864197,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Optic",
+            "in_active_scene": true,
+            "position_m": [
+              0.0,
+              -0.0,
+              0.054999999701976776
+            ],
+            "gltf_position_m": [
+              0.0,
+              0.054999999701976776,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_RearGrip",
+            "in_active_scene": true,
+            "position_m": [
+              -0.0625,
+              -0.0,
+              -0.06499999761581421
+            ],
+            "gltf_position_m": [
+              -0.0625,
+              -0.06499999761581421,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Stock",
+            "in_active_scene": true,
+            "position_m": [
+              -0.17900000512599945,
+              -0.0,
+              -0.0024999999441206455
+            ],
+            "gltf_position_m": [
+              -0.17900000512599945,
+              -0.0024999999441206455,
+              0.0
+            ]
+          }
+        ]
+      },
+      "comparison": {
+        "min": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            1.4901161193847656e-08
+          ]
+        },
+        "max": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "dimensions": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            1.4901161193847656e-08
+          ]
+        }
+      },
+      "mount_comparison": [
+        {
+          "pass": true,
+          "absolute_error_m": [
+            5.12599945823311e-09,
+            0.0,
+            5.5879354528970415e-11
+          ],
+          "name": "Mount_Stock",
+          "expected_position_m": [
+            -0.179,
+            0,
+            -0.0025
+          ],
+          "actual_position_m": [
+            -0.17900000512599945,
+            -0.0,
+            -0.0024999999441206455
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.384185793236071e-09
+          ],
+          "name": "Mount_RearGrip",
+          "expected_position_m": [
+            -0.0625,
+            0,
+            -0.065
+          ],
+          "actual_position_m": [
+            -0.0625,
+            -0.0,
+            -0.06499999761581421
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            1.7881393449270533e-09,
+            0.0,
+            1.4901161138336505e-09
+          ],
+          "name": "Mount_Magazine",
+          "expected_position_m": [
+            0.08,
+            0,
+            -0.1
+          ],
+          "actual_position_m": [
+            0.07999999821186066,
+            -0.0,
+            -0.10000000149011612
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.980232241545089e-10
+          ],
+          "name": "Mount_Optic",
+          "expected_position_m": [
+            0,
+            0,
+            0.055
+          ],
+          "actual_position_m": [
+            0.0,
+            -0.0,
+            0.054999999701976776
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            4.768371586472142e-09,
+            0.0,
+            1.251697537285601e-09
+          ],
+          "name": "Mount_Foregrip",
+          "expected_position_m": [
+            0.3075,
+            0,
+            -0.0435
+          ],
+          "actual_position_m": [
+            0.3075000047683716,
+            -0.0,
+            -0.04349999874830246
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            1.0013580298284808e-08,
+            0.0,
+            0.0
+          ],
+          "name": "Mount_Muzzle",
+          "expected_position_m": [
+            0.598,
+            0,
+            0
+          ],
+          "actual_position_m": [
+            0.5979999899864197,
+            -0.0,
+            0.0
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.980232241545089e-10
+          ],
+          "name": "Mount_Iron",
+          "expected_position_m": [
+            0,
+            0,
+            0.055
+          ],
+          "actual_position_m": [
+            0.0,
+            -0.0,
+            0.054999999701976776
+          ],
+          "in_active_scene": true
+        }
+      ]
+    }
+  },
+  "suppressed_assembled": {
+    "name": "SM_M7_Suppressed_Assembled",
+    "parts": [
+      "SM_M7_Core",
+      "SM_M7_Stock_Default",
+      "SM_M7_Mag_Extended",
+      "SM_M7_Grip_D2",
+      "SM_M7_Optic_LPVO",
+      "SM_M7_Foregrip_K1",
+      "SM_M7_Muzzle_Suppressor"
+    ],
+    "expected": {
+      "bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.0348999984562397,
+          -0.2824999988079071
+        ],
+        "max": [
+          0.7481749653816223,
+          0.04100000113248825,
+          0.13240499794483185
+        ]
+      },
+      "dimensions_m": [
+        1.11592498421669,
+        0.07589999958872795,
+        0.41490499675273895
+      ],
+      "triangles": 325614,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_07_EngravingGray",
+        "M7R_09_CoatedLens"
+      ]
+    },
+    "fbx": {
+      "geometry_objects": 1,
+      "mesh_objects": 1,
+      "vertices": 170393,
+      "triangles": 325614,
+      "nonfinite_vertices": 0,
+      "uv_layers": 2,
+      "uv_coordinates": 1309900,
+      "nonfinite_uv_coordinates": 0,
+      "missing_uv_objects": 0,
+      "bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.034900013357400894,
+          -0.2824999988079071
+        ],
+        "max": [
+          0.7481749653816223,
+          0.04099998623132706,
+          0.13240499794483185
+        ]
+      },
+      "dimensions_m": [
+        1.11592498421669,
+        0.07589999958872795,
+        0.41490499675273895
+      ],
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_07_EngravingGray",
+        "M7R_09_CoatedLens"
+      ],
+      "uv_finite": true,
+      "uv_present": true,
+      "missing_uv_examples": [],
+      "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Suppressed_Assembled.fbx",
+      "file_bytes": 10713964,
+      "comparison": {
+        "min": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            1.4901161193847656e-08,
+            0.0
+          ]
+        },
+        "max": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            1.4901161193847656e-08,
+            0.0
+          ]
+        },
+        "dimensions": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "glb": {
+      "geometry_objects": 7,
+      "mesh_objects": 7,
+      "vertices": 508983,
+      "triangles": 325614,
+      "nonfinite_vertices": 0,
+      "uv_layers": 10,
+      "uv_coordinates": 1464474,
+      "nonfinite_uv_coordinates": 0,
+      "missing_uv_objects": 0,
+      "bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.0348999984562397,
+          -0.2824999988079071
+        ],
+        "max": [
+          0.7481749653816223,
+          0.04100000113248825,
+          0.13240499794483185
+        ]
+      },
+      "dimensions_m": [
+        1.11592498421669,
+        0.07589999958872795,
+        0.41490499675273895
+      ],
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_07_EngravingGray",
+        "M7R_09_CoatedLens"
+      ],
+      "uv_finite": true,
+      "uv_present": true,
+      "missing_uv_examples": [],
+      "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\Exports\\SM_M7_Suppressed_Assembled.glb",
+      "file_bytes": 21776792,
+      "scene_graph": {
+        "roots": [
+          {
+            "name": "SM_M7_Suppressed_Assembled_Root",
+            "translation_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "origin_at_zero": true
+          }
+        ],
+        "root_origin_at_zero": true,
+        "mesh_definitions": 7,
+        "mount_nodes": [
+          {
+            "name": "Mount_Foregrip",
+            "in_active_scene": true,
+            "position_m": [
+              0.3075000047683716,
+              -0.0,
+              -0.04349999874830246
+            ],
+            "gltf_position_m": [
+              0.3075000047683716,
+              -0.04349999874830246,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Iron",
+            "in_active_scene": true,
+            "position_m": [
+              0.0,
+              -0.0,
+              0.054999999701976776
+            ],
+            "gltf_position_m": [
+              0.0,
+              0.054999999701976776,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Magazine",
+            "in_active_scene": true,
+            "position_m": [
+              0.07999999821186066,
+              -0.0,
+              -0.10000000149011612
+            ],
+            "gltf_position_m": [
+              0.07999999821186066,
+              -0.10000000149011612,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Muzzle",
+            "in_active_scene": true,
+            "position_m": [
+              0.5979999899864197,
+              -0.0,
+              0.0
+            ],
+            "gltf_position_m": [
+              0.5979999899864197,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Optic",
+            "in_active_scene": true,
+            "position_m": [
+              0.0,
+              -0.0,
+              0.054999999701976776
+            ],
+            "gltf_position_m": [
+              0.0,
+              0.054999999701976776,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_RearGrip",
+            "in_active_scene": true,
+            "position_m": [
+              -0.0625,
+              -0.0,
+              -0.06499999761581421
+            ],
+            "gltf_position_m": [
+              -0.0625,
+              -0.06499999761581421,
+              0.0
+            ]
+          },
+          {
+            "name": "Mount_Stock",
+            "in_active_scene": true,
+            "position_m": [
+              -0.17900000512599945,
+              -0.0,
+              -0.0024999999441206455
+            ],
+            "gltf_position_m": [
+              -0.17900000512599945,
+              -0.0024999999441206455,
+              0.0
+            ]
+          }
+        ]
+      },
+      "comparison": {
+        "min": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "max": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "dimensions": {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "mount_comparison": [
+        {
+          "pass": true,
+          "absolute_error_m": [
+            5.12599945823311e-09,
+            0.0,
+            5.5879354528970415e-11
+          ],
+          "name": "Mount_Stock",
+          "expected_position_m": [
+            -0.179,
+            0,
+            -0.0025
+          ],
+          "actual_position_m": [
+            -0.17900000512599945,
+            -0.0,
+            -0.0024999999441206455
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.384185793236071e-09
+          ],
+          "name": "Mount_RearGrip",
+          "expected_position_m": [
+            -0.0625,
+            0,
+            -0.065
+          ],
+          "actual_position_m": [
+            -0.0625,
+            -0.0,
+            -0.06499999761581421
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            1.7881393449270533e-09,
+            0.0,
+            1.4901161138336505e-09
+          ],
+          "name": "Mount_Magazine",
+          "expected_position_m": [
+            0.08,
+            0,
+            -0.1
+          ],
+          "actual_position_m": [
+            0.07999999821186066,
+            -0.0,
+            -0.10000000149011612
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.980232241545089e-10
+          ],
+          "name": "Mount_Optic",
+          "expected_position_m": [
+            0,
+            0,
+            0.055
+          ],
+          "actual_position_m": [
+            0.0,
+            -0.0,
+            0.054999999701976776
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            4.768371586472142e-09,
+            0.0,
+            1.251697537285601e-09
+          ],
+          "name": "Mount_Foregrip",
+          "expected_position_m": [
+            0.3075,
+            0,
+            -0.0435
+          ],
+          "actual_position_m": [
+            0.3075000047683716,
+            -0.0,
+            -0.04349999874830246
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            1.0013580298284808e-08,
+            0.0,
+            0.0
+          ],
+          "name": "Mount_Muzzle",
+          "expected_position_m": [
+            0.598,
+            0,
+            0
+          ],
+          "actual_position_m": [
+            0.5979999899864197,
+            -0.0,
+            0.0
+          ],
+          "in_active_scene": true
+        },
+        {
+          "pass": true,
+          "absolute_error_m": [
+            0.0,
+            0.0,
+            2.980232241545089e-10
+          ],
+          "name": "Mount_Iron",
+          "expected_position_m": [
+            0,
+            0,
+            0.055
+          ],
+          "actual_position_m": [
+            0.0,
+            -0.0,
+            0.054999999701976776
+          ],
+          "in_active_scene": true
+        }
+      ]
+    }
+  },
+  "failures": [],
+  "source_file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\M7Replica\\M7_Modular_Replica.blend",
+  "summary": {
+    "assets_checked": 15,
+    "asset_exports_imported": 30,
+    "assembly_exports_imported": 4,
+    "failure_count": 0,
+    "source_unchanged": true
+  }
+}

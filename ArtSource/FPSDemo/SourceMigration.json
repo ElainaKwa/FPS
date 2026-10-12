@@ -1,0 +1,485 @@
+{
+  "generated_by": "Tools/check_art_source_migration.py",
+  "version": "ArtSource-Organization-20261012-batch1",
+  "scope": "M4 sample and font-comparison source files only; Content not relocated",
+  "input_inventory": "Saved/ArtOrganization/Before.json",
+  "status": "PASS",
+  "file_count": 66,
+  "unchanged_count": 63,
+  "changed_scripts": [
+    "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/build_sample.py",
+    "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/export_sample.py",
+    "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/verify_export.py"
+  ],
+  "all_source_migration_complete": false,
+  "log_markers": {
+    "BlenderPaths.log": "M4_BUILD_PATHS_PASS",
+    "BlenderSource.log": "M4_SAVED_SOURCE_CHECK_PASS",
+    "BlenderFBX.log": "FBX_REIMPORT_PASS",
+    "EditorBuild.log": "Result: Succeeded"
+  },
+  "files": [
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/AssetManifest.json",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/AssetManifest.json",
+      "before_sha256": "65c74fc10ec4cad2c05981ffd323b2197cad18b5106cf0e65396959ea8993c33",
+      "after_sha256": "65c74fc10ec4cad2c05981ffd323b2197cad18b5106cf0e65396959ea8993c33",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/M4_Precision_Study.blend",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Source/M4_Precision_Study.blend",
+      "before_sha256": "d3b11001a80c05896acbbaaf3b257cf78b47ba4e04d7e202193f44e7dc750586",
+      "after_sha256": "d3b11001a80c05896acbbaaf3b257cf78b47ba4e04d7e202193f44e7dc750586",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/M4_Precision_Study.blend1",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Source/M4_Precision_Study.blend1",
+      "before_sha256": "31253a16aa3673e2bfcc936df065906a55d27282386eb6112cde38c93042e3c0",
+      "after_sha256": "31253a16aa3673e2bfcc936df065906a55d27282386eb6112cde38c93042e3c0",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Exports/M4_Precision_Study.fbx",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Exports/M4_Precision_Study.fbx",
+      "before_sha256": "92bc9681e0ab001cd63861e770509449314edf7dbc8fb50624e44ab0b2fdf8a9",
+      "after_sha256": "92bc9681e0ab001cd63861e770509449314edf7dbc8fb50624e44ab0b2fdf8a9",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Compare.html",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Compare.html",
+      "before_sha256": "f97d86cc060067664060b97769265cd8c5bf945be636c82d67b8ec019c907ca1",
+      "after_sha256": "f97d86cc060067664060b97769265cd8c5bf945be636c82d67b8ec019c907ca1",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/FirstPerson_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/FirstPerson_Draft.png",
+      "before_sha256": "f3b8612fa24fdf11767886027a020673c55bd3a30a80a13d0a2733d93415d9ea",
+      "after_sha256": "f3b8612fa24fdf11767886027a020673c55bd3a30a80a13d0a2733d93415d9ea",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/FirstPerson.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/FirstPerson.png",
+      "before_sha256": "4cb651f2640102c6b36de45c4edb19218d7003f9e8dabc3709b3113287315ffc",
+      "after_sha256": "4cb651f2640102c6b36de45c4edb19218d7003f9e8dabc3709b3113287315ffc",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Grip.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Grip.png",
+      "before_sha256": "de3282e9b2c56556d39f22e9f7215f2a7c19170637bcc9806d92061905e086c4",
+      "after_sha256": "de3282e9b2c56556d39f22e9f7215f2a7c19170637bcc9806d92061905e086c4",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Hero_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Hero_Draft.png",
+      "before_sha256": "e753110b3caac2968f203f204da6a3088631b6893aa8a35a76a3f991a66d592a",
+      "after_sha256": "e753110b3caac2968f203f204da6a3088631b6893aa8a35a76a3f991a66d592a",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Hero.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Hero.png",
+      "before_sha256": "c2866cb0252dcedae83cf5124c9cafa470bffa80fe5a3518067aa4fdf5d3b520",
+      "after_sha256": "c2866cb0252dcedae83cf5124c9cafa470bffa80fe5a3518067aa4fdf5d3b520",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Profile_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Profile_Draft.png",
+      "before_sha256": "863c8b416dc9ea1ddcb76308e00d31cb30413a1afee2b1ca855671923fff1d8f",
+      "after_sha256": "863c8b416dc9ea1ddcb76308e00d31cb30413a1afee2b1ca855671923fff1d8f",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Profile.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Profile.png",
+      "before_sha256": "9e3bc8c7031af84a932bf38675e31f85d2a7c65a077941ab67916cae4466f3cf",
+      "after_sha256": "9e3bc8c7031af84a932bf38675e31f85d2a7c65a077941ab67916cae4466f3cf",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Receiver.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Receiver.png",
+      "before_sha256": "818594dffdce9ee42154f27a6749ac69941caa9b8a7f9813a390b87316be5204",
+      "after_sha256": "818594dffdce9ee42154f27a6749ac69941caa9b8a7f9813a390b87316be5204",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Stock_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Stock_Draft.png",
+      "before_sha256": "4282e8f1f84420a5c258e7f2897cf3890e1f2495e94d315783b76ecc49ac6edc",
+      "after_sha256": "4282e8f1f84420a5c258e7f2897cf3890e1f2495e94d315783b76ecc49ac6edc",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Previews/Stock.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Previews/Stock.png",
+      "before_sha256": "484a87f3f3c1d8a4b5528d849cc81d9a625495de201146ba82e837ab688997ae",
+      "after_sha256": "484a87f3f3c1d8a4b5528d849cc81d9a625495de201146ba82e837ab688997ae",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/AssetManifest.json",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/AssetManifest.json",
+      "before_sha256": "76927280a1baae04e459031093b27a63273c8f50e09292516bb0bf26d1d2f2de",
+      "after_sha256": "76927280a1baae04e459031093b27a63273c8f50e09292516bb0bf26d1d2f2de",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/M4_Precision_Study.blend",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/M4_Precision_Study.blend",
+      "before_sha256": "fbe9c4814883ac5b46ae5e00cc8231dd834b9a6b4f361f9b728af024ddfaa732",
+      "after_sha256": "fbe9c4814883ac5b46ae5e00cc8231dd834b9a6b4f361f9b728af024ddfaa732",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Exports/M4_Precision_Study.fbx",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Exports/M4_Precision_Study.fbx",
+      "before_sha256": "dd4460ea2ec01ecbe4d32de8212cc96d8f4f9f0b984bec3cd0c3eb75870d5011",
+      "after_sha256": "dd4460ea2ec01ecbe4d32de8212cc96d8f4f9f0b984bec3cd0c3eb75870d5011",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Previews/FirstPerson.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Previews/FirstPerson.png",
+      "before_sha256": "93261ef4db2ccc37e3d39e5fd2195b1f8cc9c5a096c20603d47c195def4f426f",
+      "after_sha256": "93261ef4db2ccc37e3d39e5fd2195b1f8cc9c5a096c20603d47c195def4f426f",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Previews/Hero.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Previews/Hero.png",
+      "before_sha256": "f93be7dc1b2bd0b1a1c7e6ba8d16e8a4d08c80838b9cf46fd006106e295cc837",
+      "after_sha256": "f93be7dc1b2bd0b1a1c7e6ba8d16e8a4d08c80838b9cf46fd006106e295cc837",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Previews/Profile.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Previews/Profile.png",
+      "before_sha256": "f7dab112dc6911dbd48043aa59e07c66f89443d6dddb2c1ae95ef5fe5fd05f25",
+      "after_sha256": "f7dab112dc6911dbd48043aa59e07c66f89443d6dddb2c1ae95ef5fe5fd05f25",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Previews/Receiver.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Previews/Receiver.png",
+      "before_sha256": "2dfb969c382118e7c541c0b4d519162392ff3e99a35d51c71aab7f29272abf7a",
+      "after_sha256": "2dfb969c382118e7c541c0b4d519162392ff3e99a35d51c71aab7f29272abf7a",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Source/build_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Source/build_sample.py",
+      "before_sha256": "63bb67a7617991ee1823bb1e7ef1fc48b77fc728cd37e735bbdef39d867b37fc",
+      "after_sha256": "63bb67a7617991ee1823bb1e7ef1fc48b77fc728cd37e735bbdef39d867b37fc",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Source/export_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Source/export_sample.py",
+      "before_sha256": "b7155692a0a8919c4b05da0dafc101538296bad36b96051dfb4ecdcffcc70bce",
+      "after_sha256": "b7155692a0a8919c4b05da0dafc101538296bad36b96051dfb4ecdcffcc70bce",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Source/render_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Source/render_sample.py",
+      "before_sha256": "9f3e61d874eaa19fbfdf92b31d3cdabfddebe3ed96eeada3c74bc1398a049fa6",
+      "after_sha256": "9f3e61d874eaa19fbfdf92b31d3cdabfddebe3ed96eeada3c74bc1398a049fa6",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v1/Source/verify_export.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v1/Source/verify_export.py",
+      "before_sha256": "1f9c944bac28a37ea1ee1acc0a3e978ede6ede5c45635071399199f12c42ee9d",
+      "after_sha256": "1f9c944bac28a37ea1ee1acc0a3e978ede6ede5c45635071399199f12c42ee9d",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/AssetManifest.json",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/AssetManifest.json",
+      "before_sha256": "b283c94da4f565478c1916e0a51e5120f8c06dbbea1a9d198e8888b494e97fad",
+      "after_sha256": "b283c94da4f565478c1916e0a51e5120f8c06dbbea1a9d198e8888b494e97fad",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/M4_Precision_Study.blend",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/M4_Precision_Study.blend",
+      "before_sha256": "442a4b0bca75c94661119ce7a3e5a8aec2676bb826ea1410e102381d804d13ad",
+      "after_sha256": "442a4b0bca75c94661119ce7a3e5a8aec2676bb826ea1410e102381d804d13ad",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Exports/M4_Precision_Study.fbx",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Exports/M4_Precision_Study.fbx",
+      "before_sha256": "30be03633d0ac94473e46bf25927fb2072f96d60f268df8edcbdfff88d86e382",
+      "after_sha256": "30be03633d0ac94473e46bf25927fb2072f96d60f268df8edcbdfff88d86e382",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Compare.html",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Compare.html",
+      "before_sha256": "c428757b66fd946bad0b0eeb0a0582795e6aa2042c5156be085725bed26f6831",
+      "after_sha256": "c428757b66fd946bad0b0eeb0a0582795e6aa2042c5156be085725bed26f6831",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/FirstPerson_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/FirstPerson_Draft.png",
+      "before_sha256": "f3b8612fa24fdf11767886027a020673c55bd3a30a80a13d0a2733d93415d9ea",
+      "after_sha256": "f3b8612fa24fdf11767886027a020673c55bd3a30a80a13d0a2733d93415d9ea",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/FirstPerson.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/FirstPerson.png",
+      "before_sha256": "1d291250a3d9a728d8900ef473c42280492ca0ff07d767c66b8f631769b5a4f9",
+      "after_sha256": "1d291250a3d9a728d8900ef473c42280492ca0ff07d767c66b8f631769b5a4f9",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Grip.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Grip.png",
+      "before_sha256": "c0c382608393871d74225f5168c4c25a8dd6af372b815fceccc6638d0a6ef1f2",
+      "after_sha256": "c0c382608393871d74225f5168c4c25a8dd6af372b815fceccc6638d0a6ef1f2",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Hero_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Hero_Draft.png",
+      "before_sha256": "6e5c8b282d7e053a435501514bd4d49ccfb359581008ccabab5509121ce7ca54",
+      "after_sha256": "6e5c8b282d7e053a435501514bd4d49ccfb359581008ccabab5509121ce7ca54",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Hero.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Hero.png",
+      "before_sha256": "a81ec37b2cde5fbb7be7b91a3ffa7c5ab79ee9389e20cc05098f18db6399fb22",
+      "after_sha256": "a81ec37b2cde5fbb7be7b91a3ffa7c5ab79ee9389e20cc05098f18db6399fb22",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Profile_Draft.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Profile_Draft.png",
+      "before_sha256": "729b8baee891f12bbf69686b469730bcd94d0090ce860daf0f2a2c8eab42646f",
+      "after_sha256": "729b8baee891f12bbf69686b469730bcd94d0090ce860daf0f2a2c8eab42646f",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Profile.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Profile.png",
+      "before_sha256": "d3c7f8bfe38b6ab2cfcb357de4d6a57b7750cb64fbf0189ed26fb822cd833a55",
+      "after_sha256": "d3c7f8bfe38b6ab2cfcb357de4d6a57b7750cb64fbf0189ed26fb822cd833a55",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Previews/Receiver.png",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Previews/Receiver.png",
+      "before_sha256": "ae7b7093dbfd09ed6ef52219942b352c197e15e4c2f137e58767051e25cb51fb",
+      "after_sha256": "ae7b7093dbfd09ed6ef52219942b352c197e15e4c2f137e58767051e25cb51fb",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Source/build_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Source/build_sample.py",
+      "before_sha256": "6b4c5a394899d3f8f9991fe33e412ab33e5c511086c5eed4c4d78b2ed14c12bc",
+      "after_sha256": "6b4c5a394899d3f8f9991fe33e412ab33e5c511086c5eed4c4d78b2ed14c12bc",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Source/export_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Source/export_sample.py",
+      "before_sha256": "afae0b2be4fa5135df5ec7d925b2843e3378534709c98663263b0f8001666d3a",
+      "after_sha256": "afae0b2be4fa5135df5ec7d925b2843e3378534709c98663263b0f8001666d3a",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Source/refine_shapes.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Source/refine_shapes.py",
+      "before_sha256": "e7acd3e786a2876cf5be471fb02a9e26add2f70f1fbd89b2aa9fe3f7fdbebf10",
+      "after_sha256": "e7acd3e786a2876cf5be471fb02a9e26add2f70f1fbd89b2aa9fe3f7fdbebf10",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Source/render_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Source/render_sample.py",
+      "before_sha256": "9ed4cc133060950a6d74d15ea770a5fef0869332488a7e961a0c9ca934aa666c",
+      "after_sha256": "9ed4cc133060950a6d74d15ea770a5fef0869332488a7e961a0c9ca934aa666c",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Revisions/v2/Source/verify_export.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Revisions/v2/Source/verify_export.py",
+      "before_sha256": "1f9c944bac28a37ea1ee1acc0a3e978ede6ede5c45635071399199f12c42ee9d",
+      "after_sha256": "1f9c944bac28a37ea1ee1acc0a3e978ede6ede5c45635071399199f12c42ee9d",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Source/build_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/build_sample.py",
+      "before_sha256": "6b4c5a394899d3f8f9991fe33e412ab33e5c511086c5eed4c4d78b2ed14c12bc",
+      "after_sha256": "5f46034df1aa914a6d25d373335fc598f8782e32a28301e417ccaa6a636b4185",
+      "unchanged": false
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Source/export_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/export_sample.py",
+      "before_sha256": "08c80440a16db5bb4f318c4b167e5fa49a0571891105ec4efbbc09a9bc042f5f",
+      "after_sha256": "3089bbd6a950b86bda766bf88ab5e09462cafb400f7f050a7c117cff647c4efc",
+      "unchanged": false
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Source/refine_shapes.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/refine_shapes.py",
+      "before_sha256": "af0e3f5327da66c246af3189c072b6c2e7b3abf1e5191b565ae7d741077a1313",
+      "after_sha256": "af0e3f5327da66c246af3189c072b6c2e7b3abf1e5191b565ae7d741077a1313",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Source/render_sample.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/render_sample.py",
+      "before_sha256": "b9ea749fbc2bcfcae03eaa4b204dcc490c13f47ae9960c6129d7e6c65d8e7a69",
+      "after_sha256": "b9ea749fbc2bcfcae03eaa4b204dcc490c13f47ae9960c6129d7e6c65d8e7a69",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/PrecisionSamples/M4/Source/verify_export.py",
+      "new": "ArtSource/FPSDemo/Samples/Weapons/M4/Scripts/verify_export.py",
+      "before_sha256": "1f9c944bac28a37ea1ee1acc0a3e978ede6ede5c45635071399199f12c42ee9d",
+      "after_sha256": "14c6d3e048836e7f46af3dcf9b54c1b25cd8604c8dacf79c309de8479571f9b6",
+      "unchanged": false
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/HarmonyOS-Assets.json",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/HarmonyOS-Assets.json",
+      "before_sha256": "b6fcb4164f15dba56e79853714e10ef23c06d1d2c0627b4eccc56f581d578ecd",
+      "after_sha256": "b6fcb4164f15dba56e79853714e10ef23c06d1d2c0627b4eccc56f581d578ecd",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/MiSans-Assets.json",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/MiSans-Assets.json",
+      "before_sha256": "e34b596728d6cfc8bf78cc590b5c1f9298156a6a7c9892f5cabc61649f5bbb12",
+      "after_sha256": "e34b596728d6cfc8bf78cc590b5c1f9298156a6a7c9892f5cabc61649f5bbb12",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/ThreeWayComparison.html",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/ThreeWayComparison.html",
+      "before_sha256": "80261c65b6c119f49b5751429cc89a8724e0424a6ff3940c40fc5dad1967f5ec",
+      "after_sha256": "80261c65b6c119f49b5751429cc89a8724e0424a6ff3940c40fc5dad1967f5ec",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/ThreeWayComparison.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/ThreeWayComparison.png",
+      "before_sha256": "1ae48c319fe2848f626c8dee1130669948a5a21617f50b9e66f450ae86b576d6",
+      "after_sha256": "1ae48c319fe2848f626c8dee1130669948a5a21617f50b9e66f450ae86b576d6",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/HarmonyOS_Sans_SC_Bold.ttf",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/HarmonyOS_Sans_SC_Bold.ttf",
+      "before_sha256": "43a424b85e47fb53a17b3b32026a71801f86f8e022ca6798d186b47d39fa5f01",
+      "after_sha256": "43a424b85e47fb53a17b3b32026a71801f86f8e022ca6798d186b47d39fa5f01",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/HarmonyOS_Sans_SC_Regular.ttf",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/HarmonyOS_Sans_SC_Regular.ttf",
+      "before_sha256": "297b088424be212207df2ce8b98e335468b782aa6b96832af0b8b773d711e2b1",
+      "after_sha256": "297b088424be212207df2ce8b98e335468b782aa6b96832af0b8b773d711e2b1",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/HarmonyOS-LICENSE.txt",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/HarmonyOS-LICENSE.txt",
+      "before_sha256": "b2ffec0e6269ee41c3b5fc0345ab37600b46d66ebea6c9c58ff37f517bdfa164",
+      "after_sha256": "b2ffec0e6269ee41c3b5fc0345ab37600b46d66ebea6c9c58ff37f517bdfa164",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/MiSans-Bold.ttf",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/MiSans-Bold.ttf",
+      "before_sha256": "d0c1d327952ed935e86fb78a97a6c182b44f2c2b08777326786b1f8b26d1fe1e",
+      "after_sha256": "d0c1d327952ed935e86fb78a97a6c182b44f2c2b08777326786b1f8b26d1fe1e",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/MiSans-License.pdf",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/MiSans-License.pdf",
+      "before_sha256": "4a93a27cd2bd81b3b5ecfd0a853144a876fa26938a93a68443c67d74172fcb86",
+      "after_sha256": "4a93a27cd2bd81b3b5ecfd0a853144a876fa26938a93a68443c67d74172fcb86",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/MiSans-Regular.ttf",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/MiSans-Regular.ttf",
+      "before_sha256": "9c120f0a849bc0aa5048daae2a3c0f6eecd828b5b33fce682a9622833f5feea6",
+      "after_sha256": "9c120f0a849bc0aa5048daae2a3c0f6eecd828b5b33fce682a9622833f5feea6",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Fonts/SOURCES.txt",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Fonts/SOURCES.txt",
+      "before_sha256": "28d12899871f9072318066c02ce3acabf2d9f6922fa983fa0393c4f14ca11dfc",
+      "after_sha256": "28d12899871f9072318066c02ce3acabf2d9f6922fa983fa0393c4f14ca11dfc",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/HarmonyOS/HUD.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/HarmonyOS/HUD.png",
+      "before_sha256": "950250c4ad46d23175f7da096eccd5fa8673317149422efdfeca8cdc22b73d61",
+      "after_sha256": "950250c4ad46d23175f7da096eccd5fa8673317149422efdfeca8cdc22b73d61",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/HarmonyOS/Loadout.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/HarmonyOS/Loadout.png",
+      "before_sha256": "1b49cdc03c5edc87de795cb0b3ed2977d4c90251c8c5c3f85d188d9fb959ea19",
+      "after_sha256": "1b49cdc03c5edc87de795cb0b3ed2977d4c90251c8c5c3f85d188d9fb959ea19",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/HarmonyOS/Lobby.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/HarmonyOS/Lobby.png",
+      "before_sha256": "280c9ba2d353b10de4c094c9842c265d180bdf895b782d302c1ad6b3e7c274b1",
+      "after_sha256": "280c9ba2d353b10de4c094c9842c265d180bdf895b782d302c1ad6b3e7c274b1",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/MiSans/HUD.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/MiSans/HUD.png",
+      "before_sha256": "957ba3d2e76374b64642cb34a54c0630b80ca955a71477eaedd9d7bd9c2c2388",
+      "after_sha256": "957ba3d2e76374b64642cb34a54c0630b80ca955a71477eaedd9d7bd9c2c2388",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/MiSans/Loadout.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/MiSans/Loadout.png",
+      "before_sha256": "3e9c31e534e20c5ef292420b340dae5718471cd60eba04930e592edeccd9c3ad",
+      "after_sha256": "3e9c31e534e20c5ef292420b340dae5718471cd60eba04930e592edeccd9c3ad",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/MiSans/Lobby.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/MiSans/Lobby.png",
+      "before_sha256": "df6d6af57b73e68358e65a2dc39ec9ddeceb7b6a76ee64ce851aed63eba0d1a1",
+      "after_sha256": "df6d6af57b73e68358e65a2dc39ec9ddeceb7b6a76ee64ce851aed63eba0d1a1",
+      "unchanged": true
+    },
+    {
+      "old": "ArtSource/FPSDemo/FontComparisons/Previews/Original/Lobby.png",
+      "new": "ArtSource/FPSDemo/Samples/UI/FontComparisons/Previews/Original/Lobby.png",
+      "before_sha256": "0e78467570281f587813c4b1d821927fd185798b917e324d504ba5ea18fec349",
+      "after_sha256": "0e78467570281f587813c4b1d821927fd185798b917e324d504ba5ea18fec349",
+      "unchanged": true
+    }
+  ]
+}

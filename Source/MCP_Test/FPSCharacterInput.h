@@ -17,6 +17,14 @@ public:
     void Register(AFPSDemoCharacter* Character);
     void Unregister();
 private:
+    friend struct FFPSMovementSmoke;
+    void SprintPressed();
+    void SprintReleased();
+    void SprintCanceled();
+    void CrouchPressed();
+    void CrouchReleased();
+    void CrouchCanceled();
+    TWeakObjectPtr<AFPSDemoCharacter> InputCharacter;
 	UPROPERTY()
 	TObjectPtr<UInputMappingContext> InputMap;
 	UPROPERTY()

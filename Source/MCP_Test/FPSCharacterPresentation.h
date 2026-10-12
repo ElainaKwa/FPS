@@ -19,6 +19,8 @@ public:
     float GetRecoil() const { return Recoil; }
     float GetAimBlend(double Now) const { return AimVisualBlend.Value(Now); }
 private:
+    UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> FirstPersonAttachments;
+    UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> ThirdPersonAttachments;
     FPSWeaponVisualTiming::FTransition AimVisualBlend, CameraFOVBlend{92.f}, SprintVisualBlend;
     float RecoilKick = 0;
     double RecoilStartedAt = -100;

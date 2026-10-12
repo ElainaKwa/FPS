@@ -1,0 +1,5 @@
+MiSans: https://hyperos.mi.com/font/zh/download/
+Archive: https://hyperos.mi.com/font-download/MiSans.zip
+HarmonyOS Sans SC: https://developer.huawei.com/consumer/cn/design/resource-V1
+Archive: https://developer.huawei.com/images/download/general/HarmonyOS-Sans.zip
+Official original TTF files, unmodified. Only Regular and Bold used for matching comparison. English/numbers remain Rajdhani.

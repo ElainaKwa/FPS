@@ -28,6 +28,8 @@ public:
 	UPROPERTY(Replicated) double RoundEndsAt = 0;
 	UPROPERTY(Replicated) FString RoomName;
 	UPROPERTY(Replicated) FString WeaponDataError;
+    UPROPERTY(Replicated) double DropNoticeUntil = 0;
+    UPROPERTY(Replicated) int32 HostPlayerId = -1;
 	UPROPERTY(Replicated) TArray<FFPSResult> Podium;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	void RecordElimination(const FString& AttackerName, const FString& VictimName);

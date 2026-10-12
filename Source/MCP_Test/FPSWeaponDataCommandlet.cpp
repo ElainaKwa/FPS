@@ -304,7 +304,7 @@ int32 UFPSWeaponDataCommandlet::Main(const FString& Params)
     for (auto* Def : Items) if (Def->WeaponId.ToString() == InvalidId) Def->FireInterval = -1;
 #endif
     UFPSWeaponCatalog::ValidateCatalog(Items,Errors);
-    FString Review = TEXT("# Weapon asset review (GENERATED - DO NOT EDIT)\n\n- 用途：自动生成资料\n- 适用范围：已保存武器定义与地图武器台\n- 状态：只读导出，禁止手工修改\n- 最后更新：2026-10-04\n\nSource: saved Unreal assets. Regenerate with Tools/ValidateFPSWeaponData.ps1 -Export.\n");
+    FString Review = TEXT("# Weapon asset review (GENERATED - DO NOT EDIT)\n\n- 用途：自动生成资料\n- 适用范围：已保存武器定义与地图武器台\n- 状态：只读导出，禁止手工修改\n- 最后更新：2026-10-12\n\nSource: saved Unreal assets. Regenerate with Tools/ValidateFPSWeaponData.ps1 -Export.\n");
     const auto* Defaults = GetDefault<UFPSWeaponCatalog>();
     Review += FString::Printf(TEXT("\nStarting primary=%s; secondary=%s\n"),*Defaults->StartingPrimary.ToString(),*Defaults->StartingSecondary.ToString());
     for (const auto* Def : Items)

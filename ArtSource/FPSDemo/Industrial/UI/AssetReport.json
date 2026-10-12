@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "generator": "Tools/build_fps_ui_assets.py + FPSUIAssetBuilder.cpp",
+  "text_font": "MiSans Regular/Bold; Rajdhani Latin subfamily",
+  "textures_reimported": false,
+  "widget_blueprints": [
+    "/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD",
+    "/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout",
+    "/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLobby.WBP_FPSLobby",
+    "/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSPause.WBP_FPSPause",
+    "/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSReport.WBP_FPSReport",
+    "/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSWaiting.WBP_FPSWaiting"
+  ],
+  "theme": "/Game/FPSDemo/Art/Industrial/UI/DA_FPSUITheme",
+  "fonts": [
+    "/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Number.F_UI_Number",
+    "/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Number_Bold.F_UI_Number_Bold",
+    "/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Number_Regular.F_UI_Number_Regular",
+    "/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text.F_UI_Text",
+    "/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text_Bold.F_UI_Text_Bold",
+    "/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text_Regular.F_UI_Text_Regular"
+  ],
+  "textures": [
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Panel",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Foundry",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_AK",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Alert",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Arrow",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Backdrop",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Book",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_BR3",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Card",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_CardEdge",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Check",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_CheckCircle",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Chevron",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Corner",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Exit",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_HeavyPistol",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_M4",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_M9",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_MP5",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Paper",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_PreviewShade",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Shield",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Signal",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Surface",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_Triangle",
+    "/Game/FPSDemo/Art/Industrial/UI/T_UI_UMP45"
+  ],
+  "note": "Editable Designer widget trees; runtime delegates remain native C++."
+}

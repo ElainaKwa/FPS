@@ -5,6 +5,7 @@
 
 void UFPSWeaponComponent::EmitActionResult(const FFPSWeaponActionTicket& Ticket, EFPSWeaponResultPhase Phase)
 {
+    if (IsShuttingDown()) return;
     FFPSWeaponActionResult Result;
     Result.ActionId = Ticket.Sequence; Result.Instance = Ticket.Instance;
     Result.WeaponId = Equipped().WeaponId; Result.Command = Ticket.Command;
@@ -26,6 +27,7 @@ void UFPSWeaponComponent::EmitActionResult(const FFPSWeaponActionTicket& Ticket,
 
 void UFPSWeaponComponent::MulticastActionResult_Implementation(const FFPSWeaponActionResult& Result)
 {
+    if (IsShuttingDown()) return;
     if (!Result.EventSerial || Result.EventSerial <= LastResultSerial) return;
     LastResultSerial = Result.EventSerial;
     const int32 Predicted = PredictedStarts.IndexOfByPredicate([&](const FFPSWeaponActionResult& Start)
@@ -48,21 +50,23 @@ void UFPSWeaponComponent::MulticastActionResult_Implementation(const FFPSWeaponA
 
 void UFPSWeaponComponent::PresentActionResult(const FFPSWeaponActionResult& Result)
 {
+    if (IsShuttingDown()) return;
     // Results never mutate inventory/poses: an old weapon can finish while a newer snapshot is visible.
-    const auto* Def = Catalog()->Find(Result.WeaponId);
+    const auto* Data = Catalog();
+    const auto* Def = Data ? Data->Find(Result.WeaponId) : nullptr;
     auto* Pawn = Character();
     if (!Def || !Pawn || GetNetMode() == NM_DedicatedServer) return;
     USoundBase* Sound = nullptr;
     if (Result.Phase == EFPSWeaponResultPhase::Started)
     {
-        if (Result.Command == EFPSWeaponRequest::Reload) Sound = Def->ReloadStartSound.Get();
+        if (Result.Command == EFPSWeaponRequest::Reload || Result.Command == EFPSWeaponRequest::ModifyMagazine) Sound = Def->ReloadStartSound.Get();
         else if (Result.Command == EFPSWeaponRequest::Inspect) Sound = Def->InspectSound.Get();
         else Sound = Def->EquipSound.Get();
 #if !UE_BUILD_SHIPPING
-        if (Result.Command == EFPSWeaponRequest::Reload) ++ReloadStartPresentations;
+        if (Result.Command == EFPSWeaponRequest::Reload || Result.Command == EFPSWeaponRequest::ModifyMagazine) ++ReloadStartPresentations;
 #endif
     }
-    else if (Result.Phase == EFPSWeaponResultPhase::Committed && Result.Command == EFPSWeaponRequest::Reload)
+    else if (Result.Phase == EFPSWeaponResultPhase::Committed && (Result.Command == EFPSWeaponRequest::Reload || Result.Command == EFPSWeaponRequest::ModifyMagazine))
     {
         Sound = Def->ReloadEndSound.Get();
 #if !UE_BUILD_SHIPPING

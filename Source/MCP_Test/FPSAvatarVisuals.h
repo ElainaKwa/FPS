@@ -24,4 +24,5 @@ private:
     bool bBuildFailed = false;
     float Gait = 0;
     float CrouchBlend = 0;
+    float SprintBlend = 0;
 };

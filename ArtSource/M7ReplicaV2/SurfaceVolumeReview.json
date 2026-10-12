@@ -1,0 +1,54 @@
+{
+  "sculpted_shells": [
+    "CORE_DefaultHandguardOutline",
+    "TIDAL_HandguardShell",
+    "CORE_UpperForgedContour",
+    "CORE_LowerForgedContour"
+  ],
+  "through_openings": [
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.4735,
+      "z": 0.0235,
+      "open": true
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.462,
+      "z": -0.0015,
+      "open": true
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.466,
+      "z": -0.026,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.358,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.449,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.495,
+      "z": 0.024,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.529,
+      "z": 0.001,
+      "open": true
+    }
+  ],
+  "success": true,
+  "geometry_change": "Curved side skin, integrated recessed fields, sloped upper/lower shoulders and stepped receiver cross-sections; X/Z silhouette retained."
+}

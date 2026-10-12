@@ -1,0 +1,5380 @@
+{
+  "status": "baked_pbr_maps_complete",
+  "geometry_unchanged": false,
+  "material_count": 85,
+  "assignments": [
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_UpperForgedContour",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_LowerForgedContour",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_4722f",
+      "role": "coated_receiver",
+      "masks": [
+        "receiver_magwell_entry_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_UpperShoulder_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_LongGuide_-1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_LowerCastingRib_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_-1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_-1_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_-1_Head.002",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_-1_Head.003",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_-1_Head.004",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorMount_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorHub_-1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_24391",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorLever_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_24391",
+      "role": "coated_receiver",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorPlateBolt_-1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorPlateBolt_-1_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_BoltCatchBase_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_BoltCatchButton_-1",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Core_polymer_stock_24391",
+      "role": "polymer_stock",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.002",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.003",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.004",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.005",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.006",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.007",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.008",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.009",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_HorizontalCatch_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_24391",
+      "role": "coated_receiver",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RearQDOpening_-1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_UpperShoulder_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_LongGuide_1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_LowerCastingRib_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_1_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_1_Head.002",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_1_Head.003",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverFastener_1_Head.004",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorMount_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorHub_1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_24391",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorLever_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_24391",
+      "role": "coated_receiver",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorPlateBolt_1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_SelectorPlateBolt_1_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_BoltCatchBase_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_BoltCatchButton_1",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Core_polymer_stock_24391",
+      "role": "polymer_stock",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.010",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.011",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.012",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.013",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.014",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.015",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.016",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.017",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.018",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CatchTraction.019",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_HorizontalCatch_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_24391",
+      "role": "coated_receiver",
+      "masks": [
+        "receiver_selector_thumb_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RearQDOpening_1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ChannelScrew_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ChannelScrew_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ChargingHandle",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_2089a",
+      "role": "coated_receiver",
+      "masks": [
+        "receiver_charging_handle_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ChargingHandleFastener_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_2089a",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "receiver_charging_handle_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ChargingHandleFastener_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_2089a",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "receiver_charging_handle_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_OppositeCover",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_OppositeCoverHinge",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_MagwellFlaredLip_-1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_4722f",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "receiver_magwell_entry_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_MagwellFlaredLip_1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_4722f",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "receiver_magwell_entry_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CurvedTriggerGuard",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_CurvedTrigger",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_00",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_01",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_02",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_03",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_04",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_05",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_06",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_07",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_08",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_09",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_10",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_11",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_12",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_13",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_14",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_15",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_16",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_17",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_18",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_19",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_20",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_21",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_22",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RailTooth_23",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RearSocketFace",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RearSocketWeb",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RearSocketBolt_-1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_RearSocketBolt_1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "CORE_ReceiverTopRailBase",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Core_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "RFN_ReceiverChannelRim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Core_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "RFN_ReceiverChannelBack",
+      "old_material": "M7R_10_MatteInnerPolymer",
+      "material": "M7M_Core_polymer_inner_da39a",
+      "role": "polymer_inner",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Core",
+      "object": "RFN_ReceiverSidePocket",
+      "old_material": "M7R_10_MatteInnerPolymer",
+      "material": "M7M_Core_polymer_inner_da39a",
+      "role": "polymer_inner",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_FoldingReceiverTongue",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_FoldingVerticalPin",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_UpperHingeCollar",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_UpperHingeCap",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_LowerHingeCollar",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_RoundCheekShell",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_dbcb1",
+      "role": "polymer_stock",
+      "masks": [
+        "stock_cheek_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_CheekFrontCuff",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_CheekTailCuff",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_DeepTriangularLowerFrame",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HorizontalSkeletonBrace_00",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HorizontalSkeletonBrace_01",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HorizontalSkeletonBrace_02",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HorizontalSkeletonBrace_03",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_LowerForwardStrut",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_2c9f3",
+      "role": "polymer_stock",
+      "masks": [
+        "stock_length_latch_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_BottomTelescopingRail",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HingeLowerColumn",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_CurvedRubberShoulderPad",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtInnerBacking",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_LowerSpineLip_L",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_CheekUpperSeam_L",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_DiagonalMouldedFrontWeb_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_LengthLatchPanel_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_2c9f3",
+      "role": "polymer_stock",
+      "masks": [
+        "stock_length_latch_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HingePin_L_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HingePin_L_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_LowerSpineLip_R",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_CheekUpperSeam_R",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_DiagonalMouldedFrontWeb_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_LengthLatchPanel_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_2c9f3",
+      "role": "polymer_stock",
+      "masks": [
+        "stock_length_latch_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HingePin_R_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_HingePin_R_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_00",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_01",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_02",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_03",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_04",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_05",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_06",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_07",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_08",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_09",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_10",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_11",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_12",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_13",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_14",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_15",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_16",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "Stock_Default_ButtContactTread_17",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Default_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "RFN_Stock_CheekLowerBeam",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "RFN_Stock_UpperSolidWeb",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "object": "RFN_Stock_LowerSlingBoss",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Default_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_FoldingMountTongue",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_FoldingPin",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_HingeOpenFront",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LongOpenSkeletonSpine",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_SlopedCheekCover",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_dbcb1",
+      "role": "polymer_stock",
+      "masks": [
+        "stock_cheek_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TelescopicLowerRail",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailPivotHousing",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_AngledButtFrame",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_ThinButtRubber",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Stock_Skeleton_rubber_black_7a08d",
+      "role": "rubber_black",
+      "masks": [
+        "stock_rubber_shoulder_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Mount_L_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Mount_L_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Adjust_L_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Adjust_L_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailPivot_L_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailPivot_L_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailSlingEye_L",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_BottomRailSeam_L",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_ButtRaisedCheek_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_L_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_L_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_L_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_L_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Mount_R_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Mount_R_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Adjust_R_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_Adjust_R_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailPivot_R_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailPivot_R_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Stock_Skeleton_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_TailSlingEye_R",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_BottomRailSeam_R",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_ButtRaisedCheek_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_R_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_R_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_R_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "object": "Stock_Skeleton_LowerRib_R_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Stock_Skeleton_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "object": "Mag_20_StraightBoxBody",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_20_coated_magazine_0f2a7",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_insertion_neck",
+        "magazine_broad_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "object": "Mag_20_UpperSlantedCollar",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Mag_20_coated_magazine_fade7",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_insertion_neck"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "object": "Mag_20_FloorPlate",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_20_coated_magazine_9d76e",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_20_floor_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "object": "Mag_20_FloorPlateBottomLip",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Mag_20_rubber_black_9d76e",
+      "role": "rubber_black",
+      "masks": [
+        "magazine_20_floor_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "object": "Mag_20_BottomLockCatch",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_20_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "object": "RFN_Mag_20_ContinuousFloorRoll",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_20_coated_magazine_9d76e",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_20_floor_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "object": "Mag_Extended_StraightBoxBody",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_Extended_coated_magazine_0f2a7",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_insertion_neck",
+        "magazine_broad_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "object": "Mag_Extended_UpperSlantedCollar",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Mag_Extended_coated_magazine_fade7",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_insertion_neck"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "object": "Mag_Extended_FloorPlate",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_Extended_coated_magazine_f05bd",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_extended_floor_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "object": "Mag_Extended_FloorPlateBottomLip",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Mag_Extended_rubber_black_f05bd",
+      "role": "rubber_black",
+      "masks": [
+        "magazine_extended_floor_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "object": "Mag_Extended_BottomLockCatch",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_Extended_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "object": "RFN_Mag_Extended_ContinuousFloorRoll",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Mag_Extended_coated_magazine_f05bd",
+      "role": "coated_magazine",
+      "masks": [
+        "magazine_extended_floor_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_CurvedMouldedShell",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_UpperReceiverGripTongue",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_RoundedBottomHeel",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_ThinHeelCapLip",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Grip_Default_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetDarkGripPanel_L",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Grip_Default_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_04",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_05",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_06",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_07",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_08",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_09",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_10",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_11",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_12",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_L_13",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_MouldedPanelStipple_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_RearBackstrapRelief_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_UpperGripFixing_L_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_UpperGripFixing_L_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Grip_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetDarkGripPanel_R",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Grip_Default_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_04",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_05",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_06",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_07",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_08",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_09",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_10",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_11",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_12",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_InsetBorder_R_13",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_MouldedPanelStipple_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_RearBackstrapRelief_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_UpperGripFixing_R_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_UpperGripFixing_R_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Grip_Default_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_04",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_05",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_06",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_07",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_08",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_09",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_10",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_11",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_12",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "object": "Grip_Default_FrontCrossTexture_13",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_Default_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_CurvedMouldedShell",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_UpperReceiverGripTongue",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_AngledRubberBase",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Grip_D2_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_RaisedAngularSidePanel_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_RearDiagonalPanelSeam_L",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_LowerPanelSeam_L",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_D2_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_D2FinePanelTexture_L",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_UpperGripFixing_L_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_D2_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_UpperGripFixing_L_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Grip_D2_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_RaisedAngularSidePanel_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_RearDiagonalPanelSeam_R",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_LowerPanelSeam_R",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_D2_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_04",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_05",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_06",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_07",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FingerCrossRib_08",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_D2FinePanelTexture_R",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_UpperGripFixing_R_Rim",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Grip_D2_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_UpperGripFixing_R_Head",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Grip_D2_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_00",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_01",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_02",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_03",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_04",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_05",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_06",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_07",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_08",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_09",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "object": "Grip_D2_FrontCrossTexture_10",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+      "role": "polymer_grip",
+      "masks": [
+        "rear_grip_palm_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Housing",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Ocular_RubberRim",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Optic_LPVO_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Objective_FrontLip",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Objective_GlassSeal",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Optic_LPVO_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Focus_Band",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_00723",
+      "role": "polymer_stock",
+      "masks": [
+        "optic_zoom_ring_finger_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Focus_FineGrip",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Zoom_Collar",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_00723",
+      "role": "polymer_stock",
+      "masks": [
+        "optic_zoom_ring_finger_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Zoom_Knurl",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Optic_LPVO_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Zoom_GraduationBand",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Zoom_ThrowTab",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_00723",
+      "role": "coated_optic",
+      "masks": [
+        "optic_zoom_ring_finger_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Zoom_ThrowTabGrip",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Optic_LPVO_rubber_black_00723",
+      "role": "rubber_black",
+      "masks": [
+        "optic_zoom_ring_finger_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Erector_Block",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Elevation_Seat",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Elevation_Drum",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Elevation_ScaleBand",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Elevation_Cap",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_6d968",
+      "role": "polymer_stock",
+      "masks": [
+        "optic_turret_cap_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Elevation_Knurl",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Elevation_TopInset",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_6d968",
+      "role": "coated_optic",
+      "masks": [
+        "optic_turret_cap_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Seat_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Cap_-1",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_6d968",
+      "role": "polymer_stock",
+      "masks": [
+        "optic_turret_cap_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Knurl_-1",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Inset_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Seat_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Cap_1",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_6d968",
+      "role": "polymer_stock",
+      "masks": [
+        "optic_turret_cap_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Knurl_1",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_LPVO_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Windage_Inset_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Foot",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Jaw_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Jaw_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_CrossBolt_0",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Clamp_0_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_CrossBolt_1",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Clamp_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_CantileverWeb",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Ring_0",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingEar_0_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_0_-1_0_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_0_-1_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingEar_0_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_0_1_0_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_0_1_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_Ring_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingEar_1_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_1_-1_0_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_1_-1_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingEar_1_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_LPVO_coated_optic_133e8",
+      "role": "coated_optic",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_1_1_0_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "object": "GEO_M7_Optic_LPVO_Mount_RingBolt_1_1_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "optic_mount_clamp_edge"
+      ]
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_TubularHousing",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Ocular_Rim",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Objective_Rim",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_FrontSeal",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Optic_Combat_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_RearFocusBand",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_RearFocusGrip",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_CentralAdjustmentSeat",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Windage_Base",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Windage_Dial",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Windage_DialGrip",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Windage_CoinFace",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_TopDial_Base",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_TopDial_Cap",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_TopDial_Grip",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_AuxHood_Seat",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_AuxHood_OpenShroud",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Optic_Combat_polymer_stock_da39a",
+      "role": "polymer_stock",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_AuxHood_FrontLip",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Foot",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Jaw_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Jaw_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_CrossBolt_0",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Clamp_0_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_CrossBolt_1",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Clamp_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Saddle",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Ring_0",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_RingPin_0_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_RingPin_0_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_Ring_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Optic_Combat_coated_optic_da39a",
+      "role": "coated_optic",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_RingPin_1_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Mount_RingPin_1_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "object": "GEO_M7_Optic_Combat_Body_Serial",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_RailFoot",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_Vertical_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_RailClamp_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_Vertical_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_RailClampBolt_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_RailClamp_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_Vertical_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_RailClampBolt_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_TaperedGripBody",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Foregrip_Vertical_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_00",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_01",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_02",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_03",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_04",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_05",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_06",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_07",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_08",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_09",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_AntiSlipBand_10",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_BottomCap",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_Vertical_rubber_black_da39a",
+      "role": "rubber_black",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_BottomSocket_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "object": "GEO_M7_Foregrip_Vertical_ModelMark",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Standard",
+      "object": "GEO_M7_Muzzle_Standard_KnurledThreadCap",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Standard_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Standard",
+      "object": "GEO_M7_Muzzle_Standard_MouthLip",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Standard_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Standard",
+      "object": "GEO_M7_Muzzle_Standard_DiamondKnurl",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Standard_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Brake",
+      "object": "GEO_M7_Muzzle_Brake_RearSocket",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Brake_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Brake",
+      "object": "GEO_M7_Muzzle_Brake_RearCollar",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Brake_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Brake",
+      "object": "GEO_M7_Muzzle_Brake_PortedBrakeBody",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Brake_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Brake",
+      "object": "GEO_M7_Muzzle_Brake_ExitLip",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Brake_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Brake",
+      "object": "GEO_M7_Muzzle_Brake_RearWrenchKnurl",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Brake_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetedCollar",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_BackBevel",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_ContinuousHousing",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Muzzle_ProtectiveLip",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Muzzle_InnerEdge",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_00",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_01",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_02",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_03",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_04",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_05",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_06",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_07",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_08",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_09",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_10",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Adapter_FacetEdge_11",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Body_ModelMark",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "object": "GEO_M7_Muzzle_Suppressor_Body_SerialMark",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_RailShoe",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_HingeArm",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_ProtectiveRing",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_RingFrontEdge",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_PostBlade",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_PostAdjuster",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_HingeAxle",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_HingePin_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_RailBolt_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_HingePin_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Front_RailBolt_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_RailShoe",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_HingeArm",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_UprightApertureLeaf",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_PeepLip",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_HingeAxle",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_HingePin_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_WindageWheel_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_WindageKnurl_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_RailBolt_-1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_HingePin_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_WindageWheel_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_WindageKnurl_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Sights_Iron_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "object": "GEO_M7_Sights_Iron_Rear_RailBolt_1_Head",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardShoulder_-1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardMidRib_-1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardQD_-1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "handguard_front_sling_and_outer_corner"
+      ]
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardPin_-1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardPin_-1_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardShoulder_1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardMidRib_1",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardQD_1",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+      "role": "dark_steel_hardware",
+      "masks": [
+        "handguard_front_sling_and_outer_corner"
+      ]
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardPin_1_Head",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_HandguardPin_1_Head.001",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_BarrelVisible",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_BarrelShoulder",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_BarrelShortFront",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_24",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_25",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_26",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_27",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_28",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_29",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_30",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_31",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_32",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_33",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_34",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_35",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_36",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_37",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_38",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_39",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_40",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_41",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_42",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_43",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_44",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_45",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_46",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_47",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_48",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_49",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_50",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_RailTooth_51",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailBase",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_00",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_01",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_02",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_03",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_04",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_05",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_06",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_07",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_08",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_09",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_10",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_11",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_12",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_13",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_14",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_LowerRailTooth_15",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "BARREL_Default_FrontTopRailBase",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "object": "CORE_DefaultHandguardOutline",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Barrel_Default_coated_handguard_6cfb7",
+      "role": "coated_handguard",
+      "masks": [
+        "handguard_support_hand_contact",
+        "handguard_front_sling_and_outer_corner"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_CurvedGripAndOpenRearFrame",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+      "role": "polymer_grip",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_CurvedGripAndOpenRearFrame",
+      "old_material": "M7R_10_MatteInnerPolymer",
+      "material": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+      "role": "polymer_inner",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_ClampChannelFloor",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_ClampJaw_Near",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_ClampLip_Near",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_ClampJaw_Far",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+      "role": "coated_handguard",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_ClampLip_Far",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_ShortFrontHandStop",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_NarrowOpenLowerSlot",
+      "old_material": "M7R_02_PolymerBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+      "role": "polymer_grip",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_GripInsetPanel_Near",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+      "role": "rubber_black",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_FineGripGrain_Near",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+      "role": "rubber_black",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_RearBraceFace_Near",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt1Washer_Near",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt1SocketHead_Near",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt2Washer_Near",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt2SocketHead_Near",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt3Washer_Near",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt3SocketHead_Near",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_GripInsetPanel_Far",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+      "role": "rubber_black",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_FineGripGrain_Far",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+      "role": "rubber_black",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_RearBraceFace_Far",
+      "old_material": "M7R_01_AnodizedBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+      "role": "coated_receiver",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt1Washer_Far",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt1SocketHead_Far",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt2Washer_Far",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt2SocketHead_Far",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt3Washer_Far",
+      "old_material": "M7R_04_DarkHardware",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_Bolt3SocketHead_Far",
+      "old_material": "M7R_05_BurnishedSteel",
+      "material": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+      "role": "dark_steel_hardware",
+      "masks": []
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "object": "GEO_M7_ResonanceGen1_CurvedFrontRubberWrap",
+      "old_material": "M7R_03_RubberBlack",
+      "material": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+      "role": "rubber_black",
+      "masks": [
+        "resonance_gen1_hand_contact"
+      ]
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_HandguardShell",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperSideShoulder_-1",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperSideShoulder_1",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_QDSocket_-1",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_QDSocket_1",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FineTextureField_-1_0",
+      "material": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FineTextureField_-1_1",
+      "material": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FineTextureField_-1_2",
+      "material": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FineTextureField_1_0",
+      "material": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FineTextureField_1_1",
+      "material": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FineTextureField_1_2",
+      "material": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailBase",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_00",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_01",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_02",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_03",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_04",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_05",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_06",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_07",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_08",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_09",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_10",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_11",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_12",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_13",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_14",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_15",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_16",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_17",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_18",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_19",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_20",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_21",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_22",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_23",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_24",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_25",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_26",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_27",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_28",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_29",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_30",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_31",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_32",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_UpperRailTooth_33",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailBase",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_00",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_01",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_02",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_03",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_04",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_05",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_06",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_07",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_08",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_09",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_10",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_11",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_12",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_13",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_14",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_15",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_16",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_17",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_18",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_19",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_20",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_21",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_22",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_23",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_24",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_25",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_26",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_27",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_LowerRailTooth_28",
+      "material": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+      "role": "coated_handguard"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_BarrelMain",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_FrontSteppedCollar",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_ExternalFrontCrown",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_RearBarrelCollar",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_VisibleGasTube",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "object": "TIDAL_InternalGasBlock",
+      "material": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+      "role": "dark_steel_hardware"
+    }
+  ],
+  "settings": "Scripts/material_settings.json",
+  "current_source": "Source/M7_Material_Study.blend",
+  "baseline_sha256": "ae695232801d74990b8b1b6fdef87deb6654dfd8267b57df5612acce4f26ecff",
+  "visual_acceptance": "pending user review",
+  "unreal_tested": false,
+  "maps_baked": true,
+  "atlases": [
+    {
+      "asset": "SM_M7_Mag_Extended",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Mag_Extended_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Mag_Extended_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Mag_Extended_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Mag_Extended_coated_magazine_0f2a7",
+        "M7M_Mag_Extended_coated_magazine_f05bd",
+        "M7M_Mag_Extended_coated_magazine_fade7",
+        "M7M_Mag_Extended_polymer_stock_da39a",
+        "M7M_Mag_Extended_rubber_black_f05bd"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Core",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Core_coated_receiver_2089a",
+        "M7M_Core_coated_receiver_24391",
+        "M7M_Core_coated_receiver_4722f",
+        "M7M_Core_coated_receiver_da39a",
+        "M7M_Core_dark_steel_hardware_2089a",
+        "M7M_Core_dark_steel_hardware_24391",
+        "M7M_Core_dark_steel_hardware_4722f",
+        "M7M_Core_dark_steel_hardware_da39a",
+        "M7M_Core_polymer_inner_da39a",
+        "M7M_Core_polymer_stock_24391"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Stock_Default",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Stock_Default_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Stock_Default_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Stock_Default_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Stock_Default_coated_receiver_da39a",
+        "M7M_Stock_Default_dark_steel_hardware_da39a",
+        "M7M_Stock_Default_polymer_stock_2c9f3",
+        "M7M_Stock_Default_polymer_stock_da39a",
+        "M7M_Stock_Default_polymer_stock_dbcb1",
+        "M7M_Stock_Default_rubber_black_7a08d"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Stock_Skeleton",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Stock_Skeleton_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Stock_Skeleton_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Stock_Skeleton_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Stock_Skeleton_coated_receiver_da39a",
+        "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+        "M7M_Stock_Skeleton_polymer_stock_da39a",
+        "M7M_Stock_Skeleton_polymer_stock_dbcb1",
+        "M7M_Stock_Skeleton_rubber_black_7a08d"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Mag_20",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Mag_20_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Mag_20_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Mag_20_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Mag_20_coated_magazine_0f2a7",
+        "M7M_Mag_20_coated_magazine_9d76e",
+        "M7M_Mag_20_coated_magazine_fade7",
+        "M7M_Mag_20_polymer_stock_da39a",
+        "M7M_Mag_20_rubber_black_9d76e"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Grip_Default",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Grip_Default_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Grip_Default_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Grip_Default_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Grip_Default_coated_receiver_da39a",
+        "M7M_Grip_Default_dark_steel_hardware_da39a",
+        "M7M_Grip_Default_polymer_grip_da39a",
+        "M7M_Grip_Default_polymer_grip_f0ba0",
+        "M7M_Grip_Default_rubber_black_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Grip_D2",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Grip_D2_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Grip_D2_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Grip_D2_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Grip_D2_coated_receiver_da39a",
+        "M7M_Grip_D2_dark_steel_hardware_da39a",
+        "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+        "M7M_Grip_D2_polymer_grip_da39a",
+        "M7M_Grip_D2_polymer_grip_f0ba0",
+        "M7M_Grip_D2_rubber_black_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Optic_LPVO",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Optic_LPVO_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Optic_LPVO_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Optic_LPVO_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Optic_LPVO_coated_optic_00723",
+        "M7M_Optic_LPVO_coated_optic_133e8",
+        "M7M_Optic_LPVO_coated_optic_6d968",
+        "M7M_Optic_LPVO_coated_optic_da39a",
+        "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+        "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+        "M7M_Optic_LPVO_polymer_stock_00723",
+        "M7M_Optic_LPVO_polymer_stock_6d968",
+        "M7M_Optic_LPVO_polymer_stock_da39a",
+        "M7M_Optic_LPVO_rubber_black_00723",
+        "M7M_Optic_LPVO_rubber_black_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Optic_Combat",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Optic_Combat_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Optic_Combat_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Optic_Combat_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Optic_Combat_coated_optic_da39a",
+        "M7M_Optic_Combat_dark_steel_hardware_da39a",
+        "M7M_Optic_Combat_polymer_stock_da39a",
+        "M7M_Optic_Combat_rubber_black_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Foregrip_Vertical",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Foregrip_Vertical_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Foregrip_Vertical_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Foregrip_Vertical_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Foregrip_Vertical_coated_receiver_da39a",
+        "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+        "M7M_Foregrip_Vertical_polymer_grip_da39a",
+        "M7M_Foregrip_Vertical_rubber_black_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Muzzle_Standard",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Muzzle_Standard_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Muzzle_Standard_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Muzzle_Standard_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Muzzle_Standard_coated_receiver_da39a",
+        "M7M_Muzzle_Standard_dark_steel_hardware_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Muzzle_Brake",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Muzzle_Brake_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Muzzle_Brake_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Muzzle_Brake_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Muzzle_Brake_coated_receiver_da39a",
+        "M7M_Muzzle_Brake_dark_steel_hardware_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Muzzle_Suppressor",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Muzzle_Suppressor_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Muzzle_Suppressor_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Muzzle_Suppressor_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+        "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Sights_Iron",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Sights_Iron_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Sights_Iron_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Sights_Iron_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Sights_Iron_coated_receiver_da39a",
+        "M7M_Sights_Iron_dark_steel_hardware_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Barrel_Default",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Barrel_Default_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Barrel_Default_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Barrel_Default_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Barrel_Default_coated_handguard_6cfb7",
+        "M7M_Barrel_Default_coated_handguard_da39a",
+        "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+        "M7M_Barrel_Default_dark_steel_hardware_da39a"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Foregrip_ResonanceGen1",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+        "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+        "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+        "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+        "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+        "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+        "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    },
+    {
+      "asset": "SM_M7_Barrel_Tidal",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png"
+      },
+      "mapped_materials": [
+        "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+        "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+        "M7M_Barrel_Tidal_Guard_fine_grid.001"
+      ],
+      "uv": "M7_MaterialUV",
+      "normal_convention": "OpenGL tangent +Y",
+      "geometry_unchanged": true
+    }
+  ],
+  "geometry_changes": [
+    "Small front shoulder fillets on Tidal handguard, requested during material study.",
+    "Tidal front assembly rebuilt from the user-approved close side reference.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions.",
+    "Tidal redone after rejected attempt, with connected rail and corrected shell proportions."
+  ],
+  "style_basis": "Docs/FPS/Art/DesignDecisions.md, sections 2 and 5",
+  "style_interpretation": "Restrained industrial black/gray, clearly separated coated metal, bare hardware, polymer and rubber; local wear for readability, no broad grime or mirror finish, no project codename markings.",
+  "lighting_recipe": {
+    "version": "industrial-light-v1",
+    "key_power_multiplier": 0.75,
+    "rim_power_multiplier": 0.85,
+    "exposure_offset": -0.12,
+    "comparison": "The same recipe is applied when rendering the historical baseline."
+  },
+  "functional_marking_changes": [
+    "GEO_M7_Muzzle_Suppressor_Body_ModelMark"
+  ]
+}

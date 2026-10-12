@@ -1,5 +1,8 @@
 #include "FPSWeaponData.h"
+#include "FPSAttachmentData.h"
+#include "FPSContentHash.h"
 #include "FPSModeRules.h"
+#include "FPSMovementSettings.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Engine/AssetManager.h"
 #include "Engine/StreamableManager.h"
@@ -12,44 +15,6 @@
 #if WITH_EDITOR
 #include "UObject/ObjectSaveContext.h"
 #endif
-
-namespace
-{
-FString Hash(const TArray<uint8>& Bytes)
-{
-    uint8 Digest[FSHA1::DigestSize];
-    FSHA1::HashBuffer(Bytes.GetData(), Bytes.Num(), Digest);
-    return BytesToHex(Digest, UE_ARRAY_COUNT(Digest));
-}
-#if WITH_EDITOR
-FString ResourceRevision(const FSoftObjectPath& Path, TArray<FString>& Errors)
-{
-    auto& Registry = FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry")).Get();
-        TArray<FName> Pending{Path.GetLongPackageFName()};
-        TSet<FName> Seen;
-        TArray<FString> Revisions;
-        while (!Pending.IsEmpty())
-        {
-            const FName Name = Pending.Pop();
-            if (Seen.Contains(Name) || Name.ToString().StartsWith(TEXT("/Script/"))) continue;
-            Seen.Add(Name);
-            const auto Package = Registry.GetAssetPackageDataCopy(Name);
-            if (!Package.IsSet() || Package->GetPackageSavedHash().IsZero())
-            {
-                Errors.Add(TEXT("Missing saved resource revision: ") + Name.ToString());
-                continue;
-            }
-            Revisions.Add(LexToString(Package->GetPackageSavedHash()));
-            TArray<FName> Dependencies;
-            Registry.GetDependencies(Name, Dependencies);
-            Pending.Append(Dependencies);
-        }
-        Revisions.Sort();
-        return FString::Join(Revisions, TEXT(";"));
-}
-#endif
-
-}
 
 TArray<FSoftObjectPath> UFPSWeaponDefinition::Resources() const
 {
@@ -69,6 +34,22 @@ FString UFPSWeaponDefinition::ContentDigest(TArray<FString>& Errors) const
     auto Add = [&](auto Value) { Writer << Value; };
     Add(UFPSWeaponCatalog::ManifestVersion);
     Add(WeaponId.ToString().ToLower());
+    Add(PlatformId.ToString().ToLower());
+    auto Names = [&](TArray<FName> Values)
+    {
+        Values.Sort(FNameLexicalLess()); Add(Values.Num());
+        for (FName Value : Values) Add(Value.ToString().ToLower());
+    };
+    Names(MountIds); Names(DefaultAttachments);
+    TArray<FName> OfferedIds;
+    for (const auto& Reference : AvailableAttachments)
+    {
+        const auto Identity = UAssetManager::Get().GetPrimaryAssetIdForPath(Reference.ToSoftObjectPath());
+        if (!Identity.IsValid() || Identity.PrimaryAssetType != FPrimaryAssetType(TEXT("WeaponAttachment")))
+            Errors.Add(GetPathName() + TEXT(": invalid explicit attachment reference"));
+        OfferedIds.Add(Identity.PrimaryAssetName);
+    }
+    Names(OfferedIds);
     const FString* SourceText = FTextInspector::GetSourceString(DisplayName);
     Add(SourceText ? *SourceText : FString());
     Add(uint8(Slot)); Add(uint8(Category)); Add(MagazineSize); Add(InitialMagazine); Add(InitialReserve);
@@ -80,7 +61,7 @@ FString UFPSWeaponDefinition::ContentDigest(TArray<FString>& Errors) const
         const FString* Saved = SavedResourceVersions.Find(Path);
         if (!Saved || Saved->IsEmpty()) { Errors.Add(TEXT("Missing generated resource revision; save definition: ") + GetPathName()); return; }
 #if WITH_EDITOR
-        if (*Saved != ResourceRevision(Path, Errors)) Errors.Add(TEXT("Stale resource revision; save definition after editing resources: ") + GetPathName());
+        if (*Saved != FPSContent::ResourceRevision(Path, Errors)) Errors.Add(TEXT("Stale resource revision; save definition after editing resources: ") + GetPathName());
 #endif
         Add(*Saved);
     };
@@ -99,7 +80,7 @@ FString UFPSWeaponDefinition::ContentDigest(TArray<FString>& Errors) const
                 Add(Key.ArriveTangent); Add(Key.LeaveTangent); Add(uint8(Key.TangentWeightMode)); Add(Key.ArriveTangentWeight); Add(Key.LeaveTangentWeight);
             }
         }
-    return Hash(Bytes);
+    return FPSContent::Hash(Bytes);
 }
 
 #if WITH_EDITOR
@@ -111,7 +92,7 @@ void UFPSWeaponDefinition::PreSave(FObjectPreSaveContext SaveContext)
         TArray<FString> Errors;
         for (const auto& Path : {FirstPerson.Mesh.ToSoftObjectPath(), ThirdPerson.Mesh.ToSoftObjectPath(), Pickup.Mesh.ToSoftObjectPath(),
             FireSound.ToSoftObjectPath(), ReloadStartSound.ToSoftObjectPath(), ReloadEndSound.ToSoftObjectPath(), EquipSound.ToSoftObjectPath(), InspectSound.ToSoftObjectPath(), EmptySound.ToSoftObjectPath()})
-            SavedResourceVersions.Add(Path, ResourceRevision(Path, Errors));
+            SavedResourceVersions.Add(Path, FPSContent::ResourceRevision(Path, Errors));
         for (const auto& Error : Errors) UE_LOG(LogTemp, Error, TEXT("FPS_WEAPON_CONTENT %s"), *Error);
     }
     Super::PreSave(SaveContext);
@@ -142,7 +123,9 @@ void UFPSWeaponCatalog::Deinitialize()
 void UFPSWeaponCatalog::ReleaseSession()
 {
     const int32 Count = Definitions.Num();
-    Definitions.Empty();
+    Definitions.Empty(); Attachments.Empty();
+    if (AttachmentHandle) AttachmentHandle->ReleaseHandle();
+    AttachmentHandle.Reset();
     if (ResourceHandle) ResourceHandle->ReleaseHandle();
     if (DefinitionHandle) DefinitionHandle->ReleaseHandle();
     ResourceHandle.Reset(); DefinitionHandle.Reset();
@@ -187,6 +170,20 @@ bool UFPSWeaponCatalog::PrepareWorld(UWorld* World, bool bRequireStands)
         float SelectionInterval = ModeRules->SelectionRequestInterval;
         Writer << SelectionInterval;
         Writer << Lifetime; Writer << Limit;
+        // Packed CMC resource protocol and shared movement tuning must match before possession.
+        int32 MovementProtocol=2; Writer << MovementProtocol;
+        const auto* Movement = GetDefault<UFPSMovementSettings>();
+        TArray<float> MovementValues{Movement->WalkSpeed, Movement->SprintSpeed, Movement->CrouchSpeed, Movement->AimSpeed,
+            Movement->SprintAccelerationTime, Movement->SprintDecelerationTime, Movement->WalkAcceleration, Movement->AirAcceleration,
+            Movement->JumpVelocity, Movement->WeakJumpHeightRatio, Movement->LandingJumpInterval,
+            Movement->MaxStamina, Movement->SprintDrain, Movement->SprintStartThreshold, Movement->JumpCost, Movement->CrouchCost,
+            Movement->CrouchInterval, Movement->LowCrouchInterval, Movement->RecoveryDelay, Movement->RecoveryRate, Movement->SprintFirePreparation};
+        for (float Value : MovementValues)
+            if (!FMath::IsFinite(Value) || Value <= 0) Errors.Add(TEXT("Invalid FPS movement configuration"));
+        if (Movement->SprintSpeed < Movement->WalkSpeed || Movement->WeakJumpHeightRatio > 1 ||
+            Movement->SprintStartThreshold > Movement->MaxStamina || Movement->LowCrouchInterval < Movement->CrouchInterval)
+            Errors.Add(TEXT("Inconsistent FPS movement configuration"));
+        Writer << MovementValues;
         auto WriteId = [&](const TSoftObjectPtr<UFPSWeaponDefinition>& Reference)
         {
             FString Id = Manager.GetPrimaryAssetIdForPath(Reference.ToSoftObjectPath()).PrimaryAssetName.ToString().ToLower();
@@ -195,7 +192,7 @@ bool UFPSWeaponCatalog::PrepareWorld(UWorld* World, bool bRequireStands)
         WriteId(ModeRules->DefaultLoadout->Primary); WriteId(ModeRules->DefaultLoadout->Secondary);
         int32 Count = ModeRules->SelectableWeapons.Num(); Writer << Count;
         for (const auto& Reference : ModeRules->SelectableWeapons) WriteId(Reference);
-        SessionDigest = Hash(Bytes);
+        SessionDigest = FPSContent::Hash(Bytes);
     }
     if (!Errors.IsEmpty())
     {
@@ -243,6 +240,34 @@ bool UFPSWeaponCatalog::PrepareDependencies(const TArray<FName>& Ids)
             Definitions.Add(Id, Def);
             for (const auto& Resource : Def->Resources()) Resources.AddUnique(Resource);
         }
+    // Only explicitly offered parts belong to this session. Unrelated bad assets stay a publication error.
+    TArray<FSoftObjectPath> PartPaths;
+    for (const auto& Pair : Definitions)
+        for (const auto& Reference : Pair.Value->AvailableAttachments) PartPaths.AddUnique(Reference.ToSoftObjectPath());
+    TArray<FAssetData> PartMetadata;
+    Registry.GetAssetsByClass(UFPSAttachmentDefinition::StaticClass()->GetClassPathName(), PartMetadata, true);
+    for (const auto& Path : PartPaths)
+    {
+        const auto Identity = Manager.GetPrimaryAssetIdForPath(Path);
+        int32 Matches = 0;
+        for (const auto& Asset : PartMetadata)
+        {
+            FName Tagged; Asset.GetTagValue(TEXT("AttachmentId"), Tagged);
+            if (Tagged == Identity.PrimaryAssetName) ++Matches;
+        }
+        if (!Identity.IsValid() || Identity.PrimaryAssetType != FPrimaryAssetType(TEXT("WeaponAttachment")) ||
+            Manager.GetPrimaryAssetPath(Identity) != Path || Matches != 1)
+            Errors.Add(TEXT("Invalid, missing or duplicate required attachment: ") + Path.ToString());
+    }
+    if (Errors.IsEmpty() && !PartPaths.IsEmpty()) AttachmentHandle = Manager.GetStreamableManager().RequestSyncLoad(PartPaths, false, TEXT("FPS match attachments"));
+    if (Errors.IsEmpty())
+        for (const auto& Path : PartPaths)
+        {
+            auto* Part = Cast<UFPSAttachmentDefinition>(Path.ResolveObject());
+            if (!Part || Part->GetPrimaryAssetId() != Manager.GetPrimaryAssetIdForPath(Path)) { Errors.Add(TEXT("Attachment failed to load: ") + Path.ToString()); continue; }
+            Attachments.Add(Part->AttachmentId, Part);
+            for (const auto& Resource : Part->Resources()) Resources.AddUnique(Resource);
+        }
     if (Errors.IsEmpty() && !Resources.IsEmpty()) ResourceHandle = Manager.GetStreamableManager().RequestSyncLoad(Resources, false, TEXT("FPS match resources"));
     TArray<uint8> Bytes;
     FMemoryWriter Writer(Bytes);
@@ -272,10 +297,30 @@ bool UFPSWeaponCatalog::PrepareDependencies(const TArray<FName>& Ids)
             Def->FireInterval = OriginalInterval;
 #endif
         }
+    TArray<FName> PartIds;
+    Attachments.GetKeys(PartIds); PartIds.Sort(FNameLexicalLess());
+    int32 PartCount = PartIds.Num(); Writer << PartCount;
+    for (FName Id : PartIds)
+    {
+        auto* Part = Attachments.FindChecked(Id).Get();
+        Part->ValidateDefinition(Errors);
+#if !UE_BUILD_SHIPPING
+        const float OriginalFOV = Part->AimFOV;
+        FString Change; FParse::Value(FCommandLine::Get(), TEXT("FPSContentChange="), Change);
+        if (Change == TEXT("attachment") && Id == PartIds[0]) Part->AimFOV += .1f;
+#endif
+        FString Name = Id.ToString().ToLower(), Digest = Part->ContentDigest(Errors);
+        Writer << Name; Writer << Digest;
+#if !UE_BUILD_SHIPPING
+        Part->AimFOV = OriginalFOV;
+#endif
+    }
+    for (const auto& Pair : Definitions) FFPSAttachmentResolver::ValidateOffers(*Pair.Value, Errors);
+    UE_LOG(LogTemp, Display, TEXT("FPS_ATTACHMENT_CONTENT required=%d loaded=%d"), PartPaths.Num(), Attachments.Num());
     ValidationError = FString::Join(Errors, TEXT("\n"));
     bReady = Errors.IsEmpty();
-    if (bReady) SessionDigest = Hash(Bytes);
-    else { Definitions.Empty(); if (ResourceHandle) ResourceHandle->ReleaseHandle(); if (DefinitionHandle) DefinitionHandle->ReleaseHandle(); ResourceHandle.Reset(); DefinitionHandle.Reset(); }
+    if (bReady) SessionDigest = FPSContent::Hash(Bytes);
+    else { Definitions.Empty(); Attachments.Empty(); if (AttachmentHandle) AttachmentHandle->ReleaseHandle(); AttachmentHandle.Reset(); if (ResourceHandle) ResourceHandle->ReleaseHandle(); if (DefinitionHandle) DefinitionHandle->ReleaseHandle(); ResourceHandle.Reset(); DefinitionHandle.Reset(); }
     UE_LOG(LogTemp, Display, TEXT("FPS_WEAPON_CONTENT %s definitions=%d resources=%d ms=%.2f digest=%s error=%s"),
         bReady ? TEXT("READY") : TEXT("BLOCKED"), Definitions.Num(), Resources.Num(), (FPlatformTime::Seconds()-Started)*1000, *SessionDigest, *ValidationError);
     return bReady;

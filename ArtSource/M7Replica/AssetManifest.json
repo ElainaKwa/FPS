@@ -1,0 +1,898 @@
+{
+  "library": "M7_Modular_Replica",
+  "source_file": "M7_Modular_Replica.blend",
+  "axis": "+X muzzle, +Z up, metres",
+  "default_parts": [
+    "SM_M7_Core",
+    "SM_M7_Stock_Default",
+    "SM_M7_Mag_20",
+    "SM_M7_Grip_Default",
+    "SM_M7_Muzzle_Standard",
+    "SM_M7_Sights_Iron"
+  ],
+  "assets": [
+    {
+      "name": "SM_M7_Core",
+      "category": "Core",
+      "mount_key": "Core",
+      "mount_position_m": [
+        0,
+        0,
+        0
+      ],
+      "default": true,
+      "collection": "SM_M7_Core",
+      "editable_objects": 400,
+      "triangles": 108580,
+      "vertices": 55004,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware",
+        "M7R_06_RecessBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_07_EngravingGray",
+        "M7R_05_BurnishedSteel"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.18000000715255737,
+          -0.0348999984562397,
+          -0.1238730326294899
+        ],
+        "max": [
+          0.6000000238418579,
+          0.04100000113248825,
+          0.054499998688697815
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.7800000309944153,
+        0.07589999958872795,
+        0.1783730313181877
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "glb_mount_nodes": [
+        "Mount_Stock",
+        "Mount_RearGrip",
+        "Mount_Magazine",
+        "Mount_Optic",
+        "Mount_Foregrip",
+        "Mount_Muzzle",
+        "Mount_Iron"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Core.glb",
+        "fbx": "Exports/SM_M7_Core.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Stock_Default",
+      "category": "Stock",
+      "mount_key": "Stock",
+      "mount_position_m": [
+        -0.179,
+        0,
+        -0.0025
+      ],
+      "default": true,
+      "collection": "SM_M7_Stock_Default",
+      "editable_objects": 74,
+      "triangles": 24888,
+      "vertices": 12584,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_06_RecessBlack"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.1887500137090683,
+          -0.02887631766498089,
+          -0.12845876812934875
+        ],
+        "max": [
+          -7.867813110351562e-06,
+          0.02887631766498089,
+          0.039500001817941666
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.18874214589595795,
+        0.05775263532996178,
+        0.16795876994729042
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Stock_Default.glb",
+        "fbx": "Exports/SM_M7_Stock_Default.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Stock_Skeleton",
+      "category": "Stock",
+      "mount_key": "Stock",
+      "mount_position_m": [
+        -0.179,
+        0,
+        -0.0025
+      ],
+      "default": false,
+      "collection": "SM_M7_Stock_Skeleton",
+      "editable_objects": 42,
+      "triangles": 16316,
+      "vertices": 8232,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_06_RecessBlack"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.22500000894069672,
+          -0.027249999344348907,
+          -0.106195367872715
+        ],
+        "max": [
+          0.0005000084638595581,
+          0.027249999344348907,
+          0.04135483503341675
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.22550001740455627,
+        0.054499998688697815,
+        0.14755020290613174
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Stock_Skeleton.glb",
+        "fbx": "Exports/SM_M7_Stock_Skeleton.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Mag_20",
+      "category": "Magazine",
+      "mount_key": "Magazine",
+      "mount_position_m": [
+        0.08,
+        0,
+        -0.1
+      ],
+      "default": true,
+      "collection": "SM_M7_Mag_20",
+      "editable_objects": 33,
+      "triangles": 6416,
+      "vertices": 3272,
+      "used_materials": [
+        "M7R_02_PolymerBlack",
+        "M7R_01_AnodizedBlack",
+        "M7R_03_RubberBlack",
+        "M7R_06_RecessBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.05995633453130722,
+          -0.024700000882148743,
+          -0.1274999976158142
+        ],
+        "max": [
+          0.04797743260860443,
+          0.024700000882148743,
+          0.02336927503347397
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.10793376713991165,
+        0.049400001764297485,
+        0.15086927264928818
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Mag_20.glb",
+        "fbx": "Exports/SM_M7_Mag_20.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Mag_Extended",
+      "category": "Magazine",
+      "mount_key": "Magazine",
+      "mount_position_m": [
+        0.08,
+        0,
+        -0.1
+      ],
+      "default": false,
+      "collection": "SM_M7_Mag_Extended",
+      "editable_objects": 39,
+      "triangles": 7544,
+      "vertices": 3848,
+      "used_materials": [
+        "M7R_02_PolymerBlack",
+        "M7R_01_AnodizedBlack",
+        "M7R_03_RubberBlack",
+        "M7R_06_RecessBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.05995633453130722,
+          -0.024700000882148743,
+          -0.18250000476837158
+        ],
+        "max": [
+          0.04797743260860443,
+          0.024700000882148743,
+          0.02336927503347397
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.10793376713991165,
+        0.049400001764297485,
+        0.20586927980184555
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Mag_Extended.glb",
+        "fbx": "Exports/SM_M7_Mag_Extended.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Grip_Default",
+      "category": "RearGrip",
+      "mount_key": "RearGrip",
+      "mount_position_m": [
+        -0.0625,
+        0,
+        -0.065
+      ],
+      "default": true,
+      "collection": "SM_M7_Grip_Default",
+      "editable_objects": 60,
+      "triangles": 26248,
+      "vertices": 16254,
+      "used_materials": [
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_01_AnodizedBlack",
+        "M7R_06_RecessBlack"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.08690145611763,
+          -0.025429999455809593,
+          -0.14000000059604645
+        ],
+        "max": [
+          0.017416030168533325,
+          0.025429999455809593,
+          0.016886014491319656
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.10431748628616333,
+        0.050859998911619186,
+        0.1568860150873661
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Grip_Default.glb",
+        "fbx": "Exports/SM_M7_Grip_Default.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Grip_D2",
+      "category": "RearGrip",
+      "mount_key": "RearGrip",
+      "mount_position_m": [
+        -0.0625,
+        0,
+        -0.065
+      ],
+      "default": false,
+      "collection": "SM_M7_Grip_D2",
+      "editable_objects": 59,
+      "triangles": 22058,
+      "vertices": 12813,
+      "used_materials": [
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_06_RecessBlack",
+        "M7R_01_AnodizedBlack"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.08735164999961853,
+          -0.025429999455809593,
+          -0.14535830914974213
+        ],
+        "max": [
+          0.017499998211860657,
+          0.025429999455809593,
+          0.016885660588741302
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.10485164821147919,
+        0.050859998911619186,
+        0.16224396973848343
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Grip_D2.glb",
+        "fbx": "Exports/SM_M7_Grip_D2.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Optic_LPVO",
+      "category": "Optic",
+      "mount_key": "Optic",
+      "mount_position_m": [
+        0,
+        0,
+        0.055
+      ],
+      "default": false,
+      "collection": "SM_M7_Optic_LPVO",
+      "editable_objects": 92,
+      "triangles": 114084,
+      "vertices": 59616,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_03_RubberBlack",
+        "M7R_06_RecessBlack",
+        "M7R_09_CoatedLens",
+        "M7R_02_PolymerBlack",
+        "M7R_07_EngravingGray",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.14000000059604645,
+          -0.024255000054836273,
+          -0.0009999996982514858
+        ],
+        "max": [
+          0.10999999940395355,
+          0.024025000631809235,
+          0.07740499824285507
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.25,
+        0.04828000068664551,
+        0.07840499794110656
+      ],
+      "uv_layers": [
+        "UV贴图",
+        "UVMap"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Optic_LPVO.glb",
+        "fbx": "Exports/SM_M7_Optic_LPVO.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Optic_Combat",
+      "category": "Optic",
+      "mount_key": "Optic",
+      "mount_position_m": [
+        0,
+        0,
+        0.055
+      ],
+      "default": false,
+      "collection": "SM_M7_Optic_Combat",
+      "editable_objects": 46,
+      "triangles": 60048,
+      "vertices": 31344,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_06_RecessBlack",
+        "M7R_09_CoatedLens",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware",
+        "M7R_08_Glass",
+        "M7R_05_BurnishedSteel",
+        "M7R_07_EngravingGray"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.019999999552965164,
+          -0.02917499840259552,
+          -0.001500000711530447
+        ],
+        "max": [
+          0.07500000298023224,
+          0.02304000034928322,
+          0.08410000056028366
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.0950000025331974,
+        0.05221499875187874,
+        0.08560000127181411
+      ],
+      "uv_layers": [
+        "UV贴图",
+        "UVMap"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Optic_Combat.glb",
+        "fbx": "Exports/SM_M7_Optic_Combat.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Foregrip_K1",
+      "category": "Foregrip",
+      "mount_key": "Foregrip",
+      "mount_position_m": [
+        0.3075,
+        0,
+        -0.0435
+      ],
+      "default": false,
+      "collection": "SM_M7_Foregrip_K1",
+      "editable_objects": 41,
+      "triangles": 13480,
+      "vertices": 6840,
+      "used_materials": [
+        "M7R_02_PolymerBlack",
+        "M7R_01_AnodizedBlack",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.015500009059906006,
+          -0.01334999967366457,
+          -0.08846881240606308
+        ],
+        "max": [
+          0.08444476127624512,
+          0.01334999967366457,
+          4.656612873077393e-10
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.09994477033615112,
+        0.02669999934732914,
+        0.08846881287172437
+      ],
+      "uv_layers": [
+        "UV贴图",
+        "UVMap"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Foregrip_K1.glb",
+        "fbx": "Exports/SM_M7_Foregrip_K1.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Foregrip_Vertical",
+      "category": "Foregrip",
+      "mount_key": "Foregrip",
+      "mount_position_m": [
+        0.3075,
+        0,
+        -0.0435
+      ],
+      "default": false,
+      "collection": "SM_M7_Foregrip_Vertical",
+      "editable_objects": 24,
+      "triangles": 28476,
+      "vertices": 14504,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_03_RubberBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.0025000162422657013,
+          -0.016839999705553055,
+          -0.11294000595808029
+        ],
+        "max": [
+          0.03749998286366463,
+          0.016839999705553055,
+          0.0007000002078711987
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.03999999910593033,
+        0.03367999941110611,
+        0.11364000616595149
+      ],
+      "uv_layers": [
+        "UV贴图",
+        "UVMap"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Foregrip_Vertical.glb",
+        "fbx": "Exports/SM_M7_Foregrip_Vertical.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Muzzle_Standard",
+      "category": "Muzzle",
+      "mount_key": "Muzzle",
+      "mount_position_m": [
+        0.598,
+        0,
+        0
+      ],
+      "default": true,
+      "collection": "SM_M7_Muzzle_Standard",
+      "editable_objects": 5,
+      "triangles": 21024,
+      "vertices": 10912,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_06_RecessBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.0059999823570251465,
+          -0.011695568449795246,
+          -0.011695568449795246
+        ],
+        "max": [
+          0.013999998569488525,
+          0.011695568449795246,
+          0.011695568449795246
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.019999980926513672,
+        0.023391136899590492,
+        0.023391136899590492
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Muzzle_Standard.glb",
+        "fbx": "Exports/SM_M7_Muzzle_Standard.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Muzzle_Brake",
+      "category": "Muzzle",
+      "mount_key": "Muzzle",
+      "mount_position_m": [
+        0.598,
+        0,
+        0
+      ],
+      "default": false,
+      "collection": "SM_M7_Muzzle_Brake",
+      "editable_objects": 6,
+      "triangles": 15360,
+      "vertices": 7712,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          0.0015000104904174805,
+          -0.014150000177323818,
+          -0.014150000177323818
+        ],
+        "max": [
+          0.04802501201629639,
+          0.014150000177323818,
+          0.014150000177323818
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.046525001525878906,
+        0.028300000354647636,
+        0.028300000354647636
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Muzzle_Brake.glb",
+        "fbx": "Exports/SM_M7_Muzzle_Brake.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Muzzle_Suppressor",
+      "category": "Muzzle",
+      "mount_key": "Muzzle",
+      "mount_position_m": [
+        0.598,
+        0,
+        0
+      ],
+      "default": false,
+      "collection": "SM_M7_Muzzle_Suppressor",
+      "editable_objects": 30,
+      "triangles": 34980,
+      "vertices": 19688,
+      "used_materials": [
+        "M7R_06_RecessBlack",
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware"
+      ],
+      "local_bounds_m": {
+        "min": [
+          0.0020000338554382324,
+          -0.023499999195337296,
+          -0.023499999195337296
+        ],
+        "max": [
+          0.15017499029636383,
+          0.023499999195337296,
+          0.023499999195337296
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.1481749564409256,
+        0.04699999839067459,
+        0.04699999839067459
+      ],
+      "uv_layers": [
+        "UV贴图",
+        "UVMap"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Muzzle_Suppressor.glb",
+        "fbx": "Exports/SM_M7_Muzzle_Suppressor.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Sights_Iron",
+      "category": "Sights",
+      "mount_key": "Iron",
+      "mount_position_m": [
+        0,
+        0,
+        0.055
+      ],
+      "default": true,
+      "collection": "SM_M7_Sights_Iron",
+      "editable_objects": 33,
+      "triangles": 26776,
+      "vertices": 13536,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware",
+        "M7R_05_BurnishedSteel",
+        "M7R_06_RecessBlack"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.09549999982118607,
+          -0.015140000730752945,
+          -0.006999999284744263
+        ],
+        "max": [
+          0.5394999980926514,
+          0.015140000730752945,
+          0.045649997889995575
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.6349999979138374,
+        0.03028000146150589,
+        0.05264999717473984
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Sights_Iron.glb",
+        "fbx": "Exports/SM_M7_Sights_Iron.fbx"
+      }
+    }
+  ],
+  "mounts": {
+    "Core": [
+      0,
+      0,
+      0
+    ],
+    "Stock": [
+      -0.179,
+      0,
+      -0.0025
+    ],
+    "Magazine": [
+      0.08,
+      0,
+      -0.1
+    ],
+    "RearGrip": [
+      -0.0625,
+      0,
+      -0.065
+    ],
+    "Optic": [
+      0,
+      0,
+      0.055
+    ],
+    "Foregrip": [
+      0.3075,
+      0,
+      -0.0435
+    ],
+    "Muzzle": [
+      0.598,
+      0,
+      0
+    ],
+    "Iron": [
+      0,
+      0,
+      0.055
+    ]
+  },
+  "rigged": false,
+  "reference": "Reference/ReferenceManifest.json",
+  "appearance": "Black realistic palette and externally traced M7 default contours",
+  "verification_limits": "No official right-side/front/rear orthographic reference; hidden-side exterior is reconstructed from available views.",
+  "unreal_import_status": "not imported or tested in Unreal Editor",
+  "presets": [
+    {
+      "name": "SM_M7_Default_Assembled",
+      "parts": [
+        "SM_M7_Core",
+        "SM_M7_Stock_Default",
+        "SM_M7_Mag_20",
+        "SM_M7_Grip_Default",
+        "SM_M7_Muzzle_Standard",
+        "SM_M7_Sights_Iron"
+      ],
+      "glb_mesh_parts": 6,
+      "glb_mount_nodes": [
+        "Mount_Stock",
+        "Mount_RearGrip",
+        "Mount_Magazine",
+        "Mount_Optic",
+        "Mount_Foregrip",
+        "Mount_Muzzle",
+        "Mount_Iron"
+      ],
+      "fbx_mesh_parts": 1,
+      "triangles": 213932,
+      "vertices": 111562,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware",
+        "M7R_06_RecessBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_07_EngravingGray",
+        "M7R_05_BurnishedSteel",
+        "M7R_03_RubberBlack"
+      ],
+      "assembly_bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.0348999984562397,
+          -0.22749999165534973
+        ],
+        "max": [
+          0.6119999885559082,
+          0.04100000113248825,
+          0.10064999759197235
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.979750007390976,
+        0.07589999958872795,
+        0.3281499892473221
+      ],
+      "uv_layers": [
+        "UV贴图"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Default_Assembled.glb",
+        "fbx": "Exports/SM_M7_Default_Assembled.fbx"
+      }
+    },
+    {
+      "name": "SM_M7_Suppressed_Assembled",
+      "parts": [
+        "SM_M7_Core",
+        "SM_M7_Stock_Default",
+        "SM_M7_Mag_Extended",
+        "SM_M7_Grip_D2",
+        "SM_M7_Optic_LPVO",
+        "SM_M7_Foregrip_K1",
+        "SM_M7_Muzzle_Suppressor"
+      ],
+      "glb_mesh_parts": 7,
+      "glb_mount_nodes": [
+        "Mount_Stock",
+        "Mount_RearGrip",
+        "Mount_Magazine",
+        "Mount_Optic",
+        "Mount_Foregrip",
+        "Mount_Muzzle",
+        "Mount_Iron"
+      ],
+      "fbx_mesh_parts": 1,
+      "triangles": 325614,
+      "vertices": 170393,
+      "used_materials": [
+        "M7R_01_AnodizedBlack",
+        "M7R_04_DarkHardware",
+        "M7R_06_RecessBlack",
+        "M7R_02_PolymerBlack",
+        "M7R_07_EngravingGray",
+        "M7R_05_BurnishedSteel",
+        "M7R_03_RubberBlack",
+        "M7R_09_CoatedLens"
+      ],
+      "assembly_bounds_m": {
+        "min": [
+          -0.36775001883506775,
+          -0.0348999984562397,
+          -0.2824999988079071
+        ],
+        "max": [
+          0.7481749653816223,
+          0.04100000113248825,
+          0.13240499794483185
+        ]
+      },
+      "geometry_dimensions_m": [
+        1.11592498421669,
+        0.07589999958872795,
+        0.41490499675273895
+      ],
+      "uv_layers": [
+        "UV贴图",
+        "UVMap"
+      ],
+      "exports": {
+        "glb": "Exports/SM_M7_Suppressed_Assembled.glb",
+        "fbx": "Exports/SM_M7_Suppressed_Assembled.fbx"
+      }
+    }
+  ],
+  "export_origin": "Individual assets: local mount origin; presets: world assembly origin.",
+  "export_uv_policy": "Preserved evaluated source UVs; unwrap only individual copies lacking UVs.",
+  "fbx_axis_note": "+X forward / +Z up; use_space_transform=True; metres with unit scaling enabled.",
+  "textures": "Packed PNG ORM and normal images embedded in GLB and FBX COPY exports.",
+  "saved_scenes": [
+    "M7_Library_Edit",
+    "M7_Default_Assembly",
+    "M7_Attachment_Catalog",
+    "M7_Suppressed_Assembly"
+  ],
+  "refinement": "Closed magazine insertion seams; restored solid upper stock web, diagonal opening and hollow lower sling socket from the official side reference."
+}

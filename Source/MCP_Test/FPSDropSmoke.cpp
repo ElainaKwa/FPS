@@ -660,6 +660,7 @@ void FFPSDropSmoke::Tick(AFPSFrontController* PC)
         });
         At(775, [&]() { Check(GS->bFinished && DynamicCount() == 0 && PresetCount() == State->PresetCount,TEXT("client receives end-of-round dynamic destruction and unchanged presets")); });
     }
+    At(155, [&]() { Check(GS->DropNoticeUntil>GS->GetServerWorldTimeSeconds(),TEXT("capacity recycling notice reaches server and client")); });
     At(780, [&]() { Check(!P.Failed,TEXT("COMPLETE")); });
 #endif
 }

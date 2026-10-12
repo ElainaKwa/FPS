@@ -1,0 +1,25 @@
+{
+  "purpose": "References for manually built exterior digital art geometry",
+  "retrieved_date": "2026-10-12",
+  "foregrip": {
+    "name": "共振一代人体工程握把 / Resonant Ergonomic Grip",
+    "item_id": "13140000034",
+    "references": [
+      {"file": "ResonanceGen1_Icon.png", "source_page": "https://rnkd.gg/deltaforce/weapon/k416/", "source_url": "https://rnkd.gg/media/deltaforce/attachments/13140000034.png", "role": "large original-game attachment icon, black 3/4 silhouette"},
+      {"file": "Game_ResonanceGen1_K416.jpg", "source_page": "https://www.9game.cn/sjzxd/11556899.html", "source_url": "https://media.9game.cn/gamebase/ieu-gdc-pre-process/images/20251201/0/16/a1a667fb6402eadc31bc4c64faf3e6c9.jpg", "role": "game menu confirms selected name and side-view shape; skin colors ignored"},
+      {"file": "Game_ResonanceGen1_ASVal.jpg", "source_page": "https://a.9game.cn/sjzxd/11587055.html", "source_url": "https://media.9game.cn/gamebase/ieu-gdc-pre-process/images/20251215/14/30/99f4fa193132c79b72331399500833e1.jpg", "role": "second side-view shape confirmation; skin colors ignored"},
+      {"file": "Game_ResonanceGen1_Default.png", "source_page": "https://news.17173.com/content/10092025/083313593.shtml", "source_url": "https://i.17173cdn.com/2fhnvk/YWxqaGBf/cms3/KRQTydbthdgfzcc.png", "role": "default palette and name confirmation"}
+    ],
+    "observed": "Long horizontal clamp; curved, thick forward gripping segment with textured inset; large hollow rear frame and thin diagonal strut; small elongated opening at the bottom. Distinct from MKII and K1."
+  },
+  "barrel": {
+    "name": "M7 堤风超长枪管组合 / M7 Tidal Ultra-Long Barrel Combo",
+    "item_id": "13020000383",
+    "references": [
+      {"file": "Tidal_BarrelCombo_Icon.png", "source_page": "https://rnkd.gg/deltaforce/weapon/m7/", "source_url": "https://rnkd.gg/media/deltaforce/attachments/13020000383.png", "role": "large game attachment icon: long smooth barrel and external cosmetic gas tube"},
+      {"file": "Official_Event_M7_Assembly.png", "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/", "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pc/rob_img6.png", "role": "official assembled exterior with Tidal barrel and different handguard; MKII grip is not the Gen1 reference"},
+      {"file": "Official_Event_Detail_M7_TidalLongHandguard.jpg", "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/", "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img4.jpg", "role": "official compact handguard detail: repeated slanted upper apertures, three lower long slots, three front diagonal apertures, small keyhole slots"}
+    ]
+  },
+  "limits": ["External handmade reconstruction, not an original game mesh", "No verified opposite-side orthographic image", "Metres are presentation coordinates, not manufacturing dimensions", "No game mesh or printer file was imported"]
+}

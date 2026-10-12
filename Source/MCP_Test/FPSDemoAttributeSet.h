@@ -48,6 +48,21 @@ public:
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(MoveSpeed)
 	UFUNCTION() void OnRep_MoveSpeed(const FGameplayAttributeData& OldValue);
 
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_Stamina, Category="FPS Demo")
+	FGameplayAttributeData Stamina;
+	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UFPSDemoAttributeSet, Stamina)
+	GAMEPLAYATTRIBUTE_VALUE_GETTER(Stamina)
+	GAMEPLAYATTRIBUTE_VALUE_SETTER(Stamina)
+	GAMEPLAYATTRIBUTE_VALUE_INITTER(Stamina)
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_MaxStamina, Category="FPS Demo")
+	FGameplayAttributeData MaxStamina;
+	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UFPSDemoAttributeSet, MaxStamina)
+	GAMEPLAYATTRIBUTE_VALUE_GETTER(MaxStamina)
+	GAMEPLAYATTRIBUTE_VALUE_SETTER(MaxStamina)
+	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxStamina)
+	UFUNCTION() void OnRep_Stamina(const FGameplayAttributeData& OldValue);
+	UFUNCTION() void OnRep_MaxStamina(const FGameplayAttributeData& OldValue);
+
 protected:
 
 	UFUNCTION()

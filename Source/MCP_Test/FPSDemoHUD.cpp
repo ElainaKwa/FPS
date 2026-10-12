@@ -1,4 +1,13 @@
 #include "FPSDemoHUD.h"
+#include "FPSMovementComponent.h"
+#include "FPSUIStyle.h"
+#include "FPSInterface.h"
+#include "FPSBaseMembership.h"
+#include "CanvasItem.h"
+#include "Styling/CoreStyle.h"
+#include "Engine/Texture2D.h"
+#include "Engine/Font.h"
+#include "UObject/ConstructorHelpers.h"
 
 #include "FPSDemoCharacter.h"
 #include "FPSDemoGameState.h"
@@ -7,9 +16,18 @@
 #include "FPSWeaponComponent.h"
 #include "FPSWeaponPickup.h"
 #include "FPSModeRules.h"
+#include "FPSMatchFlow.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
+
+AFPSDemoHUD::AFPSDemoHUD()
+{
+    static ConstructorHelpers::FObjectFinder<UFont> Font(TEXT("/Engine/EngineFonts/Roboto.Roboto"));
+    RuntimeFont=Font.Object;
+    static ConstructorHelpers::FObjectFinder<UFont> MovementText(TEXT("/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text.F_UI_Text"));
+    MovementFont=MovementText.Object;
+}
 
 void AFPSDemoHUD::DrawHUD()
 {
@@ -29,83 +47,23 @@ void AFPSDemoHUD::DrawHUD()
             DrawText(Error, FLinearColor::White, 30,65);
             return;
         }
-		if (GS->bWaiting || GS->bFinished) return;
-		const auto* PS = GetOwningPlayerController()->GetPlayerState<AFPSDemoPlayerState>();
-		const bool bAlive = Pawn && !Pawn->IsEliminated();
-		const float HealthRatio = Pawn ? FMath::Clamp(Pawn->GetHealth() / FMath::Max(Pawn->GetMaxHealth(), 1.f), 0.f, 1.f) : 0;
-		const float Hurt = PC ? PC->GetDamageFlash() : 0;
-		if (Hurt > 0) DrawRect(FLinearColor(.65f, .015f, .01f, Hurt * .16f), 0, 0, Canvas->SizeX, Canvas->SizeY);
-		if (bAlive && HealthRatio <= .25f)
-		{
-			const FLinearColor Edge(.8f, .02f, .01f, .22f + .08f * FMath::Sin(GetWorld()->GetTimeSeconds() * 5));
-			DrawRect(Edge, 0, 0, Canvas->SizeX, 9);
-			DrawRect(Edge, 0, Canvas->SizeY - 9, Canvas->SizeX, 9);
-			DrawRect(Edge, 0, 0, 9, Canvas->SizeY);
-			DrawRect(Edge, Canvas->SizeX - 9, 0, 9, Canvas->SizeY);
-		}
-		const int32 Seconds = FMath::Max(0, FMath::CeilToInt(GS->RoundEndsAt - GS->GetServerWorldTimeSeconds()));
-		const FString Timer = GS->bTraining ? TEXT("TRAINING / SOLO") : FString::Printf(TEXT("%02d:%02d"), Seconds / 60, Seconds % 60);
-		DrawRect(FLinearColor(0.01f, .02f, .04f, .8f), 20, 20, 320, 110);
-		DrawText(Timer, !GS->bTraining && Seconds <= 30 ? FLinearColor::Yellow : FLinearColor::White, 35, 30, GEngine->GetMediumFont(), 1.3f);
-		DrawText(FString::Printf(TEXT("%s TEAM   HP %.0f   SCORE %d"), PS && PS->TeamId == 0 ? TEXT("BLUE") : TEXT("RED"), Pawn ? Pawn->GetHealth() : 0, PS ? PS->GetEliminationCount() : 0), FLinearColor::White, 35, 68);
-		DrawRect(FLinearColor(.12f, .14f, .18f), 35, 90, 285, 6);
-		DrawRect(HealthRatio <= .25f ? FLinearColor::Red : FLinearColor(.15f,.8f,.55f), 35, 90, 285 * HealthRatio, 6);
-		DrawText(TEXT("WASD / FIRE: LMB / JUMP: SPACE / MENU: ESC"), FLinearColor::White, 35, 105);
-		const float X = Canvas->SizeX * .5f, Y0 = Canvas->SizeY * .5f;
-		if (bAlive && (!Pawn->GetWeapons() || !Pawn->GetWeapons()->GetLoadout().bAiming))
-		{
-			DrawLine(X - 10, Y0, X - 4, Y0, FLinearColor::White);
-			DrawLine(X + 4, Y0, X + 10, Y0, FLinearColor::White);
-			DrawLine(X, Y0 - 10, X, Y0 - 4, FLinearColor::White);
-			DrawLine(X, Y0 + 4, X, Y0 + 10, FLinearColor::White);
-		}
-		if (PC && GetWorld()->GetTimeSeconds() < PC->GetHitMarkerUntil())
-		{
-			DrawLine(X - 12, Y0 - 12, X - 5, Y0 - 5, FLinearColor::Red, 2);
-			DrawLine(X + 12, Y0 + 12, X + 5, Y0 + 5, FLinearColor::Red, 2);
-			DrawLine(X - 12, Y0 + 12, X - 5, Y0 + 5, FLinearColor::Red, 2);
-			DrawLine(X + 12, Y0 - 12, X + 5, Y0 - 5, FLinearColor::Red, 2);
-		}
-		if (PC && GetWorld()->GetTimeSeconds() < PC->GetKillMarkerUntil())
-		{
-			DrawRect(FLinearColor(.01f, .02f, .04f, .85f), X - 100, Canvas->SizeY * .78f, 200, 42);
-			DrawText(TEXT("[ X ]  ELIMINATION +1"), FLinearColor::Yellow, X - 90, Canvas->SizeY * .78f + 12);
-		}
-		if (Pawn && Pawn->IsEliminated())
-		{
-			DrawRect(FLinearColor(.02f,.025f,.04f,.9f), X - 230, Y0 - 45, 460, 115);
-			DrawText(TEXT("ELIMINATED"), FLinearColor::Red, X - 210, Y0 - 33, GEngine->GetMediumFont(), 1.35f);
-			DrawText(FString::Printf(TEXT("BY %s"), Pawn->GetKillerName().IsEmpty() ? TEXT("...") : *Pawn->GetKillerName()), FLinearColor::White, X - 210, Y0);
-			const float Remaining = Pawn->GetRespawnSeconds();
-			DrawText(Remaining > 0 ? FString::Printf(TEXT("RESPAWN IN %.1f s"), Remaining) : TEXT("RESPAWNING..."), FLinearColor::Yellow, X - 210, Y0 + 27);
-			DrawRect(FLinearColor(.15f,.7f,1.f), X - 230, Y0 + 65, 460 * FMath::Clamp(1.f - Remaining / AFPSDemoCharacter::RespawnDelay, 0.f, 1.f), 5);
-		}
-		if (bAlive && Pawn->GetWeapons())
-		{
-			const auto* Weapons = Pawn->GetWeapons();
-			const auto* Def = Weapons->Definition();
-			const auto& Gun = Weapons->Equipped();
-			const auto& State = Weapons->GetLoadout();
-			const TCHAR* Action = State.Action == EFPSWeaponAction::Reloading ? TEXT("RELOADING") : State.Action == EFPSWeaponAction::Switching ? TEXT("SWITCHING") : State.Action == EFPSWeaponAction::Inspecting ? TEXT("INSPECTING") : TEXT("");
-			DrawRect(FLinearColor(.01f, .02f, .04f, .85f), Canvas->SizeX - 325, Canvas->SizeY - 125, 305, 105);
-			DrawText(FString::Printf(TEXT("%s   %d / %d"), Def ? *Def->DisplayName.ToString() : TEXT("UNARMED"), Gun.Magazine, Gun.Reserve), FLinearColor::White, Canvas->SizeX - 310, Canvas->SizeY - 112, GEngine->GetMediumFont(), 1.2f);
-			const bool bLowAmmo = Def && Gun.Magazine <= FMath::Max(1, Def->MagazineSize / 5);
-			DrawText(State.Action == EFPSWeaponAction::Idle && bLowAmmo ? (Gun.Reserve > 0 ? TEXT("LOW AMMO - PRESS R") : TEXT("LOW AMMO - SWITCH / PICK UP")) : Action, FLinearColor::Yellow, Canvas->SizeX - 310, Canvas->SizeY - 78);
-			if (Def && State.Action == EFPSWeaponAction::Reloading)
-			{
-				const float Progress = FMath::Clamp(1.0 - (State.ActionEndsAt - GS->GetServerWorldTimeSeconds()) / FMath::Max(Def->ReloadDuration, .01f), 0., 1.);
-				DrawRect(FLinearColor(.1f,.2f,.3f), Canvas->SizeX - 310, Canvas->SizeY - 62, 275, 3);
-				DrawRect(FLinearColor(.15f,.7f,1.f), Canvas->SizeX - 310, Canvas->SizeY - 62, 275 * Progress, 3);
-			}
-			DrawText(TEXT("R reload | RMB aim | Q inspect"), FLinearColor::White, Canvas->SizeX - 310, Canvas->SizeY - 55);
-			DrawText(TEXT("1/2 switch | G drop | F pickup"), FLinearColor::White, Canvas->SizeX - 310, Canvas->SizeY - 35);
-			DrawText(TEXT("SHIFT sprint | CTRL crouch | P loadout"), FLinearColor::White, 35, Canvas->SizeY - 40);
-            if (const auto* Rules = UFPSModeRules::ForWorld(GetWorld()))
-                DrawText(FString::Printf(TEXT("Drops: max %d | %.0fs | oldest recycled"), Rules->DynamicDropLimit, Rules->DynamicDropLifetime), FLinearColor(.7f,.8f,.9f), 35, Canvas->SizeY - 60);
-			if (const auto* Pickup = Weapons->FindPickup())
-                if (const auto* PickupDef = Weapons->Catalog()->Find(Pickup->GetInstance().WeaponId))
-					DrawText(FString::Printf(TEXT("[F] %s  %d / %d"), *PickupDef->DisplayName.ToString(), Pickup->GetInstance().Magazine, Pickup->GetInstance().Reserve), FLinearColor::Yellow, X - 100, Y0 + 60);
-		}
+        if(!HUDAsset){HUDAsset=UFPSInterface::Open(GetOwningPlayerController(),TEXT("HUD"));if(HUDAsset)HUDAsset->AddToPlayerScreen(0);}
+        if (GS->bWaiting || GS->bFinished) return;
+        const bool Alive=Pawn && !Pawn->IsEliminated();
+        const float Hurt=PC ? PC->GetDamageFlash() : 0;
+        if(Hurt>0)DrawRect(FLinearColor(.65f,.015f,.01f,Hurt*.16f),0,0,Canvas->SizeX,Canvas->SizeY);
+        if(Alive && Pawn->GetHealth()/FMath::Max(Pawn->GetMaxHealth(),1.f)<=.25f)
+        {
+            const FLinearColor Edge(.8f,.02f,.01f,.22f+.08f*FMath::Sin(GetWorld()->GetTimeSeconds()*5));
+            DrawRect(Edge,0,0,Canvas->SizeX,9);DrawRect(Edge,0,Canvas->SizeY-9,Canvas->SizeX,9);DrawRect(Edge,0,0,9,Canvas->SizeY);DrawRect(Edge,Canvas->SizeX-9,0,9,Canvas->SizeY);
+        }
+        const float X=Canvas->SizeX*.5f,Y=Canvas->SizeY*.5f;
+        if(Alive && !Pawn->GetWeapons()->GetLoadout().bAiming)
+        {DrawLine(X-12,Y,X-5,Y,FPSUI::Paper,1.5f);DrawLine(X+5,Y,X+12,Y,FPSUI::Paper,1.5f);DrawLine(X,Y-12,X,Y-5,FPSUI::Paper,1.5f);DrawLine(X,Y+5,X,Y+12,FPSUI::Paper,1.5f);}
+        if(PC && GetWorld()->GetTimeSeconds()<PC->GetHitMarkerUntil())
+            for(int32 DX:{-1,1})for(int32 DY:{-1,1})DrawLine(X+DX*6,Y+DY*6,X+DX*13,Y+DY*13,FLinearColor::Red,2);
+        if(!HUDAsset||!HUDAsset->HasControl(TEXT("StaminaPanel")))DrawMovementHUD(Pawn);
+
 		return;
 	}
 
@@ -152,4 +110,24 @@ void AFPSDemoHUD::DrawHUD()
 	if (bHitMarker)
 		DrawText(PC->WasElimination() ? TEXT("ELIMINATION") : TEXT("SERVER CONFIRMED HIT"),
 			FLinearColor::Red, CX - 90, CY + 28, GEngine->GetSmallFont(), 1.2f, false);
+}
+
+void AFPSDemoHUD::DrawMovementHUD(const AFPSDemoCharacter* Pawn)
+{
+    const auto* GS=GetWorld()->GetGameState<AFPSDemoGameState>();
+    const auto* Front=Cast<AFPSFrontController>(GetOwningPlayerController());
+    if(!GS||!GS->bStructuredMatch||GS->bWaiting||GS->bFinished||(Front&&Front->IsLoadoutOpen())){StaminaPresentation.Initialized=false;return;}
+    const auto View=UFPSInterface::ReadStaminaHUD(Pawn);
+    const auto* Movement=Pawn?Cast<UFPSMovementComponent>(Pawn->GetCharacterMovement()):nullptr;
+    if(!Pawn||Pawn->IsEliminated()||!Movement||!Movement->UsesStamina()){StaminaPresentation.Initialized=false;return;}
+    if(StaminaOwner.Get()!=Pawn){StaminaPresentation.Reset(View.Ratio);StaminaOwner=Pawn;}
+    StaminaPresentation.Update(View.Ratio,GetWorld()->GetDeltaSeconds());
+    if(!View.Visible&&StaminaPresentation.IsSettled())return;
+    const float Scale=FMath::Min(Canvas->SizeX/1600.f,Canvas->SizeY/900.f);
+    const FVector2D Offset((Canvas->SizeX-1600.f*Scale)*.5f,(Canvas->SizeY-900.f*Scale)*.5f);
+    // Match the saved HUD's 1600x900 design layout.
+    const float X=Offset.X+672.5f*Scale,Y=Offset.Y+740.f*Scale;
+    DrawRect(FLinearColor(0,0,0,.28f),X,Y,255*Scale,9*Scale);
+    DrawRect(FLinearColor(.45f,.45f,.45f,1),X,Y,255*Scale*StaminaPresentation.Ghost(),9*Scale);
+    DrawRect(FLinearColor::White,X,Y,255*Scale*StaminaPresentation.White(),9*Scale);
 }

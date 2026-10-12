@@ -1,0 +1,5644 @@
+{
+  "asset": "TIDELINE_AR01",
+  "blender": "5.2.2 LTS",
+  "success": true,
+  "files": [
+    {
+      "file": "TIDELINE_AR01.blend",
+      "bytes": 681555
+    },
+    {
+      "file": "Exports\\SM_TW_TIDELINE_AR01.fbx",
+      "bytes": 6401068
+    },
+    {
+      "file": "Exports\\SM_TW_TIDELINE_AR01.glb",
+      "bytes": 12844836
+    }
+  ],
+  "checks": [
+    "Source reopened independently; asset metadata, editable objects, finite coordinates, materials and UVs checked",
+    "FBX imported independently with default orientation; strict XYZ dimensions and min/max bounds match source within 1%; evaluated triangle count and all nine material names match",
+    "GLB imported independently; strict XYZ dimensions and min/max bounds match source and FBX within 1%; evaluated triangle count and all nine material names match"
+  ],
+  "comparisons": [
+    {
+      "comparison": "Default FBX XYZ dimensions versus source",
+      "axis_comparison": "strict XYZ; axis permutations are not accepted",
+      "observed_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.157350093126297,
+        "Z": 0.5261790007352829
+      },
+      "reference_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.15735000744462013,
+        "Z": 0.5261790007352829
+      },
+      "relative_dimension_errors": [
+        0.0,
+        5.445292202784292e-07,
+        0.0
+      ],
+      "maximum_relative_error": 5.445292202784292e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "Default FBX XYZ world bounds versus source",
+      "observed_world_bbox_m": {
+        "min": [
+          -0.4520000219345093,
+          -0.10635006427764893,
+          -0.3087790012359619
+        ],
+        "max": [
+          0.6274999976158142,
+          0.05100002884864807,
+          0.21739999949932098
+        ],
+        "dimensions": [
+          1.0795000195503235,
+          0.157350093126297,
+          0.5261790007352829
+        ]
+      },
+      "reference_world_bbox_m": {
+        "min": [
+          -0.4520000219345093,
+          -0.10635000467300415,
+          -0.3087790012359619
+        ],
+        "max": [
+          0.6274999976158142,
+          0.05100000277161598,
+          0.21739999949932098
+        ],
+        "dimensions": [
+          1.0795000195503235,
+          0.15735000744462013,
+          0.5261790007352829
+        ]
+      },
+      "bounds_errors_relative_to_axis_size": {
+        "min": [
+          0.0,
+          3.7880293584586376e-07,
+          0.0
+        ],
+        "max": [
+          0.0,
+          1.657262844325654e-07,
+          0.0
+        ]
+      },
+      "maximum_relative_error": 3.7880293584586376e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "Default FBX triangles and nine materials versus source",
+      "observed_evaluated_triangles": 202184,
+      "reference_evaluated_triangles": 202184,
+      "triangles_equal": true,
+      "observed_materials": [
+        "AR01_01_MidnightCeramic",
+        "AR01_02_LagoonPolymer",
+        "AR01_03_WarmPorcelain",
+        "AR01_04_SignalAmber",
+        "AR01_05_GripRubber",
+        "AR01_06_SatinSteel",
+        "AR01_07_RecessBlack",
+        "AR01_08_OpticalGlass",
+        "AR01_09_SightIndicator"
+      ],
+      "reference_materials": [
+        "AR01_01_MidnightCeramic",
+        "AR01_02_LagoonPolymer",
+        "AR01_03_WarmPorcelain",
+        "AR01_04_SignalAmber",
+        "AR01_05_GripRubber",
+        "AR01_06_SatinSteel",
+        "AR01_07_RecessBlack",
+        "AR01_08_OpticalGlass",
+        "AR01_09_SightIndicator"
+      ],
+      "material_normalization": "strip Blender numeric data-block suffix such as .001",
+      "materials_equal": true,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ dimensions versus source",
+      "axis_comparison": "strict XYZ; axis permutations are not accepted",
+      "observed_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.15735000744462013,
+        "Z": 0.5261790007352829
+      },
+      "reference_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.15735000744462013,
+        "Z": 0.5261790007352829
+      },
+      "relative_dimension_errors": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_relative_error": 0.0,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ world bounds versus source",
+      "observed_world_bbox_m": {
+        "min": [
+          -0.4520000219345093,
+          -0.10635000467300415,
+          -0.3087790012359619
+        ],
+        "max": [
+          0.6274999976158142,
+          0.05100000277161598,
+          0.21739999949932098
+        ],
+        "dimensions": [
+          1.0795000195503235,
+          0.15735000744462013,
+          0.5261790007352829
+        ]
+      },
+      "reference_world_bbox_m": {
+        "min": [
+          -0.4520000219345093,
+          -0.10635000467300415,
+          -0.3087790012359619
+        ],
+        "max": [
+          0.6274999976158142,
+          0.05100000277161598,
+          0.21739999949932098
+        ],
+        "dimensions": [
+          1.0795000195503235,
+          0.15735000744462013,
+          0.5261790007352829
+        ]
+      },
+      "bounds_errors_relative_to_axis_size": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "maximum_relative_error": 0.0,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB triangles and nine materials versus source",
+      "observed_evaluated_triangles": 202184,
+      "reference_evaluated_triangles": 202184,
+      "triangles_equal": true,
+      "observed_materials": [
+        "AR01_01_MidnightCeramic",
+        "AR01_02_LagoonPolymer",
+        "AR01_03_WarmPorcelain",
+        "AR01_04_SignalAmber",
+        "AR01_05_GripRubber",
+        "AR01_06_SatinSteel",
+        "AR01_07_RecessBlack",
+        "AR01_08_OpticalGlass",
+        "AR01_09_SightIndicator"
+      ],
+      "reference_materials": [
+        "AR01_01_MidnightCeramic",
+        "AR01_02_LagoonPolymer",
+        "AR01_03_WarmPorcelain",
+        "AR01_04_SignalAmber",
+        "AR01_05_GripRubber",
+        "AR01_06_SatinSteel",
+        "AR01_07_RecessBlack",
+        "AR01_08_OpticalGlass",
+        "AR01_09_SightIndicator"
+      ],
+      "material_normalization": "strip Blender numeric data-block suffix such as .001",
+      "materials_equal": true,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ dimensions versus FBX",
+      "axis_comparison": "strict XYZ; axis permutations are not accepted",
+      "observed_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.15735000744462013,
+        "Z": 0.5261790007352829
+      },
+      "reference_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.157350093126297,
+        "Z": 0.5261790007352829
+      },
+      "relative_dimension_errors": [
+        0.0,
+        5.445289237665189e-07,
+        0.0
+      ],
+      "maximum_relative_error": 5.445289237665189e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ world bounds versus FBX",
+      "observed_world_bbox_m": {
+        "min": [
+          -0.4520000219345093,
+          -0.10635000467300415,
+          -0.3087790012359619
+        ],
+        "max": [
+          0.6274999976158142,
+          0.05100000277161598,
+          0.21739999949932098
+        ],
+        "dimensions": [
+          1.0795000195503235,
+          0.15735000744462013,
+          0.5261790007352829
+        ]
+      },
+      "reference_world_bbox_m": {
+        "min": [
+          -0.4520000219345093,
+          -0.10635006427764893,
+          -0.3087790012359619
+        ],
+        "max": [
+          0.6274999976158142,
+          0.05100002884864807,
+          0.21739999949932098
+        ],
+        "dimensions": [
+          1.0795000195503235,
+          0.157350093126297,
+          0.5261790007352829
+        ]
+      },
+      "bounds_errors_relative_to_axis_size": {
+        "min": [
+          0.0,
+          3.7880272957670876e-07,
+          0.0
+        ],
+        "max": [
+          0.0,
+          1.657261941898101e-07,
+          0.0
+        ]
+      },
+      "maximum_relative_error": 3.7880272957670876e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB triangles and nine materials versus FBX",
+      "observed_evaluated_triangles": 202184,
+      "reference_evaluated_triangles": 202184,
+      "triangles_equal": true,
+      "observed_materials": [
+        "AR01_01_MidnightCeramic",
+        "AR01_02_LagoonPolymer",
+        "AR01_03_WarmPorcelain",
+        "AR01_04_SignalAmber",
+        "AR01_05_GripRubber",
+        "AR01_06_SatinSteel",
+        "AR01_07_RecessBlack",
+        "AR01_08_OpticalGlass",
+        "AR01_09_SightIndicator"
+      ],
+      "reference_materials": [
+        "AR01_01_MidnightCeramic",
+        "AR01_02_LagoonPolymer",
+        "AR01_03_WarmPorcelain",
+        "AR01_04_SignalAmber",
+        "AR01_05_GripRubber",
+        "AR01_06_SatinSteel",
+        "AR01_07_RecessBlack",
+        "AR01_08_OpticalGlass",
+        "AR01_09_SightIndicator"
+      ],
+      "material_normalization": "strip Blender numeric data-block suffix such as .001",
+      "materials_equal": true,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "source_units": "metres; +X muzzle; +Z up",
+  "fbx_export_contract": {
+    "export_axis_forward": "X",
+    "axis_up": "Z",
+    "use_space_transform": true,
+    "settings_source": "Source/export_rifle.py task contract; verified by default import geometry comparisons"
+  },
+  "source_or_exports_saved_by_verifier": false,
+  "source": {
+    "objects": 558,
+    "mesh_objects": 540,
+    "geometry_objects": 546,
+    "empty_objects": 12,
+    "evaluated_vertices": 105672,
+    "raw_triangles": 25606,
+    "evaluated_triangles": 202184,
+    "mesh_uv_layers_min": 1,
+    "mesh_uv_layers_max": 1,
+    "materials": [
+      "AR01_01_MidnightCeramic",
+      "AR01_02_LagoonPolymer",
+      "AR01_03_WarmPorcelain",
+      "AR01_04_SignalAmber",
+      "AR01_05_GripRubber",
+      "AR01_06_SatinSteel",
+      "AR01_07_RecessBlack",
+      "AR01_08_OpticalGlass",
+      "AR01_09_SightIndicator"
+    ],
+    "canonical_materials": [
+      "AR01_01_MidnightCeramic",
+      "AR01_02_LagoonPolymer",
+      "AR01_03_WarmPorcelain",
+      "AR01_04_SignalAmber",
+      "AR01_05_GripRubber",
+      "AR01_06_SatinSteel",
+      "AR01_07_RecessBlack",
+      "AR01_08_OpticalGlass",
+      "AR01_09_SightIndicator"
+    ],
+    "world_bbox_m": {
+      "min": [
+        -0.4520000219345093,
+        -0.10635000467300415,
+        -0.3087790012359619
+      ],
+      "max": [
+        0.6274999976158142,
+        0.05100000277161598,
+        0.21739999949932098
+      ],
+      "dimensions": [
+        1.0795000195503235,
+        0.15735000744462013,
+        0.5261790007352829
+      ]
+    },
+    "axis_dimensions_m": {
+      "X": 1.0795000195503235,
+      "Y": 0.15735000744462013,
+      "Z": 0.5261790007352829
+    },
+    "axes_longest_to_shortest": [
+      "X",
+      "Z",
+      "Y"
+    ],
+    "geometry": [
+      {
+        "name": "Receiver_UpperForgedShell",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_LowerShell",
+        "type": "MESH",
+        "evaluated_triangles": 348,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Receiver_MagwellCollar",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_BufferSocket",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_BufferTube",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_BufferAdjustmentBand",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_BufferAdjustmentBand.001",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_BufferAdjustmentBand.002",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_SideCeramicPanel_-1",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Receiver_LowerInset_-1",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_-0.127_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_-0.127_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_0.151_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_0.151_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_-0.09_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_-0.09_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_0.139_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_-1_0.139_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorHub_-1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorPaddle_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorTick_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorTick_-1.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorTick_-1.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_SideCeramicPanel_1",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Receiver_LowerInset_1",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_-0.127_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_-0.127_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_0.151_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_0.151_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_-0.09_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_-0.09_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_0.139_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_Pin_1_0.139_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorHub_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorPaddle_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorTick_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorTick_1.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorTick_1.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_IdentityRecess",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_IdentityPlate",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_TIDELINE",
+        "type": "FONT",
+        "evaluated_triangles": 1292,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Receiver_AR01",
+        "type": "FONT",
+        "evaluated_triangles": 8460,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_IDStripe",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_AmberInlay",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_AmberInlay.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_AmberInlay.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Receiver_PortRecess",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Receiver_PortInner",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_DustCover",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_DustCoverHinge",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_ChargingLatch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Receiver_ChargingGrip_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Receiver_BoltCatch_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_ChargingGrip_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Receiver_BoltCatch_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Trigger_Guard",
+        "type": "MESH",
+        "evaluated_triangles": 476,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Trigger_Curved",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Handguard_OpenOctagonalShell",
+        "type": "MESH",
+        "evaluated_triangles": 15912,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer",
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Barrel_Main",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Handguard_EndCollar",
+        "type": "MESH",
+        "evaluated_triangles": 768,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Socket.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Handguard_EndCollar.001",
+        "type": "MESH",
+        "evaluated_triangles": 768,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Head.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Socket.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Head.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Handguard_CollarBolt_Socket.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Handguard_SideSpine_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_Serial_-1",
+        "type": "FONT",
+        "evaluated_triangles": 2188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_SideSpine_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.008",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_IndexMark.009",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Handguard_Serial_1",
+        "type": "FONT",
+        "evaluated_triangles": 2188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Rail_TopSpine",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_00",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_01",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_02",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_03",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_04",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_05",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_06",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_07",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_08",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_09",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_10",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_11",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_12",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_13",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_14",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_15",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_16",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_17",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_18",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_19",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_20",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_21",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_22",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_23",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_24",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_25",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_26",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_27",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_28",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_29",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_30",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_31",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_32",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_33",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_34",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomSpine",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Rail_BottomTooth_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Barrel_Exposed",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Barrel_Collar",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Barrel_Collar.001",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Barrel_Collar.002",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Muzzle_HollowShroud",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Muzzle_RearAmberRing",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_FrontSteelLip",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Muzzle_LongitudinalInset_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Muzzle_AmberTip_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Foregrip_RailClamp",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Foregrip_Main",
+        "type": "MESH",
+        "evaluated_triangles": 268,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Foregrip_RubberPanel_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_ClampBolt_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Foregrip_ClampBolt_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_RubberPanel_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_ClampBolt_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Foregrip_ClampBolt_Socket.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.008",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.009",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.010",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.011",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.012",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_Traction.013",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_AmberBase",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Stock_CheekSupport",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_RaisedCheekPad",
+        "type": "MESH",
+        "evaluated_triangles": 300,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Stock_CheekCrown",
+        "type": "MESH",
+        "evaluated_triangles": 204,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_OpenFrontCollar",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_CollarTrim",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_RearSpine",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_LowerSkeletonRail",
+        "type": "MESH",
+        "evaluated_triangles": 204,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_ForwardSkeletonBrace",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_RearDiagonalBrace",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Stock_CheekInsert_L",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_RearSpineInset_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_BraceAccent_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_BraceSafetyStripe_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Stock_CombRear_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombRear_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_CombRear_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFront_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFront_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_CombFront_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_BracePivot_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_BracePivot_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_BracePivot_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelUpper_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelUpper_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_HeelUpper_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelLower_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelLower_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_HeelLower_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_L_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_L_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_L_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_L_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_L_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CheekInsert_R",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_RearSpineInset_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_BraceAccent_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_BraceSafetyStripe_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Stock_CombRear_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombRear_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_CombRear_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFront_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFront_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_CombFront_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_BracePivot_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_BracePivot_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_BracePivot_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelUpper_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelUpper_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_HeelUpper_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelLower_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelLower_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_HeelLower_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_R_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_R_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_R_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_R_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_CombFineGroove_R_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_ButtMountingPlate",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_ButtAccentLayer",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Stock_ThickRubberButtPad",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_RubberButtTread_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_HeelIdentificationTile",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentLeverPivot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentLever",
+        "type": "MESH",
+        "evaluated_triangles": 332,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Stock_LeverThumbRib_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Stock_LeverThumbRib_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Stock_LeverThumbRib_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Stock_LeverThumbRib_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Stock_SlingSocketBracket",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_OpenSlingRing",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Stock_SlingSocketPin",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_MainPolymer",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_Backstrap",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_FingerFrontstrap",
+        "type": "MESH",
+        "evaluated_triangles": 268,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_InsetPalmPanel_L",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Grip_UpperFastener_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_UpperFastener_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Grip_UpperFastener_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_LowerFastener_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_LowerFastener_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Grip_LowerFastener_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_00_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_00_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_01_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_01_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_02_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_02_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_03_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_03_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_04_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_04_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_05_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_05_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_06_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_06_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_L_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_07_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_L_07_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_IndexRest_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_OrangeIndexMarker_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Grip_InsetPalmPanel_R",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Grip_UpperFastener_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_UpperFastener_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Grip_UpperFastener_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_LowerFastener_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_LowerFastener_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Grip_LowerFastener_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_00_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_00_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_01_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_01_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_02_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_02_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_03_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_03_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_04_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_04_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_05_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_05_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_06_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_06_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureRib_R_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_07_0",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_PalmTextureStud_R_07_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Grip_IndexRest_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Grip_OrangeIndexMarker_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_FrontstrapTraction_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_BaseCap",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Grip_BaseCapIvoryInlay",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Grip_OpenLanyardEye",
+        "type": "MESH",
+        "evaluated_triangles": 1024,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedShell",
+        "type": "MESH",
+        "evaluated_triangles": 996,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_UpperRetentionCollar",
+        "type": "MESH",
+        "evaluated_triangles": 396,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_TopWarmWhiteTrim",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_RecessedSideField_L",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_L_0",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_L_1",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_L_2",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_L_3",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_FrontEdgeAccent_L",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_L_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_L_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_L_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_L_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_L_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_L_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_L_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_L_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_L_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_L_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_L_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_L_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_UpperPanelFixing_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_UpperPanelFixing_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_UpperPanelFixing_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_LowerPanelFixing_L_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_LowerPanelFixing_L_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_LowerPanelFixing_L_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_RecessedSideField_R",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_R_0",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_R_1",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_R_2",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_CurvedFluteRidge_R_3",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_FrontEdgeAccent_R",
+        "type": "MESH",
+        "evaluated_triangles": 668,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_R_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_R_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_R_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_R_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_R_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_R_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_R_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_R_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_R_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_WitnessWindowBezel_R_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "Magazine_OrangeWitnessWindow_R_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_WindowUpperGlint_R_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_UpperPanelFixing_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_UpperPanelFixing_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_UpperPanelFixing_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_LowerPanelFixing_R_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_LowerPanelFixing_R_HexHead",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "Magazine_LowerPanelFixing_R_HexSocket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FrontSpineTraction_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_RearSpineTraction_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateUpperSeal",
+        "type": "MESH",
+        "evaluated_triangles": 356,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateWarmWhiteRim",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_ThickRubberFloorPlate",
+        "type": "MESH",
+        "evaluated_triangles": 356,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateReleaseTab",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateBottomTraction_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateBottomTraction_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateBottomTraction_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Magazine_FloorPlateBottomTraction_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "Stock_Marking_CTS",
+        "type": "FONT",
+        "evaluated_triangles": 3988,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "Magazine_CapacityMarking",
+        "type": "FONT",
+        "evaluated_triangles": 2912,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_RailSaddle",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_LowerDeck",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_UpperDeck",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampJaw_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_-1_-0.028_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_-1_-0.028_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_-1_0.028_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_-1_0.028_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampJaw_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_1_-0.028_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_1_-0.028_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_1_0.028_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ClampBolt_1_0.028_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleasePivotPlate",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleasePivot",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleaseLever",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleaseGrip",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleaseGripRib_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleaseGripRib_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ReleaseGripRib_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ElectronicsBody",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_RearLedge",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_FrontLedge",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_OpenHood",
+        "type": "MESH",
+        "evaluated_triangles": 768,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ForwardRim",
+        "type": "MESH",
+        "evaluated_triangles": 768,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_RearRim",
+        "type": "MESH",
+        "evaluated_triangles": 768,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_Optic_InnerLensGasket",
+        "type": "MESH",
+        "evaluated_triangles": 768,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_CyanLens",
+        "type": "MESH",
+        "evaluated_triangles": 28,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_08_OpticalGlass"
+        ]
+      },
+      {
+        "name": "ACC_Optic_AimDot",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_09_SightIndicator"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodSideInlay_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_-1_-0.01_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_-1_-0.01_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_-1_0.023_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_-1_0.023_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodSideInlay_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_1_-0.01_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_1_-0.01_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_1_0.023_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_HoodScrew_1_0.023_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialSeat",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_WindageDial",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialCenter",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialCoinSlot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_11",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_12",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_13",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_14",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_15",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_16",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_17",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_18",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialHash_19",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_Optic_DialIndex",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ControlPad_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ControlSymbolHorizontal_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ControlPad_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ControlSymbolHorizontal_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_ControlSymbolVertical",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_OriginalEmblem_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_OriginalEmblem_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_OriginalEmblem_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_Optic_StatusLED",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_09_SightIndicator"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_RailShoe",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_HingeYoke",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_HingePin",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_HingeCap_-1",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_HingeCap_1",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_FoldedArm",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_PeepRing",
+        "type": "MESH",
+        "evaluated_triangles": 1280,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_PeepInner",
+        "type": "MESH",
+        "evaluated_triangles": 1280,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_FoldLatch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_LatchMark",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_Mount_-0.131_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_Mount_-0.131_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_Mount_-0.109_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_RearIron_Mount_-0.109_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_RailShoe",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_HingeBlock",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_HingePin",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_HingeCap_-1",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_FoldedGuard_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_GuardInlay_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_HingeCap_1",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_FoldedGuard_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_GuardInlay_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_FoldedBlade",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_PostTip",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_PostMark",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_Mount_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_FrontIron_Mount_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_RailClamp",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_IsolationPad",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_Housing",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_TopShell",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_LeadingShoulder",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_OpticBezel",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_OpticGasket",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CyanLens",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_08_OpticalGlass"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_Sensor",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_09_SightIndicator"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_ButtonSurround",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_02_LagoonPolymer"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_Button",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_ButtonMark",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CoolingRib_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CoolingRib_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CoolingRib_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CoolingRib_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_RearAccent_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_RearAccent_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_RearAccent_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CaseScrew_0.343_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CaseScrew_0.343_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CaseScrew_0.412_Head",
+        "type": "MESH",
+        "evaluated_triangles": 636,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_CaseScrew_0.412_Slot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_TopSwitch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_SwitchIndex",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "ACC_SideModule_EndCap",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_05_GripRubber"
+        ]
+      }
+    ],
+    "asset_collection": "ASSET_TIDELINE_AR01",
+    "asset_marked": true,
+    "asset_description": "TIDELINE AR-01 | original detailed stylized modular assault rifle | metres +X muzzle +Z up"
+  },
+  "fbx": {
+    "objects": 1,
+    "mesh_objects": 1,
+    "geometry_objects": 1,
+    "empty_objects": 0,
+    "evaluated_vertices": 105672,
+    "raw_triangles": 202184,
+    "evaluated_triangles": 202184,
+    "mesh_uv_layers_min": 2,
+    "mesh_uv_layers_max": 2,
+    "materials": [
+      "AR01_01_MidnightCeramic",
+      "AR01_02_LagoonPolymer",
+      "AR01_03_WarmPorcelain",
+      "AR01_04_SignalAmber",
+      "AR01_05_GripRubber",
+      "AR01_06_SatinSteel",
+      "AR01_07_RecessBlack",
+      "AR01_08_OpticalGlass",
+      "AR01_09_SightIndicator"
+    ],
+    "canonical_materials": [
+      "AR01_01_MidnightCeramic",
+      "AR01_02_LagoonPolymer",
+      "AR01_03_WarmPorcelain",
+      "AR01_04_SignalAmber",
+      "AR01_05_GripRubber",
+      "AR01_06_SatinSteel",
+      "AR01_07_RecessBlack",
+      "AR01_08_OpticalGlass",
+      "AR01_09_SightIndicator"
+    ],
+    "world_bbox_m": {
+      "min": [
+        -0.4520000219345093,
+        -0.10635006427764893,
+        -0.3087790012359619
+      ],
+      "max": [
+        0.6274999976158142,
+        0.05100002884864807,
+        0.21739999949932098
+      ],
+      "dimensions": [
+        1.0795000195503235,
+        0.157350093126297,
+        0.5261790007352829
+      ]
+    },
+    "axis_dimensions_m": {
+      "X": 1.0795000195503235,
+      "Y": 0.157350093126297,
+      "Z": 0.5261790007352829
+    },
+    "axes_longest_to_shortest": [
+      "X",
+      "Z",
+      "Y"
+    ],
+    "geometry": [
+      {
+        "name": "SM_TW_TIDELINE_AR01",
+        "type": "MESH",
+        "evaluated_triangles": 202184,
+        "uv_layers": 2,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_02_LagoonPolymer",
+          "AR01_06_SatinSteel",
+          "AR01_03_WarmPorcelain",
+          "AR01_07_RecessBlack",
+          "AR01_04_SignalAmber",
+          "AR01_05_GripRubber",
+          "AR01_08_OpticalGlass",
+          "AR01_09_SightIndicator"
+        ]
+      }
+    ],
+    "import_orientation": {
+      "use_manual_orientation": false,
+      "mode": "Blender default import using FBX axis metadata",
+      "source_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.15735000744462013,
+        "Z": 0.5261790007352829
+      },
+      "observed_axis_dimensions_m": {
+        "X": 1.0795000195503235,
+        "Y": 0.157350093126297,
+        "Z": 0.5261790007352829
+      }
+    }
+  },
+  "glb": {
+    "objects": 12,
+    "mesh_objects": 11,
+    "geometry_objects": 11,
+    "empty_objects": 1,
+    "evaluated_vertices": 324346,
+    "raw_triangles": 202184,
+    "evaluated_triangles": 202184,
+    "mesh_uv_layers_min": 1,
+    "mesh_uv_layers_max": 2,
+    "materials": [
+      "AR01_01_MidnightCeramic",
+      "AR01_02_LagoonPolymer",
+      "AR01_03_WarmPorcelain",
+      "AR01_04_SignalAmber",
+      "AR01_05_GripRubber",
+      "AR01_06_SatinSteel",
+      "AR01_07_RecessBlack",
+      "AR01_08_OpticalGlass",
+      "AR01_09_SightIndicator"
+    ],
+    "canonical_materials": [
+      "AR01_01_MidnightCeramic",
+      "AR01_02_LagoonPolymer",
+      "AR01_03_WarmPorcelain",
+      "AR01_04_SignalAmber",
+      "AR01_05_GripRubber",
+      "AR01_06_SatinSteel",
+      "AR01_07_RecessBlack",
+      "AR01_08_OpticalGlass",
+      "AR01_09_SightIndicator"
+    ],
+    "world_bbox_m": {
+      "min": [
+        -0.4520000219345093,
+        -0.10635000467300415,
+        -0.3087790012359619
+      ],
+      "max": [
+        0.6274999976158142,
+        0.05100000277161598,
+        0.21739999949932098
+      ],
+      "dimensions": [
+        1.0795000195503235,
+        0.15735000744462013,
+        0.5261790007352829
+      ]
+    },
+    "axis_dimensions_m": {
+      "X": 1.0795000195503235,
+      "Y": 0.15735000744462013,
+      "Z": 0.5261790007352829
+    },
+    "axes_longest_to_shortest": [
+      "X",
+      "Z",
+      "Y"
+    ],
+    "geometry": [
+      {
+        "name": "AR01_Foregrip",
+        "type": "MESH",
+        "evaluated_triangles": 4404,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel",
+          "AR01_01_MidnightCeramic",
+          "AR01_05_GripRubber",
+          "AR01_07_RecessBlack",
+          "AR01_02_LagoonPolymer",
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "AR01_FrontSight",
+        "type": "MESH",
+        "evaluated_triangles": 4424,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_03_WarmPorcelain",
+          "AR01_06_SatinSteel",
+          "AR01_02_LagoonPolymer",
+          "AR01_04_SignalAmber",
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "AR01_Magazine",
+        "type": "MESH",
+        "evaluated_triangles": 27556,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_07_RecessBlack",
+          "AR01_03_WarmPorcelain",
+          "AR01_02_LagoonPolymer",
+          "AR01_06_SatinSteel",
+          "AR01_04_SignalAmber",
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "AR01_Muzzle",
+        "type": "MESH",
+        "evaluated_triangles": 7616,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_04_SignalAmber",
+          "AR01_06_SatinSteel",
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "AR01_Optic",
+        "type": "MESH",
+        "evaluated_triangles": 21644,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel",
+          "AR01_01_MidnightCeramic",
+          "AR01_02_LagoonPolymer",
+          "AR01_07_RecessBlack",
+          "AR01_04_SignalAmber",
+          "AR01_03_WarmPorcelain",
+          "AR01_05_GripRubber",
+          "AR01_08_OpticalGlass",
+          "AR01_09_SightIndicator"
+        ]
+      },
+      {
+        "name": "AR01_PistolGrip",
+        "type": "MESH",
+        "evaluated_triangles": 24312,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_05_GripRubber",
+          "AR01_02_LagoonPolymer",
+          "AR01_07_RecessBlack",
+          "AR01_06_SatinSteel",
+          "AR01_04_SignalAmber",
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "AR01_RearSight",
+        "type": "MESH",
+        "evaluated_triangles": 7056,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_03_WarmPorcelain",
+          "AR01_06_SatinSteel",
+          "AR01_02_LagoonPolymer",
+          "AR01_07_RecessBlack",
+          "AR01_05_GripRubber",
+          "AR01_04_SignalAmber"
+        ]
+      },
+      {
+        "name": "AR01_ReceiverAndHandguard",
+        "type": "MESH",
+        "evaluated_triangles": 59668,
+        "uv_layers": 2,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_02_LagoonPolymer",
+          "AR01_06_SatinSteel",
+          "AR01_03_WarmPorcelain",
+          "AR01_07_RecessBlack",
+          "AR01_04_SignalAmber",
+          "AR01_05_GripRubber"
+        ]
+      },
+      {
+        "name": "AR01_SideModule",
+        "type": "MESH",
+        "evaluated_triangles": 9120,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_06_SatinSteel",
+          "AR01_05_GripRubber",
+          "AR01_01_MidnightCeramic",
+          "AR01_03_WarmPorcelain",
+          "AR01_02_LagoonPolymer",
+          "AR01_08_OpticalGlass",
+          "AR01_09_SightIndicator",
+          "AR01_04_SignalAmber",
+          "AR01_07_RecessBlack"
+        ]
+      },
+      {
+        "name": "AR01_Stock",
+        "type": "MESH",
+        "evaluated_triangles": 35656,
+        "uv_layers": 2,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_06_SatinSteel",
+          "AR01_05_GripRubber",
+          "AR01_02_LagoonPolymer",
+          "AR01_04_SignalAmber",
+          "AR01_07_RecessBlack",
+          "AR01_03_WarmPorcelain"
+        ]
+      },
+      {
+        "name": "AR01_Trigger",
+        "type": "MESH",
+        "evaluated_triangles": 728,
+        "uv_layers": 1,
+        "materials": [
+          "AR01_01_MidnightCeramic",
+          "AR01_04_SignalAmber"
+        ]
+      }
+    ]
+  }
+}

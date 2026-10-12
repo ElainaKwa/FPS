@@ -1,0 +1,48 @@
+{
+  "asset": "M7_BLACK",
+  "source_file": "M7_BLACK_Stylized.blend",
+  "editable_source_objects": 579,
+  "source_meshes": 559,
+  "gltf_detachable_parts": 10,
+  "triangles": 274808,
+  "vertices": 144320,
+  "materials": [
+    "M7_01_BlackAnodized",
+    "M7_04_GraphiteHardware",
+    "M7_06_DeepRecess",
+    "M7_07_MutedEngraving",
+    "M7_05_DarkSatinSteel",
+    "M7_03_BlackRubber",
+    "M7_02_CharcoalPolymer",
+    "M7_09_LensCoating"
+  ],
+  "dimensions_m": [
+    1.2357500195503235,
+    0.10209999978542328,
+    0.3974050134420395
+  ],
+  "axis": "+X muzzle / +Z up; metres",
+  "uv_layers": 2,
+  "style": "Realistic M7-inspired silhouette, black/charcoal realistic palette, restrained stylized edges",
+  "exports": [
+    "Exports/SM_TW_M7_BLACK.fbx",
+    "Exports/SM_TW_M7_BLACK.glb"
+  ],
+  "rigged": false,
+  "textures": "Named black/gray Principled materials, UVs, geometric surface details; no external textures",
+  "parts": [
+    "ReceiverHandguardBarrel",
+    "Stock",
+    "Trigger",
+    "Muzzle",
+    "Foregrip",
+    "Grip",
+    "Magazine",
+    "Optic",
+    "RearSight",
+    "FrontSight"
+  ],
+  "unreal_import_status": "not imported or tested in Unreal Editor",
+  "source_hierarchy": "10 named M7_PART_ empties under M7_Root",
+  "fbx_axis_note": "FBX metadata +X forward +Z up; use_space_transform=True. Default Blender reimport restores source XYZ geometry."
+}

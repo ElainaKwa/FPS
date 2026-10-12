@@ -1,0 +1,130 @@
+{
+  "generator": "ArtSource/FPSDemo/Environment/CrossingKit/Scripts/build_crossing_kit.py",
+  "shared_helpers": "Tools/build_industrial_art.py",
+  "blender": "5.2.2 LTS",
+  "units": "meters in Blender, centimeters in Unreal",
+  "assets": [
+    {
+      "name": "SM_IC_Portal600",
+      "category": "Meshes",
+      "file": "Exports/SM_IC_Portal600.fbx",
+      "bounds_m": {
+        "min": [
+          -0.4749999940395355,
+          -3.700000047683716,
+          0.0
+        ],
+        "max": [
+          0.4749999940395355,
+          3.6999998092651367,
+          5.659999847412109
+        ]
+      },
+      "triangles": 2256,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IC_Cargo180",
+      "category": "Meshes",
+      "file": "Exports/SM_IC_Cargo180.fbx",
+      "bounds_m": {
+        "min": [
+          -0.9100000262260437,
+          -0.9800000190734863,
+          -0.010000050067901611
+        ],
+        "max": [
+          0.9100000262260437,
+          0.9800000190734863,
+          1.809999942779541
+        ]
+      },
+      "triangles": 4324,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IC_Vent150",
+      "category": "Meshes",
+      "file": "Exports/SM_IC_Vent150.fbx",
+      "bounds_m": {
+        "min": [
+          -0.2118692696094513,
+          -0.75,
+          -0.5
+        ],
+        "max": [
+          0.07999999821186066,
+          0.75,
+          0.5
+        ]
+      },
+      "triangles": 1692,
+      "materials": [
+        "MI_IND_Steel",
+        "MI_IND_Rubber",
+        "MI_IND_Graphite"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IC_ServicePipe400",
+      "category": "Meshes",
+      "file": "Exports/SM_IC_ServicePipe400.fbx",
+      "bounds_m": {
+        "min": [
+          -2.0,
+          -0.25,
+          0.0
+        ],
+        "max": [
+          2.0,
+          0.25,
+          1.5600000619888306
+        ]
+      },
+      "triangles": 3292,
+      "materials": [
+        "MI_IND_Steel",
+        "MI_IND_Graphite"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IC_Bollard120",
+      "category": "Meshes",
+      "file": "Exports/SM_IC_Bollard120.fbx",
+      "bounds_m": {
+        "min": [
+          -0.2750000059604645,
+          -0.2750000059604645,
+          0.0
+        ],
+        "max": [
+          0.2750000059604645,
+          0.2750000059604645,
+          1.3000000715255737
+        ]
+      },
+      "triangles": 752,
+      "materials": [
+        "MI_IND_Concrete",
+        "MI_IND_Graphite",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    }
+  ],
+  "material_source": "ArtSource/FPSDemo/Industrial/manifest.json",
+  "unreal_material_root": "/Game/FPSDemo/Art/Industrial/Materials"
+}

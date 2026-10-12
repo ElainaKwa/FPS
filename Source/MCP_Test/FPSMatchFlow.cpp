@@ -4,6 +4,7 @@
 #include "FPSLoadoutSmoke.h"
 #include "FPSDynamicDrops.h"
 #include "FPSDropSmoke.h"
+#include "FPSMovementSmoke.h"
 #include "FPSModeRules.h"
 #include "FPSBaseRegion.h"
 #include "Camera/CameraActor.h"
@@ -124,6 +125,7 @@ void AFPSMatchMode::BeginPlay()
     FFPSCharacterSmoke::Start(this);
     FFPSLoadoutSmoke::Start(this);
     FFPSDropSmoke::Start(this);
+    FFPSMovementSmoke::Start(this);
     FFPSWeaponSmoke::Start(this);
     FFPSAISmoke::Start(this);
     FFPSDifficultySmoke::Start(this);
@@ -220,6 +222,7 @@ FString AFPSMatchMode::InitNewPlayer(APlayerController* NewPlayer, const FUnique
     if (!Error.IsEmpty()) return Error;
     if (auto* PS = NewPlayer->GetPlayerState<AFPSDemoPlayerState>())
     {
+        if(NewPlayer->IsLocalController()) GetGameState<AFPSDemoGameState>()->HostPlayerId=PS->GetPlayerId();
         PS->TeamId = TeamSize(0) <= TeamSize(1) ? 0 : 1;
         PS->ForceNetUpdate();
     }

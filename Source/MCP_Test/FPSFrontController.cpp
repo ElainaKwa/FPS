@@ -1,14 +1,20 @@
 #include "FPSMatchFlow.h"
+#include "FPSUIStyle.h"
+#include "FPSInterface.h"
 #include "FPSAcceptanceSmoke.h"
 #include "FPSLoadoutSmoke.h"
 #include "FPSDropSmoke.h"
+#include "FPSMovementSmoke.h"
 #include "FPSCharacterTravelSmoke.h"
+#include "FPSArtCapture.h"
 
 #include "FPSDemoGameState.h"
 #include "FPSDemoPlayerState.h"
 #include "FPSDemoCharacter.h"
 #include "FPSBaseMembership.h"
 #include "FPSLoadoutMenu.h"
+#include "FPSCustomizationMenu.h"
+#include "FPSWeaponComponent.h"
 #include "FPSFrontGameInstance.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
@@ -22,6 +28,9 @@
 #include "Widgets/Layout/SBorder.h"
 #include "Widgets/Layout/SBox.h"
 #include "Widgets/Layout/SScrollBox.h"
+#include "Widgets/Layout/SExpandableArea.h"
+#include "Widgets/Layout/SScaleBox.h"
+#include "Widgets/Images/SImage.h"
 #include "Widgets/SBoxPanel.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Misc/CommandLine.h"
@@ -33,25 +42,7 @@ bool IsLobby(const UWorld* World)
     return World && World->GetGameState<AFPSLobbyState>();
 }
 
-bool IsValidAddress(const FString& Address)
-{
-    FString Host = Address;
-    FString Port;
-    if (Address.Split(TEXT(":"), &Host, &Port))
-    {
-        if (Port.IsEmpty() || !Port.IsNumeric() || FCString::Atoi(*Port) < 1 || FCString::Atoi(*Port) > 65535) return false;
-    }
-    TArray<FString> Parts;
-    Host.ParseIntoArray(Parts, TEXT("."), false);
-    if (Parts.Num() != 4) return false;
-    for (const FString& Part : Parts)
-    {
-        if (Part.IsEmpty() || Part.Len() > 3) return false;
-        for (TCHAR C : Part) if (C < '0' || C > '9') return false;
-        if (FCString::Atoi(*Part) > 255) return false;
-    }
-    return true;
-}
+
 }
 
 void AFPSFrontController::BeginPlay()
@@ -65,12 +56,16 @@ void AFPSFrontController::BeginPlay()
     LoadoutAction = NewObject<UInputAction>(this);
     LoadoutAction->ValueType = EInputActionValueType::Boolean;
     MenuContext->MapKey(LoadoutAction, EKeys::P);
+    CustomizationAction = NewObject<UInputAction>(this);
+    CustomizationAction->ValueType = EInputActionValueType::Boolean;
+    MenuContext->MapKey(CustomizationAction, EKeys::B);
     if (auto* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
         Subsystem->AddMappingContext(MenuContext, 20);
     if (auto* Input = Cast<UEnhancedInputComponent>(InputComponent))
     {
         Input->BindAction(MenuAction, ETriggerEvent::Started, this, &AFPSFrontController::ToggleMenu);
         Input->BindAction(LoadoutAction, ETriggerEvent::Started, this, &AFPSFrontController::ToggleLoadout);
+        Input->BindAction(CustomizationAction, ETriggerEvent::Started, this, &AFPSFrontController::ToggleCustomization);
     }
     RefreshMenu();
 }
@@ -86,14 +81,23 @@ void AFPSFrontController::Tick(float DeltaSeconds)
     FFPSAcceptanceSmoke::Tick(this, DeltaSeconds);
     FFPSLoadoutSmoke::Tick(this);
     FFPSDropSmoke::Tick(this);
+    FFPSMovementSmoke::Tick(this, DeltaSeconds);
     FFPSCharacterTravelSmoke::Tick(this);
+    FFPSArtCapture::Tick(this);
     if (!IsLocalController()) return;
+    if (CustomizationMenu.IsValid())
+    {
+        const auto* Body = Cast<AFPSDemoCharacter>(GetPawn());
+        if (!Body || Body != CustomizationBody.Get() || Body->IsEliminated() || !Body->GetWeapons()->IsCustomizationOpen()) HideCustomization();
+    }
     if (LoadoutMenu.IsValid())
     {
+        LoadoutMenu->SetRenderOpacity(.35f+.65f*FMath::Clamp(float((GetWorld()->GetTimeSeconds()-LoadoutOpenedAt)/.15),0.f,1.f));
         auto* Body = Cast<AFPSDemoCharacter>(GetPawn());
         const auto* Membership = Body ? Body->FindComponentByClass<UFPSBaseMembership>() : nullptr;
         if (Body != LoadoutBody.Get() || !Membership || !Membership->CanSelect()) HideLoadout();
     }
+    if(Menu.IsValid()) Menu->SetRenderOpacity(.35f+.65f*FMath::Clamp(float((GetWorld()->GetTimeSeconds()-MenuOpenedAt)/.15),0.f,1.f));
     const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
 #if !UE_BUILD_SHIPPING
     if (GS && FParse::Param(FCommandLine::Get(), TEXT("FPSFlowSmoke")))
@@ -129,6 +133,7 @@ void AFPSFrontController::RefreshMenu()
 
 void AFPSFrontController::EndPlay(const EEndPlayReason::Type Reason)
 {
+    HideCustomization();
     HideLoadout();
     HideMenu();
     if (GetLocalPlayer())
@@ -139,6 +144,7 @@ void AFPSFrontController::EndPlay(const EEndPlayReason::Type Reason)
 
 void AFPSFrontController::ToggleMenu()
 {
+    if (CustomizationMenu.IsValid()) { HideCustomization(); return; }
     if (LoadoutMenu.IsValid()) { HideLoadout(); return; }
     if (bWasWaiting) return;
     if (Menu.IsValid()) HideMenu(); else ShowMenu();
@@ -149,6 +155,7 @@ void AFPSFrontController::HideMenu()
     if (Menu.IsValid() && GetWorld() && GetWorld()->GetGameViewport())
         GetWorld()->GetGameViewport()->RemoveViewportWidgetForPlayer(GetLocalPlayer(), Menu.ToSharedRef());
     Menu.Reset();
+    MenuAsset=nullptr;
     bShowMouseCursor = false;
     SetInputMode(FInputModeGameOnly());
     SetIgnoreMoveInput(false);
@@ -171,7 +178,7 @@ FString AFPSFrontController::StatusText() const
         if (!Instance->ConnectionError.IsEmpty()) return Instance->ConnectionError;
     if (!Error.IsEmpty()) return Error;
     const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
-    if (!GS) return TEXT("局域网房间支持 2–10 人，每队最多 5 人。\n操作：WASD 移动 / 鼠标射击 / Space 跳跃 / Esc 菜单");
+    if (!GS) return TEXT("局域网联机支持 2–10 人，每队最多 5 人。");
     FString Text = GS->bTraining ? TEXT("靶场 · 单人练习\n") : GS->bFinished ? TEXT("对局结束 · 前三名\n") : GS->bWaiting ? GS->RoomName + TEXT(" · 等待房主开始\n") : TEXT("对局进行中（菜单不暂停计时）\n");
     if (GS->bFinished)
     {
@@ -195,82 +202,16 @@ FString AFPSFrontController::StatusText() const
 
 void AFPSFrontController::ShowMenu()
 {
+    HideCustomization();
     if (!IsLocalController() || !GetLocalPlayer() || Menu.IsValid() || !GetWorld()->GetGameViewport()) return;
     HideLoadout();
     if (auto* Fighter = Cast<AFPSDemoCharacter>(GetPawn())) Fighter->StopCombatInput();
-    auto Rows = SNew(SVerticalBox);
-    Rows->AddSlot().AutoHeight().Padding(0, 0, 0, 18)
-        [SNew(STextBlock).Text(FText::FromString(TEXT("FPS DEMO  /  作战大厅"))).Font(FCoreStyle::GetDefaultFontStyle("Bold", 34))];
-    auto AddLabel = [&Rows](const FString& Label)
-    {
-        Rows->AddSlot().AutoHeight().Padding(0, 10, 0, 6)
-            [SNew(STextBlock).Text(FText::FromString(Label)).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).AutoWrapText(true)];
-    };
-    auto AddButton = [&Rows](const FString& Label, TFunction<FReply()> Action)
-    {
-        Rows->AddSlot().AutoHeight().Padding(0, 5)
-            [SNew(SButton).ContentPadding(FMargin(14, 10)).OnClicked_Lambda(MoveTemp(Action))
-                [SNew(STextBlock).Text(FText::FromString(Label)).Font(FCoreStyle::GetDefaultFontStyle("Regular", 22))]];
-    };
-    if (IsLobby(GetWorld()))
-    {
-        AddLabel(TEXT("单机模式 · 输入人机数量（0–9）"));
-        Rows->AddSlot().AutoHeight()[SAssignNew(BotInput, SEditableTextBox).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).Text(FText::FromString(TEXT("3")))];
-        Rows->AddSlot().AutoHeight().Padding(0, 8)
-            [SNew(SButton).OnClicked_Lambda([this]() { SelectedDifficulty = EFPSDifficulty((int32(SelectedDifficulty) + 1) % 3); return FReply::Handled(); })
-                [SNew(STextBlock).Text_Lambda([this]() { return FText::FromString(SelectedDifficulty == EFPSDifficulty::Easy ? TEXT("单机难度：简单（点击切换）") : SelectedDifficulty == EFPSDifficulty::Hard ? TEXT("单机难度：困难（点击切换）") : TEXT("单机难度：普通（点击切换）")); }).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20))]];
-        AddButton(TEXT("开始单机对局 · 5 分钟"), [this]()
-        {
-            const FString Value = BotInput->GetText().ToString().TrimStartAndEnd();
-            bool bValid = !Value.IsEmpty() && Value.Len() <= 1 && Value[0] >= '0' && Value[0] <= '9';
-            if (!bValid) { Error = TEXT("请输入 0–9 的整数人机数量。"); return FReply::Handled(); }
-            Travel(FString::Printf(TEXT("Mode=Solo?Bots=%d?Difficulty=%s"), FCString::Atoi(*Value), SelectedDifficulty == EFPSDifficulty::Easy ? TEXT("Easy") : SelectedDifficulty == EFPSDifficulty::Hard ? TEXT("Hard") : TEXT("Normal")));
-            return FReply::Handled();
-        });
-        AddButton(TEXT("进入靶场 · 单人"), [this]() { Travel(TEXT("Mode=Training")); return FReply::Handled(); });
-        AddLabel(TEXT("联机模式 · 房间名称（最多 24 字符）"));
-        Rows->AddSlot().AutoHeight()[SAssignNew(RoomInput, SEditableTextBox).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).Text(FText::FromString(TEXT("FPS Room")))];
-        AddButton(TEXT("创建局域网房间"), [this]()
-        {
-            FString Name = RoomInput->GetText().ToString().TrimStartAndEnd().Left(24);
-            for (TCHAR& C : Name) if (C == '?' || C == '#' || C == '/' || C == '\\' || C == ':' || C < 32) C = '_';
-            Travel(TEXT("listen?Mode=LAN?Room=") + Name);
-            return FReply::Handled();
-        });
-        AddLabel(TEXT("加入房间 · 房主 IPv4 地址，可带端口（默认 7777）"));
-        Rows->AddSlot().AutoHeight()[SAssignNew(AddressInput, SEditableTextBox).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).Text(FText::FromString(TEXT("127.0.0.1")))];
-        AddButton(TEXT("加入房间"), [this]()
-        {
-            const FString Address = AddressInput->GetText().ToString().TrimStartAndEnd();
-            if (!IsValidAddress(Address)) { Error = TEXT("请输入有效 IPv4 地址，如 192.168.1.10:7777。"); return FReply::Handled(); }
-            Error = TEXT("正在连接房间……");
-            if (auto* Instance = GetGameInstance<UFPSFrontGameInstance>()) Instance->ConnectionError.Empty();
-            ClientTravel(Address, TRAVEL_Absolute);
-            return FReply::Handled();
-        });
-    }
-    else
-    {
-        const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
-        if (GS && GS->bWaiting)
-        {
-            AddButton(TEXT("切换阵营"), [this]() { ServerSwitchTeam(); return FReply::Handled(); });
-            if (HasAuthority()) AddButton(TEXT("开始对局 · 5 分钟"), [this]() { ServerStartRound(); return FReply::Handled(); });
-        }
-        if (GS && !GS->bWaiting && !GS->bFinished)
-            AddButton(TEXT("继续游戏"), [this]() { HideMenu(); return FReply::Handled(); });
-        AddButton(HasAuthority() && GetNetMode() == NM_ListenServer ? TEXT("关闭房间并返回大厅") : TEXT("返回大厅"), [this]()
-        {
-            HideMenu();
-            UGameplayStatics::OpenLevel(this, TEXT("/Engine/Maps/Entry"), true, TEXT("game=/Script/MCP_Test.FPSLobbyMode"));
-            return FReply::Handled();
-        });
-    }
-    Rows->AddSlot().AutoHeight().Padding(0, 18)
-        [SNew(STextBlock).Text_Lambda([this]() { return FText::FromString(StatusText()); }).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).AutoWrapText(true)];
-    Menu = SNew(SBorder).BorderBackgroundColor(FLinearColor(.015f, .025f, .045f, .97f)).HAlign(HAlign_Center).VAlign(VAlign_Center)
-        [SNew(SBox).WidthOverride(900).Padding(24)
-            [SNew(SScrollBox) + SScrollBox::Slot()[Rows]]];
+    const auto* GS=GetWorld()->GetGameState<AFPSDemoGameState>();
+    const TCHAR* Page=IsLobby(GetWorld()) ? TEXT("Lobby") : GS && GS->bFinished ? TEXT("Report") : GS && GS->bWaiting ? TEXT("Waiting") : TEXT("Pause");
+    MenuAsset=UFPSInterface::Open(this,Page);
+    if(!MenuAsset)return;
+    Menu=MenuAsset->TakeWidget();
+    MenuOpenedAt=GetWorld()->GetTimeSeconds();Menu->SetRenderOpacity(.35f);
     GetWorld()->GetGameViewport()->AddViewportWidgetForPlayer(GetLocalPlayer(), Menu.ToSharedRef(), 50);
     bShowMouseCursor = true;
     FInputModeGameAndUI InputMode;
@@ -282,7 +223,7 @@ void AFPSFrontController::ShowMenu()
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("FPSLobbySmoke")))
     {
-        const bool bCompleteLobby = IsLobby(GetWorld()) && BotInput.IsValid() && RoomInput.IsValid() && AddressInput.IsValid();
+        const bool bCompleteLobby = IsLobby(GetWorld()) && MenuAsset && MenuAsset->HasControl(TEXT("BotInput")) && MenuAsset->HasControl(TEXT("RoomInput")) && MenuAsset->HasControl(TEXT("AddressInput"));
         UE_LOG(LogTemp, Display, TEXT("FPS_LOBBY_SMOKE %s menu-ready role=%s auth-mode=%d"),
             bCompleteLobby ? TEXT("PASS") : TEXT("FAIL"), HasAuthority() ? TEXT("SERVER") : TEXT("CLIENT"),
             GetWorld()->GetAuthGameMode() != nullptr);

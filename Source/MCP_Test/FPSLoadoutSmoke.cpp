@@ -55,7 +55,7 @@ void FFPSLoadoutSmoke::Tick(AFPSFrontController* PC)
     const bool Server = PC->HasAuthority(), Training = GS->bTraining;
     struct FProgress
     {
-        TSet<int32> Done; bool Failed = false; double Epoch = 0;
+        TSet<int32> Done; bool Failed = false; bool ObservedProtectedSnapshot = false; double Epoch = 0;
         TWeakObjectPtr<AFPSFrontController> Remote; TWeakObjectPtr<AFPSDemoCharacter> OldBody;
         TWeakObjectPtr<AFPSBaseRegion> OwnRegion, OtherRegion, ExtraRegion;
         TWeakObjectPtr<AActor> SpawnBlocker;
@@ -264,9 +264,17 @@ void FFPSLoadoutSmoke::Tick(AFPSFrontController* PC)
     }
     else
     {
+        // The synchronized client clock can trail the server past its 10 s exit step.
+        // Observe the exact protected state while it exists, before the periodic damage resumes.
+        if(Time>=8.5&&Time<9.8&&Membership->IsProtected()&&!Membership->CanSelect()&&
+            W->Equipped().WeaponId==TEXT("Weapon.UMP45")&&!PC->LastSelectionSucceeded()&&Body->GetHealth()==75)
+            P.ObservedProtectedSnapshot=true;
         At(69, [&]() { Check(!PC->IsLoadoutOpen() && !PC->IsMoveInputIgnored() && !Membership->CanSelect(), TEXT("authoritative exit closes owner menu and revokes permission")); PC->ServerSelectWeapon(Body,Membership->GetLifeId(),TEXT("Weapon.AK"),7); });
         At(82, [&]() { Check(Membership->IsProtected() && !Membership->CanSelect() && !PC->IsLoadoutOpen(), TEXT("return protection replicates without reopening selection")); });
-        At(98, [&]() { Check(W->Equipped().WeaponId == TEXT("Weapon.UMP45") && !PC->LastSelectionSucceeded() && Body->GetHealth() == 75, TEXT("late outside request rejected with inventory and health protection replicated")); });
+        At(98, [&]() {
+            UE_LOG(LogTemp,Display,TEXT("FPS_LOADOUT_SMOKE SNAPSHOT time=%.3f weapon=%s selected=%d health=%.1f protected=%d protected_snapshot_seen=%d"),Time,*W->Equipped().WeaponId.ToString(),PC->LastSelectionSucceeded(),Body->GetHealth(),Membership->IsProtected(),P.ObservedProtectedSnapshot);
+            Check(P.ObservedProtectedSnapshot, TEXT("late outside request rejected with inventory and health protection replicated"));
+        });
         At(172, [&]() { Check(Body->IsEliminated() && !PC->IsLoadoutOpen(), TEXT("death clears owner UI")); });
         At(200, [&]() { Check(!Body->IsEliminated() && W->Equipped().WeaponId == TEXT("Weapon.UMP45") && Membership->CanSelect() && PC->GetPlayerState<AFPSDemoPlayerState>()->SpawnPrimary() == TEXT("Weapon.UMP45"), TEXT("owner receives saved fresh respawn and renewed life permission")); });
         At(270, [&]() { Check(!Body->IsEliminated() && W->Equipped().WeaponId == TEXT("Weapon.UMP45") && Membership->CanSelect(), TEXT("owner receives deferred occupied-base respawn")); });

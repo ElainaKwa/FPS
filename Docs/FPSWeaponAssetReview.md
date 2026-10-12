@@ -3,7 +3,7 @@
 - 用途：自动生成资料
 - 适用范围：已保存武器定义与地图武器台
 - 状态：只读导出，禁止手工修改
-- 最后更新：2026-10-04
+- 最后更新：2026-10-12
 
 Source: saved Unreal assets. Regenerate with Tools/ValidateFPSWeaponData.ps1 -Export.
 
@@ -16,6 +16,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_AK.DA_AK
 ```text
 WeaponId=Weapon.AK
 DisplayName=NSLOCTEXT("", "BB0478694AE532B61F22CE869323ED28", "AK")
+PlatformId=None
+MountIds=
+AvailableAttachments=
+DefaultAttachments=
 Slot=Primary
 Category=Rifle
 MagazineSize=30
@@ -36,12 +40,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_AK.CR_AK
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.500000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_AK.SM_WP_AK",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_AK.SM_WP_AK",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_AK.SM_WP_AK",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.SM_IND_AK",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.SM_IND_AK",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.SM_IND_AK",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=42.000000,Y=18.000000,Z=-18.000000)
-AimLocation=(X=38.000000,Y=0.000000,Z=-5.700000)
-MuzzleLocation=(X=57.000000,Y=0.000000,Z=0.000000)
+AimLocation=(X=38.000000,Y=0.000000,Z=-7.200001)
+MuzzleLocation=(X=56.349998,Y=0.000000,Z=0.000000)
 AimFOV=62.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_AK.S_Fire_AK
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -49,7 +53,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_AK.SM_WP_AK", "22ea3b1bec30a9ee929cf25f947ffcca26d7a30e;4688e7e64ee5b2a905b845d34ae141c30c0e5168;84db4fc3adf69ae380507e47ead34298c5d81209;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_AK.S_Fire_AK", "ae521ce701062a790cee1e35be9f2984295b3328"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.SM_IND_AK", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;6e16f36697c4fa728f0a658ae68a709000e0ef24;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31;ffc3ab88f191395215bac41b808e3fe0e864ce78"),("/Game/FPSDemo/Audio/S_Fire_AK.S_Fire_AK", "ae521ce701062a790cee1e35be9f2984295b3328"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=1.25 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=1.375 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=1.5 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
@@ -149,6 +153,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_BR3.DA_BR3
 ```text
 WeaponId=Weapon.BR3
 DisplayName=NSLOCTEXT("", "3A3E0C194C613E5A5206609432350E61", "BR-3")
+PlatformId=None
+MountIds=
+AvailableAttachments=
+DefaultAttachments=
 Slot=Primary
 Category=Rifle
 MagazineSize=30
@@ -169,12 +177,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_BR3.CR_BR3
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.650000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.SM_IND_BR3",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.SM_IND_BR3",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.SM_IND_BR3",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=42.000000,Y=18.000000,Z=-18.000000)
-AimLocation=(X=38.000000,Y=0.000000,Z=-6.700000)
-MuzzleLocation=(X=56.000000,Y=0.000000,Z=0.000000)
+AimLocation=(X=38.000000,Y=0.000000,Z=-7.200001)
+MuzzleLocation=(X=58.850002,Y=0.000000,Z=0.000000)
 AimFOV=62.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_M4.S_Fire_M4
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -182,7 +190,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4", "1ad6098815aa6d058e96eaaa5554862260724faa;42c3c63c6e02e4fbeb9fb4a623c0ee31b8b13b89;4688e7e64ee5b2a905b845d34ae141c30c0e5168;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_M4.S_Fire_M4", "c573d556ac962fd89151d8e56a222fda49d20ee3"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.SM_IND_BR3", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;3b9d98757922f960145469d196375df86f3a13d0;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;6e16f36697c4fa728f0a658ae68a709000e0ef24;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"),("/Game/FPSDemo/Audio/S_Fire_M4.S_Fire_M4", "c573d556ac962fd89151d8e56a222fda49d20ee3"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=0.720000029 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=0.814999998 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=0.909999967 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
@@ -282,6 +290,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_HeavyPistol.DA_HeavyPistol
 ```text
 WeaponId=Weapon.HeavyPistol
 DisplayName=NSLOCTEXT("", "4E29F1524F581E1BE11369BD4968F6A4", "Heavy Pistol")
+PlatformId=None
+MountIds=
+AvailableAttachments=
+DefaultAttachments=
 Slot=Secondary
 Category=Pistol
 MagazineSize=7
@@ -302,12 +314,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_HeavyPistol.CR_HeavyPistol
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.500000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_HeavyPistol.SM_WP_HeavyPistol",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_HeavyPistol.SM_WP_HeavyPistol",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=39.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_HeavyPistol.SM_WP_HeavyPistol",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.SM_IND_HeavyPistol",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.SM_IND_HeavyPistol",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=39.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.SM_IND_HeavyPistol",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=32.000000,Y=12.000000,Z=-14.000000)
-AimLocation=(X=24.000000,Y=0.000000,Z=-4.700000)
-MuzzleLocation=(X=26.000000,Y=0.000000,Z=0.600000)
+AimLocation=(X=24.000000,Y=0.000000,Z=-5.100000)
+MuzzleLocation=(X=25.350000,Y=0.000000,Z=0.000000)
 AimFOV=72.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_HeavyPistol.S_Fire_HeavyPistol
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -315,7 +327,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_HeavyPistol.SM_WP_HeavyPistol", "42c3c63c6e02e4fbeb9fb4a623c0ee31b8b13b89;4688e7e64ee5b2a905b845d34ae141c30c0e5168;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;b3c438e5d2a04ee303c213f6e78cc8d7fa004c84;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_HeavyPistol.S_Fire_HeavyPistol", "5708873d4b060116c449b3b460cb14722330012f"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.SM_IND_HeavyPistol", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;ab7c24095358357aa49169d2ba85805878edc12b;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"),("/Game/FPSDemo/Audio/S_Fire_HeavyPistol.S_Fire_HeavyPistol", "5708873d4b060116c449b3b460cb14722330012f"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=2 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=2.20000005 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=2.4000001 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
@@ -349,6 +361,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_M4.DA_M4
 ```text
 WeaponId=Weapon.M4
 DisplayName=NSLOCTEXT("", "929FAB41457E4F5514173A9C8BA78987", "M4")
+PlatformId=Platform.M4
+MountIds=("Mount.Optic","Mount.Muzzle","Mount.Magazine")
+AvailableAttachments=("/Game/FPSDemo/Weapons/Attachments/DA_M4_OpticStandard.DA_M4_OpticStandard","/Game/FPSDemo/Weapons/Attachments/DA_M4_OpticFixed.DA_M4_OpticFixed","/Game/FPSDemo/Weapons/Attachments/DA_M4_MuzzleStandard.DA_M4_MuzzleStandard","/Game/FPSDemo/Weapons/Attachments/DA_M4_MuzzleBrake.DA_M4_MuzzleBrake","/Game/FPSDemo/Weapons/Attachments/DA_M4_MagazineStandard.DA_M4_MagazineStandard","/Game/FPSDemo/Weapons/Attachments/DA_M4_MagazineExtended.DA_M4_MagazineExtended")
+DefaultAttachments=
 Slot=Primary
 Category=Rifle
 MagazineSize=30
@@ -369,12 +385,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_M4.CR_M4
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.500000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.SM_IND_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.SM_IND_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.SM_IND_M4",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=42.000000,Y=18.000000,Z=-18.000000)
-AimLocation=(X=38.000000,Y=0.000000,Z=-6.700000)
-MuzzleLocation=(X=56.000000,Y=0.000000,Z=0.000000)
+AimLocation=(X=38.000000,Y=0.000000,Z=-7.200001)
+MuzzleLocation=(X=56.349998,Y=0.000000,Z=0.000000)
 AimFOV=62.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_M4.S_Fire_M4
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -382,7 +398,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_M4.SM_WP_M4", "1ad6098815aa6d058e96eaaa5554862260724faa;42c3c63c6e02e4fbeb9fb4a623c0ee31b8b13b89;4688e7e64ee5b2a905b845d34ae141c30c0e5168;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_M4.S_Fire_M4", "c573d556ac962fd89151d8e56a222fda49d20ee3"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.SM_IND_M4", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;6e16f36697c4fa728f0a658ae68a709000e0ef24;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;e8efd383bbef821417bd58e9fa5cac9d3462a1b5;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"),("/Game/FPSDemo/Audio/S_Fire_M4.S_Fire_M4", "c573d556ac962fd89151d8e56a222fda49d20ee3"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=0.800000012 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=0.880000055 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=0.960000038 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
@@ -482,6 +498,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_M9.DA_M9
 ```text
 WeaponId=Weapon.M9
 DisplayName=NSLOCTEXT("", "93103CB54CED7079684A0884870B0617", "M9")
+PlatformId=None
+MountIds=
+AvailableAttachments=
+DefaultAttachments=
 Slot=Secondary
 Category=Pistol
 MagazineSize=15
@@ -502,12 +522,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_M9.CR_M9
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.500000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M9.SM_WP_M9",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M9.SM_WP_M9",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=39.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_M9.SM_WP_M9",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.SM_IND_M9",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.SM_IND_M9",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=39.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.SM_IND_M9",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=32.000000,Y=12.000000,Z=-14.000000)
-AimLocation=(X=24.000000,Y=0.000000,Z=-4.700000)
-MuzzleLocation=(X=21.000000,Y=0.000000,Z=0.600000)
+AimLocation=(X=24.000000,Y=0.000000,Z=-5.100000)
+MuzzleLocation=(X=20.350000,Y=0.000000,Z=0.000000)
 AimFOV=72.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_M9.S_Fire_M9
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -515,7 +535,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_M9.SM_WP_M9", "223a66f05d330b0f65e8f8ba205c16345d2ce4d1;4688e7e64ee5b2a905b845d34ae141c30c0e5168;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_M9.S_Fire_M9", "71ddc0ec25e4cada30661e06bd0ead653e395139"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.SM_IND_M9", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fd8bd63a1190e22b147ca4ba8d163035d1c569be;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"),("/Game/FPSDemo/Audio/S_Fire_M9.S_Fire_M9", "71ddc0ec25e4cada30661e06bd0ead653e395139"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=0.850000024 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=0.935000062 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=1.0200001 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
@@ -570,6 +590,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_MP5.DA_MP5
 ```text
 WeaponId=Weapon.MP5
 DisplayName=NSLOCTEXT("", "10CA92914646903818BD84B6CFB72D4E", "MP5")
+PlatformId=None
+MountIds=
+AvailableAttachments=
+DefaultAttachments=
 Slot=Primary
 Category=SMG
 MagazineSize=30
@@ -590,12 +614,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_MP5.CR_MP5
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.500000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_MP5.SM_WP_MP5",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_MP5.SM_WP_MP5",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_MP5.SM_WP_MP5",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.SM_IND_MP5",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.SM_IND_MP5",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.SM_IND_MP5",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=42.000000,Y=18.000000,Z=-18.000000)
-AimLocation=(X=38.000000,Y=0.000000,Z=-5.700000)
-MuzzleLocation=(X=38.000000,Y=0.000000,Z=0.000000)
+AimLocation=(X=38.000000,Y=0.000000,Z=-6.000000)
+MuzzleLocation=(X=38.349998,Y=0.000000,Z=0.000000)
 AimFOV=72.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_MP5.S_Fire_MP5
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -603,7 +627,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_MP5.SM_WP_MP5", "30936c976a9ed0f531204c6613a137f25aca0fae;4688e7e64ee5b2a905b845d34ae141c30c0e5168;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_MP5.S_Fire_MP5", "a21bfaafa021d0581c1a4048ee9904c35c5b2577"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.SM_IND_MP5", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;320755844bf4b292b70059f8054e20f24f10f3bd;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;6e16f36697c4fa728f0a658ae68a709000e0ef24;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"),("/Game/FPSDemo/Audio/S_Fire_MP5.S_Fire_MP5", "a21bfaafa021d0581c1a4048ee9904c35c5b2577"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=0.5 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=0.550000012 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=0.600000024 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
@@ -703,6 +727,10 @@ Asset: /Game/FPSDemo/Weapons/Definitions/DA_UMP45.DA_UMP45
 ```text
 WeaponId=Weapon.UMP45
 DisplayName=NSLOCTEXT("", "49C944B24AA2EAB2ADEFFCB31F71C34D", "UMP45")
+PlatformId=None
+MountIds=
+AvailableAttachments=
+DefaultAttachments=
 Slot=Primary
 Category=SMG
 MagazineSize=25
@@ -723,12 +751,12 @@ bNoRecoil=False
 RecoilCurve=/Game/FPSDemo/Weapons/Curves/CR_UMP45.CR_UMP45
 AimRecoilMultiplier=0.650000
 RecoilRecoveryTime=0.500000
-FirstPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_UMP45.SM_WP_UMP45",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_UMP45.SM_WP_UMP45",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh="/Game/FPSDemo/Weapons/Meshes/SM_WP_UMP45.SM_WP_UMP45",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.SM_IND_UMP45",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.SM_IND_UMP45",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=43.000000,Y=8.000000,Z=17.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.SM_IND_UMP45",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=0.650000,Y=0.650000,Z=0.650000)))
 HipLocation=(X=42.000000,Y=18.000000,Z=-18.000000)
-AimLocation=(X=38.000000,Y=0.000000,Z=-6.700000)
-MuzzleLocation=(X=39.000000,Y=0.000000,Z=0.000000)
+AimLocation=(X=38.000000,Y=0.000000,Z=-6.000000)
+MuzzleLocation=(X=38.349998,Y=0.000000,Z=0.000000)
 AimFOV=72.000000
 FireSound=/Game/FPSDemo/Audio/S_Fire_UMP45.S_Fire_UMP45
 ReloadStartSound=/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart
@@ -736,7 +764,7 @@ ReloadEndSound=/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd
 EquipSound=/Game/FPSDemo/Audio/S_Equip.S_Equip
 InspectSound=/Game/FPSDemo/Audio/S_Inspect.S_Inspect
 EmptySound=/Game/FPSDemo/Audio/S_Empty.S_Empty
-SavedResourceVersions=(("/Game/FPSDemo/Weapons/Meshes/SM_WP_UMP45.SM_WP_UMP45", "42c3c63c6e02e4fbeb9fb4a623c0ee31b8b13b89;4688e7e64ee5b2a905b845d34ae141c30c0e5168;7713448c4efb8605e27f035b906dfc2a14ef0d97;8eb4be2b5f2cabb8dd72e6df33675dc793aaf9c9;a9191f656e290b5867a0536e757daedd8c3210de;fab16fbbbce771dfff5cb02234876ff74fdc548b"),("/Game/FPSDemo/Audio/S_Fire_UMP45.S_Fire_UMP45", "925fa5ca5a8ffe027a278dafff6ad087755cba69"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
+SavedResourceVersions=(("/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.SM_IND_UMP45", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;3cddfb732e2351cb10188eadb59d17cdaee6fbc7;65630b187e5af9fa9c76f8d8a3013e3715225c01;6e16f36697c4fa728f0a658ae68a709000e0ef24;b7fdb68f088695b234844a8e0458c4d9311cfc0f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"),("/Game/FPSDemo/Audio/S_Fire_UMP45.S_Fire_UMP45", "925fa5ca5a8ffe027a278dafff6ad087755cba69"),("/Game/FPSDemo/Audio/S_ReloadStart.S_ReloadStart", "bce5feebf15a486663e6668b339db78111ed9198"),("/Game/FPSDemo/Audio/S_ReloadEnd.S_ReloadEnd", "4dc92cf128570379d6c8ef4fd0964ecd4dc11056"),("/Game/FPSDemo/Audio/S_Equip.S_Equip", "9c7ef98bc8e56e0b8935942375a6fcf34aa02a8e"),("/Game/FPSDemo/Audio/S_Inspect.S_Inspect", "63d3ea395754e83b054bcdff26476f4604791099"),("/Game/FPSDemo/Audio/S_Empty.S_Empty", "36f6cfd85a175c41a5a0360fb5f2026111f953cb"))
 Curve[0] time=0 value=0.899999976 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=1 value=0.99000001 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0
 Curve[0] time=2 value=1.08000004 interp=0 tangentMode=0 arrive=0 leave=0 weightMode=0 arriveWeight=0 leaveWeight=0

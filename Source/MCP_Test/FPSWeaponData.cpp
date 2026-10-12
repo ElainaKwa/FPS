@@ -1,4 +1,5 @@
 #include "FPSWeaponData.h"
+#include "FPSAttachmentData.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Engine/AssetManager.h"
 #include "Engine/StaticMesh.h"
@@ -13,6 +14,26 @@ void UFPSWeaponDefinition::ValidateDefinition(TArray<FString>& Errors) const
     const FString Id = WeaponId.ToString();
     Require(Id.StartsWith(TEXT("Weapon.")) && Id.Len() > 7 && !Id.Contains(TEXT(" ")) && !Id.Contains(TEXT(":")), TEXT("WeaponId must be Weapon.<stable name>"));
     Require(!DisplayName.IsEmpty(), TEXT("DisplayName required"));
+    Require((MountIds.IsEmpty() && AvailableAttachments.IsEmpty() && DefaultAttachments.IsEmpty()) ||
+        (!PlatformId.IsNone() && PlatformId.ToString().StartsWith(TEXT("Platform."))), TEXT("Attachment-capable weapons require an explicit platform"));
+    TSet<FName> SeenMounts;
+    for (FName Mount : MountIds)
+    {
+        Require(Mount.ToString().StartsWith(TEXT("Mount.")) && Mount.ToString().Len() > 6 && !SeenMounts.Contains(Mount), TEXT("Invalid or duplicate mount"));
+        SeenMounts.Add(Mount);
+    }
+    TSet<FSoftObjectPath> SeenParts;
+    for (const auto& Part : AvailableAttachments)
+    {
+        Require(!Part.IsNull() && !SeenParts.Contains(Part.ToSoftObjectPath()), TEXT("Empty or duplicate attachment offer"));
+        SeenParts.Add(Part.ToSoftObjectPath());
+    }
+    TSet<FName> SeenDefaults;
+    for (FName DefaultId : DefaultAttachments)
+    {
+        Require(!DefaultId.IsNone() && !SeenDefaults.Contains(DefaultId), TEXT("Empty or duplicate default attachment"));
+        SeenDefaults.Add(DefaultId);
+    }
     Require(Slot == EFPSWeaponSlot::Primary || Slot == EFPSWeaponSlot::Secondary, TEXT("Invalid slot"));
     Require(Category == EFPSWeaponCategory::Rifle || Category == EFPSWeaponCategory::SMG || Category == EFPSWeaponCategory::Pistol, TEXT("Invalid category"));
     Require(MagazineSize > 0 && InitialMagazine >= 0 && InitialMagazine <= MagazineSize && InitialReserve >= 0, TEXT("Invalid ammunition capacity or initial ammunition"));
@@ -87,11 +108,15 @@ void UFPSWeaponCatalog::Discover(TArray<UFPSWeaponDefinition*>& Out, TArray<FStr
 
 void UFPSWeaponCatalog::ValidateCatalog(const TArray<UFPSWeaponDefinition*>& Items, TArray<FString>& Errors)
 {
+    TArray<UFPSAttachmentDefinition*> AllParts;
+    UFPSAttachmentDefinition::Discover(AllParts, Errors);
+    UFPSAttachmentDefinition::ValidateCatalog(AllParts, Errors);
     TMap<FName, const UFPSWeaponDefinition*> Seen;
     for (const auto* Def : Items)
     {
         Def->ValidateDefinition(Errors);
         Def->ContentDigest(Errors);
+        FFPSAttachmentResolver::ValidateOffers(*Def, Errors);
         if (const auto* Previous = Seen.Find(Def->WeaponId))
             Errors.Add(FString::Printf(TEXT("Duplicate WeaponId %s: %s and %s"), *Def->WeaponId.ToString(), *(*Previous)->GetPathName(), *Def->GetPathName()));
         Seen.Add(Def->WeaponId, Def);
@@ -118,8 +143,11 @@ FFPSWeaponInstance UFPSWeaponCatalog::CreateInstance(FName WeaponId) const
     FFPSWeaponInstance Instance;
     if (const auto* Def = Find(WeaponId))
     {
+        FFPSResolvedWeaponStats Stats; TArray<FString> Errors;
+        if (!Resolve(WeaponId, Def->DefaultAttachments, Stats, Errors)) return Instance;
         Instance.InstanceId = FGuid::NewGuid(); Instance.WeaponId = WeaponId;
-        Instance.Magazine = Def->InitialMagazine; Instance.Reserve = Def->InitialReserve;
+        Instance.AttachmentIds = Def->DefaultAttachments;
+        Instance.Magazine = FMath::Min(Def->InitialMagazine, Stats.MagazineSize); Instance.Reserve = Def->InitialReserve;
     }
     else UE_LOG(LogTemp, Error, TEXT("FPS_WEAPON_DATA cannot create %s"), *WeaponId.ToString());
     return Instance;
@@ -130,7 +158,11 @@ EDataValidationResult UFPSWeaponDefinition::IsDataValid(FDataValidationContext& 
 {
     TArray<FString> Errors;
     for (const auto& Path : Resources()) Path.TryLoad();
+    for (const auto& Ref : AvailableAttachments)
+        if (const auto* Part = Ref.LoadSynchronous())
+            for (const auto& Path : Part->Resources()) Path.TryLoad();
     ValidateDefinition(Errors);
+    FFPSAttachmentResolver::ValidateOffers(*this, Errors);
     ContentDigest(Errors);
     TArray<UFPSWeaponDefinition*> Items;
     UFPSWeaponCatalog::Discover(Items, Errors);

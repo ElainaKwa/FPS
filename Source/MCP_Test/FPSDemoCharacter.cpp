@@ -1,5 +1,6 @@
 #include "FPSDemoCharacter.h"
 #include "FPSCharacterSmoke.h"
+#include "FPSMovementSmoke.h"
 #include "FPSLifeComponent.h"
 #include "FPSBaseMembership.h"
 #include "FPSActionPolicy.h"
@@ -166,6 +167,8 @@ void AFPSDemoCharacter::BeginPlay()
 
 void AFPSDemoCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->ClearMovementIntents();
+	Weapons->ShutdownActions();
 	CharacterInput->Unregister();
 	Super::EndPlay(EndPlayReason);
 }
@@ -190,6 +193,7 @@ void AFPSDemoCharacter::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
     FFPSTeachingSmoke::Tick(this);
     FFPSCharacterSmoke::Tick(this);
+    FFPSMovementSmoke::TickTeaching(this, DeltaSeconds);
     Presentation->Update(this, DeltaSeconds);
 }
 
@@ -226,7 +230,11 @@ void AFPSDemoCharacter::LookPitch(const FInputActionValue& Value) { AddControlle
 void AFPSDemoCharacter::PressJump()
 {
     const auto* PC = Cast<APlayerController>(Controller);
-    if (!bEliminated && ActionPolicy->CanMove() && !(PC && PC->IsMoveInputIgnored())) Jump();
+    if (!bEliminated && ActionPolicy->CanMove() && !(PC && PC->IsMoveInputIgnored()))
+    {
+        auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement());
+        if (Move && Move->UsesMovementRules()) Move->RequestJump(); else Jump();
+    }
 }
 void AFPSDemoCharacter::ReleaseJump() { StopJumping(); }
 
@@ -234,7 +242,7 @@ void AFPSDemoCharacter::TriggerLocalShotAnimation()
 {
 	Presentation->LocalShot(GetWorld()->GetTimeSeconds());
 	const auto* Def = Weapons->IsEnabled() ? Weapons->Definition() : Weapons->Catalog()->Find(Weapons->Catalog()->StartingPrimary);
-	if (auto* Audio = UFPSAudioSubsystem::Get(this); Audio && Def) Audio->PlaySound(Def->FireSound.Get(), FVector::ZeroVector, true, true);
+	if (auto* Audio = UFPSAudioSubsystem::Get(this); Audio && Def) Audio->PlaySound(Weapons->IsEnabled() ? Weapons->EffectiveStats().FireSound.Get() : Def->FireSound.Get(), FVector::ZeroVector, true, true);
 }
 
 void AFPSDemoCharacter::PressFire()
@@ -366,19 +374,29 @@ void AFPSDemoCharacter::SprintOn()
 {
     const auto* PC = Cast<APlayerController>(Controller);
 	if (!bEliminated && GetWorld()->GetGameState<AFPSDemoGameState>()->bStructuredMatch && ActionPolicy->CanMove() && !(PC && PC->IsMoveInputIgnored()))
-		if (auto* Movement = Cast<UFPSMovementComponent>(GetCharacterMovement())) Movement->bWantsSprint = true;
+		if (auto* Movement = Cast<UFPSMovementComponent>(GetCharacterMovement())) Movement->RequestSprint(true);
 }
 void AFPSDemoCharacter::SprintOff()
 {
-	if (auto* Movement = Cast<UFPSMovementComponent>(GetCharacterMovement())) Movement->bWantsSprint = false;
+	if (auto* Movement = Cast<UFPSMovementComponent>(GetCharacterMovement())) Movement->RequestSprint(false);
 }
 void AFPSDemoCharacter::CrouchOn()
 {
     const auto* PC = Cast<APlayerController>(Controller);
-    if (!bEliminated && GetWorld()->GetGameState<AFPSDemoGameState>()->bStructuredMatch && ActionPolicy->CanMove() && !(PC && PC->IsMoveInputIgnored())) { SprintOff(); Crouch(); }
+    if (!bEliminated && GetWorld()->GetGameState<AFPSDemoGameState>()->bStructuredMatch && ActionPolicy->CanMove() && !(PC && PC->IsMoveInputIgnored()))
+        if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->RequestCrouch(true);
 }
-void AFPSDemoCharacter::CrouchOff() { UnCrouch(); }
-void AFPSDemoCharacter::StopCombatInput() { Weapons->CancelForMenu(); SprintOff(); StopJumping(); }
+void AFPSDemoCharacter::CrouchOff()
+{
+    if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement()); Move && Move->UsesMovementRules()) Move->RequestCrouch(false);
+    else UnCrouch();
+}
+void AFPSDemoCharacter::StopCombatInput()
+{
+    Weapons->CancelForMenu();
+    if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->ClearMovementIntents();
+    StopJumping();
+}
 void AFPSDemoCharacter::PlayWeaponShot(const FVector& Kick)
 {
 	TriggerLocalShotAnimation();
@@ -397,6 +415,7 @@ void AFPSDemoCharacter::OnRep_Eliminated()
 {
 	if (bEliminated)
 	{
+		if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->ClearMovementIntents();
 		GetCharacterMovement()->DisableMovement();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}

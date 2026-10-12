@@ -1,0 +1,684 @@
+{
+  "assets": [
+    {
+      "name": "SM_IND_M4",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_M4.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3695000112056732,
+          -0.06450000405311584,
+          -0.22943153977394104
+        ],
+        "max": [
+          0.5734999775886536,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 18520,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_AK",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_AK.fbx",
+      "bounds_m": {
+        "min": [
+          -0.37400001287460327,
+          -0.06450000405311584,
+          -0.25917044281959534
+        ],
+        "max": [
+          0.5734999775886536,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 18268,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_BR3",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_BR3.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3695000112056732,
+          -0.06450000405311584,
+          -0.22943153977394104
+        ],
+        "max": [
+          0.5985000133514404,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 18520,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_MP5",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_MP5.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3255000114440918,
+          -0.06450000405311584,
+          -0.22943153977394104
+        ],
+        "max": [
+          0.3935000002384186,
+          0.03200000151991844,
+          0.06499999761581421
+        ]
+      },
+      "triangles": 12584,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_UMP45",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_UMP45.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3374999761581421,
+          -0.06700000166893005,
+          -0.25200000405311584
+        ],
+        "max": [
+          0.3935000002384186,
+          0.03449999913573265,
+          0.06499999761581421
+        ]
+      },
+      "triangles": 15864,
+      "materials": [
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_M9",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_M9.fbx",
+      "bounds_m": {
+        "min": [
+          -0.06302192807197571,
+          -0.02500000037252903,
+          -0.1535000056028366
+        ],
+        "max": [
+          0.2135000079870224,
+          0.02500000037252903,
+          0.0560000017285347
+        ]
+      },
+      "triangles": 9144,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_HeavyPistol",
+      "category": "Weapons",
+      "file": "Exports/SM_IND_HeavyPistol.fbx",
+      "bounds_m": {
+        "min": [
+          -0.06302192807197571,
+          -0.025949999690055847,
+          -0.1535000056028366
+        ],
+        "max": [
+          0.26350000500679016,
+          0.025949999690055847,
+          0.0560000017285347
+        ]
+      },
+      "triangles": 9144,
+      "materials": [
+        "MI_IND_Steel",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Graphite",
+        "MI_IND_Ceramic"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Floor400",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Floor400.fbx",
+      "bounds_m": {
+        "min": [
+          -2.0,
+          -2.0,
+          -0.20000000298023224
+        ],
+        "max": [
+          2.0,
+          2.0,
+          0.00599999725818634
+        ]
+      },
+      "triangles": 940,
+      "materials": [
+        "MI_IND_Concrete",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Wall400",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Wall400.fbx",
+      "bounds_m": {
+        "min": [
+          -2.0,
+          -0.21250000596046448,
+          0.0
+        ],
+        "max": [
+          2.0,
+          0.21050000190734863,
+          3.0
+        ]
+      },
+      "triangles": 2640,
+      "materials": [
+        "MI_IND_Concrete",
+        "MI_IND_Graphite",
+        "MI_IND_Yellow",
+        "MI_IND_Steel"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Pillar300",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Pillar300.fbx",
+      "bounds_m": {
+        "min": [
+          -0.2199999988079071,
+          -0.2199999988079071,
+          0.0
+        ],
+        "max": [
+          0.2199999988079071,
+          0.2199999988079071,
+          3.0
+        ]
+      },
+      "triangles": 940,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Cargo240",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Cargo240.fbx",
+      "bounds_m": {
+        "min": [
+          -1.225000023841858,
+          -0.7044999599456787,
+          0.0
+        ],
+        "max": [
+          1.225000023841858,
+          0.7044999599456787,
+          1.4100000858306885
+        ]
+      },
+      "triangles": 4888,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Polymer",
+        "MI_IND_Steel",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Barrier200",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Barrier200.fbx",
+      "bounds_m": {
+        "min": [
+          -1.0,
+          -0.375,
+          0.0
+        ],
+        "max": [
+          1.0,
+          0.375,
+          1.0199999809265137
+        ]
+      },
+      "triangles": 3604,
+      "materials": [
+        "MI_IND_Concrete",
+        "MI_IND_Graphite",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Railing200",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Railing200.fbx",
+      "bounds_m": {
+        "min": [
+          -1.0449999570846558,
+          -0.0949999988079071,
+          0.0
+        ],
+        "max": [
+          1.0450000762939453,
+          0.0949999988079071,
+          1.127000093460083
+        ]
+      },
+      "triangles": 1956,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Gateway400",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Gateway400.fbx",
+      "bounds_m": {
+        "min": [
+          -2.0,
+          -0.32899999618530273,
+          0.0
+        ],
+        "max": [
+          1.9999998807907104,
+          0.23999999463558197,
+          3.0399999618530273
+        ]
+      },
+      "triangles": 1880,
+      "materials": [
+        "MI_IND_Concrete",
+        "MI_IND_Graphite",
+        "MI_IND_Yellow",
+        "MI_IND_Light"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Deck400",
+      "category": "Environment",
+      "file": "Exports/SM_IND_Deck400.fbx",
+      "bounds_m": {
+        "min": [
+          -2.0,
+          -1.0,
+          -0.4000000059604645
+        ],
+        "max": [
+          2.0,
+          1.0,
+          0.013999998569488525
+        ]
+      },
+      "triangles": 4324,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_WeaponRack",
+      "category": "Environment",
+      "file": "Exports/SM_IND_WeaponRack.fbx",
+      "bounds_m": {
+        "min": [
+          -0.75,
+          -0.3384999930858612,
+          0.0
+        ],
+        "max": [
+          0.75,
+          0.32499998807907104,
+          1.4550000429153442
+        ]
+      },
+      "triangles": 2068,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_TargetStand",
+      "category": "Environment",
+      "file": "Exports/SM_IND_TargetStand.fbx",
+      "bounds_m": {
+        "min": [
+          -0.32499998807907104,
+          -0.32499998807907104,
+          0.0
+        ],
+        "max": [
+          0.32499998807907104,
+          0.32499998807907104,
+          1.6699999570846558
+        ]
+      },
+      "triangles": 2508,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Red"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_WorkLight",
+      "category": "Environment",
+      "file": "Exports/SM_IND_WorkLight.fbx",
+      "bounds_m": {
+        "min": [
+          -0.32499998807907104,
+          -0.2750000059604645,
+          0.0
+        ],
+        "max": [
+          0.32499998807907104,
+          0.2750000059604645,
+          3.234999895095825
+        ]
+      },
+      "triangles": 1260,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Light",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_BaseBeacon",
+      "category": "Environment",
+      "file": "Exports/SM_IND_BaseBeacon.fbx",
+      "bounds_m": {
+        "min": [
+          -0.30000001192092896,
+          -0.10700000077486038,
+          0.0
+        ],
+        "max": [
+          0.30000001192092896,
+          0.06499999761581421,
+          1.399999976158142
+        ]
+      },
+      "triangles": 608,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Blue",
+        "MI_IND_Ceramic",
+        "MI_IND_Light"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_Operator",
+      "category": "Character",
+      "file": "Exports/SM_IND_Operator.fbx",
+      "bounds_m": {
+        "min": [
+          -0.35358336567878723,
+          -0.20099999010562897,
+          0.001000046730041504
+        ],
+        "max": [
+          0.35613948106765747,
+          0.20550000667572021,
+          1.7609999179840088
+        ]
+      },
+      "triangles": 31480,
+      "materials": [
+        "MI_IND_Fabric",
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Yellow",
+        "MI_IND_Rubber",
+        "MI_IND_Visor"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SK_IND_Operator",
+      "category": "Character",
+      "file": "Exports/SK_IND_Operator.fbx",
+      "skeletal": true,
+      "bones": 16
+    },
+    {
+      "name": "SM_IND_FPArm_L",
+      "category": "Character",
+      "file": "Exports/SM_IND_FPArm_L.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3471055328845978,
+          -0.07700000703334808,
+          0.6315000057220459
+        ],
+        "max": [
+          -0.22050000727176666,
+          0.04284000024199486,
+          1.0479999780654907
+        ]
+      },
+      "triangles": 3592,
+      "materials": [
+        "MI_IND_Fabric",
+        "MI_IND_Ceramic",
+        "MI_IND_Graphite",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_IND_FPArm_R",
+      "category": "Character",
+      "file": "Exports/SM_IND_FPArm_R.fbx",
+      "bounds_m": {
+        "min": [
+          0.22050000727176666,
+          -0.07700000703334808,
+          0.6315000057220459
+        ],
+        "max": [
+          0.3471055328845978,
+          0.04284000024199486,
+          1.0479999780654907
+        ]
+      },
+      "triangles": 3592,
+      "materials": [
+        "MI_IND_Fabric",
+        "MI_IND_Ceramic",
+        "MI_IND_Graphite",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1
+    }
+  ],
+  "generator": "Tools/build_industrial_art.py",
+  "blender": "5.2.2 LTS",
+  "units": "meters in blend; centimeters in Unreal",
+  "materials": {
+    "Graphite": {
+      "color": [
+        0.065,
+        0.077,
+        0.083
+      ],
+      "metallic": 0.55,
+      "roughness": 0.36
+    },
+    "Steel": {
+      "color": [
+        0.3,
+        0.34,
+        0.35
+      ],
+      "metallic": 0.82,
+      "roughness": 0.29
+    },
+    "Polymer": {
+      "color": [
+        0.023,
+        0.03,
+        0.032
+      ],
+      "metallic": 0.0,
+      "roughness": 0.64
+    },
+    "Ceramic": {
+      "color": [
+        0.66,
+        0.68,
+        0.64
+      ],
+      "metallic": 0.12,
+      "roughness": 0.43
+    },
+    "Concrete": {
+      "color": [
+        0.29,
+        0.31,
+        0.3
+      ],
+      "metallic": 0.0,
+      "roughness": 0.84
+    },
+    "Yellow": {
+      "color": [
+        0.82,
+        0.59,
+        0.075
+      ],
+      "metallic": 0.25,
+      "roughness": 0.43
+    },
+    "Rubber": {
+      "color": [
+        0.015,
+        0.018,
+        0.021
+      ],
+      "metallic": 0.0,
+      "roughness": 0.83
+    },
+    "Fabric": {
+      "color": [
+        0.095,
+        0.115,
+        0.12
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9
+    },
+    "Visor": {
+      "color": [
+        0.07,
+        0.15,
+        0.17
+      ],
+      "metallic": 0.72,
+      "roughness": 0.17
+    },
+    "Blue": {
+      "color": [
+        0.035,
+        0.26,
+        0.49
+      ],
+      "metallic": 0.2,
+      "roughness": 0.45
+    },
+    "Red": {
+      "color": [
+        0.48,
+        0.065,
+        0.042
+      ],
+      "metallic": 0.2,
+      "roughness": 0.48
+    },
+    "Light": {
+      "color": [
+        0.82,
+        0.88,
+        0.78
+      ],
+      "metallic": 0.0,
+      "roughness": 0.3
+    }
+  }
+}

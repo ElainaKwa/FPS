@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M4 样品 · 精修对比</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#151a1e;color:#e4e8e8;font:15px 'MiSans','Microsoft YaHei',sans-serif;padding:28px}main{max-width:1800px;margin:auto}h1{font-size:25px;font-weight:600;margin:0 0 10px}p{color:#9ca9b0;line-height:1.7}nav{display:flex;gap:8px;margin:22px 0}button{font:inherit;background:#263039;color:#c4ced3;border:1px solid #3b474f;padding:10px 22px;border-radius:5px;cursor:pointer}button[aria-pressed=true]{background:#e8be43;border-color:#e8be43;color:#171b1d}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}figure{margin:0;background:#20282e;border:1px solid #38434b;border-radius:8px;overflow:hidden}figcaption{padding:14px 18px;border-bottom:1px solid #38434b}img{display:block;width:100%;height:auto}a{color:#e8be43}.note{font-size:13px}@media(max-width:900px){.grid{grid-template-columns:1fr}body{padding:16px}}
+</style>
+<main>
+<h1>M4 外观样品 · 第一版 / 第二版</h1>
+<p>对比实际 Blender 模型渲染。第二版包含按反馈加厚的后握把、收紧比例的机匣、浅压槽金属弹匣、镂空枪托与圆角瞄具；两版使用相同相机，第二版同时调整了灯光与材质。</p>
+<nav aria-label="预览视角"><button aria-pressed="true" data-view="Hero">整枪</button><button aria-pressed="false" data-view="Profile">侧面</button><button aria-pressed="false" data-view="FirstPerson">第一人称</button></nav>
+<div class="grid">
+<figure><figcaption>01 / 第一版</figcaption><a id="old-link" href="../Revisions/v1/Previews/Hero.png"><img id="old" src="../Revisions/v1/Previews/Hero.png" alt="第一版 M4 整枪"></a></figure>
+<figure><figcaption>02 / 第二版精修</figcaption><a id="new-link" href="Hero.png"><img id="new" src="Hero.png" alt="第二版 M4 整枪"></a></figure>
+</div>
+<p class="note">点击图片查看原始分辨率。第一人称图为 Blender 预览，不含手臂，未实装到 Unreal。仍需用户评审是否接近参考图目标。</p>
+</main>
+<script>
+document.querySelectorAll('button').forEach(button=>button.onclick=()=>{
+ document.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+ const view=button.dataset.view;
+ for(const [id,prefix] of [['old','../Revisions/v1/Previews/'],['new','']]){
+  const path=prefix+view+'.png';document.getElementById(id).src=path;document.getElementById(id).alt=(id==='old'?'第一版':'第二版')+' M4 '+button.textContent;document.getElementById(id+'-link').href=path;
+ }
+});
+</script>
+</html>

@@ -1,6 +1,7 @@
 #include "FPSWeaponPickup.h"
 #include "FPSDynamicDrops.h"
 #include "FPSModeRules.h"
+#include "FPSAttachmentPresentation.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -78,6 +79,7 @@ void AFPSWeaponPickup::Initialize(const FFPSWeaponInstance& Value)
     if (!HasAuthority()) return;
     Instance = Value;
     Display.InstanceId = Value.InstanceId; Display.WeaponId = Value.WeaponId;
+    Display.AttachmentIds = Value.AttachmentIds; Display.ConfigurationRevision = Value.ConfigurationRevision;
     Display.Magazine = Value.Magazine; Display.Reserve = Value.Reserve;
     OnRep_Instance();
     ForceNetUpdate();
@@ -110,6 +112,7 @@ void AFPSWeaponPickup::OnRep_Instance()
     {
         Instance = FFPSWeaponInstance();
         Instance.InstanceId = Display.InstanceId; Instance.WeaponId = Display.WeaponId;
+        Instance.AttachmentIds = Display.AttachmentIds; Instance.ConfigurationRevision = Display.ConfigurationRevision;
         Instance.Magazine = Display.Magazine; Instance.Reserve = Display.Reserve;
     }
     if (!GetGameInstance()) return;
@@ -130,6 +133,7 @@ void AFPSWeaponPickup::OnRep_Instance()
     {
         Mesh->SetStaticMesh(PickupMesh);
         Mesh->SetRelativeTransform(Visual);
+        if (GetNetMode() != NM_DedicatedServer) RefreshFPSAttachmentMeshes(Mesh, Catalog, Instance.AttachmentIds, EFPSAttachmentView::Pickup, AttachmentMeshes);
     }
     Body->SetCollisionEnabled(bDynamic ? ECollisionEnabled::QueryAndPhysics : ECollisionEnabled::NoCollision);
     // Native RepMovement synchronizes client simulation and authoritative rigid-body snapshots.

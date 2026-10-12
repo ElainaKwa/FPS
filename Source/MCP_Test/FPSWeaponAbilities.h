@@ -14,7 +14,7 @@ public:
     virtual bool CanActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
         const FGameplayTagContainer* SourceTags = nullptr, const FGameplayTagContainer* TargetTags = nullptr,
         FGameplayTagContainer* OptionalRelevantTags = nullptr) const override;
-    void CancelWeaponAbility();
+    void CancelWeaponAbility(bool bReplicate = true);
     virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
         const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override;
     virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
@@ -76,6 +76,27 @@ class MCP_TEST_API UFPSReloadAbility : public UFPSTimedWeaponAbility
 {
     GENERATED_BODY()
 public: UFPSReloadAbility();
+};
+UCLASS()
+class MCP_TEST_API UFPSModifyAttachmentAbility : public UFPSTimedWeaponAbility
+{
+    GENERATED_BODY()
+public: UFPSModifyAttachmentAbility();
+};
+UCLASS()
+class MCP_TEST_API UFPSModifyMagazineAbility : public UFPSTimedWeaponAbility
+{
+    GENERATED_BODY()
+public: UFPSModifyMagazineAbility();
+};
+UCLASS()
+class MCP_TEST_API UFPSCancelReloadAbility : public UFPSWeaponAbility
+{
+    GENERATED_BODY()
+public:
+    UFPSCancelReloadAbility();
+    virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
+        const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 };
 UCLASS()
 class MCP_TEST_API UFPSInspectAbility : public UFPSTimedWeaponAbility

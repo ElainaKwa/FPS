@@ -1,9 +1,18 @@
 #include "FPSBotNavigation.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
+#include "FPSNavigationRegion.h"
+#include "FPSBotSettings.h"
 
 FVector UFPSBotNavigation::Cell(int32 Index) const
 {
-    return FVector(-2300 + (Index % Width) * 100, -1500 + (Index / Width) * 100, 90);
+    return FVector(Origin.X + (Index % Width) * 100, Origin.Y + (Index / Width) * 100, 90);
+}
+
+const TArray<FVector>& UFPSBotNavigation::GetPatrolPoints()
+{
+    BuildGrid();
+    return AuthoredPatrol.IsEmpty() ? GetDefault<UFPSBotSettings>()->PatrolPoints : AuthoredPatrol;
 }
 
 bool UFPSBotNavigation::ClearSegment(const FVector& Start, const FVector& End) const
@@ -26,6 +35,18 @@ bool UFPSBotNavigation::ClearSegment(const FVector& Start, const FVector& End) c
 void UFPSBotNavigation::BuildGrid()
 {
     if (bBuilt || GetWorld()->GetNetMode() == NM_Client) return;
+    int32 Regions = 0;
+    for (TActorIterator<AFPSNavigationRegion> It(GetWorld()); It; ++It)
+    {
+        if (++Regions > 1 || !It->IsValidLayout())
+        {
+            UE_LOG(LogTemp, Error, TEXT("FPS_NAV invalid or duplicate navigation region"));
+            bBuilt = true;
+            return;
+        }
+        Width = It->GridSize.X; Height = It->GridSize.Y; Origin = It->GridOrigin;
+        AuthoredPatrol = It->PatrolPoints;
+    }
     Walkable.Init(0, Width * Height);
     for (int32 Index = 0; Index < Walkable.Num(); ++Index)
     {

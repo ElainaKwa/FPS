@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "FPSWeaponData.h"
+#include "FPSAttachmentData.h"
 #include "FPSWeaponComponent.generated.h"
 
 class AFPSDemoCharacter;
@@ -11,8 +12,9 @@ class UFPSFireAbility;
 class UFPSTimedWeaponAbility;
 class UFPSAimAbility;
 class UFPSTransferWeaponAbility;
+struct FFPSWeaponCustomizationRequest;
 UENUM()
-enum class EFPSWeaponRequest : uint8 { Fire, Reload, Inspect, Primary, Secondary, Drop, Pickup, AimOn, AimOff, Cancel, Equip };
+enum class EFPSWeaponRequest : uint8 { Fire, Reload, Inspect, Primary, Secondary, Drop, Pickup, AimOn, AimOff, Cancel, Equip, Modify, ModifyMagazine, CancelReload };
 
 UENUM()
 enum class EFPSWeaponResultPhase : uint8 { Started, Committed, Cancelled };
@@ -31,7 +33,7 @@ struct FFPSWeaponActionResult
     UPROPERTY() EFPSWeaponResultPhase Phase = EFPSWeaponResultPhase::Cancelled;
 };
 
-enum class EFPSFireReadiness : uint8 { Invalid, WaitingForState, WaitingForDeadline, Ready };
+enum class EFPSFireReadiness : uint8 { Invalid, WaitingForState, WaitingForDeadline, WaitingForSprintPreparation, Ready };
 DECLARE_MULTICAST_DELEGATE(FFPSFireReadinessChanged);
 
 /** Local capability for one activation. Never replicated or accepted from an RPC. */
@@ -41,7 +43,8 @@ struct FFPSWeaponActionTicket
     FGuid Instance;
     EFPSWeaponRequest Command = EFPSWeaponRequest::Cancel;
     int32 PredictionKey = 0;
-    bool operator==(const FFPSWeaponActionTicket& Other) const { return Sequence != 0 && Sequence == Other.Sequence && Instance == Other.Instance && Command == Other.Command && PredictionKey == Other.PredictionKey; }
+    uint32 ConfigurationRevision = 0;
+    bool operator==(const FFPSWeaponActionTicket& Other) const { return Sequence != 0 && Sequence == Other.Sequence && Instance == Other.Instance && Command == Other.Command && PredictionKey == Other.PredictionKey && ConfigurationRevision == Other.ConfigurationRevision; }
 };
 
 /** Inventory, authoritative commits and presentation snapshots. Abilities own action lifetimes. */
@@ -54,12 +57,19 @@ class MCP_TEST_API UFPSWeaponComponent : public UActorComponent
 public:
     UFPSWeaponComponent();
     virtual void BeginPlay() override;
+    virtual void EndPlay(const EEndPlayReason::Type Reason) override;
+    void ShutdownActions();
+    bool IsShuttingDown() const;
     virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     void GrantAbilities();
     void InitializeSpawnLoadout();
     bool SelectDefinition(FName WeaponId, FString& Failure);
     void CancelAttack();
+    /** Called only for current movement simulation, never correction replay. */
+    void NotifySprintStateChanged(bool bSprinting);
+    double GetSprintFireReadyAt() const { return SprintFireReadyAt; }
+    bool HasPendingSprintFire() const { return bSprintFirePending && FireAbility != nullptr; }
     bool IsEnabled() const;
     bool CanAct() const;
     bool CanSprint() const;
@@ -67,6 +77,14 @@ public:
     const FFPSWeaponInstance& Equipped() const;
     const FFPSWeaponLoadout& GetLoadout() const { return Loadout; }
     const UFPSWeaponDefinition* Definition() const;
+    FFPSResolvedWeaponStats EffectiveStats() const;
+    bool SetCustomizationOpen(bool bOpen);
+    bool IsCustomizationOpen() const { return bCustomizationOpen; }
+    void ModifyAttachment(EFPSAttachmentCategory Category, FName Attachment);
+    void CancelCustomizationReload();
+    const FString& CustomizationFeedback() const { return ModificationFeedback; }
+    bool BeginModification(FFPSWeaponActionTicket& Ticket, UFPSWeaponAbility* Ability, const FFPSWeaponCustomizationRequest* Request, float& Duration);
+    bool CancelMatchingReload(const FFPSWeaponActionTicket& Ticket, const FFPSWeaponCustomizationRequest* Request);
     const UFPSWeaponCatalog* Catalog() const;
     AFPSWeaponPickup* FindPickup() const;
     bool CanPickup(const AFPSWeaponPickup* Target) const;
@@ -93,7 +111,7 @@ public:
     bool CommitShot(const FFPSWeaponActionTicket& Ticket);
     bool FinishBurst(const FFPSWeaponActionTicket& Ticket);
     bool EndFire(const FFPSWeaponActionTicket& Ticket, bool bCancelled);
-    bool BeginAction(FFPSWeaponActionTicket& Ticket, UFPSWeaponAbility* Ability, float& Duration);
+    bool BeginAction(FFPSWeaponActionTicket& Ticket, UFPSWeaponAbility* Ability, float& Duration, const FFPSWeaponCustomizationRequest* Request = nullptr);
     bool FinishAction(const FFPSWeaponActionTicket& Ticket, bool bCancelled);
     bool BeginAim(const FFPSWeaponActionTicket& Ticket, UFPSWeaponAbility* Ability);
     bool EndAim(const FFPSWeaponActionTicket& Ticket);
@@ -102,11 +120,24 @@ public:
     EFPSFireReadiness FireReadiness(const FFPSWeaponActionTicket& Ticket, double& Deadline) const;
     FFPSFireReadinessChanged OnFireReadinessChanged;
 private:
+    friend struct FFPSAttachmentSmoke;
+    UPROPERTY(Replicated) bool bCustomizationOpen = false;
+    UFUNCTION(Server, Reliable) void ServerSetCustomizationOpen(bool bOpen);
+    UFUNCTION(Client, Reliable) void ClientModificationResult(uint32 Sequence, const FString& Message);
+    void StopForCustomization();
+    bool IsTrainingCustomizationAllowed() const;
+    FFPSWeaponCustomizationRequest NewCustomizationRequest();
+    bool ValidateCustomizationRequest(const FFPSWeaponCustomizationRequest* Request);
+    UPROPERTY() TArray<FName> PendingAttachmentIds;
+    FFPSWeaponActionTicket PendingAttachmentTicket;
+    uint32 NextModificationSequence = 0, LastModificationSequence = 0, LastModificationReply = 0, PendingModificationSequence = 0;
+    FString ModificationFeedback;
     friend struct FFPSWeaponSmoke;
     friend struct FFPSDropSmoke;
     friend struct FFPSWeaponAbilitySmoke;
     friend struct FFPSWeaponDamageSmoke;
     friend struct FFPSWeaponPresentationSmoke;
+    friend struct FFPSMovementSmoke;
     UPROPERTY() FFPSWeaponLoadout Loadout;
     UPROPERTY(ReplicatedUsing=OnRep_OwnerState) FFPSWeaponLoadout OwnerState;
     UPROPERTY(ReplicatedUsing=OnRep_VisibleState) FFPSWeaponVisibleState VisibleState;
@@ -123,6 +154,8 @@ private:
     void Changed();
     void CancelOperation(bool bIncludeAim);
     void CancelBurst();
+    void InterruptSprintForWeapon();
+    void CancelPendingSprintFire();
     bool ValidOpening(const FFPSWeaponActionTicket& Ticket, const UFPSWeaponAbility* Ability) const;
     AFPSWeaponPickup* SpawnDrop(const FFPSWeaponInstance& Instance);
     FFPSWeaponInstance& EquippedMutable();
@@ -136,9 +169,12 @@ private:
     uint64 LastPredictionSequence = 0;
     EFPSFireMode ActiveFireMode = EFPSFireMode::Single;
     double ActionDeadline = 0;
+    double SprintTransitionReadyAt = 0, SprintFireReadyAt = 0;
+    bool bWasActualSprinting = false, bSprintFirePending = false;
     bool bTriggerHeld = false;
     bool bAimHeld = false;
     bool bAbilitiesGranted = false;
+    bool bShuttingDown = false;
     int32 LastPredictedFireKey = 0;
     TMap<FGuid, FFPSWeaponInstance> PredictedShots;
 #if !UE_BUILD_SHIPPING

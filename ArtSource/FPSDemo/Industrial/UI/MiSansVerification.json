@@ -1,0 +1,1106 @@
+{
+  "generated_by": "Tools/verify_fps_misans.py",
+  "generated_utc": "2026-10-12T07:20:19.477419+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "Saved/MiSansAlignment/Build.log",
+      "sha256": "642bc23565999e27e950d06f2b4f278c6c286cc427e5836f00a5bdc99c5a8b37",
+      "required": [
+        "Result: Succeeded",
+        "FPS_WEAPON_DATA PASS"
+      ],
+      "editor_toolset_startup_diagnostics": []
+    },
+    {
+      "path": "Saved/MiSansAlignment/Import.log",
+      "sha256": "cb7347d66839fe244cec7b09c6ab97f7b939ee7c42cdd29a7783848bfce2e69d",
+      "required": [
+        "FPS_UI_ASSETS PASS"
+      ],
+      "editor_toolset_startup_diagnostics": []
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Lobby-1920x1080/Capture.log",
+      "sha256": "f2124402e9cf83948f515d757007a12f982e2351eb4aa58b9a7b538200a5d16e",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": [
+        "[2026.10.12-07.10.01:969][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:969][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:969][  0]LogPython: Error:     from state_tree_toolset import toolsets",
+        "[2026.10.12-07.10.01:969][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.10.01:969][  0]LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "[2026.10.12-07.10.01:970][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\state_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.10.01:970][  0]LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:970][  0]LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:970][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error:     from skills import blueprint_interop",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python\\skills\\blueprint_interop.py\", line 35, in <module>",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:981][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:     from editor_toolset import skills  # noqa: F401 — imports register @agent_skill modules",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\blueprint_basics.py\", line 41, in <module>",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:987][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:     from conversation_toolset import toolsets",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\conversation.py\", line 9, in <module>",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:992][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:     from animation_toolset import toolsets",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\controlrig.py\", line 41, in <module>",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:998][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:     from aimodule_toolset import toolsets",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\behavior_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.02:003][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.02:162][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.02:162][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.10.02:162][  0]LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "[2026.10.12-07.10.02:162][  0]LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.02:162][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'"
+      ]
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-1280x800/Capture.log",
+      "sha256": "ba03f671486ed972c6c962dc17f0ed547bd32d21c9273e757f4ca05a7b8dce68",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": [
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:     from state_tree_toolset import toolsets",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\state_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:851][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error:     from skills import blueprint_interop",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python\\skills\\blueprint_interop.py\", line 35, in <module>",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:860][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:     from editor_toolset import skills  # noqa: F401 — imports register @agent_skill modules",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\blueprint_basics.py\", line 41, in <module>",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:865][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:     from conversation_toolset import toolsets",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\conversation.py\", line 9, in <module>",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:869][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:     from animation_toolset import toolsets",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\controlrig.py\", line 41, in <module>",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:873][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:     from aimodule_toolset import toolsets",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\behavior_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:877][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.59:981][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.59:981][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.11.59:981][  0]LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "[2026.10.12-07.11.59:981][  0]LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.59:981][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'"
+      ]
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Capture.log",
+      "sha256": "044846763fc5f4c7bd6001640b70a3c50713068430b36c91909e05a6f9229a0c",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": [
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:     from state_tree_toolset import toolsets",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\state_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.17:977][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error:     from skills import blueprint_interop",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python\\skills\\blueprint_interop.py\", line 35, in <module>",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.17:986][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:     from editor_toolset import skills  # noqa: F401 — imports register @agent_skill modules",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\blueprint_basics.py\", line 41, in <module>",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.17:990][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:     from conversation_toolset import toolsets",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\conversation.py\", line 9, in <module>",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.17:993][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:     from aimodule_toolset import toolsets",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\behavior_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.17:997][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:     from animation_toolset import toolsets",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\controlrig.py\", line 41, in <module>",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.18:001][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.11.18:086][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.11.18:086][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.11.18:086][  0]LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "[2026.10.12-07.11.18:086][  0]LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.11.18:086][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'"
+      ]
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Report-1280x800/Capture.log",
+      "sha256": "fa7f341dd0a8dd67bbfb81d5a2865723fbe6a5a77608800aabe6a25ab6fb6ae5",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": [
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:     from state_tree_toolset import toolsets",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\state_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:560][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error:     from skills import blueprint_interop",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python\\skills\\blueprint_interop.py\", line 35, in <module>",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:569][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:     from editor_toolset import skills  # noqa: F401 — imports register @agent_skill modules",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\blueprint_basics.py\", line 41, in <module>",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:573][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.13.06:576][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:     from conversation_toolset import toolsets",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\conversation.py\", line 9, in <module>",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:577][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:     from animation_toolset import toolsets",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\controlrig.py\", line 41, in <module>",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:581][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.06:584][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:     from aimodule_toolset import toolsets",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\behavior_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:585][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.06:699][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.06:699][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.13.06:699][  0]LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "[2026.10.12-07.13.06:699][  0]LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.06:699][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'"
+      ]
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Capture.log",
+      "sha256": "0640b52a8d485331109555dd8b2e101776fe81eae4ec266b25af0563cf278623",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": [
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error:     from skills import blueprint_interop",
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python\\skills\\blueprint_interop.py\", line 35, in <module>",
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:514][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:     from state_tree_toolset import toolsets",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\state_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:518][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:     from conversation_toolset import toolsets",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\conversation.py\", line 9, in <module>",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:524][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:     from editor_toolset import skills  # noqa: F401 — imports register @agent_skill modules",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\blueprint_basics.py\", line 41, in <module>",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:526][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:     from animation_toolset import toolsets",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\controlrig.py\", line 41, in <module>",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:534][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:     from aimodule_toolset import toolsets",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\behavior_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:538][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.10.01:684][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.10.01:684][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.10.01:684][  0]LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "[2026.10.12-07.10.01:684][  0]LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.10.01:684][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'"
+      ]
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Waiting-1280x800/Capture.log",
+      "sha256": "39f1445eb0b9dce8e92e90f715373ba4c2f47b88d10aee2bd14ba4b2df2b36db",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": [
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error:     from skills import blueprint_interop",
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python\\skills\\blueprint_interop.py\", line 35, in <module>",
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:480][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:     from state_tree_toolset import toolsets",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python\\state_tree_toolset\\toolsets\\state_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:485][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:     from editor_toolset import skills  # noqa: F401 — imports register @agent_skill modules",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python\\editor_toolset\\skills\\blueprint_basics.py\", line 41, in <module>",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:490][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:     from conversation_toolset import toolsets",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\__init__.py\", line 2, in <module>",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python\\conversation_toolset\\toolsets\\conversation.py\", line 9, in <module>",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:494][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:     from animation_toolset import toolsets",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python\\animation_toolset\\toolsets\\controlrig.py\", line 41, in <module>",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:499][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:     from aimodule_toolset import toolsets",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\__init__.py\", line 3, in <module>",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:   File \"D:\\UE/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python\\aimodule_toolset\\toolsets\\behavior_tree.py\", line 9, in <module>",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:504][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "[2026.10.12-07.13.05:606][  0]LogPython: Error: Traceback (most recent call last):",
+        "[2026.10.12-07.13.05:606][  0]LogPython: Error:   File \"D:/UE/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "[2026.10.12-07.13.05:606][  0]LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "[2026.10.12-07.13.05:606][  0]LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "[2026.10.12-07.13.05:606][  0]LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'"
+      ]
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Lobby-1920x1080/Capture.log",
+      "sha256": "8941f0459cc0c08379ef71b4fb610933710e2748336a6ad0f068676076a83228",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": []
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Capture.log",
+      "sha256": "acb3b060ead8896a23cd84413df3a318a8819f8753de131a789c1d6f4821b5e4",
+      "required": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "editor_toolset_startup_diagnostics": []
+    }
+  ],
+  "captures": [
+    {
+      "path": "Saved/MiSansAlignment/Captures/Lobby-1920x1080/Help.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "5b8ba0176e75cd49c15bc215ada6534503d1322fcdd7ad95acb7f80cc90aab3b"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Lobby-1920x1080/LAN.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "cf5c749c33bd83ff1b399a3ec1b3233c893750c1e787cc52093590a3098bf619"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Lobby-1920x1080/Lobby.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "934744d4aa54e9cbe8ca7577d80e36b0a16f420fe12461c281dec74c8d2e0337"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Lobby-1920x1080/Range.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "e394257fdb5593bceb7727b5017e5f679980669bdf58ae788c2d3952194091eb"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-1280x800/Loadout.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "2bf6586092f47f848486a9a06e5ff294a28185e9009226725ff4ea5b68afe092"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-1280x800/LoadoutScrolled.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "c3e9e9088275393b3d995eac621658e3cba6adef760e6742730a565b1057b95e"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-1280x800/LoadoutSelected.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "5207b8a9f614df5bf860411d23693d38f416db5f1bd291a467cf47dcb379c727"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Aim.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "5c106e4b169a1c59223ad7d81d728e779e6aed8edfd912b2360c49c6d74c0630"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/HUD.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "223b0cd2e709c7ade05d45fbce913cfb787d18ecaba830754049dada669fdf87"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Inspect.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "75581e569da419d9efc3909f448e1b4846cec72b88924751476e52bc71b7bcb2"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Loadout.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "d006d2e75bc21a38dc19b65254ac66bacd86d72fcb21f26d8db173578be4e242"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/LowAmmo.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "553a14819695d3ae7104c936b90097ff220d14cce6dc0c85499dc4a43011f9ba"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Pause.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "17fa020aaf3f1f15e84dc9ae8ad2c8820a44672cc97ce17f3a7b24ec45a65869"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Pistol.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "6348c972eccd5f9f7adaafd9cac52591084afe31fb4174ffeca86cbcc3faaca6"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Match-2560x1440/Reload.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "6c444a392d09d86bd32f85c45090be2e9c34dd72535b1121c3cd697227564655"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Report-1280x800/Report.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "2523e125a25df72b63f3b0c8776e270bb17e30bf80a7ab7219cf94040e0a8283"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Aim.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "c96a8b1cb8d8656550dd30a41139733bc91cf2b941dfd1b83da15b36a6a2a83c"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/AK.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "6ccddff28d18f26fbe5a1df829fb67f371867613455e8bf51fffcce88a17a185"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/BR3.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "4218c8668723e206fc4990a54aca082bb1fb167b45eca51312fda04edaf5c377"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Character.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "ea9c803ccf13d81a9194c468c3dcd3144216cd618685bc7cc6980f2792457052"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/CharacterCrouch.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "75856b9ffe2cccc6422b3b7873c3473a39ec7d59e97c07d42ce882a922f31f73"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Death.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "e06031bc523b4e853bd658dc033f7472e14abd065ac5f35d8caa21c17bc268fd"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/HeavyPistol.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "5434b55f83f2ad7d870c3a20a7d536df8763389c5873debb2eb2e0b1f904c182"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/HUD.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "bbd0a3d0ae3fea6a414425aae3296ab7bfba3846c7589484d490aeb3d86c9786"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Inspect.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "9d136cce78c3aa26b9857eda873f75bcb4c9ba2abacff50d6c545798e15e4455"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Loadout.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "722f5fe95637a564b9af546201ced04267ddf0d0338b256ff54743d96cdb8661"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/LowAmmo.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "b7276537b307e0cee663a3c1962ca6e50a63830ab1f5e4793eee8cdf4f26ce28"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/LowHealth.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "d926ea1eea59718eb6542f59125d8728da9df838d4fab580b0e1b82f0e4c1660"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/M4.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "e4ff12e09d2f5861b7a21854828fde698e24ecf031fd1142e6771b4fae06390f"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/MP5.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "9b87206bde4ee00414dfb20c4d4b02d0c24ae2b8a5f7c5bb74d018a88e7e0673"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Pause.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "fcf1fdc27aceb068f2a9e7b0e095301a807fb15fe7152a99f7ee0d42416d503c"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Pistol.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "e3fa5d44c1f5d0e2ed8652db164ca48077e4bbee2a87540d9e3e09d06a12fb32"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/Reload.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "a902f47bb5808ea024c69f1619807c6c12c0b80d658bb2a94aa8bd8f33e93d6b"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Training-1920x1080/UMP45.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "1cb44f34d88bd3594c4493a874d9642881ba375fc7324047e4014382116fdaba"
+    },
+    {
+      "path": "Saved/MiSansAlignment/Captures/Waiting-1280x800/Waiting.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "89935a02a4d5c1d7300ef9bd26475619a7b7e9704eceae020a874798a1a7fb4a"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Lobby-1920x1080/Lobby.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "b5c7c66c0a0199325ea7f6acc7bec9b6603139139a27eb1c0cc5f018ab1d3b1e"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Aim.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "9bd29815ece1cc7dde59b60ad2606f4bed874474cc9c35c7943689d763d515a7"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/HUD.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "8a718b8cf401e0ab9a6930eacddaca6b742840c188ab962c8f6493f80df6203b"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Inspect.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "756cc64acdd21d1cd814678dc14d614c7681d0dcf76c5aaf26200aafe4a71a10"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Loadout.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "060601fd7e9d40e1d78b94f10471e06a6ac07b8a4ff8eb22ea991c4077abb737"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/LowAmmo.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "c6d9f0879fe4d500f5d1ec29be586df6b062b7f4e1b2cc59750c1daa1a093081"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Pause.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "70dd7454e191bcbb440f0e986227d671c50f20271da2c64b7a9827e7d03b3628"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Pistol.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "5b4a9547596c4ba4785fbf126f645e65abe6a92a02ee41f03d2a4f3aec90b0e2"
+    },
+    {
+      "path": "Saved/MiSansAlignment/PackageCaptures/Training-1920x1080/Reload.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "61e1c1f157f50f3cf8c895e082deb1a3071c9f6a2cb26fdd6fab31dc4efeee9f"
+    }
+  ],
+  "font_sources_unmodified": [
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/MiSans-Regular.ttf",
+      "sha256": "9c120f0a849bc0aa5048daae2a3c0f6eecd828b5b33fce682a9622833f5feea6"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/MiSans-Bold.ttf",
+      "sha256": "d0c1d327952ed935e86fb78a97a6c182b44f2c2b08777326786b1f8b26d1fe1e"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/MiSans-License.pdf",
+      "sha256": "4a93a27cd2bd81b3b5ecfd0a853144a876fa26938a93a68443c67d74172fcb86"
+    }
+  ],
+  "glyph_alignment": [
+    {
+      "name": "navigation",
+      "source": "Lobby-1920x1080/Lobby",
+      "bounds": [
+        194,
+        297,
+        350,
+        333
+      ],
+      "ink_center": [
+        272.0,
+        315.0
+      ],
+      "target_center_y": 315,
+      "vertical_error_px": 0.0
+    },
+    {
+      "name": "help-icon-row",
+      "source": "Lobby-1920x1080/Lobby",
+      "bounds": [
+        132,
+        904,
+        234,
+        928
+      ],
+      "ink_center": [
+        183.0,
+        916.0
+      ],
+      "target_center_y": 915,
+      "vertical_error_px": 1.0
+    },
+    {
+      "name": "difficulty-button",
+      "source": "Lobby-1920x1080/Lobby",
+      "bounds": [
+        1620,
+        792,
+        1678,
+        820
+      ],
+      "ink_center": [
+        1649.0,
+        806.0
+      ],
+      "target_center_y": 805.8,
+      "vertical_error_px": 0.2
+    },
+    {
+      "name": "start-button",
+      "source": "Lobby-1920x1080/Lobby",
+      "bounds": [
+        1490,
+        917,
+        1654,
+        955
+      ],
+      "ink_center": [
+        1572.0,
+        936.0
+      ],
+      "target_center_y": 936,
+      "vertical_error_px": 0.0
+    },
+    {
+      "name": "close-keycap",
+      "source": "Training-1920x1080/Loadout",
+      "bounds": [
+        1532,
+        133,
+        1608,
+        151
+      ],
+      "ink_center": [
+        1570.0,
+        142.0
+      ],
+      "target_center_y": 141,
+      "vertical_error_px": 1.0
+    },
+    {
+      "name": "base-shield-row",
+      "source": "Training-1920x1080/Loadout",
+      "bounds": [
+        291,
+        204,
+        557,
+        230
+      ],
+      "ink_center": [
+        424.0,
+        217.0
+      ],
+      "target_center_y": 217.2,
+      "vertical_error_px": 0.2
+    },
+    {
+      "name": "equipped-badge",
+      "source": "Training-1920x1080/Loadout",
+      "bounds": [
+        535,
+        343,
+        588,
+        359
+      ],
+      "ink_center": [
+        561.5,
+        351.0
+      ],
+      "target_center_y": 351,
+      "vertical_error_px": 0.0
+    },
+    {
+      "name": "team-marker-row",
+      "source": "Training-1920x1080/HUD",
+      "bounds": [
+        343,
+        969,
+        376,
+        985
+      ],
+      "ink_center": [
+        359.5,
+        977.0
+      ],
+      "target_center_y": 976.8,
+      "vertical_error_px": 0.2
+    },
+    {
+      "name": "R-keycap",
+      "source": "Training-1920x1080/HUD",
+      "bounds": [
+        1803,
+        991,
+        1810,
+        1003
+      ],
+      "ink_center": [
+        1806.5,
+        997.0
+      ],
+      "target_center_y": 997.2,
+      "vertical_error_px": 0.2
+    },
+    {
+      "name": "reload-action",
+      "source": "Training-1920x1080/HUD",
+      "bounds": [
+        1824,
+        991,
+        1853,
+        1004
+      ],
+      "ink_center": [
+        1838.5,
+        997.5
+      ],
+      "target_center_y": 997.2,
+      "vertical_error_px": 0.3
+    },
+    {
+      "name": "training-heading",
+      "source": "Training-1920x1080/HUD",
+      "bounds": [
+        838,
+        46,
+        1078,
+        69
+      ],
+      "ink_center": [
+        958.0,
+        57.5
+      ],
+      "target_center_y": 57.6,
+      "vertical_error_px": 0.1
+    },
+    {
+      "name": "pickup-F-keycap",
+      "source": "Training-1920x1080/Inspect",
+      "bounds": [
+        908,
+        642,
+        914,
+        655
+      ],
+      "ink_center": [
+        911.0,
+        648.5
+      ],
+      "target_center_y": 648,
+      "vertical_error_px": 0.5
+    },
+    {
+      "name": "pickup-label",
+      "source": "Training-1920x1080/Inspect",
+      "bounds": [
+        938,
+        637,
+        1021,
+        657
+      ],
+      "ink_center": [
+        979.5,
+        647.0
+      ],
+      "target_center_y": 648,
+      "vertical_error_px": 1.0
+    },
+    {
+      "name": "blue-team-label",
+      "source": "Match-2560x1440/HUD",
+      "bounds": [
+        966,
+        63,
+        1029,
+        92
+      ],
+      "ink_center": [
+        997.5,
+        77.5
+      ],
+      "target_center_y": 76.8,
+      "vertical_error_px": 0.7
+    },
+    {
+      "name": "blue-score",
+      "source": "Match-2560x1440/HUD",
+      "bounds": [
+        1056,
+        60,
+        1103,
+        92
+      ],
+      "ink_center": [
+        1079.5,
+        76.0
+      ],
+      "target_center_y": 76.8,
+      "vertical_error_px": 0.8
+    },
+    {
+      "name": "timer",
+      "source": "Match-2560x1440/HUD",
+      "bounds": [
+        1209,
+        57,
+        1349,
+        98
+      ],
+      "ink_center": [
+        1279.0,
+        77.5
+      ],
+      "target_center_y": 76.8,
+      "vertical_error_px": 0.7
+    },
+    {
+      "name": "red-score",
+      "source": "Match-2560x1440/HUD",
+      "bounds": [
+        1454,
+        60,
+        1501,
+        92
+      ],
+      "ink_center": [
+        1477.5,
+        76.0
+      ],
+      "target_center_y": 76.8,
+      "vertical_error_px": 0.8
+    },
+    {
+      "name": "red-team-label",
+      "source": "Match-2560x1440/HUD",
+      "bounds": [
+        1528,
+        62,
+        1591,
+        92
+      ],
+      "ink_center": [
+        1559.5,
+        77.0
+      ],
+      "target_center_y": 76.8,
+      "vertical_error_px": 0.2
+    }
+  ],
+  "score_symmetry_error_px": 0.5,
+  "package_report": "Saved/IndustrialArt/Package/MiSans-20261012-v1/Report.json",
+  "limits": [
+    "Glyph bounds use fixed contrast thresholds; visual inspection remains required.",
+    "No new multiplayer, controller, ultrawide or Shipping validation."
+  ]
+}

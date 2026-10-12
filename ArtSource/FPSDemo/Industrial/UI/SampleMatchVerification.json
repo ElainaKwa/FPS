@@ -1,0 +1,956 @@
+{
+  "generated_by": "Tools/record_fps_ui_verification.py",
+  "generated_utc": "2026-10-12T06:25:38.255679+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "Saved/UISampleMatch/Build.log",
+      "sha256": "6b42cc2ea35895cd95b5f0a4e049348ba1e36e9ee99e67ba0e70926ac6294038",
+      "required_markers": [
+        "Result: Succeeded",
+        "FPS_WEAPON_DATA PASS"
+      ],
+      "observations": [
+        "[2026.10.12-06.17.23:796][  0]LogTemp: Display: FPS_WEAPON_DATA PASS definitions=7",
+        "Result: Succeeded",
+        "[2026.10.12-06.17.37:760][  0]LogTemp: Display: FPS_WEAPON_DATA PASS definitions=7",
+        "Saved\\Logs\\FPSWeaponDataValidation.log:1854:[2026.10.12-06.17.37:760][  0]LogTemp: Display: FPS_WEAPON_DATA PASS defini"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/Import.log",
+      "sha256": "cfdeb19432217d221fd8c7d31d30de3513a9688184115a467b55c0c33815b50a",
+      "required_markers": [
+        "FPS_UI_ASSETS PASS"
+      ],
+      "observations": [
+        "[2026.10.12-06.17.51:201][  0]LogPython: FPS_UI_ASSETS PASS six WidgetBlueprint assets and shared theme saved"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Lobby-1672x941/Capture.log",
+      "sha256": "6bae52d922709525d29453b008352c0dee69683faa8d63c416f676023cc498f8",
+      "required_markers": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "observations": [
+        "[2026.10.12-06.22.03:608][  0]LogTemp: Display: FPS_UI asset-ready screen=Lobby class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLobby.WBP_FPSLobby_C",
+        "[2026.10.12-06.22.08:681][279]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Nav1",
+        "[2026.10.12-06.22.09:681][339]LogTemp: Display: FPS_UI_ACTION PASS LAN-tab-visible",
+        "[2026.10.12-06.22.10:675][387]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Join",
+        "[2026.10.12-06.22.10:675][387]LogTemp: Display: FPS_UI_ACTION PASS invalid-address-feedback",
+        "[2026.10.12-06.22.10:675][387]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Nav2",
+        "[2026.10.12-06.22.11:676][447]LogTemp: Display: FPS_UI_ACTION PASS range-tab-visible",
+        "[2026.10.12-06.22.12:680][487]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Nav0",
+        "[2026.10.12-06.22.13:681][547]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Plus",
+        "[2026.10.12-06.22.13:681][547]LogTemp: Display: FPS_UI_ACTION PASS bot-stepper",
+        "[2026.10.12-06.22.13:681][547]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Difficulty",
+        "[2026.10.12-06.22.13:681][547]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Help",
+        "[2026.10.12-06.22.14:681][607]LogTemp: Display: FPS_UI_ACTION PASS help-expanded",
+        "[2026.10.12-06.22.15:690][657]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Help",
+        "[2026.10.12-06.22.18:683][824]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-1280x800/Capture.log",
+      "sha256": "56a4713f519eea977f841fe36515f4ba8309a4403d9fd59539ca2de0d371922f",
+      "required_markers": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "observations": [
+        "[2026.10.12-06.24.55:014][  0]LogTemp: Display: FPS_UI asset-ready screen=HUD class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD_C",
+        "[2026.10.12-06.25.00:038][282]LogTemp: Display: FPS_UI asset-ready screen=Loadout class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout_C",
+        "[2026.10.12-06.25.02:022][391]LogTemp: Display: FPS_UI_ACTION PASS primary-list-wheel-routed",
+        "[2026.10.12-06.25.03:022][451]LogTemp: Display: FPS_UI_ACTION PASS primary-list-scrolled",
+        "[2026.10.12-06.25.04:020][501]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=CardUMP45",
+        "[2026.10.12-06.25.05:021][561]LogTemp: Display: FPS_UI_ACTION PASS scrolled-card-equipped-UMP45",
+        "[2026.10.12-06.25.06:029][611]LogTemp: Display: FPS_UI_ACTION PASS primary-list-wheel-routed",
+        "[2026.10.12-06.25.07:029][671]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=CardM4",
+        "[2026.10.12-06.25.08:028][731]LogTemp: Display: FPS_UI_ACTION PASS scroll-return-equipped-M4",
+        "[2026.10.12-06.25.08:029][731]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Close",
+        "[2026.10.12-06.25.08:029][731]LogTemp: Display: FPS_UI_ACTION PASS widget-close",
+        "[2026.10.12-06.25.09:028][791]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Capture.log",
+      "sha256": "ebdc17cc51bd94a06fddd3ead7b7756988e17215c6af1fd8328fa24bb5080ec7",
+      "required_markers": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "observations": [
+        "[2026.10.12-06.22.56:514][  0]LogTemp: Display: FPS_UI asset-ready screen=HUD class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD_C",
+        "[2026.10.12-06.23.06:914][556]LogTemp: Display: FPS_UI asset-ready screen=Loadout class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout_C",
+        "[2026.10.12-06.23.09:123][653]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=CardAK",
+        "[2026.10.12-06.23.10:122][713]LogTemp: Display: FPS_UI_ACTION PASS widget-button-equipped-AK",
+        "[2026.10.12-06.23.10:122][713]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Close",
+        "[2026.10.12-06.23.10:122][713]LogTemp: Display: FPS_UI_ACTION PASS widget-close",
+        "[2026.10.12-06.23.10:131][713]LogTemp: Display: FPS_UI asset-ready screen=Pause class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSPause.WBP_FPSPause_C",
+        "[2026.10.12-06.23.26:077][450]LogTemp: Display: FPS_UI_ACTION PASS inspect-pose-active",
+        "[2026.10.12-06.23.26:077][450]LogTemp: Display: FPS_UI_ACTION PASS legacy-hand-spheres-hidden-current-gloves-visible",
+        "[2026.10.12-06.23.29:741][604]LogTemp: Display: FPS_UI_ACTION PASS legacy-hand-spheres-hidden-current-gloves-visible",
+        "[2026.10.12-06.23.31:465][641]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Report-1280x800/Capture.log",
+      "sha256": "fb996e7215c64b5f560a0396e8a602b43a49dd044bdd66958cbe216a0a4498f3",
+      "required_markers": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "observations": [
+        "[2026.10.12-06.24.31:736][  0]LogTemp: Display: FPS_UI asset-ready screen=HUD class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD_C",
+        "[2026.10.12-06.24.41:778][566]LogTemp: Display: FPS_UI asset-ready screen=Report class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSReport.WBP_FPSReport_C",
+        "[2026.10.12-06.24.46:770][861]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Capture.log",
+      "sha256": "f23fb3e7f24c08190b559cb9facf1d61d84e9029870704b27f2e3b7f5df0bcc0",
+      "required_markers": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "observations": [
+        "[2026.10.12-06.22.04:436][  0]LogTemp: Display: FPS_UI asset-ready screen=HUD class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD_C",
+        "[2026.10.12-06.22.14:474][549]LogTemp: Display: FPS_UI asset-ready screen=Loadout class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout_C",
+        "[2026.10.12-06.22.16:469][650]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=CardAK",
+        "[2026.10.12-06.22.17:470][710]LogTemp: Display: FPS_UI_ACTION PASS widget-button-equipped-AK",
+        "[2026.10.12-06.22.17:470][710]LogTemp: Display: FPS_UI_ACTION PASS pointer-button=Close",
+        "[2026.10.12-06.22.17:470][710]LogTemp: Display: FPS_UI_ACTION PASS widget-close",
+        "[2026.10.12-06.22.17:480][710]LogTemp: Display: FPS_UI asset-ready screen=Pause class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSPause.WBP_FPSPause_C",
+        "[2026.10.12-06.22.31:686][465]LogTemp: Display: FPS_UI_ACTION PASS inspect-pose-active",
+        "[2026.10.12-06.22.31:686][465]LogTemp: Display: FPS_UI_ACTION PASS legacy-hand-spheres-hidden-current-gloves-visible",
+        "[2026.10.12-06.22.34:682][622]LogTemp: Display: FPS_UI_ACTION PASS legacy-hand-spheres-hidden-current-gloves-visible",
+        "[2026.10.12-06.22.35:693][661]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Waiting-1280x800/Capture.log",
+      "sha256": "f1add16c045c8de0831443f234eb2313f7cf5e8be268e6b287b7aa095e8cf679",
+      "required_markers": [
+        "FPS_ART_CAPTURE PASS sequence-complete"
+      ],
+      "observations": [
+        "[2026.10.12-06.23.43:789][  0]LogTemp: Display: FPS_UI asset-ready screen=Waiting class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSWaiting.WBP_FPSWaiting_C",
+        "[2026.10.12-06.23.43:849][  0]LogTemp: Display: FPS_UI asset-ready screen=HUD class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD_C",
+        "[2026.10.12-06.24.04:185][630]LogTemp: Display: FPS_ART_CAPTURE PASS sequence-complete"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/LoadoutFinal/lag0-loss0-visual/server.log",
+      "sha256": "2bfeb006128589be8c4361732065417d6842ed1587b419da948b227fc8cd351f",
+      "required_markers": [
+        "FPS_LOADOUT_SMOKE PASS SERVER COMPLETE"
+      ],
+      "observations": [
+        "[2026.10.12-05.42.14:423][  0]LogTemp: Display: FPS_UI asset-ready screen=Waiting class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSWaiting.WBP_FPSWaiting_C",
+        "[2026.10.12-05.42.29:532][877]LogTemp: Display: FPS_UI asset-ready screen=Loadout class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout_C",
+        "[2026.10.12-05.43.00:473][734]LogTemp: Display: FPS_LOADOUT_SMOKE PASS SERVER COMPLETE"
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/LoadoutFinal/lag0-loss0-visual/client.log",
+      "sha256": "bbe3a25ca5c40e873b9fa109bb7520cc36a5a057ed9225665b9721b3f6ab7e93",
+      "required_markers": [
+        "FPS_LOADOUT_SMOKE PASS CLIENT COMPLETE"
+      ],
+      "observations": [
+        "[2026.10.12-05.42.24:384][  5]LogTemp: Display: FPS_UI asset-ready screen=Waiting class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSWaiting.WBP_FPSWaiting_C",
+        "[2026.10.12-05.42.24:411][  5]LogTemp: Display: FPS_UI asset-ready screen=HUD class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.WBP_FPSHUD_C",
+        "[2026.10.12-05.42.29:534][307]LogTemp: Display: FPS_UI asset-ready screen=Loadout class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.WBP_FPSLoadout_C",
+        "[2026.10.12-05.42.57:991][976]LogTemp: Display: FPS_LOADOUT_SMOKE PASS CLIENT COMPLETE",
+        "[2026.10.12-05.42.58:358][989]LogTemp: Display: FPS_UI asset-ready screen=Lobby class=/Game/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLobby.WBP_FPSLobby_C"
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Lobby-1672x941/Help.png",
+      "sha256": "5eddc72fafb7c7242a2d5908e0bc2572464af089a69a95019d6328431d26f292",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Lobby-1672x941/LAN.png",
+      "sha256": "ffc08705bfde995efdde5b2a095cb0cddb22ad9465f2dd1ea4eb8eef5f9d5fa1",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Lobby-1672x941/Lobby.png",
+      "sha256": "9f05cc2894ed61eafaf2498bb9efe5059ec3ded607541525fa0739a2fc38b3ec",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Lobby-1672x941/Range.png",
+      "sha256": "09e8e4400ead6e03eb96546a3a21209e461b459de00196f72130c346c80fd829",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-1280x800/Loadout.png",
+      "sha256": "c60ed551d5eac14097de38d029a6569b465133e4349e77c86a70054b4affa745",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-1280x800/LoadoutScrolled.png",
+      "sha256": "b2ca2150423b0a01c9466d80ca680d8550f474dc7755accd5f20ac0a809afa0d",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-1280x800/LoadoutSelected.png",
+      "sha256": "da106aef391c7d6e107be7de3608907a28c23f4f1e837fb41de8c144d900a34e",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Aim.png",
+      "sha256": "6ee47e762b84c7a95750257efbed39a92f870cf267d31d4ba4095743b1bca563",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/HUD.png",
+      "sha256": "d08eec3b8916273322399dae538466c3ff38ae772365924a72928af823b72280",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Inspect.png",
+      "sha256": "6d29cf8bd4d2e1050f1c2096143275daadb1cf781df84d3e0db4a1aef391abad",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Loadout.png",
+      "sha256": "73347fe76e0a8c5398adb60d9ba00a78289fc8b21e32c83fc56d2d00efd57945",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/LowAmmo.png",
+      "sha256": "59f899f93ee95ed78a3abbb526166a00e75624adc4757992377d59bad64d847e",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Pause.png",
+      "sha256": "c721d011524e284282a0435e98b0cca8401b4f8b7f319962d8d4037170d68723",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Pistol.png",
+      "sha256": "5b013402303241e53b3eb1c98d304c3eefa632fdcfe5d4fc198cf9ef39069c0c",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Match-2560x1440/Reload.png",
+      "sha256": "242ba33463ed8da1ff84362a28d636dc1e00be697397ef25a91c3391f7ce5a5d",
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Report-1280x800/Report.png",
+      "sha256": "97399f04dc8e5fbbca859475af827648563240f5fd9d6f30759ac33358fb9032",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Aim.png",
+      "sha256": "2f5f9dfdba554b3c82932d810c7608b54a8fe7da970f50809d00f2040bdca366",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/HUD.png",
+      "sha256": "8a2b9f202a2f4807aa49c98ad252ee2bec3989bce2beabe4601e7217375878bf",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Inspect.png",
+      "sha256": "a249fbb037cc30bb71bf166fe590a958003d016af4f9ef5fd405bf96f9451f9d",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Loadout.png",
+      "sha256": "53644a302aff3aa0dee1782fe703bc3e449596830351efbd9e20325dd1c34114",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/LowAmmo.png",
+      "sha256": "16aa15e611030ff3263e8daa8a7ec13f839185bdaa0794ef4a23164d4d40cadd",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Pause.png",
+      "sha256": "cd6cf457b855e5cd544fcf85ae82ba0abca3ac5fbf4e0834ca452e5b5f5d6bc8",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Pistol.png",
+      "sha256": "1b5ae4debf79df9db842b739bc994aaf2c155b75be2edefc98d5e1c6c68303a0",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Training-1920x1080/Reload.png",
+      "sha256": "5cddcd2168bc55eb76646982afda934f80d186915d61decf61d674d193722c69",
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Saved/UISampleMatch/AlignmentPackage/Waiting-1280x800/Waiting.png",
+      "sha256": "d52dc255d976d50b33b0470bed46945bad30db10c553bb09f437cc3b19b9494f",
+      "size": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/DA_FPSUITheme.uasset",
+      "sha256": "248800dbc798b0080c91492109abda06a600db40b86345a387737c8237c46cb9",
+      "bytes": 5671
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Number.uasset",
+      "sha256": "fa11e9ae23c46ec50b9c761f246da00577c3ba6f82858a3dc492faafd1e23733",
+      "bytes": 2937
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Number_Bold.uasset",
+      "sha256": "ef637aae49b8f59a0cb3e878e6183b461f34080f906697d19529bdc7876000e6",
+      "bytes": 402372
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Number_Regular.uasset",
+      "sha256": "187a016b93b07e5d5174c3099b4004cfec228d4ae888def06a3b8407a4f5459d",
+      "bytes": 392052
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text.uasset",
+      "sha256": "20b01e465938ccb707ad667b4b86aad23c6345ad40e317b3c2565f41c512b5f7",
+      "bytes": 4942
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text_Bold.uasset",
+      "sha256": "d317583a174b5598dd3f1bf995eccfee8dc1b309841cdd37295bdde15e51edd8",
+      "bytes": 16965126
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text_Regular.uasset",
+      "sha256": "5fd7657da79cf7e2681fe9a37293c12e7c1ea662a56d2083bb7811f102a7cba3",
+      "bytes": 16531548
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_AK.uasset",
+      "sha256": "0bfbcbb0dcd092d370e82067235d3af75f10d8ef2632e0826136df424850a452",
+      "bytes": 62484
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_BR3.uasset",
+      "sha256": "ee3882f13255f2ca4066a6d1092c61e8c2feea342712829d8eaf5d8fd8fc6d5b",
+      "bytes": 60935
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_HeavyPistol.uasset",
+      "sha256": "97f2e094bcff03bdd70eac0e06cf09a8d5dce344ad0267b3e2a3fd3168cc9acc",
+      "bytes": 66029
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_M4.uasset",
+      "sha256": "cc72557e7591b45ef48c5635b49cbf504b090e9f1c7a13ee3a54bedd624328e1",
+      "bytes": 61906
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_M9.uasset",
+      "sha256": "dee73abb08c7127f9548c78d6805028b419616b4c1976257b6b10b0b6032b8fe",
+      "bytes": 63579
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_MP5.uasset",
+      "sha256": "f70eef174fa19428ce7e44f0d78f90a3d03a4bd5d34e12d2c8145c8517a6d0aa",
+      "bytes": 61090
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_IND_UMP45.uasset",
+      "sha256": "b2e5830382cf5f13a115bff24f97e76ebbfa1f24869a8886eec54d8e47323742",
+      "bytes": 67032
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_AK.uasset",
+      "sha256": "54dc996747bd6bda2b720196bb21d35baf8fc062ed6019fbd37ba3110cd7b8c3",
+      "bytes": 221898
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Alert.uasset",
+      "sha256": "a55b4d65d8465c506fc6521e5ff38c624971fc48268ffa58f5d63364f7181ef6",
+      "bytes": 12724
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Arrow.uasset",
+      "sha256": "800cd6d4bb2b78451ae99d7df959ed44cf678246ffb8da5587d3d9635002772b",
+      "bytes": 11493
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Backdrop.uasset",
+      "sha256": "7fb029f1e4884b268ba5048c44589548d3a46eecbb86019c4cd8431daf313379",
+      "bytes": 639969
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Book.uasset",
+      "sha256": "08d433004fe77fa4d1b6860ce4c13ae78786cd935fb86f50996e4e1a4e0dd0c6",
+      "bytes": 12380
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_BR3.uasset",
+      "sha256": "9b9c6fc5e2bb6140677f6bda7dc82c6a2853492a12b403bd16ad7e2ce2d11e0f",
+      "bytes": 211911
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Card.uasset",
+      "sha256": "dce7318622e82817de7ae71ec276463e505af7af9340b1d05c472565148728ac",
+      "bytes": 68376
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_CardEdge.uasset",
+      "sha256": "23756f1884bfd9b4d936394c7d470428c62b7a86eedb558524ed775ff9292c1b",
+      "bytes": 11385
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Check.uasset",
+      "sha256": "6dbbaab5e0e68ef37c7702ab2a479823381b635cb167d9e068c17528b61225cc",
+      "bytes": 11648
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_CheckCircle.uasset",
+      "sha256": "bd9544ae80076afcc7a3dec821a7887efd8500f4df251c5b4014b2e65afc0b0b",
+      "bytes": 13221
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Chevron.uasset",
+      "sha256": "0be950dc07bf079f5082bf1547a78b3bf8b2b7d46f828b0dd1607c80b0a1cb13",
+      "bytes": 11304
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Corner.uasset",
+      "sha256": "ea3fbf33b8fc59ecf23a612103e5772d31b8cd9aa07279621cdf3e3a9c933974",
+      "bytes": 11004
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Exit.uasset",
+      "sha256": "0ea6e367e35e916448ddd8bfbb0afb8af91891b8150b28a99d18b9cb5b0d86e8",
+      "bytes": 11653
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Foundry.uasset",
+      "sha256": "877ce168d7f6606c4ed0297b910997b152d41c12adccf118b3161845bad95517",
+      "bytes": 993635
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_HeavyPistol.uasset",
+      "sha256": "4baeb1d0726a68dd0f6ab0c9bf76f6bf0d9c566a54bdadd17598cd726cc21073",
+      "bytes": 197129
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_M4.uasset",
+      "sha256": "50a95e34181d7030e8f6614ffd95c9d85ea3bbb5dbd2a7c6073acc766966a36b",
+      "bytes": 214322
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_M9.uasset",
+      "sha256": "6d27674cb48c34cda8aa5f2ba092bddd77118ed26b033db7671dbf84baaa47f0",
+      "bytes": 190007
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_MP5.uasset",
+      "sha256": "7a91c46541290f44b88e60a427bc966bd19cbfdcd0777110e58de0f8b744fb12",
+      "bytes": 204519
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Panel.uasset",
+      "sha256": "204b18e28e42c97f02cae3844acdf9806b453ec3932f43c4e72070b50bd55cc3",
+      "bytes": 10955
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Paper.uasset",
+      "sha256": "0a04a1aeb8563794fa51c310ddf5de84e97a8c2e494b67c8e47e42eb517cfd4d",
+      "bytes": 68323
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_PreviewShade.uasset",
+      "sha256": "6e6605e970e6ce3b72f27c630be3e8e3c91273bcaa3b1587b9960df5ef772f5a",
+      "bytes": 15537
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Shield.uasset",
+      "sha256": "e05a5052f9a834e65c2b876d7c4487150c2be980a281abfab03eb85d3b33846f",
+      "bytes": 12361
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Signal.uasset",
+      "sha256": "50336db992d4bb033bc0d0af68c96fdfbb512d2400a35fa0fbbcfc4d6b0c05fa",
+      "bytes": 12448
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Surface.uasset",
+      "sha256": "0f87a97fe1b64b19184472839aa52a0b970dfd806d5ed9aa0046d8891b60c70e",
+      "bytes": 125790
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_Triangle.uasset",
+      "sha256": "742269ca3b7190e11549ffa5baedd3e8ec30415bae3dd45446419484e94b8431",
+      "bytes": 11822
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/T_UI_UMP45.uasset",
+      "sha256": "15669ab044c251fd92ff845eb2259ca45ba3597f6faffaa8ba4e29db27bb24f7",
+      "bytes": 217640
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSHUD.uasset",
+      "sha256": "cd3dad77e04059a0697cc0188ee0bd3aa02d64144ee7f178c84cb75430b7be5c",
+      "bytes": 158888
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLoadout.uasset",
+      "sha256": "025b718956033dc684467808c930fa42166df81094dd9c1f906f0a7ea100a627",
+      "bytes": 405502
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSLobby.uasset",
+      "sha256": "6de516b53d79e208bb3a857c704e42b24f03908cca2ff538bd012b8cc7b33543",
+      "bytes": 515305
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSPause.uasset",
+      "sha256": "2cae49bb5f095bb4e0b41f1db78945704457b25798102b9bb97642f03ab3a5f4",
+      "bytes": 231796
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSReport.uasset",
+      "sha256": "3c983826e3c4e934a0f26fa23394454ddb6fee21b35ce388c9b5c5513ede8c46",
+      "bytes": 179227
+    },
+    {
+      "path": "Content/FPSDemo/Art/Industrial/UI/Widgets/WBP_FPSWaiting.uasset",
+      "sha256": "58fbd626ae37cd564b2dd3a4e02645fc234cdb50a70b6b9c079ff9fd274e193d",
+      "bytes": 244717
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/Rajdhani-Bold.ttf",
+      "sha256": "691470dd3286a14e9677940d0bf75796179841ba5215cbda1a2c8910a3226afd",
+      "bytes": 400680
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/Rajdhani-OFL.txt",
+      "sha256": "f62ef357d3a1c3d27edd35a6e1ba350e8a8d13499797964eeadefbf0b3b15d1f",
+      "bytes": 4373
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/Rajdhani-SemiBold.ttf",
+      "sha256": "94bbd25a18ca665999feb05a537de9fd2b860dcfb78bbe9ca00270825bf235da",
+      "bytes": 390340
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/SourceHanSans-LICENSE.txt",
+      "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2",
+      "bytes": 4463
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/SourceHanSansSC-Bold.otf",
+      "sha256": "df2b90f5bcc6d01dfc964cec5f6d535d6b6aebd26ed7fd79a9c1b3f2112fcb6b",
+      "bytes": 16963428
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/SourceHanSansSC-Regular.otf",
+      "sha256": "f1d8611151880c6c336aabeac4640ef434fa13cbfbf1ffe82d0a71b2a5637256",
+      "bytes": 16529832
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Fonts/SOURCES.txt",
+      "sha256": "e51cbbb5de5caefd41bed0464b6feeb739e1048b376f51e369e7e74026683b21",
+      "bytes": 734
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Foundry.png",
+      "sha256": "fcca6f2298cf291a97f28600e58aa3015545a49b3ee20d6b33c8fa7ce86306f3",
+      "bytes": 1055895
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Panel.png",
+      "sha256": "e820f0dbf05ac293e77b68ed71cb33c4de17c29f788c1e1e7240e4f705d2d191",
+      "bytes": 424
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/CombatHUD-1920x1080.png",
+      "sha256": "5f35da7b08d9147a345d4cd9fd48454881d62d46e47709e50d8db9baf0720bdf",
+      "bytes": 2143788
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Death-1920x1080.png",
+      "sha256": "26c240abfc64d0ab436b5fb1b37854abfd1f1e117609596c547364aa2cdbf17d",
+      "bytes": 2186000
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Help-1280x800.png",
+      "sha256": "b03f2386102f1005ee65fe0249390d07ef01e5223ccb9b1df67dd51d39c7f169",
+      "bytes": 404912
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/HUD-1920x1080.png",
+      "sha256": "9761b88053a664be34ccda285e4c73e558e8eed5e6c7b9c18ce5c37da46e8c11",
+      "bytes": 2146153
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/LAN-1280x800.png",
+      "sha256": "d5bc7e8fb008f0e7d0165e34648f2ecf5c352840ca70aa11a4dce9b30def8038",
+      "bytes": 388325
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Loadout-1280x800.png",
+      "sha256": "3e29c51d5b8fc02a3e591fc1745287b376d34029d1e0596e0ef1fc52cc083739",
+      "bytes": 504464
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Loadout-1920x1080.png",
+      "sha256": "f5188ed2ea3b7d9741432fb09d962c00712ebd12aa4f166ee249791890c3a382",
+      "bytes": 830981
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Loadout-2560x1440.png",
+      "sha256": "a729b8afa32e68bef57c0ceeb80879d9af214cf9a81de86907cc181af69a3700",
+      "bytes": 1402056
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Lobby-1280x800.png",
+      "sha256": "425ca15c5bf5193bf880116247b2c86fca5a940a1d81e6a60027798a46da0975",
+      "bytes": 384303
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/LowHealth-1920x1080.png",
+      "sha256": "763d97240f1147c87a4d234bf92900a681631003b4afb3442d521c2ce6176a66",
+      "bytes": 1894490
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Pause-1920x1080.png",
+      "sha256": "d95261363778fa5c44455bd5978032f103450209d92194ac3f1dc567a9baba86",
+      "bytes": 146156
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Report-1280x800.png",
+      "sha256": "6d26d42b4dd1a90a6b3dc128ba43143bacdec4137657187f173f15a9a6ad2707",
+      "bytes": 88699
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/SampleMatch/HUD-2560x1440.png",
+      "sha256": "d08eec3b8916273322399dae538466c3ff38ae772365924a72928af823b72280",
+      "bytes": 3680079
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/SampleMatch/Inspect-1920x1080.png",
+      "sha256": "a249fbb037cc30bb71bf166fe590a958003d016af4f9ef5fd405bf96f9451f9d",
+      "bytes": 2006162
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/SampleMatch/Loadout-1280x800.png",
+      "sha256": "c60ed551d5eac14097de38d029a6569b465133e4349e77c86a70054b4affa745",
+      "bytes": 930354
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/SampleMatch/Lobby-1672x941.png",
+      "sha256": "9f05cc2894ed61eafaf2498bb9efe5059ec3ded607541525fa0739a2fc38b3ec",
+      "bytes": 1293237
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/Previews/Waiting-1280x800.png",
+      "sha256": "20a47f8e827bf527ea84e6b4f59379a10607daaf7d4ed6fdc629606602220be0",
+      "bytes": 90770
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_AK.png",
+      "sha256": "dfa7a21d848c0786e04e97923bda91b774edf8a747fc11bf448a5467a0317c07",
+      "bytes": 249081
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Alert.png",
+      "sha256": "f704a106e693d0d92290159744b9c9b94c6924818c72af66f963fdbac9f02b8d",
+      "bytes": 1825
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Arrow.png",
+      "sha256": "1ec17c0e86973fdcdab7dc4784024d25136164ec68e937f5ddadb125ccea0b64",
+      "bytes": 580
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Backdrop.png",
+      "sha256": "333c3d90cdfad3295ed501cd63c21ea9e69d1bdf0fe49d9b001276eaac523596",
+      "bytes": 659991
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Book.png",
+      "sha256": "e6317e7ea337e1991c2923bbbd9811896726c59884edfaea671e44ff456dcc44",
+      "bytes": 1721
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_BR3.png",
+      "sha256": "82df50601c6278eddb2ca7a07514c6fc146cd801a72c0b97d2ed28d851277efd",
+      "bytes": 237891
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Card.png",
+      "sha256": "b79aeb34fbc4a8aa6c220187b113172a35c0b10cdb1f420192dd62e092a762b2",
+      "bytes": 61862
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_CardEdge.png",
+      "sha256": "09134ce82caffa79f640a2d6f44a572bebef64f16aec5f77c7b992eaa23053c1",
+      "bytes": 741
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Check.png",
+      "sha256": "62aeed343bfbef9762d1b469d512d37082dd25a7db8d0171772ca3905275da65",
+      "bytes": 671
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_CheckCircle.png",
+      "sha256": "d1c83badee334a95dd91b87258cb822536b5921784c7aadb322f9cf9edccc399",
+      "bytes": 2185
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Chevron.png",
+      "sha256": "3f0f7a4d281cab78e0a3027c2d5931f6b63483291e88c7fe246a34303f7210ee",
+      "bytes": 397
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Corner.png",
+      "sha256": "5b39fb00142522bc7d9c49197d08af20eff4e164c5816499b6b44c7be2fcfa23",
+      "bytes": 460
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Exit.png",
+      "sha256": "b724e191a8c481f9af9a581a5bffc3f86a0054c4083700dbbcfdd4968262c9a6",
+      "bytes": 970
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_HeavyPistol.png",
+      "sha256": "3d5fdbc0736d18448a0102b61e1d6e9ed17108968db7ffca114be398c6bce564",
+      "bytes": 229556
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_M4.png",
+      "sha256": "d7c7ec590b8b3665be4a1af0f6b613b817723838bb3dfc8a9db3840a83269b3d",
+      "bytes": 241254
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_M9.png",
+      "sha256": "c7d284a021d9566025ff6cff77011828a3b1f12ee06f26348e93fca67fe44a23",
+      "bytes": 222500
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_MP5.png",
+      "sha256": "7aaafccd9c473ef6557683452279470ba6379f4e98418f6e0eb5972c6d64f8c9",
+      "bytes": 240323
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Paper.png",
+      "sha256": "bfc152be82f393e2f930b25119ef022dba7ec8f89ef24a76135094d8385acaa2",
+      "bytes": 61570
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_PreviewShade.png",
+      "sha256": "0ecccba9d18ba12f5f8cf2e45fcd56b34ddb5e063f10c52084ebb70b773690e4",
+      "bytes": 3330
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Shield.png",
+      "sha256": "5542e621d0ffc8d9452405130cec7939c425de58606168d094fa18f4f5cebfa8",
+      "bytes": 1612
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Signal.png",
+      "sha256": "62d92553ed467689e1dd3504153a38919f3ecdbfe22a9da9ed3c10172275b2d3",
+      "bytes": 1499
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Surface.png",
+      "sha256": "8607454524166db4a22904f7dae4fb9bd6727a8754027cd657e30dd389d728eb",
+      "bytes": 123062
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_Triangle.png",
+      "sha256": "a8b67785e73ce26ba10e2803adb0e41bdf77a57456d4580d45bc666d6f37ca31",
+      "bytes": 1213
+    },
+    {
+      "path": "ArtSource/FPSDemo/Industrial/UI/T_UI_UMP45.png",
+      "sha256": "f1a5f39dc6e02f5ba158cee9a49d3e43e8a7d5257b8fab9161cd6b5f55e3dd72",
+      "bytes": 248933
+    }
+  ],
+  "model_source_and_asset_hashes_preserved": [
+    "ArtSource/FPSDemo/Industrial/EnvironmentKit.blend",
+    "ArtSource/FPSDemo/Industrial/Exports/SK_IND_Operator.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_AK.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Barrier200.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_BaseBeacon.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_BR3.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Cargo240.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Deck400.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Floor400.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_FPArm_L.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_FPArm_R.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Gateway400.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_HeavyPistol.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_M4.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_M9.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_MP5.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Operator.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Pillar300.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Railing200.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_Helmet.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LBoot.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LForearm.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LGlove.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LShin.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LThigh.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_LUpperArm.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_Pelvis.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RBoot.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RForearm.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RGlove.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RShin.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RThigh.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_RUpperArm.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_RT_Torso.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_TargetStand.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_UMP45.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_Wall400.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_WeaponRack.fbx",
+    "ArtSource/FPSDemo/Industrial/Exports/SM_IND_WorkLight.fbx",
+    "ArtSource/FPSDemo/Industrial/Operator.blend",
+    "ArtSource/FPSDemo/Industrial/RuntimeParts.blend",
+    "ArtSource/FPSDemo/Industrial/WeaponLibrary.blend",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Helmet.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LBoot.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LForearm.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LGlove.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LShin.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LThigh.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LUpperArm.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Pelvis.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RBoot.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RForearm.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RGlove.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RShin.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RThigh.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RUpperArm.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Torso.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/SK_IND_Operator.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/SK_IND_Operator_PhysicsAsset.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/SK_IND_Operator_Skeleton.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/SM_IND_FPArm_L.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/SM_IND_FPArm_R.uasset",
+    "Content/FPSDemo/Art/Industrial/Character/SM_IND_Operator.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Barrier200.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_BaseBeacon.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Cargo240.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Deck400.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Floor400.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Gateway400.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Pillar300.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Railing200.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_TargetStand.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_Wall400.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_WeaponRack.uasset",
+    "Content/FPSDemo/Art/Industrial/Environment/SM_IND_WorkLight.uasset",
+    "Content/FPSDemo/Art/Industrial/Maps/LV_IndustrialShowcase.umap",
+    "Content/FPSDemo/Art/Industrial/Materials/M_IND_Surface.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Blue.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Ceramic.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Concrete.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Fabric.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Graphite.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Light.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Polymer.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Red.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Rubber.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Steel.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Visor.uasset",
+    "Content/FPSDemo/Art/Industrial/Materials/MI_IND_Yellow.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.uasset",
+    "Content/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.uasset"
+  ],
+  "package_report": "Saved/IndustrialArt/Package/UISampleMatch-20261012-v7/Report.json",
+  "package_report_sha256": "5f9ed193474618a4d621e715cf197163136af0913a16f61fb72b2c9c35f726c7",
+  "executable_sha256": "FA73696994BCA178A626D30F1354733D17DA468B4B5CBB6F4A1D6E8AC4A11F52",
+  "limits": [
+    "Base models are unchanged; reference-quality gun/human modeling remains deferred.",
+    "Pointer events are routed through the offscreen Slate hit-test path; not a physical mouse usability study.",
+    "No ultrawide, controller navigation, performance stress test or shipping build acceptance."
+  ]
+}

@@ -1,6 +1,7 @@
 #include "FPSDynamicDrops.h"
 #include "FPSWeaponPickup.h"
 #include "FPSModeRules.h"
+#include "FPSDemoGameState.h"
 #include "Engine/World.h"
 
 int32 UFPSDynamicDrops::Count() const
@@ -23,6 +24,8 @@ bool UFPSDynamicDrops::Register(AFPSWeaponPickup* Drop)
         if (!Oldest) break;
         Ordered.Remove(Oldest);
         Oldest->Destroy();
+        if(auto* GS=GetWorld()->GetGameState<AFPSDemoGameState>())
+        {GS->DropNoticeUntil=GS->GetServerWorldTimeSeconds()+4;GS->ForceNetUpdate();}
     }
     return true;
 }

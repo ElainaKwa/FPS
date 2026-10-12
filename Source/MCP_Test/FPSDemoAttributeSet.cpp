@@ -11,6 +11,8 @@ UFPSDemoAttributeSet::UFPSDemoAttributeSet()
 	InitHealth(100.0f);
 	InitWeaponDamage(25.f);
 	InitMoveSpeed(570.f);
+	InitMaxStamina(100.f);
+	InitStamina(100.f);
 }
 
 void UFPSDemoAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -20,6 +22,8 @@ void UFPSDemoAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 	DOREPLIFETIME_CONDITION_NOTIFY(UFPSDemoAttributeSet, MoveSpeed, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UFPSDemoAttributeSet, Health, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UFPSDemoAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UFPSDemoAttributeSet, Stamina, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UFPSDemoAttributeSet, MaxStamina, COND_None, REPNOTIFY_Always);
 }
 
 void UFPSDemoAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
@@ -27,6 +31,8 @@ void UFPSDemoAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribut
 	Super::PreAttributeChange(Attribute, NewValue);
 	if (Attribute == GetWeaponDamageAttribute()) NewValue = FMath::Clamp(NewValue, 0.f, 1000.f);
 	if (Attribute == GetMoveSpeedAttribute()) NewValue = FMath::Clamp(NewValue, 0.f, 1500.f);
+	if (Attribute == GetStaminaAttribute()) NewValue = FMath::Clamp(NewValue, 0.f, GetMaxStamina());
+	if (Attribute == GetMaxStaminaAttribute()) NewValue = FMath::Max(1.f, NewValue);
 	if (Attribute == GetHealthAttribute()) NewValue = FMath::Clamp(NewValue, 0.0f, GetMaxHealth());
 	if (Attribute == GetMaxHealthAttribute()) NewValue = FMath::Max(1.0f, NewValue);
 }
@@ -67,4 +73,13 @@ void UFPSDemoAttributeSet::OnRep_WeaponDamage(const FGameplayAttributeData& OldV
 void UFPSDemoAttributeSet::OnRep_MoveSpeed(const FGameplayAttributeData& OldValue)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UFPSDemoAttributeSet, MoveSpeed, OldValue);
+}
+
+void UFPSDemoAttributeSet::OnRep_Stamina(const FGameplayAttributeData& OldValue)
+{
+    GAMEPLAYATTRIBUTE_REPNOTIFY(UFPSDemoAttributeSet, Stamina, OldValue);
+}
+void UFPSDemoAttributeSet::OnRep_MaxStamina(const FGameplayAttributeData& OldValue)
+{
+    GAMEPLAYATTRIBUTE_REPNOTIFY(UFPSDemoAttributeSet, MaxStamina, OldValue);
 }

@@ -1,0 +1,376 @@
+{
+  "generated_by": "ArtSource/FPSDemo/Environment/CrossingKit/Scripts/record_delivery.py",
+  "generated_at_utc": "2026-10-12T18:14:07.589724+00:00",
+  "status": "runtime checks passed; user visual acceptance pending; no packaged-build claim",
+  "authoring": {
+    "map": "/Game/FPSDemo/Maps/Gameplay/IndustrialCrossing/LV_FPSIndustrialCrossing",
+    "footprint_cm": [
+      11200,
+      9600
+    ],
+    "primitive_actors": 629,
+    "buildings": 70,
+    "navigation_cells": [
+      111,
+      95
+    ],
+    "player_starts": 10,
+    "weapon_stands": 14,
+    "patrol_points": [
+      [
+        0,
+        0,
+        90
+      ],
+      [
+        3200,
+        2200,
+        90
+      ],
+      [
+        -500,
+        0,
+        90
+      ],
+      [
+        3200,
+        -3200,
+        90
+      ],
+      [
+        0,
+        0,
+        90
+      ],
+      [
+        -1800,
+        3500,
+        90
+      ],
+      [
+        -500,
+        0,
+        90
+      ],
+      [
+        -800,
+        -3300,
+        90
+      ],
+      [
+        -400,
+        2000,
+        90
+      ],
+      [
+        0,
+        0,
+        90
+      ],
+      [
+        -1600,
+        -1400,
+        90
+      ]
+    ],
+    "source": "Tools/create_fps_industrial_crossing.py",
+    "status": "authored; runtime verification separate"
+  },
+  "import": {
+    "status": "passed",
+    "meshes": [
+      {
+        "asset": "/Game/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Portal600.SM_IC_Portal600",
+        "dimensions_cm": [
+          95.0,
+          739.9999694824219,
+          566.0
+        ],
+        "expected_cm": [
+          94.9999988079071,
+          739.9999856948853,
+          565.9999847412109
+        ]
+      },
+      {
+        "asset": "/Game/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Cargo180.SM_IC_Cargo180",
+        "dimensions_cm": [
+          182.0,
+          196.0,
+          182.00000500679016
+        ],
+        "expected_cm": [
+          182.00000524520874,
+          196.00000381469727,
+          181.99999928474426
+        ]
+      },
+      {
+        "asset": "/Game/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Vent150.SM_IC_Vent150",
+        "dimensions_cm": [
+          29.186927795410156,
+          150.0,
+          100.0
+        ],
+        "expected_cm": [
+          29.186926782131195,
+          150.0,
+          100.0
+        ]
+      },
+      {
+        "asset": "/Game/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_ServicePipe400.SM_IC_ServicePipe400",
+        "dimensions_cm": [
+          400.0,
+          50.0,
+          156.0
+        ],
+        "expected_cm": [
+          400.0,
+          50.0,
+          156.00000619888306
+        ]
+      },
+      {
+        "asset": "/Game/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Bollard120.SM_IC_Bollard120",
+        "dimensions_cm": [
+          55.0,
+          55.0,
+          130.0
+        ],
+        "expected_cm": [
+          55.000001192092896,
+          55.000001192092896,
+          130.00000715255737
+        ]
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Source/CrossingKit.blend",
+      "bytes": 123537,
+      "sha256": "2606d576afeab9de2e8c76706709645085c581fe63eb8c4b8af7f64008c0f7e1"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/manifest.json",
+      "bytes": 3030,
+      "sha256": "6bdc9d77938c575677497625882dc4e699773bc2a5326123846168c8d05996fa"
+    },
+    {
+      "path": "Content/FPSDemo/Maps/Gameplay/IndustrialCrossing/LV_FPSIndustrialCrossing.umap",
+      "bytes": 1783866,
+      "sha256": "ad2b93c97f76eaca9605962298a36090bc15e54bd6a72f91e6ae4e88cc9d4b3c"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Exports/SM_IC_Bollard120.fbx",
+      "bytes": 31836,
+      "sha256": "944dd693e74eb69c342a02975f6e55a0a29c8f99283e2695693f9b20e585acef"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Exports/SM_IC_Cargo180.fbx",
+      "bytes": 93964,
+      "sha256": "ea6dea6eee3d9108952ba5299fca6486689dc3c457a0901d0b963aceddda1bad"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Exports/SM_IC_Portal600.fbx",
+      "bytes": 59804,
+      "sha256": "9ec4488a257d79ac0403433a7e12b9b13e85a78e7cb5211f686b1fad03b5d330"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Exports/SM_IC_ServicePipe400.fbx",
+      "bytes": 73244,
+      "sha256": "f44f9e5328b77250c7ea5ae7da892e561e6423ed3c2d644e1eda2f512f5383ab"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Exports/SM_IC_Vent150.fbx",
+      "bytes": 51532,
+      "sha256": "38e1630cb33447c9a8ab1db6fd0d4de82cb9ba61b4e7681653a0e1e92751dc27"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Bollard120.uasset",
+      "bytes": 36662,
+      "sha256": "d6d74cd3c9b7d4fd663ef13ee1f75c349615b85bd3e8bdab8b45b73d08177f0a"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Cargo180.uasset",
+      "bytes": 131700,
+      "sha256": "e909b38dba88654b5e5222ce2cb4a2f112d5329c3024fd1c5b6e6d713de63342"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Portal600.uasset",
+      "bytes": 77906,
+      "sha256": "a913e99bad56a911ccd4162b6eabfaedf0b1f68189bd0a73aae7b21174ea45e1"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_ServicePipe400.uasset",
+      "bytes": 90804,
+      "sha256": "d58b9e138d8be1e7ece7900395cf317edab15e1f7581974fd1e962764584142c"
+    },
+    {
+      "path": "Content/FPSDemo/Art/Environment/CrossingKit/Meshes/SM_IC_Vent150.uasset",
+      "bytes": 64591,
+      "sha256": "e76f7fcfb377c2cbf9d99441c753b6cadecc9a66f421c8f8311beffb47a1dc35"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Scripts/build_crossing_kit.py",
+      "bytes": 3712,
+      "sha256": "200df42bea2cefc20cba2349aadd30fd9f016f216e3052ab103d9ee557ea659e"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Scripts/import_crossing_kit.py",
+      "bytes": 2968,
+      "sha256": "19c3e4a35f1bbd193a108c0d8369994396907d53b589e02136a61173b476b7d5"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Scripts/record_delivery.py",
+      "bytes": 3342,
+      "sha256": "248dc3d6c3dffb7007d2ec27774004e7ac383f458f8f30cf204940c8c1a71f76"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/README.md",
+      "bytes": 3262,
+      "sha256": "6bedf24154abe2dd37ac400302ddd200ef6dc62f534838f945087cf5a7b36167"
+    },
+    {
+      "path": "Tools/build_industrial_art.py",
+      "bytes": 29422,
+      "sha256": "f7482886c4817094769809fff3d0259c643a9a7a780377f9092882d237d9f7db"
+    },
+    {
+      "path": "Tools/LaunchFPSIndustrialCrossing.ps1",
+      "bytes": 835,
+      "sha256": "c95108011157bfc81ba208d8b91fcdad4065f7bd81aa85afac928ee144430439"
+    },
+    {
+      "path": "Tools/TestFPSIndustrialCrossing.ps1",
+      "bytes": 4662,
+      "sha256": "ab4bc83768b135ab0a9d49e596effb4b0890c37301d28c13fdaa716f6fdb5f16"
+    },
+    {
+      "path": "Tools/CaptureFPSArt.ps1",
+      "bytes": 3310,
+      "sha256": "4ad1d86b7020a13370dae7322e43e54e7f700ecc25cc758dfec988bc3704ea86"
+    },
+    {
+      "path": "Tools/create_fps_industrial_crossing.py",
+      "bytes": 16671,
+      "sha256": "90d4e915fb138740f2c3cddab65ec7b06c893874852b1a6180bb98037e4164a9"
+    },
+    {
+      "path": "Source/MCP_Test/FPSNavigationRegion.h",
+      "bytes": 935,
+      "sha256": "97ea4f507b6b98d7d2739163932b5c3e3736b502b0600c2dee2b1e752a420b52"
+    },
+    {
+      "path": "Source/MCP_Test/FPSNavigationRegion.cpp",
+      "bytes": 6472,
+      "sha256": "872467dedb50730ac8bbc253ea828f97ec979f17b4a940a1af37fa9d47db4b01"
+    },
+    {
+      "path": "Source/MCP_Test/FPSBotNavigation.cpp",
+      "bytes": 5952,
+      "sha256": "053cf5b4084f4ee349e6a1a7a667962a502dce0d4003aacffe901c516c64180f"
+    },
+    {
+      "path": "Source/MCP_Test/FPSBotNavigation.h",
+      "bytes": 815,
+      "sha256": "06c5ba205f83210e03fc5bf2bc4499e246cfc88b548d28dc11cc15e6c280fcab"
+    },
+    {
+      "path": "Source/MCP_Test/FPSBotController.cpp",
+      "bytes": 8209,
+      "sha256": "cc031d6243604b7b89c5b651f6f20fbff537631c6e6a6eb313991474e5098318"
+    },
+    {
+      "path": "Source/MCP_Test/FPSFlowSmoke.cpp",
+      "bytes": 8999,
+      "sha256": "e882ac32c91e55ad4b024a90d255ed6fa8be8c1ce2102e24e4dab8d1efaadc85"
+    }
+  ],
+  "unreal_map_images": [
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Previews/UnrealMapOverview.png",
+      "bytes": 1552560,
+      "sha256": "9035c5561cf1010f30c3dd560d7a9632f41be824bb1fe81018e0e710f4fe5d28"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Previews/UnrealMapLongLane.png",
+      "bytes": 1687749,
+      "sha256": "bbb2825d9849c4f4547ba8280f5bc4a52ed1a797db314f44b87c456e0fa3ffab"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Previews/UnrealMapLoadingBay.png",
+      "bytes": 1636963,
+      "sha256": "8cb7eddf27b87e6ae7dd1ca93326da43b4bbc6cd7f2044d34c57460327b9de45"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Previews/UnrealMapServicePassage.png",
+      "bytes": 1636779,
+      "sha256": "6abdd001b57861874a073f5923de914deb71582a3456bc8051e004a4b721ea5b"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Previews/UnrealMapMidGate.png",
+      "bytes": 1669259,
+      "sha256": "5ac1754b534173f88efbb05384aed9e25a20b2955a124265d03a2603e801e019"
+    },
+    {
+      "path": "ArtSource/FPSDemo/Environment/CrossingKit/Previews/UnrealHUD.png",
+      "bytes": 1440370,
+      "sha256": "2747725cac7856129a9bb6347c0e8106ada037dba0ffc8265b31070151032390"
+    }
+  ],
+  "runs": [
+    {
+      "run": {
+        "started": "2026-10-13T02:07:01.0202219+08:00",
+        "mode": "Solo",
+        "visual": true,
+        "status": "passed",
+        "map": "/Game/FPSDemo/Maps/Gameplay/IndustrialCrossing/LV_FPSIndustrialCrossing?game=/Script/MCP_Test.FPSMatchMode?Mode=Solo?Bots=9",
+        "module": "UnrealEditor-MCP_Test-7316.dll",
+        "module_sha256": "691ACBBE47C6F9184BE23E897835E7258056057E34AA701EBCD8AF151B71338F",
+        "logs": "D:\\Unreal Projects\\MCP_Test\\Saved\\IndustrialCrossing\\Tests\\20261013-020701007",
+        "completed": "2026-10-13T02:08:50.1116827+08:00"
+      },
+      "receipt": {
+        "path": "Saved/IndustrialCrossing/Tests/20261013-020701007/run.json",
+        "bytes": 540,
+        "sha256": "fcfdad413d27e6caa48d3e5cdb9ed260e4bdb0d2c99325642b7e319f453060eb"
+      },
+      "server_log": {
+        "path": "Saved/IndustrialCrossing/Tests/20261013-020701007/server.log",
+        "bytes": 212393,
+        "sha256": "1ee010d4713387700fc29f2f9d635612c274f52e15dedb8b918e47fabed736c7"
+      }
+    },
+    {
+      "run": {
+        "started": "2026-10-13T02:09:36.3421690+08:00",
+        "mode": "LAN",
+        "visual": false,
+        "status": "passed",
+        "map": "/Game/FPSDemo/Maps/Gameplay/IndustrialCrossing/LV_FPSIndustrialCrossing?game=/Script/MCP_Test.FPSMatchMode?Mode=LAN?Bots=0?listen",
+        "module": "UnrealEditor-MCP_Test-7316.dll",
+        "module_sha256": "691ACBBE47C6F9184BE23E897835E7258056057E34AA701EBCD8AF151B71338F",
+        "logs": "D:\\Unreal Projects\\MCP_Test\\Saved\\IndustrialCrossing\\Tests\\20261013-020936327",
+        "completed": "2026-10-13T02:10:07.8929755+08:00"
+      },
+      "receipt": {
+        "path": "Saved/IndustrialCrossing/Tests/20261013-020936327/run.json",
+        "bytes": 546,
+        "sha256": "dbe46aee54889b18b3381039b71a2eb3d05783ecca7011bc2defb27906dae9b0"
+      },
+      "server_log": {
+        "path": "Saved/IndustrialCrossing/Tests/20261013-020936327/server.log",
+        "bytes": 200295,
+        "sha256": "f659884fa0d2b42eaa9e200698dcf97c4f4bcca04edebe4015f31e7f257c66af"
+      },
+      "client_log": {
+        "path": "Saved/IndustrialCrossing/Tests/20261013-020936327/client.log",
+        "bytes": 197038,
+        "sha256": "7e91bde7f8e67aae61923be2cd8ad7f6936d17018c68126a09b7be1dfe0e6647"
+      }
+    }
+  ]
+}

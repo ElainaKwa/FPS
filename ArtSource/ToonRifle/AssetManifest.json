@@ -1,0 +1,50 @@
+{
+  "asset": "TIDELINE_AR01",
+  "source_file": "TIDELINE_AR01.blend",
+  "editable_source_objects": 558,
+  "source_meshes": 540,
+  "gltf_detachable_parts": 11,
+  "triangles": 202184,
+  "vertices": 105672,
+  "materials": [
+    "AR01_01_MidnightCeramic",
+    "AR01_02_LagoonPolymer",
+    "AR01_06_SatinSteel",
+    "AR01_03_WarmPorcelain",
+    "AR01_07_RecessBlack",
+    "AR01_04_SignalAmber",
+    "AR01_05_GripRubber",
+    "AR01_08_OpticalGlass",
+    "AR01_09_SightIndicator"
+  ],
+  "dimensions_m": [
+    1.0795000195503235,
+    0.15735000744462013,
+    0.5261790007352829
+  ],
+  "axis": "+X muzzle / +Z up; metres",
+  "uv_layers": 2,
+  "style": "original cartoon tactical assault rifle inspired by game attachment detailing",
+  "exports": [
+    "Exports/SM_TW_TIDELINE_AR01.fbx",
+    "Exports/SM_TW_TIDELINE_AR01.glb"
+  ],
+  "rigged": false,
+  "textures": "9 named Principled materials, geometry details, UV0; no external dependencies",
+  "parts": [
+    "ReceiverAndHandguard",
+    "Stock",
+    "Trigger",
+    "Muzzle",
+    "Foregrip",
+    "PistolGrip",
+    "Magazine",
+    "Optic",
+    "RearSight",
+    "FrontSight",
+    "SideModule"
+  ],
+  "unreal_import_status": "not imported or tested in Unreal Editor",
+  "source_hierarchy": "11 named PART_ empties under AR01_Root_GripOrigin",
+  "fbx_axis_note": "FBX metadata +X forward +Z up; use_space_transform=True. Default Blender reimport restores source XYZ geometry."
+}

@@ -1,0 +1,70 @@
+{
+  "generator": "Tools/integrate_industrial_art.py",
+  "runtime_parts": [
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Torso.SM_IND_RT_Torso",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Helmet.SM_IND_RT_Helmet",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_Pelvis.SM_IND_RT_Pelvis",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LUpperArm.SM_IND_RT_LUpperArm",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LForearm.SM_IND_RT_LForearm",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LThigh.SM_IND_RT_LThigh",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LShin.SM_IND_RT_LShin",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LGlove.SM_IND_RT_LGlove",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_LBoot.SM_IND_RT_LBoot",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RUpperArm.SM_IND_RT_RUpperArm",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RForearm.SM_IND_RT_RForearm",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RThigh.SM_IND_RT_RThigh",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RShin.SM_IND_RT_RShin",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RGlove.SM_IND_RT_RGlove",
+    "/Game/FPSDemo/Art/Industrial/Character/Runtime/SM_IND_RT_RBoot.SM_IND_RT_RBoot"
+  ],
+  "weapons": [
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_AK.DA_AK",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK.SM_IND_AK",
+      "gameplay_values_unchanged": true
+    },
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_M4.DA_M4",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4.SM_IND_M4",
+      "gameplay_values_unchanged": true
+    },
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_BR3.DA_BR3",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3.SM_IND_BR3",
+      "gameplay_values_unchanged": true
+    },
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_MP5.DA_MP5",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5.SM_IND_MP5",
+      "gameplay_values_unchanged": true
+    },
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_UMP45.DA_UMP45",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45.SM_IND_UMP45",
+      "gameplay_values_unchanged": true
+    },
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_M9.DA_M9",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9.SM_IND_M9",
+      "gameplay_values_unchanged": true
+    },
+    {
+      "path": "/Game/FPSDemo/Weapons/Definitions/DA_HeavyPistol.DA_HeavyPistol",
+      "mesh": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol.SM_IND_HeavyPistol",
+      "gameplay_values_unchanged": true
+    }
+  ],
+  "maps": [
+    {
+      "map": "LV_FPSFoundry",
+      "cosmetic_shells": 72,
+      "original_transforms_and_collision_preserved": true
+    },
+    {
+      "map": "LV_FPSTraining",
+      "cosmetic_shells": 70,
+      "original_transforms_and_collision_preserved": true
+    }
+  ],
+  "success": true
+}

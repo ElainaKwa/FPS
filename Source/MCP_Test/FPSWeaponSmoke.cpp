@@ -16,13 +16,13 @@
 void FFPSWeaponSmoke::Start(AFPSMatchMode* Mode)
 {
 #if !UE_BUILD_SHIPPING
-    if (!FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponAbilitySmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponPresentationSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke"))) return;
+    if (!FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponAbilitySmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponPresentationSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke"))) return;
     FTimerHandle Timer;
     TWeakObjectPtr<AFPSMatchMode> WeakMode(Mode);
     Mode->GetWorldTimerManager().SetTimer(Timer, [WeakMode]()
     {
         if (auto* Rules = WeakMode.Get())
-            if (auto* GS = Rules->GetGameState<AFPSDemoGameState>(); GS && GS->bWaiting && GS->PlayerArray.Num() == 2)
+            if (auto* GS = Rules->GetGameState<AFPSDemoGameState>(); GS && GS->bWaiting && (FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentSmoke")) ? Rules->GetWorld()->GetNumPlayerControllers() >= 2 : GS->PlayerArray.Num() == 2))
                 Rules->StartRound(Rules->GetWorld()->GetFirstPlayerController());
     }, 1.f, true, 3.f);
 #endif
@@ -38,7 +38,7 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
     if (bServer == Pawn->IsLocallyControlled()) return;
     const auto* GS = Pawn->GetWorld()->GetGameState<AFPSDemoGameState>();
     const double Time = W->ServerTime() - (GS->RoundEndsAt - 300);
-    struct FProgress { TSet<int32> Done; FGuid Original; FGuid NewAK; FGuid BurstId; bool bFailed = false; };
+    struct FProgress { TSet<int32> Done; FGuid Original; FGuid NewAK; FGuid BurstId; FVector SprintOrigin = FVector::ZeroVector; bool bFailed = false; };
     static TMap<TWeakObjectPtr<UFPSWeaponComponent>, FProgress> Progress;
     auto& P = Progress.FindOrAdd(W);
     auto Check = [&P, bServer](bool bPass, const TCHAR* What)
@@ -107,8 +107,11 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
             }
             Check(W->Loadout.Primary.InstanceId == P.NewAK && W->Loadout.Primary.Magazine == 7 && Duplicate == 0 && PreservedM4 == 1, TEXT("duplicate pickup requests cannot duplicate a weapon"));
         });
-        At(187, [&]() { Check(Movement->IsSprinting() && Pawn->GetVelocity().Size2D() > 600, TEXT("sprint saved move reaches server")); });
-        At(206, [&]() { Check(Pawn->bIsCrouched && FMath::IsNearlyEqual(Movement->GetMaxSpeed(), 285.f), TEXT("crouch replicated movement")); });
+        At(180, [&]() { P.SprintOrigin = Pawn->GetActorLocation(); });
+        At(187, [&]() { Check(Movement->IsSprinting() && Pawn->GetVelocity().Size2D() > 600 &&
+            FVector::DotProduct(Pawn->GetActorLocation() - P.SprintOrigin, FVector(0,-1,0)) > 200,
+            TEXT("forward sprint saved move and actual displacement reach server")); });
+        At(206, [&]() { Check(Pawn->bIsCrouched && FMath::IsNearlyEqual(Movement->GetMaxSpeed(), 240.f), TEXT("crouch replicated movement")); });
         At(217, [&]() { Check(!Pawn->bIsCrouched, TEXT("uncrouch restored")); });
         At(238, [&]() { Check(W->Loadout.Primary.Magazine == 7 && W->Loadout.Action == EFPSWeaponAction::Idle && !W->Loadout.bAiming, TEXT("menu blocks local weapon requests")); });
     }
@@ -136,12 +139,21 @@ void FFPSWeaponSmoke::Tick(UFPSWeaponComponent* W)
         At(140, [&]() { W->Request(EFPSWeaponRequest::Pickup, Find(FName(TEXT("Weapon.HeavyPistol")), 3)); });
         At(160, [&]() { auto* Pickup = Find(FName(TEXT("Weapon.AK")), 7); W->Request(EFPSWeaponRequest::Pickup, Pickup); W->Request(EFPSWeaponRequest::Pickup, Pickup); });
         At(170, [&]() { Check(W->Loadout.Primary.WeaponId == FName(TEXT("Weapon.AK")) && W->Loadout.Primary.Magazine == 7 && Pawn->GetAbilitySystemComponent()->GetNumericAttribute(UFPSDemoAttributeSet::GetWeaponDamageAttribute()) == 34, TEXT("new weapon and GAS damage replicated")); });
-        At(180, [&]() { Movement->bWantsSprint = true; });
+        At(180, [&]()
+        {
+            Pawn->GetController()->SetControlRotation(FRotator(45,-90,0));
+            Pawn->SetActorRotation(FRotator(0,-90,0));
+            P.SprintOrigin = Pawn->GetActorLocation();
+            Movement->RequestSprint(true);
+        });
         // Foundry has cover north of the fixture; sprint south along the clear corridor.
         if (Time >= 18 && Time < 19) Pawn->AddMovementInput(FVector(0, -1, 0), 1);
-        At(190, [&]() { Movement->bWantsSprint = false; });
-        At(200, [&]() { Pawn->Crouch(); });
-        At(210, [&]() { Pawn->UnCrouch(); });
+        At(187, [&]() { Check(Movement->IsSprinting() && Pawn->GetVelocity().Size2D() > 600 &&
+            FVector::DotProduct(Pawn->GetActorLocation() - P.SprintOrigin, FVector(0,-1,0)) > 200,
+            TEXT("owner predicts forward sprint with actual displacement")); });
+        At(190, [&]() { Movement->RequestSprint(false); });
+        At(200, [&]() { Movement->RequestCrouch(true); });
+        At(210, [&]() { Movement->RequestCrouch(false); });
         At(230, [&]()
         {
             CastChecked<APlayerController>(Pawn->GetController())->SetIgnoreMoveInput(true);

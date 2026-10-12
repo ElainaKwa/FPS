@@ -1,11 +1,16 @@
 #include "FPSWeaponAbilities.h"
 #include "FPSDemoCharacter.h"
 #include "FPSWeaponPickup.h"
+#include "FPSWeaponCustomization.h"
 #include "AbilitySystemComponent.h"
 #include "NativeGameplayTags.h"
 #include "TimerManager.h"
 
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_PickupRequest, "Input.Weapon.Pickup");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_ReloadRequest, "Input.Weapon.Reload");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_ModifyRequest, "Input.Weapon.Modify");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_MagazineRequest, "Input.Weapon.ModifyMagazine");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_CancelReloadRequest, "Input.Weapon.CancelReload");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Firing, "State.Weapon.Firing");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Reloading, "State.Weapon.Reloading");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Inspecting, "State.Weapon.Inspecting");
@@ -50,12 +55,38 @@ void UFPSWeaponAbility::Complete(bool bCancelled)
 {
     EndAbility(CurrentSpecHandle, CurrentActorInfo, CurrentActivationInfo, true, bCancelled);
 }
-void UFPSWeaponAbility::CancelWeaponAbility()
+void UFPSWeaponAbility::CancelWeaponAbility(bool bReplicate)
 {
-    if (IsActive()) CancelAbility(CurrentSpecHandle, CurrentActorInfo, CurrentActivationInfo, true);
+    if (IsActive()) CancelAbility(CurrentSpecHandle, CurrentActorInfo, CurrentActivationInfo, bReplicate);
 }
 UFPSFireAbility::UFPSFireAbility() { ActivationOwnedTags.AddTag(TAG_Firing); }
-UFPSReloadAbility::UFPSReloadAbility() { Command = EFPSWeaponRequest::Reload; ActivationOwnedTags.AddTag(TAG_Reloading); }
+UFPSReloadAbility::UFPSReloadAbility()
+{
+    Command = EFPSWeaponRequest::Reload; ActivationOwnedTags.AddTag(TAG_Reloading);
+    FAbilityTriggerData Trigger; Trigger.TriggerTag = TAG_ReloadRequest; Trigger.TriggerSource = EGameplayAbilityTriggerSource::GameplayEvent; AbilityTriggers.Add(Trigger);
+}
+UFPSModifyAttachmentAbility::UFPSModifyAttachmentAbility()
+{
+    Command = EFPSWeaponRequest::Modify;
+    FAbilityTriggerData Trigger; Trigger.TriggerTag = TAG_ModifyRequest; Trigger.TriggerSource = EGameplayAbilityTriggerSource::GameplayEvent; AbilityTriggers.Add(Trigger);
+}
+UFPSModifyMagazineAbility::UFPSModifyMagazineAbility()
+{
+    Command = EFPSWeaponRequest::ModifyMagazine; ActivationOwnedTags.AddTag(TAG_Reloading);
+    FAbilityTriggerData Trigger; Trigger.TriggerTag = TAG_MagazineRequest; Trigger.TriggerSource = EGameplayAbilityTriggerSource::GameplayEvent; AbilityTriggers.Add(Trigger);
+}
+UFPSCancelReloadAbility::UFPSCancelReloadAbility()
+{
+    Command = EFPSWeaponRequest::CancelReload;
+    FAbilityTriggerData Trigger; Trigger.TriggerTag = TAG_CancelReloadRequest; Trigger.TriggerSource = EGameplayAbilityTriggerSource::GameplayEvent; AbilityTriggers.Add(Trigger);
+}
+void UFPSCancelReloadAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* Info,
+    const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* Event)
+{
+    Super::ActivateAbility(Handle, Info, ActivationInfo, Event);
+    auto* W = Weapon();
+    Complete(!W || !W->CancelMatchingReload(Ticket, Event ? FFPSWeaponCustomizationRequest::Read(Event->TargetData) : nullptr));
+}
 UFPSInspectAbility::UFPSInspectAbility() { Command = EFPSWeaponRequest::Inspect; ActivationOwnedTags.AddTag(TAG_Inspecting); }
 UFPSPrimaryAbility::UFPSPrimaryAbility() { Command = EFPSWeaponRequest::Primary; ActivationOwnedTags.AddTag(TAG_Switching); }
 UFPSSecondaryAbility::UFPSSecondaryAbility() { Command = EFPSWeaponRequest::Secondary; ActivationOwnedTags.AddTag(TAG_Switching); }
@@ -84,9 +115,9 @@ void UFPSFireAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, c
 }
 void UFPSFireAbility::Wake()
 {
-    if (!IsActive() || bStepping) return;
+    if (!IsActive() || bStepping || !Weapon() || Weapon()->IsShuttingDown()) return;
     // Defer until the atomic inventory/action transition is finished. Never shoot in Changed().
-    GetWorld()->GetTimerManager().ClearTimer(Timer);
+    if (auto* World = GetWorld()) World->GetTimerManager().ClearTimer(Timer);
     Timer = GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,
         [Activation = Ticket, this]() { if (IsActive() && Ticket == Activation) Step(); }));
 }
@@ -124,9 +155,13 @@ void UFPSFireAbility::Step()
         if (!bAutomaticIntent) Complete();
         return;
     }
+    if (Readiness == EFPSFireReadiness::WaitingForSprintPreparation)
+    {
+        WaitUntil(Deadline); return;
+    }
     if (Readiness == EFPSFireReadiness::WaitingForDeadline)
     {
-        if (!bAutomaticIntent && !Cycle.bHasShot) { Complete(); return; }
+        if (!bAutomaticIntent && !Cycle.bHasShot && !W->HasPendingSprintFire()) { Complete(); return; }
         WaitUntil(Deadline); return;
     }
     if (!W->CommitShot(Ticket)) { if (!bAutomaticIntent) Complete(); return; }
@@ -147,7 +182,7 @@ void UFPSFireAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, const 
     const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicate, bool bCancelled)
 {
     if (!IsCurrentActivation(ActivationInfo)) return;
-    GetWorld()->GetTimerManager().ClearTimer(Timer);
+    if (auto* World = GetWorld()) World->GetTimerManager().ClearTimer(Timer);
     if (auto* W = Weapon()) { W->OnFireReadinessChanged.Remove(ReadinessHandle); W->EndFire(Ticket, bCancelled); }
     Super::EndAbility(Handle, Info, ActivationInfo, bReplicate, bCancelled);
 }
@@ -158,7 +193,9 @@ void UFPSTimedWeaponAbility::ActivateAbility(const FGameplayAbilitySpecHandle Ha
     auto* W = Weapon();
     if (!W || !W->Definition()) { Complete(true); return; }
     float Duration = 0;
-    if (!W->BeginAction(Ticket, this, Duration)) { Complete(true); return; }
+    const auto* Request = Event ? FFPSWeaponCustomizationRequest::Read(Event->TargetData) : nullptr;
+    const bool Modifying = Command == EFPSWeaponRequest::Modify || Command == EFPSWeaponRequest::ModifyMagazine;
+    if (!(Modifying ? W->BeginModification(Ticket, this, Request, Duration) : W->BeginAction(Ticket, this, Duration, Request))) { Complete(true); return; }
     if (Duration <= 0) Elapsed();
     else GetWorld()->GetTimerManager().SetTimer(Timer, FTimerDelegate::CreateWeakLambda(this, [Action = Ticket, this]() { if (IsActive() && Ticket == Action) Elapsed(); }), Duration, false);
 }
@@ -167,7 +204,7 @@ void UFPSTimedWeaponAbility::EndAbility(const FGameplayAbilitySpecHandle Handle,
     const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicate, bool bCancelled)
 {
     if (!IsCurrentActivation(ActivationInfo)) return;
-    GetWorld()->GetTimerManager().ClearTimer(Timer);
+    if (auto* World = GetWorld()) World->GetTimerManager().ClearTimer(Timer);
     if (auto* W = Weapon(); W && !W->FinishAction(Ticket, bCancelled)) W->FinishAction(Ticket, true);
     Super::EndAbility(Handle, Info, ActivationInfo, bReplicate, bCancelled);
 }

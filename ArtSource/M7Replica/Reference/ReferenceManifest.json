@@ -1,0 +1,179 @@
+{
+  "purpose": "Exterior-only art reference for a manually built digital M7 mesh. No internal firearm mechanism or manufacturing data.",
+  "retrieved_date": "2026-10-12",
+  "primary": [
+    "Official_M7_Universe_Side.webp",
+    "Official_Garena_M7.jpg"
+  ],
+  "sources": [
+    {
+      "file": "Official_M7_Universe_Side.webp",
+      "source_page": "https://www.playdeltaforce.com/en/universe/",
+      "source_url": "https://www.playdeltaforce.com/_astro/M7_Battle.CVjhQtEq.webp",
+      "status": "verified visually",
+      "role": "primary default body and accessories outline",
+      "view": "left side, near orthographic",
+      "notes": [
+        "Default unmodified M7 with standard handguard, exposed short barrel, raised iron sights, polymer adjustable folding stock, short straight magazine, standard rear grip.",
+        "2000 by 1000 transparent image; no physical manufacture dimensions should be inferred."
+      ],
+      "image_size": [
+        2000,
+        1000
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "Official_Garena_M7.jpg",
+      "source_page": "https://deltaforce.garena.com/en/",
+      "source_url": "https://web.df.garena.com/02_h5/240923_official_website/en/pc/firearm_bg_01.jpg",
+      "status": "verified visually",
+      "role": "primary 3/4 exterior surface reference",
+      "view": "left/front/top 3/4",
+      "notes": [
+        "Same standard handguard and receiver as Universe default.",
+        "Shown with LPVO, M7 Practical Suppressor, K1 Elite Bevel Foregrip, Practical Tactical Stock and Marksman D-2 Rear Grip."
+      ],
+      "image_size": [
+        3840,
+        2160
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Official_M7_Universe_Showcase.mp4",
+      "source_page": "https://www.playdeltaforce.com/en/universe/",
+      "source_url": "https://www.playdeltaforce.com/_astro/M7_1.BoQvIHvm.mp4",
+      "status": "sampled and inspected visually",
+      "role": "secondary top/first person exterior reference",
+      "view": "first person only",
+      "notes": [
+        "740 by 448, 30 fps, 5.033 seconds.",
+        "Shooting demonstration rather than turntable; no opposite-side orthographic view."
+      ]
+    },
+    {
+      "file": "Official_Event_M7_Assembly.png",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pc/rob_img6.png",
+      "status": "verified visually",
+      "role": "modular variant outline reference",
+      "view": "left side, near orthographic",
+      "notes": [
+        "Modified variant: Tidal ultra long barrel and different handguard, Shadow skeleton stock, scope, foregrip, extended straight magazine, skeleton rear grip.",
+        "Do not use this long handguard as the default."
+      ],
+      "image_size": [
+        2400,
+        1060
+      ],
+      "mode": "P"
+    },
+    {
+      "file": "Official_Event_ShadowRailStock.jpg",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img11.jpg",
+      "status": "verified visually",
+      "role": "Shadow skeleton stock thumbnail",
+      "view": "left side",
+      "image_size": [
+        334,
+        110
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Official_Event_Detail_ShadowRailStock.jpg",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img12.jpg",
+      "status": "verified visually",
+      "role": "Shadow skeleton stock detail",
+      "view": "3/4",
+      "image_size": [
+        335,
+        139
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Official_Event_M7_TidalLongHandguard.jpg",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img3.jpg",
+      "status": "verified visually",
+      "role": "Tidal long barrel/handguard thumbnail",
+      "view": "left side",
+      "image_size": [
+        334,
+        110
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Official_Event_Detail_M7_TidalLongHandguard.jpg",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img4.jpg",
+      "status": "verified visually",
+      "role": "Tidal long handguard detail",
+      "view": "left side",
+      "notes": [
+        "Upper aperture row is repeated slanted quadrilaterals, unlike default 2 large trapezoids plus 3 small slanted apertures."
+      ],
+      "image_size": [
+        335,
+        139
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Official_Event_M7_ExtendedStraightMagazine_Thumb.jpg",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img19.jpg",
+      "status": "verified visually; website text mismatch",
+      "role": "extended straight magazine thumbnail",
+      "view": "left side",
+      "notes": [
+        "Website text labels this a 45 round drum but image visibly depicts a straight box magazine; image identification takes precedence."
+      ],
+      "image_size": [
+        334,
+        110
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Official_Event_M7_ExtendedStraightMagazine_Detail.jpg",
+      "source_page": "https://www.playdeltaforce.com/events/moddedfirearms/en/",
+      "source_url": "https://www.playdeltaforce.com/events/moddedfirearms/images/pop_parts3_img20.jpg",
+      "status": "verified visually; website text mismatch",
+      "role": "extended straight magazine detail",
+      "view": "left side",
+      "notes": [
+        "Website text labels this a 45 round drum but image visibly depicts a straight box magazine; image identification takes precedence."
+      ],
+      "image_size": [
+        335,
+        208
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "Public_DFBuild_M7_Default.png",
+      "source_page": "https://df-build.com/builds/",
+      "source_url": "https://assets.df-build.com/weapon-images/rifle/m7_battle_rifle.png",
+      "status": "verified visually",
+      "role": "duplicate default left side reference",
+      "view": "left side",
+      "image_size": [
+        2000,
+        1000
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "limits": [
+    "No official opposite-side, front or rear orthographic image was located.",
+    "Official Universe uses 2D image and MP4; no GLB/GLTF 3D viewer was located.",
+    "Official assembly accessory thumbnails/details are only about 334 pixels wide.",
+    "Official image assets are references only; no redistributable mesh license was verified."
+  ]
+}

@@ -1,0 +1,3806 @@
+{
+  "version": "M4-Exterior-Study-20261012-v3",
+  "blender": "5.2.2 LTS",
+  "scope": "Standalone exterior visual sample; no Unreal integration",
+  "shape_source_sha256": "af0e3f5327da66c246af3189c072b6c2e7b3abf1e5191b565ae7d741077a1313",
+  "source_mesh_parts": 570,
+  "export_mesh_parts": 625,
+  "triangles": 208276,
+  "bounds_metres": [
+    [
+      -0.40137407183647156,
+      -0.05536138266324997,
+      -0.20499999821186066
+    ],
+    [
+      0.6159999966621399,
+      0.043800000101327896,
+      0.1615000069141388
+    ]
+  ],
+  "materials": [
+    "M4_01_Anodized_Graphite",
+    "M4_02_Cerakote_Charcoal",
+    "M4_03_Parkerized_Steel",
+    "M4_04_Burnished_Hardware",
+    "M4_05_Moulded_Polymer",
+    "M4_06_Grip_Rubber",
+    "M4_07_Recess",
+    "M4_08_Laser_Marking",
+    "M4_09_Inspection_Paint",
+    "M4_10_Optical_Glass",
+    "M4_11_Magazine_Satin"
+  ],
+  "checks": {
+    "finite_vertices": true,
+    "nonempty_parts": true,
+    "source_mesh_uvs": true,
+    "fbx_reimport": {
+      "mesh_parts": 625,
+      "triangles": 208276,
+      "max_bounds_error_metres": 0.0,
+      "passed": true
+    }
+  },
+  "limits": [
+    "No retopology, LOD, rig or game integration",
+    "Blender procedural materials are authoritative; FBX carries basic material values, not baked PBR maps",
+    "First person preview is a Blender camera, not an Unreal screenshot"
+  ],
+  "sha256": {
+    "M4_Precision_Study.blend": "d3b11001a80c05896acbbaaf3b257cf78b47ba4e04d7e202193f44e7dc750586",
+    "M4_Precision_Study.fbx": "92bc9681e0ab001cd63861e770509449314edf7dbc8fb50624e44ab0b2fdf8a9"
+  },
+  "parts": [
+    {
+      "name": "Ejection_port_shadow",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bolt_visible_surface",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Dust_cover_open",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Dust_cover_hinge",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Hinge_sleeve",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Hinge_sleeve.001",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Hinge_sleeve.002",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Hinge_sleeve.003",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Brass_deflector",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Pivot_pin",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Rear_pin",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Trigger_group_pin",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Trigger_group_pin.001",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_hub",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_lever",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_safe",
+      "triangles": 608,
+      "vertices": 620,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_fire",
+      "triangles": 596,
+      "vertices": 612,
+      "uv_layers": 1
+    },
+    {
+      "name": "Pivot_pin.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Rear_pin.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Trigger_group_pin.002",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Trigger_group_pin.003",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_hub.001",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_lever.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_safe.001",
+      "triangles": 608,
+      "vertices": 620,
+      "uv_layers": 1
+    },
+    {
+      "name": "Selector_fire.001",
+      "triangles": 596,
+      "vertices": 612,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_release_recess",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_release_button",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Release_serration",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Release_serration.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Release_serration.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Release_serration.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bolt_catch_plate",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bolt_catch_rib",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bolt_catch_rib.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bolt_catch_rib.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bolt_catch_rib.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Trigger_guard",
+      "triangles": 902,
+      "vertices": 451,
+      "uv_layers": 1
+    },
+    {
+      "name": "Trigger_visible",
+      "triangles": 60,
+      "vertices": 40,
+      "uv_layers": 1
+    },
+    {
+      "name": "Charging_handle_spine",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Charging_handle_latch",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Charging_handle_latch.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Spine",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_00",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_01",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_02",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_03",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_04",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_05",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_06",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_07",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_08",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_09",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_10",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_11",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_12",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_13",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_14",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_15",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_16",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_17",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_18",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_19",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_20",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_21",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_22",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_23",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_24",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_25",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_top_rail_Tooth_26",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_identifier",
+      "triangles": 1900,
+      "vertices": 1944,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_serial",
+      "triangles": 752,
+      "vertices": 772,
+      "uv_layers": 1
+    },
+    {
+      "name": "Upper_receiver_sculpted",
+      "triangles": 1900,
+      "vertices": 952,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_lower_rim",
+      "triangles": 204,
+      "vertices": 104,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_lower_rim.001",
+      "triangles": 204,
+      "vertices": 104,
+      "uv_layers": 1
+    },
+    {
+      "name": "Angled_assist_boss",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Assist_button_cap",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Assist_button_grip",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Assist_button_grip.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Assist_button_grip.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Assist_button_grip.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Lower_receiver_contoured",
+      "triangles": 1344,
+      "vertices": 674,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magwell_flared_rim",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_button_fence",
+      "triangles": 60,
+      "vertices": 40,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_model_mark",
+      "triangles": 456,
+      "vertices": 480,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_batch_mark",
+      "triangles": 1888,
+      "vertices": 1908,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.001",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.002",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.003",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.004",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.005",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.006",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.007",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.008",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.009",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.010",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.011",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_microcode.012",
+      "triangles": 12,
+      "vertices": 8,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_machined_shell",
+      "triangles": 22488,
+      "vertices": 11160,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_rear_collar",
+      "triangles": 2048,
+      "vertices": 1024,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_clamp_bolt",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_clamp_bolt.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Clamp_side_plate",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_clamp_bolt.002",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_clamp_bolt.003",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Clamp_side_plate.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Spine",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_00",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_01",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_02",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_03",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_04",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_05",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_06",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_07",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_08",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_09",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_10",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_11",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_12",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_13",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_14",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_15",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_16",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_17",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_18",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_19",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_20",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_21",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_22",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_23",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_24",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_25",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_26",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Handguard_top_rail_Tooth_27",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_backplate",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.004",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.005",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.006",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.007",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.008",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.009",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.010",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.011",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_screw",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_screw.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Vent_index",
+      "triangles": 12,
+      "vertices": 16,
+      "uv_layers": 1
+    },
+    {
+      "name": "Vent_index.001",
+      "triangles": 352,
+      "vertices": 356,
+      "uv_layers": 1
+    },
+    {
+      "name": "Vent_index.002",
+      "triangles": 584,
+      "vertices": 588,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_backplate.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.012",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.013",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.014",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.015",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.016",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.017",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.018",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.019",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.020",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.021",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.022",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_lug.023",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_screw.002",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Side_rail_screw.003",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Vent_index.003",
+      "triangles": 12,
+      "vertices": 16,
+      "uv_layers": 1
+    },
+    {
+      "name": "Vent_index.004",
+      "triangles": 352,
+      "vertices": 356,
+      "uv_layers": 1
+    },
+    {
+      "name": "Vent_index.005",
+      "triangles": 584,
+      "vertices": 588,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.004",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.005",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.006",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.007",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.008",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.009",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.010",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.011",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.012",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.013",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.014",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.015",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.016",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.017",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.018",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.019",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.020",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.021",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Bottom_rail_lug.022",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index",
+      "triangles": 88,
+      "vertices": 92,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index.001",
+      "triangles": 512,
+      "vertices": 516,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index.002",
+      "triangles": 800,
+      "vertices": 800,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index.003",
+      "triangles": 424,
+      "vertices": 432,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index.004",
+      "triangles": 392,
+      "vertices": 404,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index.005",
+      "triangles": 100,
+      "vertices": 108,
+      "uv_layers": 1
+    },
+    {
+      "name": "Top_rail_index.006",
+      "triangles": 524,
+      "vertices": 532,
+      "uv_layers": 1
+    },
+    {
+      "name": "Barrel_exterior",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Barrel_step",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Barrel_step.001",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Barrel_step.002",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Gas_tube_visible",
+      "triangles": 380,
+      "vertices": 192,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_gas_block",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Muzzle_shroud",
+      "triangles": 4752,
+      "vertices": 2368,
+      "uv_layers": 1
+    },
+    {
+      "name": "Muzzle_lip",
+      "triangles": 2048,
+      "vertices": 1024,
+      "uv_layers": 1
+    },
+    {
+      "name": "Muzzle_recess_shadow",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Receiver_extension",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Castle_nut",
+      "triangles": 3232,
+      "vertices": 1616,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_cheek_sleeve",
+      "triangles": 788,
+      "vertices": 396,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_molded_body",
+      "triangles": 1820,
+      "vertices": 908,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_side_reinforcement",
+      "triangles": 172,
+      "vertices": 88,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_window_rim",
+      "triangles": 40,
+      "vertices": 30,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_side_reinforcement.001",
+      "triangles": 172,
+      "vertices": 88,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_window_rim.001",
+      "triangles": 40,
+      "vertices": 30,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_rubber",
+      "triangles": 252,
+      "vertices": 128,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.004",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.005",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.006",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.007",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.008",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.009",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.010",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.011",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.012",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Buttpad_traction.013",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_parting_seam",
+      "triangles": 120,
+      "vertices": 70,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_sling_socket",
+      "triangles": 2048,
+      "vertices": 1024,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_socket_dark_seat",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_frame_pin",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_cheek_inlay",
+      "triangles": 4,
+      "vertices": 6,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.001",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.002",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.003",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.004",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.005",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_parting_seam.001",
+      "triangles": 120,
+      "vertices": 70,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_sling_socket.001",
+      "triangles": 2048,
+      "vertices": 1024,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_socket_dark_seat.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_frame_pin.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_cheek_inlay.001",
+      "triangles": 4,
+      "vertices": 6,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.006",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.007",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.008",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.009",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.010",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_inlay_grain.011",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_adjustment_paddle",
+      "triangles": 284,
+      "vertices": 144,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_paddle_pivot",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_paddle_rib",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_paddle_rib.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_paddle_rib.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Stock_paddle_rib.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Ergonomic_grip_shell",
+      "triangles": 1244,
+      "vertices": 624,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_upper_saddle",
+      "triangles": 252,
+      "vertices": 128,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_conformal_rubber",
+      "triangles": 864,
+      "vertices": 475,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.003",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.004",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.005",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.006",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.007",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.008",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.009",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.010",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.011",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.012",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.013",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.014",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.015",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.016",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.017",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.018",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.019",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.020",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.021",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.022",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.023",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.024",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.025",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.026",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.027",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.028",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.029",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.030",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.031",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.032",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.033",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.034",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.035",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.036",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.037",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.038",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.039",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.040",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.041",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.042",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.043",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.044",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.045",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.046",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.047",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.048",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.049",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.050",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.051",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.052",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.053",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.054",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.055",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.056",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.057",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.058",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.059",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.060",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.061",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.062",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.063",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.064",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.065",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.066",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.067",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.068",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.069",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.070",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.071",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.072",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.073",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.074",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.075",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.076",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.077",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.078",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.079",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.080",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.081",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.082",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.083",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.084",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.085",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.086",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.087",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.088",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.089",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.090",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.091",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.092",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.093",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.094",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.095",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.096",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.097",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.098",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.099",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.100",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.101",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.102",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.103",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.104",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.105",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.106",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.107",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.108",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.109",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.110",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.111",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.112",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.113",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.114",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.115",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.116",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.117",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.118",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.119",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.120",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.121",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.122",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.123",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.124",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.125",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.126",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.127",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.128",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.129",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.130",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.131",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.132",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.133",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.134",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.135",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.136",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.137",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.138",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.139",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.140",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.141",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.142",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.143",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.144",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.145",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.146",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.147",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.148",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.149",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.150",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.151",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.152",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.153",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_conformal_rubber.001",
+      "triangles": 864,
+      "vertices": 475,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.154",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.155",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.156",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.157",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.158",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.159",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.160",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.161",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.162",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.163",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.164",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.165",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.166",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.167",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.168",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.169",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.170",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.171",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.172",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.173",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.174",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.175",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.176",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.177",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.178",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.179",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.180",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.181",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.182",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.183",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.184",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.185",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.186",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.187",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.188",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.189",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.190",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.191",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.192",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.193",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.194",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.195",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.196",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.197",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.198",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.199",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.200",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.201",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.202",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.203",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.204",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.205",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.206",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.207",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.208",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.209",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.210",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.211",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.212",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.213",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.214",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.215",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.216",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.217",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.218",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.219",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.220",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.221",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.222",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.223",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.224",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.225",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.226",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.227",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.228",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.229",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.230",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.231",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.232",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.233",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.234",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.235",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.236",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.237",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.238",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.239",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.240",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.241",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.242",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.243",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.244",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.245",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.246",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.247",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.248",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.249",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.250",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.251",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.252",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.253",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.254",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.255",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.256",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.257",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.258",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.259",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.260",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.261",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.262",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.263",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.264",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.265",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.266",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.267",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.268",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.269",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.270",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.271",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.272",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.273",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.274",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.275",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.276",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.277",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.278",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.279",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.280",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.281",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.282",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.283",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.284",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.285",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.286",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.287",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.288",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.289",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.290",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.291",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.292",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.293",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.294",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.295",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.296",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.297",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.298",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.299",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.300",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.301",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.302",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.303",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.304",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.305",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.306",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_fine_stipple.307",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_front_finger_ledge",
+      "triangles": 236,
+      "vertices": 120,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_front_traction",
+      "triangles": 340,
+      "vertices": 180,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_front_traction.001",
+      "triangles": 340,
+      "vertices": 180,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_front_traction.002",
+      "triangles": 340,
+      "vertices": 180,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_front_traction.003",
+      "triangles": 340,
+      "vertices": 180,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_front_traction.004",
+      "triangles": 340,
+      "vertices": 180,
+      "uv_layers": 1
+    },
+    {
+      "name": "Grip_bottom_plug",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_pressed_shell",
+      "triangles": 5646,
+      "vertices": 2825,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_floorplate",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_rear_fold",
+      "triangles": 80,
+      "vertices": 50,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_rear_fold.001",
+      "triangles": 80,
+      "vertices": 50,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_lot",
+      "triangles": 488,
+      "vertices": 500,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_transverse_press",
+      "triangles": 60,
+      "vertices": 40,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_transverse_press.001",
+      "triangles": 60,
+      "vertices": 40,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_transverse_press.002",
+      "triangles": 60,
+      "vertices": 40,
+      "uv_layers": 1
+    },
+    {
+      "name": "Magazine_transverse_press.003",
+      "triangles": 60,
+      "vertices": 40,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_mount_foot",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_clamp_jaw",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_clamp_jaw.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_crossbolt_head",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_crossbolt_head.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_lower_housing",
+      "triangles": 268,
+      "vertices": 136,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_rounded_hood",
+      "triangles": 1408,
+      "vertices": 704,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_lens_gasket",
+      "triangles": 1408,
+      "vertices": 704,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_contoured_glass",
+      "triangles": 700,
+      "vertices": 352,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_battery_pack",
+      "triangles": 252,
+      "vertices": 128,
+      "uv_layers": 1
+    },
+    {
+      "name": "Battery_end_cap",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Battery_cap_rib",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Battery_cap_rib.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Battery_cap_rib.002",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_hood_fastener",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_recessed_dial",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_dial_slot",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_laser_index",
+      "triangles": 452,
+      "vertices": 464,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_hood_fastener.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_recessed_dial.001",
+      "triangles": 1020,
+      "vertices": 512,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_dial_slot.001",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_laser_index.001",
+      "triangles": 452,
+      "vertices": 464,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_rear_button",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Button_symbol",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Optic_rear_button.001",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Button_symbol.001",
+      "triangles": 20,
+      "vertices": 20,
+      "uv_layers": 1
+    },
+    {
+      "name": "Rear_folded_sight_base",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Rear_folded_sight_axle",
+      "triangles": 764,
+      "vertices": 384,
+      "uv_layers": 1
+    },
+    {
+      "name": "Rear_folded_sight_leaf",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_sight_base",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_sight_hood",
+      "triangles": 220,
+      "vertices": 112,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_sight_pivot",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_sight_hood.001",
+      "triangles": 220,
+      "vertices": 112,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_sight_pivot.001",
+      "triangles": 740,
+      "vertices": 372,
+      "uv_layers": 1
+    },
+    {
+      "name": "Front_sight_post",
+      "triangles": 508,
+      "vertices": 256,
+      "uv_layers": 1
+    },
+    {
+      "name": "Inspection_witness",
+      "triangles": 188,
+      "vertices": 96,
+      "uv_layers": 1
+    }
+  ]
+}

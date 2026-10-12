@@ -1,0 +1,49 @@
+{
+  "through_openings": [
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.4735,
+      "z": 0.0235,
+      "open": true
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.462,
+      "z": -0.0015,
+      "open": true
+    },
+    {
+      "shell": "CORE_DefaultHandguardOutline",
+      "x": 0.466,
+      "z": -0.026,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.358,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.449,
+      "z": -0.0235,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.495,
+      "z": 0.024,
+      "open": true
+    },
+    {
+      "shell": "TIDAL_HandguardShell",
+      "x": 0.529,
+      "z": 0.001,
+      "open": true
+    }
+  ],
+  "barrel_front_x": 0.7900000214576721,
+  "crown_overlap_m": 0.004500021457672143,
+  "success": true
+}

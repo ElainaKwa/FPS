@@ -3,7 +3,7 @@
 - 用途：总索引
 - 适用范围：项目 Docs 文档
 - 状态：现有路径导航有效；已确认实体分类规则，旧文件迁移待单独执行
-- 最后更新：2026-10-10
+- 最后更新：2026-10-13
 
 分类与维护以 [文档分类规则](DocumentationRules.md) 为准：先按 Demo/系统主题，再按用途细分。目前索引暂时保留旧路径，迁移时同步更新。“早期 Demo 制作阶段”和“枪械架构重构阶段”是两条不同时间线。
 
@@ -12,11 +12,15 @@
 - 创建、更新或归档文档：[文档分类与维护规则](DocumentationRules.md)。
 
 - 整体进度：[FPS 路线图](FPSDemoRoadmap.md)。
+- FPS 分类入口：[FPS 主题索引](FPS/README.md)；[统一美术](FPS/Art/README.md) 包含共同方向、Blender/Unreal 资产与待办；[UI 美术](FPS/UI/README.md) 包含正式 MiSans 字体、六页 UI/HUD 对齐、资产入口、当前运行包和实机验证，旧样稿与接入证据另行标识。
 - 接手枪械：[设计决策](FPSWeaponRefactorDecisions.md) → [重构进度清单](FPSWeaponRefactorChecklist.md) → [纠正版架构评审与后续建议](FPSWeaponArchitectureReview.md)。
 - 架构后续修正：[枪械维护主题](FPS/Weapons/README.md)，按 R1 → R2 → R5 → R3/R4 → R6/R7 推进。
 - 角色与模式：[角色重构、配装和安全区](FPS/Characters/README.md)，三阶段实现、新包 14 项、实际 Dedicated 十客户端五分钟和连续切图通过；版本、证据与人工体验边界见主题验收记录。
+- 移动重构：[移动与体力设计决策](FPS/Characters/MovementDesignDecisions.md)，2026-10-12 玩法与首轮参数已确认，待实施；既有角色验收不覆盖本轮。
 - 最近交付：[重构第三阶段 BR-3](FPSWeaponRefactorStage3.md)。
 - 保存的枪械参数：[自动生成的资产清单](FPSWeaponAssetReview.md)，禁止手工修改作为配置源。
+
+系统设置：[UI 主题索引](FPS/UI/README.md) 中的系统设置设计与实施清单已确认，覆盖画面、声音、控制、键鼠重绑及界面舒适性；菜单清空意图但保留已启动动作的完成规则见设计正文。当前仅落文档，准星自定义另行设计。
 
 ## 枪械设计、实施与评审
 

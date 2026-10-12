@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "23 FBX files present; static exports have faces and UVs",
+    "All three blend libraries reopen",
+    "16-bone operator: all skin vertices weighted to total 1",
+    "Forearm pose moves attached hand by >5 cm; source file not changed",
+    "7 UI icons contain visible silhouettes and transparent surroundings",
+    "RuntimeParts.blend reopens; 15 runtime parts contain faces, UVs and FBX exports"
+  ],
+  "success": true
+}

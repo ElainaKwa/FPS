@@ -1,0 +1,37 @@
+{
+  "generated_by": "Scripts/import_crate.py",
+  "version": "AmmoSupplyCrate-20261012-v1",
+  "success": true,
+  "errors": [],
+  "mesh": "/Game/FPSDemo/Art/Environment/AmmoSupplyCrate/Meshes/SM_AmmoSupplyCrate",
+  "materials": [
+    "MI_AMC_Graphite",
+    "MI_AMC_Rubber",
+    "MI_AMC_Panel",
+    "MI_AMC_Metal",
+    "MI_AMC_Yellow",
+    "MI_AMC_Markings"
+  ],
+  "shared_master": "/Game/FPSDemo/Art/Industrial/Materials/M_IND_Surface",
+  "bounds_cm": [
+    78.79999542236328,
+    52.55000114440918,
+    42.95000076293945
+  ],
+  "bottom_z_cm": 0.0,
+  "simple_collisions": 1,
+  "lods": 3,
+  "lod_vertices": [
+    58683,
+    31313,
+    12542
+  ],
+  "uv_channels": 2,
+  "preview_map": "/Game/FPSDemo/Art/Environment/AmmoSupplyCrate/Maps/LV_AmmoSupplyCratePreview",
+  "placement_checks": {
+    "spawned_static_mesh_actor": true,
+    "rotation_scale": true,
+    "simple_collision_trace": "(True, False, 0.8443750143051147, 135.10000610351562, <Struct 'Vector' (0x000001E9C09877B0) {x: 0.000000, y: -24.899998, z: 20.000000}>, <Struct 'Vector' (0x000001E9C09701F0) {x: 0.000000, y: -24.900001, z: 20.000000}>, <Struct 'Vector' (0x000001E9C0970100) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Struct 'Vector' (0x000001E9A6EE73F0) {x: 0.000000, y: -1.000000, z: 0.000000}>, None, <Object '/Game/FPSDemo/Art/Environment/AmmoSupplyCrate/Maps/LV_AmmoSupplyCratePreview.LV_AmmoSupplyCratePreview:PersistentLevel.StaticMeshActor_1' (0x000001E9AEB75000) Class 'StaticMeshActor'>, <Object '/Game/FPSDemo/Art/Environment/AmmoSupplyCrate/Maps/LV_AmmoSupplyCratePreview.LV_AmmoSupplyCratePreview:PersistentLevel.StaticMeshActor_1.StaticMeshComponent0' (0x000001E9C0443200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, -1, <Struct 'Vector' (0x000001E9A6EE7210) {x: 0.000000, y: -160.000000, z: 20.000000}>, <Struct 'Vector' (0x000001E9A6F0A310) {x: 0.000000, y: 0.000000, z: 20.000000}>)",
+    "saved_level_reopened": true
+  }
+}

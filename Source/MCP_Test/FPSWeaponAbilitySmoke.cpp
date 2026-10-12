@@ -24,7 +24,9 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
     const auto* GS = Pawn->GetWorld()->GetGameState<AFPSDemoGameState>();
     if (!GS || GS->bWaiting || GS->bFinished) return;
     const double Time = W->ServerTime() - (GS->RoundEndsAt - 300);
-    struct FProgress { TSet<int32> Done; bool Failed = false; FGuid Id; double Cooldown = 0; int32 Recoil = 0; int32 DeathAmmo = 0; uint32 BeforeDeathSerial = 0; FFPSWeaponActionTicket OldAction, OldAim, OldFire; uint32 SleepingSteps = 0; int32 SecondaryAmmo = 0; };
+    struct FProgress { TSet<int32> Done; bool Failed = false; FGuid Id; double Cooldown = 0; int32 Recoil = 0; int32 DeathAmmo = 0; uint32 BeforeDeathSerial = 0; FFPSWeaponActionTicket OldAction, OldAim, OldFire; uint32 SleepingSteps = 0; int32 SecondaryAmmo = 0;
+        double SprintFireDeadline = 0; uint32 SprintFireSerial = 0;
+        bool SprintPreparationObserved = false, SprintFirstShotObserved = false, SprintEarlyShotReported = false; };
     static TMap<TWeakObjectPtr<UFPSWeaponComponent>, FProgress> Progress;
     // A real GAS death now destroys this fixture body and respawns it after 2.5 seconds.
     // A replacement body must not replay the old life's timed fixture.
@@ -103,25 +105,74 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
     At(360, [&]() { Def->FireMode = EFPSFireMode::Automatic; });
     At(540, [&]() { Def->FireMode = EFPSFireMode::Burst; });
     auto Steps = [&]() { const auto* Fire = Cast<UFPSFireAbility>(W->FireAbility); return Fire ? Fire->GetStepCount() : 0u; };
+    auto* Movement = CastChecked<UFPSMovementComponent>(Pawn->GetCharacterMovement());
+    if (Time >= 50.6 && Time < 54)
+    {
+        if (Server && !P.SprintPreparationObserved && W->HasPendingSprintFire())
+        {
+            P.SprintPreparationObserved = true; P.SprintFireDeadline = W->GetSprintFireReadyAt();
+            Check(W->Equipped().Magazine == 5 && W->Equipped().ShotSerial == P.SprintFireSerial &&
+                !Movement->HasSprintIntent() && !Movement->IsSprinting() && P.SprintFireDeadline > W->ServerTime(),
+                TEXT("R2 authority observes sprint interruption and unspent preparation"));
+            UE_LOG(LogTemp, Display, TEXT("FPS_ABILITY_SPRINT_SAMPLE SERVER prepare now=%.6f deadline=%.6f serial=%u"),
+                W->ServerTime(), P.SprintFireDeadline, P.SprintFireSerial);
+        }
+        if (P.SprintPreparationObserved && W->ServerTime() < P.SprintFireDeadline &&
+            (W->Equipped().Magazine != 5 || W->Equipped().ShotSerial != P.SprintFireSerial) && !P.SprintEarlyShotReported)
+        {
+            P.SprintEarlyShotReported = true;
+            Check(false, TEXT("R2 no shot may be committed before sprint preparation deadline"));
+        }
+        if (P.SprintPreparationObserved && !P.SprintFirstShotObserved && W->Equipped().ShotSerial > P.SprintFireSerial)
+        {
+            P.SprintFirstShotObserved = true;
+            Check(W->Equipped().LastShotAt >= P.SprintFireDeadline && !Movement->HasSprintIntent() && !Movement->IsSprinting(),
+                TEXT("R2 first automatic shot respects sprint preparation and does not restore sprint"));
+            UE_LOG(LogTemp, Display, TEXT("FPS_ABILITY_SPRINT_SAMPLE %s first-shot last=%.6f deadline=%.6f serial=%u"),
+                Server ? TEXT("SERVER") : TEXT("CLIENT"), W->Equipped().LastShotAt, P.SprintFireDeadline, W->Equipped().ShotSerial);
+        }
+    }
     At(380, [&]() { P.SleepingSteps = Steps(); Check(W->FireAbility != nullptr, TEXT("R2 empty automatic retains held input")); });
     At(400, [&]() { Check(W->FireAbility && Steps() <= P.SleepingSteps + 2 && W->Equipped().Magazine == 0, *FString::Printf(TEXT("R2 empty hold sleeps without periodic fire retry steps=%u"), Steps() - P.SleepingSteps)); });
     At(425, [&]() { Check(W->Equipped().Magazine == 0 && W->Equipped().Reserve == 0, TEXT("R2 reload event wakes held empty automatic")); });
     At(450, [&]() { P.SecondaryAmmo = W->Equipped().Magazine; P.SleepingSteps = Steps(); });
     At(465, [&]() { Check(W->Equipped().WeaponId == FName(TEXT("Weapon.M9")) && W->Equipped().Magazine == P.SecondaryAmmo && W->FireAbility && Steps() <= P.SleepingSteps + 2, *FString::Printf(TEXT("R2 held automatic sleeps on single-fire weapon without firing steps=%u"), Steps() - P.SleepingSteps)); });
     At(490, [&]() { Check(W->Loadout.Primary.Magazine == 0, TEXT("R2 switching back wakes automatic without new press")); });
-    At(510, [&]() { Check(W->Equipped().Magazine == 5, TEXT("R2 sprint blocks held automatic without consuming ammo")); });
-    At(525, [&]() { Check(W->Equipped().Magazine == 0, TEXT("R2 sprint ending wakes held automatic")); });
+    At(525, [&]() { Check(P.SprintPreparationObserved && P.SprintFirstShotObserved && W->Equipped().Magazine == 0 &&
+        !Movement->HasSprintIntent() && !Movement->IsSprinting(), TEXT("R2 sprint preparation completes into held automatic without another sprint release")); });
     if (Server)
     {
-        At(500, [&]() { Check(!W->FireAbility, TEXT("R2 prior trigger ended before sprint fixture refill")); W->EquippedMutable().Magazine = 5; W->Changed(); });
+        At(500, [&]() { Check(!W->FireAbility, TEXT("R2 prior trigger ended before sprint fixture refill")); W->EquippedMutable().Magazine = 5; P.SprintFireSerial = W->Equipped().ShotSerial; W->Changed(); });
+        At(505, [&]() { Check(Movement->IsSprinting() && Pawn->GetVelocity().Size2D() > 600,
+            TEXT("R2 actual forward sprint reaches authority before fire")); });
         At(361, [&]() { W->EquippedMutable().Magazine = 0; W->EquippedMutable().Reserve = 3; W->Changed(); });
         At(435, [&]() { W->EquippedMutable().Magazine = 5; W->Changed(); });
     }
     else
     {
-        At(498, [&]() { CastChecked<UFPSMovementComponent>(Pawn->GetCharacterMovement())->bWantsSprint = true; });
-        At(506, [&]() { Check(!W->FireAbility && W->Equipped().Magazine == 5 && CastChecked<UFPSMovementComponent>(Pawn->GetCharacterMovement())->IsSprinting(), TEXT("R2 sprint and refill ready before new trigger")); W->StartFire(); });
-        At(512, [&]() { CastChecked<UFPSMovementComponent>(Pawn->GetCharacterMovement())->bWantsSprint = false; });
+        At(498, [&]()
+        {
+            Pawn->GetController()->SetControlRotation(FRotator(60,-90,0));
+            Pawn->SetActorRotation(FRotator(0,-90,0));
+            Movement->RequestSprint(true);
+        });
+        // Use the existing clear southern corridor and CMC RPCs, not stationary intent injection.
+        if (Time >= 49.8 && Time < 51.2) Pawn->AddMovementInput(FVector(0,-1,0),1);
+        At(506, [&]()
+        {
+            Check(!W->FireAbility && W->Equipped().Magazine == 5 && Movement->IsSprinting() && Pawn->GetVelocity().Size2D() > 600,
+                TEXT("R2 actual sprint and refill ready before new trigger"));
+            P.SprintFireSerial = W->Equipped().ShotSerial;
+            const double PressedAt = W->ServerTime();
+            W->StartFire();
+            P.SprintFireDeadline = W->GetSprintFireReadyAt(); P.SprintPreparationObserved = W->HasPendingSprintFire();
+            Check(P.SprintPreparationObserved && !Movement->HasSprintIntent() && !Movement->IsSprinting() &&
+                W->Equipped().Magazine == 5 && W->Equipped().ShotSerial == P.SprintFireSerial &&
+                P.SprintFireDeadline - PressedAt >= Movement->GetSprintFirePreparationSeconds() - .001,
+                TEXT("R2 fire immediately interrupts sprint and preserves configured preparation"));
+            UE_LOG(LogTemp, Display, TEXT("FPS_ABILITY_SPRINT_SAMPLE CLIENT prepare now=%.6f deadline=%.6f serial=%u"),
+                PressedAt, P.SprintFireDeadline, P.SprintFireSerial);
+        });
         At(530, [&]() { W->StopFire(); });
         At(365, [&]() { W->StartFire(); });
         At(401, [&]()

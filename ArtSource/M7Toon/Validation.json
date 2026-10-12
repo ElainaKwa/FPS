@@ -1,0 +1,5865 @@
+{
+  "asset": "M7_BLACK",
+  "blender": "5.2.2 LTS",
+  "success": true,
+  "files": [
+    {
+      "file": "AssetManifest.json",
+      "bytes": 1414,
+      "sha256": "32320a15ae00dd0707f6e35e0fc53c6c5e2e5bd5486fa2340363c7d4f333fa89"
+    },
+    {
+      "file": "M7_BLACK_Stylized.blend",
+      "bytes": 801402,
+      "sha256": "c445c7ca00f51a6b57a9441833434d104aa24f996da8e11156ba6095b9e96127"
+    },
+    {
+      "file": "Exports\\SM_TW_M7_BLACK.fbx",
+      "bytes": 9427180,
+      "sha256": "cc0fdff413551b3bda727c4314f2366a88435c7c20402aee67d0bcaa62ad7ba3"
+    },
+    {
+      "file": "Exports\\SM_TW_M7_BLACK.glb",
+      "bytes": 19370616,
+      "sha256": "481bddc584dd546ea33a7bb1d0e9f572d8d561bf75bc58950f3c5bc5ae4a2172"
+    }
+  ],
+  "checks": [
+    "Source reopened independently; sole scene contains M7 asset with metadata and more than 100 editable objects; no prior TIDELINE scene/object/collection; finite coordinates, normals, materials and UVs checked",
+    "FBX imported independently with default orientation; strict XYZ dimensions and min/max bounds match source within 1%; evaluated triangle count and manifest material names match; UVs and normals are finite",
+    "GLB imported independently; detachable mesh count matches manifest; strict XYZ dimensions and min/max bounds match source and FBX within 1%; evaluated triangle count and manifest materials match; UVs and normals are finite",
+    "SHA-256 confirms the source, exports and manifest were not modified during verification"
+  ],
+  "comparisons": [
+    {
+      "comparison": "Default FBX XYZ dimensions versus source",
+      "axis_comparison": "strict XYZ; axis permutations are not accepted",
+      "observed_axis_dimensions_m": {
+        "X": 1.2357500195503235,
+        "Y": 0.10209997743368149,
+        "Z": 0.3974050134420395
+      },
+      "reference_axis_dimensions_m": {
+        "X": 1.235749989748001,
+        "Y": 0.10209999978542328,
+        "Z": 0.3974050134420395
+      },
+      "relative_dimension_errors": [
+        2.4116789508347653e-08,
+        2.1892009635403175e-07,
+        0.0
+      ],
+      "maximum_relative_error": 2.1892009635403175e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "Default FBX XYZ world bounds versus source",
+      "observed_world_bbox_m": {
+        "min": [
+          -0.45500004291534424,
+          -0.05550002306699753,
+          -0.21655000746250153
+        ],
+        "max": [
+          0.7807499766349792,
+          0.04659995436668396,
+          0.18085500597953796
+        ],
+        "dimensions": [
+          1.2357500195503235,
+          0.10209997743368149,
+          0.3974050134420395
+        ]
+      },
+      "reference_world_bbox_m": {
+        "min": [
+          -0.45500001311302185,
+          -0.05550000071525574,
+          -0.21655000746250153
+        ],
+        "max": [
+          0.7807499766349792,
+          0.04659999907016754,
+          0.18085500597953796
+        ],
+        "dimensions": [
+          1.235749989748001,
+          0.10209999978542328,
+          0.3974050134420395
+        ]
+      },
+      "bounds_errors_relative_to_axis_size": {
+        "min": [
+          2.4116789508347653e-08,
+          2.1892009635403175e-07,
+          0.0
+        ],
+        "max": [
+          0.0,
+          4.378401927080635e-07,
+          0.0
+        ]
+      },
+      "maximum_relative_error": 4.378401927080635e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "Default FBX triangles and manifest materials versus source",
+      "observed_evaluated_triangles": 274808,
+      "reference_evaluated_triangles": 274808,
+      "triangles_equal": true,
+      "observed_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "reference_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "manifest_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "material_normalization": "strip Blender numeric data-block suffix such as .001",
+      "materials_equal": true,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ dimensions versus source",
+      "axis_comparison": "strict XYZ; axis permutations are not accepted",
+      "observed_axis_dimensions_m": {
+        "X": 1.2357500195503235,
+        "Y": 0.10209999978542328,
+        "Z": 0.3974050134420395
+      },
+      "reference_axis_dimensions_m": {
+        "X": 1.235749989748001,
+        "Y": 0.10209999978542328,
+        "Z": 0.3974050134420395
+      },
+      "relative_dimension_errors": [
+        2.4116789508347653e-08,
+        0.0,
+        0.0
+      ],
+      "maximum_relative_error": 2.4116789508347653e-08,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ world bounds versus source",
+      "observed_world_bbox_m": {
+        "min": [
+          -0.45500004291534424,
+          -0.05550000071525574,
+          -0.21655000746250153
+        ],
+        "max": [
+          0.7807499766349792,
+          0.04659999907016754,
+          0.18085500597953796
+        ],
+        "dimensions": [
+          1.2357500195503235,
+          0.10209999978542328,
+          0.3974050134420395
+        ]
+      },
+      "reference_world_bbox_m": {
+        "min": [
+          -0.45500001311302185,
+          -0.05550000071525574,
+          -0.21655000746250153
+        ],
+        "max": [
+          0.7807499766349792,
+          0.04659999907016754,
+          0.18085500597953796
+        ],
+        "dimensions": [
+          1.235749989748001,
+          0.10209999978542328,
+          0.3974050134420395
+        ]
+      },
+      "bounds_errors_relative_to_axis_size": {
+        "min": [
+          2.4116789508347653e-08,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "maximum_relative_error": 2.4116789508347653e-08,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB triangles and manifest materials versus source",
+      "observed_evaluated_triangles": 274808,
+      "reference_evaluated_triangles": 274808,
+      "triangles_equal": true,
+      "observed_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "reference_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "manifest_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "material_normalization": "strip Blender numeric data-block suffix such as .001",
+      "materials_equal": true,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ dimensions versus FBX",
+      "axis_comparison": "strict XYZ; axis permutations are not accepted",
+      "observed_axis_dimensions_m": {
+        "X": 1.2357500195503235,
+        "Y": 0.10209999978542328,
+        "Z": 0.3974050134420395
+      },
+      "reference_axis_dimensions_m": {
+        "X": 1.2357500195503235,
+        "Y": 0.10209997743368149,
+        "Z": 0.3974050134420395
+      },
+      "relative_dimension_errors": [
+        0.0,
+        2.1892014428005082e-07,
+        0.0
+      ],
+      "maximum_relative_error": 2.1892014428005082e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB XYZ world bounds versus FBX",
+      "observed_world_bbox_m": {
+        "min": [
+          -0.45500004291534424,
+          -0.05550000071525574,
+          -0.21655000746250153
+        ],
+        "max": [
+          0.7807499766349792,
+          0.04659999907016754,
+          0.18085500597953796
+        ],
+        "dimensions": [
+          1.2357500195503235,
+          0.10209999978542328,
+          0.3974050134420395
+        ]
+      },
+      "reference_world_bbox_m": {
+        "min": [
+          -0.45500004291534424,
+          -0.05550002306699753,
+          -0.21655000746250153
+        ],
+        "max": [
+          0.7807499766349792,
+          0.04659995436668396,
+          0.18085500597953796
+        ],
+        "dimensions": [
+          1.2357500195503235,
+          0.10209997743368149,
+          0.3974050134420395
+        ]
+      },
+      "bounds_errors_relative_to_axis_size": {
+        "min": [
+          0.0,
+          2.1892014428005082e-07,
+          0.0
+        ],
+        "max": [
+          0.0,
+          4.3784028856010164e-07,
+          0.0
+        ]
+      },
+      "maximum_relative_error": 4.3784028856010164e-07,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "comparison": "GLB triangles and manifest materials versus FBX",
+      "observed_evaluated_triangles": 274808,
+      "reference_evaluated_triangles": 274808,
+      "triangles_equal": true,
+      "observed_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "reference_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "manifest_materials": [
+        "M7_01_BlackAnodized",
+        "M7_02_CharcoalPolymer",
+        "M7_03_BlackRubber",
+        "M7_04_GraphiteHardware",
+        "M7_05_DarkSatinSteel",
+        "M7_06_DeepRecess",
+        "M7_07_MutedEngraving",
+        "M7_09_LensCoating"
+      ],
+      "material_normalization": "strip Blender numeric data-block suffix such as .001",
+      "materials_equal": true,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "source_units": "metres; +X muzzle; +Z up",
+  "fbx_export_contract": {
+    "export_axis_forward": "X",
+    "axis_up": "Z",
+    "use_space_transform": true,
+    "settings_source": "Source/export_m7.py task contract; verified by default import geometry comparisons"
+  },
+  "source_or_exports_saved_by_verifier": false,
+  "manifest_contract": {
+    "materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "gltf_detachable_parts": 10
+  },
+  "source": {
+    "objects": 579,
+    "mesh_objects": 559,
+    "geometry_objects": 568,
+    "empty_objects": 11,
+    "evaluated_vertices": 144320,
+    "raw_triangles": 38794,
+    "evaluated_triangles": 274808,
+    "mesh_uv_layers_min": 1,
+    "mesh_uv_layers_max": 1,
+    "finite_vertices_uvs_and_normals": true,
+    "materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "canonical_materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "world_bbox_m": {
+      "min": [
+        -0.45500001311302185,
+        -0.05550000071525574,
+        -0.21655000746250153
+      ],
+      "max": [
+        0.7807499766349792,
+        0.04659999907016754,
+        0.18085500597953796
+      ],
+      "dimensions": [
+        1.235749989748001,
+        0.10209999978542328,
+        0.3974050134420395
+      ]
+    },
+    "axis_dimensions_m": {
+      "X": 1.235749989748001,
+      "Y": 0.10209999978542328,
+      "Z": 0.3974050134420395
+    },
+    "axes_longest_to_shortest": [
+      "X",
+      "Z",
+      "Y"
+    ],
+    "geometry": [
+      {
+        "name": "Receiver_Upper",
+        "type": "MESH",
+        "evaluated_triangles": 332,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_Lower",
+        "type": "MESH",
+        "evaluated_triangles": 444,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_Magwell",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_RearHingeTransition",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_HingePin",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_HingePinCap",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_HingePinCap.001",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_HingeFoldLatch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_UpperSideRib_-1",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_UpperSeam_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_LowerCastingLine_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_-1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_-1_HexSlot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_-1_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_-1_HexSlot.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_-1_Head.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_-1_HexSlot.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorDisc_-1",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorLever_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorEngraving",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorEngraving.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorEngraving.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_UpperSideRib_1",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_UpperSeam_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_LowerCastingLine_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_1_HexSlot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_1_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_1_HexSlot.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_1_Head.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_CastingPin_1_HexSlot.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorDisc_1",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorLever_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorEngraving.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorEngraving.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_SelectorEngraving.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_LeftChargingChannel",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_ChargingRail",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_SideChargeBoss",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_SideChargeHandle",
+        "type": "MESH",
+        "evaluated_triangles": 332,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_HandleSerration",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_HandleSerration.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_HandleSerration.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_RightPort",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Receiver_PortInner.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Receiver_PortDustLid",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_DustHinge",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_RearChargingBase",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_RearChargingEar",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Receiver_BoltCatch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_RearChargingEar.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Receiver_BoltCatch.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ControlRib.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Receiver_ModelMark",
+        "type": "FONT",
+        "evaluated_triangles": 244,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Receiver_SubtleSerial",
+        "type": "FONT",
+        "evaluated_triangles": 8592,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Trigger_Guard.001",
+        "type": "MESH",
+        "evaluated_triangles": 444,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Trigger_Blade",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Handguard_ExtendedSlenderShell",
+        "type": "MESH",
+        "evaluated_triangles": 20872,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Barrel_InternalVisual",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_TransitionInset_-1",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_SideCoverBase_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.008",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.009",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.010",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.011",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.012",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.013",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.014",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.015",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.016",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.017",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.018",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.019",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.020",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.021",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.022",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.023",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.024",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.025",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.026",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.027",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.028",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.029",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.030",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.031",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.032",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.033",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.034",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.035",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.036",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.037",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.038",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.039",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.040",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.041",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.042",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.043",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.044",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.045",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_-1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_-1_HexSlot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_-1_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_-1_HexSlot.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_-1_Head.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_-1_HexSlot.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_QDSocket_-1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_QDSocketLip_-1",
+        "type": "MESH",
+        "evaluated_triangles": 1024,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_QuietMark_-1",
+        "type": "FONT",
+        "evaluated_triangles": 1508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Handguard_TransitionInset_1",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_SideCoverBase_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.046",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.047",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.048",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.049",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.050",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.051",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.052",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.053",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.054",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.055",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.056",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.057",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.058",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.059",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.060",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.061",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.062",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.063",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.064",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.065",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.066",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.067",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.068",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.069",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.070",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.071",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.072",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.073",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.074",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.075",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.076",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.077",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.078",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.079",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.080",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.081",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.082",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.083",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.084",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.085",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.086",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.087",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.088",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.089",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.090",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_CoverChevron.091",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_1_HexSlot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_1_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_1_HexSlot.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_1_Head.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_Hardware_1_HexSlot.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_QDSocket_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Handguard_QDSocketLip_1",
+        "type": "MESH",
+        "evaluated_triangles": 1024,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Handguard_QuietMark_1",
+        "type": "FONT",
+        "evaluated_triangles": 1508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Rail_MainSpine",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_00.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_01.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_02.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_03.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_04.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_05.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_06.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_07.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_08.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_09.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_10.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_11.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_12.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_13.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_14.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_15.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_16.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_17.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_18.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_19.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_20.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_21.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_22.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_23.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_24.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_25.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_26.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_27.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_28.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_29.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_30.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_31.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_32.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_33.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_34.001",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_35",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_36",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_37",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_38",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_39",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_40",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_41",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_42",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_43",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_44",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_45",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_46",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_TopTooth_47",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_Underside",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Rail_UnderTooth_11",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Barrel_LongExposed",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Barrel_Shoulder",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Barrel_Shoulder.001",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Barrel_Shoulder.002",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Muzzle_CompactHollowBody",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Muzzle_RearRing",
+        "type": "MESH",
+        "evaluated_triangles": 1280,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Muzzle_FrontLip",
+        "type": "MESH",
+        "evaluated_triangles": 1536,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Muzzle_VentInset",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Muzzle_VentInset.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Muzzle_VentInset.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Muzzle_VentInset.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Muzzle_VentInset.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Muzzle_VentInset.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_OpenTriangle",
+        "type": "MESH",
+        "evaluated_triangles": 748,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Foregrip_RailClamp.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.001",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.002",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.003",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.004",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.005",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.006",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_Head.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Foregrip_MountBolt_HexSlot.007",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.008",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.009",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.010",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.011",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.012",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.013",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.014",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Foregrip_BackTraction.015",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_OpenSkeletonFrame",
+        "type": "MESH",
+        "evaluated_triangles": 544,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_LowCheekSpine",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Stock_FrontFoldingTongue",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentHeel",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Stock_ContouredButtShell",
+        "type": "MESH",
+        "evaluated_triangles": 444,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Stock_ThinRubberShoulderPad",
+        "type": "MESH",
+        "evaluated_triangles": 412,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_SpineSeam_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_LowerWindowLip_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_HeelRecess_-1",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_StockLengthLock_-1_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_StockLengthLock_-1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_StockLengthLock_-1_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_ButtPivot_-1_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_ButtPivot_-1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_ButtPivot_-1_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentMark_-1_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentMark_-1_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentMark_-1_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Stock_SpineSeam_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_LowerWindowLip_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_HeelRecess_1",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_StockLengthLock_1_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_StockLengthLock_1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_StockLengthLock_1_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_ButtPivot_1_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Stock_ButtPivot_1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 316,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Stock_ButtPivot_1_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentMark_1_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentMark_1_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Stock_AdjustmentMark_1_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_PadRib_11",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Stock_RearSlingEye",
+        "type": "MESH",
+        "evaluated_triangles": 1024,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Grip_RakedPolymerCore",
+        "type": "MESH",
+        "evaluated_triangles": 364,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Grip_Backstrap.001",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_RubberSideInsert_-1",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_FrontPanelBorder_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Grip_RearPanelBorder_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Grip_DenseRubberStipple_-1",
+        "type": "MESH",
+        "evaluated_triangles": 1188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_UpperPanelFastener_-1_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Grip_UpperPanelFastener_-1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Grip_UpperPanelFastener_-1_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Grip_RubberSideInsert_1",
+        "type": "MESH",
+        "evaluated_triangles": 220,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_FrontPanelBorder_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Grip_RearPanelBorder_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Grip_DenseRubberStipple_1",
+        "type": "MESH",
+        "evaluated_triangles": 1188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_UpperPanelFastener_1_Washer",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Grip_UpperPanelFastener_1_Head",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Grip_UpperPanelFastener_1_Socket",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Grip_BottomPlug",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Grip_BackstrapGripRib_11",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Magazine_Short20RoundSweptBody",
+        "type": "MESH",
+        "evaluated_triangles": 700,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldedSidePanel_-1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Magazine_PanelHeader_-1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldedSidePanel_-1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Magazine_PanelHeader_-1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_0_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_0_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_0_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_0_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_0_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_0_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_0_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_0_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_1_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_1_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_1_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_1_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_2_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_2_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_2_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_2_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_2_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_2_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_2_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_2_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_3_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_3_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_3_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_3_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_3_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_3_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_-1_3_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_-1_3_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_MoldingCrossSeam_-1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldingCrossSeam_-1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldingCrossSeam_-1_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_BaseMoldedFacet_-1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_RetentionDimple_-1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_MoldedSidePanel_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Magazine_PanelHeader_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldedSidePanel_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Magazine_PanelHeader_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_0_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_0_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_0_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_0_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_0_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_0_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_0_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_0_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_1_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_1_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_1_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_1_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_2_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_2_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_2_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_2_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_2_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_2_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_2_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_2_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_3_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_3_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_3_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_3_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_3_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_3_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_FineLongChannel_1_3_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ChannelLip_1_3_3",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Magazine_MoldingCrossSeam_1_0",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldingCrossSeam_1_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_MoldingCrossSeam_1_2",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_BaseMoldedFacet_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_RetentionDimple_1",
+        "type": "MESH",
+        "evaluated_triangles": 380,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Magazine_ThinFloorplate",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Magazine_FloorplateLockTab",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Magazine_BaseAntiSlipRib_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Magazine_BaseAntiSlipRib_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Magazine_BaseAntiSlipRib_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Magazine_BaseAntiSlipRib_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_LPVO_ContinuousHousing",
+        "type": "MESH",
+        "evaluated_triangles": 6720,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_RubberRim",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_InternalBaffle",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_InnerEdge",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_TransparentGlass",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_09_LensCoating"
+        ]
+      },
+      {
+        "name": "Optic_Objective_Rim",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Objective_InnerLip",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Optic_Objective_DarkBaffle",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Objective_TransparentGlass",
+        "type": "MESH",
+        "evaluated_triangles": 1276,
+        "uv_layers": 1,
+        "materials": [
+          "M7_09_LensCoating"
+        ]
+      },
+      {
+        "name": "Optic_Objective_ShallowGlassSeal",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_Eyepiece_FocusBand",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Eyepiece_FineGrip",
+        "type": "MESH",
+        "evaluated_triangles": 7520,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Eyepiece_FocusSeal_00",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Eyepiece_FocusSeal_01",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Eyepiece_FocusSeal_02",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_RotatingCollar",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_SoftGrip",
+        "type": "MESH",
+        "evaluated_triangles": 6768,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_GraduationBand",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_FineTicks",
+        "type": "MESH",
+        "evaluated_triangles": 6768,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_MajorTicks",
+        "type": "MESH",
+        "evaluated_triangles": 1692,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_SideDigits",
+        "type": "FONT",
+        "evaluated_triangles": 2740,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Magnification_ThrowLever",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_ThrowLever_End",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_ErectorHousing",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_Base",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_Drum",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_ZeroRing",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_Cap",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_CapKnurl",
+        "type": "MESH",
+        "evaluated_triangles": 9024,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopInset",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopEtching",
+        "type": "FONT",
+        "evaluated_triangles": 3372,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_02",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_03",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_04",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_05",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_06",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_07",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_08",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_09",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_10",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Elevation_TopTick_11",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Windage_L_Base",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Windage_L_Cap",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Windage_L_FineKnurl",
+        "type": "MESH",
+        "evaluated_triangles": 7520,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Windage_L_FaceInset",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Windage_L_CenterInset",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Windage_R_Base",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Windage_R_Cap",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Windage_R_FineKnurl",
+        "type": "MESH",
+        "evaluated_triangles": 7520,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Windage_R_FaceInset",
+        "type": "MESH",
+        "evaluated_triangles": 764,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Windage_R_CenterInset",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Windage_LeftMicroMark",
+        "type": "FONT",
+        "evaluated_triangles": 1836,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Tube_ManufacturingMark",
+        "type": "FONT",
+        "evaluated_triangles": 3652,
+        "uv_layers": 1,
+        "materials": [
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "Optic_Tube_SerialMark",
+        "type": "FONT",
+        "evaluated_triangles": 3912,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RailFoot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampingLip",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_CantileverSide_L",
+        "type": "MESH",
+        "evaluated_triangles": 604,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_CantileverSide_R",
+        "type": "MESH",
+        "evaluated_triangles": 604,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_Ring_00",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingEar_00_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSeam_00_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_00_L_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_00_L_00",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_00_L_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_00_L_01",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingEar_00_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSeam_00_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_00_R_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_00_R_00",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_00_R_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_00_R_01",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_Ring_01",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingEar_01_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSeam_01_L",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_01_L_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_01_L_00",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_01_L_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_01_L_01",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingEar_01_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSeam_01_R",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_01_R_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_01_R_00",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingBolt_01_R_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_RingSocket_01_R_01",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampBolt_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampSocket_00",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampOpposite_00",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampBolt_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampSocket_01",
+        "type": "MESH",
+        "evaluated_triangles": 284,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "Optic_Mount_ClampOpposite_01",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "Optic_Objective_FoldedCover",
+        "type": "MESH",
+        "evaluated_triangles": 1020,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Objective_CoverBorder",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_Objective_CoverHinge",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Objective_HingeTab",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Objective_CoverLatch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_FoldedCover",
+        "type": "MESH",
+        "evaluated_triangles": 1020,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_CoverBorder",
+        "type": "MESH",
+        "evaluated_triangles": 2048,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_CoverHinge",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_HingeTab",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "Optic_Ocular_CoverLatch",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "SightRear_RailFoot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightRear_Hinge",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightRear_FoldedLeaf",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightRear_FoldedAperture",
+        "type": "MESH",
+        "evaluated_triangles": 1280,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "SightRear_ProtectiveEar_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightRear_HingePin_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "SightRear_ProtectiveEar_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightRear_HingePin_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "SightFront_RailFoot",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightFront_Hinge",
+        "type": "MESH",
+        "evaluated_triangles": 508,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightFront_FoldedPost",
+        "type": "MESH",
+        "evaluated_triangles": 252,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightFront_PostBlade",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "SightFront_FoldedEar_-1",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightFront_HingePin_-1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "SightFront_FoldedEar_1",
+        "type": "MESH",
+        "evaluated_triangles": 236,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized"
+        ]
+      },
+      {
+        "name": "SightFront_HingePin_1",
+        "type": "MESH",
+        "evaluated_triangles": 188,
+        "uv_layers": 1,
+        "materials": [
+          "M7_05_DarkSatinSteel"
+        ]
+      }
+    ],
+    "asset_collection": "ASSET_M7_BLACK",
+    "asset_marked": true,
+    "asset_description": "M7 battle rifle inspired stylized visual prop. Realistic silhouette, black/charcoal materials, editable modular parts.",
+    "asset_author": "MCP_Test",
+    "asset_tags": [
+      "M7",
+      "Battle Rifle",
+      "Stylized",
+      "Black",
+      "Modular"
+    ],
+    "scene_count": 1,
+    "scene_name": "M7_BLACK_Studio",
+    "previous_tideline_data_absent": true
+  },
+  "fbx": {
+    "objects": 1,
+    "mesh_objects": 1,
+    "geometry_objects": 1,
+    "empty_objects": 0,
+    "evaluated_vertices": 144320,
+    "raw_triangles": 274808,
+    "evaluated_triangles": 274808,
+    "mesh_uv_layers_min": 2,
+    "mesh_uv_layers_max": 2,
+    "finite_vertices_uvs_and_normals": true,
+    "materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "canonical_materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "world_bbox_m": {
+      "min": [
+        -0.45500004291534424,
+        -0.05550002306699753,
+        -0.21655000746250153
+      ],
+      "max": [
+        0.7807499766349792,
+        0.04659995436668396,
+        0.18085500597953796
+      ],
+      "dimensions": [
+        1.2357500195503235,
+        0.10209997743368149,
+        0.3974050134420395
+      ]
+    },
+    "axis_dimensions_m": {
+      "X": 1.2357500195503235,
+      "Y": 0.10209997743368149,
+      "Z": 0.3974050134420395
+    },
+    "axes_longest_to_shortest": [
+      "X",
+      "Z",
+      "Y"
+    ],
+    "geometry": [
+      {
+        "name": "SM_TW_M7_BLACK",
+        "type": "MESH",
+        "evaluated_triangles": 274808,
+        "uv_layers": 2,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_04_GraphiteHardware",
+          "M7_06_DeepRecess",
+          "M7_07_MutedEngraving",
+          "M7_05_DarkSatinSteel",
+          "M7_03_BlackRubber",
+          "M7_02_CharcoalPolymer",
+          "M7_09_LensCoating"
+        ]
+      }
+    ],
+    "import_orientation": {
+      "use_manual_orientation": false,
+      "mode": "Blender default import using FBX axis metadata",
+      "source_axis_dimensions_m": {
+        "X": 1.235749989748001,
+        "Y": 0.10209999978542328,
+        "Z": 0.3974050134420395
+      },
+      "observed_axis_dimensions_m": {
+        "X": 1.2357500195503235,
+        "Y": 0.10209997743368149,
+        "Z": 0.3974050134420395
+      }
+    }
+  },
+  "glb": {
+    "objects": 11,
+    "mesh_objects": 10,
+    "geometry_objects": 10,
+    "empty_objects": 1,
+    "evaluated_vertices": 450719,
+    "raw_triangles": 274808,
+    "evaluated_triangles": 274808,
+    "mesh_uv_layers_min": 1,
+    "mesh_uv_layers_max": 2,
+    "finite_vertices_uvs_and_normals": true,
+    "materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "canonical_materials": [
+      "M7_01_BlackAnodized",
+      "M7_02_CharcoalPolymer",
+      "M7_03_BlackRubber",
+      "M7_04_GraphiteHardware",
+      "M7_05_DarkSatinSteel",
+      "M7_06_DeepRecess",
+      "M7_07_MutedEngraving",
+      "M7_09_LensCoating"
+    ],
+    "world_bbox_m": {
+      "min": [
+        -0.45500004291534424,
+        -0.05550000071525574,
+        -0.21655000746250153
+      ],
+      "max": [
+        0.7807499766349792,
+        0.04659999907016754,
+        0.18085500597953796
+      ],
+      "dimensions": [
+        1.2357500195503235,
+        0.10209999978542328,
+        0.3974050134420395
+      ]
+    },
+    "axis_dimensions_m": {
+      "X": 1.2357500195503235,
+      "Y": 0.10209999978542328,
+      "Z": 0.3974050134420395
+    },
+    "axes_longest_to_shortest": [
+      "X",
+      "Z",
+      "Y"
+    ],
+    "geometry": [
+      {
+        "name": "M7_Foregrip",
+        "type": "MESH",
+        "evaluated_triangles": 6952,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer",
+          "M7_01_BlackAnodized",
+          "M7_04_GraphiteHardware",
+          "M7_06_DeepRecess",
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "M7_FrontSight",
+        "type": "MESH",
+        "evaluated_triangles": 1984,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_06_DeepRecess",
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "M7_Grip",
+        "type": "MESH",
+        "evaluated_triangles": 8684,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer",
+          "M7_03_BlackRubber",
+          "M7_04_GraphiteHardware",
+          "M7_01_BlackAnodized",
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "M7_Magazine",
+        "type": "MESH",
+        "evaluated_triangles": 18108,
+        "uv_layers": 1,
+        "materials": [
+          "M7_02_CharcoalPolymer",
+          "M7_01_BlackAnodized",
+          "M7_06_DeepRecess",
+          "M7_04_GraphiteHardware",
+          "M7_03_BlackRubber"
+        ]
+      },
+      {
+        "name": "M7_Muzzle",
+        "type": "MESH",
+        "evaluated_triangles": 5480,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_04_GraphiteHardware",
+          "M7_06_DeepRecess"
+        ]
+      },
+      {
+        "name": "M7_Optic",
+        "type": "MESH",
+        "evaluated_triangles": 131736,
+        "uv_layers": 2,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_03_BlackRubber",
+          "M7_06_DeepRecess",
+          "M7_04_GraphiteHardware",
+          "M7_09_LensCoating",
+          "M7_02_CharcoalPolymer",
+          "M7_07_MutedEngraving",
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "M7_RearSight",
+        "type": "MESH",
+        "evaluated_triangles": 2980,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_06_DeepRecess",
+          "M7_05_DarkSatinSteel"
+        ]
+      },
+      {
+        "name": "M7_ReceiverHandguardBarrel",
+        "type": "MESH",
+        "evaluated_triangles": 84336,
+        "uv_layers": 2,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_04_GraphiteHardware",
+          "M7_06_DeepRecess",
+          "M7_07_MutedEngraving",
+          "M7_05_DarkSatinSteel",
+          "M7_03_BlackRubber",
+          "M7_02_CharcoalPolymer"
+        ]
+      },
+      {
+        "name": "M7_Stock",
+        "type": "MESH",
+        "evaluated_triangles": 13852,
+        "uv_layers": 1,
+        "materials": [
+          "M7_04_GraphiteHardware",
+          "M7_01_BlackAnodized",
+          "M7_05_DarkSatinSteel",
+          "M7_02_CharcoalPolymer",
+          "M7_03_BlackRubber",
+          "M7_06_DeepRecess",
+          "M7_07_MutedEngraving"
+        ]
+      },
+      {
+        "name": "M7_Trigger",
+        "type": "MESH",
+        "evaluated_triangles": 696,
+        "uv_layers": 1,
+        "materials": [
+          "M7_01_BlackAnodized",
+          "M7_05_DarkSatinSteel"
+        ]
+      }
+    ],
+    "expected_mesh_objects_from_manifest": 10
+  }
+}

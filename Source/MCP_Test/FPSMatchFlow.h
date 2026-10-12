@@ -9,7 +9,6 @@
 #include "FPSMatchFlow.generated.h"
 
 class SWidget;
-class SEditableTextBox;
 
 /** Replicated world identity, available to clients where GameMode does not exist. */
 UCLASS()
@@ -51,7 +50,9 @@ public:
     float DamageMultiplier(const AFPSDemoCharacter* Attacker, const AFPSDemoCharacter* Victim) const;
 private:
     friend struct FFPSFlowSmoke;
+    friend struct FFPSArtCapture;
     friend struct FFPSDropSmoke;
+    friend struct FFPSMovementSmoke;
     void FinishRound();
     void BeginRound();
     int32 TeamSize(int32 Team) const;
@@ -111,6 +112,9 @@ public:
     UFUNCTION(Server, Reliable) void ServerStartRound();
     UFUNCTION(Server, Reliable) void ServerSwitchTeam();
     void ToggleLoadout();
+    void ToggleCustomization();
+    void HideCustomization();
+    bool IsCustomizationMenuOpen() const { return CustomizationMenu.IsValid(); }
     void HideLoadout();
     void RequestSelection(FName WeaponId);
     bool IsLoadoutOpen() const { return LoadoutMenu.IsValid(); }
@@ -121,6 +125,11 @@ public:
     UFUNCTION(Client, Reliable) void ClientSelectionResult(class AFPSDemoCharacter* Body, FGuid Life, uint32 RequestId, bool Success, const FString& Reason);
 private:
     UPROPERTY(Replicated) bool bWeaponContentVerified = false;
+    friend class UFPSInterface;
+    friend struct FFPSMovementSmoke;
+    UPROPERTY() TObjectPtr<class UFPSInterface> MenuAsset;
+    UPROPERTY() TObjectPtr<class UFPSInterface> LoadoutAsset;
+    friend struct FFPSArtCapture;
     FGuid WeaponContentChallenge;
     FTimerHandle WeaponContentTimeout;
     UFUNCTION(Client, Reliable) void ClientCheckWeaponContent(FGuid Challenge, int32 Version, const TArray<FName>& Ids, const FString& Digest);
@@ -134,18 +143,19 @@ private:
     FString StatusText() const;
     TSharedPtr<SWidget> Menu;
     TSharedPtr<SWidget> LoadoutMenu;
+    TSharedPtr<SWidget> CustomizationMenu;
+    TWeakObjectPtr<class AFPSDemoCharacter> CustomizationBody;
     TWeakObjectPtr<class AFPSDemoCharacter> LoadoutBody;
     FString SelectionFeedback;
     uint32 NextSelectionRequest = 0, LastSelectionReply = 0;
     bool bSelectionSuccess = false;
     double NextSelectionAllowedAt = 0;
-    TSharedPtr<SEditableTextBox> BotInput;
-    TSharedPtr<SEditableTextBox> AddressInput;
-    TSharedPtr<SEditableTextBox> RoomInput;
     FString Error;
     EFPSDifficulty SelectedDifficulty = EFPSDifficulty::Normal;
     bool bWasWaiting = false;
+    double MenuOpenedAt = 0, LoadoutOpenedAt = 0;
     UPROPERTY() TObjectPtr<class UInputMappingContext> MenuContext;
     UPROPERTY() TObjectPtr<class UInputAction> MenuAction;
     UPROPERTY() TObjectPtr<class UInputAction> LoadoutAction;
+    UPROPERTY() TObjectPtr<class UInputAction> CustomizationAction;
 };

@@ -10,6 +10,8 @@ struct FFPSPickupDisplay
     GENERATED_BODY()
     UPROPERTY() FGuid InstanceId;
     UPROPERTY() FName WeaponId;
+    UPROPERTY() TArray<FName> AttachmentIds;
+    UPROPERTY() uint32 ConfigurationRevision = 1;
     UPROPERTY() int32 Magazine = 0;
     UPROPERTY() int32 Reserve = 0;
 };
@@ -38,6 +40,7 @@ private:
     UPROPERTY(ReplicatedUsing=OnRep_Instance) bool bDynamic = false;
     UPROPERTY() TObjectPtr<class UBoxComponent> Body;
     UPROPERTY() TObjectPtr<class UStaticMeshComponent> Mesh;
+    UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> AttachmentMeshes;
     UPROPERTY() TObjectPtr<class UTextRenderComponent> Label;
     UFUNCTION() void OnRep_Instance();
     bool bClaimed = false;

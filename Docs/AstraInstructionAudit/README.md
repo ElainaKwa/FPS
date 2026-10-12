@@ -41,6 +41,6 @@
 
 文件检查覆盖 UTF-8 内容回读、全局文件与准备稿一致、项目文档链接存在、没有更改模型与权限设置。此次仅修改指令，不需要 UE 构建或 PIE 测试。
 
-`global-AGENTS.proposed.md` 是全局文件的可审阅副本，不会作为 AGENTS 自动加载。`global-AGENTS.before.bak` 保存修改前的原始空文件。恢复时先确认没有后续用户改动，再用备份恢复全局文件；项目新增文件可单独撤销。
+[global-AGENTS.proposed.md](global-AGENTS.proposed.md) 是全局文件的可审阅副本，不会作为 AGENTS 自动加载。[global-AGENTS.before.bak](global-AGENTS.before.bak) 保存修改前的原始空文件。恢复时先确认没有后续用户改动，再用备份恢复全局文件；项目新增文件可单独撤销。
 
 验证结果：全局文件与准备稿 SHA-256 一致，新增 Markdown 均可严格按 UTF-8 解码，项目入口引用均存在；模型仍为 `gpt-6-astra`，推理强度仍为 `medium`。写入后，本会话收到新的 AGENTS 指令，内容与全局偏好一致，因此全局偏好已确认重新注入。项目 AGENTS 的自动加载尚未在新聊天中验证。

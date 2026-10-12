@@ -1,8 +1,10 @@
 #include "FPSCharacterPresentation.h"
 #include "FPSDemoCharacter.h"
 #include "FPSDemoPlayerState.h"
+#include "FPSMovementComponent.h"
 #include "FPSWeaponComponent.h"
 #include "FPSAvatarVisuals.h"
+#include "FPSAttachmentPresentation.h"
 #include "Camera/CameraComponent.h"
 #include "Components/PointLightComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -41,12 +43,13 @@ void UFPSCharacterPresentation::Update(AFPSDemoCharacter* Character, float Delta
 	{
 		const auto& State = Character->Weapons->GetLoadout();
 		const auto* Def = Character->Weapons->Definition();
+		const auto Stats = Character->Weapons->EffectiveStats();
 		Character->FirstPersonRifle->SetVisibility(Def && !Character->IsEliminated());
-        const float AimDuration = Def ? Def->AimTransitionTime : 0;
+        const float AimDuration = Def ? Stats.AimTransitionTime : 0;
         const float AimAlpha = AimVisualBlend.Update(Now, State.bAiming && Def ? 1.f : 0.f, AimDuration);
-        Character->FirstPersonCamera->SetFieldOfView(CameraFOVBlend.Update(Now, State.bAiming && Def ? Def->AimFOV : Character->BaseFieldOfView, AimDuration));
+        Character->FirstPersonCamera->SetFieldOfView(CameraFOVBlend.Update(Now, State.bAiming && Def ? Stats.AimFOV : Character->BaseFieldOfView, AimDuration));
         Character->FirstPersonCamera->SetRelativeLocation(FVector(0, 0, Character->BaseEyeHeight));
-        FVector Offset = Def ? FMath::Lerp(Def->HipLocation, Def->AimLocation, AimAlpha) : FVector::ZeroVector;
+        FVector Offset = Def ? FMath::Lerp(Def->HipLocation, Stats.AimLocation, AimAlpha) : FVector::ZeroVector;
         Offset.Z += Bob * (1.f - AimAlpha);
         FRotator Rotation(Recoil * 6, 0, 0);
         const double ServerNow = Character->Weapons->ServerTime();
@@ -57,13 +60,16 @@ void UFPSCharacterPresentation::Update(AFPSDemoCharacter* Character, float Delta
         }
         if (Def && State.Action == EFPSWeaponAction::Reloading)
         {
-            const float Phase = FPSWeaponVisualTiming::Progress(Def->ReloadDuration - (State.ActionEndsAt - ServerNow), Def->ReloadDuration);
+            const float Phase = FPSWeaponVisualTiming::Progress(ServerNow - State.ActionStartedAt, State.ActionEndsAt - State.ActionStartedAt);
             const float Reach = FMath::Sin(PI * Phase);
             Offset.Z -= 12 * Reach; Rotation.Roll -= 40 * Reach;
         }
         // Equip is an additive offset, never the smoothing speed for ADS, reload or recoil.
         if (Def) Offset.Z -= 28 * (1.f - FPSWeaponVisualTiming::Smooth(FPSWeaponVisualTiming::Progress(ServerNow - State.EquipStartedAt, Def->EquipBlendTime)));
-        const float SprintAlpha = SprintVisualBlend.Update(Now, Character->GetVelocity().Size2D() > 650.f && !State.bAiming ? 1.f : 0.f, .15f);
+        const auto* Movement=Cast<UFPSMovementComponent>(Character->GetCharacterMovement());
+        const bool ActualSprint=Movement&&Movement->IsSprinting()&&!State.bAiming;
+        const float SprintBlendDuration=Movement&&Movement->UsesMovementRules()?Movement->GetSprintFirePreparationSeconds():.15f;
+        const float SprintAlpha = SprintVisualBlend.Update(Now, ActualSprint ? 1.f : 0.f, FMath::Max(.01f,SprintBlendDuration));
         Offset += FVector(-5, -4, -5) * SprintAlpha;
         Rotation += FRotator(-12, -15, 12) * SprintAlpha;
         Character->GunRoot->SetRelativeLocation(Offset - FVector(Recoil * 12, 0, 0));
@@ -88,10 +94,17 @@ void UFPSCharacterPresentation::Refresh(AFPSDemoCharacter* Character)
 	const auto* Def = Character->Weapons->Definition();
 	Character->GunRoot->SetVisibility(Def != nullptr, true);
 	Character->WorldRifle->SetVisibility(Def != nullptr);
-	if (!Def) return;
+	if (!Def)
+    {
+        for (auto& Part : FirstPersonAttachments) if (Part) Part->SetVisibility(false);
+        for (auto& Part : ThirdPersonAttachments) if (Part) Part->SetVisibility(false);
+        return;
+    }
 	Character->FirstPersonRifle->SetStaticMesh(Def->FirstPerson.Mesh.Get());
 	Character->WorldRifle->SetStaticMesh(Def->ThirdPerson.Mesh.Get());
 	Character->FirstPersonRifle->SetRelativeTransform(Def->FirstPerson.Transform);
+    RefreshFPSAttachmentMeshes(Character->FirstPersonRifle, Character->Weapons->Catalog(), Character->Weapons->Equipped().AttachmentIds, EFPSAttachmentView::FirstPerson, FirstPersonAttachments);
+    RefreshFPSAttachmentMeshes(Character->WorldRifle, Character->Weapons->Catalog(), Character->Weapons->Equipped().AttachmentIds, EFPSAttachmentView::ThirdPerson, ThirdPersonAttachments);
 	Character->MuzzleLight->AttachToComponent(Character->FirstPersonRifle, FAttachmentTransformRules::KeepRelativeTransform);
 	Character->MuzzleLight->SetRelativeLocation(Def->MuzzleLocation);
 	Character->RemoteMuzzleLight->AttachToComponent(Character->WorldRifle, FAttachmentTransformRules::KeepRelativeTransform);

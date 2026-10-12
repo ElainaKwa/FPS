@@ -1,5 +1,4 @@
 #pragma once
 #include "CoreMinimal.h"
-class SWidget;
-class AFPSFrontController;
-TSharedRef<SWidget> MakeFPSLoadoutMenu(AFPSFrontController* Controller);
+// Loadout behaviour is implemented on AFPSFrontController in FPSLoadoutMenu.cpp.
+// Editable layouts are WBP_FPSLoadout assets parented to UFPSInterface.

@@ -121,6 +121,7 @@ protected:
 
 private:
     friend struct FFPSCharacterSmoke;
+    friend struct FFPSMovementSmoke;
 	void MarkEliminated(const FString& KillerName);
 	friend class UFPSCharacterInput;
 	friend class UFPSCharacterPresentation;
