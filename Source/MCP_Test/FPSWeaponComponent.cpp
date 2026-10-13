@@ -121,6 +121,8 @@ bool UFPSWeaponComponent::CanStart(EFPSWeaponRequest Command) const
 {
     if (Command == EFPSWeaponRequest::Cancel) return IsEnabled();
     if (!CanAct()) return false;
+    if(bMenuInputBlocked && Command!=EFPSWeaponRequest::Equip && !(bCustomizationOpen &&
+        (Command==EFPSWeaponRequest::Modify||Command==EFPSWeaponRequest::ModifyMagazine||Command==EFPSWeaponRequest::CancelReload||Command==EFPSWeaponRequest::Reload||Command==EFPSWeaponRequest::Primary||Command==EFPSWeaponRequest::Secondary)))return false;
     if (GetWorld()->GetAuthGameMode<AFPSExtractionMode>())
     {
         // Protected expedition equipment: free world guns cannot enter the persistent economy.
@@ -408,7 +410,19 @@ void UFPSWeaponComponent::StopAllActions()
     if (bHadAction && !GetOwner()->HasAuthority() && Character()->IsLocallyControlled())
         Character()->GetAbilitySystemComponent()->TryActivateAbilityByClass(UFPSCancelWeaponAbility::StaticClass());
 }
-void UFPSWeaponComponent::CancelForMenu() { StopAllActions(); }
+void UFPSWeaponComponent::CancelForMenu()
+{
+    // A released trigger stops automatic intent; an already started burst owns its remaining shots.
+    CancelPendingSprintFire();StopFire();AimOff();
+    if(AimAbility)AimAbility->CancelWeaponAbility();
+}
+void UFPSWeaponComponent::SetMenuInputBlocked(bool Blocked)
+{
+    if(bMenuInputBlocked==Blocked)return;bMenuInputBlocked=Blocked;
+    if(Blocked)CancelForMenu();
+    if(!GetOwner()->HasAuthority()&&Character()->IsLocallyControlled())ServerMenuInputBlocked(Blocked);
+}
+void UFPSWeaponComponent::ServerMenuInputBlocked_Implementation(bool Blocked){bMenuInputBlocked=Blocked;if(Blocked)CancelForMenu();}
 void UFPSWeaponComponent::SetReloadExitsAim(bool bValue) { bReloadExitsAim = bValue; ServerSetReloadExitsAim(bValue); }
 void UFPSWeaponComponent::ServerSetReloadExitsAim_Implementation(bool bValue) { bReloadExitsAim = bValue; }
 FFPSWeaponActionTicket UFPSWeaponComponent::OpenActivation(UFPSWeaponAbility* Ability, EFPSWeaponRequest Command, int32 PredictionKey)
@@ -576,7 +590,7 @@ bool UFPSWeaponComponent::EndAim(const FFPSWeaponActionTicket& Ticket)
 EFPSFireReadiness UFPSWeaponComponent::FireReadiness(const FFPSWeaponActionTicket& Ticket, double& Deadline) const
 {
     Deadline = 0;
-    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || Ticket.ConfigurationRevision != Equipped().ConfigurationRevision || bCustomizationOpen || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Character()->GetActionPolicy()->CanAttack() || !Definition()) return EFPSFireReadiness::Invalid;
+    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || Ticket.ConfigurationRevision != Equipped().ConfigurationRevision || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Character()->GetActionPolicy()->CanAttack() || !Definition()) return EFPSFireReadiness::Invalid;
     if (Equipped().Magazine <= 0 || Loadout.Action == EFPSWeaponAction::Reloading || Loadout.Action == EFPSWeaponAction::Switching) return EFPSFireReadiness::WaitingForState;
     if (const auto* Move = Cast<UFPSMovementComponent>(Character()->GetCharacterMovement()); Move && Move->IsSprinting()) return EFPSFireReadiness::WaitingForState;
     Deadline = FMath::Max(Equipped().NextShotAt, SprintFireReadyAt);
@@ -587,7 +601,7 @@ bool UFPSWeaponComponent::CommitShot(const FFPSWeaponActionTicket& Ticket)
 {
     // Only an active shared fire Ability can request a shot; clients never supply hit or damage data.
     const auto* Def = Definition();
-    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || bCustomizationOpen || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Character()->GetActionPolicy()->CanAttack() || !Def || Equipped().Magazine <= 0 || Loadout.Action == EFPSWeaponAction::Reloading || Loadout.Action == EFPSWeaponAction::Switching) return false;
+    if (!(Ticket == FireTicket) || Ticket.Instance != Equipped().InstanceId || !FireAbility || !FireAbility->IsActive() || !CanAct() || !Character()->GetActionPolicy()->CanAttack() || !Def || Equipped().Magazine <= 0 || Loadout.Action == EFPSWeaponAction::Reloading || Loadout.Action == EFPSWeaponAction::Switching) return false;
     if (const auto* Move = Cast<UFPSMovementComponent>(Character()->GetCharacterMovement()); Move && Move->IsSprinting()) return false;
     const double Now = ServerTime();
     auto& Gun = EquippedMutable();

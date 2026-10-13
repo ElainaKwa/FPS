@@ -5,6 +5,7 @@
 #include "FPSBaseMembership.h"
 #include "FPSActionPolicy.h"
 #include "FPSCharacterInput.h"
+#include "FPSSystemSettings.h"
 #include "FPSCharacterPresentation.h"
 #include "Misc/CommandLine.h"
 #include "FPSWeaponShot.h"
@@ -225,8 +226,10 @@ void AFPSDemoCharacter::MoveRight(const FInputActionValue& Value)
 {
 	if (!bEliminated && ActionPolicy->CanMove()) AddMovementInput(GetActorRightVector(), Value.Get<float>());
 }
-void AFPSDemoCharacter::LookYaw(const FInputActionValue& Value) { AddControllerYawInput(Value.Get<float>()); }
-void AFPSDemoCharacter::LookPitch(const FInputActionValue& Value) { AddControllerPitchInput(-Value.Get<float>()); }
+void AFPSDemoCharacter::LookYaw(const FInputActionValue& Value)
+{const auto* S=UFPSSystemSettings::Get(this);AddControllerYawInput(Value.Get<float>()*(S?S->Sensitivity*(Weapons->GetLoadout().bAiming?S->ADSSensitivity:1.f):1.f));}
+void AFPSDemoCharacter::LookPitch(const FInputActionValue& Value)
+{const auto* S=UFPSSystemSettings::Get(this);AddControllerPitchInput(-Value.Get<float>()*(S?S->Sensitivity*(Weapons->GetLoadout().bAiming?S->ADSSensitivity:1.f)*(S->InvertY?-1.f:1.f):1.f));}
 void AFPSDemoCharacter::PressJump()
 {
     const auto* PC = Cast<APlayerController>(Controller);
@@ -393,6 +396,8 @@ void AFPSDemoCharacter::CrouchOff()
 }
 void AFPSDemoCharacter::StopCombatInput()
 {
+    CharacterInput->SuspendForMenu();
+    ConsumeMovementInputVector();
     Weapons->CancelForMenu();
     if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->ClearMovementIntents();
     StopJumping();

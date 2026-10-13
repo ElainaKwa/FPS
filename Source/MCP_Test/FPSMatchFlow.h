@@ -124,8 +124,11 @@ public:
     UFUNCTION(Server, Reliable) void ServerSelectWeapon(class AFPSDemoCharacter* Body, FGuid Life, FName WeaponId, uint32 RequestId);
     UFUNCTION(Client, Reliable) void ClientSelectionResult(class AFPSDemoCharacter* Body, FGuid Life, uint32 RequestId, bool Success, const FString& Reason);
 private:
+    uint32 SettingsMappingRevision=MAX_uint32;
+    void RefreshSettingsMappings();
     UPROPERTY(Replicated) bool bWeaponContentVerified = false;
     friend class UFPSInterface;
+    friend struct FFPSSettingsSmoke;
     friend struct FFPSMovementSmoke;
     UPROPERTY() TObjectPtr<class UFPSInterface> MenuAsset;
     UPROPERTY() TObjectPtr<class UFPSInterface> LoadoutAsset;

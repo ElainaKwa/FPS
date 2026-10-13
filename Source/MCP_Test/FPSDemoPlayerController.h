@@ -10,7 +10,13 @@ class MCP_TEST_API AFPSDemoPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 public:
+    UFUNCTION(Server,Reliable) void ServerSettingsTest(int32 Stage);
 	virtual void Tick(float DeltaSeconds) override;
+    virtual void EndPlay(const EEndPlayReason::Type Reason) override;
+    void OpenSettings(class UUserWidget* Source=nullptr);
+    bool IsSettingsOpen() const { return SettingsUI!=nullptr; }
+    void SettingsBack();
+    void CloseSettingsForTravel();
 	void ConfirmHit(bool bElimination);
 	float GetKillMarkerUntil() const { return KillMarkerUntil; }
 	float GetDamageFlash() const;
@@ -18,6 +24,10 @@ public:
 	bool WasElimination() const { return bLastHitEliminated; }
 
 private:
+    friend struct FFPSSettingsSmoke;
+    UPROPERTY() TObjectPtr<class UFPSSettingsUI> SettingsUI;
+    TWeakObjectPtr<class UUserWidget> SettingsSource;
+    bool bSettingsWasBlocked=false;
 	UFUNCTION(Client, Reliable)
 	void ClientConfirmHit(bool bElimination);
 	float HitMarkerUntil = 0.0f;

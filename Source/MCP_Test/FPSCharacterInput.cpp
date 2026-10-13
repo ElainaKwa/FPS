@@ -3,6 +3,8 @@
 #include "FPSWeaponComponent.h"
 #include "FPSMovementComponent.h"
 #include "FPSInputSettings.h"
+#include "FPSSystemSettings.h"
+#include "FPSExtractionMode.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
@@ -12,6 +14,7 @@
 #include "InputModifiers.h"
 UFPSCharacterInput::UFPSCharacterInput()
 {
+	PrimaryComponentTick.bCanEverTick=true;
 	InputMap = CreateDefaultSubobject<UInputMappingContext>(TEXT("FPSInputMap"));
 	ForwardAction = CreateDefaultSubobject<UInputAction>(TEXT("ForwardAction"));
 	RightAction = CreateDefaultSubobject<UInputAction>(TEXT("RightAction"));
@@ -20,15 +23,16 @@ UFPSCharacterInput::UFPSCharacterInput()
 	FireAction = CreateDefaultSubobject<UInputAction>(TEXT("FireAction"));
 	JumpAction = CreateDefaultSubobject<UInputAction>(TEXT("FPSJumpAction"));
 	HealAction = CreateDefaultSubobject<UInputAction>(TEXT("HealAction"));
-	for (UInputAction* Action : {ForwardAction.Get(), RightAction.Get(), YawAction.Get(), PitchAction.Get()})
+	for (UInputAction* Action : {YawAction.Get(), PitchAction.Get()})
 		Action->ValueType = EInputActionValueType::Axis1D;
-	for (UInputAction* Action : {FireAction.Get(), JumpAction.Get(), HealAction.Get()})
+	for (UInputAction* Action : {ForwardAction.Get(), RightAction.Get(), FireAction.Get(), JumpAction.Get(), HealAction.Get()})
 		Action->ValueType = EInputActionValueType::Boolean;
-	UInputModifierNegate* Negate = CreateDefaultSubobject<UInputModifierNegate>(TEXT("ReverseAxis"));
+	BackwardAction=CreateDefaultSubobject<UInputAction>(TEXT("BackwardAction"));
+	LeftAction=CreateDefaultSubobject<UInputAction>(TEXT("LeftAction"));
 	InputMap->MapKey(ForwardAction, EKeys::W);
-	InputMap->MapKey(ForwardAction, EKeys::S).Modifiers.Add(Negate);
+	InputMap->MapKey(BackwardAction, EKeys::S);
 	InputMap->MapKey(RightAction, EKeys::D);
-	InputMap->MapKey(RightAction, EKeys::A).Modifiers.Add(Negate);
+	InputMap->MapKey(LeftAction, EKeys::A);
 	InputMap->MapKey(YawAction, EKeys::MouseX);
 	InputMap->MapKey(PitchAction, EKeys::MouseY);
 	InputMap->MapKey(FireAction, EKeys::LeftMouseButton);
@@ -50,6 +54,7 @@ UFPSCharacterInput::UFPSCharacterInput()
 	PickupAction = Action(TEXT("PickupWeapon"), EKeys::F);
 	SprintAction = Action(TEXT("Sprint"), EKeys::LeftShift);
 	CrouchAction = Action(TEXT("Crouch"), EKeys::LeftControl);
+	NextWeaponAction = Action(TEXT("NextWeapon"), EKeys::MouseScrollUp);
 }
 void UFPSCharacterInput::Bind(AFPSDemoCharacter* Character, UInputComponent* PlayerInputComponent)
 {
@@ -57,22 +62,25 @@ void UFPSCharacterInput::Bind(AFPSDemoCharacter* Character, UInputComponent* Pla
     auto* Weapons = Character->GetWeapons();
 	if (UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-		Input->BindAction(ForwardAction, ETriggerEvent::Triggered, Character, &AFPSDemoCharacter::MoveForward);
-		Input->BindAction(RightAction, ETriggerEvent::Triggered, Character, &AFPSDemoCharacter::MoveRight);
+		Input->BindAction(ForwardAction, ETriggerEvent::Triggered, this, &UFPSCharacterInput::Forward);
+		Input->BindAction(BackwardAction, ETriggerEvent::Triggered, this, &UFPSCharacterInput::Backward);
+		Input->BindAction(RightAction, ETriggerEvent::Triggered, this, &UFPSCharacterInput::Right);
+		Input->BindAction(LeftAction, ETriggerEvent::Triggered, this, &UFPSCharacterInput::Left);
 		Input->BindAction(YawAction, ETriggerEvent::Triggered, Character, &AFPSDemoCharacter::LookYaw);
 		Input->BindAction(PitchAction, ETriggerEvent::Triggered, Character, &AFPSDemoCharacter::LookPitch);
 		Input->BindAction(FireAction, ETriggerEvent::Started, Character, &AFPSDemoCharacter::PressFire);
 		Input->BindAction(FireAction, ETriggerEvent::Completed, Character, &AFPSDemoCharacter::ReleaseFire);
 		Input->BindAction(FireAction, ETriggerEvent::Canceled, Character, &AFPSDemoCharacter::ReleaseFire);
 		Input->BindAction(ReloadAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Reload);
-		Input->BindAction(AimAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::AimOn);
-		Input->BindAction(AimAction, ETriggerEvent::Completed, Weapons, &UFPSWeaponComponent::AimOff);
-		Input->BindAction(AimAction, ETriggerEvent::Canceled, Weapons, &UFPSWeaponComponent::AimOff);
+		Input->BindAction(AimAction, ETriggerEvent::Started, this, &UFPSCharacterInput::AimPressed);
+		Input->BindAction(AimAction, ETriggerEvent::Completed, this, &UFPSCharacterInput::AimReleased);
+		Input->BindAction(AimAction, ETriggerEvent::Canceled, this, &UFPSCharacterInput::AimCanceled);
 		Input->BindAction(InspectAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Inspect);
 		Input->BindAction(PrimaryAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Primary);
 		Input->BindAction(SecondaryAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Secondary);
 		Input->BindAction(DropAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Drop);
-		Input->BindAction(PickupAction, ETriggerEvent::Started, Weapons, &UFPSWeaponComponent::Pickup);
+		Input->BindAction(PickupAction, ETriggerEvent::Started, this, &UFPSCharacterInput::Interact);
+		Input->BindAction(NextWeaponAction, ETriggerEvent::Started, this, &UFPSCharacterInput::NextWeapon);
 		Input->BindAction(SprintAction, ETriggerEvent::Started, this, &UFPSCharacterInput::SprintPressed);
 		Input->BindAction(SprintAction, ETriggerEvent::Completed, this, &UFPSCharacterInput::SprintReleased);
 		Input->BindAction(SprintAction, ETriggerEvent::Canceled, this, &UFPSCharacterInput::SprintCanceled);
@@ -95,11 +103,56 @@ void UFPSCharacterInput::Register(AFPSDemoCharacter* Character)
 			if (RegisteredInputSubsystem.Get() == Subsystem) return;
 			if (UEnhancedInputLocalPlayerSubsystem* PreviousSubsystem = RegisteredInputSubsystem.Get())
 				PreviousSubsystem->RemoveMappingContext(InputMap);
-			Subsystem->AddMappingContext(InputMap, 1);
 			RegisteredInputSubsystem = Subsystem;
+			RebuildMappings();
 		}
 	}
 }
+
+void UFPSCharacterInput::RebuildMappings()
+{
+    auto* S=UFPSSystemSettings::Get(this);auto* Subsystem=RegisteredInputSubsystem.Get();if(!Subsystem)return;
+    Subsystem->RemoveMappingContext(InputMap);
+    if(S)
+    {
+        InputMap->UnmapAll();SettingsRevision=S->BindingRevision();
+        auto Map=[&](FName Id,UInputAction* Action,bool Negate=false)
+        {if(const auto* B=S->Binding(Id))for(FKey Key:{B->Primary,B->Secondary})if(Key.IsValid())
+            {auto& M=InputMap->MapKey(Action,Key);if(Negate)M.Modifiers.Add(NewObject<UInputModifierNegate>(InputMap));}};
+        // Separate digital actions also get Enhanced Input's release-before-reuse guard (axis actions do not).
+        Map("Forward",ForwardAction);Map("Backward",BackwardAction);Map("Right",RightAction);Map("Left",LeftAction);
+        Map("Fire",FireAction);Map("Jump",JumpAction);Map("Reload",ReloadAction);Map("Aim",AimAction);Map("Inspect",InspectAction);
+        Map("Primary",PrimaryAction);Map("Secondary",SecondaryAction);Map("NextWeapon",NextWeaponAction);Map("Drop",DropAction);Map("Interact",PickupAction);Map("Sprint",SprintAction);Map("Crouch",CrouchAction);
+        InputMap->MapKey(YawAction,EKeys::MouseX);InputMap->MapKey(PitchAction,EKeys::MouseY);
+        // Teaching-only heal verb is not a hidden extra gameplay binding in structured FPS modes.
+        if(auto* C=InputCharacter.Get();C&&!C->GetWeapons()->IsEnabled())InputMap->MapKey(HealAction,EKeys::E);
+    }
+    if(!bSuspended){FModifyContextOptions O;O.bForceImmediately=true;O.bIgnoreAllPressedKeysUntilRelease=true;Subsystem->AddMappingContext(InputMap,1,O);}
+}
+void UFPSCharacterInput::SuspendForMenu()
+{
+    bSuspended=true;
+    if(auto* S=RegisteredInputSubsystem.Get()){FModifyContextOptions O;O.bForceImmediately=true;S->RemoveMappingContext(InputMap,O);}
+}
+void UFPSCharacterInput::TickComponent(float DT,ELevelTick Type,FActorComponentTickFunction* TF)
+{
+    Super::TickComponent(DT,Type,TF);auto* C=InputCharacter.Get();if(!C||!C->IsLocallyControlled())return;
+    auto* PC=Cast<APlayerController>(C->GetController());const bool Block=PC&&PC->IsMoveInputIgnored();
+    C->GetWeapons()->SetMenuInputBlocked(Block);
+    if(Block&&!bSuspended){C->StopCombatInput();SuspendForMenu();}
+    if(!Block&&bSuspended){bSuspended=false;RebuildMappings();}
+    if(const auto* S=UFPSSystemSettings::Get(this);S&&SettingsRevision!=S->BindingRevision())RebuildMappings();
+}
+void UFPSCharacterInput::AimPressed()
+{if(auto* C=InputCharacter.Get()){auto* W=C->GetWeapons();const auto* S=UFPSSystemSettings::Get(this);if(S&&S->AimToggle&&W->GetLoadout().bAiming)W->AimOff();else W->AimOn();}}
+void UFPSCharacterInput::Forward(){if(auto* C=InputCharacter.Get())C->MoveForward(FInputActionValue(1.f));}
+void UFPSCharacterInput::Backward(){if(auto* C=InputCharacter.Get())C->MoveForward(FInputActionValue(-1.f));}
+void UFPSCharacterInput::Right(){if(auto* C=InputCharacter.Get())C->MoveRight(FInputActionValue(1.f));}
+void UFPSCharacterInput::Left(){if(auto* C=InputCharacter.Get())C->MoveRight(FInputActionValue(-1.f));}
+void UFPSCharacterInput::AimReleased(){if(const auto* S=UFPSSystemSettings::Get(this);!S||!S->AimToggle)AimCanceled();}
+void UFPSCharacterInput::AimCanceled(){if(auto* C=InputCharacter.Get())C->GetWeapons()->AimOff();}
+void UFPSCharacterInput::NextWeapon(){if(auto* C=InputCharacter.Get()){auto* W=C->GetWeapons();if(W->GetLoadout().ActiveSlot==EFPSWeaponSlot::Primary)W->Secondary();else W->Primary();}}
+void UFPSCharacterInput::Interact(){if(auto* C=InputCharacter.Get()){if(auto* PC=Cast<AFPSExtractionController>(C->GetController()))PC->Interact();else C->GetWeapons()->Pickup();}}
 
 
 void UFPSCharacterInput::Unregister()

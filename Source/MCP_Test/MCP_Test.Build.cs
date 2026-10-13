@@ -12,7 +12,7 @@ public class MCP_Test : ModuleRules
 
 		PublicDependencyModuleNames.Add("UMG");
 		PublicDependencyModuleNames.Add("DeveloperSettings");
-		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "AIModule", "AudioMixer", "AssetRegistry", "NetCore" });
+		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "AIModule", "AudioMixer", "AssetRegistry", "NetCore", "Json" });
 
 		if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd", "UMGEditor", "KismetCompiler", "PropertyEditor", "AssetTools", "ToolMenus" });
 

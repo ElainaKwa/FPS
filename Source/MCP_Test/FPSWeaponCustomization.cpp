@@ -13,10 +13,7 @@ bool UFPSWeaponComponent::IsTrainingCustomizationAllowed() const
 
 void UFPSWeaponComponent::StopForCustomization()
 {
-    StopFire(); AimOff();
-    if (FireAbility) FireAbility->CancelWeaponAbility();
-    if (AimAbility) AimAbility->CancelWeaponAbility();
-    InterruptInspect();
+    CancelForMenu();
 }
 
 bool UFPSWeaponComponent::SetCustomizationOpen(bool bOpen)

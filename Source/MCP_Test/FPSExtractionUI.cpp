@@ -1,4 +1,6 @@
 #include "FPSExtractionUI.h"
+#include "FPSSystemSettings.h"
+#include "FPSDemoPlayerController.h"
 #include "FPSExtractionSubsystem.h"
 #include "FPSExtractionGridUI.h"
 #include "FPSExtractionWeaponViewport.h"
@@ -72,12 +74,12 @@ void UFPSExtractionUI::NativeTick(const FGeometry& Geometry,float DeltaTime)
 FReply UFPSExtractionUI::NativeOnPreviewKeyDown(const FGeometry& Geometry,const FKeyEvent& Event)
 {
     // Tunnel before a focused button turns Tab into navigation; do not double-toggle in the controller.
-    if(Phase==EFPSExtractionPhase::Raid&&bBagOpen&&(Event.GetKey()==EKeys::Tab||Event.GetKey()==EKeys::Escape))
+    if(Phase==EFPSExtractionPhase::Raid&&bBagOpen&&(Event.GetKey()==EKeys::Escape || ([&](){const auto* S=UFPSSystemSettings::Get(this);const auto* B=S?S->Binding("Inventory"):nullptr;return B&&(Event.GetKey()==B->Primary||Event.GetKey()==B->Secondary);})()))
     {SetPanelOpen(false);return FReply::Handled();}
     if(Event.GetKey()==EKeys::R&&IsPanelOpen())
     {Dispatch(TEXT("SelectedRotate"));return FReply::Handled();}
     if(Event.GetKey()==EKeys::Escape&&Phase==EFPSExtractionPhase::Base)
-    {if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}else Dispatch(TEXT("Overview"));return FReply::Handled();}
+    {if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}else if(auto* PC=Cast<AFPSDemoPlayerController>(GetOwningPlayer()))PC->OpenSettings(this);return FReply::Handled();}
     return Super::NativeOnPreviewKeyDown(Geometry,Event);
 }
 void UFPSExtractionUI::SetText(FName Name,const FString& Value){ExtractionUI::Text(this,Name,Value);}
@@ -249,7 +251,9 @@ void UFPSExtractionUI::Refresh()
     SetText(TEXT("RaidBagCapacity"),FString::Printf(TEXT("%d / %d 格"),V.BackpackUsed,V.BackpackSlots));
     SetText(TEXT("HomeStorage"),FString::Printf(TEXT("仓库 %d / %d 格\n背包 %d / %d 格"),V.WarehouseUsed,V.WarehouseSlots,V.BackpackUsed,V.BackpackSlots));
     SetText(TEXT("HomeEquipment"),FString::Printf(TEXT("M4  /  M9\n主武器配件 %d 件"),V.Loadout.Primary.AttachmentIds.Num()));
-    SetText(TEXT("RaidCapacity"),FString::Printf(TEXT("背包  %d / %d  ·  Tab"),V.BackpackUsed,V.BackpackSlots));
+    const auto* Settings=UFPSSystemSettings::Get(this);const FString BagKey=Settings?Settings->BindingText("Inventory"):TEXT("Tab");
+    SetText(TEXT("RaidCapacity"),FString::Printf(TEXT("背包  %d / %d  ·  %s"),V.BackpackUsed,V.BackpackSlots,*BagKey));
+    SetText(TEXT("CloseBagLabel"),TEXT("关闭背包 / ")+BagKey);
     SetText(TEXT("Interaction"),V.Interaction);SetShown(TEXT("InteractionPanel"),Raid&&!bBagOpen&&!V.Interaction.IsEmpty());
     SetText(TEXT("ExtractionStatus"),V.ExtractionRemaining>=0?FString::Printf(TEXT("撤离中  %.1f 秒"),V.ExtractionRemaining):FString::Printf(TEXT("撤离点  %.0f 米"),FMath::Max(0.f,V.ExtractionDistance)));
     SetText(TEXT("WeaponSummary"),FString::Printf(TEXT("M4\n配件  %d 件"),V.Loadout.Primary.AttachmentIds.Num()));

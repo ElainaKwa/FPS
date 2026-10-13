@@ -6,6 +6,7 @@
 #include "FPSDemoCharacter.h"
 #include "FPSMovementComponent.h"
 #include "FPSInputSettings.h"
+#include "FPSSystemSettings.h"
 #include "FPSFrontGameInstance.h"
 #include "FPSWeaponComponent.h"
 #include "FPSWeaponPickup.h"
@@ -14,6 +15,8 @@
 #include "FPSUIStyle.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/TextBlock.h"
+#include "Components/CanvasPanel.h"
+#include "Components/CanvasPanelSlot.h"
 #include "Components/EditableTextBox.h"
 #include "Components/Image.h"
 #include "Components/ProgressBar.h"
@@ -42,6 +45,7 @@ UFPSInterface* UFPSInterface::Open(APlayerController* Owner, const TCHAR* Page)
 void UFPSInterface::NativeConstruct()
 {
     Super::NativeConstruct();
+    SetIsFocusable(true);
     WidgetTree->ForEachWidget([](UWidget* W){if(auto* B=Cast<UFPSActionButton>(W))B->Connect();});
     if(const auto* Body=Cast<AFPSDemoCharacter>(GetOwningPlayerPawn())) ViewedWeapon=Body->GetWeapons()->GetLoadout().Primary.WeaponId;
     if(ViewedWeapon.IsNone()) ViewedWeapon=TEXT("Weapon.M4");
@@ -90,7 +94,23 @@ void UFPSInterface::NativeTick(const FGeometry& Geometry,float DeltaTime)
     Super::NativeTick(Geometry,DeltaTime);
     if(!Theme || !GetWorld())return;
     if(Screen==TEXT("Loadout"))RefreshLoadout();
-    else if(Screen==TEXT("HUD"))RefreshHUD(DeltaTime);
+    else if(Screen==TEXT("HUD"))
+    {
+        RefreshHUD(DeltaTime);
+        if(const auto* S=UFPSSystemSettings::Get(this))if(auto* Canvas=Cast<UCanvasPanel>(WidgetTree->FindWidget(TEXT("HUDCanvas"))))
+        {
+            for(auto* Child:Canvas->GetAllChildren())if(auto* CanvasSlot=Cast<UCanvasPanelSlot>(Child->Slot))
+            {
+                const auto P=CanvasSlot->GetPosition();
+                const FVector2D Anchor=P.Y>=700?FVector2D(P.X<800?38:1562,858):P.Y<180?FVector2D(P.X>1200?1562:800,23):FVector2D(800,450);
+                Child->SetRenderTransformPivot(FVector2D::ZeroVector);Child->SetRenderScale(FVector2D(S->HUDScale));Child->SetRenderTranslation((P-Anchor)*(S->HUDScale-1));
+            }
+            Text(TEXT("BaseHint"),S->BindingText("Loadout")+TEXT("  配装 / 基地内"));
+            Visible(TEXT("PickupKey"),false);
+            Text(TEXT("KeyR"),TEXT(""));Visible(TEXT("RKeycap"),false);
+            if(const auto* Body=Cast<AFPSDemoCharacter>(GetOwningPlayerPawn());Body&&Body->GetWeapons()->Definition())Text(TEXT("GunName"),Body->GetWeapons()->Definition()->DisplayName.ToString()+TEXT(" · ")+S->BindingText("Reload"));
+        }
+    }
     else RefreshMenu();
 }
 void UFPSInterface::Dispatch(FName Action,FName Id)
@@ -102,7 +122,7 @@ void UFPSInterface::Dispatch(FName Action,FName Id)
     if(Action==TEXT("LAN")){Tab=1;RefreshMenu();return;}
     if(Action==TEXT("Range")){Tab=2;RefreshMenu();return;}
     if(Action==TEXT("Help")){bHelp=!bHelp;bInputSettings=false;RefreshMenu();return;}
-    if(Action==TEXT("InputSettings")){bInputSettings=!bInputSettings;bHelp=false;RefreshMenu();return;}
+    if(Action==TEXT("InputSettings")){PC->OpenSettings(this);return;}
     if(Action==TEXT("SprintMode"))
     {
         auto* Settings=UFPSInputSettings::Get();Settings->SetSprintToggle(!Settings->bSprintToggle);RefreshMenu();return;
@@ -149,8 +169,15 @@ void UFPSInterface::RefreshMenu()
     const auto* GS=GetWorld()->GetGameState<AFPSDemoGameState>();
     FString Error=PC->Error;if(const auto* GI=PC->GetGameInstance<UFPSFrontGameInstance>();GI&&!GI->ConnectionError.IsEmpty())Error=GI->ConnectionError;
     Text(TEXT("Error"),Error);Visible(TEXT("HelpPanel"),bHelp);
+    if(const auto* S=UFPSSystemSettings::Get(this);S&&bHelp)
+    {
+        FString Help;int32 Count=0;for(const auto& B:S->Bindings())
+        {Help+=B.Label+TEXT(" ")+S->BindingText(B.Id)+(++Count%3?TEXT("    "):TEXT("\n"));}
+        Text(TEXT("HelpText"),Help+TEXT("\nEsc 菜单 / 返回；设置中可修改主副绑定。"));
+        if(auto* HelpText=Cast<UTextBlock>(WidgetTree->FindWidget(TEXT("HelpText")))){auto Font=HelpText->GetFont();Font.Size=18;HelpText->SetFont(Font);}
+    }
     Visible(TEXT("InputSettingsPanel"),bInputSettings);
-    Text(TEXT("InputSettingsLabel"),bInputSettings?TEXT("关闭设置"):TEXT("操作设置"));
+    Text(TEXT("InputSettingsLabel"),TEXT("设置"));
     const auto* InputSettings=UFPSInputSettings::Get();
     Text(TEXT("SprintModeLabel"),InputSettings->bSprintToggle?TEXT("切换：再次按下停止"):TEXT("按住：松开停止"));
     Text(TEXT("CrouchModeLabel"),InputSettings->bCrouchToggle?TEXT("切换：再次按下站起"):TEXT("按住：松开站起"));
@@ -227,7 +254,9 @@ void UFPSInterface::RefreshLoadout()
     const FString Feedback=PC->GetSelectionFeedback();Text(TEXT("Feedback"),Feedback.IsEmpty()?TEXT("//   成功选择后，本局自动保存"):TEXT("//   ")+Feedback);
     Tint(TEXT("Feedback"),Feedback==TEXT("正在处理……")||Feedback.IsEmpty()||PC->LastSelectionSucceeded()?Theme->Paper:Theme->Red);
     const bool Drop=Rules&&Rules->Replacement==EFPSReplacementPolicy::Drop;Visible(TEXT("RuleTail"),!Drop);
-    Text(TEXT("LoadoutRule"),Drop?TEXT("旧枪向前轻抛 · F 拾取 · 超出掉落上限时回收最早的枪"):TEXT("首次离开基地后，本次生命不能再次选枪"));
+    const auto* Settings=UFPSSystemSettings::Get(this);
+    Text(TEXT("CloseKeys"),TEXT("Esc"));
+    Text(TEXT("LoadoutRule"),Drop?TEXT("旧枪向前轻抛 · ")+(Settings?Settings->BindingText("Interact"):TEXT("F"))+TEXT(" 拾取 · 超出掉落上限时回收最早的枪"):TEXT("首次离开基地后，本次生命不能再次选枪"));
 }
 void UFPSInterface::RefreshHUD(float DeltaTime)
 {
@@ -275,6 +304,17 @@ void UFPSInterface::RefreshHUD(float DeltaTime)
     Visible(TEXT("GunStatus"),HasGunStatus);Visible(TEXT("GunAction"),!HasGunStatus);Visible(TEXT("RKeycap"),!HasGunStatus);Visible(TEXT("KeyR"),!HasGunStatus);
     Visible(TEXT("ReloadBar"),State.Action==EFPSWeaponAction::Reloading);
     if(auto* Bar=Cast<UProgressBar>(WidgetTree->FindWidget(TEXT("ReloadBar")))){Bar->SetPercent(D&&State.Action==EFPSWeaponAction::Reloading?FMath::Clamp(1.0-(State.ActionEndsAt-GS->GetServerWorldTimeSeconds())/FMath::Max(.01,State.ActionEndsAt-State.ActionStartedAt),0.,1.):0);}
-    if(const auto* Pickup=W->FindPickup())if(const auto* PD=W->Catalog()->Find(Pickup->GetInstance().WeaponId)){Visible(TEXT("PickupPanel"),true);Text(TEXT("PickupText"),TEXT("拾取 ")+PD->DisplayName.ToString());}
+    if(const auto* Pickup=W->FindPickup())if(const auto* PD=W->Catalog()->Find(Pickup->GetInstance().WeaponId))
+    {const auto* Settings=UFPSSystemSettings::Get(this);Visible(TEXT("PickupPanel"),true);Text(TEXT("PickupText"),(Settings?Settings->BindingText("Interact"):TEXT("F"))+TEXT("  拾取 ")+PD->DisplayName.ToString());}
     if(const auto* Base=Body->FindComponentByClass<UFPSBaseMembership>())Visible(TEXT("BaseHint"),!Extraction&&Base->CanSelect());
+}
+
+FReply UFPSInterface::NativeOnPreviewKeyDown(const FGeometry& G,const FKeyEvent& E)
+{
+    if(E.GetKey()==EKeys::Escape)
+    {
+        if(bHelp){bHelp=false;RefreshMenu();return FReply::Handled();}
+        if(auto* PC=Cast<AFPSFrontController>(GetOwningPlayer())){PC->ToggleMenu();return FReply::Handled();}
+    }
+    return Super::NativeOnPreviewKeyDown(G,E);
 }

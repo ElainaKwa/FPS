@@ -2,10 +2,10 @@
 
 - 用途：设计决策
 - 适用范围：新 FPS Demo 玩家设置、键鼠输入及阻断游戏操作的菜单
-- 状态：访谈 Q1–Q27 已确认；本轮仅落文档，未实施或运行验收；准星自定义另行设计
-- 最后更新：2026-10-13
+- 状态：访谈 Q1–Q27 已确认；实现与验证另见实施记录，准星自定义另行设计
+- 最后更新：2026-10-14
 
-本文记录讨论的最终决定。任务见 [实施清单](SettingsTasks.md)，公共视觉遵循 [UI 设计](DesignDecisions.md)，移动基础规则见 [移动与体力设计](../Characters/MovementDesignDecisions.md)。本轮菜单中断语义以本文为准：清空操作意图不等于取消所有已启动动作。
+本文记录讨论的最终决定。任务见 [实施清单](SettingsTasks.md)，当前结果见 [实施与验证记录](SettingsImplementation.md)，公共视觉遵循 [UI 设计](DesignDecisions.md)，移动基础规则见 [移动与体力设计](../Characters/MovementDesignDecisions.md)。本轮菜单中断语义以本文为准：清空操作意图不等于取消所有已启动动作。
 
 ## 范围与入口
 

@@ -22,6 +22,7 @@
 
 void AFPSFrontController::ToggleLoadout()
 {
+    if(IsSettingsOpen())return;
     if (!IsLocalController()) return;
     HideCustomization();
     if (LoadoutMenu.IsValid()) { HideLoadout(); return; }

@@ -63,6 +63,7 @@ public:
     bool HasControl(FName Name) const;
     static FFPSStaminaHUDState ReadStaminaHUD(const class AFPSDemoCharacter* Body);
 protected:
+    virtual FReply NativeOnPreviewKeyDown(const FGeometry& Geometry,const FKeyEvent& Event) override;
     virtual void NativeConstruct() override;
     virtual void NativeTick(const FGeometry& Geometry, float DeltaTime) override;
 private:

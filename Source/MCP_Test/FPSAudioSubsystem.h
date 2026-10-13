@@ -15,7 +15,10 @@ public:
     static UFPSAudioSubsystem* Get(const UObject* Context);
     void Play(FName Cue, const FVector& Location = FVector::ZeroVector, bool bLocal = true);
     void PlaySound(USoundBase* Sound, const FVector& Location = FVector::ZeroVector, bool bLocal = true, bool bShot = false);
+    void RefreshSettings();
 private:
+    friend struct FFPSSettingsSmoke;
+    TMap<TWeakObjectPtr<class UAudioComponent>,float> ActiveVoices;
     bool bRecordingStarted = false;
     UPROPERTY() TMap<FName, TObjectPtr<USoundBase>> Sounds;
     UPROPERTY() TObjectPtr<USoundAttenuation> Attenuation;

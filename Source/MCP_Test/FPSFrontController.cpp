@@ -1,4 +1,5 @@
 #include "FPSMatchFlow.h"
+#include "FPSSystemSettings.h"
 #include "FPSUIStyle.h"
 #include "FPSInterface.h"
 #include "FPSAcceptanceSmoke.h"
@@ -68,6 +69,17 @@ void AFPSFrontController::BeginPlay()
         Input->BindAction(CustomizationAction, ETriggerEvent::Started, this, &AFPSFrontController::ToggleCustomization);
     }
     RefreshMenu();
+    RefreshSettingsMappings();
+}
+
+void AFPSFrontController::RefreshSettingsMappings()
+{
+    auto* S=UFPSSystemSettings::Get(this);if(!S||!MenuContext||SettingsMappingRevision==S->BindingRevision())return;
+    SettingsMappingRevision=S->BindingRevision();MenuContext->UnmapAll();MenuContext->MapKey(MenuAction,EKeys::Escape);
+    for(const auto& Pair:TArray<TPair<FName,UInputAction*>>{{"Loadout",LoadoutAction},{"Customization",CustomizationAction}})
+        if(const auto* B=S->Binding(Pair.Key))for(FKey Key:{B->Primary,B->Secondary})if(Key.IsValid())MenuContext->MapKey(Pair.Value,Key);
+    if(auto* Sub=ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
+    {FModifyContextOptions O;O.bForceImmediately=true;O.bIgnoreAllPressedKeysUntilRelease=true;Sub->RequestRebuildControlMappings(O,EInputMappingRebuildType::RebuildWithFlush);}
 }
 
 void AFPSFrontController::SetupInputComponent()
@@ -85,6 +97,7 @@ void AFPSFrontController::Tick(float DeltaSeconds)
     FFPSCharacterTravelSmoke::Tick(this);
     FFPSArtCapture::Tick(this);
     if (!IsLocalController()) return;
+    RefreshSettingsMappings();
     if (CustomizationMenu.IsValid())
     {
         const auto* Body = Cast<AFPSDemoCharacter>(GetPawn());
@@ -144,6 +157,7 @@ void AFPSFrontController::EndPlay(const EEndPlayReason::Type Reason)
 
 void AFPSFrontController::ToggleMenu()
 {
+    if(IsSettingsOpen()){SettingsBack();return;}
     if (CustomizationMenu.IsValid()) { HideCustomization(); return; }
     if (LoadoutMenu.IsValid()) { HideLoadout(); return; }
     if (bWasWaiting) return;
@@ -152,6 +166,7 @@ void AFPSFrontController::ToggleMenu()
 
 void AFPSFrontController::HideMenu()
 {
+    CloseSettingsForTravel();
     if (Menu.IsValid() && GetWorld() && GetWorld()->GetGameViewport())
         GetWorld()->GetGameViewport()->RemoveViewportWidgetForPlayer(GetLocalPlayer(), Menu.ToSharedRef());
     Menu.Reset();

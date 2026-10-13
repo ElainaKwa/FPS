@@ -7,11 +7,13 @@
 
 void AFPSFrontController::ToggleCustomization()
 {
+    if(IsSettingsOpen())return;
     if (CustomizationMenu.IsValid()) { HideCustomization(); return; }
     auto* Body = Cast<AFPSDemoCharacter>(GetPawn());
     if (!IsLocalController() || !GetLocalPlayer() || !Body || !GetWorld()->GetGameViewport()) return;
     HideLoadout(); HideMenu();
     if (!Body->GetWeapons()->SetCustomizationOpen(true)) return;
+    Body->StopCombatInput();
     CustomizationBody = Body;
     const TWeakObjectPtr<AFPSFrontController> Weak(this);
     CustomizationMenu = MakeFPSCustomizationMenu(Body, [Weak]() { if (auto* PC = Weak.Get()) PC->HideCustomization(); });

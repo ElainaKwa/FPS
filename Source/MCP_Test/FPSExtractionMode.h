@@ -52,7 +52,9 @@ public:
     bool IsExtractionPanelOpen() const;
     void ToggleBackpack();
     void Interact();
+    void EscapeMenu();
 private:
+    uint32 SettingsMappingRevision=MAX_uint32;
     UPROPERTY() TObjectPtr<class UFPSExtractionUI> ExtractionUI;
     UPROPERTY() TObjectPtr<class UInputMappingContext> ExtractionContext;
     UPROPERTY() TObjectPtr<class UInputAction> BackpackAction;

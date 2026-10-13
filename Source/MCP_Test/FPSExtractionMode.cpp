@@ -1,4 +1,5 @@
 #include "FPSExtractionMode.h"
+#include "FPSSystemSettings.h"
 #include "FPSExtractionSubsystem.h"
 #include "FPSExtractionUI.h"
 #include "FPSExtractionSmoke.h"
@@ -168,8 +169,9 @@ void AFPSExtractionMode::Tick(float DeltaSeconds)
     if (Body->IsEliminated()) { Loop->FinishExpedition(false); return; }
     const float Distance = FVector::Dist2D(Body->GetActorLocation(), ExitLocation);
     FString Hint;
-    if (auto* Loot = FocusLoot(Body)) Hint = FString::Printf(TEXT("F 回收 %s × %d"), *Loop->ItemName(Loot->ItemId).ToString(), Loot->Quantity);
-    else if (Distance <= 240) Hint = ExitStarted < 0 ? TEXT("F 启动撤离（5 秒）") : TEXT("F 取消撤离");
+    const auto* Settings=UFPSSystemSettings::Get(this);const FString Key=Settings?Settings->BindingText("Interact"):TEXT("F");
+    if (auto* Loot = FocusLoot(Body)) Hint = FString::Printf(TEXT("%s 回收 %s × %d"), *Key, *Loop->ItemName(Loot->ItemId).ToString(), Loot->Quantity);
+    else if (Distance <= 240) Hint = Key+(ExitStarted < 0 ? TEXT(" 启动撤离（5 秒）") : TEXT(" 取消撤离"));
     if (Distance > 240 && ExitStarted >= 0) { ExitStarted = -1; Loop->SetFeedback(TEXT("已离开撤离区域，倒计时取消。")); }
     const float Remaining = ExitStarted < 0 ? -1 : FMath::Max(0.f, 5.f - (GetWorld()->GetTimeSeconds() - ExitStarted));
     Loop->SetInteraction(Hint, Distance / 100.f, Remaining);
@@ -191,11 +193,10 @@ void AFPSExtractionController::BeginPlay()
     BackpackAction = NewObject<UInputAction>(this); EscapeAction = NewObject<UInputAction>(this); InteractAction = NewObject<UInputAction>(this);
     ExtractionContext = NewObject<UInputMappingContext>(this);
     ExtractionContext->MapKey(BackpackAction, EKeys::Tab); ExtractionContext->MapKey(EscapeAction, EKeys::Escape);
-    ExtractionContext->MapKey(InteractAction, EKeys::F);
     if (auto* Input = Cast<UEnhancedInputComponent>(InputComponent))
     {
         Input->BindAction(BackpackAction, ETriggerEvent::Started, this, &AFPSExtractionController::ToggleBackpack);
-        Input->BindAction(EscapeAction, ETriggerEvent::Started, this, &AFPSExtractionController::ToggleBackpack);
+        Input->BindAction(EscapeAction, ETriggerEvent::Started, this, &AFPSExtractionController::EscapeMenu);
         Input->BindAction(InteractAction, ETriggerEvent::Started, this, &AFPSExtractionController::Interact);
     }
     if (GetLocalPlayer()) if (auto* S = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer())) S->AddMappingContext(ExtractionContext, 30);
@@ -206,21 +207,34 @@ void AFPSExtractionController::SetupInputComponent() { AFPSDemoPlayerController:
 bool AFPSExtractionController::IsExtractionPanelOpen() const { return ExtractionUI && ExtractionUI->IsPanelOpen(); }
 void AFPSExtractionController::ToggleBackpack()
 {
+    if(IsSettingsOpen())return;
     if (ExtractionUI && GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>()->GetPhase() == EFPSExtractionPhase::Raid)
         ExtractionUI->SetPanelOpen(!ExtractionUI->IsPanelOpen());
+}
+void AFPSExtractionController::EscapeMenu()
+{
+    if(IsSettingsOpen()){SettingsBack();return;}
+    if(ExtractionUI&&ExtractionUI->IsPanelOpen()&&GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>()->GetPhase()==EFPSExtractionPhase::Raid)ExtractionUI->SetPanelOpen(false);
+    else OpenSettings(ExtractionUI);
 }
 void AFPSExtractionController::Interact() { if (auto* Mode = GetWorld()->GetAuthGameMode<AFPSExtractionMode>()) Mode->Interact(this); }
 void AFPSExtractionController::Tick(float DeltaSeconds)
 {
     AFPSDemoPlayerController::Tick(DeltaSeconds);
-    const bool Open = IsExtractionPanelOpen();
+    if(auto* S=UFPSSystemSettings::Get(this);S&&ExtractionContext&&SettingsMappingRevision!=S->BindingRevision())
+    {
+        SettingsMappingRevision=S->BindingRevision();ExtractionContext->UnmapAll();ExtractionContext->MapKey(EscapeAction,EKeys::Escape);
+        if(const auto* B=S->Binding("Inventory"))for(FKey Key:{B->Primary,B->Secondary})if(Key.IsValid())ExtractionContext->MapKey(BackpackAction,Key);
+        if(auto* Sub=ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer())){FModifyContextOptions O;O.bForceImmediately=true;O.bIgnoreAllPressedKeysUntilRelease=true;Sub->RequestRebuildControlMappings(O,EInputMappingRebuildType::RebuildWithFlush);}
+    }
+    const bool Open = IsExtractionPanelOpen() || IsSettingsOpen();
     if (Open != bPreviousPanel)
     {
         bPreviousPanel = Open; SetIgnoreMoveInput(Open); SetIgnoreLookInput(Open); bShowMouseCursor = Open;
-        if (auto* Body = Cast<AFPSDemoCharacter>(GetPawn())) Body->GetWeapons()->CancelForMenu();
+        if (Open)if (auto* Body = Cast<AFPSDemoCharacter>(GetPawn())) Body->StopCombatInput();
         if (Open)
         {
-            FInputModeGameAndUI Input; Input.SetWidgetToFocus(ExtractionUI->TakeWidget()); Input.SetHideCursorDuringCapture(false); SetInputMode(Input);
+            if(!IsSettingsOpen()){FInputModeGameAndUI Input; Input.SetWidgetToFocus(ExtractionUI->TakeWidget()); Input.SetHideCursorDuringCapture(false); SetInputMode(Input);}
         }
         else SetInputMode(FInputModeGameOnly());
     }

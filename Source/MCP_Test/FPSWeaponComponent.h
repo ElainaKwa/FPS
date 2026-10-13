@@ -99,6 +99,7 @@ public:
     void AimOn();
     void AimOff();
     void CancelForMenu();
+    void SetMenuInputBlocked(bool bBlocked);
     void StopAllActions();
     void Request(EFPSWeaponRequest Command, AFPSWeaponPickup* Target = nullptr);
     void SetReloadExitsAim(bool bValue);
@@ -120,6 +121,9 @@ public:
     EFPSFireReadiness FireReadiness(const FFPSWeaponActionTicket& Ticket, double& Deadline) const;
     FFPSFireReadinessChanged OnFireReadinessChanged;
 private:
+    friend struct FFPSSettingsSmoke;
+    bool bMenuInputBlocked=false;
+    UFUNCTION(Server,Reliable) void ServerMenuInputBlocked(bool bBlocked);
     friend class UFPSExtractionSubsystem;
     bool RestoreExtractionLoadout(const FFPSWeaponLoadout& Saved, FString& Failure);
     friend struct FFPSAttachmentSmoke;

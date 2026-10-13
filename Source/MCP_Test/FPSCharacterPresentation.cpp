@@ -1,4 +1,5 @@
 #include "FPSCharacterPresentation.h"
+#include "FPSSystemSettings.h"
 #include "FPSDemoCharacter.h"
 #include "FPSDemoPlayerState.h"
 #include "FPSMovementComponent.h"
@@ -26,7 +27,9 @@ void UFPSCharacterPresentation::Update(AFPSDemoCharacter* Character, float Delta
         ? RecoilKick * (1.f - FPSWeaponVisualTiming::Smooth(FPSWeaponVisualTiming::Progress(Now - RecoilStartedAt, Character->VisualRecoilReturnTime)))
         : FMath::FInterpTo(Recoil, 0.0f, DeltaSeconds, 12.0f);
 	const float MoveAlpha = FMath::Clamp(Character->GetVelocity().Size2D() / 570.0f, 0.0f, 1.0f);
-	const float Bob = FMath::Sin(Now * 13.0f) * 1.7f * MoveAlpha;
+	const auto* Settings=Character->IsLocallyControlled()?UFPSSystemSettings::Get(Character):nullptr;
+    const float Bob = FMath::Sin(Now * 13.0f) * 1.7f * MoveAlpha * (Settings?Settings->BobScale:1.f);
+    if(Settings){Character->FirstPersonCamera->PostProcessSettings.bOverride_MotionBlurAmount=true;Character->FirstPersonCamera->PostProcessSettings.MotionBlurAmount=Settings->MotionBlurEnabled()?.5f:0.f;}
 	const float WalkSwing = FMath::Sin(Now * 12.0f) * 23.0f * MoveAlpha;
 	Character->LeftLeg->SetRelativeRotation(FRotator(WalkSwing, 0, 0));
 	Character->RightLeg->SetRelativeRotation(FRotator(-WalkSwing, 0, 0));
@@ -47,7 +50,7 @@ void UFPSCharacterPresentation::Update(AFPSDemoCharacter* Character, float Delta
 		Character->FirstPersonRifle->SetVisibility(Def && !Character->IsEliminated());
         const float AimDuration = Def ? Stats.AimTransitionTime : 0;
         const float AimAlpha = AimVisualBlend.Update(Now, State.bAiming && Def ? 1.f : 0.f, AimDuration);
-        Character->FirstPersonCamera->SetFieldOfView(CameraFOVBlend.Update(Now, State.bAiming && Def ? Stats.AimFOV : Character->BaseFieldOfView, AimDuration));
+        Character->FirstPersonCamera->SetFieldOfView(CameraFOVBlend.Update(Now, State.bAiming && Def ? Stats.AimFOV : (Settings?Settings->BaseFOV():Character->BaseFieldOfView), AimDuration));
         Character->FirstPersonCamera->SetRelativeLocation(FVector(0, 0, Character->BaseEyeHeight));
         FVector Offset = Def ? FMath::Lerp(Def->HipLocation, Stats.AimLocation, AimAlpha) : FVector::ZeroVector;
         Offset.Z += Bob * (1.f - AimAlpha);

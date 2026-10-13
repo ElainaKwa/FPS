@@ -16,7 +16,24 @@ public:
     void Bind(AFPSDemoCharacter* Character, UInputComponent* InputComponent);
     void Register(AFPSDemoCharacter* Character);
     void Unregister();
+    void SuspendForMenu();
+    virtual void TickComponent(float DeltaTime,ELevelTick TickType,FActorComponentTickFunction* TickFunction) override;
 private:
+    void Forward();
+    void Backward();
+    void Right();
+    void Left();
+    UPROPERTY() TObjectPtr<UInputAction> BackwardAction;
+    UPROPERTY() TObjectPtr<UInputAction> LeftAction;
+    void RebuildMappings();
+    void AimPressed();
+    void AimReleased();
+    void AimCanceled();
+    void NextWeapon();
+    void Interact();
+    uint32 SettingsRevision=MAX_uint32;
+    bool bSuspended=false;
+    UPROPERTY() TObjectPtr<UInputAction> NextWeaponAction;
     friend struct FFPSMovementSmoke;
     void SprintPressed();
     void SprintReleased();

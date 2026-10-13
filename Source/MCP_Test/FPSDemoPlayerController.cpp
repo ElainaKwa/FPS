@@ -1,13 +1,41 @@
 #include "FPSDemoPlayerController.h"
+#include "FPSSettingsUI.h"
+#include "FPSSystemSettings.h"
+#include "FPSSettingsSmoke.h"
 #include "FPSAudioSubsystem.h"
 #include "FPSDemoCharacter.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Paths.h"
 #include "UnrealClient.h"
 
+void AFPSDemoPlayerController::OpenSettings(UUserWidget* Source)
+{
+    if(!IsLocalController()||SettingsUI)return;
+    SettingsSource=Source;bSettingsWasBlocked=IsMoveInputIgnored();
+    SettingsUI=UFPSSettingsUI::Open(this);if(!SettingsUI)return;
+    if(auto* Body=Cast<AFPSDemoCharacter>(GetPawn()))Body->StopCombatInput();
+    ResetIgnoreMoveInput();ResetIgnoreLookInput();SetIgnoreMoveInput(true);SetIgnoreLookInput(true);bShowMouseCursor=true;
+    SettingsUI->OnClosed.BindWeakLambda(this,[this]()
+    {
+        SettingsUI=nullptr;ResetIgnoreMoveInput();ResetIgnoreLookInput();
+        SetIgnoreMoveInput(bSettingsWasBlocked);SetIgnoreLookInput(bSettingsWasBlocked);bShowMouseCursor=bSettingsWasBlocked;
+        if(bSettingsWasBlocked){FInputModeGameAndUI Mode;if(SettingsSource.IsValid())Mode.SetWidgetToFocus(SettingsSource->TakeWidget());Mode.SetHideCursorDuringCapture(false);SetInputMode(Mode);}
+        else SetInputMode(FInputModeGameOnly());SettingsSource.Reset();
+    });
+    FInputModeGameAndUI Mode;Mode.SetWidgetToFocus(SettingsUI->TakeWidget());Mode.SetHideCursorDuringCapture(false);SetInputMode(Mode);
+}
+void AFPSDemoPlayerController::SettingsBack(){if(SettingsUI)SettingsUI->RequestBack();}
+void AFPSDemoPlayerController::CloseSettingsForTravel()
+{
+    if(!SettingsUI)return;if(auto* S=UFPSSystemSettings::Get(this)){S->CancelCapture();S->DiscardGraphics();}
+    SettingsUI->OnClosed.Unbind();SettingsUI->RemoveFromParent();SettingsUI=nullptr;SettingsSource.Reset();
+}
+void AFPSDemoPlayerController::EndPlay(const EEndPlayReason::Type Reason){CloseSettingsForTravel();Super::EndPlay(Reason);}
+
 void AFPSDemoPlayerController::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+    FFPSSettingsSmoke::Tick(this);
 	if (!IsLocalController()) return;
 	auto* Avatar = Cast<AFPSDemoCharacter>(GetPawn());
 	if (ObservedPawn.Get() != Avatar)

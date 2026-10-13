@@ -1,4 +1,5 @@
 #include "FPSAudioSubsystem.h"
+#include "FPSSystemSettings.h"
 #include "AudioMixerBlueprintLibrary.h"
 #include "Components/AudioComponent.h"
 #include "Engine/GameInstance.h"
@@ -67,14 +68,26 @@ void UFPSAudioSubsystem::PlaySound(USoundBase* Sound, const FVector& Location, b
         }, 20.f, false);
     }
 #endif
-    const float Volume = bShot ? .55f : .35f;
+    const float BaseVolume = bShot ? .55f : .35f;
+    const auto* Settings=UFPSSystemSettings::Get(this);
+    const float Volume=BaseVolume*(Settings?Settings->MasterVolume*Settings->GameVolume:1.f);
     UAudioComponent* Voice = bLocal
         ? UGameplayStatics::SpawnSound2D(World, Sound, Volume, 1, 0, Concurrency)
         : UGameplayStatics::SpawnSoundAtLocation(World, Sound, Location, FRotator::ZeroRotator, Volume, 1, 0, Attenuation, Concurrency);
+    if(Voice)ActiveVoices.Add(Voice,BaseVolume);
+    for(auto It=ActiveVoices.CreateIterator();It;++It)if(!It.Key().IsValid()||!It.Key()->IsPlaying())It.RemoveCurrent();
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("FPSAudioTrace")))
         UE_LOG(LogTemp, Display, TEXT("FPS_AUDIO %s cue=%s route=%s net=%d active=%d"), Voice && Voice->IsPlaying() ? TEXT("PASS") : TEXT("FAIL"),
             *Sound->GetName(), bLocal ? TEXT("LOCAL") : TEXT("SPATIAL"), int32(World->GetNetMode()), Voice && Voice->IsPlaying());
 #endif
+}
+
+void UFPSAudioSubsystem::RefreshSettings()
+{
+    const auto* Settings=UFPSSystemSettings::Get(this);if(!Settings)return;
+    for(auto It=ActiveVoices.CreateIterator();It;++It)
+        if(auto* Voice=It.Key().Get();Voice&&Voice->IsPlaying())Voice->SetVolumeMultiplier(It.Value()*Settings->MasterVolume*Settings->GameVolume);
+        else It.RemoveCurrent();
 }
 
