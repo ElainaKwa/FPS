@@ -5,6 +5,7 @@
 #include "FPSAttachmentSmoke.h"
 #include "Misc/CommandLine.h"
 #include "FPSMatchFlow.h"
+#include "FPSExtractionMode.h"
 #include "FPSWeaponAbilities.h"
 #include "FPSAudioSubsystem.h"
 #include "FPSDemoCharacter.h"
@@ -120,6 +121,13 @@ bool UFPSWeaponComponent::CanStart(EFPSWeaponRequest Command) const
 {
     if (Command == EFPSWeaponRequest::Cancel) return IsEnabled();
     if (!CanAct()) return false;
+    if (GetWorld()->GetAuthGameMode<AFPSExtractionMode>())
+    {
+        // Protected expedition equipment: free world guns cannot enter the persistent economy.
+        if (Command == EFPSWeaponRequest::Drop || Command == EFPSWeaponRequest::Pickup) return false;
+        if (const auto* PC = Cast<AFPSExtractionController>(Character()->GetController()); PC && PC->IsExtractionPanelOpen())
+            return Command == EFPSWeaponRequest::Equip;
+    }
     const auto* Def = Definition();
     if (bCustomizationOpen && (Command == EFPSWeaponRequest::Fire || Command == EFPSWeaponRequest::AimOn || Command == EFPSWeaponRequest::Inspect)) return false;
     switch (Command)
@@ -171,6 +179,7 @@ void UFPSWeaponComponent::InitializeSpawnLoadout()
 bool UFPSWeaponComponent::SelectDefinition(FName Id, FString& Failure)
 {
     auto Fail = [&](const TCHAR* Reason) { Failure = Reason; return false; };
+    if (GetWorld()->GetAuthGameMode<AFPSExtractionMode>()) return Fail(TEXT("实验出征使用基地仓库中的装备。"));
     auto* Membership = Character()->FindComponentByClass<UFPSBaseMembership>();
     if (!GetOwner()->HasAuthority() || !CanAct() || !Membership) return Fail(TEXT("角色或阶段已失效。"));
     Membership->RefreshAuthority();

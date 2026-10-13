@@ -1,0 +1,152 @@
+{
+  "source": "ArtSource\\FPSDemo\\Industrial\\WeaponLibrary.blend",
+  "source_sha256": "6a0ca64beba074380694b9a5b6d9b21d8bbc1557ac1423c06b68b4394418e56a",
+  "generator": "ArtSource\\FPSDemo\\Weapons\\M4\\ExtractionPreview\\Scripts\\build_preview.py",
+  "scope": "Experimental modular workbench preview only",
+  "assets": [
+    {
+      "name": "SM_EXP_M4_Core",
+      "category": "Preview",
+      "file": "Exports/SM_EXP_M4_Core.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3695000112056732,
+          -0.06450000405311584,
+          -0.14460967481136322
+        ],
+        "max": [
+          0.5649999976158142,
+          0.03200000151991844,
+          0.07699999958276749
+        ]
+      },
+      "triangles": 15780,
+      "materials": [
+        "MI_IND_Graphite.001",
+        "MI_IND_Polymer.001",
+        "MI_IND_Rubber.001",
+        "MI_IND_Steel.001",
+        "MI_IND_Ceramic.001",
+        "MI_IND_Yellow.001"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_EXP_M4_MagazineStandard",
+      "category": "Preview",
+      "file": "Exports/SM_EXP_M4_MagazineStandard.fbx",
+      "bounds_m": {
+        "min": [
+          0.10021159797906876,
+          -0.016750000417232513,
+          -0.22943150997161865
+        ],
+        "max": [
+          0.19027239084243774,
+          0.016750000417232513,
+          -0.03499997779726982
+        ]
+      },
+      "triangles": 972,
+      "materials": [
+        "MI_IND_Graphite.001",
+        "MI_IND_Steel.001"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_EXP_M4_MuzzleStandard",
+      "category": "Preview",
+      "file": "Exports/SM_EXP_M4_MuzzleStandard.fbx",
+      "bounds_m": {
+        "min": [
+          0.5410000085830688,
+          -0.014089999720454216,
+          -0.013949976302683353
+        ],
+        "max": [
+          0.5734999775886536,
+          0.014089999720454216,
+          0.013950024731457233
+        ]
+      },
+      "triangles": 1768,
+      "materials": [
+        "MI_IND_Graphite.001",
+        "MI_IND_Rubber.001"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_EXP_M4_Optic",
+      "category": "Preview",
+      "file": "Exports/SM_EXP_M4_Optic.fbx",
+      "bounds_m": {
+        "min": [
+          0.010999999940395355,
+          -0.027000000700354576,
+          0.05649999901652336
+        ],
+        "max": [
+          0.17900000512599945,
+          0.03600000590085983,
+          0.14100000262260437
+        ]
+      },
+      "triangles": 4308,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Visor"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_EXP_M4_Brake",
+      "category": "Preview",
+      "file": "Exports/SM_EXP_M4_Brake.fbx",
+      "bounds_m": {
+        "min": [
+          0.5349999666213989,
+          -0.024000000208616257,
+          -0.023000001907348633
+        ],
+        "max": [
+          0.6269999742507935,
+          0.024000000208616257,
+          0.023000001907348633
+        ]
+      },
+      "triangles": 2144,
+      "materials": [
+        "MI_IND_Steel",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1
+    },
+    {
+      "name": "SM_EXP_M4_MagazineExtended",
+      "category": "Preview",
+      "file": "Exports/SM_EXP_M4_MagazineExtended.fbx",
+      "bounds_m": {
+        "min": [
+          0.10027160495519638,
+          -0.020999999716877937,
+          -0.31236833333969116
+        ],
+        "max": [
+          0.2175000011920929,
+          0.020999999716877937,
+          -0.03500000014901161
+        ]
+      },
+      "triangles": 1160,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1
+    }
+  ]
+}

@@ -15,5 +15,5 @@ class MCP_TEST_API AFPSDemoGameMode : public AGameModeBase
 
 public:
 	AFPSDemoGameMode();
-	void HandleLifeEnded(UFPSLifeComponent* Life, const FFPSDeathContext& Context);
+	virtual void HandleLifeEnded(UFPSLifeComponent* Life, const FFPSDeathContext& Context);
 };

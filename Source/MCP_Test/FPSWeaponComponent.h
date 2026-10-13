@@ -120,6 +120,8 @@ public:
     EFPSFireReadiness FireReadiness(const FFPSWeaponActionTicket& Ticket, double& Deadline) const;
     FFPSFireReadinessChanged OnFireReadinessChanged;
 private:
+    friend class UFPSExtractionSubsystem;
+    bool RestoreExtractionLoadout(const FFPSWeaponLoadout& Saved, FString& Failure);
     friend struct FFPSAttachmentSmoke;
     UPROPERTY(Replicated) bool bCustomizationOpen = false;
     UFUNCTION(Server, Reliable) void ServerSetCustomizationOpen(bool bOpen);

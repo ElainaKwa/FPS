@@ -1,4 +1,5 @@
 #include "FPSInterface.h"
+#include "FPSExtractionMode.h"
 #include "FPSMatchFlow.h"
 #include "FPSDemoGameState.h"
 #include "FPSDemoPlayerState.h"
@@ -240,7 +241,9 @@ void UFPSInterface::RefreshHUD(float DeltaTime)
     Text(TEXT("Health"),FString::Printf(TEXT("%.0f"),HP));Tint(TEXT("Health"),Ratio<=.25f?Theme->Red:Theme->Paper);
     if(auto* Bar=Cast<UProgressBar>(WidgetTree->FindWidget(TEXT("HealthBar")))){Bar->SetPercent(Ratio);Bar->SetFillColorAndOpacity(Ratio<=.25f?Theme->Red:Theme->Paper);}
     Text(TEXT("Team"),Blue?TEXT("蓝队"):TEXT("红队"));Visible(TEXT("TeamBlue"),Blue);Visible(TEXT("TeamRedFit"),!Blue);
-    Visible(TEXT("ScoreGroup"),!GS->bTraining);Visible(TEXT("TrainingLabel"),GS->bTraining);
+    const bool Extraction = GetWorld()->GetAuthGameMode<AFPSExtractionMode>() != nullptr;
+    Visible(TEXT("ScoreGroup"),!GS->bTraining&&!Extraction);Visible(TEXT("TrainingLabel"),GS->bTraining);
+    if(Extraction){Text(TEXT("Team"),TEXT("回收"));Visible(TEXT("TeamBlue"),false);Visible(TEXT("TeamRedFit"),false);}
     const int32 Sec=FMath::Max(0,FMath::CeilToInt(GS->RoundEndsAt-GS->GetServerWorldTimeSeconds()));Text(TEXT("Timer"),FString::Printf(TEXT("%02d:%02d"),Sec/60,Sec%60));Tint(TEXT("Timer"),Sec<=30?Theme->Accent:Theme->Paper);
     int32 Scores[2]={0,0};for(const APlayerState* P:GS->PlayerArray)if(const auto* State=Cast<AFPSDemoPlayerState>(P);State&&State->TeamId>=0&&State->TeamId<2)Scores[State->TeamId]+=State->GetEliminationCount();
     Text(TEXT("BlueScore"),FString::Printf(TEXT("%02d"),Scores[0]));Text(TEXT("RedScore"),FString::Printf(TEXT("%02d"),Scores[1]));
@@ -273,5 +276,5 @@ void UFPSInterface::RefreshHUD(float DeltaTime)
     Visible(TEXT("ReloadBar"),State.Action==EFPSWeaponAction::Reloading);
     if(auto* Bar=Cast<UProgressBar>(WidgetTree->FindWidget(TEXT("ReloadBar")))){Bar->SetPercent(D&&State.Action==EFPSWeaponAction::Reloading?FMath::Clamp(1.0-(State.ActionEndsAt-GS->GetServerWorldTimeSeconds())/FMath::Max(.01,State.ActionEndsAt-State.ActionStartedAt),0.,1.):0);}
     if(const auto* Pickup=W->FindPickup())if(const auto* PD=W->Catalog()->Find(Pickup->GetInstance().WeaponId)){Visible(TEXT("PickupPanel"),true);Text(TEXT("PickupText"),TEXT("拾取 ")+PD->DisplayName.ToString());}
-    if(const auto* Base=Body->FindComponentByClass<UFPSBaseMembership>())Visible(TEXT("BaseHint"),Base->CanSelect());
+    if(const auto* Base=Body->FindComponentByClass<UFPSBaseMembership>())Visible(TEXT("BaseHint"),!Extraction&&Base->CanSelect());
 }
