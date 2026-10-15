@@ -2,8 +2,8 @@
 
 - 用途：实施与验证记录
 - 适用范围：实验分支的物品、存档、加工、配件和独立模式集成
-- 状态：实体格子闭环与中央 3D 改枪台运行通过；PIE、打包与真人完整游玩未验证
-- 最后更新：2026-10-14
+- 状态：实体格子闭环与 v4 双层改枪台运行通过；PIE、打包与真人完整游玩未验证
+- 最后更新：2026-10-15
 
 基点为 `c255cf5`，工作分支 `codex/extraction-loop-lab`。开工时工作区已有 M7 美术、移动及武器内容等未提交改动，保留且不归入本轮交付。
 
@@ -64,5 +64,21 @@
 
 - 最后修正已装配件显示内部英文名的问题，并清理预览代码的浮点字面量警告。最终构建 `Saved/ExtractionTests/Build/Workbench2.log` 和 1080p 定向回归 `Saved/ExtractionTests/UI-20261014-014237092/run.json` 通过，模块 SHA256 `EC6252AD36218172D4F915B166011E43206FD140B23370A8A64C73A63F33E27E`。
 - 交付截图：[默认装配](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/WorkbenchStandard.png)、[三类配件安装后](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/WorkbenchEquipped.png)、[实体仓库](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/Warehouse.png)。
+
+## 参考布局改枪台 v4
+
+根据用户提供的两张参考图，改枪台分为武器概览与改装大画布。概览显示持有的 M4/M9、真实参数和大幅模型；M4 进入改装后隐藏工厂外框，三张配件卡片以连线指向安装位置，点击后打开右侧库存抽屉。M9 沿用真实 Pickup 模型，没有兼容接口时禁用改装。保留项目工业灰黑、有限黄与现有字体。
+
+`FPSExtractionWeaponViewport` 调整为枪口朝左，支持 M9、按实际部件生成缩略图、中文名称、模式视角与重置。RenderTarget 等比限制分辨率，避免宽画布拉伸；相机、灯光和背景仅属于临时预览场景。装卸仍由原后端提交，模型只呈现已保存装配。Esc 依次收起抽屉、返回概览、返回工厂。
+
+### v4 证据与边界
+
+- 最终 Editor Development 构建通过：`Saved/GunsmithReferenceTests/Build/Editor6.log`。原有测试代码仍有旧 InputKey API 弃用警告；本次不批量迁移无关测试。
+- v3 → v4 迁移及本轮缩略图修正分别记录于 `Saved/FPSExtraction/UI/WorkbenchReferenceUpgrade/20261015-143958-577482/Report.json`、`20261015-144930-290117/Report.json`。每次先备份终端，核对其他 143 个控件与 252 个资源包不变。仅更新本套件终端资产。
+- 固定运行副本的三分辨率 1280×800 / 1920×1080 / 2560×1440 全部通过：`Saved/ExtractionTests/UI-20261015-150807868/run.json`。模块 SHA256 为 `1DD3A7F5D9443B4DC572D1E3C400E2C85522657B719A239A22C6026EAE01D9DF`。副本清单与复核位于 `Saved/GunsmithReferenceTests/RuntimeFinal/snapshot.json`、`verification.json`；运行期间本轮源码和改枪台依赖资产没有变化；验收后仅清理一行尾随空格。
+- 覆盖真实 M4/M9 模型切换、禁用不支持的改装、三张卡片点击、抽屉保留空间、真实库存装卸、候选差异、配件网格变化、旋转/缩放/重置及逐层返回。仓库原生拖放和加工/总览也回归通过。共取得 30 张游戏截图，并查看概览、安装后大图及抽屉布局；事件测试不替代完整 OS 输入路由或真人操作。
+- 前一批 `UI-20261015-145557755` 的逐进程检查通过，但共享 DLL 在测试期间被并行任务替换，汇总失败，不作为最终验收。固定副本第一次启动 `UI-20261015-150249089` 卡在平台 SDK 扫描并超时；加入多进程运行标记后，用同一固定模块完成上述复验。
+- 验证入口仍为工业关隘的基地模式。并行任务修改了另一个 FactoryBase 地图，该地图未被此批测试加载；本次结果不证明可走动工厂地图的集成。测试以独立个人档案运行，不修改玩家存档。PIE、正式打包及完整人工游玩仍未验证。
+- 实机截图：[武器概览](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/ReferenceOverview.png)、[中央改装与配件连线](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/ReferenceModification.png)、[兼容库存抽屉](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/ReferenceDrawer.png)。M4 仍为已有实验预览模型，正式枪械美术接入单独处理。
 
 返回 [实验索引](README.md)。

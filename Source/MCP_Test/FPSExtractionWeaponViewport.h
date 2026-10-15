@@ -22,15 +22,23 @@ public:
     FVector2D ProjectMount(EFPSAttachmentCategory Category) const;
     UTextureRenderTarget2D* GetImage() const { return Target; }
     bool HasModel() const;
+    FName WeaponVisualName() const;
     FName VisualFor(EFPSAttachmentCategory Category) const;
+    UTextureRenderTarget2D* IconFor(EFPSAttachmentCategory Category) const;
+    FString PartLabel(EFPSAttachmentCategory Category) const;
 private:
     UPROPERTY() TObjectPtr<USceneComponent> ModelRoot;
     UPROPERTY() TObjectPtr<UStaticMeshComponent> Core;
+    UPROPERTY() TObjectPtr<UStaticMeshComponent> Backdrop;
     UPROPERTY() TArray<TObjectPtr<UStaticMeshComponent>> Parts;
     UPROPERTY() TArray<TObjectPtr<UStaticMesh>> PreviewMeshes;
     UPROPERTY() TObjectPtr<USceneCaptureComponent2D> Capture;
     UPROPERTY() TObjectPtr<UTextureRenderTarget2D> Target;
     FString Configuration;
+    UPROPERTY() TArray<TObjectPtr<UTextureRenderTarget2D>> Icons;
+    TArray<FString> PartLabels;
+    bool bIconsDirty=true;
+    float ModelWidth=128;
 };
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnFPSPreviewSlotSelected, EFPSAttachmentCategory);
@@ -43,8 +51,14 @@ class MCP_TEST_API UFPSExtractionWeaponViewport : public UUserWidget
 public:
     void Present(const FFPSWeaponInstance& Instance);
     void SetPreviewActive(bool Active);
+    void SetOverviewMode(bool Overview);
+    void SetSlotsVisible(bool Visible) { bSlotsVisible=Visible; }
+    void ResetView();
+    static FVector2D SlotCenter(EFPSAttachmentCategory Category);
     void SetSelectedCategory(EFPSAttachmentCategory Category) { Selected=Category; }
     bool HasModel() const { return Stage && Stage->HasModel(); }
+    FName WeaponVisualName() const { return Stage?Stage->WeaponVisualName():NAME_None; }
+    bool AreSlotsVisible() const { return bSlotsVisible; }
     FName VisualFor(EFPSAttachmentCategory Category) const { return Stage?Stage->VisualFor(Category):NAME_None; }
     FOnFPSPreviewSlotSelected OnSlotSelected;
     virtual FReply NativeOnMouseButtonDown(const FGeometry& G,const FPointerEvent& E) override;
@@ -60,9 +74,11 @@ private:
     UPROPERTY(Transient) TObjectPtr<AFPSExtractionPreviewStage> Stage;
     UPROPERTY(Transient) TObjectPtr<class UFont> LabelFont;
     FSlateBrush ImageBrush;
+    FSlateBrush IconBrushes[3];
     FFPSWeaponInstance PendingInstance;
     EFPSAttachmentCategory Selected=EFPSAttachmentCategory::Optic;
     bool bActive=false,bOrbiting=false,bFrameDirty=true;
+    bool bOverview=false,bSlotsVisible=true;
     int32 WarmupFrames=0;
     float Yaw=0,Pitch=0,Zoom=1;
     FIntPoint FrameSize=FIntPoint::ZeroValue;

@@ -2,14 +2,14 @@
 
 - 用途：当前使用说明
 - 适用范围：单人 PvE 搜打撤实验的工厂总览、实体格子仓库/整备背包、装备槽、加工、改装、撤离及结果
-- 状态：v2 实体格子和 v3 中央改枪台已保存；独立游戏运行与三分辨率采图通过，完整 OS 输入路由和打包未验证
-- 最后更新：2026-10-14
+- 状态：v4 双层改枪台已保存，固定模块的三分辨率运行与采图通过；完整 OS 输入路由、PIE 和打包未验证
+- 最后更新：2026-10-15
 
 ## 当前方向与资产
 
 用户在初版列表终端后明确改为参考《三角洲行动》特勤处的基地结构与背包交互：机器人个人工厂、不同尺寸实体占格、拖放整理、仓库/出征背包/装备栏分离。沿用工业灰黑、有限黄、MiSans 与 Rajdhani，使用自制设施几何与物品名称缩写；不复制商业游戏素材。不增加胸挂、保险箱、负重或未实现的设施升级按钮。
 
-本套件资产位于 `/Game/FPSDemo/Art/UI/ExtractionTerminal/`：`WBP_ExtractionTerminal` 保存终端布局，`WBP_ExtractionRow` 用于配方与结果，v3 新增窄版 `WBP_ExtractionAttachmentRow` 用于配件。终端 v2 保存工厂导航、总览、三个原生格子控件、固定装备栏、背包和结果面板；v3 仅追加改枪台面板。格子控件的容器、CellSize、字体、网格色、物品底色均作为 Widget Blueprint 属性保存；占格和文字由真实快照绘制，不每 0.1 秒重建一套物品子控件。
+本套件资产位于 `/Game/FPSDemo/Art/UI/ExtractionTerminal/`：`WBP_ExtractionTerminal` 保存终端布局，`WBP_ExtractionRow` 用于配方与结果，`WBP_ExtractionAttachmentRow` 用于配件。v4 仅替换改枪台 ModificationPanel 和版本标记，复用窄版配件行；工厂总览、格子仓库、加工、装备栏、背包及结果页保留。格子控件的容器、CellSize、字体、网格色、物品底色均作为 Widget Blueprint 属性保存；占格和文字由真实快照绘制，不每 0.1 秒重建一套物品子控件。
 
 代码归属：[FPSExtractionUI.h](../../../Source/MCP_Test/FPSExtractionUI.h)、[FPSExtractionUI.cpp](../../../Source/MCP_Test/FPSExtractionUI.cpp)、[FPSExtractionGridUI.h](../../../Source/MCP_Test/FPSExtractionGridUI.h)、[FPSExtractionGridUI.cpp](../../../Source/MCP_Test/FPSExtractionGridUI.cpp)。本 UI 工作不修改后端、类型、旧 UI、控制器或地图；这些由主聊天统一接入。[资产源入口](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/README.md)记录生成方式及共享依赖。
 
@@ -21,7 +21,7 @@
 | 仓库与整备 | 左侧 8×8 仓库、右侧 5×4 出征背包；选择详情、旋转、跨容器转移、整堆出售 | `WarehouseGrid`、`BaseBackpackGrid`；`MoveStack`、`AutoTransferStack`、`SellStack` |
 | 固定装备栏 | 主武器 M4、副武器 M9，真实弹药、配件数和补给 10 资金；不暗示武器可拖动换槽 | `WeaponSummary`、`PrimarySlot`、`SecondarySlot`、`Resupply`、`Depart` |
 | 加工制造 | 实际配方材料、资金、时间、产物；单生产槽与领取 | `BaseRows`、`Claim`；`StartProduction`、`ClaimProduction` |
-| 枪械改装 | 中央真实 3D 武器与槽位连线，右侧兼容库存，底部当前参数/候选差异 | `WeaponViewport`、`AttachmentRows`；`InstallAttachment(ItemId)`、`RemoveAttachment(AttachmentId)` |
+| 枪械改装 | M4/M9 实例概览与真实参数；进入 M4 独占改装画布，点槽位打开配件抽屉 | `WeaponViewport`、`AttachmentDrawer`、`AttachmentRows`；`InstallAttachment(ItemId)`、`RemoveAttachment(AttachmentId)` |
 | 局内轻 HUD | 真实容量、交互文字、撤离米数或倒计时 | `RaidCapacity`、`Interaction`、`ExtractionStatus`；不重复旧生命/弹药/体力 HUD |
 | 局内背包 | 5×4 真实格子、选择详情、旋转、整堆丢到地面、放弃确认 | `RaidBackpackGrid`、`RaidRotate`、`SelectedDrop`；`DropStack`、`AbortExpedition` |
 | 行动结果 | 成功时全部当前背包入库；失败时仅展示实际遗失搜获，恢复出征前整备 | `LastHaul`、`Feedback`、`ReturnToBase` |
@@ -48,9 +48,38 @@ if (UI) UI->AddToPlayerScreen(40);
 UI->SetPanelOpen(!UI->IsPanelOpen()); // Raid 的 Tab 开关
 ```
 
-Open 不自动加入视口或更改输入模式。控制器负责鼠标、移动/视角/开火限制和 Tab/F 映射。UI 内关闭按钮会改变 IsPanelOpen，控制器应持续同步状态。已打开背包中的 Tab/Esc 在 NativeOnPreviewKeyDown 中消费并返回 Handled，避免焦点位于按钮后无法关闭或控制器双切换。基地 Esc 返回工厂总览；活动拖拽时先取消。打开背包不暂停世界。
+Open 不自动加入视口或更改输入模式。控制器负责鼠标、移动/视角/开火限制和当前有效按键映射。UI 内关闭按钮会改变 IsPanelOpen，控制器应持续同步状态。已打开背包的关闭按键在 NativeOnPreviewKeyDown 中消费，避免焦点位于按钮后失效或双切换。v4 改枪台 Esc 逐层关闭抽屉、返回选枪、返回工厂；其他基地页面保持现有设置入口，活动拖拽时先取消。打开背包不暂停世界。
 
-## v3 中央 3D 改枪台
+## v4 参考布局与导航
+
+用户 2026-10-15 提供两张《三角洲行动》截图，明确要求改为两层结构。参考其大面积武器展示、左侧实例与参数、围绕枪体的槽卡布局；保留本项目 MiSans/Rajdhani、工业灰黄和实际三槽能力，不复制 Logo、贴图、皮肤或原游戏功能。
+
+进入改枪台时折叠 BasePanel，显示与它同级的 ModificationPanel；这会临时隐藏工厂侧栏、标题和出征入口，不更改原控件布局。概览展示实际持有的 Primary / Secondary 实例。左侧 M4/M9 卡片复用已有剪影，参数读取对应 WeaponDefinition 和 Catalog.Resolve：伤害、最大射程、射速、容量、换弹、开镜、开火模式和后坐力倍率。右侧真实模型显示当前实际装配，M9 没有受支持的改装接口时明确说明并禁用“进入改装”。不新造枪械实例，不更改玩家活动武器槽。
+
+M4 进入改装后，左侧卡片和属性退出，保留顶部简洁导航与中央模型。只有实际瞄具、枪口、弹匣三张槽卡，由主聊天维护的 Viewport 绘制并通过 OnSlotSelected 通知 UI；点击后打开右侧抽屉，含当前已装配件、兼容仓库库存、当前参数及悬停候选差异。安装/卸下仍立即扣还实际库存，模型只接收操作后的真实快照。关闭抽屉恢复大画布，不创建待应用试装状态。未加入精校、皮肤、方案导入或空的靶场入口。
+
+1600×900 布局基准：概览视口 `(480,150)`、`1080×650`；改装视口 `(40,150)`、`1520×650`；抽屉打开时视口改为 `1150×650`，抽屉位于 `(1210,150)`、`350×650`。三种视口宽度均超过屏幕宽度 65%，抽屉不覆盖模型视口。已保存的 Viewport 槽位为完整改装尺寸，运行时随层级调整。相同类别的槽卡在抽屉关闭后仍可再次打开。
+
+| 操作 / API | 行为与测试契约 |
+| --- | --- |
+| `Dispatch("Modification")` | 从工厂进入武器概览，默认 Primary，抽屉关闭 |
+| `ViewPrimaryWeapon` / `ViewSecondaryWeapon` | 概览选择真实 M4 / M9 实例并重置视角；不切换玩家装备 |
+| `EnterWeaponModification` | 仅允许支持改装的当前主武器进入；M9 保持禁用 |
+| `SelectAttachmentCategory(Category)` | 改装态槽卡点击入口；打开对应抽屉，当前类别由 GetSelectedAttachmentCategory 读取 |
+| `CloseAttachmentDrawer` | 只收起抽屉、清除候选参数，仍在改装层 |
+| `WorkbenchOverview` | 返回武器概览，保留当前查看实例 |
+| `WorkbenchBack` / `WorkbenchBack()` / Esc | 抽屉 → 改装大图 → 武器概览 → 工厂；重复 Esc KeyDown 不连退 |
+| `ResetWorkbenchView` | 调用 Viewport.ResetView，不更改装配 |
+| `IsWeaponEditing()` / `IsAttachmentDrawerOpen()` / `GetViewedWeaponSlot()` | 自动验证当前层级、抽屉及查看的实际槽位 |
+| `WeaponOverviewPanel` / `WeaponEnterPanel` / `AttachmentDrawer` | 三个稳定分组，随页面层级切换 |
+| `AttachmentRows` / `RowAction` | 保留 v3 的实际安装/卸下及悬停参数事件契约 |
+| `WeaponViewport` | Visible，调用 SetOverviewMode、SetSlotsVisible、Present；测试通过 static SlotCenter(Category) 取得卡片归一化中心，不硬编码像素坐标 |
+
+卡片及模型只覆盖当前 M4/M9；未实装、未验收的 M7 和其他模型不被替换。`WorkbenchFeedback` 始终显示本次后端结果，包括存档失败。
+
+## v3 历史布局
+
+下述布局与控件位置是 v4 之前的已验证版本，保留供迁移追溯；当前生成器和运行导航按上一节执行。
 
 改装页独占原中部和装备侧栏的区域；离开改装页后，原侧栏和其他页面照常显示。`ModificationPanel` 追加在既有 BasePanel 中，默认折叠；只在基地 Tab=3 展开。主聊天维护 [FPSExtractionWeaponViewport.h](../../../Source/MCP_Test/FPSExtractionWeaponViewport.h) 与其实现，负责真实 RenderTarget 模型、槽位连线、右键旋转和滚轮缩放。UI 在 NativeConstruct 绑定 OnSlotSelected，在 NativeDestruct 解除绑定并停用预览；Refresh 只传入实际 `V.Loadout.Primary`。新预览模型属实验展示资源，不改变原枪械数据或原始资产。
 
@@ -81,6 +110,10 @@ v2 → v3 在统一编译后运行 [Tools/upgrade_extraction_ui_workbench.py](..
 
 脚本比较旧控件父子关系、Canvas 槽位、可见性、文本和字体，检查 Content 中既有资产/地图哈希、增量资产范围和新控件契约。报告入口为 `Saved/FPSExtraction/UI/WorkbenchUpgrade/<时间>/Report.json`。这属于编辑器保存与同进程检查，独立回载、Slate 交互和截图由主聊天单独完成。创建脚本只创建缺失资产；已有 v2 使用升级入口。
 
+v3 → v4 运行 [Tools/upgrade_extraction_ui_workbench_reference.py](../../../Tools/upgrade_extraction_ui_workbench_reference.py)，转发至 [套件源脚本](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Scripts/upgrade_extraction_ui_workbench_reference.py)，调用 `FPSExtractionUIBuilder::UpgradeWeaponWorkbenchReferenceAssets`。脚本先备份终端，再只替换 ModificationPanel 与 WeaponWorkbenchLayoutVersion；新面板为根 Layout 的子项，版本值为 4，InventoryLayoutVersion 保持 2。旧面板通过编辑器对象操作移出，禁止文本修改 uasset。其他页面的控件层级、相对顺序、Canvas、文本、字体与其他 Content 资产/地图哈希均核对不变。
+
+迁移报告保存于 `Saved/FPSExtraction/UI/WorkbenchReferenceUpgrade/<时间>/Report.json`。v4 普通重跑不覆盖 Designer 编辑。`-WorkbenchReferenceRebuild` 是本轮制作修正使用的显式重建开关，仍先备份，只替换改枪台面板；后续手工编辑不应使用此开关。首次创建直接生成 v4；已有终端不能靠 create-only 脚本升级。旧 v3 脚本允许检查已经升级的 v4，不会降级。
+
 ## 自动验证入口与当前边界
 
 主聊天的 `FPSExtractionUICapture.cpp` 负责独立 UI 存档和实机事件测试，本 UI 工作不修改此文件。可稳定访问的格子为 WarehouseGrid、BaseBackpackGrid、RaidBackpackGrid。事件 override 均为 public：NativeOnMouseButtonDown、NativeOnDragDetected、NativeOnDragOver、NativeOnDrop；GetCachedGeometry 和 CellSize 可将格中心换算成实际屏幕位置。正常事件和开发测试使用同一路径，没有只为测试绕过 UI 的移动接口。
@@ -88,5 +121,7 @@ v2 → v3 在统一编译后运行 [Tools/upgrade_extraction_ui_workbench.py](..
 应覆盖：从物品第二格抓取、旋转后拖入、越界拒绝、拖回仓库、Refresh 不结束拖拽、同类合并及容量不足拒绝、同 ItemId 多实体只操作选中 ID、Raid 不可访问仓库；再核对 Tab/Esc、整堆出售/丢弃、整备带入、失败恢复和成功入库。视觉采图至少为 Overview、Warehouse、Production、Modification、RaidBag、Result，1280×800 / 1920×1080 / 2560×1440。
 
 v2 三分辨率、原生拖放处理、闭环与读档验证通过。v3 编译、增量资产升级、独立回载及三分辨率默认/瞄具/扩容/旋转采图通过：`Saved/ExtractionTests/UI-20261014-013916904/run.json`。覆盖模型挂点分类、真实按钮装卸、候选差异、库存扣还、模型替换、旋转与缩放；沿用正式处理器，但未替代完整操作系统输入路由、真人体验或打包验收。具体模块哈希、修复和验证边界见 [实施记录](../Extraction/Implementation.md)。
+
+v4 已由主聊天完成统一构建、备份迁移和独立回载。固定模块的三分辨率概览/M9/改装大图/抽屉采图，以及实际装卸、库存、卡片点击、逐层返回和其他页面回归通过：`Saved/ExtractionTests/UI-20261015-150807868/run.json`。`Tools/TestFPSExtractionUI.ps1` 支持 `-RuntimeRoot` 指定固定运行副本，仍从原工程复制测试档案并保存证据；默认使用当前工程。模块哈希、失败重试与地图边界见 [v4 实施证据](../Extraction/Implementation.md)。
 
 返回 [UI 索引](README.md)。

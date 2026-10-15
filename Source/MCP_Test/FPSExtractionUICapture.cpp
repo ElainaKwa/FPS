@@ -8,17 +8,19 @@
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/TextBlock.h"
+#include "Components/Image.h"
 #include "Misc/CommandLine.h"
 #include "HAL/PlatformMisc.h"
 #include "UnrealClient.h"
 #include "Input/DragAndDrop.h"
+#include "Widgets/SWidget.h"
 
 void FFPSExtractionSmoke::CaptureTick(AFPSExtractionMode* Mode)
 {
 #if !UE_BUILD_SHIPPING
     if(!Mode || !FParse::Param(FCommandLine::Get(),TEXT("FPSExtractionUICapture")) || Mode->GetWorld()->GetTimeSeconds()<3)return;
     static int32 Stage=0; static double At=0; static bool Failed=false;
-    if(Stage>=30)return;
+    if(Stage>=50)return;
     TArray<UUserWidget*> Widgets; UWidgetBlueprintLibrary::GetAllWidgetsOfClass(Mode,Widgets,UFPSExtractionUI::StaticClass());
     if(Widgets.Num()!=1)return;
     auto* UI=Cast<UFPSExtractionUI>(Widgets[0]); auto* S=Mode->GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>();
@@ -110,8 +112,7 @@ void FFPSExtractionSmoke::CaptureTick(AFPSExtractionMode* Mode)
     auto SelectSlot=[&](int32 Index)
     {
         if(!Check(Preview && Preview->HasModel(),TEXT("3D preview model and render target ready")))return;
-        const FVector2D Positions[]={{.40,.11},{.84,.32},{.48,.88}};
-        const auto G=Preview->GetCachedGeometry();const auto P=G.LocalToAbsolute(Positions[Index]*G.GetLocalSize());
+        const auto G=Preview->GetCachedGeometry();const auto P=G.LocalToAbsolute(Preview->SlotCenter(EFPSAttachmentCategory(Index))*G.GetLocalSize());
         const FPointerEvent Click(0,P,P,{EKeys::LeftMouseButton},EKeys::LeftMouseButton,0,FModifierKeysState());
         Check(Preview->NativeOnMouseButtonDown(G,Click).IsEventHandled() && int32(UI->GetSelectedAttachmentCategory())==Index,TEXT("model slot click selects compatible category"));
     };
@@ -128,36 +129,93 @@ void FFPSExtractionSmoke::CaptureTick(AFPSExtractionMode* Mode)
             Found->OnClicked.Broadcast();
         }
     };
-    if(Stage==7){Capture(TEXT("Modification"));SelectSlot(0);Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Optic).IsNone(),TEXT("bare optic slot"));}
-    if(Stage==8)AttachmentAction(TEXT("Install"),TEXT("Optic"));
+    auto Escape=[&]()
+    {
+        const FKeyEvent Key(EKeys::Escape,FModifierKeysState(),0,false,0,0);
+        Check(UI->TakeWidget()->OnPreviewKeyDown(UI->GetCachedGeometry(),Key).IsEventHandled(),TEXT("Escape handled by workbench"));
+    };
+    if(Stage==7)
+    {
+        Capture(TEXT("WeaponOverview"));
+        Check(Preview&&Preview->HasModel()&&!Preview->AreSlotsVisible()&&!UI->IsWeaponEditing(),TEXT("overview has actual model without mount cards"));
+        for(const TCHAR* Name:{TEXT("PrimaryWeaponImage"),TEXT("SecondaryWeaponImage")})
+        {
+            const auto* Icon=Cast<UImage>(UI->WidgetTree->FindWidget(Name));
+            Check(Icon&&Icon->GetBrush().GetResourceObject()&&Icon->GetCachedGeometry().GetLocalSize().X>100&&Icon->GetCachedGeometry().GetLocalSize().Y>40,TEXT("weapon card thumbnail has texture and live area"));
+        }
+    }
+    if(Stage==8)Navigate(TEXT("ViewSecondaryWeapon"));
     if(Stage==9)
     {
-        Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Optic)==TEXT("SM_EXP_M4_Optic") && S->GetView().Loadout.Primary.AttachmentIds.Contains(TEXT("Attachment.M4_OpticFixed")),TEXT("optic inventory and preview agree"));
-        Capture(TEXT("ModificationOptic"));SelectSlot(2);
+        Capture(TEXT("WeaponOverviewM9"));
+        const auto* Catalog=Mode->GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+        const auto* Definition=Catalog->Find(S->GetView().Loadout.Secondary.WeaponId);
+        const auto* Button=Cast<UFPSExtractionButton>(UI->WidgetTree->FindWidget(TEXT("EnterWeaponModification")));
+        Check(Preview&&Definition&&Preview->WeaponVisualName().ToString()==Definition->Pickup.Mesh.GetAssetName()&&UI->GetViewedWeaponSlot()==EFPSWeaponSlot::Secondary,TEXT("secondary overview uses actual M9 mesh"));
+        Check(Button&&!Button->GetIsEnabled(),TEXT("unsupported secondary modification disabled"));
+        UI->Dispatch(TEXT("EnterWeaponModification"));
+        Check(!UI->IsWeaponEditing(),TEXT("unsupported modification action cannot enter editor"));
     }
-    if(Stage==10)AttachmentAction(TEXT("Install"),TEXT("Magazine"));
-    if(Stage==11)
+    if(Stage==10)Navigate(TEXT("ViewPrimaryWeapon"));
+    if(Stage==11)Navigate(TEXT("EnterWeaponModification"));
+    if(Stage==12)
+    {
+        Capture(TEXT("Modification"));
+        Check(UI->IsWeaponEditing()&&!UI->IsAttachmentDrawerOpen()&&Preview&&Preview->AreSlotsVisible(),TEXT("editing opens full weapon canvas"));
+        Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Optic).IsNone(),TEXT("bare optic slot"));
+    }
+    if(Stage==13)SelectSlot(0);
+    if(Stage==14)
+    {
+        Capture(TEXT("ModificationDrawer"));
+        Check(UI->IsAttachmentDrawerOpen(),TEXT("mount click opens attachment drawer"));
+        auto* Drawer=UI->WidgetTree->FindWidget(TEXT("AttachmentDrawer"));
+        if(Check(Preview&&Drawer&&Drawer->IsVisible(),TEXT("drawer is visible")))
+        {
+            const auto G=Preview->GetCachedGeometry(),D=Drawer->GetCachedGeometry();
+            const auto Right=G.LocalToAbsolute(FVector2D(G.GetLocalSize().X,0));
+            Check(Right.X<=D.GetAbsolutePosition().X+1,TEXT("drawer reserves space beside weapon canvas"));
+        }
+    }
+    if(Stage==15)AttachmentAction(TEXT("Install"),TEXT("Optic"));
+    if(Stage==16)
+    {
+        Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Optic)==TEXT("SM_EXP_M4_Optic") && S->GetView().Loadout.Primary.AttachmentIds.Contains(TEXT("Attachment.M4_OpticFixed")),TEXT("optic inventory and preview agree"));
+        Capture(TEXT("ModificationOptic"));
+    }
+    if(Stage==17)SelectSlot(2);
+    if(Stage==18)AttachmentAction(TEXT("Install"),TEXT("Magazine"));
+    if(Stage==19)
     {
         Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Magazine)==TEXT("SM_EXP_M4_MagazineExtended"),TEXT("magazine mesh changes after install"));
-        Capture(TEXT("ModificationEquipped"));SelectSlot(1);
+        Navigate(TEXT("CloseAttachmentDrawer"));
+        Check(UI->IsWeaponEditing()&&!UI->IsAttachmentDrawerOpen(),TEXT("drawer close keeps weapon editing"));
     }
-    if(Stage==12)AttachmentAction(TEXT("Remove"),TEXT("Attachment.M4_MuzzleBrake"));
-    if(Stage==13)
+    if(Stage==20)Capture(TEXT("ModificationEquipped"));
+    if(Stage==21)SelectSlot(1);
+    if(Stage==22)AttachmentAction(TEXT("Remove"),TEXT("Attachment.M4_MuzzleBrake"));
+    if(Stage==23)
     {
         Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Muzzle)==TEXT("SM_EXP_M4_MuzzleStandard"),TEXT("removal restores standard muzzle"));
         AttachmentAction(TEXT("Install"),TEXT("Brake"));
     }
-    if(Stage==14)
+    if(Stage==24)
     {
         Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Muzzle)==TEXT("SM_EXP_M4_Brake"),TEXT("muzzle reinstall updates model"));
-        SelectSlot(0);AttachmentAction(TEXT("Remove"),TEXT("Attachment.M4_OpticFixed"));
+        SelectSlot(0);
     }
-    if(Stage==15)
+    if(Stage==25)AttachmentAction(TEXT("Remove"),TEXT("Attachment.M4_OpticFixed"));
+    if(Stage==26)
     {
         Check(Preview&&Preview->VisualFor(EFPSAttachmentCategory::Optic).IsNone()&&S->Count(S->GetView().Warehouse,TEXT("Optic"))==1,TEXT("optic removal returns inventory and clears mesh"));
         AttachmentAction(TEXT("Install"),TEXT("Optic"));
     }
-    if(Stage==16)
+    if(Stage==27)
+    {
+        Escape();
+        Check(UI->IsWeaponEditing()&&!UI->IsAttachmentDrawerOpen(),TEXT("Escape closes drawer before leaving editor"));
+    }
+    if(Stage==28)
     {
         if(Preview)
         {
@@ -168,11 +226,23 @@ void FFPSExtractionSmoke::CaptureTick(AFPSExtractionMode* Mode)
             Check(Preview->NativeOnMouseButtonDown(G,Down).IsEventHandled()&&Preview->NativeOnMouseMove(G,Move).IsEventHandled()&&Preview->NativeOnMouseButtonUp(G,Down).IsEventHandled()&&Preview->NativeOnMouseWheel(G,Wheel).IsEventHandled(),TEXT("orbit and zoom input handlers"));
         }
     }
-    if(Stage==17)Capture(TEXT("ModificationOrbit"));
-    if(Stage==18)
+    if(Stage==29)Capture(TEXT("ModificationOrbit"));
+    if(Stage==30)Navigate(TEXT("ResetWorkbenchView"));
+    if(Stage==31)
+    {
+        Escape();Check(!UI->IsWeaponEditing()&&Preview&&!Preview->AreSlotsVisible(),TEXT("Escape returns to weapon overview"));
+    }
+    if(Stage==32)Escape();
+    if(Stage==33)
+    {
+        auto* Panel=UI->WidgetTree->FindWidget(TEXT("ModificationPanel"));
+        auto* Overview=UI->WidgetTree->FindWidget(TEXT("Overview"));
+        Check(Panel&&!Panel->IsVisible()&&Overview&&Overview->IsVisible(),TEXT("leaving workbench restores factory navigation"));
+    }
+    if(Stage==34)
     {
         if(!Failed){UE_LOG(LogTemp,Display,TEXT("FPS_EXTRACTION_UI COMPLETE"));}
-        FPlatformMisc::RequestExit(false);Stage=30;return;
+        FPlatformMisc::RequestExit(false);Stage=50;return;
     }
     ++Stage;At=Now;
 #endif

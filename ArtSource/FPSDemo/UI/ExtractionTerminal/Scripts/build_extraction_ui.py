@@ -29,7 +29,9 @@ required = {
         'Interaction', 'AbortConfirm', 'Feedback', 'InventoryLayoutVersion',
         'WarehouseGrid', 'BaseBackpackGrid', 'RaidBackpackGrid',
         'WeaponWorkbenchLayoutVersion', 'ModificationPanel', 'WeaponViewport',
-        'AttachmentRows', 'CurrentWeaponStats', 'CandidateWeaponStats'],
+        'AttachmentRows', 'CurrentWeaponStats', 'CandidateWeaponStats',
+        'WeaponOverviewPanel', 'AttachmentDrawer', 'ViewPrimaryWeapon', 'ViewSecondaryWeapon',
+        'EnterWeaponModification', 'CloseAttachmentDrawer', 'WorkbenchOverview', 'WorkbenchBack'],
     'WBP_ExtractionRow': ['RowTitle', 'RowDetail', 'RowCount', 'RowAction', 'RowReason'],
     'WBP_ExtractionAttachmentRow': ['RowTitle', 'RowDetail', 'RowCount', 'RowAction', 'RowReason'],
 }
@@ -41,7 +43,9 @@ for name, controls in required.items():
     tree = unreal.find_object(bp, 'WidgetTree')
     assert tree, path
     for control in controls:
-        assert unreal.find_object(tree, control), (path, control, 'Existing v2 terminal: run upgrade_extraction_ui_workbench.py')
+        assert unreal.find_object(tree, control), (path, control, 'Existing terminal: explicitly upgrade v2 -> v3 -> v4')
+    if name == 'WBP_ExtractionTerminal':
+        assert str(unreal.find_object(tree, 'WeaponWorkbenchLayoutVersion').get_text()) == '4', 'Run upgrade_extraction_ui_workbench_reference.py'
     assert bp.generated_class(), path
     disk = TARGET / (name + '.uasset')
     assets.append({'asset': path, 'sha256': digest(disk), 'controls_checked': controls})

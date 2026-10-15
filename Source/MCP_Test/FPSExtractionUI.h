@@ -50,6 +50,10 @@ public:
     void InventoryFeedback(const FString& Text);
     void SelectAttachmentCategory(EFPSAttachmentCategory Category);
     EFPSAttachmentCategory GetSelectedAttachmentCategory() const { return SelectedCategory; }
+    bool IsWeaponEditing() const { return bWeaponEditing; }
+    bool IsAttachmentDrawerOpen() const { return bAttachmentDrawer; }
+    EFPSWeaponSlot GetViewedWeaponSlot() const { return bViewSecondary?EFPSWeaponSlot::Secondary:EFPSWeaponSlot::Primary; }
+    void WorkbenchBack();
     void PreviewAttachmentStats(FName Action,FName Id);
     void ClearAttachmentStats(FName Action,FName Id);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Extraction") TObjectPtr<UFPSUITheme> Theme;
@@ -63,6 +67,8 @@ private:
     void RebuildRows(const FFPSExtractionView& View);
     void RebuildAttachmentRows(const FFPSExtractionView& View);
     void RefreshAttachmentStats(const FFPSExtractionView& View);
+    void RefreshWeaponOverview(const FFPSExtractionView& View);
+    bool CanModifyViewedWeapon(const FFPSExtractionView& View) const;
     void SetText(FName Name, const FString& Value);
     void SetShown(FName Name, bool bShow);
     void SetEnabled(FName Name, bool bEnabled);
@@ -79,6 +85,7 @@ private:
     EFPSExtractionPhase Phase = EFPSExtractionPhase::Base;
     EFPSAttachmentCategory SelectedCategory = EFPSAttachmentCategory::Optic;
     FName ComparedAction,ComparedId;
+    bool bWeaponEditing=false,bAttachmentDrawer=false,bViewSecondary=false;
 };
 
 UCLASS()
@@ -91,4 +98,5 @@ public:
     /** Explicit v2 migration, rebuilds only this suite's terminal; backup in the upgrade script. */
     UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeInventoryAssets();
     UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeWeaponWorkbenchAssets();
+    UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeWeaponWorkbenchReferenceAssets(bool Rebuild=false);
 };

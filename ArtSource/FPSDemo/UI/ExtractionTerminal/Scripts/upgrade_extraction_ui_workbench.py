@@ -92,7 +92,7 @@ bp, tree = tree_for('WBP_ExtractionTerminal')
 layout_after = snapshot(tree)
 assert all(layout_after.get(n) == value for n, value in layout_before.items()), 'Existing widget layout/text/font changed'
 version = unreal.find_object(tree, 'WeaponWorkbenchLayoutVersion')
-assert isinstance(version, unreal.TextBlock) and str(version.get_text()) == '3'
+assert isinstance(version, unreal.TextBlock) and str(version.get_text()) in ('3', '4')
 required = ['ModificationPanel', 'WeaponViewport', 'SlotOptic', 'SlotMuzzle', 'SlotMagazine',
             'AttachmentCategory', 'AttachmentRows', 'CurrentWeaponStats',
             'CandidateStatsTitle', 'CandidateWeaponStats']
@@ -116,7 +116,7 @@ row_bp, row_tree = tree_for('WBP_ExtractionAttachmentRow')
 for name in ('RowTitle', 'RowDetail', 'RowCount', 'RowAction', 'RowActionLabel', 'RowReason'):
     assert unreal.find_object(row_tree, name), name
 assert isinstance(unreal.find_object(row_tree, 'RowAction'), unreal.FPSExtractionButton)
-report = dict(status='PASS', native_result=result, version=3, recorded=datetime.now().isoformat(),
+report = dict(status='PASS', native_result=result, version=int(str(version.get_text())), recorded=datetime.now().isoformat(),
     generator=str(Path(__file__).resolve()), generator_sha256=digest(Path(__file__)),
     already_v3=was_v3, controls_checked=required, existing_widgets_preserved=len(layout_before),
     layout_before=layout_before, layout_after=layout_after,

@@ -11,6 +11,8 @@
 #include "Components/ScrollBox.h"
 #include "Components/ScrollBoxSlot.h"
 #include "Components/ProgressBar.h"
+#include "Components/CanvasPanelSlot.h"
+#include "Components/Image.h"
 #include "Engine/GameInstance.h"
 #include "GameFramework/PlayerController.h"
 #include "InputCoreTypes.h"
@@ -76,10 +78,10 @@ FReply UFPSExtractionUI::NativeOnPreviewKeyDown(const FGeometry& Geometry,const 
     // Tunnel before a focused button turns Tab into navigation; do not double-toggle in the controller.
     if(Phase==EFPSExtractionPhase::Raid&&bBagOpen&&(Event.GetKey()==EKeys::Escape || ([&](){const auto* S=UFPSSystemSettings::Get(this);const auto* B=S?S->Binding("Inventory"):nullptr;return B&&(Event.GetKey()==B->Primary||Event.GetKey()==B->Secondary);})()))
     {SetPanelOpen(false);return FReply::Handled();}
-    if(Event.GetKey()==EKeys::R&&IsPanelOpen())
+    if(Event.GetKey()==EKeys::R&&IsPanelOpen()&&!(Phase==EFPSExtractionPhase::Base&&Tab==3))
     {Dispatch(TEXT("SelectedRotate"));return FReply::Handled();}
     if(Event.GetKey()==EKeys::Escape&&Phase==EFPSExtractionPhase::Base)
-    {if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}else if(auto* PC=Cast<AFPSDemoPlayerController>(GetOwningPlayer()))PC->OpenSettings(this);return FReply::Handled();}
+    {if(Tab==3){if(!Event.IsRepeat())WorkbenchBack();}else if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}else if(auto* PC=Cast<AFPSDemoPlayerController>(GetOwningPlayer()))PC->OpenSettings(this);return FReply::Handled();}
     return Super::NativeOnPreviewKeyDown(Geometry,Event);
 }
 void UFPSExtractionUI::SetText(FName Name,const FString& Value){ExtractionUI::Text(this,Name,Value);}
@@ -111,12 +113,61 @@ void UFPSExtractionUI::InventoryFeedback(const FString& Text)
 {LocalFeedback=Text;SetText(TEXT("InventoryFeedback"),Text);SetText(TEXT("BagFeedback"),Text);}
 void UFPSExtractionUI::SelectAttachmentCategory(EFPSAttachmentCategory Category)
 {
+    if(Phase!=EFPSExtractionPhase::Base||Tab!=3||!bWeaponEditing||bViewSecondary)return;
     if(Category!=EFPSAttachmentCategory::Optic&&Category!=EFPSAttachmentCategory::Muzzle&&Category!=EFPSAttachmentCategory::Magazine)return;
-    if(SelectedCategory==Category)return;
-    SelectedCategory=Category;ComparedAction=NAME_None;ComparedId=NAME_None;LastRows.Empty();Refresh();
+    if(SelectedCategory==Category&&bAttachmentDrawer)return;
+    SelectedCategory=Category;bAttachmentDrawer=true;ComparedAction=NAME_None;ComparedId=NAME_None;LastRows.Empty();Refresh();
+}
+void UFPSExtractionUI::WorkbenchBack()
+{
+    if(Tab!=3||Phase!=EFPSExtractionPhase::Base)return;
+    if(bAttachmentDrawer)bAttachmentDrawer=false;
+    else if(bWeaponEditing)bWeaponEditing=false;
+    else Tab=0;
+    ComparedAction=NAME_None;ComparedId=NAME_None;LastRows.Empty();Refresh();
+}
+bool UFPSExtractionUI::CanModifyViewedWeapon(const FFPSExtractionView& V) const
+{
+    const auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+    const auto* Definition=Catalog?Catalog->Find(V.Loadout.Primary.WeaponId):nullptr;
+    // The extraction backend exposes installation for the actual primary instance only.
+    return !bViewSecondary&&V.Loadout.Primary.IsValid()&&Definition&&Definition->MountIds.Num()>0&&Definition->AvailableAttachments.Num()>0;
+}
+void UFPSExtractionUI::RefreshWeaponOverview(const FFPSExtractionView& V)
+{
+    const auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+    const auto& Gun=bViewSecondary?V.Loadout.Secondary:V.Loadout.Primary;
+    const auto* Definition=Catalog?Catalog->Find(Gun.WeaponId):nullptr;
+    const FString Name=Definition?Definition->DisplayName.ToString():Gun.WeaponId.ToString();
+    SetText(TEXT("WorkbenchWeaponTitle"),Name);
+    if(auto* Title=ExtractionUI::Find<UTextBlock>(this,TEXT("WorkbenchWeaponTitle")))if(auto* TitleSlot=Cast<UCanvasPanelSlot>(Title->Slot))TitleSlot->SetPosition(FVector2D(bWeaponEditing?40:480,106));
+    SetText(TEXT("OverviewWeaponName"),Name);
+    SetText(TEXT("WorkbenchMode"),bWeaponEditing?TEXT("武器改装"):TEXT("持有武器 / 概览"));
+    SetText(TEXT("WorkbenchBackLabel"),bAttachmentDrawer?TEXT("收起配件 / Esc"):bWeaponEditing?TEXT("返回概览 / Esc"):TEXT("返回工厂 / Esc"));
+    SetText(TEXT("WeaponInstanceNote"),FString::Printf(TEXT("%s  ·  弹药 %d / %d  ·  配件 %d 件"),bViewSecondary?TEXT("副武器"):TEXT("主武器"),Gun.Magazine,Gun.Reserve,Gun.AttachmentIds.Num()));
+    SetEnabled(TEXT("EnterWeaponModification"),CanModifyViewedWeapon(V));
+    SetText(TEXT("WeaponModificationNote"),CanModifyViewedWeapon(V)?TEXT("查看当前装配，使用仓库中的配件改装。"):TEXT("该武器暂无可用改装接口，可查看模型与参数。"));
+    const FName Buttons[]={TEXT("ViewPrimaryWeapon"),TEXT("ViewSecondaryWeapon")};
+    for(int32 I=0;I<2;++I)
+    {
+        const bool Selected=(I==1)==bViewSecondary;
+        if(auto* B=ExtractionUI::Find<UFPSExtractionButton>(this,Buttons[I]))if(Theme)B->SetStyle(Selected?Theme->LightButton:Theme->DarkButton);
+        const TCHAR* Prefix=I==0?TEXT("Primary"):TEXT("Secondary");
+        for(const TCHAR* Suffix:{TEXT("WeaponName"),TEXT("WeaponRole")})
+            if(auto* T=ExtractionUI::Find<UTextBlock>(this,FName(*(FString(Prefix)+Suffix))))if(Theme)T->SetColorAndOpacity(Selected?Theme->Ink:Theme->Paper);
+    }
+    SetEnabled(TEXT("ViewPrimaryWeapon"),V.Loadout.Primary.IsValid());SetEnabled(TEXT("ViewSecondaryWeapon"),V.Loadout.Secondary.IsValid());
+    SetText(TEXT("PrimaryWeaponRole"),V.Loadout.Primary.IsValid()?TEXT("主武器 · 已持有"):TEXT("主武器 · 未配置"));
+    SetText(TEXT("SecondaryWeaponRole"),V.Loadout.Secondary.IsValid()?TEXT("副武器 · 已持有"):TEXT("副武器 · 未配置"));
+    FFPSResolvedWeaponStats Stats;TArray<FString> Errors;
+    if(!Definition||!Catalog->Resolve(Gun.WeaponId,Gun.AttachmentIds,Stats,Errors))
+    {SetText(TEXT("OverviewWeaponStats"),TEXT("武器参数尚未就绪"));return;}
+    const TCHAR* FireMode=Definition->FireMode==EFPSFireMode::Single?TEXT("单发"):Definition->FireMode==EFPSFireMode::Burst?TEXT("点射"):TEXT("自动");
+    SetText(TEXT("OverviewWeaponStats"),FString::Printf(TEXT("%.0f\n%.0f 米\n%.0f 发/分\n%d 发\n%.2f 秒\n%.2f 秒\n%s\n纵 %.2f / 横 %.2f"),
+        Definition->Damage,Definition->Range/100.f,Definition->FireInterval>0?60.f/Definition->FireInterval:0.f,Stats.MagazineSize,Stats.ReloadDuration,Stats.AimTransitionTime,FireMode,Stats.VerticalRecoilMultiplier,Stats.HorizontalRecoilMultiplier));
 }
 void UFPSExtractionUI::PreviewAttachmentStats(FName Action,FName Id)
-{if(Phase==EFPSExtractionPhase::Base&&Tab==3){ComparedAction=Action;ComparedId=Id;if(auto* S=Model())RefreshAttachmentStats(S->GetView());}}
+{if(Phase==EFPSExtractionPhase::Base&&Tab==3&&bWeaponEditing&&bAttachmentDrawer){ComparedAction=Action;ComparedId=Id;if(auto* S=Model())RefreshAttachmentStats(S->GetView());}}
 void UFPSExtractionUI::ClearAttachmentStats(FName Action,FName Id)
 {if(ComparedAction==Action&&ComparedId==Id){ComparedAction=NAME_None;ComparedId=NAME_None;if(auto* S=Model())RefreshAttachmentStats(S->GetView());}}
 void UFPSExtractionUI::RefreshAttachmentStats(const FFPSExtractionView& V)
@@ -137,7 +188,8 @@ void UFPSExtractionUI::RefreshAttachmentStats(const FFPSExtractionView& V)
     if(ComparedAction==TEXT("Install")&&S)
     {if(const auto* Item=S->FindItem(ComparedId);Item&&S->Count(V.Warehouse,ComparedId)>0){PartId=Item->AttachmentId;Name=Item->Name.ToString();}}
     else if(ComparedAction==TEXT("Remove")&&V.Loadout.Primary.AttachmentIds.Contains(ComparedId))
-    {PartId=ComparedId;if(const auto* Part=Catalog->FindAttachment(PartId))Name=Part->DisplayName.ToString();}
+    {PartId=ComparedId;if(const auto* Part=Catalog->FindAttachment(PartId))Name=Part->DisplayName.ToString();
+    if(S)for(const auto& Item:S->GetItems())if(Item.AttachmentId==PartId){Name=Item.Name.ToString();break;}}
     const auto* Part=Catalog->FindAttachment(PartId);FFPSResolvedWeaponStats Candidate;
     if(Part&&Part->Category==SelectedCategory&&ExtractionUI::ResolveVariant(Catalog,V.Loadout.Primary,PartId,ComparedAction==TEXT("Remove"),Candidate))
     {SetText(TEXT("CandidateStatsTitle"),(ComparedAction==TEXT("Remove")?TEXT("卸下后 / "):TEXT("安装后 / "))+Name);SetText(TEXT("CandidateWeaponStats"),ExtractionUI::CandidateStats(Candidate,Current));}
@@ -159,10 +211,11 @@ void UFPSExtractionUI::RebuildAttachmentRows(const FFPSExtractionView& V)
     };
     if(Catalog)
     {
+        const auto Items=S->GetItems();
         for(FName Id:V.Loadout.Primary.AttachmentIds)
             if(const auto* Part=Catalog->FindAttachment(Id);Part&&Part->Category==SelectedCategory)
             {FFPSResolvedWeaponStats Stats;const bool Valid=ExtractionUI::ResolveVariant(Catalog,V.Loadout.Primary,Id,true,Stats);
-            const auto* Item=S->GetItems().FindByPredicate([&](const auto& Entry){return Entry.AttachmentId==Id;});
+            const auto* Item=Items.FindByPredicate([&](const auto& Entry){return Entry.AttachmentId==Id;});
             Add(TEXT("Remove"),Id,Item?Item->Name.ToString():Part->DisplayName.ToString(),TEXT("当前已装配\n卸下后退回仓库"),TEXT("已安装"),TEXT("卸下"),V.bStorageHealthy&&Valid);}
         // Iterate the item catalog rather than stacks: repeated ItemIds aggregate their available count.
         for(const auto& Item:S->GetItems())
@@ -179,6 +232,21 @@ void UFPSExtractionUI::RebuildAttachmentRows(const FFPSExtractionView& V)
 void UFPSExtractionUI::Dispatch(FName Action,FName ItemId,int32 Quantity)
 {
     auto* S=Model();if(!S)return;
+    if(Action==TEXT("WorkbenchBack")){WorkbenchBack();return;}
+    if(Action==TEXT("CloseAttachmentDrawer")){if(Tab==3){bAttachmentDrawer=false;ComparedAction=NAME_None;ComparedId=NAME_None;Refresh();}return;}
+    if(Action==TEXT("WorkbenchOverview")){if(Tab==3){bWeaponEditing=false;bAttachmentDrawer=false;ComparedAction=NAME_None;ComparedId=NAME_None;Refresh();}return;}
+    if(Action==TEXT("ViewPrimaryWeapon")||Action==TEXT("ViewSecondaryWeapon"))
+    {
+        if(Phase!=EFPSExtractionPhase::Base||Tab!=3||bWeaponEditing)return;
+        const auto V=S->GetView();const bool Secondary=Action==TEXT("ViewSecondaryWeapon");if(!(Secondary?V.Loadout.Secondary:V.Loadout.Primary).IsValid())return;
+        bViewSecondary=Secondary;bAttachmentDrawer=false;ComparedAction=NAME_None;ComparedId=NAME_None;
+        if(auto* Preview=ExtractionUI::Find<UFPSExtractionWeaponViewport>(this,TEXT("WeaponViewport")))Preview->ResetView();Refresh();return;
+    }
+    if(Action==TEXT("EnterWeaponModification"))
+    {if(Phase==EFPSExtractionPhase::Base&&Tab==3&&CanModifyViewedWeapon(S->GetView())){bWeaponEditing=true;bAttachmentDrawer=false;ComparedAction=NAME_None;ComparedId=NAME_None;LastRows.Empty();Refresh();}return;}
+    if(Action==TEXT("ResetWorkbenchView"))
+    {if(Tab==3)if(auto* Preview=ExtractionUI::Find<UFPSExtractionWeaponViewport>(this,TEXT("WeaponViewport")))Preview->ResetView();return;}
+    if((Action==TEXT("Install")||Action==TEXT("Remove"))&&!(Phase==EFPSExtractionPhase::Base&&Tab==3&&bWeaponEditing&&bAttachmentDrawer&&!bViewSecondary))return;
     if(Action==TEXT("SlotOptic")){SelectAttachmentCategory(EFPSAttachmentCategory::Optic);return;}
     if(Action==TEXT("SlotMuzzle")){SelectAttachmentCategory(EFPSAttachmentCategory::Muzzle);return;}
     if(Action==TEXT("SlotMagazine")){SelectAttachmentCategory(EFPSAttachmentCategory::Magazine);return;}
@@ -186,7 +254,7 @@ void UFPSExtractionUI::Dispatch(FName Action,FName ItemId,int32 Quantity)
     else if(Action==TEXT("Warehouse"))Tab=1;
     else if(Action==TEXT("SellTab"))Tab=1;
     else if(Action==TEXT("Production"))Tab=2;
-    else if(Action==TEXT("Modification"))Tab=3;
+    else if(Action==TEXT("Modification")){Tab=3;bWeaponEditing=false;bAttachmentDrawer=false;bViewSecondary=false;}
     else if(Action==TEXT("CloseBag")){SetPanelOpen(false);return;}
     else if(Action==TEXT("Abort")){bConfirmAbort=true;Refresh();return;}
     else if(Action==TEXT("CancelAbort")){bConfirmAbort=false;Refresh();return;}
@@ -219,24 +287,37 @@ FString UFPSExtractionUI::RowSignature(const FFPSExtractionView& V) const
     FString S=FString::Printf(TEXT("%d/%d/%d/%d/%d/%s/"),int32(V.Phase),Tab,V.Credits,V.bStorageHealthy,V.bProductionReady,*V.ProductionRecipe.ToString());
     for(const auto* List:{&V.Warehouse,&V.Backpack,&V.LastHaul}){S+=TEXT("|");for(const auto& I:*List)S+=I.ItemId.ToString()+FString::FromInt(I.Quantity)+TEXT(";");}
     for(FName Id:V.Loadout.Primary.AttachmentIds)S+=Id.ToString()+TEXT(";");
-    if(Tab==3){const auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();S+=FString::Printf(TEXT("/category%d/ready%d"),int32(SelectedCategory),Catalog&&Catalog->IsReady());}
+    if(Tab==3){const auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();S+=FString::Printf(TEXT("/category%d/ready%d/edit%d/drawer%d"),int32(SelectedCategory),Catalog&&Catalog->IsReady(),bWeaponEditing,bAttachmentDrawer);}
     return S;
 }
 void UFPSExtractionUI::Refresh()
 {
     auto* S=Model();if(!S||!WidgetTree)return;
     const auto V=S->GetView();
-    if(Phase!=V.Phase){if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}SelectedStack.Invalidate();LocalFeedback.Empty();}
+    if(Phase!=V.Phase){if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}SelectedStack.Invalidate();LocalFeedback.Empty();bWeaponEditing=false;bAttachmentDrawer=false;bViewSecondary=false;}
     Phase=V.Phase;
     const bool Base=Phase==EFPSExtractionPhase::Base,Raid=Phase==EFPSExtractionPhase::Raid,Result=Phase==EFPSExtractionPhase::Result;
-    SetShown(TEXT("BasePanel"),Base);SetShown(TEXT("RaidHUD"),Raid);
+    SetShown(TEXT("BasePanel"),Base&&Tab!=3);SetShown(TEXT("RaidHUD"),Raid);
     SetShown(TEXT("OverviewPanel"),Base&&Tab==0);SetShown(TEXT("InventoryPanel"),Base&&Tab==1);
     SetShown(TEXT("WorkbenchPanel"),Base&&Tab==2);
     SetShown(TEXT("EquipmentPanel"),Base&&Tab!=3);
     SetShown(TEXT("ModificationPanel"),Base&&Tab==3);
+    SetShown(TEXT("WeaponOverviewPanel"),Base&&Tab==3&&!bWeaponEditing);
+    SetShown(TEXT("WeaponEnterPanel"),Base&&Tab==3&&!bWeaponEditing);
+    SetShown(TEXT("AttachmentDrawer"),Base&&Tab==3&&bWeaponEditing&&bAttachmentDrawer);
     if(auto* Preview=ExtractionUI::Find<UFPSExtractionWeaponViewport>(this,TEXT("WeaponViewport")))
-    {Preview->SetPreviewActive(Base&&Tab==3);if(Base&&Tab==3){Preview->Present(V.Loadout.Primary);Preview->SetSelectedCategory(SelectedCategory);}}
-    if(Base&&Tab==3)RefreshAttachmentStats(V);
+    {
+        Preview->SetPreviewActive(Base&&Tab==3);
+        if(Base&&Tab==3)
+        {
+            Preview->SetOverviewMode(!bWeaponEditing);Preview->SetSlotsVisible(bWeaponEditing);
+            Preview->Present(bViewSecondary?V.Loadout.Secondary:V.Loadout.Primary);Preview->SetSelectedCategory(SelectedCategory);
+            if(auto* ViewSlot=Cast<UCanvasPanelSlot>(Preview->Slot))
+            {const FVector2D Position(bWeaponEditing?40:480,150),Size(bWeaponEditing?(bAttachmentDrawer?1150:1520):1080,650);
+            if(ViewSlot->GetPosition()!=Position)ViewSlot->SetPosition(Position);if(ViewSlot->GetSize()!=Size)ViewSlot->SetSize(Size);}
+        }
+    }
+    if(Base&&Tab==3){RefreshWeaponOverview(V);if(bWeaponEditing&&bAttachmentDrawer)RefreshAttachmentStats(V);}
     SetShown(TEXT("BagPanel"),Raid&&bBagOpen);SetShown(TEXT("ResultPanel"),Result);
     SetShown(TEXT("FullBackdrop"),!Raid);SetShown(TEXT("BagBackdrop"),Raid&&bBagOpen);
     SetShown(TEXT("AbortConfirm"),Raid&&bBagOpen&&bConfirmAbort);
@@ -244,6 +325,7 @@ void UFPSExtractionUI::Refresh()
     SetText(TEXT("Credits"),FString::Printf(TEXT("%d"),V.Credits));
     SetText(TEXT("Storage"),FString::Printf(TEXT("仓库  %d / %d 格"),V.WarehouseUsed,V.WarehouseSlots));
     SetText(TEXT("Feedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，请检查后重试。\n")+V.Feedback);
+    SetText(TEXT("WorkbenchFeedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，请检查后重试。 ")+V.Feedback);
     if(LastBackendFeedback!=V.Feedback){LocalFeedback.Empty();LastBackendFeedback=V.Feedback;}
     const FString Feedback=LocalFeedback.IsEmpty()?V.Feedback:LocalFeedback;
     SetText(TEXT("InventoryFeedback"),Feedback);SetText(TEXT("BagFeedback"),Feedback);SetText(TEXT("ResultFeedback"),V.Feedback);
@@ -291,7 +373,7 @@ void UFPSExtractionUI::Refresh()
     if(Stack&&Item)SetText(TEXT("SelectedSellLabel"),FString::Printf(TEXT("出售整堆 · %d"),Item->SellPrice*Stack->Quantity));
     else SetText(TEXT("SelectedSellLabel"),TEXT("出售整堆"));
     SetText(TEXT("SelectedTransferLabel"),SelectedContainer==EFPSExtractionContainer::Warehouse?TEXT("放入背包"):TEXT("放回仓库"));
-    const FString Signature=RowSignature(V);if(!ActiveDrag&&Signature!=LastRows){if(Base&&Tab==3)RebuildAttachmentRows(V);else if(Result||(Base&&Tab==2))RebuildRows(V);LastRows=Signature;}
+    const FString Signature=RowSignature(V);if(!ActiveDrag&&Signature!=LastRows){if(Base&&Tab==3&&bWeaponEditing&&bAttachmentDrawer)RebuildAttachmentRows(V);else if(Result||(Base&&Tab==2))RebuildRows(V);LastRows=Signature;}
 }
 void UFPSExtractionUI::RebuildRows(const FFPSExtractionView& V)
 {
@@ -471,6 +553,69 @@ bool EnsureAttachmentRow()
     P.Label(TEXT("RowReason"),TEXT(""),14,180,292,24,13,nullptr,false,P.Theme->Accent);
     return P.Save();
 }
+void AddReferenceWorkbench(FLayout& P)
+{
+    const auto Dark=FLinearColor(.010f,.016f,.020f,1),Panel=FLinearColor(.022f,.031f,.036f,1),Muted=FLinearColor(.47f,.53f,.54f,1),Line=FLinearColor(.16f,.22f,.24f,1);
+    P.Label(TEXT("WeaponWorkbenchLayoutVersion"),TEXT("4"),0,0,1,1,1)->SetVisibility(ESlateVisibility::Collapsed);
+    // Root sibling: hiding the factory frame cannot hide the weapon workbench itself.
+    auto* Work=P.Group(TEXT("ModificationPanel"),0,0,1600,900);
+    P.Surface(TEXT("WeaponWorkbenchBG"),0,0,1600,900,Dark,Work);
+    auto* View=P.Make<UFPSExtractionWeaponViewport>(TEXT("WeaponViewport"));View->SetVisibility(ESlateVisibility::Visible);
+    P.Place(Work,View,40,150,1520,650);
+    P.Surface(TEXT("WorkbenchTopRule"),40,94,1520,1,Line,Work);
+    P.Button(TEXT("WorkbenchBack"),TEXT("返回工厂 / Esc"),40,32,220,48,Work);
+    P.Button(TEXT("WorkbenchOverview"),TEXT("武器概览"),280,32,180,48,Work);
+    P.Label(TEXT("WorkbenchMode"),TEXT("持有武器 / 概览"),486,38,600,38,23,Work,true);
+    P.Surface(TEXT("WorkbenchModeAccent"),486,83,144,3,P.Theme->Accent,Work);
+    P.Label(TEXT("WorkbenchWeaponTitle"),TEXT("M4"),480,106,920,43,30,Work,true);
+    P.Label(TEXT("WorkbenchBrand"),TEXT("WEAPON WORKBENCH"),1190,44,366,30,16,Work,false,Muted)->SetJustification(ETextJustify::Right);
+    auto* Overview=P.Group(TEXT("WeaponOverviewPanel"),0,0,1600,900,Work);
+    P.Surface(TEXT("WeaponOverviewBG"),40,112,390,680,Panel,Overview,true);
+    P.Label(TEXT("OwnedWeaponsTitle"),TEXT("持有武器"),58,123,348,34,20,Overview,true);
+    const TCHAR* Prefixes[]={TEXT("Primary"),TEXT("Secondary")};
+    const TCHAR* Actions[]={TEXT("ViewPrimaryWeapon"),TEXT("ViewSecondaryWeapon")};
+    const TCHAR* Ids[]={TEXT("M4"),TEXT("M9")};
+    for(int32 I=0;I<2;++I)
+    {
+        const float Y=166+I*126;const FString Prefix=Prefixes[I];
+        P.Button(Actions[I],TEXT(""),52,Y,366,112,Overview);
+        P.Label(*(Prefix+TEXT("WeaponName")),Ids[I],68,Y+7,160,37,25,Overview,true);
+        P.Label(*(Prefix+TEXT("WeaponRole")),I==0?TEXT("主武器 · 已持有"):TEXT("副武器 · 已持有"),220,Y+13,182,30,16,Overview);
+        auto* Icon=P.Make<UImage>(*(Prefix+TEXT("WeaponImage")));
+        const FString Texture=FString::Printf(TEXT("/Game/FPSDemo/Art/Industrial/UI/T_UI_%s.T_UI_%s"),Ids[I],Ids[I]);
+        Icon->SetBrushFromTexture(LoadObject<UTexture2D>(nullptr,*Texture),true);Icon->SetColorAndOpacity(FLinearColor::White);Icon->SetVisibility(ESlateVisibility::HitTestInvisible);
+        P.Place(Overview,Icon,116,Y+40,234,68);
+
+    }
+    P.Surface(TEXT("OverviewStatsRule"),58,429,348,1,Line,Overview);
+    P.Label(TEXT("OverviewWeaponName"),TEXT("M4"),58,443,348,42,26,Overview,true);
+    P.Label(TEXT("OverviewStatsLabel"),TEXT("基础伤害\n最大射程\n射速\n弹匣容量\n换弹时间\n开镜时间\n开火模式\n后坐力倍率"),58,501,144,250,19,Overview,false,Muted)->SetAutoWrapText(false);
+    P.Label(TEXT("OverviewWeaponStats"),TEXT(""),198,501,208,250,19,Overview)->SetAutoWrapText(false);
+    CastChecked<UTextBlock>(P.Tree->FindWidget(TEXT("OverviewWeaponStats")))->SetJustification(ETextJustify::Right);
+    P.Label(TEXT("WeaponInstanceNote"),TEXT(""),480,752,1040,40,18,Overview,false,Muted)->SetAutoWrapText(false);
+    auto* Enter=P.Group(TEXT("WeaponEnterPanel"),0,0,1600,900,Work);
+    P.Label(TEXT("WeaponModificationNote"),TEXT(""),480,787,1040,28,16,Enter,false,Muted);
+    P.Button(TEXT("EnterWeaponModification"),TEXT("进入改装  →"),1320,824,240,52,Enter,true);
+    auto* Drawer=P.Group(TEXT("AttachmentDrawer"),1210,150,350,650,Work);
+    P.Surface(TEXT("AttachmentDrawerBG"),0,0,350,650,Panel,Drawer,true)->SetVisibility(ESlateVisibility::Visible);
+    P.Surface(TEXT("AttachmentDrawerAccent"),0,0,3,650,P.Theme->Accent,Drawer);
+    P.Label(TEXT("AttachmentCategory"),TEXT("瞄具 / 兼容库存"),16,14,239,36,19,Drawer,true);
+    P.Button(TEXT("CloseAttachmentDrawer"),TEXT("收起"),264,10,70,40,Drawer);
+    P.Button(TEXT("SlotOptic"),TEXT("瞄具"),14,67,102,43,Drawer);
+    P.Button(TEXT("SlotMuzzle"),TEXT("枪口"),124,67,102,43,Drawer);
+    P.Button(TEXT("SlotMagazine"),TEXT("弹匣"),234,67,102,43,Drawer);
+    P.Rows(TEXT("AttachmentRows"),8,125,334,224,Drawer);
+    P.Surface(TEXT("DrawerStatsRule"),16,358,318,1,Line,Drawer);
+    P.Label(TEXT("CurrentStatsTitle"),TEXT("当前参数"),16,368,318,27,17,Drawer,true);
+    P.Label(TEXT("CurrentWeaponStats"),TEXT(""),16,399,318,101,16,Drawer)->SetAutoWrapText(false);
+    P.Label(TEXT("CandidateStatsTitle"),TEXT("候选差异"),16,510,318,43,16,Drawer,true,P.Theme->Accent);
+    P.Label(TEXT("CandidateWeaponStats"),TEXT(""),16,555,318,91,15,Drawer)->SetAutoWrapText(false);
+    Drawer->SetVisibility(ESlateVisibility::Collapsed);
+    P.Label(TEXT("WorkbenchHelp"),TEXT("右键拖动旋转 / 滚轮缩放"),40,815,950,30,17,Work,false,Muted);
+    P.Label(TEXT("WorkbenchFeedback"),TEXT(""),40,850,1070,40,16,Work,false,P.Theme->Accent);
+    P.Button(TEXT("ResetWorkbenchView"),TEXT("重置视角"),1120,824,180,52,Work);
+    Work->SetVisibility(ESlateVisibility::Collapsed);
+}
 bool BuildInventoryTerminal(bool Replace)
 {
     FLayout P(TEXT("WBP_ExtractionTerminal"),false,Replace);if(!P.BP)return false;
@@ -580,7 +725,7 @@ bool BuildInventoryTerminal(bool Replace)
     P.Button(TEXT("Return"),TEXT("返回基地"),990,786,300,66,Result,true);
     P.Label(TEXT("ResultPolicy"),TEXT("出征枪械与已装配件保留"),310,800,660,43,20,Result,false,Muted);
     for(const TCHAR* Name:{TEXT("InventoryPanel"),TEXT("WorkbenchPanel"),TEXT("RaidHUD"),TEXT("BagBackdrop"),TEXT("BagPanel"),TEXT("AbortConfirm"),TEXT("ResultPanel")})P.Tree->FindWidget(Name)->SetVisibility(ESlateVisibility::Collapsed);
-    AddWeaponWorkbench(P,Base);
+    AddReferenceWorkbench(P);
     return P.Save();
 }
 }
@@ -646,6 +791,34 @@ FString UFPSExtractionUIBuilder::UpgradeWeaponWorkbenchAssets()
     if(!EnsureAttachmentRow())return TEXT("FAIL attachment row save");
     BP->Modify();P.Tree->Modify();Base->Modify();AddWeaponWorkbench(P,Base);
     return P.Save()?TEXT("PASS workbench v2 migrated to v3; existing panels preserved"):TEXT("FAIL workbench terminal save");
+#else
+    return TEXT("FAIL editor required");
+#endif
+}
+
+FString UFPSExtractionUIBuilder::UpgradeWeaponWorkbenchReferenceAssets(bool Rebuild)
+{
+#if WITH_EDITOR
+    using namespace ExtractionUI;
+    auto* BP=LoadObject<UWidgetBlueprint>(nullptr,TEXT("/Game/FPSDemo/Art/UI/ExtractionTerminal/WBP_ExtractionTerminal.WBP_ExtractionTerminal"));
+    if(!BP||!BP->WidgetTree)return TEXT("FAIL missing terminal; create/upgrade inventory first");
+    auto* Version=Cast<UTextBlock>(BP->WidgetTree->FindWidget(TEXT("WeaponWorkbenchLayoutVersion")));
+    if(Version&&Version->GetText().ToString()==TEXT("4")&&!Rebuild)return TEXT("PASS workbench v4 already present; Designer edits preserved");
+    if(!Version||(Version->GetText().ToString()!=TEXT("3")&&!(Rebuild&&Version->GetText().ToString()==TEXT("4"))))return TEXT("FAIL reference workbench migration requires v3 or explicit v4 rebuild");
+    auto* Old=BP->WidgetTree->FindWidget(TEXT("ModificationPanel"));if(!Old)return TEXT("FAIL v3 ModificationPanel missing");
+    FLayout P(BP);if(!P.Canvas||!P.Theme||!P.Font||!P.NumberFont)return TEXT("FAIL layout/theme/fonts missing");
+    for(const TCHAR* Name:{TEXT("WeaponOverviewPanel"),TEXT("AttachmentDrawer"),TEXT("WeaponEnterPanel"),TEXT("ViewPrimaryWeapon"),TEXT("ViewSecondaryWeapon"),TEXT("EnterWeaponModification")})
+        if(!Rebuild&&P.Tree->FindWidget(Name))return FString::Printf(TEXT("FAIL reference widget name already exists: %s"),Name);
+    if(!EnsureAttachmentRow())return TEXT("FAIL attachment row missing");
+    TArray<UWidget*> Retired;UWidgetTree::ForWidgetAndChildren(Old,[&](UWidget* Widget){Retired.Add(Widget);});Retired.Add(Version);
+    BP->Modify();P.Tree->Modify();Old->RemoveFromParent();Version->RemoveFromParent();
+    for(UWidget* Widget:Retired)
+    {
+        Widget->Modify();const FName RetiredName=MakeUniqueObjectName(GetTransientPackage(),Widget->GetClass(),FName(*(TEXT("Retired_")+Widget->GetName())));
+        if(!Widget->Rename(*RetiredName.ToString(),GetTransientPackage(),REN_DontCreateRedirectors|REN_NonTransactional))return TEXT("FAIL retiring old workbench widget");
+    }
+    AddReferenceWorkbench(P);
+    return P.Save()?TEXT("PASS reference workbench v3 migrated to v4; other panels preserved"):TEXT("FAIL reference workbench save");
 #else
     return TEXT("FAIL editor required");
 #endif
