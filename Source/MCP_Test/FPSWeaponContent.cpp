@@ -1,4 +1,5 @@
 #include "FPSWeaponData.h"
+#include "FPSHitDamage.h"
 #include "FPSAttachmentData.h"
 #include "FPSContentHash.h"
 #include "FPSModeRules.h"
@@ -20,9 +21,12 @@ TArray<FSoftObjectPath> UFPSWeaponDefinition::Resources() const
 {
     TArray<FSoftObjectPath> Paths;
     for (const auto& Path : {FirstPerson.Mesh.ToSoftObjectPath(), ThirdPerson.Mesh.ToSoftObjectPath(), Pickup.Mesh.ToSoftObjectPath(),
-        RecoilCurve.ToSoftObjectPath(), FireSound.ToSoftObjectPath(), ReloadStartSound.ToSoftObjectPath(), ReloadEndSound.ToSoftObjectPath(),
+        HitDamageProfile.ToSoftObjectPath(), RecoilCurve.ToSoftObjectPath(), FireSound.ToSoftObjectPath(), ReloadStartSound.ToSoftObjectPath(), ReloadEndSound.ToSoftObjectPath(),
         EquipSound.ToSoftObjectPath(), InspectSound.ToSoftObjectPath(), EmptySound.ToSoftObjectPath()})
         if (!Path.IsNull()) Paths.AddUnique(Path);
+    for (const auto& Mesh : {ModularBody, ModularReloadBody, WorkbenchBody}) if (!Mesh.IsNull()) Paths.AddUnique(Mesh.ToSoftObjectPath());
+    for (const auto* Parts : {&BuiltinParts, &WorkbenchParts})
+        for (const auto& Part : *Parts) if (!Part.Value.Mesh.IsNull()) Paths.AddUnique(Part.Value.Mesh.ToSoftObjectPath());
     return Paths;
 }
 
@@ -53,6 +57,17 @@ FString UFPSWeaponDefinition::ContentDigest(TArray<FString>& Errors) const
     const FString* SourceText = FTextInspector::GetSourceString(DisplayName);
     Add(SourceText ? *SourceText : FString());
     Add(uint8(Slot)); Add(uint8(Category)); Add(MagazineSize); Add(InitialMagazine); Add(InitialReserve);
+    if (const auto* Profile = HitDamageProfile.Get())
+    {
+        Add(Profile->ProfileId.ToString().ToLower());
+        float Head = Profile->Multipliers.Head;
+#if !UE_BUILD_SHIPPING
+        FString Change; FParse::Value(FCommandLine::Get(), TEXT("FPSContentChange="), Change);
+        if (Change == TEXT("hitdamage")) Head += .1f;
+#endif
+        Add(Head); Add(Profile->Multipliers.Torso); Add(Profile->Multipliers.Limb);
+    }
+    else Errors.Add(GetPathName() + TEXT(": missing loaded hit damage profile"));
     Add(Damage); Add(FireInterval); Add(Range); Add(uint8(FireMode)); Add(BurstCount); Add(BurstInterval);
     Add(ReloadDuration); Add(InspectDuration); Add(EquipReadyTime); Add(EquipBlendTime); Add(AimTransitionTime);
     Add(bNoRecoil); Add(AimRecoilMultiplier); Add(RecoilRecoveryTime); Add(HipLocation); Add(AimLocation); Add(MuzzleLocation); Add(AimFOV);
@@ -69,6 +84,15 @@ FString UFPSWeaponDefinition::ContentDigest(TArray<FString>& Errors) const
     {
         Add(View->Transform); ResourceVersion(View->Mesh.ToSoftObjectPath());
     }
+    for (const auto& Mesh : {ModularBody, ModularReloadBody, WorkbenchBody})
+    { Add(!Mesh.IsNull()); if (!Mesh.IsNull()) ResourceVersion(Mesh.ToSoftObjectPath()); }
+    for (const auto* Parts : {&BuiltinParts, &WorkbenchParts})
+    {
+        TArray<FName> Keys; Parts->GetKeys(Keys); Keys.Sort(FNameLexicalLess()); Add(Keys.Num());
+        for (FName Key : Keys) { const auto& View=Parts->FindChecked(Key); Add(Key.ToString()); Add(View.Transform); Add(!View.Mesh.IsNull()); if (!View.Mesh.IsNull()) ResourceVersion(View.Mesh.ToSoftObjectPath()); }
+    }
+    TArray<FName> MountKeys; AttachmentMountLocations.GetKeys(MountKeys); MountKeys.Sort(FNameLexicalLess()); Add(MountKeys.Num());
+    for (FName Key : MountKeys) { Add(Key.ToString()); Add(AttachmentMountLocations.FindChecked(Key)); }
     for (const auto& Sound : {FireSound, ReloadStartSound, ReloadEndSound, EquipSound, InspectSound, EmptySound}) ResourceVersion(Sound.ToSoftObjectPath());
     if (const auto* Curve = RecoilCurve.Get())
         for (const FRichCurve& Channel : Curve->FloatCurves)
@@ -93,6 +117,9 @@ void UFPSWeaponDefinition::PreSave(FObjectPreSaveContext SaveContext)
         for (const auto& Path : {FirstPerson.Mesh.ToSoftObjectPath(), ThirdPerson.Mesh.ToSoftObjectPath(), Pickup.Mesh.ToSoftObjectPath(),
             FireSound.ToSoftObjectPath(), ReloadStartSound.ToSoftObjectPath(), ReloadEndSound.ToSoftObjectPath(), EquipSound.ToSoftObjectPath(), InspectSound.ToSoftObjectPath(), EmptySound.ToSoftObjectPath()})
             SavedResourceVersions.Add(Path, FPSContent::ResourceRevision(Path, Errors));
+        for (const auto& Mesh : {ModularBody, ModularReloadBody, WorkbenchBody}) if (!Mesh.IsNull()) SavedResourceVersions.Add(Mesh.ToSoftObjectPath(), FPSContent::ResourceRevision(Mesh.ToSoftObjectPath(), Errors));
+        for (const auto* Parts : {&BuiltinParts, &WorkbenchParts})
+            for (const auto& Part : *Parts) if (!Part.Value.Mesh.IsNull()) SavedResourceVersions.Add(Part.Value.Mesh.ToSoftObjectPath(), FPSContent::ResourceRevision(Part.Value.Mesh.ToSoftObjectPath(), Errors));
         for (const auto& Error : Errors) UE_LOG(LogTemp, Error, TEXT("FPS_WEAPON_CONTENT %s"), *Error);
     }
     Super::PreSave(SaveContext);
@@ -171,16 +198,16 @@ bool UFPSWeaponCatalog::PrepareWorld(UWorld* World, bool bRequireStands)
         Writer << SelectionInterval;
         Writer << Lifetime; Writer << Limit;
         // Packed CMC resource protocol and shared movement tuning must match before possession.
-        int32 MovementProtocol=2; Writer << MovementProtocol;
+        int32 MovementProtocol=4; Writer << MovementProtocol;
         const auto* Movement = GetDefault<UFPSMovementSettings>();
         TArray<float> MovementValues{Movement->WalkSpeed, Movement->SprintSpeed, Movement->CrouchSpeed, Movement->AimSpeed,
-            Movement->SprintAccelerationTime, Movement->SprintDecelerationTime, Movement->WalkAcceleration, Movement->AirAcceleration,
+            Movement->SprintAccelerationTime, Movement->SprintDecelerationTime, Movement->WalkAcceleration, Movement->AirAcceleration, Movement->AirControl,
             Movement->JumpVelocity, Movement->WeakJumpHeightRatio, Movement->LandingJumpInterval,
             Movement->MaxStamina, Movement->SprintDrain, Movement->SprintStartThreshold, Movement->JumpCost, Movement->CrouchCost,
             Movement->CrouchInterval, Movement->LowCrouchInterval, Movement->RecoveryDelay, Movement->RecoveryRate, Movement->SprintFirePreparation};
         for (float Value : MovementValues)
             if (!FMath::IsFinite(Value) || Value <= 0) Errors.Add(TEXT("Invalid FPS movement configuration"));
-        if (Movement->SprintSpeed < Movement->WalkSpeed || Movement->WeakJumpHeightRatio > 1 ||
+        if (Movement->SprintSpeed < Movement->WalkSpeed || Movement->WeakJumpHeightRatio > 1 || Movement->AirControl > 1 ||
             Movement->SprintStartThreshold > Movement->MaxStamina || Movement->LowCrouchInterval < Movement->CrouchInterval)
             Errors.Add(TEXT("Inconsistent FPS movement configuration"));
         Writer << MovementValues;

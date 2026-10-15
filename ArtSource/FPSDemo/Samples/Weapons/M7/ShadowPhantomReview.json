@@ -1,0 +1,1621 @@
+{
+  "success": true,
+  "assets": {
+    "SM_M7_Stock_ShadowRail": {
+      "mount_position_m": [
+        -0.179,
+        0,
+        -0.0025
+      ],
+      "editable_objects": 57,
+      "geometry_objects": 56,
+      "construction": {
+        "asset": "SM_M7_Stock_ShadowRail",
+        "mount": "Stock",
+        "mount_world": [
+          -0.179,
+          0.0,
+          -0.0025
+        ],
+        "reference": "Reference/ShadowRail_Side_User.png",
+        "secondary_reference": "Reference/ShadowRail_Stock_User.png",
+        "reference_priority": "Corrected user side image is the silhouette authority",
+        "pixel_mapping": {
+          "image_size_px": [
+            417,
+            225
+          ],
+          "pixel_mount": [
+            29.0,
+            91.0
+          ],
+          "uniform_metres_per_pixel": 0.00066,
+          "world_x_direction": "front +X, rear -X",
+          "world_z_direction": "image up +Z"
+        },
+        "side_silhouette": {
+          "upper_beam_anchors_px": [
+            [
+              105,
+              29
+            ],
+            [
+              178,
+              45
+            ],
+            [
+              270,
+              69
+            ],
+            [
+              321,
+              82
+            ]
+          ],
+          "upper_beam_downward_angle_degrees": 13.786317988671952,
+          "lower_beam_anchors_px": [
+            [
+              79,
+              109
+            ],
+            [
+              321,
+              109
+            ]
+          ],
+          "rear_shell_outline_px": [
+            [
+              322,
+              84
+            ],
+            [
+              332,
+              80
+            ],
+            [
+              340,
+              69
+            ],
+            [
+              370,
+              68
+            ],
+            [
+              385,
+              73
+            ],
+            [
+              395,
+              91
+            ],
+            [
+              400,
+              119
+            ],
+            [
+              397,
+              136
+            ],
+            [
+              385,
+              144
+            ],
+            [
+              350,
+              144
+            ],
+            [
+              328,
+              130
+            ],
+            [
+              322,
+              112
+            ]
+          ],
+          "tail_outer_outline_px": [
+            [
+              350,
+              140
+            ],
+            [
+              371,
+              138
+            ],
+            [
+              392,
+              137
+            ],
+            [
+              393,
+              154
+            ],
+            [
+              385,
+              173
+            ],
+            [
+              376,
+              192
+            ],
+            [
+              366,
+              208
+            ],
+            [
+              355,
+              221
+            ],
+            [
+              334,
+              222
+            ],
+            [
+              326,
+              215
+            ],
+            [
+              329,
+              204
+            ],
+            [
+              337,
+              198
+            ],
+            [
+              343,
+              179
+            ],
+            [
+              344,
+              156
+            ],
+            [
+              341,
+              148
+            ]
+          ],
+          "construction": "Inclined cheek rail and tapered triangular open frame; level slender lower guide; two shaped clamps; short layered rear shell; narrow curved open tail and rubber contact strip"
+        },
+        "object_count": 56,
+        "boolean_operations": 6,
+        "raw_world_bounds": {
+          "min": [
+            -0.42635872960090637,
+            -0.02019999921321869,
+            -0.08972164243459702
+          ],
+          "max": [
+            -0.17524999380111694,
+            0.02019999921321869,
+            0.038347575813531876
+          ]
+        },
+        "holes": [
+          {
+            "name": "FrontRailWindow",
+            "center": [
+              -0.23443999999999998,
+              0.0,
+              -0.0064600000000000005
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_InclinedOpenRailFrame"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_InclinedOpenRailFrame"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "TaperedMiddleWindow",
+            "center": [
+              -0.29846,
+              0.0,
+              -0.0051400000000000005
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_InclinedOpenRailFrame"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_InclinedOpenRailFrame"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "TaperedRearWindow",
+            "center": [
+              -0.35456,
+              0.0,
+              -0.00712
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_InclinedOpenRailFrame"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_InclinedOpenRailFrame"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "FrontLockWindow_L",
+            "center": [
+              -0.26348,
+              0.0,
+              0.0007999999999999999
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_FrontRailLock_L"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_FrontRailLock_L"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "RearLockWindow_L",
+            "center": [
+              -0.33542,
+              0.0,
+              -0.0077800000000000005
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_RearRailLock_L"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_RearRailLock_L"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "FrontLockWindow_R",
+            "center": [
+              -0.26348,
+              0.0,
+              0.0007999999999999999
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_FrontRailLock_R"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_FrontRailLock_R"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "RearLockWindow_R",
+            "center": [
+              -0.33542,
+              0.0,
+              -0.0077800000000000005
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_RearRailLock_R"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_RearRailLock_R"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "RearHousingWindow",
+            "center": [
+              -0.41462,
+              0.0,
+              -0.0077800000000000005
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_RearCheekHousing"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_RearCheekHousing"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "QD_SlingBore",
+            "center": [
+              -0.41198,
+              0.0,
+              -0.022959999999999998
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_RearCheekHousing"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_RearCheekHousing"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "LongButtpadOpening",
+            "center": [
+              -0.39548,
+              0.0,
+              -0.06454
+            ],
+            "direction": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "objects": [
+              "SHADOW_CurvedOpenTailSupport"
+            ],
+            "through": true,
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "SHADOW_CurvedOpenTailSupport"
+            ],
+            "blockers": []
+          }
+        ],
+        "material_roles": [
+          "coat",
+          "hardware",
+          "polymer",
+          "rubber",
+          "dark"
+        ],
+        "verification": "Y-axis rays through named objects for each aperture; the three beam windows and long tail opening must also stay visibly open in the whole-asset side render. Check the 13.79-degree upper beam against the new reference before user delivery."
+      }
+    },
+    "SM_M7_Grip_Phantom": {
+      "mount_position_m": [
+        -0.0625,
+        0,
+        -0.065
+      ],
+      "editable_objects": 53,
+      "geometry_objects": 52,
+      "construction": {
+        "asset": "SM_M7_Grip_Phantom",
+        "display_name": "幻影后握把",
+        "mount_key": "RearGrip",
+        "mount_position_m": [
+          -0.0625,
+          0.0,
+          -0.065
+        ],
+        "reference_image": "Reference/Phantom_Grip_Side_User.png",
+        "depth_reference_image": "Reference/Phantom_Grip_User.png",
+        "depth_inferred": true,
+        "iteration": "Latest side-view skeleton; exposed body below y58 lengthened by 20 percent without widening its apertures or moving the core interface",
+        "mapping": {
+          "metres_per_pixel_x": 0.0011,
+          "metres_per_pixel_z": 0.0011,
+          "pixel_origin": [
+            40.0,
+            58.0
+          ],
+          "world_origin_xz_m": [
+            -0.045,
+            -0.0785
+          ],
+          "body_length_scale": 1.2,
+          "rear_lean_pixels_per_lower_pixel": 0.52,
+          "x_formula": "-.045-(px-40+(BODY_LENGTH_SCALE-1)*.52*max(0,py-58))*.00110",
+          "z_formula": "-.0785-(py-58+(BODY_LENGTH_SCALE-1)*max(0,py-58))*.00110",
+          "calibration": "Visible upper body near reference y58 meets Core actual lower interface z-.0785; the Core crop is not duplicated as a grip cover"
+        },
+        "objects": [
+          "PHANTOM_HiddenCoreInterfaceTongue",
+          "PHANTOM_ShortExposedShoulder",
+          "PHANTOM_InclinedOpenSkeleton",
+          "PHANTOM_SlimFrontGraspingPole",
+          "PHANTOM_SlimRearSpine",
+          "PHANTOM_FrontAntiSlipRib_00",
+          "PHANTOM_FrontAntiSlipRib_01",
+          "PHANTOM_FrontAntiSlipRib_02",
+          "PHANTOM_FrontAntiSlipRib_03",
+          "PHANTOM_FrontAntiSlipRib_04",
+          "PHANTOM_FrontAntiSlipRib_05",
+          "PHANTOM_FrontAntiSlipRib_06",
+          "PHANTOM_FrontAntiSlipRib_07",
+          "PHANTOM_FrontAntiSlipRib_08",
+          "PHANTOM_FrontAntiSlipRib_09",
+          "PHANTOM_FrontAntiSlipRib_10",
+          "PHANTOM_FrontAntiSlipRib_11",
+          "PHANTOM_FrontAntiSlipRib_12",
+          "PHANTOM_FrontAntiSlipRib_13",
+          "PHANTOM_FrontAntiSlipRib_14",
+          "PHANTOM_FrontAntiSlipRib_15",
+          "PHANTOM_FrontAntiSlipRib_16",
+          "PHANTOM_FrontAntiSlipRib_17",
+          "PHANTOM_FrontAntiSlipRib_18",
+          "PHANTOM_RearMicroRib_00",
+          "PHANTOM_RearMicroRib_01",
+          "PHANTOM_RearMicroRib_02",
+          "PHANTOM_RearMicroRib_03",
+          "PHANTOM_RearMicroRib_04",
+          "PHANTOM_RearMicroRib_05",
+          "PHANTOM_RearMicroRib_06",
+          "PHANTOM_RearMicroRib_07",
+          "PHANTOM_RearMicroRib_08",
+          "PHANTOM_RearMicroRib_09",
+          "PHANTOM_RearMicroRib_10",
+          "PHANTOM_RearMicroRib_11",
+          "PHANTOM_RearMicroRib_12",
+          "PHANTOM_RearMicroRib_13",
+          "PHANTOM_RearMicroRib_14",
+          "PHANTOM_UpperDiagonalLand_L",
+          "PHANTOM_MiddleDiagonalLand_L",
+          "PHANTOM_InnerColumnInsetBed_L",
+          "PHANTOM_ThinColumnMetalInlay_L_-1",
+          "PHANTOM_ThinColumnMetalInlay_L_1",
+          "PHANTOM_UpperDiagonalLand_R",
+          "PHANTOM_MiddleDiagonalLand_R",
+          "PHANTOM_InnerColumnInsetBed_R",
+          "PHANTOM_ThinColumnMetalInlay_R_-1",
+          "PHANTOM_ThinColumnMetalInlay_R_1",
+          "PHANTOM_SlantedCompactHeel",
+          "PHANTOM_InclinedHeelLand_L",
+          "PHANTOM_InclinedHeelLand_R"
+        ],
+        "through_apertures": [
+          {
+            "name": "PHANTOM_UpperObliqueTriangle",
+            "center_m": [
+              -0.07416315952,
+              0.0,
+              -0.093459956
+            ],
+            "outline_m": [
+              [
+                -0.05732261762022972,
+                -0.0892510861158371
+              ],
+              [
+                -0.05723414570093155,
+                -0.08920586109161377
+              ],
+              [
+                -0.057172439992427826,
+                -0.08916570246219635
+              ],
+              [
+                -0.05713750422000885,
+                -0.08913063257932663
+              ],
+              [
+                -0.057129330933094025,
+                -0.08910064399242401
+              ],
+              [
+                -0.05714792013168335,
+                -0.0890757292509079
+              ],
+              [
+                -0.05719328299164772,
+                -0.08905589580535889
+              ],
+              [
+                -0.05726540833711624,
+                -0.08904115110635757
+              ],
+              [
+                -0.05736429616808891,
+                -0.08903148025274277
+              ],
+              [
+                -0.07725170254707336,
+                -0.08776851743459702
+              ],
+              [
+                -0.07736075669527054,
+                -0.08776775002479553
+              ],
+              [
+                -0.07746338099241257,
+                -0.0877797082066536
+              ],
+              [
+                -0.07755956798791885,
+                -0.0878043919801712
+              ],
+              [
+                -0.0776493176817894,
+                -0.08784178644418716
+              ],
+              [
+                -0.0777326375246048,
+                -0.08789192140102386
+              ],
+              [
+                -0.07780952006578445,
+                -0.08795475959777832
+              ],
+              [
+                -0.07787996530532837,
+                -0.08803033828735352
+              ],
+              [
+                -0.07794397324323654,
+                -0.08811863511800766
+              ],
+              [
+                -0.08763042837381363,
+                -0.10320135951042175
+              ],
+              [
+                -0.08768105506896973,
+                -0.10328711569309235
+              ],
+              [
+                -0.08771135658025742,
+                -0.10335507243871689
+              ],
+              [
+                -0.0877213180065155,
+                -0.10340522229671478
+              ],
+              [
+                -0.08771095424890518,
+                -0.10343756526708603
+              ],
+              [
+                -0.08768026530742645,
+                -0.10345210134983063
+              ],
+              [
+                -0.08762922883033752,
+                -0.10344885289669037
+              ],
+              [
+                -0.08755788207054138,
+                -0.10342778265476227
+              ],
+              [
+                -0.08746618777513504,
+                -0.10338891297578812
+              ]
+            ],
+            "reference_outline_px": [
+              [
+                50,
+                66
+              ],
+              [
+                69,
+                65
+              ],
+              [
+                77,
+                77
+              ]
+            ],
+            "probe_points_m": [
+              [
+                -0.07416315952,
+                0.0,
+                -0.093459956
+              ],
+              [
+                -0.07346315951999999,
+                0.0,
+                -0.093459956
+              ],
+              [
+                -0.07486315952,
+                0.0,
+                -0.093459956
+              ],
+              [
+                -0.07416315952,
+                0.0,
+                -0.09275995599999999
+              ],
+              [
+                -0.07416315952,
+                0.0,
+                -0.094159956
+              ]
+            ],
+            "construction": "Full-depth actual aperture across all intersecting structural parts",
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "PHANTOM_HiddenCoreInterfaceTongue",
+              "PHANTOM_ShortExposedShoulder",
+              "PHANTOM_InclinedOpenSkeleton",
+              "PHANTOM_SlimFrontGraspingPole",
+              "PHANTOM_SlimRearSpine",
+              "PHANTOM_FrontAntiSlipRib_00",
+              "PHANTOM_FrontAntiSlipRib_01",
+              "PHANTOM_FrontAntiSlipRib_02",
+              "PHANTOM_FrontAntiSlipRib_03",
+              "PHANTOM_FrontAntiSlipRib_04",
+              "PHANTOM_FrontAntiSlipRib_05",
+              "PHANTOM_FrontAntiSlipRib_06",
+              "PHANTOM_FrontAntiSlipRib_07",
+              "PHANTOM_FrontAntiSlipRib_08",
+              "PHANTOM_FrontAntiSlipRib_09",
+              "PHANTOM_FrontAntiSlipRib_10",
+              "PHANTOM_FrontAntiSlipRib_11",
+              "PHANTOM_FrontAntiSlipRib_12",
+              "PHANTOM_FrontAntiSlipRib_13",
+              "PHANTOM_FrontAntiSlipRib_14",
+              "PHANTOM_FrontAntiSlipRib_15",
+              "PHANTOM_FrontAntiSlipRib_16",
+              "PHANTOM_FrontAntiSlipRib_17",
+              "PHANTOM_FrontAntiSlipRib_18",
+              "PHANTOM_RearMicroRib_00",
+              "PHANTOM_RearMicroRib_01",
+              "PHANTOM_RearMicroRib_02",
+              "PHANTOM_RearMicroRib_03",
+              "PHANTOM_RearMicroRib_04",
+              "PHANTOM_RearMicroRib_05",
+              "PHANTOM_RearMicroRib_06",
+              "PHANTOM_RearMicroRib_07",
+              "PHANTOM_RearMicroRib_08",
+              "PHANTOM_RearMicroRib_09",
+              "PHANTOM_RearMicroRib_10",
+              "PHANTOM_RearMicroRib_11",
+              "PHANTOM_RearMicroRib_12",
+              "PHANTOM_RearMicroRib_13",
+              "PHANTOM_RearMicroRib_14",
+              "PHANTOM_UpperDiagonalLand_L",
+              "PHANTOM_MiddleDiagonalLand_L",
+              "PHANTOM_InnerColumnInsetBed_L",
+              "PHANTOM_ThinColumnMetalInlay_L_-1",
+              "PHANTOM_ThinColumnMetalInlay_L_1",
+              "PHANTOM_UpperDiagonalLand_R",
+              "PHANTOM_MiddleDiagonalLand_R",
+              "PHANTOM_InnerColumnInsetBed_R",
+              "PHANTOM_ThinColumnMetalInlay_R_-1",
+              "PHANTOM_ThinColumnMetalInlay_R_1",
+              "PHANTOM_SlantedCompactHeel",
+              "PHANTOM_InclinedHeelLand_L",
+              "PHANTOM_InclinedHeelLand_R"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "PHANTOM_MiddleObliqueTriangle",
+            "center_m": [
+              -0.09104164048,
+              0.0,
+              -0.11898004400000001
+            ],
+            "outline_m": [
+              [
+                -0.07183732837438583,
+                -0.11694226413965225
+              ],
+              [
+                -0.07174554467201233,
+                -0.11690178513526917
+              ],
+              [
+                -0.07168006151914597,
+                -0.11686147749423981
+              ],
+              [
+                -0.07164087891578674,
+                -0.11682133376598358
+              ],
+              [
+                -0.07162798941135406,
+                -0.11678137630224228
+              ],
+              [
+                -0.07164140045642853,
+                -0.11674158275127411
+              ],
+              [
+                -0.07168111205101013,
+                -0.11670197546482086
+              ],
+              [
+                -0.07174711674451828,
+                -0.11666253209114075
+              ],
+              [
+                -0.07183942198753357,
+                -0.11662325263023376
+              ],
+              [
+                -0.0923093780875206,
+                -0.10901674628257751
+              ],
+              [
+                -0.09241236746311188,
+                -0.10898570716381073
+              ],
+              [
+                -0.0925104096531868,
+                -0.10897095501422882
+              ],
+              [
+                -0.09260352700948715,
+                -0.10897248983383179
+              ],
+              [
+                -0.09269171208143234,
+                -0.10899031162261963
+              ],
+              [
+                -0.09277495741844177,
+                -0.10902442783117294
+              ],
+              [
+                -0.09285326302051544,
+                -0.10907483100891113
+              ],
+              [
+                -0.09292664378881454,
+                -0.1091415286064148
+              ],
+              [
+                -0.09299507737159729,
+                -0.10922451317310333
+              ],
+              [
+                -0.10871212184429169,
+                -0.13093549013137817
+              ],
+              [
+                -0.10876740515232086,
+                -0.13101840019226074
+              ],
+              [
+                -0.10880133509635925,
+                -0.13108482956886292
+              ],
+              [
+                -0.10881389677524567,
+                -0.1311347931623459
+              ],
+              [
+                -0.1088050976395607,
+                -0.13116830587387085
+              ],
+              [
+                -0.10877493768930435,
+                -0.1311853528022766
+              ],
+              [
+                -0.10872340947389603,
+                -0.13118594884872437
+              ],
+              [
+                -0.10865052044391632,
+                -0.13117007911205292
+              ],
+              [
+                -0.10855627059936523,
+                -0.13113774359226227
+              ]
+            ],
+            "reference_outline_px": [
+              [
+                61,
+                87
+              ],
+              [
+                81,
+                81
+              ],
+              [
+                94,
+                98
+              ]
+            ],
+            "probe_points_m": [
+              [
+                -0.09104164048,
+                0.0,
+                -0.11898004400000001
+              ],
+              [
+                -0.09009164048,
+                0.0,
+                -0.11898004400000001
+              ],
+              [
+                -0.09199164048000001,
+                0.0,
+                -0.11898004400000001
+              ],
+              [
+                -0.09104164048,
+                0.0,
+                -0.118030044
+              ],
+              [
+                -0.09104164048,
+                0.0,
+                -0.11993004400000001
+              ]
+            ],
+            "construction": "Full-depth actual aperture across all intersecting structural parts",
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "PHANTOM_HiddenCoreInterfaceTongue",
+              "PHANTOM_ShortExposedShoulder",
+              "PHANTOM_InclinedOpenSkeleton",
+              "PHANTOM_SlimFrontGraspingPole",
+              "PHANTOM_SlimRearSpine",
+              "PHANTOM_FrontAntiSlipRib_00",
+              "PHANTOM_FrontAntiSlipRib_01",
+              "PHANTOM_FrontAntiSlipRib_02",
+              "PHANTOM_FrontAntiSlipRib_03",
+              "PHANTOM_FrontAntiSlipRib_04",
+              "PHANTOM_FrontAntiSlipRib_05",
+              "PHANTOM_FrontAntiSlipRib_06",
+              "PHANTOM_FrontAntiSlipRib_07",
+              "PHANTOM_FrontAntiSlipRib_08",
+              "PHANTOM_FrontAntiSlipRib_09",
+              "PHANTOM_FrontAntiSlipRib_10",
+              "PHANTOM_FrontAntiSlipRib_11",
+              "PHANTOM_FrontAntiSlipRib_12",
+              "PHANTOM_FrontAntiSlipRib_13",
+              "PHANTOM_FrontAntiSlipRib_14",
+              "PHANTOM_FrontAntiSlipRib_15",
+              "PHANTOM_FrontAntiSlipRib_16",
+              "PHANTOM_FrontAntiSlipRib_17",
+              "PHANTOM_FrontAntiSlipRib_18",
+              "PHANTOM_RearMicroRib_00",
+              "PHANTOM_RearMicroRib_01",
+              "PHANTOM_RearMicroRib_02",
+              "PHANTOM_RearMicroRib_03",
+              "PHANTOM_RearMicroRib_04",
+              "PHANTOM_RearMicroRib_05",
+              "PHANTOM_RearMicroRib_06",
+              "PHANTOM_RearMicroRib_07",
+              "PHANTOM_RearMicroRib_08",
+              "PHANTOM_RearMicroRib_09",
+              "PHANTOM_RearMicroRib_10",
+              "PHANTOM_RearMicroRib_11",
+              "PHANTOM_RearMicroRib_12",
+              "PHANTOM_RearMicroRib_13",
+              "PHANTOM_RearMicroRib_14",
+              "PHANTOM_UpperDiagonalLand_L",
+              "PHANTOM_MiddleDiagonalLand_L",
+              "PHANTOM_InnerColumnInsetBed_L",
+              "PHANTOM_ThinColumnMetalInlay_L_-1",
+              "PHANTOM_ThinColumnMetalInlay_L_1",
+              "PHANTOM_UpperDiagonalLand_R",
+              "PHANTOM_MiddleDiagonalLand_R",
+              "PHANTOM_InnerColumnInsetBed_R",
+              "PHANTOM_ThinColumnMetalInlay_R_-1",
+              "PHANTOM_ThinColumnMetalInlay_R_1",
+              "PHANTOM_SlantedCompactHeel",
+              "PHANTOM_InclinedHeelLand_L",
+              "PHANTOM_InclinedHeelLand_R"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "PHANTOM_LowerNarrowDiagonalOpening",
+            "center_m": [
+              -0.09250387048,
+              0.0,
+              -0.150660044
+            ],
+            "outline_m": [
+              [
+                -0.08002225309610367,
+                -0.138314887881279
+              ],
+              [
+                -0.07998842746019363,
+                -0.13821721076965332
+              ],
+              [
+                -0.07997409254312515,
+                -0.13813163340091705
+              ],
+              [
+                -0.07997922599315643,
+                -0.1380581557750702
+              ],
+              [
+                -0.08000385016202927,
+                -0.13799677789211273
+              ],
+              [
+                -0.08004795014858246,
+                -0.13794748485088348
+              ],
+              [
+                -0.0801115334033966,
+                -0.13791029155254364
+              ],
+              [
+                -0.08019459992647171,
+                -0.1378851979970932
+              ],
+              [
+                -0.08029714226722717,
+                -0.13787220418453217
+              ],
+              [
+                -0.10073445737361908,
+                -0.1366077959537506
+              ],
+              [
+                -0.10083892941474915,
+                -0.13660825788974762
+              ],
+              [
+                -0.10092774033546448,
+                -0.1366235762834549
+              ],
+              [
+                -0.10100092738866806,
+                -0.13665372133255005
+              ],
+              [
+                -0.1010584682226181,
+                -0.13669872283935547
+              ],
+              [
+                -0.1011003702878952,
+                -0.13675853610038757
+              ],
+              [
+                -0.10112662613391876,
+                -0.13683320581912994
+              ],
+              [
+                -0.10113724321126938,
+                -0.1369227170944214
+              ],
+              [
+                -0.10113221406936646,
+                -0.1370270550251007
+              ],
+              [
+                -0.09653138369321823,
+                -0.17705294489860535
+              ],
+              [
+                -0.09651661664247513,
+                -0.17715123295783997
+              ],
+              [
+                -0.09649800509214401,
+                -0.1772225946187973
+              ],
+              [
+                -0.09647556394338608,
+                -0.17726702988147736
+              ],
+              [
+                -0.09644928574562073,
+                -0.17728450894355774
+              ],
+              [
+                -0.09641915559768677,
+                -0.17727506160736084
+              ],
+              [
+                -0.09638518840074539,
+                -0.17723867297172546
+              ],
+              [
+                -0.0963473841547966,
+                -0.1771753579378128
+              ],
+              [
+                -0.0963057428598404,
+                -0.17708510160446167
+              ]
+            ],
+            "reference_outline_px": [
+              [
+                67,
+                103
+              ],
+              [
+                86.5,
+                102
+              ],
+              [
+                79,
+                133
+              ]
+            ],
+            "probe_points_m": [
+              [
+                -0.09250387048,
+                0.0,
+                -0.150660044
+              ],
+              [
+                -0.09155387048,
+                0.0,
+                -0.150660044
+              ],
+              [
+                -0.09345387048,
+                0.0,
+                -0.150660044
+              ],
+              [
+                -0.09250387048,
+                0.0,
+                -0.149710044
+              ],
+              [
+                -0.09250387048,
+                0.0,
+                -0.151610044
+              ]
+            ],
+            "construction": "Full-depth actual aperture across all intersecting structural parts",
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "PHANTOM_HiddenCoreInterfaceTongue",
+              "PHANTOM_ShortExposedShoulder",
+              "PHANTOM_InclinedOpenSkeleton",
+              "PHANTOM_SlimFrontGraspingPole",
+              "PHANTOM_SlimRearSpine",
+              "PHANTOM_FrontAntiSlipRib_00",
+              "PHANTOM_FrontAntiSlipRib_01",
+              "PHANTOM_FrontAntiSlipRib_02",
+              "PHANTOM_FrontAntiSlipRib_03",
+              "PHANTOM_FrontAntiSlipRib_04",
+              "PHANTOM_FrontAntiSlipRib_05",
+              "PHANTOM_FrontAntiSlipRib_06",
+              "PHANTOM_FrontAntiSlipRib_07",
+              "PHANTOM_FrontAntiSlipRib_08",
+              "PHANTOM_FrontAntiSlipRib_09",
+              "PHANTOM_FrontAntiSlipRib_10",
+              "PHANTOM_FrontAntiSlipRib_11",
+              "PHANTOM_FrontAntiSlipRib_12",
+              "PHANTOM_FrontAntiSlipRib_13",
+              "PHANTOM_FrontAntiSlipRib_14",
+              "PHANTOM_FrontAntiSlipRib_15",
+              "PHANTOM_FrontAntiSlipRib_16",
+              "PHANTOM_FrontAntiSlipRib_17",
+              "PHANTOM_FrontAntiSlipRib_18",
+              "PHANTOM_RearMicroRib_00",
+              "PHANTOM_RearMicroRib_01",
+              "PHANTOM_RearMicroRib_02",
+              "PHANTOM_RearMicroRib_03",
+              "PHANTOM_RearMicroRib_04",
+              "PHANTOM_RearMicroRib_05",
+              "PHANTOM_RearMicroRib_06",
+              "PHANTOM_RearMicroRib_07",
+              "PHANTOM_RearMicroRib_08",
+              "PHANTOM_RearMicroRib_09",
+              "PHANTOM_RearMicroRib_10",
+              "PHANTOM_RearMicroRib_11",
+              "PHANTOM_RearMicroRib_12",
+              "PHANTOM_RearMicroRib_13",
+              "PHANTOM_RearMicroRib_14",
+              "PHANTOM_UpperDiagonalLand_L",
+              "PHANTOM_MiddleDiagonalLand_L",
+              "PHANTOM_InnerColumnInsetBed_L",
+              "PHANTOM_ThinColumnMetalInlay_L_-1",
+              "PHANTOM_ThinColumnMetalInlay_L_1",
+              "PHANTOM_UpperDiagonalLand_R",
+              "PHANTOM_MiddleDiagonalLand_R",
+              "PHANTOM_InnerColumnInsetBed_R",
+              "PHANTOM_ThinColumnMetalInlay_R_-1",
+              "PHANTOM_ThinColumnMetalInlay_R_1",
+              "PHANTOM_SlantedCompactHeel",
+              "PHANTOM_InclinedHeelLand_L",
+              "PHANTOM_InclinedHeelLand_R"
+            ],
+            "blockers": []
+          },
+          {
+            "name": "PHANTOM_LowerSkewRhombus",
+            "center_m": [
+              -0.1150854,
+              0.0,
+              -0.15737
+            ],
+            "outline_m": [
+              [
+                -0.10639657080173492,
+                -0.14098279178142548
+              ],
+              [
+                -0.1064218059182167,
+                -0.14088186621665955
+              ],
+              [
+                -0.10645738244056702,
+                -0.14080047607421875
+              ],
+              [
+                -0.10650330781936646,
+                -0.14073863625526428
+              ],
+              [
+                -0.10655957460403442,
+                -0.14069634675979614
+              ],
+              [
+                -0.10662618279457092,
+                -0.14067357778549194
+              ],
+              [
+                -0.10670314729213715,
+                -0.14067035913467407
+              ],
+              [
+                -0.1067904606461525,
+                -0.14068669080734253
+              ],
+              [
+                -0.10688811540603638,
+                -0.14072254300117493
+              ],
+              [
+                -0.12093748152256012,
+                -0.14695745706558228
+              ],
+              [
+                -0.12103777378797531,
+                -0.1470061093568802
+              ],
+              [
+                -0.1211329847574234,
+                -0.14706075191497803
+              ],
+              [
+                -0.12122311443090439,
+                -0.14712142944335938
+              ],
+              [
+                -0.12130817025899887,
+                -0.14718809723854065
+              ],
+              [
+                -0.12138814479112625,
+                -0.14726078510284424
+              ],
+              [
+                -0.12146304547786713,
+                -0.14733949303627014
+              ],
+              [
+                -0.1215328723192215,
+                -0.14742422103881836
+              ],
+              [
+                -0.12159761041402817,
+                -0.1475149542093277
+              ],
+              [
+                -0.13248717784881592,
+                -0.16392503678798676
+              ],
+              [
+                -0.13253897428512573,
+                -0.164015531539917
+              ],
+              [
+                -0.13256992399692535,
+                -0.1640995442867279
+              ],
+              [
+                -0.13258005678653717,
+                -0.1641770601272583
+              ],
+              [
+                -0.1325693577528,
+                -0.16424809396266937
+              ],
+              [
+                -0.1325378268957138,
+                -0.16431263089179993
+              ],
+              [
+                -0.13248546421527863,
+                -0.16437068581581116
+              ],
+              [
+                -0.13241228461265564,
+                -0.16442224383354187
+              ],
+              [
+                -0.13231825828552246,
+                -0.16446731984615326
+              ],
+              [
+                -0.10019773989915848,
+                -0.17733266949653625
+              ],
+              [
+                -0.10010108351707458,
+                -0.17736496031284332
+              ],
+              [
+                -0.10001999139785767,
+                -0.17737820744514465
+              ],
+              [
+                -0.09995446354150772,
+                -0.17737236618995667
+              ],
+              [
+                -0.09990449249744415,
+                -0.17734746634960175
+              ],
+              [
+                -0.09987008571624756,
+                -0.1773034930229187
+              ],
+              [
+                -0.09985123574733734,
+                -0.17724046111106873
+              ],
+              [
+                -0.0998479574918747,
+                -0.17715837061405182
+              ],
+              [
+                -0.09986022859811783,
+                -0.1770572066307068
+              ]
+            ],
+            "reference_outline_px": [
+              [
+                91,
+                105
+              ],
+              [
+                104,
+                110
+              ],
+              [
+                113,
+                123
+              ],
+              [
+                82,
+                133
+              ]
+            ],
+            "probe_points_m": [
+              [
+                -0.1150854,
+                0.0,
+                -0.15737
+              ],
+              [
+                -0.1141354,
+                0.0,
+                -0.15737
+              ],
+              [
+                -0.11603540000000001,
+                0.0,
+                -0.15737
+              ],
+              [
+                -0.1150854,
+                0.0,
+                -0.15642
+              ],
+              [
+                -0.1150854,
+                0.0,
+                -0.15832000000000002
+              ]
+            ],
+            "construction": "Full-depth actual aperture across all intersecting structural parts",
+            "verified_through_open": true,
+            "ray_scope_objects": [
+              "PHANTOM_HiddenCoreInterfaceTongue",
+              "PHANTOM_ShortExposedShoulder",
+              "PHANTOM_InclinedOpenSkeleton",
+              "PHANTOM_SlimFrontGraspingPole",
+              "PHANTOM_SlimRearSpine",
+              "PHANTOM_FrontAntiSlipRib_00",
+              "PHANTOM_FrontAntiSlipRib_01",
+              "PHANTOM_FrontAntiSlipRib_02",
+              "PHANTOM_FrontAntiSlipRib_03",
+              "PHANTOM_FrontAntiSlipRib_04",
+              "PHANTOM_FrontAntiSlipRib_05",
+              "PHANTOM_FrontAntiSlipRib_06",
+              "PHANTOM_FrontAntiSlipRib_07",
+              "PHANTOM_FrontAntiSlipRib_08",
+              "PHANTOM_FrontAntiSlipRib_09",
+              "PHANTOM_FrontAntiSlipRib_10",
+              "PHANTOM_FrontAntiSlipRib_11",
+              "PHANTOM_FrontAntiSlipRib_12",
+              "PHANTOM_FrontAntiSlipRib_13",
+              "PHANTOM_FrontAntiSlipRib_14",
+              "PHANTOM_FrontAntiSlipRib_15",
+              "PHANTOM_FrontAntiSlipRib_16",
+              "PHANTOM_FrontAntiSlipRib_17",
+              "PHANTOM_FrontAntiSlipRib_18",
+              "PHANTOM_RearMicroRib_00",
+              "PHANTOM_RearMicroRib_01",
+              "PHANTOM_RearMicroRib_02",
+              "PHANTOM_RearMicroRib_03",
+              "PHANTOM_RearMicroRib_04",
+              "PHANTOM_RearMicroRib_05",
+              "PHANTOM_RearMicroRib_06",
+              "PHANTOM_RearMicroRib_07",
+              "PHANTOM_RearMicroRib_08",
+              "PHANTOM_RearMicroRib_09",
+              "PHANTOM_RearMicroRib_10",
+              "PHANTOM_RearMicroRib_11",
+              "PHANTOM_RearMicroRib_12",
+              "PHANTOM_RearMicroRib_13",
+              "PHANTOM_RearMicroRib_14",
+              "PHANTOM_UpperDiagonalLand_L",
+              "PHANTOM_MiddleDiagonalLand_L",
+              "PHANTOM_InnerColumnInsetBed_L",
+              "PHANTOM_ThinColumnMetalInlay_L_-1",
+              "PHANTOM_ThinColumnMetalInlay_L_1",
+              "PHANTOM_UpperDiagonalLand_R",
+              "PHANTOM_MiddleDiagonalLand_R",
+              "PHANTOM_InnerColumnInsetBed_R",
+              "PHANTOM_ThinColumnMetalInlay_R_-1",
+              "PHANTOM_ThinColumnMetalInlay_R_1",
+              "PHANTOM_SlantedCompactHeel",
+              "PHANTOM_InclinedHeelLand_L",
+              "PHANTOM_InclinedHeelLand_R"
+            ],
+            "blockers": []
+          }
+        ],
+        "ray_scope": "All new Phantom meshes, including hidden adapter, narrow poles, side lands and heel",
+        "interface_profile_m": [
+          [
+            -0.045,
+            -0.078
+          ],
+          [
+            -0.0525,
+            -0.0765
+          ],
+          [
+            -0.075,
+            -0.0765
+          ],
+          [
+            -0.085,
+            -0.0735
+          ],
+          [
+            -0.091,
+            -0.0625
+          ],
+          [
+            -0.1015,
+            -0.0535
+          ],
+          [
+            -0.114,
+            -0.048
+          ],
+          [
+            -0.123,
+            -0.05
+          ]
+        ],
+        "actual_core_lower_interface_m": [
+          [
+            -0.1016,
+            -0.0673
+          ],
+          [
+            -0.0635,
+            -0.0785
+          ],
+          [
+            -0.0427,
+            -0.0779
+          ]
+        ],
+        "hidden_connector_half_depth_m": 0.01,
+        "visible_silhouette_reference_px": [
+          [
+            43,
+            56
+          ],
+          [
+            72,
+            55
+          ],
+          [
+            81,
+            64
+          ],
+          [
+            86,
+            78
+          ],
+          [
+            96,
+            96
+          ],
+          [
+            108,
+            116
+          ],
+          [
+            118,
+            125
+          ],
+          [
+            116,
+            128
+          ],
+          [
+            69,
+            142
+          ],
+          [
+            67,
+            141
+          ],
+          [
+            68,
+            136
+          ],
+          [
+            69,
+            126
+          ],
+          [
+            58,
+            104
+          ],
+          [
+            48,
+            80
+          ],
+          [
+            41,
+            63
+          ]
+        ],
+        "visible_body_height_m": 0.11528,
+        "lengthened_lower_body_height_m": 0.11088,
+        "expected_world_bounds_m": [
+          [
+            -0.13830849528312683,
+            -0.01810000091791153,
+            -0.18927130103111267
+          ],
+          [
+            -0.039432212710380554,
+            0.01810000091791153,
+            -0.04702270030975342
+          ]
+        ],
+        "radial_segments": 64,
+        "bevel_segments": 8,
+        "front_rib_count": 19,
+        "back_rib_count": 15,
+        "geometry_features": [
+          "Short shoulder nesting into unchanged Core through a narrow internal tongue",
+          "Steep backward lean traced with a uniform image scale",
+          "Two distinct upper oblique triangular apertures",
+          "Lower long diagonal opening and skew rhombus between thin structural columns",
+          "Seated long inlays and compact heel with a rising rear underside"
+        ],
+        "unreal_tested": false,
+        "visual_acceptance": "pending user review"
+      }
+    }
+  },
+  "retained_geometry_and_uv_sha256": {
+    "SM_M7_Core": "5bc0a05583a97eaabb1147e3d98b97b328a493e70b43b1db74f8e11cf4198f17",
+    "SM_M7_Stock_Default": "60f4e8e0a631eaeabc113f52d8ce2d177a71ab8591353fe1714f5c948cf472e2",
+    "SM_M7_Stock_Skeleton": "6ff206c6786c6114af5bd0091596edc2781592d7029ab3b64fadcd7fd29873f1",
+    "SM_M7_Mag_20": "39b3c22392286c6a4a4b05ef50be25f4ceec39378ef06a783da2a06fd9dedfcd",
+    "SM_M7_Mag_Extended": "d5013e43f2bb7bc9739a9a231031b6d5f7398f54450a241253570ffab632d8a0",
+    "SM_M7_Grip_Default": "f3e94bc90c6235411c5cad51cab000166a841a8105ce1fd313c06e31282e2310",
+    "SM_M7_Grip_D2": "a5b96cb55086ca099f6b5c5f73dbbd9813e9771888862a4dab79ba161e29babd",
+    "SM_M7_Optic_LPVO": "929e7c119dbf4e88760161bcf3dd823922c02ea95b53c4c36bf50d56dc6d8467",
+    "SM_M7_Optic_Combat": "e2685b53b6af66e00369a6a8eb7c4d3e18284dca4c6e1bd36c3affcb38d9fd78",
+    "SM_M7_Foregrip_Vertical": "2bd634ed2940eb6c5156721cd61b1e4590064cb07eafe27316b75af2732c39b6",
+    "SM_M7_Muzzle_Standard": "5d077aa82933a4d34b57024d46c2d6696e80527acdca07e5b50c6167d68f1f46",
+    "SM_M7_Muzzle_Brake": "4a77b5a6a2e9243351bd5d5c37571b3985d1c779892c3a77b1ed68ecbd011f53",
+    "SM_M7_Muzzle_Suppressor": "9c0eb5cf422d75eef44522439d4c6649ccb7c5d6dcadee81b950878653016494",
+    "SM_M7_Sights_Iron": "413c9eba70e822f04d4874736068f9b8c08a4bbcffdb7f6f12f8bd174b56df29",
+    "SM_M7_Barrel_Default": "bed5587d9c49d8b69910a875c2f9d35f62bca9e4ad81e8e6cf0ceb3214ce97ca",
+    "SM_M7_Barrel_Tidal": "fd089a4a560b80ac6a70edb771d9dc05694f93e2568fe48ed0cfb3d2f9d7b2ce",
+    "SM_M7_Foregrip_ResonanceGen1": "fefa41b7e926a6f285c9d3fb8c35b58329898eea18574a6675f05acf0f4ca2a4",
+    "SM_M7_Stock_ShadowRail": "dd1e9a9313d82f9e107c92189dcd89951036f82bb0b7e7a43faebc39bbd037dd"
+  },
+  "frozen_tidal_unchanged": true,
+  "default_parts_unchanged": true,
+  "replaced_presets": [
+    "M7_Equipped_Tidal",
+    "M7_Equipped_Standard"
+  ],
+  "reference_priority": "Latest user side views define silhouettes; earlier three-quarter views supplement depth",
+  "previous_attachment_visual_version": "rejected by user",
+  "visual_acceptance": "pending user review",
+  "unreal_tested": false,
+  "baked_atlases": {
+    "SM_M7_Stock_ShadowRail": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png"
+      }
+    },
+    "SM_M7_Grip_Phantom": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "files": {
+        "BaseColor": "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png",
+        "Normal": "Textures/Baked/SM_M7_Grip_Phantom_Normal.png",
+        "ORM": "Textures/Baked/SM_M7_Grip_Phantom_ORM.png"
+      }
+    }
+  },
+  "atlas_status": "Baked portable BaseColor, Normal and ORM; final export proof is in matching Validation.json"
+}

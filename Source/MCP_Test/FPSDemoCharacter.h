@@ -5,6 +5,7 @@
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
 #include "FPSWeaponVisualTiming.h"
+#include "FPSHitDamage.h"
 #include "FPSDemoCharacter.generated.h"
 
 class UFPSLifeComponent;
@@ -53,7 +54,8 @@ public:
 	static constexpr float RespawnDelay = 2.5f;
 	float GetRespawnSeconds() const;
 	const FString& GetKillerName() const { return EliminatedBy; }
-	void ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot);
+	void ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot, EFPSHitRegion Region = EFPSHitRegion::Torso, const FHitResult* Hit = nullptr);
+    class UFPSHitRegions* GetHitRegions() const { return HitRegions; }
 	void FireBotShot();
 	class UFPSWeaponComponent* GetWeapons() const { return Weapons; }
 	void ResolveWeaponShot(const FFPSWeaponShotContext& Shot);
@@ -62,6 +64,7 @@ public:
 	void StopCombatInput();
 
 protected:
+    UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<class UFPSHitRegions> HitRegions;
 	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<UFPSLifeComponent> Life;
 	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<class UFPSBaseMembership> BaseMembership;
 	UPROPERTY(VisibleAnywhere, Category="FPS") TObjectPtr<UFPSActionPolicy> ActionPolicy;

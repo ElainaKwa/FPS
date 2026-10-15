@@ -17,7 +17,8 @@ public:
     bool IsSettingsOpen() const { return SettingsUI!=nullptr; }
     void SettingsBack();
     void CloseSettingsForTravel();
-	void ConfirmHit(bool bElimination);
+	void ConfirmHit(bool bElimination, bool bHeadshot = false);
+    bool WasHeadshot() const { return bLastHitHeadshot; }
 	float GetKillMarkerUntil() const { return KillMarkerUntil; }
 	float GetDamageFlash() const;
 	float GetHitMarkerUntil() const { return HitMarkerUntil; }
@@ -29,7 +30,8 @@ private:
     TWeakObjectPtr<class UUserWidget> SettingsSource;
     bool bSettingsWasBlocked=false;
 	UFUNCTION(Client, Reliable)
-	void ClientConfirmHit(bool bElimination);
+	void ClientConfirmHit(bool bElimination, bool bHeadshot);
+    bool bLastHitHeadshot = false;
 	float HitMarkerUntil = 0.0f;
 	float KillMarkerUntil = 0.0f;
 	float DamageFlashUntil = 0.0f;

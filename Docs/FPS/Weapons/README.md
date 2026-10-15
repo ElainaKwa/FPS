@@ -3,7 +3,7 @@
 - 用途：主题索引
 - 适用范围：FPS / Weapons 架构维护与模块化配件扩展
 - 状态：R1–R7 针对性验收完成，完整打包与压力范围见各记录；配件 A1 数据基础与 A2 工作台已实施，当前验证边界见记录；历史文档保留原路径
-- 最后更新：2026-10-13
+- 最后更新：2026-10-15
 
 架构维护阅读顺序：[重构决策](../../FPSWeaponRefactorDecisions.md) → [纠正版评审](../../FPSWeaponArchitectureReview.md) → [架构任务](ArchitectureTasks.md)。
 
@@ -13,6 +13,7 @@
 - [R5 射击上下文记录](ShotContext.md)：单次权威快照与 GAS 伤害语义。
 - [R3＋R4 内容生命周期记录](ContentLifecycle.md)：本局依赖、内容准入及资源持有。
 - [R6＋R7 表现记录](Presentation.md)：动作结果、预测去重及独立过渡时间。
+- [轻量动作与分件换弹](ProceduralAnimation.md)：移动惯性、参考图枪身侧倾、手腕与抓握衔接、独立弹匣与拉机柄/套筒；原工程验证边界见记录。
 - [扩展验收与结构整理](ExtendedAcceptance.md)：Cook/打包、长局、Dedicated Server、多客户端及网络专项。
 
 配件扩展阅读顺序：[配件设计决策](AttachmentDesign.md) → [配件任务清单](AttachmentTasks.md) → [后续方向](AttachmentFutureIdeas.md)。这是现有架构上的新工作线，不重新执行旧评审问题列表。
@@ -24,4 +25,8 @@
 - [A3 手动改装事务记录](AttachmentTransactions.md)：实现与正在执行的双端、界面和 PIE 验证；阶段尚未验收。
 - [配件资产清单](AttachmentAssetReview.md)：由保存资产生成的只读审查资料。
 - [配件与弹药后续方向](AttachmentFutureIdeas.md)：实体物品、不同弹种、嵌套接口、可切换倍率和完整搜打撤；未纳入首次交付。
+- [部位伤害设计](HitDamageDesign.md)：2026-10-15 确认的三类区域、倍率方案和反馈边界。
+- [部位伤害实施记录](HitDamageImplementation.md)：倍率资产、共用姿态、真实双端及根项目集成通过的证据；打包与压力边界见记录。
+- [部位伤害清单](HitDamageTasks.md)：本轮实现和实际运行验收状态。
+- [后握把、枪托与枪管接入](ModularParts.md)：六部位扩展已实现，双分辨率读档、训练双端和原三类配件专项通过；完整打包及人工体验边界见记录。
 - [总索引](../../README.md)。

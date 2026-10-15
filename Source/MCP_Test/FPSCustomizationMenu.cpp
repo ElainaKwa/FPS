@@ -158,9 +158,10 @@ private:
         TArray<FString> Errors; FFPSResolvedWeaponStats Stats;
         if (!W->Catalog()->Resolve(W->Equipped().WeaponId, Ids, Stats, Errors)) { PreviewText = FString::Join(Errors, TEXT("\n")); return; }
         const auto Current = W->EffectiveStats();
-        PreviewText = FString::Printf(TEXT("预览（尚未应用）  容量 %d → %d   换弹 %.2f → %.2f 秒   FOV %.1f → %.1f\nADS %.2f → %.2f 秒   垂直 / 水平后坐力 %.2f / %.2f → %.2f / %.2f"), Current.MagazineSize, Stats.MagazineSize,
+        PreviewText = FString::Printf(TEXT("预览（尚未应用）  容量 %d → %d   换弹 %.2f → %.2f 秒   FOV %.1f → %.1f\nADS %.2f → %.2f 秒   垂直 / 水平后坐力 %.2f / %.2f → %.2f / %.2f\n最大射程 %.1f → %.1f 米"), Current.MagazineSize, Stats.MagazineSize,
             Current.ReloadDuration, Stats.ReloadDuration, Current.AimFOV, Stats.AimFOV, Current.AimTransitionTime, Stats.AimTransitionTime,
-            Current.VerticalRecoilMultiplier, Current.HorizontalRecoilMultiplier, Stats.VerticalRecoilMultiplier, Stats.HorizontalRecoilMultiplier);
+            Current.VerticalRecoilMultiplier, Current.HorizontalRecoilMultiplier, Stats.VerticalRecoilMultiplier, Stats.HorizontalRecoilMultiplier,
+            Current.Range / 100.f, Stats.Range / 100.f);
     }
     TSharedRef<SWidget> SlotButton(EFPSWeaponSlot Slot)
     {
@@ -189,9 +190,9 @@ private:
     {
         const auto* W = Weapon.Get(); if (!W || !W->Definition()) return FText::FromString(TEXT("当前无武器。"));
         const auto Stats = W->EffectiveStats();
-        return FText::FromString(FString::Printf(TEXT("%s  |  %d / %d 发，备弹 %d\n换弹 %.2f 秒   ADS %.2f 秒   FOV %.1f 度   后坐力倍率 %.2f / %.2f\n此处显示已提交装配；拖入弹匣可更换。当前配件暂沿用原枪外观。"),
+        return FText::FromString(FString::Printf(TEXT("%s  |  %d / %d 发，备弹 %d\n换弹 %.2f 秒   ADS %.2f 秒   FOV %.1f 度   后坐力倍率 %.2f / %.2f\n最大射程 %.1f 米\n此处显示已提交装配；拖入弹匣可更换，悬停配件可比较参数。"),
             *W->Definition()->DisplayName.ToString(), W->Equipped().Magazine, Stats.MagazineSize, W->Equipped().Reserve,
-            Stats.ReloadDuration, Stats.AimTransitionTime, Stats.AimFOV, Stats.VerticalRecoilMultiplier, Stats.HorizontalRecoilMultiplier));
+            Stats.ReloadDuration, Stats.AimTransitionTime, Stats.AimFOV, Stats.VerticalRecoilMultiplier, Stats.HorizontalRecoilMultiplier, Stats.Range / 100.f));
     }
     void Refresh()
     {
@@ -199,11 +200,11 @@ private:
         ViewedInstance = W->Equipped().InstanceId; ViewedRevision = W->Equipped().ConfigurationRevision;
         PreviewText = TEXT("悬停配件以对比参数；查看预览不会修改武器。");
         Parts->ClearChildren(); MagazineEntries.Empty(); const auto* Def = W->Definition(); if (!Def) return;
-        const TCHAR* Names[] = { TEXT("瞄具"), TEXT("枪口"), TEXT("弹匣（拖动）") };
-        for (int32 Index = 0; Index < 3; ++Index)
+
+        for (int32 Index = 0; Index < FPSAttachments::CategoryCount; ++Index)
         {
             const auto Category = EFPSAttachmentCategory(Index);
-            Parts->AddSlot().AutoHeight().Padding(4)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).Text(FText::FromString(Names[Index]))];
+            Parts->AddSlot().AutoHeight().Padding(4)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).Text(FText::FromString(FPSAttachments::Label(Category)))];
             auto Row = SNew(SHorizontalBox);
             auto Add = [&](FName Id, FText Label)
             {

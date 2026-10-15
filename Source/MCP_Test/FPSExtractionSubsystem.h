@@ -46,6 +46,7 @@ public:
     UFUNCTION(BlueprintCallable) bool AbortExpedition();
     UFUNCTION(BlueprintCallable) bool MoveStack(EFPSExtractionContainer From, FGuid StackId, EFPSExtractionContainer To, int32 X, int32 Y, bool bRotated);
     UFUNCTION(BlueprintCallable) bool AutoTransferStack(EFPSExtractionContainer From, FGuid StackId, EFPSExtractionContainer To);
+    UFUNCTION(BlueprintCallable) bool SplitStack(EFPSExtractionContainer Container, FGuid StackId, int32 Quantity);
     UFUNCTION(BlueprintCallable) bool DropStack(FGuid StackId);
     UFUNCTION(BlueprintCallable) bool SellStack(FGuid StackId);
     bool CanPlace(const TArray<FFPSExtractionStack>& Inventory, FName Id, int32 X, int32 Y, bool bRotated, int32 Capacity) const;
@@ -65,6 +66,8 @@ public:
     bool TryRemove(TArray<FFPSExtractionStack>& Inventory, FName Id, int32 Quantity) const;
     int32 Count(const TArray<FFPSExtractionStack>& Inventory, FName Id) const;
 private:
+    friend class AFPSFactoryMode;
+    bool bFactoryBase=false;
     friend struct FFPSExtractionSmoke;
     bool IsAuthorized() const;
     bool IsBase() const;

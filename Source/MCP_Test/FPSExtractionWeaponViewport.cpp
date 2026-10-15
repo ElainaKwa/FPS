@@ -10,11 +10,13 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Rendering/DrawElements.h"
 #include "Styling/CoreStyle.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Fonts/FontMeasure.h"
 
 namespace
 {
-const FVector2D SlotPositions[]={{.68,.17},{.13,.73},{.61,.83}};
-const TCHAR* SlotLabels[]={TEXT("瞄具"),TEXT("枪口"),TEXT("弹匣")};
+const FVector2D SlotPositions[]={{.65,.17},{.12,.73},{.47,.83},{.70,.81},{.89,.25},{.18,.17}};
+
 const FVector2D CardSize(156,104);
 }
 AFPSExtractionPreviewStage::AFPSExtractionPreviewStage()
@@ -23,14 +25,6 @@ AFPSExtractionPreviewStage::AFPSExtractionPreviewStage()
     ModelRoot=CreateDefaultSubobject<USceneComponent>(TEXT("ModelRoot"));ModelRoot->SetupAttachment(RootComponent);
     Core=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Core"));Core->SetupAttachment(ModelRoot);
     Core->SetRelativeLocation(FVector(-10,0,6));Core->SetCollisionEnabled(ECollisionEnabled::NoCollision);Core->SetCastShadow(false);
-    const TCHAR* Names[]={TEXT("Core"),TEXT("MagazineStandard"),TEXT("MuzzleStandard"),TEXT("Optic"),TEXT("Brake"),TEXT("MagazineExtended")};
-    for(const TCHAR* Name:Names)
-    {
-        const FString Path=FString(TEXT("/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_"))+Name;
-        ConstructorHelpers::FObjectFinder<UStaticMesh> Mesh(*(Path+TEXT(".")+FString(TEXT("SM_EXP_M4_"))+Name));
-        PreviewMeshes.Add(Mesh.Object);
-    }
-    Core->SetStaticMesh(PreviewMeshes[0]);
     // A matte emissive backdrop keeps the scene capture within the terminal's dark palette.
     Backdrop=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Backdrop"));Backdrop->SetupAttachment(RootComponent);
     ConstructorHelpers::FObjectFinder<UStaticMesh> BackdropMesh(TEXT("/Engine/BasicShapes/Cube.Cube"));
@@ -38,7 +32,7 @@ AFPSExtractionPreviewStage::AFPSExtractionPreviewStage()
     Backdrop->SetStaticMesh(BackdropMesh.Object);Backdrop->SetMaterial(0,BackdropMaterial.Object);
     Backdrop->SetRelativeLocation(FVector(0,100,0));Backdrop->SetRelativeScale3D(FVector(20,.01,20));
     Backdrop->SetCollisionEnabled(ECollisionEnabled::NoCollision);Backdrop->SetCastShadow(false);
-    for(int32 I=0;I<3;++I)
+    for(int32 I=0;I<FPSAttachments::CategoryCount;++I)
     {
         auto* Part=CreateDefaultSubobject<UStaticMeshComponent>(*FString::Printf(TEXT("Part%d"),I));Part->SetupAttachment(Core);
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision);Part->SetCastShadow(false);Parts.Add(Part);
@@ -83,18 +77,29 @@ bool AFPSExtractionPreviewStage::Present(const FFPSWeaponInstance& Instance)
         Material->SetScalarParameterValue(TEXT("Metallic"),1.f);Material->SetScalarParameterValue(TEXT("Roughness"),1.f);
         Material->SetVectorParameterValue(TEXT("Emissive"),FLinearColor(.029f,.037f,.041f,1));
     }
-    const bool M4=Instance.WeaponId==TEXT("Weapon.M4");
-    UStaticMesh* Mesh=M4?PreviewMeshes[0].Get():nullptr;
-    if(!M4)if(const auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>())if(const auto* Definition=Catalog->Find(Instance.WeaponId))Mesh=Definition->Pickup.Mesh.LoadSynchronous();
-    Core->SetStaticMesh(Mesh);Core->SetRelativeLocation(M4?FVector(-10,0,6):FVector::ZeroVector);
-    ModelWidth=M4?142.f:Mesh?FMath::Max(40.f,Mesh->GetBoundingBox().GetSize().X*1.65f):128.f;
-    Parts[0]->SetStaticMesh(M4&&Instance.AttachmentIds.Contains(TEXT("Attachment.M4_OpticFixed"))?PreviewMeshes[3]:nullptr);
-    Parts[1]->SetStaticMesh(M4?(Instance.AttachmentIds.Contains(TEXT("Attachment.M4_MuzzleBrake"))?PreviewMeshes[4]:PreviewMeshes[2]):nullptr);
-    Parts[2]->SetStaticMesh(M4?(Instance.AttachmentIds.Contains(TEXT("Attachment.M4_MagazineExtended"))?PreviewMeshes[5]:PreviewMeshes[1]):nullptr);
-    PartLabels={TEXT("机械瞄具"),TEXT("标准枪口"),TEXT("标准弹匣")};
-    if(Instance.AttachmentIds.Contains(TEXT("Attachment.M4_OpticFixed")))PartLabels[0]=TEXT("固定倍率瞄具");
-    if(Instance.AttachmentIds.Contains(TEXT("Attachment.M4_MuzzleBrake")))PartLabels[1]=TEXT("枪口制退器");
-    if(Instance.AttachmentIds.Contains(TEXT("Attachment.M4_MagazineExtended")))PartLabels[2]=TEXT("扩容弹匣");
+    const auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+    const auto* Definition=Catalog?Catalog->Find(Instance.WeaponId):nullptr;
+    if(!Definition){Configuration.Empty();return false;}
+    Core->SetStaticMesh(Definition->WorkbenchBody.Get()?Definition->WorkbenchBody.Get():Definition->Pickup.Mesh.Get());
+    Core->SetRelativeLocation(FVector::ZeroVector);
+    MountLocations=Definition->AttachmentMountLocations;
+    ModelWidth=Definition->WorkbenchBody.Get()?142.f:Core->GetStaticMesh()?FMath::Max(40.f,Core->GetStaticMesh()->GetBoundingBox().GetSize().X*1.65f):128.f;
+    PartLabels.SetNum(FPSAttachments::CategoryCount);
+    for(int32 I=0;I<FPSAttachments::CategoryCount;++I)
+    {
+        const auto Category=EFPSAttachmentCategory(I);const FName Mount=FPSAttachments::Mount(Category);
+        const FFPSWeaponPresentation* View=Definition->WorkbenchParts.Find(Mount);
+        if(!View)View=Definition->BuiltinParts.Find(Mount);
+        PartLabels[I]=FString(TEXT("原装"))+FPSAttachments::Label(Category);
+        for(FName Id:Instance.AttachmentIds)if(const auto* Part=Catalog->FindAttachment(Id);Part&&Part->Category==Category)
+        {
+            if(!Part->Workbench.Mesh.IsNull())View=&Part->Workbench;
+            else if(!Part->bUseWeaponPresentation)View=&Part->Pickup;
+            PartLabels[I]=Part->DisplayName.ToString();
+        }
+        Parts[I]->SetStaticMesh(View?View->Mesh.Get():nullptr);
+        Parts[I]->SetRelativeTransform(View?View->Transform:FTransform::Identity);
+    }
     Capture->ShowOnlyComponents.Empty();Capture->ShowOnlyComponent(Core);
     for(const auto& Part:Parts)if(Part->GetStaticMesh())Capture->ShowOnlyComponent(Part.Get());
     return true;
@@ -111,8 +116,8 @@ void AFPSExtractionPreviewStage::Frame(float Yaw,float Pitch,float Zoom,FIntPoin
     if(bIconsDirty)
     {
         ModelRoot->SetRelativeRotation(FRotator::ZeroRotator);
-        Icons.SetNum(3);
-        for(int32 I=0;I<3;++I)
+        Icons.SetNum(FPSAttachments::CategoryCount);
+        for(int32 I=0;I<FPSAttachments::CategoryCount;++I)
         {
             if(!Parts[I]->GetStaticMesh()){Icons[I]=nullptr;continue;}
             if(!Icons[I]){Icons[I]=NewObject<UTextureRenderTarget2D>(this);Icons[I]->RenderTargetFormat=RTF_RGBA8;Icons[I]->ClearColor=FLinearColor(.01f,.017f,.02f,1);Icons[I]->InitAutoFormat(192,112);Icons[I]->UpdateResourceImmediate(true);}
@@ -123,7 +128,9 @@ void AFPSExtractionPreviewStage::Frame(float Yaw,float Pitch,float Zoom,FIntPoin
         }
         bIconsDirty=false;
     }
-    ModelRoot->SetRelativeRotation(FRotator(Pitch,Yaw,0));Core->UpdateBounds();const FVector Center=Core->Bounds.Origin;
+    ModelRoot->SetRelativeRotation(FRotator(Pitch,Yaw,0));Core->UpdateBounds();FBox Bounds=Core->Bounds.GetBox();
+    for(const auto& Part:Parts)if(Part->GetStaticMesh()){Part->UpdateBounds();Bounds+=Part->Bounds.GetBox();}
+    const FVector Center=Bounds.GetCenter();
     Capture->SetWorldLocation(Center+FVector(0,-190,12));Capture->SetWorldRotation((Center-Capture->GetComponentLocation()).Rotation());
     Capture->TextureTarget=Target;Capture->ShowOnlyComponents.Empty();Capture->ShowOnlyComponent(Backdrop);Capture->ShowOnlyComponent(Core);for(const auto& Part:Parts)if(Part->GetStaticMesh())Capture->ShowOnlyComponent(Part);
     Capture->OrthoWidth=ModelWidth*Zoom;
@@ -134,15 +141,14 @@ UTextureRenderTarget2D* AFPSExtractionPreviewStage::IconFor(EFPSAttachmentCatego
 FString AFPSExtractionPreviewStage::PartLabel(EFPSAttachmentCategory Category) const
 {return PartLabels.IsValidIndex(int32(Category))?PartLabels[int32(Category)]:TEXT("");}
 FVector2D UFPSExtractionWeaponViewport::SlotCenter(EFPSAttachmentCategory Category)
-{return SlotPositions[FMath::Clamp(int32(Category),0,2)];}
+{return SlotPositions[FMath::Clamp(int32(Category),0,FPSAttachments::CategoryCount-1)];}
 void UFPSExtractionWeaponViewport::ResetView(){Yaw=bOverview?-18.f:0.f;Pitch=0;Zoom=1;bFrameDirty=true;}
 void UFPSExtractionWeaponViewport::SetOverviewMode(bool Overview)
 {if(bOverview!=Overview){bOverview=Overview;ResetView();}bSlotsVisible=!Overview;}
 FVector2D AFPSExtractionPreviewStage::ProjectMount(EFPSAttachmentCategory Category) const
 {
-    const FVector Local[]={FVector(10,0,10),FVector(59,0,0),FVector(15,0,-17)};
-    const int32 Index=FMath::Clamp(int32(Category),0,2);
-    const FVector Delta=Core->GetComponentTransform().TransformPosition(Local[Index])-Capture->GetComponentLocation();
+    const FVector Local=MountLocations.FindRef(FPSAttachments::Mount(Category));
+    const FVector Delta=Core->GetComponentTransform().TransformPosition(Local)-Capture->GetComponentLocation();
     const float Aspect=Target?float(Target->SizeX)/FMath::Max(1,Target->SizeY):2;
     return FVector2D(.5+FVector::DotProduct(Delta,Capture->GetRightVector())/Capture->OrthoWidth,
         .5-FVector::DotProduct(Delta,Capture->GetUpVector())/(Capture->OrthoWidth/Aspect));
@@ -172,7 +178,7 @@ void UFPSExtractionWeaponViewport::UpdateFrame()
 {
     if(!bActive || !Stage || FrameSize.X<16 || FrameSize.Y<16)return;
     Stage->Frame(Yaw,Pitch,Zoom,FrameSize);ImageBrush.SetResourceObject(Stage->GetImage());ImageBrush.ImageSize=FVector2D(FrameSize);
-    for(int32 I=0;I<3;++I){IconBrushes[I].SetResourceObject(Stage->IconFor(EFPSAttachmentCategory(I)));IconBrushes[I].ImageSize=FVector2D(192,112);}
+    for(int32 I=0;I<FPSAttachments::CategoryCount;++I){IconBrushes[I].SetResourceObject(Stage->IconFor(EFPSAttachmentCategory(I)));IconBrushes[I].ImageSize=FVector2D(192,112);}
     bFrameDirty=false;
 }
 void UFPSExtractionWeaponViewport::NativeTick(const FGeometry& G,float DeltaTime)
@@ -190,7 +196,7 @@ FReply UFPSExtractionWeaponViewport::NativeOnMouseButtonDown(const FGeometry& G,
     if(bSlotsVisible&&E.GetEffectingButton()==EKeys::LeftMouseButton)
     {
         const auto P=G.AbsoluteToLocal(E.GetScreenSpacePosition());
-        for(int32 I=0;I<3;++I){const auto Delta=P-SlotPositions[I]*G.GetLocalSize();if(FMath::Abs(Delta.X)<CardSize.X/2 && FMath::Abs(Delta.Y)<CardSize.Y/2)
+        for(int32 I=0;I<FPSAttachments::CategoryCount;++I){const auto Delta=P-SlotPositions[I]*G.GetLocalSize();if(FMath::Abs(Delta.X)<CardSize.X/2 && FMath::Abs(Delta.Y)<CardSize.Y/2)
         {Selected=EFPSAttachmentCategory(I);OnSlotSelected.Broadcast(Selected);return FReply::Handled();}}
     }
     return Super::NativeOnMouseButtonDown(G,E);
@@ -207,7 +213,7 @@ int32 UFPSExtractionWeaponViewport::NativePaint(const FPaintArgs& A,const FGeome
     FSlateDrawElement::MakeBox(E,L+1,G.ToPaintGeometry(),&ImageBrush);
     if(!bSlotsVisible)return L+1;
     const auto* White=FCoreStyle::Get().GetBrush(TEXT("WhiteBrush"));
-    for(int32 I=0;I<3;++I)
+    for(int32 I=0;I<FPSAttachments::CategoryCount;++I)
     {
         const auto Label=SlotPositions[I]*G.GetLocalSize(),Mount=Stage->ProjectMount(EFPSAttachmentCategory(I))*G.GetLocalSize();
         const FLinearColor Color=Selected==EFPSAttachmentCategory(I)?FLinearColor(.94f,.68f,.08f,1):FLinearColor(.62f,.70f,.70f,1);
@@ -215,10 +221,17 @@ int32 UFPSExtractionWeaponViewport::NativePaint(const FPaintArgs& A,const FGeome
         TArray<FVector2D> Points={Start,Mount};FSlateDrawElement::MakeLines(E,L+2,G.ToPaintGeometry(),Points,ESlateDrawEffect::None,Color.CopyWithNewOpacity(.6f),true,1.f);
         FSlateDrawElement::MakeBox(E,L+3,G.ToPaintGeometry(CardSize,FSlateLayoutTransform(Top)),White,ESlateDrawEffect::None,FLinearColor(.018f,.027f,.031f,.97f));
         TArray<FVector2D> Border={Top,Top+FVector2D(CardSize.X,0),Top+CardSize,Top+FVector2D(0,CardSize.Y),Top};FSlateDrawElement::MakeLines(E,L+4,G.ToPaintGeometry(),Border,ESlateDrawEffect::None,Color.CopyWithNewOpacity(.65f),true,1.f);
-        FSlateDrawElement::MakeText(E,L+4,G.ToPaintGeometry(FVector2D(156,28),FSlateLayoutTransform(Top-FVector2D(0,28))),FString(SlotLabels[I]),FSlateFontInfo(LabelFont.Get(),17),ESlateDrawEffect::None,Color);
+        FSlateDrawElement::MakeText(E,L+4,G.ToPaintGeometry(FVector2D(156,28),FSlateLayoutTransform(Top-FVector2D(0,28))),FString(FPSAttachments::Label(EFPSAttachmentCategory(I))),FSlateFontInfo(LabelFont.Get(),17),ESlateDrawEffect::None,Color);
         if(IconBrushes[I].GetResourceObject())FSlateDrawElement::MakeBox(E,L+4,G.ToPaintGeometry(FVector2D(132,66),FSlateLayoutTransform(Top+FVector2D(12,5))),&IconBrushes[I]);
         else FSlateDrawElement::MakeText(E,L+4,G.ToPaintGeometry(FVector2D(140,40),FSlateLayoutTransform(Top+FVector2D(18,25))),TEXT("+"),FSlateFontInfo(LabelFont.Get(),24),ESlateDrawEffect::None,Color);
-        FSlateDrawElement::MakeText(E,L+5,G.ToPaintGeometry(FVector2D(148,25),FSlateLayoutTransform(Top+FVector2D(7,77))),Stage->PartLabel(EFPSAttachmentCategory(I)),FSlateFontInfo(LabelFont.Get(),14),ESlateDrawEffect::None,FLinearColor(.8f,.84f,.83f,1));
+        FString Name=Stage->PartLabel(EFPSAttachmentCategory(I));const FSlateFontInfo NameFont(LabelFont.Get(),14);
+        const auto Measure=FSlateApplication::Get().GetRenderer()->GetFontMeasureService();
+        if(Measure->Measure(Name,NameFont).X>CardSize.X-14)
+        {
+            while(!Name.IsEmpty()&&Measure->Measure(Name+TEXT("…"),NameFont).X>CardSize.X-14)Name.LeftChopInline(1);
+            Name+=TEXT("…");
+        }
+        FSlateDrawElement::MakeText(E,L+5,G.ToPaintGeometry(FVector2D(148,25),FSlateLayoutTransform(Top+FVector2D(7,77))),Name,NameFont,ESlateDrawEffect::None,FLinearColor(.8f,.84f,.83f,1));
         TArray<FVector2D> MountBox={Mount-FVector2D(4,4),Mount+FVector2D(4,-4),Mount+FVector2D(4,4),Mount+FVector2D(-4,4),Mount-FVector2D(4,4)};FSlateDrawElement::MakeLines(E,L+5,G.ToPaintGeometry(),MountBox,ESlateDrawEffect::None,Color,true,1.f);
     }
     return L+5;

@@ -2,7 +2,7 @@
 
 - 用途：实施与验证记录
 - 适用范围：实验分支的物品、存档、加工、配件和独立模式集成
-- 状态：实体格子闭环与 v4 双层改枪台运行通过；PIE、打包与真人完整游玩未验证
+- 状态：实体格子闭环、v4 改枪台与工厂入口仓库数量操作运行通过；PIE、打包与真人完整游玩未验证
 - 最后更新：2026-10-15
 
 基点为 `c255cf5`，工作分支 `codex/extraction-loop-lab`。开工时工作区已有 M7 美术、移动及武器内容等未提交改动，保留且不归入本轮交付。
@@ -80,5 +80,34 @@
 - 前一批 `UI-20261015-145557755` 的逐进程检查通过，但共享 DLL 在测试期间被并行任务替换，汇总失败，不作为最终验收。固定副本第一次启动 `UI-20261015-150249089` 卡在平台 SDK 扫描并超时；加入多进程运行标记后，用同一固定模块完成上述复验。
 - 验证入口仍为工业关隘的基地模式。并行任务修改了另一个 FactoryBase 地图，该地图未被此批测试加载；本次结果不证明可走动工厂地图的集成。测试以独立个人档案运行，不修改玩家存档。PIE、正式打包及完整人工游玩仍未验证。
 - 实机截图：[武器概览](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/ReferenceOverview.png)、[中央改装与配件连线](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/ReferenceModification.png)、[兼容库存抽屉](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/Previews/ReferenceDrawer.png)。M4 仍为已有实验预览模型，正式枪械美术接入单独处理。
+
+## 仓库与背包数量操作
+
+2026-10-15 用户选择继续仓库与背包功能。本轮在现有占格系统中增加指定数量拆分、Ctrl+左键快速互转和同类堆叠部分合并。来源余量保留物理 ID、格子与朝向；整堆自动转移到新格子时保留 ID。拆分在副本上寻找连续空位，只有存档写入成功才发布基地库存，局内拆分只修改本次背包，不改变出征快照。
+
+`FPSExtractionGrid` 负责事务，`FPSExtractionGridUI` 与新增的 `FPSExtractionSplitDialog` 负责原生鼠标事件和数量编辑。弹窗复用既有字体和主题，不迁移或覆盖终端 WBP。`FPSExtractionUI::CommitInventoryDrag` 仅补充余量仍在来源时保持原选择。测试入口 [Tools/TestFPSInventory.ps1](../../../Tools/TestFPSInventory.ps1) 使用独立档案和固定模块副本，调用真实世界中的库存 API、原生格子事件与 UMG 控件事件，并分进程验证存档恢复。
+
+数量操作实现完成并通过隔离 standalone 验证。首轮 `Saved/InventoryTests/20261015-160527971/run.json` 两种分辨率通过；人工查看截图后修正了数量输入框对比度，并更新仓库操作提示。
+
+- 最终记录：`Saved/InventoryTests/20261015-161218022/run.json`，1280×800 与 1920×1080 各通过 37 项操作检查，随后分别启动全新进程，核对数量、物理 ID、位置与旋转完全恢复。两种分辨率各四张截图齐全，进程正常退出，已人工查看仓库、数量弹窗及局内背包弹窗。
+- 覆盖无效数量/容器/过期 ID、同容器及跨容器部分合并、满容器拆分失败、快捷转移尝试合并后空间不足的整体回滚、隔离存档写入失败、原生鼠标右键与 Ctrl+点击、取消及 Esc、真实出征后的局内拆分与仓库访问拒绝、失败结算恢复原整备快照。UI 使用原生控件事件，失败结算调用正式接口，不声称是完整 OS 输入路由或自然死亡战斗测试。
+- 最终模块 SHA256 `D2BEF8AD5D82D57C606173B83BE413F28FEE2D63A11EC08DCFBBE50FE5969CBF`。`Saved/InventoryTests/Build/Editor5.log` 中本轮源码编译通过，但其他编辑器占用主 DLL，链接失败；随后复用 UBT 生成的响应文件，仅将 DLL/PDB 输出改到 `Saved/InventoryTests/Build/FinalLink/` 独立链接成功。`verification.json` 核对链接前后 46 个对象文件未变化。
+- 当时主项目新增的七个武器定义缺少已保存的伤害配置，`Editor3.log`、`Editor4.log` 的构建后内容校验失败，未记为完整构建成功。该批运行使用已通过武器内容校验的 `Saved/HitDamageBuild/Content` 隔离资产副本；测试记录保存了实际内容路径与 UI/武器资产哈希，并核对测试期间未变化。该批尚未完成主项目集成，后续复验见下节。
+- 验证脚本默认使用当前项目模块与内容，`-ModulePath` 和 `-ContentRoot` 可显式选择隔离版本。所有测试存档写入本轮运行目录的独立 Runtime，不接触玩家存档。PIE、打包与完整人工游玩仍未验证。大厅 UI 由美术聊天单独实现，本记录不表示大厅已完成。
+
+### 主工程工厂入口复验
+
+2026-10-15 按用户要求继续集成。经用户授权通知 M7 聊天后，其预览编辑器正常退出，释放主 DLL；大厅聊天负责补齐七份武器定义的已保存引用并重新导出武器审阅记录。标准 Editor Development 构建通过，见 `Saved/FPSExtraction/UI/LobbyIntegration/20261015-181434098/EditorBuild2.log`；同目录 `WeaponValidation2.log` 记录 `FPS_WEAPON_DATA PASS definitions=7`。迁移及大厅本身的验收范围见 [大厅实施记录](../UI/LobbyImplementation.md)。
+
+仓库验证默认入口改为真实 `FactoryBase` 地图与 `-FactoryLobby`。`AFPSFactoryMode::Tick` 加入仅由开发测试参数启用的库存验证入口；测试通过工厂控制器取得嵌套终端，经过 Slate 命中测试与鼠标事件点击大厅仓库按钮，再执行数量事务、出征和失败返回，补齐旧工业关隘基地入口没有覆盖的工厂集成。
+
+- 最终记录：`Saved/InventoryTests/20261015-183102982/run.json`，使用主项目 `Content` 和主项目模块的固定运行副本。模块 SHA256 `CF2944614ED53C4C7112FF818E495B841C7BF9D4BFD20CC11594B3DCBAAE6BC9`；`verification.json` 确认交付检查时仍与主 DLL 一致，仓库相关源码未变化。
+- 1280×800 与 1920×1080 各通过 41 项检查，再各启动全新进程，精确核对持久化数量、物理 ID、位置与旋转。四个进程均正常退出，UI、武器及工厂地图资产哈希未变化，八张截图齐全。已查看仓库格子、数量弹窗和局内背包弹窗，文字与确认按钮可读。
+- 新增覆盖实际工厂大厅、仓库按钮可命中和事件路由、失败结算返回同一工厂大厅；原 37 项事务和背包检查继续通过。测试调用 Slate/UMG 事件和正式结算接口，不等同于完整操作系统输入、自然死亡战斗或真人完整游玩。
+- 前一批 `Saved/InventoryTests/20261015-182742777/run.json` 同样通过，但运行期间主 DLL 被后续统一构建更新；其冻结模块为 `5C45C273CB9DB0F7D6B0D0F1F5144FE83325515CE517C5513D468E4D31B48B84`。最终批次针对更新后的主模块重新完成两种分辨率及读档，不将前一批代作当前模块证据。
+
+仓库数量操作的主工程 standalone 集成已验证；PIE、打包与完整人工游玩仍未验证。本轮没有修改网络或 GAS 行为。
+
+2026-10-15 按用户要求清理测试产物：删除以上四批库存测试的 `Runtime` 临时运行副本，以及 `Build/FinalLink` 下的旧 DLL/PDB；只移除临时 `Content` 目录链接，保留其目标资产。原验收报告、日志、截图、链接响应文件和对象哈希记录保留。最终批的四份隔离存档已移至 `Saved/InventoryTests/20261015-183102982/PersistenceSamples/` 并核对哈希；玩家存档未改动。清理清单见 `Saved/InventoryTests/Cleanup-20261015-192317790.json`。历史 `run.json` 仍记录当时的运行路径，其中已删除的运行副本不再可直接启动；再次验证由 `Tools/TestFPSInventory.ps1` 创建新的副本。
 
 返回 [实验索引](README.md)。

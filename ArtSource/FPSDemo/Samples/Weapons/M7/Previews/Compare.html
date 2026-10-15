@@ -47,23 +47,24 @@
     <div>
       <div class="eyebrow">M7 / MATERIAL STUDY</div>
       <h1>前后渲染对照</h1>
-      <p class="subtitle">四组 Blender 真实渲染 · 相同机位与统一灯光</p>
+      <p class="subtitle">五组 Blender 真实渲染 · 相同机位与统一灯光</p>
     </div>
     <span class="badge">样品 · 待视觉验收 · 未验证 Unreal</span>
   </header>
   <p class="scope">当前样品同时包含<strong>护木／镂空外壳长度与侧壳体积、前端轮廓、连续顶导轨，以及材质和功能标记变化</strong>。上方三角肩更窄，两斜面向窄顶轨台汇拢，收肩处有明确折线与坡度转折；仅中段圆鼓，并沿护木全长度保持相同鼓度，下缘回收，侧板跟随曲面。护木后中段加长，外露圆管恢复参考比例。全枪前后差异不能全部归因于材质。改前为 GeometryV2 基线，改后为当前样品的实际渲染。</p>
-  <p class="note" id="iteration-status">当前几何已修订，前鼻连接改为连续外凸弧，弧顶圆润；最终几何、贴图、导出和渲染核对以匹配当前源文件的 <a href="../Validation.json">Validation.json</a> 为准。尚未验证 Unreal 或完成用户视觉验收，技术检查成功不代表外观已被接受。</p>
+  <p class="note" id="iteration-status">本轮保留独立堤风枪管配件，参照用户截图重做机匣分层、细长槽、跨层竖件、弹匣井和扳机护圈。新增枪身侧视对照，改前为本轮开始前保存的样品；其余四组改前仍为 GeometryV2 基线。最终核对以匹配当前源文件的 <a href="../Validation.json">Validation.json</a> 为准。</p>
   <nav class="views" aria-label="对照视角">
-    <button type="button" data-view="tidal" aria-pressed="true">堤风全枪</button>
+    <button type="button" data-view="core" aria-pressed="true">枪身侧视</button>
+    <button type="button" data-view="tidal" aria-pressed="false">堤风全枪</button>
     <button type="button" data-view="receiver" aria-pressed="false">机匣与弹匣</button>
     <button type="button" data-view="grip" aria-pressed="false">共振一代握把</button>
     <button type="button" data-view="rail" aria-pressed="false">上导轨</button>
   </nav>
-  <div class="stage" id="stage" role="group" aria-label="堤风全枪前后渲染对照">
-    <img id="after-image" src="Preview_Equipped_Tidal.png" alt="改后：当前堤风全枪样品">
-    <img id="before-image" class="before" src="Before_Equipped_Tidal.png" alt="改前：GeometryV2 堤风全枪基线">
+  <div class="stage" id="stage" role="group" aria-label="枪身侧视前后渲染对照">
+    <img id="after-image" src="Preview_Core_Reference_Side.png" alt="改后：当前枪身样品">
+    <img id="before-image" class="before" src="Before_Core_Reference_Side.png" alt="改前：本轮开始前的枪身样品">
     <div class="divider" aria-hidden="true"></div>
-    <span class="image-label left-label">改前 · 几何基线</span>
+    <span class="image-label left-label">改前 · 本轮开始前</span>
     <span class="image-label right-label">改后 · 当前样品</span>
     <p id="image-error" class="error" hidden>当前视图图片尚未生成或无法读取，请核对 README 中的实际渲染流程。</p>
   </div>
@@ -73,19 +74,22 @@
     <output id="split-value" for="split">50%</output>
   </div>
   <div class="details">
-    <p id="view-description" aria-live="polite">观察更窄的上方三角肩、收肩处明确的折线与坡度转折，以及沿护木全长度保持相同鼓度的中段圆鼓和下缘回收。侧板跟随曲面，顶导轨连续，外露圆管保持参考比例；该视图包含几何和材质的共同变化。</p>
+    <p id="view-description" aria-live="polite">同机位查看本轮枪身调整：压薄上机匣、真实细长槽和机械座、跨层竖件、斜弹匣井、弧形护圈，以及后握把连接肩。堤风配件形体、挂点、贴图与独立导出文件保持冻结。</p>
     <div class="files">
-      <a id="before-link" href="Before_Equipped_Tidal.png" target="_blank" rel="noopener">打开改前原图</a>
-      <a id="after-link" href="Preview_Equipped_Tidal.png" target="_blank" rel="noopener">打开改后原图</a>
+      <a id="before-link" href="Before_Core_Reference_Side.png" target="_blank" rel="noopener">打开改前原图</a>
+      <a id="after-link" href="Preview_Core_Reference_Side.png" target="_blank" rel="noopener">打开改后原图</a>
     </div>
   </div>
   <p class="note">拖动滑块查看两幅原始渲染，左右方向键也可调整。对照页仅裁切显示图片，不编辑图像；金属、聚合物、橡胶的表现以克制工业风格为依据。</p>
   <p class="note"><a href="Preview_Tidal_Nose_Detail.png" target="_blank" rel="noopener">查看前端轮廓近景原图</a> · 该单图为 Blender 真实渲染，观察连续外凸的连接弧和圆润弧顶。</p>
-  <p class="footer"><a href="../README.md">资产交接与完整重建命令</a> · 预览结果不代表 Unreal 中的实际材质表现或视觉验收通过。</p>
+  <p class="note"><a href="Preview_RearRail_Detail.png" target="_blank" rel="noopener">查看尾部导轨近景原图</a> · 本轮尾部缩短两个齿位，末端落在机匣顶部支撑面上。</p>
+  <p class="note">满改版现使用两件新配件：<a href="Preview_ShadowRail_ThreeQuarter.png" target="_blank" rel="noopener">影袭导轨后托</a> · <a href="Preview_Phantom_ThreeQuarter.png" target="_blank" rel="noopener">幻影后握把</a>。原枪默认配置与旧配件保留；这些单图均为 Blender 真实渲染。</p>
+  <p class="footer"><a href="../README.md">资产交接与枪身重建命令</a> · 预览结果不代表 Unreal 中的实际材质表现或视觉验收通过。</p>
 </main>
 <script>
 (() => {
   const views = {
+    core: { title:'枪身侧视', before:'Before_Core_Reference_Side.png', after:'Preview_Core_Reference_Side.png', baseline:'本轮改前样品', description:'同机位查看本轮枪身调整：压薄上机匣、真实细长槽和机械座、跨层竖件、斜弹匣井、弧形护圈，以及后握把连接肩。堤风配件形体、挂点、贴图与独立导出文件保持冻结。' },
     tidal: { title:'堤风全枪', before:'Before_Equipped_Tidal.png', after:'Preview_Equipped_Tidal.png', description:'观察更窄的上方三角肩、收肩处明确的折线与坡度转折，以及沿护木全长度保持相同鼓度的中段圆鼓和下缘回收。侧板跟随曲面，顶导轨连续，外露圆管保持参考比例；该视图包含几何和材质的共同变化。' },
     receiver: { title:'机匣与弹匣', before:'Before_Receiver_Magazine_Detail.png', after:'Preview_Receiver_Magazine_Detail.png', description:'观察涂装金属、五金、聚合物的粗糙度和接触区局部磨损，核对功能标记的清晰度。' },
     grip: { title:'共振一代握把', before:'Before_ResonanceGen1_Detail.png', after:'Preview_ResonanceGen1_Detail.png', description:'观察握持区的材质分层、橡胶颗粒、聚合物和五金区分；同机位对照保留附近配件的几何差异。' },
@@ -100,7 +104,7 @@
   const description = document.getElementById('view-description');
   const beforeLink = document.getElementById('before-link');
   const afterLink = document.getElementById('after-link');
-  let currentView = 'tidal';
+  let currentView = 'core';
   let failed = new Set();
   function updateSplit() {
     stage.style.setProperty('--split', split.value + '%');
@@ -123,7 +127,8 @@
     error.hidden = true;
     before.src = view.before;
     after.src = view.after;
-    before.alt = '改前：GeometryV2 ' + view.title + '基线';
+    before.alt = '改前：' + (view.baseline || 'GeometryV2 基线') + ' · ' + view.title;
+    document.querySelector('.left-label').textContent = '改前 · ' + (view.baseline || 'GeometryV2 基线');
     after.alt = '改后：当前' + view.title + '样品';
     stage.setAttribute('aria-label', view.title + '前后渲染对照');
     beforeLink.href = view.before;

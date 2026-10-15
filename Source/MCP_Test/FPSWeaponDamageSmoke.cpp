@@ -1,6 +1,8 @@
 #include "FPSWeaponDamageSmoke.h"
 #include "FPSWeaponComponent.h"
 #include "FPSWeaponShot.h"
+#include "FPSHitRegions.h"
+#include "Components/BoxComponent.h"
 #include "FPSDemoCharacter.h"
 #include "FPSDemoAttributeSet.h"
 #include "FPSDemoGameState.h"
@@ -38,7 +40,7 @@ void FFPSWeaponDamageSmoke::Tick(UFPSWeaponComponent* W)
     auto At = [&](int32 T, auto Fn) { if (Time >= T / 10. && !P.Done.Contains(T)) { P.Done.Add(T); Fn(); } };
     auto Fire = [&]()
     {
-        Pawn->GetController()->SetControlRotation((Target->GetActorLocation() + FVector(0,0,40) - Pawn->GetPawnViewLocation()).Rotation());
+        Pawn->GetController()->SetControlRotation(((Target->GetHitRegions()->FindBody(TEXT("Torso")) ? Target->GetHitRegions()->FindBody(TEXT("Torso"))->GetComponentLocation() : Target->GetActorLocation()) - Pawn->GetPawnViewLocation()).Rotation());
         W->StartFire(); W->StopFire();
     };
     At(0, [&]()
@@ -64,7 +66,7 @@ void FFPSWeaponDamageSmoke::Tick(UFPSWeaponComponent* W)
             W->Character()->GetAbilitySystemComponent()->SetNumericAttributeBase(UFPSDemoAttributeSet::GetWeaponDamageAttribute(), 999);
         });
     });
-    At(5, [&]() { if (!Server) Pawn->GetController()->SetControlRotation((Target->GetActorLocation() + FVector(0,0,40) - Pawn->GetPawnViewLocation()).Rotation()); });
+    At(5, [&]() { if (!Server) Pawn->GetController()->SetControlRotation(((Target->GetHitRegions()->FindBody(TEXT("Torso")) ? Target->GetHitRegions()->FindBody(TEXT("Torso"))->GetComponentLocation() : Target->GetActorLocation()) - Pawn->GetPawnViewLocation()).Rotation()); });
     At(15, [&]() { if (!Server) Fire(); });
     At(35, [&]()
     {

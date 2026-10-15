@@ -6,6 +6,29 @@
 #include "FPSExtractionGridUI.generated.h"
 
 class UFPSExtractionUI;
+class UFPSExtractionGridUI;
+
+/** A quantity editor changes no inventory until its explicit confirm action. */
+UCLASS()
+class MCP_TEST_API UFPSExtractionSplitDialog : public UUserWidget
+{
+    GENERATED_BODY()
+public:
+    void OpenFor(UFPSExtractionGridUI* Grid,FGuid Id,int32 Quantity);
+    void Close();
+    virtual FReply NativeOnPreviewKeyDown(const FGeometry& Geometry,const FKeyEvent& Event) override;
+protected:
+    virtual TSharedRef<SWidget> RebuildWidget() override;
+    virtual void NativeTick(const FGeometry& Geometry,float DeltaSeconds) override;
+private:
+    UFUNCTION() void Confirm();
+    UFUNCTION() void Cancel();
+    TWeakObjectPtr<UFPSExtractionGridUI> Source;
+    FGuid StackId;
+    int32 OriginalQuantity=0;
+    EFPSExtractionPhase Phase=EFPSExtractionPhase::Base;
+    UPROPERTY(Transient) TObjectPtr<class USpinBox> QuantityInput;
+};
 
 UCLASS()
 class MCP_TEST_API UFPSExtractionGridDrag : public UDragDropOperation
@@ -40,6 +63,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Inventory") FLinearColor GridColor = FLinearColor(.14f,.18f,.19f,1);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Inventory") FLinearColor ItemColor = FLinearColor(.075f,.11f,.12f,1);
     void Present(UFPSExtractionUI* Owner,const FFPSExtractionView& View,const TArray<FFPSExtractionItem>& Items);
+    UFPSExtractionSplitDialog* GetSplitDialog() const { return SplitDialog.Get(); }
 public:
     // Public native event overrides also permit development tests to drive the same UI path.
     virtual int32 NativePaint(const FPaintArgs& Args,const FGeometry& Geometry,const FSlateRect& CullingRect,FSlateWindowElementList& Elements,int32 Layer,const FWidgetStyle& Style,bool bParentEnabled) const override;
@@ -48,12 +72,15 @@ public:
     virtual bool NativeOnDragOver(const FGeometry& Geometry,const FDragDropEvent& Event,UDragDropOperation* Operation) override;
     virtual void NativeOnDragLeave(const FDragDropEvent& Event,UDragDropOperation* Operation) override;
     virtual bool NativeOnDrop(const FGeometry& Geometry,const FDragDropEvent& Event,UDragDropOperation* Operation) override;
+    virtual void NativeDestruct() override;
 private:
+    friend class UFPSExtractionSplitDialog;
     const FFPSExtractionItem* Definition(FName Id) const;
     const FFPSExtractionStack* Hit(int32 X,int32 Y) const;
     bool PreviewFits(const UFPSExtractionGridDrag& Drag,int32 X,int32 Y,FString& Reason) const;
     FIntPoint CellAt(const FGeometry& Geometry,FVector2D Absolute) const;
     TWeakObjectPtr<UFPSExtractionUI> OwnerUI;
+    UPROPERTY(Transient) TObjectPtr<UFPSExtractionSplitDialog> SplitDialog;
     TArray<FFPSExtractionStack> Stacks;
     TArray<FFPSExtractionItem> Definitions;
     int32 Columns = 8,Rows = 8;

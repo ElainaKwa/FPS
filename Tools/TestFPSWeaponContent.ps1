@@ -1,4 +1,4 @@
-param([string]$EngineRoot = 'D:\UE\UE_5.8', [string]$PackageExecutable = '', [string]$LogRoot = '', [switch]$Attachments)
+param([string]$EngineRoot = 'D:\UE\UE_5.8', [string]$PackageExecutable = '', [string]$LogRoot = '', [switch]$Attachments, [switch]$HitDamage)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $exe = Join-Path $EngineRoot 'Engine\Binaries\Win64\UnrealEditor.exe'
@@ -8,7 +8,7 @@ if (!(Test-Path -LiteralPath $exe)) { throw "Unreal executable missing: $exe" }
 if (!$LogRoot) { $LogRoot = Join-Path $root 'Saved/FPSFlowTests' }
 $LogRoot = [System.IO.Path]::GetFullPath($LogRoot)
 New-Item -ItemType Directory -Path $LogRoot -Force | Out-Null
-$changes = if ($Attachments) { @('attachment') } else { @('capacity', 'interval') }
+$changes = if ($HitDamage) { @('hitdamage') } elseif ($Attachments) { @('attachment') } else { @('capacity', 'interval') }
 foreach ($change in $changes) {
     $serverLog = Join-Path $LogRoot "Content-$change-server.log"
     $clientLog = Join-Path $LogRoot "Content-$change-client.log"

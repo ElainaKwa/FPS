@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "FPSWeaponData.h"
+#include "FPSHitDamage.h"
 
 class AFPSDemoCharacter;
 
@@ -16,6 +17,7 @@ struct FFPSWeaponShotContext
     FGuid InstanceId;
     uint32 ShotSerial = 0;
     float BaseDamage = 0;
+    FFPSHitDamageMultipliers HitMultipliers;
     float Range = 0;
     TWeakObjectPtr<USoundBase> FireSound;
 

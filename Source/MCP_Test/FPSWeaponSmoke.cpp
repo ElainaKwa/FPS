@@ -16,7 +16,7 @@
 void FFPSWeaponSmoke::Start(AFPSMatchMode* Mode)
 {
 #if !UE_BUILD_SHIPPING
-    if (!FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponAbilitySmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponPresentationSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke"))) return;
+    if (!FParse::Param(FCommandLine::Get(), TEXT("FPSHitDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponAbilitySmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponDamageSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSWeaponPresentationSmoke")) && !FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke"))) return;
     FTimerHandle Timer;
     TWeakObjectPtr<AFPSMatchMode> WeakMode(Mode);
     Mode->GetWorldTimerManager().SetTimer(Timer, [WeakMode]()

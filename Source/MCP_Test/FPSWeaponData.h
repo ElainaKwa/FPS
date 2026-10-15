@@ -7,6 +7,7 @@
 #include "FPSWeaponData.generated.h"
 
 class USoundBase;
+class UFPSHitDamageProfile;
 class UFPSAttachmentDefinition;
 struct FFPSResolvedWeaponStats;
 UENUM(BlueprintType)
@@ -46,6 +47,7 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Ammunition") int32 InitialMagazine = 30;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Ammunition") int32 InitialReserve = 90;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float Damage = 25;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") TSoftObjectPtr<UFPSHitDamageProfile> HitDamageProfile;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float FireInterval = .1f;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") float Range = 6000;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Firing") EFPSFireMode FireMode = EFPSFireMode::Automatic;
@@ -65,6 +67,13 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation FirstPerson;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation ThirdPerson;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation Pickup;
+    // Optional modular bodies preserve the original presentation and reload rig as references.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments|Presentation") TSoftObjectPtr<UStaticMesh> ModularBody;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments|Presentation") TSoftObjectPtr<UStaticMesh> ModularReloadBody;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments|Presentation") TSoftObjectPtr<UStaticMesh> WorkbenchBody;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments|Presentation") TMap<FName, FFPSWeaponPresentation> BuiltinParts;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments|Presentation") TMap<FName, FFPSWeaponPresentation> WorkbenchParts;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Attachments|Presentation") TMap<FName, FVector> AttachmentMountLocations;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FVector HipLocation = FVector(42,18,-18);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FVector AimLocation = FVector(38,0,-6.7);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FVector MuzzleLocation = FVector(56,0,0);
@@ -167,7 +176,7 @@ public:
     bool IsReady() const { return bReady; }
     const TArray<FName>& RequiredIds() const { return SessionIds; }
     const FString& Digest() const { return SessionDigest; }
-    static constexpr int32 ManifestVersion = 9;
+    static constexpr int32 ManifestVersion = 11;
     const UFPSWeaponDefinition* Find(FName WeaponId) const;
     const UFPSAttachmentDefinition* FindAttachment(FName AttachmentId) const;
     bool Resolve(FName WeaponId, const TArray<FName>& AttachmentIds, FFPSResolvedWeaponStats& Out, TArray<FString>& Errors) const;

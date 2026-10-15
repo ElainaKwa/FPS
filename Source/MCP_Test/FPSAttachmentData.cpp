@@ -11,6 +11,17 @@
 #include "UObject/ObjectSaveContext.h"
 #endif
 
+const TCHAR* FPSAttachments::Label(EFPSAttachmentCategory Category)
+{
+    const TCHAR* Labels[] = {TEXT("瞄具"), TEXT("枪口"), TEXT("弹匣"), TEXT("后握把"), TEXT("枪托"), TEXT("枪管")};
+    return IsCategory(Category) ? Labels[uint8(Category)] : TEXT("未知部位");
+}
+FName FPSAttachments::Mount(EFPSAttachmentCategory Category)
+{
+    const TCHAR* Names[] = {TEXT("Mount.Optic"), TEXT("Mount.Muzzle"), TEXT("Mount.Magazine"), TEXT("Mount.RearGrip"), TEXT("Mount.Stock"), TEXT("Mount.Barrel")};
+    return IsCategory(Category) ? FName(Names[uint8(Category)]) : NAME_None;
+}
+
 namespace
 {
 bool StableName(FName Name, const TCHAR* Prefix)
@@ -30,7 +41,7 @@ void UFPSAttachmentDefinition::ValidateDefinition(TArray<FString>& Errors) const
     Require(StableName(AttachmentId, TEXT("Attachment.")), TEXT("AttachmentId must be Attachment.<stable name>"));
     Require(!DisplayName.IsEmpty(), TEXT("DisplayName required"));
     Require(StableName(MountId, TEXT("Mount.")), TEXT("MountId must be Mount.<stable name>"));
-    Require(Category == EFPSAttachmentCategory::Optic || Category == EFPSAttachmentCategory::Muzzle || Category == EFPSAttachmentCategory::Magazine, TEXT("Invalid attachment category"));
+    Require(FPSAttachments::IsCategory(Category), TEXT("Invalid attachment category"));
     Require(bUniversal ? Platforms.IsEmpty() : !Platforms.IsEmpty(), TEXT("Universal parts must have no platform whitelist; platform parts require a whitelist"));
     TSet<FName> Seen;
     for (FName Platform : Platforms)
@@ -43,21 +54,28 @@ void UFPSAttachmentDefinition::ValidateDefinition(TArray<FString>& Errors) const
     Require(FMath::IsFinite(VerticalRecoilMultiplier) && VerticalRecoilMultiplier >= 0 && FMath::IsFinite(HorizontalRecoilMultiplier) && HorizontalRecoilMultiplier >= 0, TEXT("Recoil multipliers must be finite and nonnegative"));
     Require(FMath::IsFinite(AimFOV) && AimFOV > 0 && AimFOV < 180 && !AimLocation.ContainsNaN(), TEXT("Invalid optic view parameters"));
     Require(Category == EFPSAttachmentCategory::Magazine || (CapacityDelta == 0 && ReloadTimeMultiplier == 1), TEXT("Only magazines can modify capacity/reload time"));
-    Require(Category == EFPSAttachmentCategory::Muzzle || (VerticalRecoilMultiplier == 1 && HorizontalRecoilMultiplier == 1 && FireSound.IsNull()), TEXT("Only muzzles can modify recoil/fire sound"));
-    Require(Category == EFPSAttachmentCategory::Optic || (!bOverrideAim && AimTimeMultiplier == 1), TEXT("Only optics can modify aiming"));
+    const bool Handling = Category == EFPSAttachmentCategory::RearGrip || Category == EFPSAttachmentCategory::Stock || Category == EFPSAttachmentCategory::Barrel;
+    Require(Category == EFPSAttachmentCategory::Muzzle || Handling || (VerticalRecoilMultiplier == 1 && HorizontalRecoilMultiplier == 1), TEXT("Recoil modifiers require muzzle, rear grip, stock or barrel"));
+    Require(Category == EFPSAttachmentCategory::Muzzle || FireSound.IsNull(), TEXT("Only muzzles can override fire sound"));
+    Require(Category == EFPSAttachmentCategory::Optic || !bOverrideAim, TEXT("Only optics can override aim view"));
+    Require(Category == EFPSAttachmentCategory::Optic || Handling || AimTimeMultiplier == 1, TEXT("ADS modifiers require optic, rear grip, stock or barrel"));
+    Require(FMath::IsFinite(RangeMultiplier) && RangeMultiplier > 0 && (Category == EFPSAttachmentCategory::Barrel || RangeMultiplier == 1), TEXT("Positive finite range modifier requires barrel"));
     for (const auto* View : {&FirstPerson, &ThirdPerson, &Pickup})
     {
         Require(bUseWeaponPresentation ? View->Mesh.IsNull() : Saved(View->Mesh.Get()), TEXT("Explicit base presentation requires empty meshes; custom presentation requires three saved meshes"));
         const FVector Scale = View->Transform.GetScale3D();
         Require(View->Transform.IsValid() && Scale.X > 0 && Scale.Y > 0 && Scale.Z > 0, TEXT("Invalid attachment transform"));
     }
+    Require(Workbench.Mesh.IsNull() || Saved(Workbench.Mesh.Get()), TEXT("Invalid optional workbench mesh"));
+    const FVector WorkbenchScale = Workbench.Transform.GetScale3D();
+    Require(Workbench.Transform.IsValid() && WorkbenchScale.X > 0 && WorkbenchScale.Y > 0 && WorkbenchScale.Z > 0, TEXT("Invalid workbench transform"));
     Require(FireSound.IsNull() || Saved(FireSound.Get()), TEXT("Invalid optional fire sound"));
 }
 
 TArray<FSoftObjectPath> UFPSAttachmentDefinition::Resources() const
 {
     TArray<FSoftObjectPath> Paths;
-    for (const auto& Path : {FirstPerson.Mesh.ToSoftObjectPath(), ThirdPerson.Mesh.ToSoftObjectPath(), Pickup.Mesh.ToSoftObjectPath(), FireSound.ToSoftObjectPath()})
+    for (const auto& Path : {FirstPerson.Mesh.ToSoftObjectPath(), ThirdPerson.Mesh.ToSoftObjectPath(), Pickup.Mesh.ToSoftObjectPath(), Workbench.Mesh.ToSoftObjectPath(), FireSound.ToSoftObjectPath()})
         if (!Path.IsNull()) Paths.AddUnique(Path);
     return Paths;
 }
@@ -73,7 +91,7 @@ FString UFPSAttachmentDefinition::ContentDigest(TArray<FString>& Errors) const
     TArray<FName> Sorted = Platforms; Sorted.Sort(FNameLexicalLess()); Add(Sorted.Num());
     for (FName Platform : Sorted) Add(Platform.ToString().ToLower());
     Add(CapacityDelta); Add(ReloadTimeMultiplier); Add(VerticalRecoilMultiplier); Add(HorizontalRecoilMultiplier);
-    Add(bOverrideAim); Add(AimFOV); Add(AimLocation); Add(AimTimeMultiplier); Add(bUseWeaponPresentation);
+    Add(bOverrideAim); Add(AimFOV); Add(AimLocation); Add(AimTimeMultiplier); Add(RangeMultiplier); Add(bUseWeaponPresentation);
     auto Resource = [&](const FSoftObjectPath& Path)
     {
         Add(!Path.IsNull());
@@ -85,7 +103,7 @@ FString UFPSAttachmentDefinition::ContentDigest(TArray<FString>& Errors) const
 #endif
         Add(*Version);
     };
-    for (const auto* View : {&FirstPerson, &ThirdPerson, &Pickup}) { Add(View->Transform); Resource(View->Mesh.ToSoftObjectPath()); }
+    for (const auto* View : {&FirstPerson, &ThirdPerson, &Pickup, &Workbench}) { Add(View->Transform); Resource(View->Mesh.ToSoftObjectPath()); }
     Resource(FireSound.ToSoftObjectPath());
     return FPSContent::Hash(Bytes);
 }
@@ -144,7 +162,7 @@ bool FFPSAttachmentResolver::Resolve(const UFPSWeaponDefinition& Weapon, const T
     FFPSResolvedWeaponStats Result;
     Result.MagazineSize = Weapon.MagazineSize; Result.ReloadDuration = Weapon.ReloadDuration;
     Result.AimTransitionTime = Weapon.AimTransitionTime; Result.AimFOV = Weapon.AimFOV; Result.AimLocation = Weapon.AimLocation;
-    Result.FireSound = Weapon.FireSound;
+    Result.FireSound = Weapon.FireSound; Result.Range = Weapon.Range;
     TArray<const UFPSAttachmentDefinition*> Sorted;
     for (const auto* Def : Attachments)
         if (Def) Sorted.Add(Def); else Errors.Add(TEXT("Null attachment definition"));
@@ -165,11 +183,12 @@ bool FFPSAttachmentResolver::Resolve(const UFPSWeaponDefinition& Weapon, const T
         Capacity += Def->CapacityDelta;
         Result.ReloadDuration *= Def->ReloadTimeMultiplier; Result.AimTransitionTime *= Def->AimTimeMultiplier;
         Result.VerticalRecoilMultiplier *= Def->VerticalRecoilMultiplier; Result.HorizontalRecoilMultiplier *= Def->HorizontalRecoilMultiplier;
+        Result.Range *= Def->RangeMultiplier;
         if (Def->bOverrideAim) { Result.AimFOV = Def->AimFOV; Result.AimLocation = Def->AimLocation; }
         if (!Def->FireSound.IsNull()) Result.FireSound = Def->FireSound;
     }
     if (Capacity <= 0 || Capacity > MAX_int32) Errors.Add(TEXT("Resolved capacity outside int32 positive range"));
-    if (!FMath::IsFinite(Result.ReloadDuration) || Result.ReloadDuration <= 0 || !FMath::IsFinite(Result.AimTransitionTime) || Result.AimTransitionTime < 0 ||
+    if (!FMath::IsFinite(Result.Range) || Result.Range <= 0 || !FMath::IsFinite(Result.ReloadDuration) || Result.ReloadDuration <= 0 || !FMath::IsFinite(Result.AimTransitionTime) || Result.AimTransitionTime < 0 ||
         !FMath::IsFinite(Result.VerticalRecoilMultiplier) || !FMath::IsFinite(Result.HorizontalRecoilMultiplier) ||
         !FMath::IsFinite(Result.AimFOV) || Result.AimFOV <= 0 || Result.AimFOV >= 180 || Result.AimLocation.ContainsNaN()) Errors.Add(TEXT("Invalid resolved weapon parameters"));
     if (Errors.Num() != Before) return false;

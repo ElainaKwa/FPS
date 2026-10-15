@@ -84,7 +84,7 @@ bool UFPSWeaponComponent::BeginModification(FFPSWeaponActionTicket& Ticket, UFPS
     };
     if ((!Magazine && Ticket.Command != EFPSWeaponRequest::Modify) || !ValidOpening(Ticket, Ability) || !ValidateCustomizationRequest(Request)) return Fail(TEXT("改装请求已过时，或当前无法改装。"));
     if ((Request->Category == EFPSAttachmentCategory::Magazine) != Magazine ||
-        (Request->Category != EFPSAttachmentCategory::Optic && Request->Category != EFPSAttachmentCategory::Muzzle && Request->Category != EFPSAttachmentCategory::Magazine)) return Fail(TEXT("配件类别无效。"));
+        !FPSAttachments::IsCategory(Request->Category)) return Fail(TEXT("配件类别无效。"));
     TArray<FName> Target = Equipped().AttachmentIds;
     Target.RemoveAll([&](FName Id) { const auto* Part = Catalog()->FindAttachment(Id); return Part && Part->Category == Request->Category; });
     if (!Request->Attachment.IsNone())

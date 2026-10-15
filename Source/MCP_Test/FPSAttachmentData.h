@@ -5,7 +5,15 @@
 #include "FPSAttachmentData.generated.h"
 
 UENUM(BlueprintType)
-enum class EFPSAttachmentCategory : uint8 { Optic, Muzzle, Magazine };
+enum class EFPSAttachmentCategory : uint8 { Optic, Muzzle, Magazine, RearGrip, Stock, Barrel };
+
+namespace FPSAttachments
+{
+    constexpr int32 CategoryCount = 6;
+    inline bool IsCategory(EFPSAttachmentCategory Value) { return uint8(Value) < CategoryCount; }
+    const TCHAR* Label(EFPSAttachmentCategory Category);
+    FName Mount(EFPSAttachmentCategory Category);
+}
 
 /** A model's authored values, never a character buff or a second copy of weapon tuning. */
 UCLASS(BlueprintType)
@@ -27,11 +35,14 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Optic", meta=(ClampMin="1", ClampMax="179", Units="deg")) float AimFOV = 65.f;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Optic", meta=(Units="cm")) FVector AimLocation = FVector::ZeroVector;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Optic", meta=(ClampMin="0.001")) float AimTimeMultiplier = 1.f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Barrel", meta=(ClampMin="0.001", ToolTip="Multiplier of the weapon's maximum hitscan distance; barrel only.")) float RangeMultiplier = 1.f;
     // Explicitly retain base visuals until an attachment has its own approved meshes.
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") bool bUseWeaponPresentation = true;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation FirstPerson;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation ThirdPerson;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation Pickup;
+    // Optional workbench-specific mesh; otherwise use Pickup. Never selected by an ID substring.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Presentation") FFPSWeaponPresentation Workbench;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Audio") TSoftObjectPtr<USoundBase> FireSound;
     UPROPERTY(VisibleAnywhere, Category="Content") TMap<FSoftObjectPath, FString> SavedResourceVersions;
     virtual FPrimaryAssetId GetPrimaryAssetId() const override { return FPrimaryAssetId(TEXT("WeaponAttachment"), AttachmentId); }
@@ -58,6 +69,7 @@ struct FFPSResolvedWeaponStats
     UPROPERTY(BlueprintReadOnly) FVector AimLocation = FVector::ZeroVector;
     UPROPERTY(BlueprintReadOnly) float VerticalRecoilMultiplier = 1.f;
     UPROPERTY(BlueprintReadOnly) float HorizontalRecoilMultiplier = 1.f;
+    UPROPERTY(BlueprintReadOnly) float Range = 0;
     UPROPERTY(BlueprintReadOnly) TSoftObjectPtr<USoundBase> FireSound;
 };
 

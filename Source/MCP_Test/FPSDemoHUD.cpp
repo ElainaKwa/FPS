@@ -61,7 +61,16 @@ void AFPSDemoHUD::DrawHUD()
         if(Alive && !Pawn->GetWeapons()->GetLoadout().bAiming)
         {DrawLine(X-12,Y,X-5,Y,FPSUI::Paper,1.5f);DrawLine(X+5,Y,X+12,Y,FPSUI::Paper,1.5f);DrawLine(X,Y-12,X,Y-5,FPSUI::Paper,1.5f);DrawLine(X,Y+5,X,Y+12,FPSUI::Paper,1.5f);}
         if(PC && GetWorld()->GetTimeSeconds()<PC->GetHitMarkerUntil())
+        {
             for(int32 DX:{-1,1})for(int32 DY:{-1,1})DrawLine(X+DX*6,Y+DY*6,X+DX*13,Y+DY*13,FLinearColor::Red,2);
+            // Head confirmation is a diamond around the existing hit cross, independent of color.
+            if (PC->WasHeadshot())
+                for (int32 Side : {-1,1})
+                {
+                    DrawLine(X,Y-17,X+Side*17,Y,FLinearColor::Red,2);
+                    DrawLine(X,Y+17,X+Side*17,Y,FLinearColor::Red,2);
+                }
+        }
         if(!HUDAsset||!HUDAsset->HasControl(TEXT("StaminaPanel")))DrawMovementHUD(Pawn);
 
 		return;

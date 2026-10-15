@@ -167,7 +167,7 @@ int32 UFPSAttachmentDataCommandlet::Main(const FString& Params)
     TArray<UFPSWeaponDefinition*> Weapons;
     UFPSWeaponCatalog::Discover(Weapons, Errors);
     UFPSWeaponCatalog::ValidateCatalog(Weapons, Errors);
-    FString Review = TEXT("# 配件资产清单（自动生成）\n\n- 用途：自动生成资料\n- 适用范围：已保存的配件定义\n- 状态：只读导出，禁止手工编辑\n- 最后更新：2026-10-12\n\n来源：Unreal 配件资产。生成入口：`Tools/ValidateFPSAttachmentData.ps1 -Export`。数值修改应在定义资产中完成。\n");
+    FString Review = TEXT("# 配件资产清单（自动生成）\n\n- 用途：自动生成资料\n- 适用范围：已保存的配件定义\n- 状态：只读导出，禁止手工编辑\n- 最后更新：2026-10-15\n\n来源：Unreal 配件资产。生成入口：`Tools/ValidateFPSAttachmentData.ps1 -Export`。数值修改应在定义资产中完成。\n");
     for (const auto* Part : Items)
     {
         Review += FString::Printf(TEXT("\n## %s\n\n资产：`%s`\n\n```text\n"), *Part->AttachmentId.ToString(), *Part->GetPathName());

@@ -5,12 +5,16 @@ param(
     [switch]$Training,
     [switch]$Teaching,
     [switch]$MismatchMovement,
+    [switch]$MismatchAirControl,
+    [switch]$MismatchJumpVelocity,
     [switch]$Visual,
     [string]$PackageExecutable = '',
     [string]$LogRoot = '',
     [ValidateRange(1, 65535)][int]$Port = 17797
 )
 $ErrorActionPreference = 'Stop'
+if ($MismatchAirControl -and $MismatchJumpVelocity) { throw 'Select one movement mismatch parameter at a time.' }
+if ($MismatchAirControl -or $MismatchJumpVelocity) { $MismatchMovement = $true }
 if ($Training -and $Teaching) { throw '-Training and -Teaching are mutually exclusive.' }
 if ($MismatchMovement -and ($Training -or $Teaching)) { throw '-MismatchMovement requires a LAN server and client.' }
 $root = Split-Path $PSScriptRoot -Parent
@@ -23,7 +27,7 @@ if (!$PackageExecutable -and !(Test-Path -LiteralPath $project)) { throw "Projec
 if (!$LogRoot) { $LogRoot = Join-Path $root 'Saved/FPSMovementTests' }
 $name = if ($Training) { 'training' } elseif ($Teaching) { 'teaching' } else { "lag$Latency-loss$PacketLoss" }
 if ($Visual) { $name += '-visual' }
-if ($MismatchMovement) { $name += '-mismatch-movement' }
+if ($MismatchMovement) { $name += $(if ($MismatchJumpVelocity) { '-mismatch-jump-velocity' } elseif ($MismatchAirControl) { '-mismatch-air-control' } else { '-mismatch-movement' }) }
 $logs = Join-Path ([System.IO.Path]::GetFullPath($LogRoot)) ((Get-Date -Format 'yyyyMMdd-HHmmss-fff') + '-' + $name)
 if (Test-Path -LiteralPath $logs) { throw "Evidence directory already exists: $logs" }
 New-Item -ItemType Directory -Path $logs | Out-Null
@@ -47,7 +51,7 @@ if ($PackageExecutable) { $serverOptions += "-UserDir=`"$logs/User-server`"" }
 $clientOptions = $common
 if ($Visual) { $clientOptions = @($common | Where-Object { $_ -ne '-nullrhi' }) + @('-RenderOffscreen', '-ResX=1280', '-ResY=720', '-FPSMovementVisual') }
 if ($PackageExecutable) { $clientOptions += "-UserDir=`"$logs/User-client`"" }
-if ($MismatchMovement) { $clientOptions += '-ini:Game:[/Script/MCP_Test.FPSMovementSettings]:SprintDrain=7' }
+if ($MismatchMovement) { $clientOptions += $(if ($MismatchJumpVelocity) { '-ini:Game:[/Script/MCP_Test.FPSMovementSettings]:JumpVelocity=420' } elseif ($MismatchAirControl) { '-ini:Game:[/Script/MCP_Test.FPSMovementSettings]:AirControl=0.15' } else { '-ini:Game:[/Script/MCP_Test.FPSMovementSettings]:SprintDrain=7' }) }
 [string[]]$clientArguments = @($prefix) + @("127.0.0.1:$Port", "-abslog=`"$clientLog`"") + $clientOptions
 $owned = @()
 $targets = @([pscustomobject]@{ path=$serverLog; role='SERVER' })
@@ -67,13 +71,13 @@ $record = [ordered]@{
     packaged=[bool]$PackageExecutable; project=$project; port=$Port; latency_ms=$Latency; packet_loss_percent=$PacketLoss; visual=[bool]$Visual
     timeout_seconds=$timeout; startup_timeout_seconds=180; total_bound_seconds=($timeout+180)
     server_world_ready_utc=$null; runtime_environment=@{ UE_SKIP_UBT_SDK_SETUP='1'; scope='Owned child process inheritance only; launcher environment restored immediately.' }
-    protocol=$protocol; mismatch_movement=[bool]$MismatchMovement; admission_timeout_seconds=25
+    protocol=$protocol; movement_protocol=[int]([regex]::Match((Get-Content -LiteralPath (Join-Path $root 'Source/MCP_Test/FPSWeaponContent.cpp') -Raw), 'MovementProtocol\s*=\s*(\d+)').Groups[1].Value); mismatch_movement=[bool]$MismatchMovement; mismatch_air_control=[bool]$MismatchAirControl; mismatch_jump_velocity=[bool]$MismatchJumpVelocity; admission_timeout_seconds=25
     server_arguments=$serverArguments; client_arguments=$(if ($Training) { @() } else { $clientArguments })
     process_records=@(); logs=@(); sources=@(); captures=@(); error=$null
     injection='Replicated opt-in floor/wall/roof and server pose/resource setup; native input/CharacterMovement and actual weapon GAS; native network correction/replay.'
     unverified=@('Hardware keyboard and controller operation', 'Human movement feel and audiovisual judgement', 'Existing-map obstacle traversal is not established by the isolated collision fixture')
 }
-foreach ($source in @('Source/MCP_Test/FPSMovementSmoke.h', 'Source/MCP_Test/FPSMovementSmoke.cpp', 'Source/MCP_Test/FPSMovementComponent.h', 'Source/MCP_Test/FPSMovementComponent.cpp', 'Source/MCP_Test/FPSMovementSettings.h', 'Tools/TestFPSMovement.ps1')) {
+foreach ($source in @('Source/MCP_Test/FPSMovementSmoke.h', 'Source/MCP_Test/FPSMovementSmoke.cpp', 'Source/MCP_Test/FPSMovementComponent.h', 'Source/MCP_Test/FPSMovementComponent.cpp', 'Source/MCP_Test/FPSMovementSettings.h', 'Source/MCP_Test/FPSWeaponContent.cpp', 'Tools/TestFPSMovement.ps1')) {
     $file = Join-Path $root $source
     if (Test-Path -LiteralPath $file) { $record.sources += Binary $file }
 }
@@ -148,6 +152,7 @@ try {
         if (!$Teaching) {
             $actualNetMode = if ($target.role -eq 'CLIENT') { 3 } elseif ($Training) { 0 } else { 2 }
             if ($data -notmatch "FPS_MOVEMENT_SMOKE READY role=$($target.role) netmode=$actualNetMode rules=1 stamina=1") { throw "Actual role, net mode or enabled rules marker missing: $($target.path)" }
+            if ($data -notmatch 'FPS_MOVEMENT_SMOKE MEASURE air_entry local=1 acceleration=1200\.000 native_air_acceleration=600\.000 analog=1\.000') { throw "Actual ground-to-air entry acceleration evidence missing: $($target.path)" }
         }
         if (!$Teaching -and !$Training -and $target.role -eq 'CLIENT' -and $data -notmatch 'FPS_MOVEMENT_SMOKE PASS CLIENT native correction replay observed') { throw 'Actual client native movement replay marker missing.' }
         Select-String -LiteralPath $target.path -Pattern 'FPS_MOVEMENT_SMOKE'

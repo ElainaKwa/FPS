@@ -1,5 +1,7 @@
 #include "FPSWeaponDataCommandlet.h"
 #include "FPSWeaponData.h"
+#include "FPSHitDamage.h"
+#include <limits>
 #if WITH_EDITOR
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Engine/AssetManager.h"
@@ -238,6 +240,45 @@ bool SelfTest(UFPSWeaponDefinition* Def)
 #if WITH_EDITOR
 namespace
 {
+bool HitDamageSelfTest()
+{
+    bool Passed = true;
+    auto Check = [&](bool Value, const TCHAR* What) { Passed &= Value; UE_LOG(LogTemp, Display, TEXT("FPS_HIT_DATA %s %s"), Value ? TEXT("PASS") : TEXT("FAIL"), What); };
+    auto& Registry = FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry")).Get();
+    Registry.SearchAllAssets(true);
+    TStrongObjectPtr<UGameInstance> GI(NewObject<UGameInstance>());
+    TStrongObjectPtr<UFPSWeaponCatalog> Catalog(NewObject<UFPSWeaponCatalog>(GI.Get()));
+    const TArray<FName> Ids{TEXT("Weapon.M4"),TEXT("Weapon.M9")};
+    if (!Catalog->PrepareDependencies(Ids)) { Check(false,TEXT("baseline content ready")); return false; }
+    auto* Def=const_cast<UFPSWeaponDefinition*>(Catalog->Find(TEXT("Weapon.M4")));
+    auto* Profile=Def->HitDamageProfile.Get();
+    if(!Profile){Check(false,TEXT("profile loaded"));return false;}
+    const auto Original=Profile->Multipliers;
+    Check(Original.Head==2 && Original.Torso==1 && Original.Limb==.75f,TEXT("saved default profile reloads exact multipliers"));
+    auto Invalid=[&](){TArray<FString> Errors; Def->ValidateDefinition(Errors);return !Errors.IsEmpty();};
+    Profile->Multipliers.Head=0; Check(!Invalid(),TEXT("zero multiplier accepted"));
+    Profile->Multipliers.Head=-1;Check(Invalid(),TEXT("negative multiplier rejected"));
+    Check(!Catalog->PrepareDependencies(Ids),TEXT("required invalid profile blocks session"));
+    Profile->Multipliers=Original;
+    Profile->Multipliers.Limb=std::numeric_limits<float>::infinity();Check(Invalid(),TEXT("infinite multiplier rejected"));
+    Profile->Multipliers=Original;
+    TArray<FString> Errors;const FString Before=Def->ContentDigest(Errors);
+    Profile->Multipliers.Head+=.1f;Check(Def->ContentDigest(Errors)!=Before,TEXT("same ID multiplier edit changes digest"));Profile->Multipliers=Original;
+    const auto Ref=Def->HitDamageProfile;Def->HitDamageProfile.Reset();
+    Check(!Catalog->PrepareDependencies(Ids),TEXT("missing required profile blocks session"));Def->HitDamageProfile=Ref;
+    // Registry-only unrelated fixture is never saved and is removed before leaving this commandlet.
+    auto* Bad=NewObject<UFPSHitDamageProfile>(CreatePackage(TEXT("/Game/HitDamageTest/Unrelated")),TEXT("Unrelated"),RF_Public|RF_Standalone);
+    Bad->ProfileId=TEXT("HitDamage.UnrelatedFixture");Bad->Multipliers.Head=-1;
+    FAssetRegistryModule::AssetCreated(Bad);
+    Check(Catalog->PrepareDependencies(Ids),TEXT("unrelated invalid profile does not block M4 M9 session"));
+    Errors.Reset();UFPSHitDamageProfile::ValidateAll(Errors);Check(!Errors.IsEmpty(),TEXT("unrelated invalid profile fails whole project validation"));
+    FAssetRegistryModule::AssetDeleted(Bad);Bad->ClearFlags(RF_Standalone|RF_Public);
+    TWeakObjectPtr<UFPSHitDamageProfile> Weak(Profile);Catalog->ReleaseSession();
+    CollectGarbage(RF_NoFlags);
+    Check(!Weak.IsValid()&&!Catalog->IsReady(),TEXT("profile collectible after session handle release"));
+    Check(Passed,TEXT("COMPLETE"));return Passed;
+}
+
 bool ContentSelfTest()
 {
     bool Passed = true;
@@ -287,6 +328,7 @@ bool ContentSelfTest()
 int32 UFPSWeaponDataCommandlet::Main(const FString& Params)
 {
 #if WITH_EDITOR
+    if (FParse::Param(*Params,TEXT("HitDamageSelfTest"))) return HitDamageSelfTest() ? 0 : 1;
     if (FParse::Param(*Params,TEXT("ContentSelfTest"))) return ContentSelfTest() ? 0 : 1;
     TArray<FString> Errors;
     const bool bMigrate = FParse::Param(*Params,TEXT("Migrate"));
@@ -304,7 +346,7 @@ int32 UFPSWeaponDataCommandlet::Main(const FString& Params)
     for (auto* Def : Items) if (Def->WeaponId.ToString() == InvalidId) Def->FireInterval = -1;
 #endif
     UFPSWeaponCatalog::ValidateCatalog(Items,Errors);
-    FString Review = TEXT("# Weapon asset review (GENERATED - DO NOT EDIT)\n\n- 用途：自动生成资料\n- 适用范围：已保存武器定义与地图武器台\n- 状态：只读导出，禁止手工修改\n- 最后更新：2026-10-12\n\nSource: saved Unreal assets. Regenerate with Tools/ValidateFPSWeaponData.ps1 -Export.\n");
+    FString Review = TEXT("# Weapon asset review (GENERATED - DO NOT EDIT)\n\n- 用途：自动生成资料\n- 适用范围：已保存武器定义与地图武器台\n- 状态：只读导出，禁止手工修改\n- 最后更新：2026-10-15\n\nSource: saved Unreal assets. Regenerate with Tools/ValidateFPSWeaponData.ps1 -Export.\n");
     const auto* Defaults = GetDefault<UFPSWeaponCatalog>();
     Review += FString::Printf(TEXT("\nStarting primary=%s; secondary=%s\n"),*Defaults->StartingPrimary.ToString(),*Defaults->StartingSecondary.ToString());
     for (const auto* Def : Items)
@@ -316,6 +358,8 @@ int32 UFPSWeaponDataCommandlet::Main(const FString& Params)
             It->ExportText_InContainer(0,Value,Def,Def,const_cast<UFPSWeaponDefinition*>(Def),PPF_None);
             Review += It->GetName() + TEXT("=") + Value + TEXT("\n");
         }
+        if (const auto* Profile=Def->HitDamageProfile.Get())
+            Review += FString::Printf(TEXT("HitDamageProfileId=%s Head=%.9g Torso=%.9g Limb=%.9g\n"),*Profile->ProfileId.ToString(),Profile->Multipliers.Head,Profile->Multipliers.Torso,Profile->Multipliers.Limb);
         if (Def->RecoilCurve)
             for (int32 Axis = 0; Axis < 3; ++Axis)
                 for (const auto& K : Def->RecoilCurve->FloatCurves[Axis].GetConstRefOfKeys())

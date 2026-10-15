@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import math
 import os
@@ -34,6 +35,7 @@ from mathutils import Matrix, Quaternion, Vector
 
 TOLERANCE_M = 5e-5
 DEPENDENT_MOUNT_KEYS = ("Foregrip", "Muzzle", "FrontIron")
+REQUIRED_ATTACHMENTS = {"SM_M7_Stock_ShadowRail", "SM_M7_Grip_Phantom"}
 DELIVERY_BASELINE_SUFFIXES = {".blend", ".json", ".md", ".txt", ".csv", ".sha256", ".toml"}
 DELIVERY_CONFIG_SUFFIXES = {".json", ".toml", ".yaml", ".yml", ".ini", ".cfg", ".md"}
 
@@ -953,8 +955,10 @@ class Validator:
         self.manifest = manifest
         self.record_file(manifest_path)
         self.record_delivery_files()
-        if len(manifest["assets"]) != 17 or len(manifest.get("presets", [])) != 3:
-            raise ValueError("Material sample requires 17 assets and three presets.")
+        if len(manifest["assets"]) != 19 or len(manifest.get("presets", [])) != 3:
+            raise ValueError("Material sample requires 19 assets and three presets.")
+        if not REQUIRED_ATTACHMENTS.issubset({asset["name"] for asset in manifest["assets"]}):
+            raise ValueError("The sample must include independent ShadowRail stock and Phantom grip assets.")
         self.check_texture_declarations(manifest["assets"])
         material_report = (self.root / manifest.get("material_report", "MaterialReport.json")).resolve()
         if material_report.is_file():
@@ -1014,6 +1018,14 @@ class Validator:
             return
         expand_layer_collections(edit.view_layers[0].layer_collection)
         edit.view_layers[0].update()
+        freeze_path = self.root / "Scripts/freeze_tidal_attachment.py"
+        freeze_spec = importlib.util.spec_from_file_location("m7_frozen_attachment_verify", freeze_path)
+        freeze = importlib.util.module_from_spec(freeze_spec)
+        freeze_spec.loader.exec_module(freeze)
+        try:
+            self.report["frozen_attachments"] = freeze.guard_source(self.root, manifest, edit)
+        except Exception as exc:
+            self.check(False, "SM_M7_Barrel_Tidal", "frozen_attachment_changed", str(exc))
         by_collection = {asset["collection"]: asset for asset in assets}
         by_name = {asset["name"]: asset for asset in assets}
         self.report["library"]["preset_instances"] = {}

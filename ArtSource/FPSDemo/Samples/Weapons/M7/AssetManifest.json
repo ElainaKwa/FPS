@@ -1,7 +1,7 @@
 {
   "library": "M7_Material_Study",
   "source_file": "Source/M7_Material_Study.blend",
-  "expected_asset_count": 17,
+  "expected_asset_count": 19,
   "axis": "+X muzzle, +Z up, metres",
   "assets": [
     {
@@ -15,39 +15,30 @@
       ],
       "default": true,
       "collection": "SM_M7_Core",
-      "editable_objects": 334,
-      "triangles": 261298,
-      "vertices": 131291,
+      "editable_objects": 167,
+      "triangles": 382180,
+      "vertices": 191356,
       "used_materials": [
-        "M7M_Core_coated_receiver_da39a",
-        "M7R_06_RecessBlack",
-        "M7M_Core_coated_receiver_4722f",
-        "M7M_Core_dark_steel_hardware_da39a",
-        "M7M_Core_dark_steel_hardware_24391",
-        "M7M_Core_coated_receiver_24391",
-        "M7M_Core_polymer_stock_24391",
-        "M7M_Core_coated_receiver_2089a",
-        "M7M_Core_dark_steel_hardware_2089a",
-        "M7M_Core_dark_steel_hardware_4722f",
-        "M7R_07_EngravingGray",
-        "M7M_Core_polymer_inner_da39a"
+        "M7M_Core_Reference_coat",
+        "M7M_Core_Reference_dark",
+        "M7M_Core_Reference_hardware"
       ],
       "local_bounds_m": {
         "min": [
-          -0.18000000715255737,
-          -0.0348999984562397,
-          -0.12387695163488388
+          -0.17949999868869781,
+          -0.029500000178813934,
+          -0.10577201843261719
         ],
         "max": [
-          0.16500000655651093,
-          0.04440000280737877,
+          0.16499584913253784,
+          0.029500000178813934,
           0.054499998688697815
         ]
       },
       "geometry_dimensions_m": [
-        0.3450000137090683,
-        0.07930000126361847,
-        0.1783769503235817
+        0.34449584782123566,
+        0.05900000035762787,
+        0.160272017121315
       ],
       "uv_layers": [
         "M7_MaterialUV"
@@ -96,57 +87,20 @@
         "glb": "Exports/SM_M7_Core.glb",
         "fbx": "Exports/SM_M7_Core.fbx"
       },
-      "preserved_constant_materials": [
-        "M7R_06_RecessBlack",
-        "M7R_07_EngravingGray"
-      ],
+      "preserved_constant_materials": [],
+      "geometry_review": "CoreReferenceReview.json",
       "texture_sets": {
-        "M7M_Core_coated_receiver_2089a": {
+        "M7M_Core_Reference_coat": {
           "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
           "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
           "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
         },
-        "M7M_Core_coated_receiver_24391": {
+        "M7M_Core_Reference_dark": {
           "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
           "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
           "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
         },
-        "M7M_Core_coated_receiver_4722f": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_coated_receiver_da39a": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_dark_steel_hardware_2089a": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_dark_steel_hardware_24391": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_dark_steel_hardware_4722f": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_dark_steel_hardware_da39a": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_polymer_inner_da39a": {
-          "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
-          "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
-          "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
-        },
-        "M7M_Core_polymer_stock_24391": {
+        "M7M_Core_Reference_hardware": {
           "BaseColor": "Textures/Baked/SM_M7_Core_BaseColor.png",
           "Normal": "Textures/Baked/SM_M7_Core_Normal.png",
           "ORM": "Textures/Baked/SM_M7_Core_ORM.png"
@@ -1549,6 +1503,172 @@
         2048,
         2048
       ]
+    },
+    {
+      "name": "SM_M7_Stock_ShadowRail",
+      "category": "Stock",
+      "mount_key": "Stock",
+      "mount_position_m": [
+        -0.179,
+        0,
+        -0.0025
+      ],
+      "default": false,
+      "collection": "SM_M7_Stock_ShadowRail",
+      "editable_objects": 57,
+      "display_name": "Shadow / Rail / Stock",
+      "preserved_constant_materials": [],
+      "geometry_review": "ShadowPhantomReview.json",
+      "triangles": 55872,
+      "vertices": 28002,
+      "used_materials": [
+        "M7M_Stock_ShadowRail_coat.001",
+        "M7M_Stock_ShadowRail_hardware.001",
+        "M7M_Stock_ShadowRail_dark.001",
+        "M7M_Stock_ShadowRail_polymer.001",
+        "M7M_Stock_ShadowRail_rubber.001"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.24735872447490692,
+          -0.02019999921321869,
+          -0.0872216448187828
+        ],
+        "max": [
+          0.0037500113248825073,
+          0.02019999921321869,
+          0.040847573429346085
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.25110873579978943,
+        0.04039999842643738,
+        0.1280692182481289
+      ],
+      "uv_layers": [
+        "M7_MaterialUV"
+      ],
+      "glb_mount_nodes": [],
+      "glb_mount_positions_m": {},
+      "exports": {
+        "glb": "Exports/SM_M7_Stock_ShadowRail.glb",
+        "fbx": "Exports/SM_M7_Stock_ShadowRail.fbx"
+      },
+      "texture_sets": {
+        "M7M_Stock_ShadowRail_coat.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png"
+        },
+        "M7M_Stock_ShadowRail_dark.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png"
+        },
+        "M7M_Stock_ShadowRail_hardware.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png"
+        },
+        "M7M_Stock_ShadowRail_polymer.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png"
+        },
+        "M7M_Stock_ShadowRail_rubber.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png"
+        }
+      },
+      "baked_uv_layer": "M7_MaterialUV",
+      "atlas_resolution": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "SM_M7_Grip_Phantom",
+      "category": "RearGrip",
+      "mount_key": "RearGrip",
+      "mount_position_m": [
+        -0.0625,
+        0,
+        -0.065
+      ],
+      "default": false,
+      "collection": "SM_M7_Grip_Phantom",
+      "editable_objects": 53,
+      "display_name": "Phantom / Rear Grip",
+      "preserved_constant_materials": [],
+      "geometry_review": "ShadowPhantomReview.json",
+      "triangles": 62344,
+      "vertices": 31270,
+      "used_materials": [
+        "M7M_Grip_Phantom_polymer.001",
+        "M7M_Grip_Phantom_coat.001",
+        "M7M_Grip_Phantom_rubber.001",
+        "M7M_Grip_Phantom_dark.001",
+        "M7M_Grip_Phantom_hardware.001"
+      ],
+      "local_bounds_m": {
+        "min": [
+          -0.07580849528312683,
+          -0.018097905442118645,
+          -0.12427130341529846
+        ],
+        "max": [
+          0.023067787289619446,
+          0.018097905442118645,
+          0.01797729730606079
+        ]
+      },
+      "geometry_dimensions_m": [
+        0.09887628257274628,
+        0.03619581088423729,
+        0.14224860072135925
+      ],
+      "uv_layers": [
+        "M7_MaterialUV"
+      ],
+      "glb_mount_nodes": [],
+      "glb_mount_positions_m": {},
+      "exports": {
+        "glb": "Exports/SM_M7_Grip_Phantom.glb",
+        "fbx": "Exports/SM_M7_Grip_Phantom.fbx"
+      },
+      "texture_sets": {
+        "M7M_Grip_Phantom_coat.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Grip_Phantom_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Grip_Phantom_ORM.png"
+        },
+        "M7M_Grip_Phantom_dark.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Grip_Phantom_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Grip_Phantom_ORM.png"
+        },
+        "M7M_Grip_Phantom_hardware.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Grip_Phantom_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Grip_Phantom_ORM.png"
+        },
+        "M7M_Grip_Phantom_polymer.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Grip_Phantom_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Grip_Phantom_ORM.png"
+        },
+        "M7M_Grip_Phantom_rubber.001": {
+          "BaseColor": "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png",
+          "Normal": "Textures/Baked/SM_M7_Grip_Phantom_Normal.png",
+          "ORM": "Textures/Baked/SM_M7_Grip_Phantom_ORM.png"
+        }
+      },
+      "baked_uv_layer": "M7_MaterialUV",
+      "atlas_resolution": [
+        2048,
+        2048
+      ]
     }
   ],
   "mounts": {
@@ -1610,9 +1730,9 @@
   "equipped_parts": [
     "SM_M7_Core",
     "SM_M7_Barrel_Tidal",
-    "SM_M7_Stock_Default",
+    "SM_M7_Stock_ShadowRail",
     "SM_M7_Mag_Extended",
-    "SM_M7_Grip_D2",
+    "SM_M7_Grip_Phantom",
     "SM_M7_Optic_LPVO",
     "SM_M7_Foregrip_ResonanceGen1",
     "SM_M7_Muzzle_Suppressor"
@@ -1745,24 +1865,16 @@
         "Mount_Muzzle",
         "Mount_FrontIron"
       ],
-      "triangles": 714648,
-      "vertices": 361823,
+      "triangles": 835530,
+      "vertices": 421888,
       "used_materials": [
-        "M7M_Core_coated_receiver_da39a",
-        "M7R_06_RecessBlack",
-        "M7M_Core_coated_receiver_4722f",
-        "M7M_Core_dark_steel_hardware_da39a",
-        "M7M_Core_dark_steel_hardware_24391",
-        "M7M_Core_coated_receiver_24391",
-        "M7M_Core_polymer_stock_24391",
-        "M7M_Core_coated_receiver_2089a",
-        "M7M_Core_dark_steel_hardware_2089a",
-        "M7M_Core_dark_steel_hardware_4722f",
-        "M7R_07_EngravingGray",
-        "M7M_Core_polymer_inner_da39a",
+        "M7M_Core_Reference_coat",
+        "M7M_Core_Reference_dark",
+        "M7M_Core_Reference_hardware",
         "M7M_Barrel_Default_dark_steel_hardware_da39a",
         "M7M_Barrel_Default_coated_handguard_da39a",
         "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+        "M7R_06_RecessBlack",
         "M7M_Barrel_Default_coated_handguard_6cfb7",
         "M7M_Stock_Default_coated_receiver_da39a",
         "M7M_Stock_Default_dark_steel_hardware_da39a",
@@ -1788,18 +1900,18 @@
       "assembly_bounds_m": {
         "min": [
           -0.36775001883506775,
-          -0.0348999984562397,
+          -0.03486853837966919,
           -0.22750207781791687
         ],
         "max": [
           0.6119999885559082,
-          0.04440000280737877,
+          0.03486853837966919,
           0.10064999759197235
         ]
       },
       "geometry_dimensions_m": [
         0.979750007390976,
-        0.07930000126361847,
+        0.06973707675933838,
         0.3281520754098892
       ],
       "uv_layers": [
@@ -1815,9 +1927,9 @@
       "parts": [
         "SM_M7_Core",
         "SM_M7_Barrel_Tidal",
-        "SM_M7_Stock_Default",
+        "SM_M7_Stock_ShadowRail",
         "SM_M7_Mag_Extended",
-        "SM_M7_Grip_D2",
+        "SM_M7_Grip_Phantom",
         "SM_M7_Optic_LPVO",
         "SM_M7_Foregrip_ResonanceGen1",
         "SM_M7_Muzzle_Suppressor"
@@ -1852,7 +1964,7 @@
           0,
           0
         ],
-        "SM_M7_Stock_Default": [
+        "SM_M7_Stock_ShadowRail": [
           -0.179,
           0,
           -0.0025
@@ -1862,7 +1974,7 @@
           0,
           -0.1
         ],
-        "SM_M7_Grip_D2": [
+        "SM_M7_Grip_Phantom": [
           -0.0625,
           0,
           -0.065
@@ -1943,46 +2055,37 @@
         "Mount_Muzzle",
         "Mount_FrontIron"
       ],
-      "triangles": 1268790,
-      "vertices": 643547,
+      "triangles": 1397184,
+      "vertices": 705608,
       "used_materials": [
-        "M7M_Core_coated_receiver_da39a",
-        "M7R_06_RecessBlack",
-        "M7M_Core_coated_receiver_4722f",
-        "M7M_Core_dark_steel_hardware_da39a",
-        "M7M_Core_dark_steel_hardware_24391",
-        "M7M_Core_coated_receiver_24391",
-        "M7M_Core_polymer_stock_24391",
-        "M7M_Core_coated_receiver_2089a",
-        "M7M_Core_dark_steel_hardware_2089a",
-        "M7M_Core_dark_steel_hardware_4722f",
-        "M7R_07_EngravingGray",
-        "M7M_Core_polymer_inner_da39a",
+        "M7M_Core_Reference_coat",
+        "M7M_Core_Reference_dark",
+        "M7M_Core_Reference_hardware",
         "M7M_Barrel_Tidal_Guard_coated_handguard.001",
         "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
         "M7M_Barrel_Tidal_Guard_fine_grid.001",
-        "M7M_Stock_Default_coated_receiver_da39a",
-        "M7M_Stock_Default_dark_steel_hardware_da39a",
-        "M7M_Stock_Default_polymer_stock_dbcb1",
-        "M7M_Stock_Default_polymer_stock_da39a",
-        "M7M_Stock_Default_polymer_stock_2c9f3",
-        "M7M_Stock_Default_rubber_black_7a08d",
+        "M7M_Stock_ShadowRail_coat.001",
+        "M7M_Stock_ShadowRail_hardware.001",
+        "M7M_Stock_ShadowRail_dark.001",
+        "M7M_Stock_ShadowRail_polymer.001",
+        "M7M_Stock_ShadowRail_rubber.001",
         "M7M_Mag_Extended_coated_magazine_0f2a7",
         "M7M_Mag_Extended_coated_magazine_fade7",
         "M7M_Mag_Extended_coated_magazine_f05bd",
         "M7M_Mag_Extended_rubber_black_f05bd",
         "M7M_Mag_Extended_polymer_stock_da39a",
-        "M7M_Grip_D2_polymer_grip_da39a",
-        "M7M_Grip_D2_rubber_black_da39a",
-        "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-        "M7M_Grip_D2_dark_steel_hardware_da39a",
-        "M7M_Grip_D2_coated_receiver_da39a",
-        "M7M_Grip_D2_polymer_grip_f0ba0",
+        "M7R_06_RecessBlack",
+        "M7M_Grip_Phantom_polymer.001",
+        "M7M_Grip_Phantom_coat.001",
+        "M7M_Grip_Phantom_rubber.001",
+        "M7M_Grip_Phantom_dark.001",
+        "M7M_Grip_Phantom_hardware.001",
         "M7M_Optic_LPVO_coated_optic_da39a",
         "M7M_Optic_LPVO_rubber_black_da39a",
         "M7R_09_CoatedLens",
         "M7M_Optic_LPVO_polymer_stock_da39a",
         "M7M_Optic_LPVO_polymer_stock_00723",
+        "M7R_07_EngravingGray",
         "M7M_Optic_LPVO_coated_optic_00723",
         "M7M_Optic_LPVO_rubber_black_00723",
         "M7M_Optic_LPVO_dark_steel_hardware_da39a",
@@ -2002,19 +2105,19 @@
       ],
       "assembly_bounds_m": {
         "min": [
-          -0.36775001883506775,
+          -0.42635872960090637,
           -0.03791999816894531,
           -0.282502144575119
         ],
         "max": [
           0.9540738463401794,
-          0.04440000280737877,
+          0.03791999816894531,
           0.13240499794483185
         ]
       },
       "geometry_dimensions_m": [
-        1.3218238651752472,
-        0.08232000097632408,
+        1.3804325759410858,
+        0.07583999633789062,
         0.41490714251995087
       ],
       "uv_layers": [
@@ -2031,9 +2134,9 @@
       "parts": [
         "SM_M7_Core",
         "SM_M7_Barrel_Default",
-        "SM_M7_Stock_Default",
+        "SM_M7_Stock_ShadowRail",
         "SM_M7_Mag_Extended",
-        "SM_M7_Grip_D2",
+        "SM_M7_Grip_Phantom",
         "SM_M7_Optic_LPVO",
         "SM_M7_Foregrip_ResonanceGen1",
         "SM_M7_Muzzle_Suppressor"
@@ -2068,7 +2171,7 @@
           0,
           0
         ],
-        "SM_M7_Stock_Default": [
+        "SM_M7_Stock_ShadowRail": [
           -0.179,
           0,
           -0.0025
@@ -2078,7 +2181,7 @@
           0,
           -0.1
         ],
-        "SM_M7_Grip_D2": [
+        "SM_M7_Grip_Phantom": [
           -0.0625,
           0,
           -0.065
@@ -2159,47 +2262,38 @@
         "Mount_Muzzle",
         "Mount_FrontIron"
       ],
-      "triangles": 1013804,
-      "vertices": 516033,
+      "triangles": 1142198,
+      "vertices": 578094,
       "used_materials": [
-        "M7M_Core_coated_receiver_da39a",
-        "M7R_06_RecessBlack",
-        "M7M_Core_coated_receiver_4722f",
-        "M7M_Core_dark_steel_hardware_da39a",
-        "M7M_Core_dark_steel_hardware_24391",
-        "M7M_Core_coated_receiver_24391",
-        "M7M_Core_polymer_stock_24391",
-        "M7M_Core_coated_receiver_2089a",
-        "M7M_Core_dark_steel_hardware_2089a",
-        "M7M_Core_dark_steel_hardware_4722f",
-        "M7R_07_EngravingGray",
-        "M7M_Core_polymer_inner_da39a",
+        "M7M_Core_Reference_coat",
+        "M7M_Core_Reference_dark",
+        "M7M_Core_Reference_hardware",
         "M7M_Barrel_Default_dark_steel_hardware_da39a",
         "M7M_Barrel_Default_coated_handguard_da39a",
         "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+        "M7R_06_RecessBlack",
         "M7M_Barrel_Default_coated_handguard_6cfb7",
-        "M7M_Stock_Default_coated_receiver_da39a",
-        "M7M_Stock_Default_dark_steel_hardware_da39a",
-        "M7M_Stock_Default_polymer_stock_dbcb1",
-        "M7M_Stock_Default_polymer_stock_da39a",
-        "M7M_Stock_Default_polymer_stock_2c9f3",
-        "M7M_Stock_Default_rubber_black_7a08d",
+        "M7M_Stock_ShadowRail_coat.001",
+        "M7M_Stock_ShadowRail_hardware.001",
+        "M7M_Stock_ShadowRail_dark.001",
+        "M7M_Stock_ShadowRail_polymer.001",
+        "M7M_Stock_ShadowRail_rubber.001",
         "M7M_Mag_Extended_coated_magazine_0f2a7",
         "M7M_Mag_Extended_coated_magazine_fade7",
         "M7M_Mag_Extended_coated_magazine_f05bd",
         "M7M_Mag_Extended_rubber_black_f05bd",
         "M7M_Mag_Extended_polymer_stock_da39a",
-        "M7M_Grip_D2_polymer_grip_da39a",
-        "M7M_Grip_D2_rubber_black_da39a",
-        "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-        "M7M_Grip_D2_dark_steel_hardware_da39a",
-        "M7M_Grip_D2_coated_receiver_da39a",
-        "M7M_Grip_D2_polymer_grip_f0ba0",
+        "M7M_Grip_Phantom_polymer.001",
+        "M7M_Grip_Phantom_coat.001",
+        "M7M_Grip_Phantom_rubber.001",
+        "M7M_Grip_Phantom_dark.001",
+        "M7M_Grip_Phantom_hardware.001",
         "M7M_Optic_LPVO_coated_optic_da39a",
         "M7M_Optic_LPVO_rubber_black_da39a",
         "M7R_09_CoatedLens",
         "M7M_Optic_LPVO_polymer_stock_da39a",
         "M7M_Optic_LPVO_polymer_stock_00723",
+        "M7R_07_EngravingGray",
         "M7M_Optic_LPVO_coated_optic_00723",
         "M7M_Optic_LPVO_rubber_black_00723",
         "M7M_Optic_LPVO_dark_steel_hardware_da39a",
@@ -2219,19 +2313,19 @@
       ],
       "assembly_bounds_m": {
         "min": [
-          -0.36775001883506775,
-          -0.0348999984562397,
+          -0.42635872960090637,
+          -0.03486853837966919,
           -0.282502144575119
         ],
         "max": [
           0.7481749653816223,
-          0.04440000280737877,
+          0.03486853837966919,
           0.13240499794483185
         ]
       },
       "geometry_dimensions_m": [
-        1.11592498421669,
-        0.07930000126361847,
+        1.1745336949825287,
+        0.06973707675933838,
         0.41490714251995087
       ],
       "uv_layers": [
@@ -2417,5 +2511,8 @@
     "rim_power_multiplier": 0.85,
     "exposure_offset": -0.12,
     "comparison": "The same recipe is applied when rendering the historical baseline."
-  }
+  },
+  "core_reference_review": "CoreReferenceReview.json",
+  "attachment_registry": "AttachmentRegistry.json",
+  "shadow_phantom_review": "ShadowPhantomReview.json"
 }

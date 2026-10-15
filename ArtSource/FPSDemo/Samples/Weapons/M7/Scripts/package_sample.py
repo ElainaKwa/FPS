@@ -1,6 +1,7 @@
 """Package the current verified M7 PBR sample, without game reference media."""
 
 import hashlib
+import importlib.util
 import json
 import re
 import zipfile
@@ -12,6 +13,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE_SUFFIXES = {".blend", ".json", ".md", ".txt", ".csv", ".sha256", ".toml"}
 CONFIG_SUFFIXES = {".json", ".toml", ".yaml", ".yml", ".ini", ".cfg", ".md"}
+REQUIRED_ATTACHMENTS = {"SM_M7_Stock_ShadowRail", "SM_M7_Grip_Phantom"}
 
 
 def digest(path):
@@ -64,8 +66,10 @@ def main():
     validation = json.loads(validation_path.read_text(encoding="utf-8"))
     if not validation.get("success"):
         raise RuntimeError("Only package the successfully validated material study.")
-    if len(manifest["assets"]) != 17 or len(manifest["presets"]) != 3:
-        raise RuntimeError("Sample must contain seventeen assets and three assembly presets.")
+    if len(manifest["assets"]) != 19 or len(manifest["presets"]) != 3:
+        raise RuntimeError("Sample must contain nineteen assets and three assembly presets.")
+    if not REQUIRED_ATTACHMENTS.issubset({asset["name"] for asset in manifest["assets"]}):
+        raise RuntimeError("The sample must include independent ShadowRail stock and Phantom grip assets.")
     source = inside(manifest.get("source_file", "Source/M7_Material_Study.blend"))
     if digest(source) != validation["source_sha256_after"]:
         raise RuntimeError("Source .blend changed after validation; validate the final saved file again.")
@@ -73,14 +77,26 @@ def main():
         path = inside(relative)
         if not path.is_file() or digest(path) != expected:
             raise RuntimeError("Validated texture/export/manifest changed: " + relative)
+    freeze_spec = importlib.util.spec_from_file_location(
+        "m7_frozen_attachment_package", ROOT / "Scripts/freeze_tidal_attachment.py")
+    freeze = importlib.util.module_from_spec(freeze_spec)
+    freeze_spec.loader.exec_module(freeze)
+    registry = freeze.check_frozen_files(ROOT, manifest)
+    frozen = registry["assets"][freeze.ASSET_NAME]
+    proof = validation.get("frozen_attachments", {}).get(freeze.ASSET_NAME, {})
+    if (proof.get("source_sha256") != frozen["source_snapshot"]["sha256"]
+            or proof.get("files_unchanged") is not True):
+        raise RuntimeError("Current successful Validation must confirm the frozen Tidal source and files.")
+    if validation.get("validated_files", {}).get(freeze.REGISTRY_NAME) != digest(ROOT / freeze.REGISTRY_NAME):
+        raise RuntimeError("AttachmentRegistry.json is not bound to the current successful Validation.")
     report = inside(manifest.get("material_report", "MaterialReport.json"))
     if not report.is_file():
         raise RuntimeError("The current material baking/report artifact is missing.")
     files = {source, manifest_path.resolve(), validation_path.resolve(), report}
     exports = {inside(path) for row in manifest["assets"] + manifest["presets"]
                for kind, path in row["exports"].items() if kind in {"fbx", "glb"}}
-    if len(exports) != 40 or any(not path.is_file() for path in exports):
-        raise RuntimeError("Expected all forty declared FBX/GLB export files.")
+    if len(exports) != 44 or any(not path.is_file() for path in exports):
+        raise RuntimeError("Expected all forty-four declared FBX/GLB export files.")
     files.update(exports)
     maps = {inside(relative) for asset in manifest["assets"]
             for slots in asset.get("texture_sets", {}).values()
@@ -157,10 +173,11 @@ def main():
         if archive.testzip() is not None:
             raise RuntimeError("Material sample ZIP CRC check failed.")
         members = set(archive.namelist())
-        required = exports | maps | set(script_configs) | set(before_previews) | comparison_inputs | {compare}
+        required = exports | maps | set(script_configs) | set(before_previews) | comparison_inputs | {
+            compare, ROOT / freeze.REGISTRY_NAME, ROOT / "Scripts/freeze_tidal_attachment.py"}
         if not all(path.resolve().relative_to(ROOT.resolve()).as_posix() in members for path in required):
             raise RuntimeError("An export, texture, configuration or comparison dependency is missing from the archive.")
-    print(json.dumps({"archive": str(target), "files": len(files), "exports": 40,
+    print(json.dumps({"archive": str(target), "files": len(files), "exports": len(exports),
                       "baked_maps": len(maps), "read_only_baseline_files": len(baseline),
                       "bytes": target.stat().st_size}))
 

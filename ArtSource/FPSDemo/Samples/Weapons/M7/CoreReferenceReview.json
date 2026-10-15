@@ -1,0 +1,101 @@
+{
+  "success": true,
+  "asset": "SM_M7_Core",
+  "reference_image": "Reference/Core_Receiver_User.png",
+  "reference_sha256": "b002e3b186d529b526a7e1c42ad948f9e727610deea6eafc34fc6126faccbb46",
+  "scope": "Art reconstruction of upper/lower receiver only; existing removable furniture, barrel and fixed sockets retained.",
+  "mapping": {
+    "x": ".165-(px-10)*.00067",
+    "z": "(140-py)*.00066",
+    "width_inferred": true
+  },
+  "changes": [
+    "Thin upper shoulder with stepped roof",
+    "Two long real recessed channels and slim longitudinal slider",
+    "Front mechanical housing with real pockets and recessed hex drives",
+    "Cross-layer catch stem and lower crossarm",
+    "Sloped hollow magazine well and thin rolled lip",
+    "Thin curved open trigger guard",
+    "Smaller selector and through-hole rear sling seat"
+  ],
+  "boolean_operations": 36,
+  "machined_recess_checks": [
+    {
+      "side": -1,
+      "upper_slot_depth_m": 0.002,
+      "long_track_depth_m": 0.00155,
+      "lower_separation_recess_m": 0.0009,
+      "real_recesses": true
+    },
+    {
+      "side": 1,
+      "upper_slot_depth_m": 0.002,
+      "long_track_depth_m": 0.00155,
+      "lower_separation_recess_m": 0.0009,
+      "real_recesses": true
+    }
+  ],
+  "retained_top_rail_objects": [
+    "CORE_RailTooth_02",
+    "CORE_RailTooth_03",
+    "CORE_RailTooth_04",
+    "CORE_RailTooth_05",
+    "CORE_RailTooth_06",
+    "CORE_RailTooth_07",
+    "CORE_RailTooth_08",
+    "CORE_RailTooth_09",
+    "CORE_RailTooth_10",
+    "CORE_RailTooth_11",
+    "CORE_RailTooth_12",
+    "CORE_RailTooth_13",
+    "CORE_RailTooth_14",
+    "CORE_RailTooth_15",
+    "CORE_RailTooth_16",
+    "CORE_RailTooth_17",
+    "CORE_RailTooth_18",
+    "CORE_RailTooth_19",
+    "CORE_RailTooth_20",
+    "CORE_RailTooth_21",
+    "CORE_RailTooth_22",
+    "CORE_RailTooth_23",
+    "CORE_ReceiverTopRailBase"
+  ],
+  "fixed_sockets_unchanged": true,
+  "rear_rail_trim": {
+    "rear_start_x_m": -0.136,
+    "original_rear_start_x_m": -0.162,
+    "trimmed_tooth_names": [
+      "CORE_RailTooth_00",
+      "CORE_RailTooth_01"
+    ],
+    "forward_end_x_m": 0.158,
+    "receiver_support_samples": [
+      {
+        "x_m": -0.1335,
+        "receiver_roof_z_m": 0.04487999901175499,
+        "support_overlap_m": 0.002179998904466629
+      },
+      {
+        "x_m": -0.126,
+        "receiver_roof_z_m": 0.04487999901175499,
+        "support_overlap_m": 0.002179998904466629
+      }
+    ],
+    "forward_barrel_interface_unchanged": true
+  },
+  "frozen_attachment_check": {
+    "passed": true,
+    "registry": "AttachmentRegistry.json"
+  },
+  "removed_object_count": 139,
+  "new_object_count": 137,
+  "bevel_segments": 8,
+  "circle_segments": 64,
+  "unreal_tested": false,
+  "visual_acceptance": "pending user review",
+  "atlas_status": "Baked BaseColor, Normal and ORM; final export proof is in the matching Validation.json",
+  "atlas_resolution": [
+    4096,
+    4096
+  ]
+}

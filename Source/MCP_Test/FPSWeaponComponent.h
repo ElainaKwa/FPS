@@ -51,6 +51,7 @@ struct FFPSWeaponActionTicket
 UCLASS(ClassGroup=(FPS), meta=(BlueprintSpawnableComponent))
 class MCP_TEST_API UFPSWeaponComponent : public UActorComponent
 {
+    friend struct FFPSHitDamageSmoke;
     friend struct FFPSCharacterSmoke;
     friend struct FFPSLoadoutSmoke;
     GENERATED_BODY()

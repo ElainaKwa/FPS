@@ -2,8 +2,8 @@
 
 - 用途：设计决策
 - 适用范围：本项目美术源文件、Unreal 美术资产、样品、FPS 地图归属及跨项目复用；当前按 FPSDemo 落地
-- 状态：资产规范于 2026-10-12 用户确认，地图分类于 2026-10-13 用户确认；新增资产与地图按此执行，现有目录分批迁移，完成情况以迁移记录为准
-- 最后更新：2026-10-13
+- 状态：资产规范于 2026-10-12 用户确认，地图分类于 2026-10-13 用户确认，枪械与配件分类于 2026-10-15 用户确认；新增资产按此执行，现有目录分批迁移，完成情况以迁移记录为准
+- 最后更新：2026-10-15
 
 ## 1. 存放原则
 
@@ -13,7 +13,8 @@
 
 ```text
 ArtSource/FPSDemo/
-  Weapons/M4/
+  Weapons/Rifles/M4/
+  Weapons/Attachments/Stocks/M4/
   Characters/Operator/
   Environment/IndustrialKit/
   UI/IndustrialTerminal/
@@ -22,7 +23,8 @@ ArtSource/FPSDemo/
   Samples/UI/FontComparisons/
 
 Content/FPSDemo/Art/
-  Weapons/M4/
+  Weapons/Rifles/M4/
+  Weapons/Attachments/Stocks/M4/
   Characters/Operator/
   Environment/IndustrialKit/
   UI/
@@ -98,6 +100,21 @@ Content/FPSDemo/
 ```
 
 本次仅确认新增地图的存放规则，未迁移现有地图。既有竞技场和靶场仍直接位于 `Content/FPSDemo/Maps/`，工业展示图仍位于 `Content/FPSDemo/Art/Industrial/Maps/`；现有地图制作背景见 [地图制作记录](../../FPSMaps.md)。后续迁移按第 7 节通过编辑器维护引用并验证，不能把示例路径当作当前入口。
+
+### 4.2 枪械与配件分类
+
+新增枪械按“武器类别 → 型号”归类；可替换配件独立放在 `Weapons/Attachments/`，按“安装部位 → 适用型号或配件系列”归类。分类依据是资产用途和实际兼容范围，不以某套满改预设作为配件的唯一归属。
+
+| 内容 | Unreal 路径规则 | M7 本次使用位置 |
+| --- | --- | --- |
+| 枪身与型号专属整枪预设 | `Content/FPSDemo/Art/Weapons/<武器类别>/<型号>/` | `Weapons/Rifles/M7/` |
+| 独立可换配件 | `Content/FPSDemo/Art/Weapons/Attachments/<部位>/<型号或系列>/` | `Weapons/Attachments/<部位>/M7/` |
+
+当前 M7 使用的配件部位为 `Stocks`（后托）、`Magazines`（弹匣）、`RearGrips`（后握把）、`Optics`（瞄具）、`Foregrips`（前握把）、`Muzzles`（枪口）、`Sights`（机械瞄具）和 `Barrels`（枪管／护木组件）。新武器或新部位只建立实际需要的目录；不预建其他武器类别的空目录。
+
+每项资产内部按用途放置 `Meshes/`、`Materials/`、`Textures/`；整枪派生网格放型号目录的 `Presets/`，单型号检查地图放 `Maps/`。材质和贴图跟随持有它们的型号或配件，实际共用依赖只维护一份，并在资产说明中记录。配件能否互换仍由接口和兼容记录决定，目录名称不能代替兼容性验证。
+
+源文件原则对应同一类别与型号，但第 2 节的多资产库规则继续适用：现有 M7 样品由 `ArtSource/FPSDemo/Samples/Weapons/M7/` 的单一源库持有，不因 Unreal 分类复制或拆出多个当前 `.blend`。本次新增规则不批量迁移既有 M4、Industrial 混合库或历史 M7 目录；当前导入状态见 [M7 Unreal 资产使用说明](M7UnrealImport.md)。
 
 ## 5. 权威来源与历史版本
 

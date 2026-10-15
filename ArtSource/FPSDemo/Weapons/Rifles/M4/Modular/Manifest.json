@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "scope": "M4 experimental modular assembly; original art preserved",
+  "generator": "ArtSource/FPSDemo/Weapons/Rifles/M4/Modular/Scripts/build_modular.py",
+  "source": "Tools/build_industrial_art.py",
+  "source_sha256": "f7482886c4817094769809fff3d0259c643a9a7a780377f9092882d237d9f7db",
+  "assets": [
+    {
+      "name": "SM_M4_ModularBody",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularBody.fbx",
+      "bounds_m": {
+        "min": [
+          -0.29500001668930054,
+          -0.06450000405311584,
+          -0.22943153977394104
+        ],
+        "max": [
+          0.5734999775886536,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 16288,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Modular/Meshes",
+      "sha256": "7411f5d2cac5e7488473ea007f4b71d6562161ed51d9a1d5bb10aa1959d5a089"
+    },
+    {
+      "name": "SM_M4_ModularReloadBody",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularReloadBody.fbx",
+      "bounds_m": {
+        "min": [
+          -0.29500001668930054,
+          -0.03200000151991844,
+          -0.08650000393390656
+        ],
+        "max": [
+          0.5734999775886536,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 15064,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Modular/Meshes",
+      "sha256": "1e164aea598ae6fff8b62547981d7e4ddc9fac93854fb19d56d461355d691b43"
+    },
+    {
+      "name": "SM_M4_ModularWorkbenchBody",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularWorkbenchBody.fbx",
+      "bounds_m": {
+        "min": [
+          -0.29500001668930054,
+          -0.06450000405311584,
+          -0.08650000393390656
+        ],
+        "max": [
+          0.4300000071525574,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 13548,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Modular/Meshes",
+      "sha256": "3e740147d6abed39d2bdd2b594fd2d1920bb81221350dd76d2dec2f38b92a0ae"
+    },
+    {
+      "name": "SM_M4_ModularRearGripStandard",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularRearGripStandard.fbx",
+      "bounds_m": {
+        "min": [
+          -0.06302192807197571,
+          -0.01850000023841858,
+          -0.1446097046136856
+        ],
+        "max": [
+          0.018904605880379677,
+          0.01850000023841858,
+          -0.0257155429571867
+        ]
+      },
+      "triangles": 1128,
+      "materials": [
+        "MI_IND_Polymer",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M4/Meshes",
+      "sha256": "f1988d2f16f42719c839b3c4e70f40fc89f1f73cf23b2412a2df16a9344d918d"
+    },
+    {
+      "name": "SM_M4_ModularStockStandard",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularStockStandard.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3695000112056732,
+          -0.027000000700354576,
+          -0.09350000321865082
+        ],
+        "max": [
+          -0.17197571694850922,
+          0.027000000700354576,
+          0.03949999809265137
+        ]
+      },
+      "triangles": 596,
+      "materials": [
+        "MI_IND_Polymer",
+        "MI_IND_Rubber",
+        "MI_IND_Graphite"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M4/Meshes",
+      "sha256": "ff682ec9e1acee5a0c5544d9592266cdfda258d2c8d4b7c652b766ffeee18268"
+    },
+    {
+      "name": "SM_M4_ModularBarrelStandard",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularBarrelStandard.fbx",
+      "bounds_m": {
+        "min": [
+          0.3999999761581421,
+          -0.008999999612569809,
+          -0.009000003337860107
+        ],
+        "max": [
+          0.5649999976158142,
+          0.008999999612569809,
+          0.009000003337860107
+        ]
+      },
+      "triangles": 508,
+      "materials": [
+        "MI_IND_Steel"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M4/Meshes",
+      "sha256": "704be95fc203d4c216edb14fab3fc2802a3882c41829afa4e86f5e0836c0a5de"
+    },
+    {
+      "name": "SM_M4_ModularRearGripErgo",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularRearGripErgo.fbx",
+      "bounds_m": {
+        "min": [
+          -0.05649999901652336,
+          -0.01899999938905239,
+          -0.14999999105930328
+        ],
+        "max": [
+          0.01908992975950241,
+          0.01899999938905239,
+          -0.02871554344892502
+        ]
+      },
+      "triangles": 1316,
+      "materials": [
+        "MI_IND_Ceramic",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M4/Meshes",
+      "sha256": "7aadb4f760f17dd6de3d68a9928af51f37393fec25ec0aba2e3e02f8a2790bc2"
+    },
+    {
+      "name": "SM_M4_ModularRearGripControl",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularRearGripControl.fbx",
+      "bounds_m": {
+        "min": [
+          -0.07581868767738342,
+          -0.02500000037252903,
+          -0.14999999105930328
+        ],
+        "max": [
+          0.018722251057624817,
+          0.02500000037252903,
+          -0.02871554158627987
+        ]
+      },
+      "triangles": 1316,
+      "materials": [
+        "MI_IND_Polymer",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M4/Meshes",
+      "sha256": "8e5ea116c064f3e567725a5348232dd50a6b188674f0b173b21a5ed52785ab9d"
+    },
+    {
+      "name": "SM_M4_ModularStockLight",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularStockLight.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3695000112056732,
+          -0.024000000208616257,
+          -0.09350000321865082
+        ],
+        "max": [
+          -0.1745000034570694,
+          0.024000000208616257,
+          0.039500001817941666
+        ]
+      },
+      "triangles": 752,
+      "materials": [
+        "MI_IND_Steel",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M4/Meshes",
+      "sha256": "8ee7f912960b83a21661712fa7388dc41bbb6b21e67ccfe742ba9e9fd3caf174"
+    },
+    {
+      "name": "SM_M4_ModularStockStable",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularStockStable.fbx",
+      "bounds_m": {
+        "min": [
+          -0.3695000112056732,
+          -0.032499998807907104,
+          -0.09850000590085983
+        ],
+        "max": [
+          -0.16653180122375488,
+          0.032499998807907104,
+          0.050999999046325684
+        ]
+      },
+      "triangles": 628,
+      "materials": [
+        "MI_IND_Ceramic",
+        "MI_IND_Polymer",
+        "MI_IND_Rubber"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M4/Meshes",
+      "sha256": "745e479269779248d2deb392c4227352e8415b6f00cacc059f72907ab31f3fa3"
+    },
+    {
+      "name": "SM_M4_ModularBarrelLight",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularBarrelLight.fbx",
+      "bounds_m": {
+        "min": [
+          0.3999999761581421,
+          -0.008999999612569809,
+          -0.008999999612569809
+        ],
+        "max": [
+          0.5649999976158142,
+          0.008999999612569809,
+          0.008999999612569809
+        ]
+      },
+      "triangles": 2032,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M4/Meshes",
+      "sha256": "70f87b6adafbc59a7b9a964050b945a5697dff35d10992b0f5ef9c7d92879a8d"
+    },
+    {
+      "name": "SM_M4_ModularBarrelHeavy",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularBarrelHeavy.fbx",
+      "bounds_m": {
+        "min": [
+          0.3999999761581421,
+          -0.017000000923871994,
+          -0.017000000923871994
+        ],
+        "max": [
+          0.5649999976158142,
+          0.017000000923871994,
+          0.017000000923871994
+        ]
+      },
+      "triangles": 3556,
+      "materials": [
+        "MI_IND_Steel",
+        "MI_IND_Graphite"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M4/Meshes",
+      "sha256": "ce9db180f23d3e239cb735517fa8f8fa4c57dcb0dc0ef8bcbc0e2291bad7e667"
+    }
+  ]
+}

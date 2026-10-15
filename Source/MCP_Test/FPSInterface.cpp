@@ -107,8 +107,7 @@ void UFPSInterface::NativeTick(const FGeometry& Geometry,float DeltaTime)
             }
             Text(TEXT("BaseHint"),S->BindingText("Loadout")+TEXT("  配装 / 基地内"));
             Visible(TEXT("PickupKey"),false);
-            Text(TEXT("KeyR"),TEXT(""));Visible(TEXT("RKeycap"),false);
-            if(const auto* Body=Cast<AFPSDemoCharacter>(GetOwningPlayerPawn());Body&&Body->GetWeapons()->Definition())Text(TEXT("GunName"),Body->GetWeapons()->Definition()->DisplayName.ToString()+TEXT(" · ")+S->BindingText("Reload"));
+            Text(TEXT("KeyR"),S->BindingText("Reload"));
         }
     }
     else RefreshMenu();

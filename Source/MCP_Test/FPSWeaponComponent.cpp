@@ -20,6 +20,7 @@
 #include "FPSWeaponSmoke.h"
 #include "FPSWeaponAbilitySmoke.h"
 #include "FPSWeaponDamageSmoke.h"
+#include "FPSHitDamageSmoke.h"
 #include "FPSWeaponPresentationSmoke.h"
 #include "Engine/GameInstance.h"
 #include "Engine/StaticMesh.h"
@@ -327,6 +328,7 @@ void UFPSWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
     FFPSRecoilSmoke::Tick(this);
     FFPSWeaponAbilitySmoke::Tick(this);
     FFPSWeaponDamageSmoke::Tick(this);
+    FFPSHitDamageSmoke::Tick(this);
     FFPSWeaponPresentationSmoke::Tick(this);
     if (IsEnabled() && !CanAct() && (GetOwner()->HasAuthority() || Character()->IsLocallyControlled())) StopAllActions();
 }

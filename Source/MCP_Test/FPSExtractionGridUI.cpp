@@ -1,5 +1,6 @@
 #include "FPSExtractionGridUI.h"
 #include "FPSExtractionUI.h"
+#include "FPSExtractionSubsystem.h"
 #include "Rendering/DrawElements.h"
 #include "Styling/CoreStyle.h"
 #include "InputCoreTypes.h"
@@ -23,6 +24,8 @@ void UFPSExtractionGridUI::Present(UFPSExtractionUI* Owner,const FFPSExtractionV
     const bool Warehouse=Container==EFPSExtractionContainer::Warehouse;
     Stacks=Warehouse?V.Warehouse:V.Backpack;
     Columns=Warehouse?V.WarehouseWidth:V.BackpackWidth;Rows=Warehouse?V.WarehouseHeight:V.BackpackHeight;
+    if(Owner&&Owner->WidgetTree)if(auto* Help=Cast<UTextBlock>(Owner->WidgetTree->FindWidget(TEXT("InventoryHelp"))))
+        Help->SetText(FText::FromString(TEXT("拖放 / R 旋转\nCtrl+点击互转\n右键拆分数量\n同类物资补满")));
     if(!Owner||!Owner->IsInventoryDragging())bPreview=false;
 }
 const FFPSExtractionItem* UFPSExtractionGridUI::Definition(FName Id) const
@@ -37,10 +40,39 @@ FIntPoint UFPSExtractionGridUI::CellAt(const FGeometry& G,FVector2D Absolute) co
 {const FVector2D P=G.AbsoluteToLocal(Absolute);return {int32(FMath::FloorToInt(P.X/CellSize)),int32(FMath::FloorToInt(P.Y/CellSize))};}
 FReply UFPSExtractionGridUI::NativeOnMouseButtonDown(const FGeometry& G,const FPointerEvent& E)
 {
-    if(E.GetEffectingButton()!=EKeys::LeftMouseButton||!OwnerUI.IsValid())return Super::NativeOnMouseButtonDown(G,E);
+    const bool RightClick=E.GetEffectingButton()==EKeys::RightMouseButton;
+    if((E.GetEffectingButton()!=EKeys::LeftMouseButton&&!RightClick)||!OwnerUI.IsValid())return Super::NativeOnMouseButtonDown(G,E);
     PressedCell=CellAt(G,E.GetScreenSpacePosition());
     if(const auto* S=Hit(PressedCell.X,PressedCell.Y))
-    {PressedStack=S->StackId;OwnerUI->SelectInventoryStack(Container,PressedStack);return FReply::Handled().DetectDrag(TakeWidget(),EKeys::LeftMouseButton);}
+    {
+        // SelectInventoryStack refreshes the snapshot, invalidating S.
+        const FGuid Id=S->StackId;const int32 Quantity=S->Quantity;
+        PressedStack=Id;OwnerUI->SelectInventoryStack(Container,Id);
+        if(RightClick)
+        {
+            if(Quantity<=1)OwnerUI->InventoryFeedback(TEXT("该堆叠只有 1 件，无法拆分。"));
+            else if(OwnerUI->CanInventoryMove(Container,Container))
+            {
+                if(SplitDialog)SplitDialog->Close();
+                SplitDialog=CreateWidget<UFPSExtractionSplitDialog>(GetOwningPlayer());
+                if(SplitDialog)SplitDialog->OpenFor(this,Id,Quantity);
+            }
+            return FReply::Handled();
+        }
+        if(E.IsControlDown())
+        {
+            OwnerUI->Dispatch(TEXT("SelectedTransfer"));
+            const auto To=Container==EFPSExtractionContainer::Warehouse?EFPSExtractionContainer::Backpack:EFPSExtractionContainer::Warehouse;
+            if(auto* Model=GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>())
+            {
+                const auto View=Model->GetView();const auto& Target=To==EFPSExtractionContainer::Backpack?View.Backpack:View.Warehouse;
+                if(Target.ContainsByPredicate([Id](const auto& Stack){return Stack.StackId==Id;}))OwnerUI->SelectInventoryStack(To,Id);
+            }
+            return FReply::Handled();
+        }
+        OwnerUI->InventoryFeedback(TEXT("拖动移动 · R 旋转 · Ctrl+点击快速转移 · 右键拆分"));
+        return FReply::Handled().DetectDrag(TakeWidget(),EKeys::LeftMouseButton);
+    }
     PressedStack.Invalidate();OwnerUI->SelectInventoryStack(Container,FGuid());return FReply::Handled();
 }
 void UFPSExtractionGridUI::NativeOnDragDetected(const FGeometry& G,const FPointerEvent& E,UDragDropOperation*& Operation)
@@ -60,14 +92,16 @@ void UFPSExtractionGridUI::NativeOnDragDetected(const FGeometry& G,const FPointe
 bool UFPSExtractionGridUI::PreviewFits(const UFPSExtractionGridDrag& D,int32 X,int32 Y,FString& Reason) const
 {
     if(!OwnerUI.IsValid()||!OwnerUI->CanInventoryMove(D.From,Container)){Reason=TEXT("当前阶段不能移入此容器");return false;}
-    // Match MoveStack: the target origin can merge a whole stack before footprint checks.
+    // Match MoveStack: fill the target stack and leave any excess at the source.
     for(const auto& S:Stacks)
     {
         if(D.From==Container&&S.StackId==D.StackId)continue;
         if(const auto* I=Definition(S.ItemId))
         {const int32 W=S.bRotated?I->Height:I->Width,H=S.bRotated?I->Width:I->Height;
         if(X>=S.X&&X<S.X+W&&Y>=S.Y&&Y<S.Y+H&&S.ItemId==D.ItemId)
-        {if(D.Quantity<=I->StackLimit-S.Quantity){Reason=TEXT("松开合并整组物资");return true;}Reason=TEXT("目标堆叠容量不足，不能部分移动");return false;}}
+        {const int32 Room=I->StackLimit-S.Quantity;
+        if(Room>0){Reason=FString::Printf(TEXT("松开合并 %d 件 · 余量保留原位"),FMath::Min(D.Quantity,Room));return true;}
+        Reason=TEXT("目标堆叠已满");return false;}}
     }
     if(X<0||Y<0||X+D.Width>Columns||Y+D.Height>Rows){Reason=TEXT("放置超出格子边界");return false;}
     for(const auto& S:Stacks)
@@ -127,4 +161,10 @@ int32 UFPSExtractionGridUI::NativePaint(const FPaintArgs& A,const FGeometry& G,c
         if(EndX>X&&EndY>Y)Box(X*CellSize,Y*CellSize,(EndX-X)*CellSize-1,(EndY-Y)*CellSize-1,bFits?FLinearColor(.4f,.66f,.29f,.38f):FLinearColor(.8f,.12f,.08f,.5f),L+5);
     }
     return L+5;
+}
+void UFPSExtractionGridUI::NativeDestruct()
+{
+    OwnerUI.Reset();
+    if(SplitDialog)SplitDialog->Close();SplitDialog=nullptr;
+    Super::NativeDestruct();
 }

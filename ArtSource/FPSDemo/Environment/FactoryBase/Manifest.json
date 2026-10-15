@@ -1,0 +1,20 @@
+{
+  "map": "/Game/FPSDemo/Maps/Gameplay/FactoryBase/LV_FPSFactoryBase",
+  "source": "ArtSource/FPSDemo/Environment/FactoryBase/Scripts/create_factory_base.py",
+  "source_sha256": "6a2615c0d29267ad3042bc5b3b482f5c7c9c96898cbd3aa7e6e837ec1c9797d9",
+  "footprint_cm": [
+    2800,
+    2400
+  ],
+  "ceiling_cm": 660,
+  "facility_pages": [
+    "Warehouse",
+    "Modification",
+    "Production",
+    "Overview"
+  ],
+  "static_meshes": 189,
+  "protected_packages": 317,
+  "protected_packages_unchanged": true,
+  "status": "saved; runtime verification separate"
+}

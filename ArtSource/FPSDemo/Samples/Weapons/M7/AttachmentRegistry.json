@@ -1,0 +1,1459 @@
+{
+  "schema_version": 1,
+  "assets": {
+    "SM_M7_Barrel_Tidal": {
+      "status": "frozen",
+      "frozen_utc": "2026-10-13T07:54:44.480463+00:00",
+      "source_file": "Source/M7_Material_Study.blend",
+      "source_sha256_at_freeze": "eec775593944caca84b35392fb00a662ffae224121b8091e65e2da1272d23ae1",
+      "validation_sha256_at_freeze": "d4519b5372a1f1efa24526e017d49ce811045832a355773e3174fcdc33547f17",
+      "manifest_contract": {
+        "name": "SM_M7_Barrel_Tidal",
+        "collection": "SM_M7_Barrel_Tidal",
+        "category": "Barrel",
+        "mount_key": "Barrel",
+        "mount_position_m": [
+          0.158,
+          0,
+          0
+        ],
+        "local_mounts_m": {
+          "Foregrip": [
+            0.2833003763959756,
+            0.0,
+            -0.0495
+          ],
+          "Muzzle": [
+            0.6458988764044944,
+            0.0,
+            0.0
+          ],
+          "FrontIron": [
+            0.43640449438202245,
+            0.0,
+            0.0545
+          ]
+        },
+        "exports": {
+          "glb": "Exports/SM_M7_Barrel_Tidal.glb",
+          "fbx": "Exports/SM_M7_Barrel_Tidal.fbx"
+        },
+        "texture_sets": {
+          "M7M_Barrel_Tidal_Guard_coated_handguard.001": {
+            "BaseColor": "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png",
+            "Normal": "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png",
+            "ORM": "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png"
+          },
+          "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001": {
+            "BaseColor": "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png",
+            "Normal": "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png",
+            "ORM": "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png"
+          },
+          "M7M_Barrel_Tidal_Guard_fine_grid.001": {
+            "BaseColor": "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png",
+            "Normal": "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png",
+            "ORM": "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png"
+          }
+        },
+        "baked_uv_layer": "M7_MaterialUV",
+        "atlas_resolution": [
+          4096,
+          4096
+        ],
+        "preserved_constant_materials": []
+      },
+      "source_snapshot": {
+        "sha256": "9f7b8c90c97a6a786d8cb1d5ed360dfc38d76297da173d0a7b591c36ad6822d7",
+        "geometry_sha256": "53716546ea1f2e06058388d5111866ae5e7a4e7149cebd695a817e6b006b7aa2",
+        "materials_sha256": "a45cae1017fccfe900c9e2c6d3446b3350631c82107c8338ed707af02f25404e",
+        "transforms_sha256": "edf4b38dcdd9cd42276336becb3c7003c7e37a77dc3ca1fa1c245c566c07ef94",
+        "raw_geometry_uv_modifiers_sha256": "0507a32736f53c2a0934979078974b61d28c28e226de46eb9cbf5ae00b365943",
+        "vertices": 209288,
+        "triangles": 418480,
+        "geometry_objects": 82,
+        "objects": 86,
+        "instance_offset": [
+          0.15800000727176666,
+          0.0,
+          0.0
+        ],
+        "sockets": {
+          "M7_BarrelTidal_Mount_Foregrip": {
+            "mount_key": "Foregrip",
+            "matrix_world": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.4413003623485565
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                -0.0494999997317791
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "M7_BarrelTidal_Mount_FrontIron": {
+            "mount_key": "FrontIron",
+            "matrix_world": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.5944045186042786
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.054499998688697815
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "M7_BarrelTidal_Mount_Muzzle": {
+            "mount_key": "Muzzle",
+            "matrix_world": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.8038988709449768
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "object_geometry": {
+          "TIDAL_BarrelMain": {
+            "sha256": "9e2255e589d27e8f9bb26e94fbf0162e6667d1debf63286366da999848bd815e",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "f585c1b414ec42ce1f8147e58debecf20c4296e8a05955c21fae16fe3f26064e",
+              "triangles": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "corner_normals": "cf4b8ca5ad298790e89ef19ff6fda74d67c155c4710999614061f3c3f2272390"
+            }
+          },
+          "TIDAL_ExternalFrontCrown": {
+            "sha256": "81c94c3e46d332062e6176657532c60b74efb2562a85c6a2667d884e986e6a7d",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "67a7a356755f6caac3095ead9e7fb1f99def2ba780def541fa5a0e4fe6815d04",
+              "triangles": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "corner_normals": "7e8ac610a6e79f10948e2383c73c39cb6a8347f3db52cdf2ae234f61ce6bd3c0"
+            }
+          },
+          "TIDAL_FineTextureField_-1_0": {
+            "sha256": "97e34eca7e9f75085714abceb4e429958de2c2742b525cb082bb118a88a3f750",
+            "vertices": 490,
+            "triangles": 976,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "2edd913d0693472ed43478d5f22f8a667ee9f499b404f8f98506fc429cd3a6fa",
+              "triangles": "d0af5a305ae07a94e35f17fe7e9329d230d8b7ef428922a98c3bec7d2e8ae170",
+              "triangle_material": "e4730b22fdaee18fd70b12b9380561861428042aaaaaf79350886115e5b5c931",
+              "loop_vertices": "d0af5a305ae07a94e35f17fe7e9329d230d8b7ef428922a98c3bec7d2e8ae170",
+              "corner_normals": "357d8080abe38b7e72d35f680c1420c2b42a15578d3ec1df6ce7609aeb924aa6"
+            }
+          },
+          "TIDAL_FineTextureField_-1_1": {
+            "sha256": "8a20fec55397fc59db30bc5e139fbad9fbf8c19f24b0dda7520f39d664f419c7",
+            "vertices": 448,
+            "triangles": 892,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "1ac6645c12a2d90df98b2859c8f084563a38ead65931d964bdab84bb503eb17c",
+              "triangles": "132f696654f5815f5801b47410b09a6855769fe4d521e4722aa07957fa3b38e4",
+              "triangle_material": "a87896c2a989fb7f700480d223bbb8e0c85bc3491c7175eee6969855aa893ccd",
+              "loop_vertices": "132f696654f5815f5801b47410b09a6855769fe4d521e4722aa07957fa3b38e4",
+              "corner_normals": "b13f19172c183f8cc318859694680579f4916c84bb34495f532036c0dac37e32"
+            }
+          },
+          "TIDAL_FineTextureField_-1_2": {
+            "sha256": "9c64d5052444baaaac93cf7f4ecf74049d29c4702c5d76bd1e68e98249e54ea2",
+            "vertices": 210,
+            "triangles": 416,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "fb943dc042a512872b6dc9cf0e1154cb5ce8e09853daf1eed66b24fd118d8f5d",
+              "triangles": "5d0700f88a62956ec9bfe1e55c1a8ed30fd821c311ed08558330ec5fdb02b4ec",
+              "triangle_material": "755ba9519eb08efb2d4c68ccfee9d69ceb372301b3a701ad6a3ac309ba37edb6",
+              "loop_vertices": "5d0700f88a62956ec9bfe1e55c1a8ed30fd821c311ed08558330ec5fdb02b4ec",
+              "corner_normals": "ab88dcfade073b9dae2a4a89c87f47febbf3a9d7a985ac1bff675d2b06004137"
+            }
+          },
+          "TIDAL_FineTextureField_1_0": {
+            "sha256": "13dd005408d3a3c1286ce673ad946f330affedd5460b168bf065f441d2df1851",
+            "vertices": 490,
+            "triangles": 976,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "23250c4473941f3a3835f31b29a75324ba5a4266efe58679c4363fbd20f4ec64",
+              "triangles": "28647a92bde7c56875078c731f17c3df96f7fa6bc5cb95682c5dc52d2d6f025a",
+              "triangle_material": "e4730b22fdaee18fd70b12b9380561861428042aaaaaf79350886115e5b5c931",
+              "loop_vertices": "28647a92bde7c56875078c731f17c3df96f7fa6bc5cb95682c5dc52d2d6f025a",
+              "corner_normals": "3e0575b8d7588f5d2b859cb2a4fbd97b978ff59637d60637083bea3b9551f796"
+            }
+          },
+          "TIDAL_FineTextureField_1_1": {
+            "sha256": "e600c67f45f4276e78299c249996da5de4d1bef453bb7bd03d905dea7040761d",
+            "vertices": 448,
+            "triangles": 892,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "27b3071186133f4d4f5c7b558af30f45f708c7a33e97bc5d8e923045321d20a1",
+              "triangles": "131da4abb82e7330829557950eab67ec9f9f5155a9dd60f92269b57c10b5b64b",
+              "triangle_material": "a87896c2a989fb7f700480d223bbb8e0c85bc3491c7175eee6969855aa893ccd",
+              "loop_vertices": "131da4abb82e7330829557950eab67ec9f9f5155a9dd60f92269b57c10b5b64b",
+              "corner_normals": "6d932bf18870117884acacca841bbe9a4be786f04c1795f8c81e480f603d9f63"
+            }
+          },
+          "TIDAL_FineTextureField_1_2": {
+            "sha256": "9157194b1731b9e9deb3a503be3f21d7906299d988896d056c36f4c1a32f78c2",
+            "vertices": 210,
+            "triangles": 416,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "7f2e79bc02e33e577d30a49e370b25916dc06ddd650ee10bcd4648c7bc065b56",
+              "triangles": "ae90ce934f7c7a586e0290978d5361942f58a9cc5f709081a1257da1b8578774",
+              "triangle_material": "755ba9519eb08efb2d4c68ccfee9d69ceb372301b3a701ad6a3ac309ba37edb6",
+              "loop_vertices": "ae90ce934f7c7a586e0290978d5361942f58a9cc5f709081a1257da1b8578774",
+              "corner_normals": "a53d776882f773ffe6f4752aeb680f16aaccfd5eb0aed58dfa9ed2f09bf40981"
+            }
+          },
+          "TIDAL_FrontSteppedCollar": {
+            "sha256": "de72f3b72ef93a4ba7802e5146a82a021769fb97200769c48a05c78fe7ea9fb6",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "1b36a409f169bfb183f66816a73f9c8fde8d817ae2ad8ff6eefc5ee38a0e06fc",
+              "triangles": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "corner_normals": "8af42e86918f798b163154aebb1e94d5ab6709772342edce555fbe7e56cc8446"
+            }
+          },
+          "TIDAL_HandguardShell": {
+            "sha256": "b30ac569244b319667cd0695b60549acfc9dd2dce2846301fd4e9ac05244ba23",
+            "vertices": 125804,
+            "triangles": 251776,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "6cfaf4756babc8ecbb79cdc9065634962c5105fc7b73caa0b784c3af4cc08f4a",
+              "triangles": "76a65041af87bfa58e747f28f0417348c4eea439111b4cfb5b2aa9c02eb76b09",
+              "triangle_material": "0433ac3a792a37c64e5790b71336bcc30dcd0210bafe801f3d021564cb7327bd",
+              "loop_vertices": "76a65041af87bfa58e747f28f0417348c4eea439111b4cfb5b2aa9c02eb76b09",
+              "corner_normals": "b0937e9bf938566a5abed440c1b1e57fb823cf156a1afaebe22b74b4d5748edc"
+            }
+          },
+          "TIDAL_InternalGasBlock": {
+            "sha256": "6ea8976a1f1aca0ee4a10ab4e9fe026a051fbcfe05d8b3d9c7f3dcad0e7010c5",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "4246c909536444d949477c1445396942bd1224dc47c715262d54315b0f23e9fb",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "9798bc7767c0cc8eb74c90261971ccaa29b112ae79f5da81e54893946a5198bc"
+            }
+          },
+          "TIDAL_LowerRailBase": {
+            "sha256": "4b9102181287e83e9e767386913cab5814c651f8efd80e1a92f4bd2e98d170ef",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "e2883df0a24b206a8333d5af125bfffda3a3671dc0223336f1e47f092c9225a8",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "83fe3514615790ca50995de92d34af4f318db719e86d7620fe0afbebea24c4d2"
+            }
+          },
+          "TIDAL_LowerRailTooth_00": {
+            "sha256": "051bc85edf886e66a6b2ca84c0f5107b01a6fdd66990d8fbf5e02fe7f8148ece",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "4aad532ed20d193f168d1ae09cb11687bf2c866734da9b51a2a5f09656397931",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "fd9041e57f221ff529da242eff60c90f0fb13c1e50e225fb3941138256f0f5c6"
+            }
+          },
+          "TIDAL_LowerRailTooth_01": {
+            "sha256": "eaaf2c23048786211cb116b5494f20d3422677e39e48d27ac3bdd1236ae2511e",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "f8370b643f138f3cb93e38ceffd315270cffee4f1d6953652d930941ea6e0410",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "25ea94bfa72022f2537e0905715e7a8507cd00ac87216ad148e01e121e0dff0d"
+            }
+          },
+          "TIDAL_LowerRailTooth_02": {
+            "sha256": "75ddb2282fc3aea525be3630f52180bd5cdd015effd7941e5644c9c99cd401ff",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "5bf0155dd4e1dc7c1bfbed3fdca5effc26738943779d2e22e45610eb865331f1",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "7801dde907dbce4696f373739752294385d0792454132aa6613c1eb22068306a"
+            }
+          },
+          "TIDAL_LowerRailTooth_03": {
+            "sha256": "b236c0b2a60fae0de4451abc63dd8026a6d9955d4219f2b06a4a6f8f18a2323d",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "e524e9eb399ed79d1607b790530d1c2280646e7fa67f04ad0598b7a6615c224c",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "3d01d8ebbb5a6c509fc689157d5c104971068544ddb88e19f36456f84bc1e874"
+            }
+          },
+          "TIDAL_LowerRailTooth_04": {
+            "sha256": "1ea73913cb014fc429931742552f5dae80d224d3b84350d149fef6b520e3a46f",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "de3c99f922daa3ddfdec8414fcac9b6ed72d70946b9c4b3d74db8268c8d6058a",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "e65b68a8a84fc1936eb81452d3dd331e1beaf61e38d4ab6e12fd8e30120dc2f9"
+            }
+          },
+          "TIDAL_LowerRailTooth_05": {
+            "sha256": "18e1c3581a8fa701a71fad8b57ac31112beaea9d94afe5d913cdc4fd766939df",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "11bc9923a96403e2bf1c9f43292b70b91b02accf7203b95215df32c4f4122141",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "38f976c9601d964b1b9ac4b87c40e7d47b2b4c6d09ee76412ce39bfb9bfa433d"
+            }
+          },
+          "TIDAL_LowerRailTooth_06": {
+            "sha256": "9321bee74107dc50c341592bd69524150341a1116d399eb053d3c57f74b98d53",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "dac558951f33d01e2763d15bf41783139e2f64c3cb6b172c74dc9def7145481c",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "7f267cb7db273c1ca9edf879c1fcac0e514ff6f6657cf122b22a0295625bd759"
+            }
+          },
+          "TIDAL_LowerRailTooth_07": {
+            "sha256": "a2de49f2ab1930f7cf905b948562fdc176d699f3f2fb9856addc31281bd795b4",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "aae1e681b4c15f8f92a8526a2b5e9951effbb5b5083cb3754cf298b693782775",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "e3972277822b9609b832a85af9a37d9779a3d343c7e73cbf2ebda02be14d4464"
+            }
+          },
+          "TIDAL_LowerRailTooth_08": {
+            "sha256": "0d80e8815266e0a3469788fd92155c8fea32258fa1281238d67b3d49db79b710",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "24f991879f9be23027ceab84e3554714a07f219bd6cc4bb4851cef22f1887256",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "725fc5e403758fd22812dcda7cdc3c9f617badfa1678dc7d95931a7d28fc70f5"
+            }
+          },
+          "TIDAL_LowerRailTooth_09": {
+            "sha256": "6ca68117f9aa774f9d885904ff9a8b4651edeea37b04194c2cac24825319b095",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "2812cf5f363cfb53145e78d8382e02361748f6c330430ce290fc46217fcbe549",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "02019c68f5dab6355fa6916290a531a2cc9577a38e77100c4eab57f0ad44de4a"
+            }
+          },
+          "TIDAL_LowerRailTooth_10": {
+            "sha256": "d264382b5446fd778b6eced8a0f879b1e064d54fa0ea22df1a02af3d3a87b3f5",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "f188819b04c72ec5ba04fcf049401ef950aa3b19589130855c2aa61038447790",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "6df42c95102f8e1257fdd1868b6be6b1ccada13dea761c6b0876cbd1c4c57b81"
+            }
+          },
+          "TIDAL_LowerRailTooth_11": {
+            "sha256": "3b4a7db9454a034a01ac9ed64b5f7d182a98a98b266720c684315677b9a51f70",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "efafea3e0f4e5d1275b9b6ed938dac705fe9e4208fccf13e01ebb6b99891b3d4",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "425d799ecca8e221b8cd6ed6c7645c7c123405e44cd27b25ce95d06351f14778"
+            }
+          },
+          "TIDAL_LowerRailTooth_12": {
+            "sha256": "1c87b35898d69f1975675fa8304d95843b04b0cbdb12935b55b5240b1a68ff29",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "485b20e06fd2f1b1022d24940c35545778d5c761360de13048f796f8bd3ca9d4",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "527e214c3b4d32110e9367f17c4549931d803865b45a4a6b00c0b3ef63b0f2cd"
+            }
+          },
+          "TIDAL_LowerRailTooth_13": {
+            "sha256": "b2be6633cfa3882d3372dd0530b216e23a627defcafb8b1a33d7d0d7275c763d",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "49a4d9b8cbbcc9cbc6f332319f9ce31c3e684fe9b24da0b153c03eb0725a2bba",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "ca6ca8bbdbf408d1eb60d661ec71231d790ed1a9143389d322de8d268432e9a9"
+            }
+          },
+          "TIDAL_LowerRailTooth_14": {
+            "sha256": "4e5b3e61b775c9cda9e8b411d9db9ce0417c3a7992dbb8019fdc73b9365c45d0",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "56878bb1978ee0c78d69240fd8a227df8b3f11f0730aaa290d8a2e7c7c61a256",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "8066cb6d1aeb8beb646497f0f8a1ff0bdfe617d808b2715a52fd54336e6e7aa7"
+            }
+          },
+          "TIDAL_LowerRailTooth_15": {
+            "sha256": "8674968919a430ec16395f44d48f697a53894cc7d6acbe9ceacfe29dcb44e92a",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "51d8c2245906e8e4a591debc52b0eaef096e11508aaa05e58e6e186af5c20ffb",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "2603d985c2d317a1bf00f16b0009fb645d9db232f1393bf89ce73f532a962196"
+            }
+          },
+          "TIDAL_LowerRailTooth_16": {
+            "sha256": "70e699196033c80025073b329bad262e0291b7ffe61f8047877aed41284f9f7b",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "87511595e9998beb3bf6ef7a8ab48c5e946a85e4dc17fd781f043fb8327a1074",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "3965df79a8f938369d8f6b52db9e3b5eb1e8e129056ac01659ccefade406515f"
+            }
+          },
+          "TIDAL_LowerRailTooth_17": {
+            "sha256": "ee9d77849eedc78567b6add599bf712ea89d4ea0d06abc2071bef9b0bcb01e14",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "0d508907227931bdd78ff3df00abc347958aa4d6fe7bcbd3333932707f041fd8",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "cbeeb2b09daf2e4ecb735b449a35b008fd2ad9750755cc6b6e7de0fd1cae0447"
+            }
+          },
+          "TIDAL_LowerRailTooth_18": {
+            "sha256": "97ff9bf081aa3d4054522cb831a22993d4b6665ce05745c9ad971471e0ea86a8",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "e89fccbae51ec7b91579f6081d7cb4e77eea521618b8e6675e1ef2f759fc789d",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "e5932c49c484f05ed6625a0f89dbbf8b63fd36d9c88a08b05b80389cc9c01434"
+            }
+          },
+          "TIDAL_LowerRailTooth_19": {
+            "sha256": "3ec6802f2bda4f13be716508f4f28638a4325c334f1630a25df1fe6f567a3ad8",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "b566e21600dc856230895d1bd651359efc55cffde2a1c056d3aa4e03419ffac6",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "13d2ab7d37e164590214354205acdc835cf32215383ef459472b93259956f38c"
+            }
+          },
+          "TIDAL_LowerRailTooth_20": {
+            "sha256": "2fbb9bc55cb3dfe540b58ef41dca06be9dab2c5a1709362c99eadf0b77485caa",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "34a4936cdd7b299c5479a7761cb101852e6d797a91a882213ffb617080cd4814",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "bf47a629406625f6f9b45723b3bb6a3c19aff1e903fcb34ee49eecb3c58a4752"
+            }
+          },
+          "TIDAL_LowerRailTooth_21": {
+            "sha256": "686f647d2467aac459174af69506142f84d6a4499e050e06250fa7e3a4535121",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "2d50bddf0abad6f6f196d26bd54bb20534cf57e02a1e48c8790ebc7dbd02b917",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "bc362e026844e179ef211ac2cbda30af3307e687072a0bb1cda9f0cab31dfe76"
+            }
+          },
+          "TIDAL_LowerRailTooth_22": {
+            "sha256": "7992c4a707476bf5e993b96f69faed8b1b54ecbe44b149c20d2f32e2b8ed6a85",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "99d7d7b33badea8e2b575a13fa0ba38ecf7190b0b2fd609f34f38d6dd41f57f5",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "25bbd8504b8853e988277c42512a56eb8eabe87026432d14575740c3e7d3520e"
+            }
+          },
+          "TIDAL_LowerRailTooth_23": {
+            "sha256": "5e4d273f77b2490a06aa3d86ebc470c80c2c5bf4f0cdd431e770476d335af0fa",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "6352e467a6a7f2eb3291a09da87971c81c400a3e93932e13fb708154b385e39d",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "c4020c06f45e599ec47e7eaf081c097f1015a6f710c22498edcac52d8c4442e6"
+            }
+          },
+          "TIDAL_LowerRailTooth_24": {
+            "sha256": "9ac237de24398ee0c1e474256c82da4ee35955cc32fec8c8bf95985d6759aa57",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "c67fea42362e9d4f440653a4f4f109796d90418393a42cb36207bb7e4b9d5200",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "456b17319c343fe3923762158b26af4c25b086b3f30faecb01fc97d392df7b17"
+            }
+          },
+          "TIDAL_LowerRailTooth_25": {
+            "sha256": "b2c03899145a724e381a61e25a8c84ebac7ea2459ad8479630adbfe40b3aa824",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "4128b6027f56d28ab4db6e5f2480eb07653d75ea2416a7650fc0f21ee8ad4aaf",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "b666cb94b0b0fa690e0eb8708a0249e0a05ec841e4040fd0376121e1ec21f203"
+            }
+          },
+          "TIDAL_LowerRailTooth_26": {
+            "sha256": "d31928c9371cb9d97c7c6a9aec93d6fd3cabd4354bfb602deb6c26f4c962b42d",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "19e9983c81188abeea07eb70198ac43a80a25676bf54f314f101088efb0b0d9b",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "63de86ba64d799a7217239e02cbefea4c389f5988fc544eb910e875a4cfdeed2"
+            }
+          },
+          "TIDAL_LowerRailTooth_27": {
+            "sha256": "e32eaedd698d863a6f0a155536b1122e4ffe424299e61c4545ccbd72639b9129",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "813e00efff2af6cd2108d66bc551063b401ac3e44f1cdb8610840db84828146c",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "56e6f61afd9e5300a146e827031704537dbb905dd5334ed6909236894d6791ed"
+            }
+          },
+          "TIDAL_LowerRailTooth_28": {
+            "sha256": "f3519815087085c2fcfcecf429d8d78a1eb7a42fa9c3dfc231d0f374f4faa4d2",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "0f735b07969823673d23bbff8132c9db4a6ba94a5fdca83cf2840bae34525652",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "96d39a462ae58285ad1f3d80bafdf779e5273b9b490f52c71cd4e67592615482"
+            }
+          },
+          "TIDAL_QDSocket_-1": {
+            "sha256": "fed5416be7d53b479d413169d0dca37d52a93eff8f119725d97f499a81bd2bdf",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "3c05fd5b904f51ea26a919c4ce698cde5b96a9ce6fa242e5829dc2aa37d7459c",
+              "triangles": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "corner_normals": "35b12ab22c62892db8f6c8ebe7246b34ca8e0110abbb73e9c531a3e11e475aed"
+            }
+          },
+          "TIDAL_QDSocket_1": {
+            "sha256": "b3ccfce05c5001b7b8d53fd0f5d7a975ed367c04c3eb296ff43c4633e667c9a3",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "40e76591ef7be081db7d1487916f489e0da8eb7de548c8a92cae1400198b16d4",
+              "triangles": "fa700fba575781c22060801973a8fb441a6dfb7dcd422f75649aa12c07111d3c",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "fa700fba575781c22060801973a8fb441a6dfb7dcd422f75649aa12c07111d3c",
+              "corner_normals": "2613b6a4f12078339f37dea888967886fa21059040c61fcc602da2ed3d722f0c"
+            }
+          },
+          "TIDAL_RearBarrelCollar": {
+            "sha256": "d61386358476bd2bc505207c48abfb38abf14edf5b5ef1b18b44def5a026b466",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "507e87c63fe395a362a86b4222278b5b441bec75c228520cf6279da89f3f3b08",
+              "triangles": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "corner_normals": "eada7d59ba16ec356b74556c1ca1156eba5a4d21ccf3f35a6991346b3ad6a965"
+            }
+          },
+          "TIDAL_UpperRailBase": {
+            "sha256": "dee3ebac118976b14dbf3850b9e72cb5c7b62d3185924f73e7c786008bed4750",
+            "vertices": 488,
+            "triangles": 972,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "941a828523294095149d66677aae08efdee731d035912b9857a1a7305f9ecfa7",
+              "triangles": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "triangle_material": "d60d6cd6fbd560cb387c6294aeab1e088bc4dbf4b85b8341702120cfd5fcde32",
+              "loop_vertices": "5aaca2c2076c15d260358383a3d5c9199bce954adbd61769cdd03f0c3e906832",
+              "corner_normals": "839864cfe66d5aac2b7ae062856ffd1f88b8a948df68c8870ab86fa136ee410a"
+            }
+          },
+          "TIDAL_UpperRailTooth_00": {
+            "sha256": "013c3ad8cf5a187fdbff2aa180c8d06849a4029aeb77337c49b986e50485a606",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "745d6f8e0e9d1a1a38b30b27c2d40a9c2f2f11d25572ff4444ebb99c043a987b",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "0a348eaa3dc90fddec01f2778eb7625387ece7337ef1590c0d8d8d97fb81036e"
+            }
+          },
+          "TIDAL_UpperRailTooth_01": {
+            "sha256": "97ae7e9fcf71e16894acde96f53633796d5f058ffbe5d226c53402a554c71cfe",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "7a555c294eed5370cb2d05fdab474ba4a8fd41f72e9e2098fc9f90a9b0bcba6b",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "85d86747f1bf7ec87dfeef32865c6f0d4ec22c220b561cbd7561c5255c77a497"
+            }
+          },
+          "TIDAL_UpperRailTooth_02": {
+            "sha256": "65808fb697c3db9517b769af0466b35fd318cacbd502cf094d91c64f60d2b239",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "9d49cbcf7a372210b1d88f845245d89da21c77b5595eee65ef009c3ab83dd6c7",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "abb200ea8f7e308bbf292d0b100a0391e589d569842531df9092acc023fbd858"
+            }
+          },
+          "TIDAL_UpperRailTooth_03": {
+            "sha256": "2c1079e2155381d32e9792e22a2e0539c43ea28449f341d3a360dc9cd7a3fc35",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "fdf8718a0c2bb87117a8c900933de352fda3656c01605203ff2f976f0cd37a59",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "602f0f92863fb11bcaff4d350de4bf36ce84e4ce534480d868ff27d3f26eba64"
+            }
+          },
+          "TIDAL_UpperRailTooth_04": {
+            "sha256": "9767f1bb6efb6ea0b13964453aa9b2bf5ce18f72754091874e063273c5cef7a1",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "4e1c310214e1f34d909e4f4903603101a6c01f758103f9211de15befb69d58c2",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "f46f864c0dad84488b6aa72337f22388438ee1b29eb38bcb6b91e0564fbcea6b"
+            }
+          },
+          "TIDAL_UpperRailTooth_05": {
+            "sha256": "24b568ad77a27d4a3cfeb4ee127f988f218670b99537cca4d49e352dbf632900",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "36c89f2d3feee14243ed46b00914cb9ae4c8ea02a7a770c46b1c344e51465951",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "75d3e4ba68c98353634bc6af67ae2dbe5ede90b0b435900cd0cca26b4daacf68"
+            }
+          },
+          "TIDAL_UpperRailTooth_06": {
+            "sha256": "8d6cea99357a0585244ace9cd8aa84f2c478e54aaed5004e23d83ce8b28ff577",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "706f2218febdb3f9b90d1d840745b15c4e2d7d651e6bcd0e111b63072033f435",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "e13f26f8a773b1c973ff451ba65c6f44bdb6d8dd4b6c9df9c6876a73af7013db"
+            }
+          },
+          "TIDAL_UpperRailTooth_07": {
+            "sha256": "6ed57b10a71d38f2653e6bad4722d85603615d3627bf420973007fe74c52f1cf",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "242c196c1b9692782f27bd7090d7975afa05880246d02e634f1b65153a695e31",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "7660bcf741484d2669607265040bd58497b50a972d7b618f3167c574fce18226"
+            }
+          },
+          "TIDAL_UpperRailTooth_08": {
+            "sha256": "81b09a704cc0cc54fdd3997babff96c50954db517a0aa19854f07f692acad94b",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "1568d4a83ef622b00bd82c01842e8f2a6d62da2a7cf95851623ca42c4fe2cbe3",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "3fd8b128199c74362bf2f5d0c56d2a7c450f4dc93a55540d4d6ea05976a820b4"
+            }
+          },
+          "TIDAL_UpperRailTooth_09": {
+            "sha256": "e3c68ee8cfc67001c8ad0651be9ab68651486e9a01239fd4edf40c2aa6e6e08d",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "caab69a31c6d5b8f540f6ab2416edeeb246fa055aff9713213fc5386a4a19d2d",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "b15f8f17c2bef589a5e0675ade1b46db4c5e1b7a8e16d1ca3c61d9237d9af6b2"
+            }
+          },
+          "TIDAL_UpperRailTooth_10": {
+            "sha256": "334fde0d9fcff5f0570ad9f6438825003c5363b1b61610b82276542955a8a42c",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "9b8c5767cae6af235370ace90cfce102e68bf60f0dcdbfdd242380fd9ca95ddc",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "9d0f0271d3fe1d8c3291b307e0c00ae3c4dfe86e8ff50d0da490537de59b10b4"
+            }
+          },
+          "TIDAL_UpperRailTooth_11": {
+            "sha256": "8b3a3340d9855483d015a758446c4d00f27f68634f82d84952ee365e8f3e35df",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "f04ae44570bf7dc71432eaf0d23fff2950d544ac01f15b4c5a88857fe10ef04d",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "b94b729645198a0a337c78f1fa4067d632db8b1db18383b7aa736e492b4343ce"
+            }
+          },
+          "TIDAL_UpperRailTooth_12": {
+            "sha256": "ec330670c8d38b426707745cdb2ade1bc4a50cfb2adf04aa092bb51bc67a963a",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "412965a27113764fc78468fd8b576a031f31a25abb54196a14f697b65c0c197a",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "2ddb96d8bc045ec706abe2df336aa3deda5e058b9f2c343a6aa9c1d9c6a09d9d"
+            }
+          },
+          "TIDAL_UpperRailTooth_13": {
+            "sha256": "dc421141ed13b0fc8375e8e36c4ec68eb7e160e683502dc3490f630713c070ee",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "d4cccf5d10ba09acb0ee79fa6216c7ce64de9b8df38893c2009cfec533d0eba3",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "e522900f6e7d843d6f1d536c902f46fc3e008be19a0b5569f56b378ec0473100"
+            }
+          },
+          "TIDAL_UpperRailTooth_14": {
+            "sha256": "129db739742be973c6f4fff5fb3d14a3f473aba444dc04ffafe992b1eb6cbf54",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "32961bd09fa1e16e1ac97819bc00328cdfd89c0c2eb83905c2d94b5164a392e4",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "12eb8ab72be7fa71994430a54332ed8be25b43e2a593b3ec9408be6cb71a5fbe"
+            }
+          },
+          "TIDAL_UpperRailTooth_15": {
+            "sha256": "b57836f2c6920585b47a6409fc73bfa582d09992eb95b15cd3b9d1df415d900e",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "abad670c09373d7f34f2b892b475025e12b6f5a0d71e6f7f8bdf2bb35180e637",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "b3c69a69a6807d7fc20d08ec175aeffd59055867aa8be23735474ab7dd5377b9"
+            }
+          },
+          "TIDAL_UpperRailTooth_16": {
+            "sha256": "7ff39f7db2b6fd3910779f24363f1ae9c5d4a95cc69b1119e1ac6e0dea586a4b",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "799d3cc4d131abfaf21d143b1bb852fb11623df42ed8108fe410e9892f9f63b6",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "9df89940c7dee3405ed0292330b411bdd45f785f83b057676b633e15ad8e33b5"
+            }
+          },
+          "TIDAL_UpperRailTooth_17": {
+            "sha256": "d36d81b867a7e4d78dc9da281ffb1fc5af67ca401018197abbe687f9ee4ae620",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "4c89d4f03ae5d994e8f6f3e10416bc4624d06e5a51abdc4135430f0b1daa8593",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "6fc41abfeb7a6cdbafd25e7fc13246c8855faae6a5b1e32e6b2f9d6a8528e061"
+            }
+          },
+          "TIDAL_UpperRailTooth_18": {
+            "sha256": "910c6fc42ed833f79ad140064cb99c505a21aaca44a57447bb54703acc1f950f",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "832c8146f8345b6c872d09892b85e06edea9256ce4be9760f08d7ff0617563b8",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "36bf695faafc410a59e5bc6c6f391681f493c749b932a4365c0fd1579eda7d39"
+            }
+          },
+          "TIDAL_UpperRailTooth_19": {
+            "sha256": "40e3daf6cee07000bb35021b8f9f9a7a8722d7b80dbaecdb7e94fdde56312f8a",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "12b67c128fdf7d6904e0c94523905a7ec7d54ae865c2be2314d4962b446d1e3c",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "5e06417b351e1ba7a98380650b33bd221a606b91e7bec2dce1773ec1f5c2960b"
+            }
+          },
+          "TIDAL_UpperRailTooth_20": {
+            "sha256": "495cfe723283c681964180e134a88abf383f3f34f882c2d318f7bcfbbc3d408e",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "28d21e673ce6ba9722885be39ae4f7e66574c0a180ba3ea8523fd6969975a243",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "186ad2610206508d3930fe5dda1aa949be142f74d10de1250f90979cd9d4a5ff"
+            }
+          },
+          "TIDAL_UpperRailTooth_21": {
+            "sha256": "72e177accce1e2d89c8ad6f962392181845077f19656d9115f22f88d4aec2fd1",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "c4b15f4d451333de05c8fca2108e310ea1698e142ea3c59ba0a777ae9a4e13ec",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "8603bde9b02fd25e1aac685ed54b96e0c340e982f0f5656526b4259161c51891"
+            }
+          },
+          "TIDAL_UpperRailTooth_22": {
+            "sha256": "f8fb83fb8f6278f907fde77234f8450dc90b8a1a632fbc0f048d25652dfdd8c0",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "7b3bd4c629f0cb442325efb068a0719b2e306fd61474b062e2610a9e521a0ddb",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "1d706f47abaf484daf611abb2cf30e7f345bbd6393ba5bceb251a08d78ca2412"
+            }
+          },
+          "TIDAL_UpperRailTooth_23": {
+            "sha256": "ac45749f517a59d1d8059f0443ee514a761f213290e64cb4864915d31660a25d",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "08d71560f25cf39b0997af88a411b5468ff899c74b1671d98a33c2e2be9e1324",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "d03f716a5c705635f7bf2cb5edb36b135ae7a041e71ef9f4d6038e3d9c019ff9"
+            }
+          },
+          "TIDAL_UpperRailTooth_24": {
+            "sha256": "3f195fa217fa4dfd4af18de6ed8df69acb8d00cb387da1d26b14fc5ec2afb85a",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "0ea46151a973cbd09575bf78b3bc76d1f87a6d7bff59c84b639e0659e9d4d5ec",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "fd09372725b3fccdc93f90a7b8795e3d1a7661bd4cc1bf904553aecb50ab5a90"
+            }
+          },
+          "TIDAL_UpperRailTooth_25": {
+            "sha256": "7cf72bb938007d5c75b556e55f1f1956b1095bfdfafc25b99eda6b84f5125493",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "a7ccc6f69df4ab973ae385feba9065e5afedbe1fae823aa6a357f892a711e046",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "64671ef9aa730b50ddc6de347b4b056b599d98dd0809aba2b323f8a1855f7fc9"
+            }
+          },
+          "TIDAL_UpperRailTooth_26": {
+            "sha256": "dcfbb03241bbfb62ad83ce3805f21a8b0f02f2af4127ec8825912878ea2f7c15",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "70b1dff98e4296df3f86cc78f2f64480977f03bf4524c5485d561d6663f7fcb3",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "ad4c82ab3de52bca950fca5752287776f4533b53634e5a7c9c748fb91d496d16"
+            }
+          },
+          "TIDAL_UpperRailTooth_27": {
+            "sha256": "636d6d2eccc28737f1b92407ddc70f3cac7c147b69bd63805221540832985cc6",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "b5d57d5b95fdb27bcd718a70bce54d1f733d5d37348d2e7e56193811eabbfa8a",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "e5b4d33bd15619019200ae9fcb3b219a37a227cb7f08a5917d3526e154ac9c60"
+            }
+          },
+          "TIDAL_UpperRailTooth_28": {
+            "sha256": "b95a8e865321710617e6cef18a30d7483f9dd8353a633e22993b75305a420bfc",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "1fccb0b422c024736091f73bf0d9ee99a3741629f64462406e6d42f034f7d48d",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "ce72d9d861113c6bbe363f314604435c1eb071d91591645b32c42dc005c54d03"
+            }
+          },
+          "TIDAL_UpperRailTooth_29": {
+            "sha256": "ea6e86af67b47a1fb19ff2a1ede07b745179df4dc530e897030c0a4536bc2913",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "23c3ff87a9e4480b3a94f0ee57791dffdc58a88fea5af0fb8998cb65e3e34ab8",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "16b5f16771fd906c33660d5c782aa506fc49eff55e1dbfafabcb8e36deaefb7b"
+            }
+          },
+          "TIDAL_UpperRailTooth_30": {
+            "sha256": "99fd704274bcfff18988f8b3e837f86148ebbb2bfc6a960decfce32733f7b3d5",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "59087c9ae36f0257e4f91bd2f51db5811cd8a5feb0c7eec8d799eaa717ef511e",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "b908d2450bef6a29649ac6611b5084f92690957ed376b90b1a86af43036a681a"
+            }
+          },
+          "TIDAL_UpperRailTooth_31": {
+            "sha256": "26d23f139c6dc461a75b74e21e23cde1ded654bf8aa2f5e60db1a1f00052a0e7",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "73555a9cf7beb326cf2e2395880165a6e48e4bd2b63ca4787d11f442a8918ba0",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "9325510b55d7e897b4b4298fcdd5b98ba7a97064aab08aebc613f8cc67d2daf6"
+            }
+          },
+          "TIDAL_UpperRailTooth_32": {
+            "sha256": "d2412805df3cb2d688228f20815842422e99f88486751c367128d5bb365cbf9e",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "33db27a1f64c847d0e7a61151d75e890073c363b94cc9e3c40aac996b465e4f9",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "84ddfcb6548b95f13d272440c5885f36279b2f7af7caad93675e7a17fe9d9605"
+            }
+          },
+          "TIDAL_UpperRailTooth_33": {
+            "sha256": "40123a2722975a96bd960370099ee4e2f05fea4ecb4825b5ee99f06e1994e9d3",
+            "vertices": 524,
+            "triangles": 1044,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "62d76982177bf2ba17f30b93e3174ad71669d8cbce35a350d8a7ee681f2264ec",
+              "triangles": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "triangle_material": "e71721e2c1418bf00a46998846ddaefed9c954ac4f1c4d0f12b26be8c8ea3a68",
+              "loop_vertices": "b3c74b11e2f2a07a3079786d9d3d4e7d4bc2de958c312dee59153059e40d460e",
+              "corner_normals": "6401121d342c835d1c59af5da8380110c1eb3584956f8f35ccaf5b86bb4b3ea1"
+            }
+          },
+          "TIDAL_UpperSideShoulder_-1": {
+            "sha256": "5e5ee4b6f36b385bc5c45db92801d86b1020ea7c5cdd10b4ba7e6fd90fec0a2a",
+            "vertices": 15814,
+            "triangles": 31640,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "1a8bd161c4028f11e0589eba36ac6ceea670d4ca7917141f41feec2ebc78498b",
+              "triangles": "8b76b85285e8f4640e44a5cec847a89b9988b3907d7a457977cf362b80ba2f4e",
+              "triangle_material": "f8edea2674d024b9545bd0912fb561b58bbfc106e11fa7bcaf55a437a013a0ed",
+              "loop_vertices": "8b76b85285e8f4640e44a5cec847a89b9988b3907d7a457977cf362b80ba2f4e",
+              "corner_normals": "68cd4d64fac176a18ee2aa7fe236368ae67afebabf02ec91d7528d13e9be7780"
+            }
+          },
+          "TIDAL_UpperSideShoulder_1": {
+            "sha256": "474538f867e07b5af652b1c2dbdf8fd57a576f1ed014afd484a6035e3148d43e",
+            "vertices": 15814,
+            "triangles": 31640,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "03011f5f4f18433f87c69dbb2f10ef7b78ebd3f934db0d8901934b7dcdad4b9b",
+              "triangles": "7f8a98737a0b245785257424e635e6f91033555d818f324934665b0cde0c0cc0",
+              "triangle_material": "f8edea2674d024b9545bd0912fb561b58bbfc106e11fa7bcaf55a437a013a0ed",
+              "loop_vertices": "7f8a98737a0b245785257424e635e6f91033555d818f324934665b0cde0c0cc0",
+              "corner_normals": "125f040d4bcaafe10dbf3cdde19c0d9667a0cb3b6be113f6173523c32cf0c159"
+            }
+          },
+          "TIDAL_VisibleGasTube": {
+            "sha256": "5a68d5617323292a9718415b07b29f808141e2e096ba187a736383251e85a735",
+            "vertices": 2304,
+            "triangles": 4608,
+            "uv_layers": [
+              "M7_MaterialUV"
+            ],
+            "fields": {
+              "positions": "b598f7d02841dc4883dc8ab82be926293bbdc9563299598537e45e4347bfcc9d",
+              "triangles": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "triangle_material": "f7b586904e3678145aa47e4232587c913139cef0102d6d8e9276fc80c35cbad3",
+              "loop_vertices": "c1f0c4135837fbbfa5f1ae9cc05f194ab67294cd40e457e3feaa0690b0285494",
+              "corner_normals": "8203120aac8256705cd84e7d34b7750c1d58ff2da04272ba38d4e3e2aae7b628"
+            }
+          }
+        },
+        "material_hashes": {
+          "M7M_Barrel_Tidal_Guard_coated_handguard.001": "62f52136e31f3c1998bacbc7537d6e9012ab12ee39c35d20b1f5fe58c88e9f91",
+          "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001": "35e9a1556d7e48b69f7413ccbff17eafa5871e19dacbe326e13d7f86097d6cd7",
+          "M7M_Barrel_Tidal_Guard_fine_grid.001": "8a1b4a4e2c731f0eb46630f2f49474ae6e749fa44bf707bb1c08787de1dfb99b"
+        }
+      },
+      "files": {
+        "Exports/SM_M7_Barrel_Tidal.fbx": {
+          "sha256": "82776af30c594260f08675d363cdae19a59355ca138d58d73011cdcbdc18960a",
+          "bytes": 19858332
+        },
+        "Exports/SM_M7_Barrel_Tidal.glb": {
+          "sha256": "dcfe29af550470826382abd989e79ded7fb9e6c6e9ce34c6dc157515bdeb0feb",
+          "bytes": 38304436
+        },
+        "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png": {
+          "sha256": "cb0f765a5bf456ca4fd07558ab6f59c32b1215485fbd1e58eab92dc4ffa9a160",
+          "bytes": 999673
+        },
+        "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png": {
+          "sha256": "988a6793e4888698da817ef47a322427c27e18ce1df7f750c3bdf80136223eda",
+          "bytes": 1258485
+        },
+        "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png": {
+          "sha256": "3ba8d2ae517db1d606e4ebaf8de049773d4882311c3b7af9fa7e786e12970e0c",
+          "bytes": 9194089
+        }
+      },
+      "fingerprint_policy": "Exact evaluated positions/topology/normals; exact source mesh UVs and modifier parameters. Evaluated Bevel UV interpolation may jitter by float32 ULPs.",
+      "reuse": {
+        "standalone": {
+          "glb": "Exports/SM_M7_Barrel_Tidal.glb",
+          "fbx": "Exports/SM_M7_Barrel_Tidal.fbx"
+        },
+        "editable_collection": "SM_M7_Barrel_Tidal",
+        "authoritative_source": "Source/M7_Material_Study.blend",
+        "install_at": "Core/Mount_Barrel",
+        "dependent_sockets": {
+          "Foregrip": [
+            0.2833003763959756,
+            0.0,
+            -0.0495
+          ],
+          "Muzzle": [
+            0.6458988764044944,
+            0.0,
+            0.0
+          ],
+          "FrontIron": [
+            0.43640449438202245,
+            0.0,
+            0.0545
+          ]
+        },
+        "policy": "Replace the installed BarrelCombo; retain one common editable Source."
+      }
+    }
+  }
+}

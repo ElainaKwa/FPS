@@ -133,7 +133,7 @@ void AFPSWeaponPickup::OnRep_Instance()
     {
         Mesh->SetStaticMesh(PickupMesh);
         Mesh->SetRelativeTransform(Visual);
-        if (GetNetMode() != NM_DedicatedServer) RefreshFPSAttachmentMeshes(Mesh, Catalog, Instance.AttachmentIds, EFPSAttachmentView::Pickup, AttachmentMeshes);
+        if (GetNetMode() != NM_DedicatedServer) RefreshFPSAttachmentMeshes(Mesh, Catalog, Def, Instance.AttachmentIds, EFPSAttachmentView::Pickup, AttachmentMeshes);
     }
     Body->SetCollisionEnabled(bDynamic ? ECollisionEnabled::QueryAndPhysics : ECollisionEnabled::NoCollision);
     // Native RepMovement synchronizes client simulation and authoritative rigid-body snapshots.

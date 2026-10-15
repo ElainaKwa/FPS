@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "FPSWeaponVisualTiming.h"
+#include "FPSProceduralAnimation.h"
 #include "FPSCharacterPresentation.generated.h"
 class AFPSDemoCharacter;
-/** Cosmetic orchestrator: camera and first-person gun; delegates third-person pose to AvatarVisuals. */
+/** Camera/weapon presentation plus shared action-pose input for the avatar and authority hit bodies. */
 UCLASS()
 class MCP_TEST_API UFPSCharacterPresentation : public UActorComponent
 {
@@ -18,10 +19,19 @@ public:
     void WeaponKick(float Kick, double Now) { Recoil = RecoilKick = Kick; RecoilStartedAt = Now; }
     float GetRecoil() const { return Recoil; }
     float GetAimBlend(double Now) const { return AimVisualBlend.Value(Now); }
+    FVector GetAmbientOffset() const { return AmbientOffset; }
 private:
+    FPSProceduralAnimation::FActionPose ActionPoseFor(const UFPSWeaponDefinition* Definition, const FFPSWeaponLoadout& State, double Now, float AimAlpha);
     UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> FirstPersonAttachments;
     UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> ThirdPersonAttachments;
+    UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> FirstPersonReloadParts;
+    UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> ThirdPersonReloadParts;
     FPSWeaponVisualTiming::FTransition AimVisualBlend, CameraFOVBlend{92.f}, SprintVisualBlend;
+    FPSWeaponVisualTiming::FTransition AmbientBlend{1.f};
+    FPSProceduralAnimation::FLocomotion Locomotion;
+    FPSProceduralAnimation::FActionBlend ActionBlend;
+    FVector AmbientOffset = FVector::ZeroVector;
+    FGuid PresentedInstance;
     float RecoilKick = 0;
     double RecoilStartedAt = -100;
     float Recoil = 0;

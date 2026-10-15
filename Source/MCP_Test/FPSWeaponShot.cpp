@@ -10,12 +10,15 @@ FFPSWeaponShotContext FFPSWeaponShotContext::Capture(AFPSDemoCharacter* Source, 
     FFPSResolvedWeaponStats Stats; TArray<FString> Errors;
     const auto* Catalog = Source->GetWeapons()->Catalog();
     if (!Catalog || !Catalog->Resolve(Gun.WeaponId, Gun.AttachmentIds, Stats, Errors)) return Shot;
+    const auto* Profile = Definition.HitDamageProfile.Get();
+    if (!Profile || !Profile->Multipliers.IsValid()) return Shot;
+    Shot.HitMultipliers = Profile->Multipliers;
     Shot.Source = Source;
     Shot.WeaponId = Gun.WeaponId;
     Shot.InstanceId = Gun.InstanceId;
     Shot.ShotSerial = Gun.ShotSerial;
     Shot.BaseDamage = Definition.Damage;
-    Shot.Range = Definition.Range;
+    Shot.Range = Stats.Range;
     Shot.FireSound = Stats.FireSound.Get();
     return Shot;
 }

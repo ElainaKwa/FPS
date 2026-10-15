@@ -1,4 +1,5 @@
 #include "FPSWeaponData.h"
+#include "FPSHitDamage.h"
 #include "FPSAttachmentData.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Engine/AssetManager.h"
@@ -43,6 +44,13 @@ void UFPSWeaponDefinition::ValidateDefinition(TArray<FString>& Errors) const
             Errors.Add(FString::Printf(TEXT("%s: %s=%g must be finite and %s"), *GetPathName(), Field, Value, AllowZero ? TEXT("nonnegative") : TEXT("positive")));
     };
     Numeric(Damage, TEXT("Damage"));
+    Require(SavedResource(HitDamageProfile.Get()), TEXT("Explicit saved hit damage profile required"));
+    if (const auto* Profile = HitDamageProfile.Get())
+    {
+        Profile->ValidateProfile(Errors);
+        for (auto Region : {EFPSHitRegion::Head, EFPSHitRegion::Torso, EFPSHitRegion::Limb})
+            Require(FMath::IsFinite(Damage * Profile->Multipliers.ForRegion(Region)), TEXT("Damage times hit multiplier overflows"));
+    }
     Numeric(FireInterval, TEXT("FireInterval"));
     Numeric(Range, TEXT("Range"));
     Require(FireMode == EFPSFireMode::Single || FireMode == EFPSFireMode::Automatic || FireMode == EFPSFireMode::Burst, TEXT("Invalid fire mode"));
@@ -65,6 +73,15 @@ void UFPSWeaponDefinition::ValidateDefinition(TArray<FString>& Errors) const
     }
     for (const auto* Sound : {FireSound.Get(), ReloadStartSound.Get(), ReloadEndSound.Get(), EquipSound.Get(), InspectSound.Get(), EmptySound.Get()})
         Require(SavedResource(Sound), TEXT("All firing/operation sounds must reference saved assets"));
+    for (const auto& Mesh : {ModularBody, ModularReloadBody, WorkbenchBody}) Require(Mesh.IsNull() || SavedResource(Mesh.Get()), TEXT("Modular bodies must reference saved assets"));
+    Require(ModularReloadBody.IsNull() || !ModularBody.IsNull(), TEXT("Modular reload body requires modular body"));
+    for (const auto* Parts : {&BuiltinParts, &WorkbenchParts}) for (const auto& Part : *Parts)
+    {
+        const FVector Scale=Part.Value.Transform.GetScale3D();
+        Require(MountIds.Contains(Part.Key) && (Part.Value.Mesh.IsNull() || SavedResource(Part.Value.Mesh.Get())) &&
+            Part.Value.Transform.IsValid() && Scale.X>0 && Scale.Y>0 && Scale.Z>0, TEXT("Invalid builtin/workbench part or mount"));
+    }
+    for (const auto& Mount : AttachmentMountLocations) Require(MountIds.Contains(Mount.Key) && !Mount.Value.ContainsNaN(), TEXT("Invalid attachment mount location"));
     Require(bNoRecoil ? RecoilCurve.IsNull() : RecoilCurve.IsValid(), TEXT("Explicit no-recoil requires no curve; otherwise a curve is mandatory"));
     if (RecoilCurve)
     {
@@ -108,6 +125,7 @@ void UFPSWeaponCatalog::Discover(TArray<UFPSWeaponDefinition*>& Out, TArray<FStr
 
 void UFPSWeaponCatalog::ValidateCatalog(const TArray<UFPSWeaponDefinition*>& Items, TArray<FString>& Errors)
 {
+    UFPSHitDamageProfile::ValidateAll(Errors);
     TArray<UFPSAttachmentDefinition*> AllParts;
     UFPSAttachmentDefinition::Discover(AllParts, Errors);
     UFPSAttachmentDefinition::ValidateCatalog(AllParts, Errors);

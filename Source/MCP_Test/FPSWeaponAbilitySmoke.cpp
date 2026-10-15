@@ -100,6 +100,8 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
             TEXT("R1 stale fire ticket cannot shoot or alter cooldown"));
     });
     At(150, [&]() { Def->FireMode = EFPSFireMode::Automatic; });
+    // SettingsDesignDecisions: already-started inspection completes while a menu is open.
+    At(256, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Idle && !W->ActionAbility && !W->Loadout.bAiming, TEXT("menu-preserved inspection completes normally")); });
     At(250, [&]() { Def->FireMode = EFPSFireMode::Burst; Def->RecoilRecoveryTime = 10.f; });
     At(348, [&]() { Def->EquipReadyTime = 0; Def->EquipBlendTime = 1.f; Def->RecoilRecoveryTime = .2f; });
     At(360, [&]() { Def->FireMode = EFPSFireMode::Automatic; });
@@ -211,7 +213,7 @@ void FFPSWeaponAbilitySmoke::Tick(UFPSWeaponComponent* W)
         At(209, [&]() { Check(W->Loadout.Primary.Magazine == 0, TEXT("automatic press during preparation resumes when ready")); });
         At(211, [&]() { W->Loadout.Secondary = FFPSWeaponInstance(); W->EquippedMutable().Magazine = 5; W->EquippedMutable().Reserve = 5; W->Changed(); });
         At(224, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Reloading && W->Equipped().Magazine == 5, TEXT("empty slot and current slot requests cannot cancel reload")); });
-        At(238, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Idle && !W->Loadout.bAiming && !W->FireAbility && !W->ActionAbility && !W->AimAbility, TEXT("menu cancels server operations and intent")); });
+        At(238, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Inspecting && W->ActionAbility && !W->Loadout.bAiming && !W->FireAbility && !W->AimAbility, TEXT("menu preserves started inspect and clears attack aim intent")); });
         At(252, [&]() { W->Loadout.Secondary = W->Catalog()->CreateInstance(TEXT("Weapon.M9")); W->EquippedMutable().Magazine = 10; W->Changed(); });
         At(269, [&]() { P.Id = W->Equipped().InstanceId; P.Cooldown = W->Equipped().NextShotAt; P.Recoil = W->Equipped().RecoilIndex; });
         At(281, [&]() { Check(!W->Loadout.Primary.IsValid(), TEXT("drop relinquishes instance")); });

@@ -87,13 +87,14 @@ float AFPSDemoPlayerController::GetDamageFlash() const
 	return FMath::Clamp((DamageFlashUntil - GetWorld()->GetTimeSeconds()) / .55f, 0.f, 1.f);
 }
 
-void AFPSDemoPlayerController::ConfirmHit(bool bElimination)
+void AFPSDemoPlayerController::ConfirmHit(bool bElimination, bool bHeadshot)
 {
-	if (HasAuthority()) ClientConfirmHit(bElimination);
+	if (HasAuthority()) ClientConfirmHit(bElimination, bHeadshot);
 }
 
-void AFPSDemoPlayerController::ClientConfirmHit_Implementation(bool bElimination)
+void AFPSDemoPlayerController::ClientConfirmHit_Implementation(bool bElimination, bool bHeadshot)
 {
+    bLastHitHeadshot = bHeadshot;
 	bLastHitEliminated = bElimination;
 	HitMarkerUntil = GetWorld()->GetTimeSeconds() + (bElimination ? 1.6f : 0.35f);
 	if (bElimination) KillMarkerUntil = GetWorld()->GetTimeSeconds() + 1.6f;

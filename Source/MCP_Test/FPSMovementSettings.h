@@ -16,7 +16,8 @@ public:
     UPROPERTY(Config, EditAnywhere) float SprintDecelerationTime = .15f;
     UPROPERTY(Config, EditAnywhere) float WalkAcceleration = 9600.f;
     UPROPERTY(Config, EditAnywhere) float AirAcceleration = 1200.f;
-    UPROPERTY(Config, EditAnywhere) float JumpVelocity = 500.f;
+    UPROPERTY(Config, EditAnywhere, meta=(ClampMin="0.01", ClampMax="1.0")) float AirControl = .5f;
+    UPROPERTY(Config, EditAnywhere) float JumpVelocity = 360.f;
     UPROPERTY(Config, EditAnywhere) float WeakJumpHeightRatio = .5f;
     UPROPERTY(Config, EditAnywhere) float LandingJumpInterval = .2f;
     UPROPERTY(Config, EditAnywhere) float MaxStamina = 100.f;

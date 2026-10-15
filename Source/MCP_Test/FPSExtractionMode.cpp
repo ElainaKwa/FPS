@@ -68,7 +68,7 @@ void AFPSExtractionMode::BeginPlay()
         int32 Bots = 3;
 #if !UE_BUILD_SHIPPING
         // Deterministic inventory/settlement tests do not claim to validate enemy combat.
-        if (FParse::Param(FCommandLine::Get(), TEXT("FPSExtractionSmoke"))) Bots = 0;
+        if (FParse::Param(FCommandLine::Get(), TEXT("FPSExtractionSmoke")) || FParse::Param(FCommandLine::Get(), TEXT("FPSInventorySmoke"))) Bots = 0;
 #endif
         for (int32 Index = 0; Index < Bots; ++Index)
         {
@@ -162,6 +162,8 @@ void AFPSExtractionMode::Tick(float DeltaSeconds)
     FFPSExtractionSmoke::Tick(this);
     FFPSExtractionSmoke::CombatTick(this);
     FFPSExtractionSmoke::CaptureTick(this);
+    FFPSExtractionSmoke::InventoryTick(this);
+    FFPSExtractionSmoke::ModularPartsTick(this);
     auto* Loop = GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>();
     if (!bRaid || Loop->GetPhase() != EFPSExtractionPhase::Raid) return;
     auto* Body = Cast<AFPSDemoCharacter>(UGameplayStatics::GetPlayerPawn(this,0));

@@ -1,0 +1,949 @@
+{
+  "version": 1,
+  "blender": "5.2.2 LTS",
+  "source": "Tools/build_industrial_art.py",
+  "source_sha256": "f7482886c4817094769809fff3d0259c643a9a7a780377f9092882d237d9f7db",
+  "generator_sha256": "2bc8852c6ccd48b439d3442b125b322a84d79fcb90e69fb789b5f72bbad32e9a",
+  "generator": "ArtSource/FPSDemo/Weapons/IndustrialSet/Reload/Scripts/export_reload_parts.py",
+  "weapons": [
+    {
+      "weapon": "M4",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M4",
+      "parts": {
+        "Body": {
+          "name": "SM_M4_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_M4_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.3695000112056732,
+              -0.03200000151991844,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.5734999775886536,
+              0.03200000151991844,
+              0.07700000703334808
+            ]
+          },
+          "triangles": 17296,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Steel",
+            "MI_IND_Ceramic",
+            "MI_IND_Yellow"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Meshes",
+          "objects": 80,
+          "unreal_bounds_cm": {
+            "min": [
+              -36.95000112056732,
+              -3.200000151991844,
+              -14.46097046136856
+            ],
+            "max": [
+              57.349997758865356,
+              3.200000151991844,
+              7.700000703334808
+            ]
+          },
+          "sha256": "76cb6a0c2bfe5c6c627234883e7d295bd5f8da440fd2beaefb83810fdc5c4d1a"
+        },
+        "Magazine": {
+          "name": "SM_M4_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_M4_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              0.10021159797906876,
+              -0.016750000417232513,
+              -0.22943153977394104
+            ],
+            "max": [
+              0.19027239084243774,
+              0.016750000417232513,
+              -0.03500000014901161
+            ]
+          },
+          "triangles": 972,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M4/Meshes",
+          "objects": 5,
+          "unreal_bounds_cm": {
+            "min": [
+              10.021159797906876,
+              -1.6750000417232513,
+              -22.943153977394104
+            ],
+            "max": [
+              19.027239084243774,
+              1.6750000417232513,
+              -3.500000014901161
+            ]
+          },
+          "sha256": "af7b74254e423af27c12c87e437cffa24641fa32545d88002216671a0d54ad6f"
+        },
+        "Cycle": {
+          "name": "SM_M4_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_M4_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              0.07100000232458115,
+              -0.06450000405311584,
+              0.017999999225139618
+            ],
+            "max": [
+              0.08299999684095383,
+              -0.024500001221895218,
+              0.030000001192092896
+            ]
+          },
+          "triangles": 252,
+          "materials": [
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Meshes",
+          "objects": 1,
+          "unreal_bounds_cm": {
+            "min": [
+              7.100000232458115,
+              2.450000122189522,
+              1.7999999225139618
+            ],
+            "max": [
+              8.299999684095383,
+              6.4500004053115845,
+              3.0000001192092896
+            ]
+          },
+          "sha256": "75a3f73b7354859f9301e09661d504a34925d259749ba83016832b7b68bddc99"
+        }
+      },
+      "magazine_grip": [
+        14,
+        -2.8,
+        -13
+      ],
+      "cycling_grip": [
+        7.7,
+        4.45,
+        2.4
+      ],
+      "cycling_travel": 4.5
+    },
+    {
+      "weapon": "AK",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_AK",
+      "parts": {
+        "Body": {
+          "name": "SM_AK_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_AK_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.37400001287460327,
+              -0.03200000151991844,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.5734999775886536,
+              0.03200000151991844,
+              0.07700000703334808
+            ]
+          },
+          "triangles": 17044,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Steel",
+            "MI_IND_Ceramic",
+            "MI_IND_Yellow"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Rifles/AK/Meshes",
+          "objects": 79,
+          "unreal_bounds_cm": {
+            "min": [
+              -37.40000128746033,
+              -3.200000151991844,
+              -14.46097046136856
+            ],
+            "max": [
+              57.349997758865356,
+              3.200000151991844,
+              7.700000703334808
+            ]
+          },
+          "sha256": "7fbf3009d36d8ecc50c38e1208d04f9fdf67d6ae9df2867a44595692b172b092"
+        },
+        "Magazine": {
+          "name": "SM_AK_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_AK_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              0.1037854328751564,
+              -0.017750000581145287,
+              -0.25917044281959534
+            ],
+            "max": [
+              0.25194796919822693,
+              0.017750000581145287,
+              -0.03500000014901161
+            ]
+          },
+          "triangles": 972,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/AK/Meshes",
+          "objects": 5,
+          "unreal_bounds_cm": {
+            "min": [
+              10.37854328751564,
+              -1.7750000581145287,
+              -25.917044281959534
+            ],
+            "max": [
+              25.194796919822693,
+              1.7750000581145287,
+              -3.500000014901161
+            ]
+          },
+          "sha256": "2a5988e0565ca85f96d6f85b7f5aecfa5a9deea3649475b33b304156086d15be"
+        },
+        "Cycle": {
+          "name": "SM_AK_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_AK_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              0.07100000232458115,
+              -0.06450000405311584,
+              0.017999999225139618
+            ],
+            "max": [
+              0.08299999684095383,
+              -0.024500001221895218,
+              0.030000001192092896
+            ]
+          },
+          "triangles": 252,
+          "materials": [
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Rifles/AK/Meshes",
+          "objects": 1,
+          "unreal_bounds_cm": {
+            "min": [
+              7.100000232458115,
+              2.450000122189522,
+              1.7999999225139618
+            ],
+            "max": [
+              8.299999684095383,
+              6.4500004053115845,
+              3.0000001192092896
+            ]
+          },
+          "sha256": "79db2109f7a0d83f48cf0f08e7fe370d2419d11c6e2a3f6edb39b5c05de29b54"
+        }
+      },
+      "magazine_grip": [
+        14,
+        -2.8,
+        -13
+      ],
+      "cycling_grip": [
+        7.7,
+        4.45,
+        2.4
+      ],
+      "cycling_travel": 4.5
+    },
+    {
+      "weapon": "BR3",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_BR3",
+      "parts": {
+        "Body": {
+          "name": "SM_BR3_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_BR3_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.3695000112056732,
+              -0.03200000151991844,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.5985000133514404,
+              0.03200000151991844,
+              0.07700000703334808
+            ]
+          },
+          "triangles": 17296,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Steel",
+            "MI_IND_Ceramic",
+            "MI_IND_Yellow"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Rifles/BR3/Meshes",
+          "objects": 80,
+          "unreal_bounds_cm": {
+            "min": [
+              -36.95000112056732,
+              -3.200000151991844,
+              -14.46097046136856
+            ],
+            "max": [
+              59.85000133514404,
+              3.200000151991844,
+              7.700000703334808
+            ]
+          },
+          "sha256": "741b99d768fb81aa0ed05a369a9815539eb0307b2bdf874334612a38d173f331"
+        },
+        "Magazine": {
+          "name": "SM_BR3_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_BR3_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              0.10021159797906876,
+              -0.016750000417232513,
+              -0.22943153977394104
+            ],
+            "max": [
+              0.19027239084243774,
+              0.016750000417232513,
+              -0.03500000014901161
+            ]
+          },
+          "triangles": 972,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/BR3/Meshes",
+          "objects": 5,
+          "unreal_bounds_cm": {
+            "min": [
+              10.021159797906876,
+              -1.6750000417232513,
+              -22.943153977394104
+            ],
+            "max": [
+              19.027239084243774,
+              1.6750000417232513,
+              -3.500000014901161
+            ]
+          },
+          "sha256": "06570adbdf81609b3daeca466eef7332a7c781976f8e94ae4ee5c4281d4e19cf"
+        },
+        "Cycle": {
+          "name": "SM_BR3_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_BR3_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              0.07100000232458115,
+              -0.06450000405311584,
+              0.017999999225139618
+            ],
+            "max": [
+              0.08299999684095383,
+              -0.024500001221895218,
+              0.030000001192092896
+            ]
+          },
+          "triangles": 252,
+          "materials": [
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Rifles/BR3/Meshes",
+          "objects": 1,
+          "unreal_bounds_cm": {
+            "min": [
+              7.100000232458115,
+              2.450000122189522,
+              1.7999999225139618
+            ],
+            "max": [
+              8.299999684095383,
+              6.4500004053115845,
+              3.0000001192092896
+            ]
+          },
+          "sha256": "c27b21d8393541c57caf61c5e596a648bc6ec0e6c0e98257ae31eb6caa624db9"
+        }
+      },
+      "magazine_grip": [
+        14,
+        -2.8,
+        -13
+      ],
+      "cycling_grip": [
+        7.7,
+        4.45,
+        2.4
+      ],
+      "cycling_travel": 4.5
+    },
+    {
+      "weapon": "MP5",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_MP5",
+      "parts": {
+        "Body": {
+          "name": "SM_MP5_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_MP5_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.3255000114440918,
+              -0.03200000151991844,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.3935000002384186,
+              0.03200000151991844,
+              0.06499999761581421
+            ]
+          },
+          "triangles": 11360,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Steel",
+            "MI_IND_Ceramic",
+            "MI_IND_Yellow"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/SMGs/MP5/Meshes",
+          "objects": 48,
+          "unreal_bounds_cm": {
+            "min": [
+              -32.55000114440918,
+              -3.200000151991844,
+              -14.46097046136856
+            ],
+            "max": [
+              39.35000002384186,
+              3.200000151991844,
+              6.499999761581421
+            ]
+          },
+          "sha256": "5a528db8c0b03d6c2ecaa8b1a98027f4d0346298126e809d91144dd647918f9f"
+        },
+        "Magazine": {
+          "name": "SM_MP5_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_MP5_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              0.10021159797906876,
+              -0.016750000417232513,
+              -0.22943153977394104
+            ],
+            "max": [
+              0.19027239084243774,
+              0.016750000417232513,
+              -0.03500000014901161
+            ]
+          },
+          "triangles": 972,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/MP5/Meshes",
+          "objects": 5,
+          "unreal_bounds_cm": {
+            "min": [
+              10.021159797906876,
+              -1.6750000417232513,
+              -22.943153977394104
+            ],
+            "max": [
+              19.027239084243774,
+              1.6750000417232513,
+              -3.500000014901161
+            ]
+          },
+          "sha256": "eb2e2c42e8f19382c0c34ab47d670d6f30cf5f4643c30a04a20d143cbf4b70d0"
+        },
+        "Cycle": {
+          "name": "SM_MP5_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_MP5_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              0.07100000232458115,
+              -0.06450000405311584,
+              0.017999999225139618
+            ],
+            "max": [
+              0.08299999684095383,
+              -0.024500001221895218,
+              0.030000001192092896
+            ]
+          },
+          "triangles": 252,
+          "materials": [
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/SMGs/MP5/Meshes",
+          "objects": 1,
+          "unreal_bounds_cm": {
+            "min": [
+              7.100000232458115,
+              2.450000122189522,
+              1.7999999225139618
+            ],
+            "max": [
+              8.299999684095383,
+              6.4500004053115845,
+              3.0000001192092896
+            ]
+          },
+          "sha256": "ce9c63eeee76951ff4ae86e58ba80dd835f5212e80b6185ba73a91e6dc76a6a3"
+        }
+      },
+      "magazine_grip": [
+        14,
+        -2.8,
+        -13
+      ],
+      "cycling_grip": [
+        7.7,
+        4.45,
+        2.4
+      ],
+      "cycling_travel": 4.5
+    },
+    {
+      "weapon": "UMP45",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_UMP45",
+      "parts": {
+        "Body": {
+          "name": "SM_UMP45_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_UMP45_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.3374999761581421,
+              -0.03449999913573265,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.3935000002384186,
+              0.03449999913573265,
+              0.06499999761581421
+            ]
+          },
+          "triangles": 14672,
+          "materials": [
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Graphite",
+            "MI_IND_Steel",
+            "MI_IND_Ceramic",
+            "MI_IND_Yellow"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/SMGs/UMP45/Meshes",
+          "objects": 68,
+          "unreal_bounds_cm": {
+            "min": [
+              -33.74999761581421,
+              -3.449999913573265,
+              -14.46097046136856
+            ],
+            "max": [
+              39.35000002384186,
+              3.449999913573265,
+              6.499999761581421
+            ]
+          },
+          "sha256": "b165dbdc60e851c870f02c7938cafaba1aeafb73f11dc71a1733e7f4a64d5619"
+        },
+        "Magazine": {
+          "name": "SM_UMP45_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_UMP45_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              0.10499999672174454,
+              -0.0182499997317791,
+              -0.25200000405311584
+            ],
+            "max": [
+              0.16599999368190765,
+              0.0182499997317791,
+              -0.03700000047683716
+            ]
+          },
+          "triangles": 940,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/UMP45/Meshes",
+          "objects": 5,
+          "unreal_bounds_cm": {
+            "min": [
+              10.499999672174454,
+              -1.8249999731779099,
+              -25.200000405311584
+            ],
+            "max": [
+              16.599999368190765,
+              1.8249999731779099,
+              -3.700000047683716
+            ]
+          },
+          "sha256": "2d6a70b95d54006785733942a5655ae13bf46b2ceb5b6407c68b38792f397d06"
+        },
+        "Cycle": {
+          "name": "SM_UMP45_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_UMP45_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              0.07100000232458115,
+              -0.06700000166893005,
+              0.017999999225139618
+            ],
+            "max": [
+              0.08299999684095383,
+              -0.026999998837709427,
+              0.030000001192092896
+            ]
+          },
+          "triangles": 252,
+          "materials": [
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/SMGs/UMP45/Meshes",
+          "objects": 1,
+          "unreal_bounds_cm": {
+            "min": [
+              7.100000232458115,
+              2.6999998837709427,
+              1.7999999225139618
+            ],
+            "max": [
+              8.299999684095383,
+              6.700000166893005,
+              3.0000001192092896
+            ]
+          },
+          "sha256": "934ce26625c4c9c15ff25320141cb8ac7c48da341773d62563f67657467dccf0"
+        }
+      },
+      "magazine_grip": [
+        14,
+        -2.8,
+        -13
+      ],
+      "cycling_grip": [
+        7.7,
+        4.7,
+        2.4
+      ],
+      "cycling_travel": 4.5
+    },
+    {
+      "weapon": "M9",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_M9",
+      "parts": {
+        "Body": {
+          "name": "SM_M9_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_M9_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.06302192807197571,
+              -0.02500000037252903,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.2135000079870224,
+              0.02500000037252903,
+              0.022849999368190765
+            ]
+          },
+          "triangles": 5100,
+          "materials": [
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Pistols/M9/Meshes",
+          "objects": 21,
+          "unreal_bounds_cm": {
+            "min": [
+              -6.302192807197571,
+              -2.500000037252903,
+              -14.46097046136856
+            ],
+            "max": [
+              21.35000079870224,
+              2.500000037252903,
+              2.2849999368190765
+            ]
+          },
+          "sha256": "8a7f354ea6d5b2396259747adb40b6a12da7d71eb0fe6af4f6f42dbd0806e2f9"
+        },
+        "Magazine": {
+          "name": "SM_M9_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_M9_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              -0.06300000101327896,
+              -0.01899999938905239,
+              -0.1535000056028366
+            ],
+            "max": [
+              0.010742977261543274,
+              0.01899999938905239,
+              -0.04018115997314453
+            ]
+          },
+          "triangles": 376,
+          "materials": [
+            "MI_IND_Rubber",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M9/Meshes",
+          "objects": 2,
+          "unreal_bounds_cm": {
+            "min": [
+              -6.300000101327896,
+              -1.899999938905239,
+              -15.350000560283661
+            ],
+            "max": [
+              1.0742977261543274,
+              1.899999938905239,
+              -4.018115997314453
+            ]
+          },
+          "sha256": "15987f3167383ae4ac6cd4eec263cd285d74637aac62710b223bb90d56dba2bb"
+        },
+        "Cycle": {
+          "name": "SM_M9_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_M9_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              -0.05299999937415123,
+              -0.02199999988079071,
+              -0.007976287044584751
+            ],
+            "max": [
+              0.20000000298023224,
+              0.021449999883770943,
+              0.0560000017285347
+            ]
+          },
+          "triangles": 3856,
+          "materials": [
+            "MI_IND_Graphite",
+            "MI_IND_Rubber",
+            "MI_IND_Ceramic"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Pistols/M9/Meshes",
+          "objects": 20,
+          "unreal_bounds_cm": {
+            "min": [
+              -5.299999937415123,
+              -2.1449999883770943,
+              -0.7976287044584751
+            ],
+            "max": [
+              20.000000298023224,
+              2.199999988079071,
+              5.60000017285347
+            ]
+          },
+          "sha256": "695dd23a7114279a43054e8b58fceb61eb791189ed5e784e9517f8ac02ea9330"
+        }
+      },
+      "magazine_grip": [
+        -3.5,
+        -2.6,
+        -13
+      ],
+      "cycling_grip": [
+        -1,
+        -3.5,
+        3
+      ],
+      "cycling_travel": 3.5
+    },
+    {
+      "weapon": "HeavyPistol",
+      "original": "/Game/FPSDemo/Art/Industrial/Weapons/SM_IND_HeavyPistol",
+      "parts": {
+        "Body": {
+          "name": "SM_HeavyPistol_ReloadBody",
+          "category": "Body",
+          "file": "Exports/SM_HeavyPistol_ReloadBody.fbx",
+          "bounds_m": {
+            "min": [
+              -0.06302192807197571,
+              -0.02500000037252903,
+              -0.1446097046136856
+            ],
+            "max": [
+              0.26350000500679016,
+              0.02500000037252903,
+              0.025949999690055847
+            ]
+          },
+          "triangles": 5100,
+          "materials": [
+            "MI_IND_Polymer",
+            "MI_IND_Rubber",
+            "MI_IND_Graphite",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Pistols/HeavyPistol/Meshes",
+          "objects": 21,
+          "unreal_bounds_cm": {
+            "min": [
+              -6.302192807197571,
+              -2.500000037252903,
+              -14.46097046136856
+            ],
+            "max": [
+              26.350000500679016,
+              2.500000037252903,
+              2.5949999690055847
+            ]
+          },
+          "sha256": "a03800c092d1f1583133905242cde90a1b9174349b890db317f51e44fc65ddf3"
+        },
+        "Magazine": {
+          "name": "SM_HeavyPistol_ReloadMagazine",
+          "category": "Magazine",
+          "file": "Exports/SM_HeavyPistol_ReloadMagazine.fbx",
+          "bounds_m": {
+            "min": [
+              -0.06300000101327896,
+              -0.01899999938905239,
+              -0.1535000056028366
+            ],
+            "max": [
+              0.010742977261543274,
+              0.01899999938905239,
+              -0.04018115997314453
+            ]
+          },
+          "triangles": 376,
+          "materials": [
+            "MI_IND_Rubber",
+            "MI_IND_Steel"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/HeavyPistol/Meshes",
+          "objects": 2,
+          "unreal_bounds_cm": {
+            "min": [
+              -6.300000101327896,
+              -1.899999938905239,
+              -15.350000560283661
+            ],
+            "max": [
+              1.0742977261543274,
+              1.899999938905239,
+              -4.018115997314453
+            ]
+          },
+          "sha256": "ed5bcb6620d316805f22bd54d5640a5b4bed17712908443224fff4b9ee4d713c"
+        },
+        "Cycle": {
+          "name": "SM_HeavyPistol_ReloadCycle",
+          "category": "Cycle",
+          "file": "Exports/SM_HeavyPistol_ReloadCycle.fbx",
+          "bounds_m": {
+            "min": [
+              -0.05299999937415123,
+              -0.025949999690055847,
+              -0.00798019953072071
+            ],
+            "max": [
+              0.25,
+              0.025949999690055847,
+              0.0560000017285347
+            ]
+          },
+          "triangles": 3856,
+          "materials": [
+            "MI_IND_Steel",
+            "MI_IND_Rubber",
+            "MI_IND_Graphite",
+            "MI_IND_Ceramic"
+          ],
+          "uv_layers": 1,
+          "destination": "/Game/FPSDemo/Art/Weapons/Pistols/HeavyPistol/Meshes",
+          "objects": 20,
+          "unreal_bounds_cm": {
+            "min": [
+              -5.299999937415123,
+              -2.5949999690055847,
+              -0.7980199530720711
+            ],
+            "max": [
+              25.0,
+              2.5949999690055847,
+              5.60000017285347
+            ]
+          },
+          "sha256": "389b32396217dd035079d51b460ee26c381b77b765f44360b18bec57a54e42f9"
+        }
+      },
+      "magazine_grip": [
+        -3.5,
+        -2.6,
+        -13
+      ],
+      "cycling_grip": [
+        -1,
+        -3.5,
+        3
+      ],
+      "cycling_travel": 3.5
+    }
+  ]
+}

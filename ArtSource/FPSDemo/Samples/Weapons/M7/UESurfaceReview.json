@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "generator": "Scripts/ue_review_surfaces.py",
+  "generated_utc": "2026-10-15T07:41:58.072378+00:00",
+  "read_only_assets": true,
+  "relative_area_tolerance": 0.0001,
+  "source_coordinate_unit": "metres",
+  "unreal_export_coordinate_unit": "centimetres",
+  "limits": "Only aggregate surface area and axis-independent dimensions are compared. This does not establish per-face correspondence, identical topology, normals, winding, UV interpolation, manifoldness or visual fidelity. Equal areas can hide compensating geometry changes; actual UE rendering and the independent import checks remain necessary.",
+  "success": true,
+  "assets": [
+    {
+      "name": "SM_M7_Optic_LPVO",
+      "unreal_path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Meshes/SM_M7_Optic_LPVO",
+      "source_file": "Exports/SM_M7_Optic_LPVO.fbx",
+      "source_sha256": "8dc04d646d82ceba10244dd8dc331356b7f8ab240baaf2664f4e0bb80c9dc0e3",
+      "geometry_review_export": "Saved\\M7UnrealImport\\GeometryReview\\SM_M7_Optic_LPVO.fbx",
+      "geometry_review_export_sha256": "4dfd9468fe6ac3cda26ba73e6d4a70970dcd2e5ceb144e99f84464aba74c5bd9",
+      "source_triangles": 278264,
+      "unreal_triangles": 277985,
+      "triangulation_triangle_delta": 279,
+      "source_surface_area_m2": 0.12767663198082094,
+      "unreal_surface_area_m2": 0.1276766109764115,
+      "absolute_area_error_m2": 2.1004409433977855e-08,
+      "relative_area_error": 1.6451255886146067e-07,
+      "relative_area_tolerance": 0.0001,
+      "source_maximum_dimension_error_cm": 1.5087425708770752e-07,
+      "unreal_maximum_dimension_error_cm": 0.0,
+      "bound_tolerance_cm": 0.01,
+      "source_measurement": {
+        "coordinate_unit": "metres",
+        "triangles": 278264,
+        "surface_area_m2": 0.12767663198082094,
+        "raw_surface_area": 0.12767663198082094,
+        "bounds_raw_units": {
+          "min": [
+            -0.14000000059604645,
+            -0.024255000054836273,
+            -0.0009999996982514858
+          ],
+          "max": [
+            0.10999999940395355,
+            0.024025000631809235,
+            0.07740499824285507
+          ]
+        },
+        "dimensions_raw_units": [
+          0.25,
+          0.04828000068664551,
+          0.07840499794110656
+        ],
+        "geometry": [
+          {
+            "name": "SM_M7_Optic_LPVO_Geometry_Baked\u0000\u0001Geometry",
+            "triangles": 278264,
+            "area_raw_units_squared": 0.12767663198082094,
+            "zero_area_triangles_exact": 232,
+            "tessellation": {
+              "method": "Blender calc_loop_triangles on temporary raw FBX coordinate mesh",
+              "blender_version": "5.2.2 LTS",
+              "polygon_count": 139530,
+              "polygon_sizes": [
+                3,
+                4,
+                6,
+                11,
+                12,
+                32,
+                48,
+                80
+              ]
+            }
+          }
+        ]
+      },
+      "unreal_measurement": {
+        "coordinate_unit": "centimetres",
+        "triangles": 277985,
+        "surface_area_m2": 0.1276766109764115,
+        "raw_surface_area": 1276.7661097641148,
+        "bounds_raw_units": {
+          "min": [
+            -14.0,
+            -2.42549991607666,
+            -0.09999997168779373
+          ],
+          "max": [
+            11.0,
+            2.4025001525878906,
+            7.740499973297119
+          ]
+        },
+        "dimensions_raw_units": [
+          25.0,
+          4.828000068664551,
+          7.840499944984913
+        ],
+        "geometry": [
+          {
+            "name": "SM_M7_Optic_LPVO\u0000\u0001Geometry",
+            "triangles": 277985,
+            "area_raw_units_squared": 1276.7661097641148,
+            "zero_area_triangles_exact": 0,
+            "tessellation": {
+              "method": "Already triangular",
+              "polygon_count": 277985,
+              "polygon_sizes": [
+                3
+              ]
+            }
+          }
+        ]
+      },
+      "success": true,
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "import_report_sha256": "365aec7b813d8ff21b30c8fd2cc35afa699287e5e994d5762c142e8771c8c040",
+  "manifest_sha256": "14ae2a420fca52428e99fe1ad6d4acdf061b1737dbcc21716724af27687d1d45",
+  "generator_sha256": "7e8ac98c673ea1a18edece3250d35c0d36fb8b9d9503ac402bc55deae02434e7",
+  "required_names": [
+    "SM_M7_Optic_LPVO"
+  ],
+  "summary": {
+    "required": 1,
+    "checked": 1,
+    "passed": 1,
+    "error_count": 0
+  }
+}

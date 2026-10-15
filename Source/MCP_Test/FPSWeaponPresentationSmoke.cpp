@@ -2,6 +2,8 @@
 #include "FPSWeaponComponent.h"
 #include "FPSDemoCharacter.h"
 #include "FPSCharacterPresentation.h"
+#include "FPSSystemSettings.h"
+#include "FPSWeaponReloadRig.h"
 #include "FPSBaseMembership.h"
 #include "FPSDemoGameState.h"
 #include "Camera/CameraComponent.h"
@@ -42,7 +44,7 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
         // Component tick can precede the character pose tick or see a newly arrived end snapshot.
         // Require an observed pose while the action is present, not a pose after its state ended.
         if (O.EndsAt && !O.Done && State.Action == EFPSWeaponAction::Inspecting)
-            O.SawPose |= FMath::IsNearlyEqual(Pawn->WorldRifle->GetRelativeRotation().Roll, 40.f, .1f);
+            O.SawPose |= FMath::Abs(Pawn->WorldRifle->GetRelativeRotation().Roll) > 5.f;
         if (O.EndsAt && !O.Done && W->ServerTime() > O.EndsAt + .5)
         {
             O.Done = true;
@@ -51,7 +53,7 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
         }
         return;
     }
-    struct FProgress { TSet<int32> Done; bool Failed = false; };
+    struct FProgress { TSet<int32> Done; bool Failed = false, MagazineMoved = false, Cycled = false; };
     static TMap<TWeakObjectPtr<UFPSWeaponComponent>, FProgress> Progress;
     if (!Progress.Contains(W) && Time > 15) return; // late observer pawn is not a fixture driver
     auto& P = Progress.FindOrAdd(W);
@@ -83,6 +85,15 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
     }
     if (!Server && !Pawn->IsLocallyControlled())
     {
+        if (const auto* Rig = UFPSWeaponReloadRig::Find(Def->ThirdPerson.Mesh.Get()))
+        {
+            TInlineComponentArray<UStaticMeshComponent*> Components(Pawn);
+            for (const auto* Part : Components) if (Part->GetAttachParent() == Pawn->WorldRifle)
+            {
+                P.MagazineMoved |= Part->GetStaticMesh() == Rig->Magazine && Part->GetRelativeLocation().Z < -10;
+                P.Cycled |= Part->GetStaticMesh() == Rig->CyclingPart && Part->GetRelativeLocation().X < -1;
+            }
+        }
         At(55, [&]()
         {
             Check(W->GetLoadout().Action == EFPSWeaponAction::Reloading && W->ReloadStartPresentations == 1, TEXT("remote proxy receives reload state and one spatial start"));
@@ -90,8 +101,14 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
             W->Loadout = {}; W->OnRep_VisibleState();
             Check(W->GetLoadout().Action == Snapshot.Action && W->GetLoadout().ActionEndsAt == Snapshot.ActionEndsAt && W->Equipped().Reserve == 0 && W->ReloadStartPresentations == 1, TEXT("persistent snapshot restores in-progress pose without replaying audio or exposing ammo"));
         });
-        At(57, [&]() { Check(Pawn->WorldRifle->GetRelativeRotation().Pitch < -20, TEXT("remote rendered component has reload pose")); });
+        At(57, [&]()
+        {
+            const auto Pose = Pawn->WorldRifle->GetRelativeRotation();
+            Check(Pose.Pitch > 2 && FMath::Abs(Pose.Yaw) < .5f && Pose.Roll > 15 && Pose.Roll < 32,
+                TEXT("remote rendered reload rolls the receiver right without sideways muzzle yaw"));
+        });
         At(65, [&]() { Check(W->ReloadCommitPresentations == 1 && W->GetLoadout().Action == EFPSWeaponAction::Idle, TEXT("remote receives exactly one authoritative reload completion")); });
+        At(66, [&]() { Check(P.MagazineMoved && P.Cycled, TEXT("remote rendered magazine and charging handle follow replicated reload phase")); });
         return;
     }
     if (Server)
@@ -127,19 +144,23 @@ void FFPSWeaponPresentationSmoke::Tick(UFPSWeaponComponent* W)
         At(110, [&]() { Pawn->BaseFieldOfView = 100; Def->AimTransitionTime = .2f; Def->EquipBlendTime = 5.f; W->AimOn(); });
         At(113, [&]() { Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, Def->AimFOV), TEXT("ADS reaches exact FOV within declared duration independent of equip")); });
         At(114, [&]() { W->AimOff(); });
-        At(117, [&]() { Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, 100.f), TEXT("ADS exit restores camera-owned base FOV")); });
+        At(117, [&]() {
+            const auto* Settings = UFPSSystemSettings::Get(Pawn);
+            Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, Settings ? Settings->BaseFOV() : 100.f),
+                TEXT("ADS exit restores active local FOV setting, with camera default as fallback"));
+        });
         At(120, [&]() { Def->AimTransitionTime = 0; W->AimOn(); });
         At(121, [&]() { Check(FMath::IsNearlyEqual(Pawn->FirstPersonCamera->FieldOfView, Def->AimFOV) && Pawn->Presentation->GetAimBlend(W->GetWorld()->GetTimeSeconds()) == 1.f, TEXT("zero ADS duration snaps camera and gun blend")); });
         At(122, [&]() { Pawn->PlayWeaponShot(FVector(0,0,1)); });
         At(126, [&]() { Check(Pawn->Presentation->GetRecoil() == 0, TEXT("visual recoil returns exactly without waiting for equip blend")); });
         At(141, [&]() { Def->EquipBlendTime = 0; W->Secondary(); W->Primary(); });
-        At(145, [&]() { Check(FVector::Dist(Pawn->GunRoot->GetRelativeLocation(), Def->HipLocation) < .1f, TEXT("zero equip duration reaches exact hip pose after real switch")); });
+        At(145, [&]() { Check(FVector::Dist(Pawn->GunRoot->GetRelativeLocation() - Pawn->Presentation->GetAmbientOffset(), Def->HipLocation) < .1f, TEXT("zero equip duration reaches exact hip pose beneath ambient motion after real switch")); });
         At(146, [&]() { Def->EquipBlendTime = 1.f; W->Secondary(); W->Primary(); });
         At(147, [&]() { Check(Pawn->GunRoot->GetRelativeLocation().Z < Def->HipLocation.Z - 15.f, TEXT("positive equip duration retains independent lowering offset")); });
         if (Time >= 15.8 && W->ServerTime() - W->GetLoadout().EquipStartedAt >= Def->EquipBlendTime + .1f)
             At(159, [&]()
             {
-                Check(FVector::Dist(Pawn->GunRoot->GetRelativeLocation(), Def->HipLocation) < .1f,
+                Check(FVector::Dist(Pawn->GunRoot->GetRelativeLocation() - Pawn->Presentation->GetAmbientOffset(), Def->HipLocation) < .1f,
                     *FString::Printf(TEXT("positive equip endpoint age=%.3f duration=%.3f location=%s expected=%s"),
                         W->ServerTime() - W->GetLoadout().EquipStartedAt, Def->EquipBlendTime,
                         *Pawn->GunRoot->GetRelativeLocation().ToString(), *Def->HipLocation.ToString()));

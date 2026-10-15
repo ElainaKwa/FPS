@@ -57,6 +57,7 @@ public:
     void PreviewAttachmentStats(FName Action,FName Id);
     void ClearAttachmentStats(FName Action,FName Id);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Extraction") TObjectPtr<UFPSUITheme> Theme;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Extraction") TObjectPtr<class UFPSExtractionLobbyPresentation> LobbyPresentation;
 protected:
     virtual void NativeConstruct() override;
     virtual void NativeDestruct() override;
@@ -86,6 +87,7 @@ private:
     EFPSAttachmentCategory SelectedCategory = EFPSAttachmentCategory::Optic;
     FName ComparedAction,ComparedId;
     bool bWeaponEditing=false,bAttachmentDrawer=false,bViewSecondary=false;
+    UPROPERTY(Transient) TObjectPtr<class UFPSExtractionLobbyScene> LobbyScene;
 };
 
 UCLASS()
@@ -99,4 +101,5 @@ public:
     UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeInventoryAssets();
     UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeWeaponWorkbenchAssets();
     UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeWeaponWorkbenchReferenceAssets(bool Rebuild=false);
+    UFUNCTION(BlueprintCallable, Category="Extraction|Editor") static FString UpgradeLobbyAssets(bool Rebuild=false);
 };

@@ -1,0 +1,3703 @@
+{
+  "generator": "Scripts/ue_import_m7.py",
+  "generated_utc": "2026-10-15T07:33:00.433958+00:00",
+  "engine": "5.8.1-56057345+++UE5+Release-5.8",
+  "success": true,
+  "weapon_category": "Rifles",
+  "model": "M7",
+  "core_root": "/Game/FPSDemo/Art/Weapons/Rifles/M7",
+  "attachment_root": "/Game/FPSDemo/Art/Weapons/Attachments",
+  "slot_folders": {
+    "Stock": "Stocks",
+    "Magazine": "Magazines",
+    "RearGrip": "RearGrips",
+    "Optic": "Optics",
+    "Foregrip": "Foregrips",
+    "Muzzle": "Muzzles",
+    "Sights": "Sights",
+    "Barrel": "Barrels"
+  },
+  "assets": [
+    {
+      "name": "SM_M7_Core",
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Meshes/SM_M7_Core",
+      "category": "Core",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Core_Reference_coat",
+          "source_slot": "M7M_Core_Reference_coat",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_dark",
+          "source_slot": "M7M_Core_Reference_dark",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_hardware",
+          "source_slot": "M7M_Core_Reference_hardware",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        }
+      ],
+      "sockets_cm": {
+        "Stock": [
+          -17.9,
+          0.0,
+          -0.25
+        ],
+        "Magazine": [
+          8.0,
+          0.0,
+          -10.0
+        ],
+        "RearGrip": [
+          -6.25,
+          0.0,
+          -6.5
+        ],
+        "Optic": [
+          0.0,
+          0.0,
+          5.5
+        ],
+        "Barrel": [
+          15.8,
+          0.0,
+          0.0
+        ],
+        "Iron": [
+          0.0,
+          0.0,
+          5.5
+        ]
+      },
+      "source_fbx": "Exports/SM_M7_Core.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -17.950000762939453,
+          -2.9499995708465576,
+          -10.577201843261719
+        ],
+        "max": [
+          16.49958610534668,
+          2.950000524520874,
+          5.449999809265137
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -17.94999986886978,
+          -2.9500000178813934,
+          -10.577201843261719
+        ],
+        "max": [
+          16.499584913253784,
+          2.9500000178813934,
+          5.4499998688697815
+        ]
+      },
+      "maximum_bound_error_cm": 1.1920928955078125e-06,
+      "triangles": 382180,
+      "source_triangles": 382180,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Stock_Default",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Meshes/SM_M7_Stock_Default",
+      "category": "Stock",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Stock_Default_coated_receiver_da39a",
+          "source_slot": "M7M_Stock_Default_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Stock_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_polymer_stock_dbcb1",
+          "source_slot": "M7M_Stock_Default_polymer_stock_dbcb1",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_polymer_stock_da39a",
+          "source_slot": "M7M_Stock_Default_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_polymer_stock_2c9f3",
+          "source_slot": "M7M_Stock_Default_polymer_stock_2c9f3",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_rubber_black_7a08d",
+          "source_slot": "M7M_Stock_Default_rubber_black_7a08d",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Stock_Default.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -18.875001907348633,
+          -2.888400077819824,
+          -12.846003532409668
+        ],
+        "max": [
+          -0.0007863854407332838,
+          2.888394594192505,
+          3.950000286102295
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -18.87500137090683,
+          -2.8883973136544228,
+          -12.846003472805023
+        ],
+        "max": [
+          -0.0007867813110351562,
+          2.8883973136544228,
+          3.9500001817941666
+        ]
+      },
+      "maximum_bound_error_cm": 2.7641654014587402e-06,
+      "triangles": 61016,
+      "source_triangles": 61018,
+      "triangulation_triangle_delta": 2,
+      "degenerate_candidate_budget": 2,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Stock_Skeleton",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Meshes/SM_M7_Stock_Skeleton",
+      "category": "Stock",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Stock_Skeleton_coated_receiver_da39a",
+          "source_slot": "M7M_Stock_Skeleton_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Skeleton.MI_M7_Stock_Skeleton"
+        },
+        {
+          "slot": "M7M_Stock_Skeleton_polymer_stock_dbcb1",
+          "source_slot": "M7M_Stock_Skeleton_polymer_stock_dbcb1",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Skeleton.MI_M7_Stock_Skeleton"
+        },
+        {
+          "slot": "M7M_Stock_Skeleton_polymer_stock_da39a",
+          "source_slot": "M7M_Stock_Skeleton_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Skeleton.MI_M7_Stock_Skeleton"
+        },
+        {
+          "slot": "M7M_Stock_Skeleton_rubber_black_7a08d",
+          "source_slot": "M7M_Stock_Skeleton_rubber_black_7a08d",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Skeleton.MI_M7_Stock_Skeleton"
+        },
+        {
+          "slot": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Skeleton.MI_M7_Stock_Skeleton"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Stock_Skeleton.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -22.500001907348633,
+          -2.725003480911255,
+          -10.620331764221191
+        ],
+        "max": [
+          0.05000123381614685,
+          2.724996566772461,
+          4.136821269989014
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -22.50000089406967,
+          -2.7249999344348907,
+          -10.620331764221191
+        ],
+        "max": [
+          0.05000084638595581,
+          2.7249999344348907,
+          4.1368212550878525
+        ]
+      },
+      "maximum_bound_error_cm": 3.546476364135742e-06,
+      "triangles": 37920,
+      "source_triangles": 37920,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Mag_20",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Meshes/SM_M7_Mag_20",
+      "category": "Magazine",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Mag_20_coated_magazine_0f2a7",
+          "source_slot": "M7M_Mag_20_coated_magazine_0f2a7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_coated_magazine_fade7",
+          "source_slot": "M7M_Mag_20_coated_magazine_fade7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_coated_magazine_9d76e",
+          "source_slot": "M7M_Mag_20_coated_magazine_9d76e",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_rubber_black_9d76e",
+          "source_slot": "M7M_Mag_20_rubber_black_9d76e",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_polymer_stock_da39a",
+          "source_slot": "M7M_Mag_20_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Mag_20.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -6.0,
+          -2.4160008430480957,
+          -12.750207901000977
+        ],
+        "max": [
+          4.797150611877441,
+          2.4160006046295166,
+          2.3384809494018555
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -5.999999865889549,
+          -2.4159999564290047,
+          -12.750208377838135
+        ],
+        "max": [
+          4.797150194644928,
+          2.4159999564290047,
+          2.3384809494018555
+        ]
+      },
+      "maximum_bound_error_cm": 8.866190910339355e-07,
+      "triangles": 61780,
+      "source_triangles": 61780,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Mag_Extended",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Meshes/SM_M7_Mag_Extended",
+      "category": "Magazine",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_0f2a7",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_0f2a7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_fade7",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_fade7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_f05bd",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_f05bd",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_rubber_black_f05bd",
+          "source_slot": "M7M_Mag_Extended_rubber_black_f05bd",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_polymer_stock_da39a",
+          "source_slot": "M7M_Mag_Extended_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Mag_Extended.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -6.0,
+          -2.4160008430480957,
+          -18.250215530395508
+        ],
+        "max": [
+          4.797150611877441,
+          2.4160006046295166,
+          2.3384809494018555
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -5.999999865889549,
+          -2.4159999564290047,
+          -18.25021505355835
+        ],
+        "max": [
+          4.797150194644928,
+          2.4159999564290047,
+          2.3384809494018555
+        ]
+      },
+      "maximum_bound_error_cm": 8.866190910339355e-07,
+      "triangles": 62804,
+      "source_triangles": 62804,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Grip_Default",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Meshes/SM_M7_Grip_Default",
+      "category": "RearGrip",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Grip_Default_polymer_grip_da39a",
+          "source_slot": "M7M_Grip_Default_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_polymer_grip_f0ba0",
+          "source_slot": "M7M_Grip_Default_polymer_grip_f0ba0",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_rubber_black_da39a",
+          "source_slot": "M7M_Grip_Default_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Grip_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_coated_receiver_da39a",
+          "source_slot": "M7M_Grip_Default_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Grip_Default.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -8.690587997436523,
+          -2.5429999828338623,
+          -14.0
+        ],
+        "max": [
+          1.7416030168533325,
+          2.542999744415283,
+          1.6886014938354492
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -8.690588176250458,
+          -2.5429999455809593,
+          -14.000000059604645
+        ],
+        "max": [
+          1.7416030168533325,
+          2.5429999455809593,
+          1.6886014491319656
+        ]
+      },
+      "maximum_bound_error_cm": 2.0116567611694336e-07,
+      "triangles": 51746,
+      "source_triangles": 51802,
+      "triangulation_triangle_delta": 56,
+      "degenerate_candidate_budget": 176,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Grip_D2",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Meshes/SM_M7_Grip_D2",
+      "category": "RearGrip",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Grip_D2_polymer_grip_da39a",
+          "source_slot": "M7M_Grip_D2_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2.MI_M7_Grip_D2"
+        },
+        {
+          "slot": "M7M_Grip_D2_rubber_black_da39a",
+          "source_slot": "M7M_Grip_D2_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2.MI_M7_Grip_D2"
+        },
+        {
+          "slot": "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+          "source_slot": "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2.MI_M7_Grip_D2"
+        },
+        {
+          "slot": "M7M_Grip_D2_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Grip_D2_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2.MI_M7_Grip_D2"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Grip_D2_coated_receiver_da39a",
+          "source_slot": "M7M_Grip_D2_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2.MI_M7_Grip_D2"
+        },
+        {
+          "slot": "M7M_Grip_D2_polymer_grip_f0ba0",
+          "source_slot": "M7M_Grip_D2_polymer_grip_f0ba0",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2.MI_M7_Grip_D2"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Grip_D2.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -8.73562240600586,
+          -2.5429999828338623,
+          -14.535981178283691
+        ],
+        "max": [
+          1.749999761581421,
+          2.542999744415283,
+          1.6885660886764526
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -8.735622465610504,
+          -2.5429999455809593,
+          -14.53598141670227
+        ],
+        "max": [
+          1.7499998211860657,
+          2.5429999455809593,
+          1.6885660588741302
+        ]
+      },
+      "maximum_bound_error_cm": 2.384185791015625e-07,
+      "triangles": 49686,
+      "source_triangles": 49686,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Optic_LPVO",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Meshes/SM_M7_Optic_LPVO",
+      "category": "Optic",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_da39a",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_rubber_black_da39a",
+          "source_slot": "M7M_Optic_LPVO_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7R_09_CoatedLens",
+          "source_slot": "M7R_09_CoatedLens",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_09_CoatedLens.M_M7R_09_CoatedLens"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_da39a",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_00723",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7R_07_EngravingGray",
+          "source_slot": "M7R_07_EngravingGray",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_07_EngravingGray.M_M7R_07_EngravingGray"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_00723",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_rubber_black_00723",
+          "source_slot": "M7M_Optic_LPVO_rubber_black_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_6d968",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_6d968",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_6d968",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_6d968",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_133e8",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_133e8",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+          "source_slot": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Optic_LPVO.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -14.0,
+          -2.4025001525878906,
+          -0.09999997168779373
+        ],
+        "max": [
+          11.0,
+          2.42549991607666,
+          7.740499973297119
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -14.000000059604645,
+          -2.4025000631809235,
+          -0.09999996982514858
+        ],
+        "max": [
+          10.999999940395355,
+          2.4255000054836273,
+          7.740499824285507
+        ]
+      },
+      "maximum_bound_error_cm": 1.4901161193847656e-07,
+      "triangles": 277985,
+      "source_triangles": 278264,
+      "triangulation_triangle_delta": 279,
+      "degenerate_candidate_budget": 264,
+      "needs_surface_review": true,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 2,
+      "lod_count": 1,
+      "geometry_review_export": "Saved/M7UnrealImport/GeometryReview/SM_M7_Optic_LPVO.fbx"
+    },
+    {
+      "name": "SM_M7_Optic_Combat",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Meshes/SM_M7_Optic_Combat",
+      "category": "Optic",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Optic_Combat_coated_optic_da39a",
+          "source_slot": "M7M_Optic_Combat_coated_optic_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_Combat.MI_M7_Optic_Combat"
+        },
+        {
+          "slot": "M7M_Optic_Combat_polymer_stock_da39a",
+          "source_slot": "M7M_Optic_Combat_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_Combat.MI_M7_Optic_Combat"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7R_09_CoatedLens",
+          "source_slot": "M7R_09_CoatedLens",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_09_CoatedLens.M_M7R_09_CoatedLens"
+        },
+        {
+          "slot": "M7M_Optic_Combat_rubber_black_da39a",
+          "source_slot": "M7M_Optic_Combat_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_Combat.MI_M7_Optic_Combat"
+        },
+        {
+          "slot": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Optic_Combat_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_Combat.MI_M7_Optic_Combat"
+        },
+        {
+          "slot": "M7R_08_Glass",
+          "source_slot": "M7R_08_Glass",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_08_Glass.M_M7R_08_Glass"
+        },
+        {
+          "slot": "M7R_07_EngravingGray",
+          "source_slot": "M7R_07_EngravingGray",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_07_EngravingGray.M_M7R_07_EngravingGray"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Optic_Combat.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -2.000000238418579,
+          -2.303999900817871,
+          -0.15000006556510925
+        ],
+        "max": [
+          7.500000476837158,
+          2.9175002574920654,
+          8.40999984741211
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -1.9999999552965164,
+          -2.304000034928322,
+          -0.1500000711530447
+        ],
+        "max": [
+          7.500000298023224,
+          2.917499840259552,
+          8.410000056028366
+        ]
+      },
+      "maximum_bound_error_cm": 4.172325134277344e-07,
+      "triangles": 140740,
+      "source_triangles": 140792,
+      "triangulation_triangle_delta": 52,
+      "degenerate_candidate_budget": 76,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 2,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Foregrip_Vertical",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Meshes/SM_M7_Foregrip_Vertical",
+      "category": "Foregrip",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Foregrip_Vertical_coated_receiver_da39a",
+          "source_slot": "M7M_Foregrip_Vertical_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_Vertical.MI_M7_Foregrip_Vertical"
+        },
+        {
+          "slot": "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_Vertical.MI_M7_Foregrip_Vertical"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Foregrip_Vertical_polymer_grip_da39a",
+          "source_slot": "M7M_Foregrip_Vertical_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_Vertical.MI_M7_Foregrip_Vertical"
+        },
+        {
+          "slot": "M7M_Foregrip_Vertical_rubber_black_da39a",
+          "source_slot": "M7M_Foregrip_Vertical_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_Vertical.MI_M7_Foregrip_Vertical"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Foregrip_Vertical.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -0.25000181794166565,
+          -1.6839996576309204,
+          -11.294000625610352
+        ],
+        "max": [
+          3.7499985694885254,
+          1.6840002536773682,
+          0.07000002264976501
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -0.25000162422657013,
+          -1.6839999705553055,
+          -11.29400059580803
+        ],
+        "max": [
+          3.7499982863664627,
+          1.6839999705553055,
+          0.07000002078711987
+        ]
+      },
+      "maximum_bound_error_cm": 3.129243850708008e-07,
+      "triangles": 52092,
+      "source_triangles": 52092,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 2,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Muzzle_Standard",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Meshes/SM_M7_Muzzle_Standard",
+      "category": "Muzzle",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Muzzle_Standard_coated_receiver_da39a",
+          "source_slot": "M7M_Muzzle_Standard_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Standard.MI_M7_Muzzle_Standard"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Muzzle_Standard_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Muzzle_Standard_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Standard.MI_M7_Muzzle_Standard"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Muzzle_Standard.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -0.599998414516449,
+          -1.1695916652679443,
+          -1.1695915460586548
+        ],
+        "max": [
+          1.399999976158142,
+          1.1695916652679443,
+          1.1695915460586548
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -0.5999982357025146,
+          -1.1695915833115578,
+          -1.1695915833115578
+        ],
+        "max": [
+          1.3999998569488525,
+          1.1695915833115578,
+          1.1695915833115578
+        ]
+      },
+      "maximum_bound_error_cm": 1.7881393432617188e-07,
+      "triangles": 49744,
+      "source_triangles": 50000,
+      "triangulation_triangle_delta": 256,
+      "degenerate_candidate_budget": 256,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Muzzle_Brake",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Meshes/SM_M7_Muzzle_Brake",
+      "category": "Muzzle",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Muzzle_Brake_coated_receiver_da39a",
+          "source_slot": "M7M_Muzzle_Brake_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Brake.MI_M7_Muzzle_Brake"
+        },
+        {
+          "slot": "M7M_Muzzle_Brake_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Muzzle_Brake_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Brake.MI_M7_Muzzle_Brake"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Muzzle_Brake.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          0.15000085532665253,
+          -1.41499924659729,
+          -1.4149999618530273
+        ],
+        "max": [
+          4.802501201629639,
+          1.4150007963180542,
+          1.4149999618530273
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          0.15000104904174805,
+          -1.4150000177323818,
+          -1.4150000177323818
+        ],
+        "max": [
+          4.802501201629639,
+          1.4150000177323818,
+          1.4150000177323818
+        ]
+      },
+      "maximum_bound_error_cm": 7.7858567237854e-07,
+      "triangles": 34240,
+      "source_triangles": 34496,
+      "triangulation_triangle_delta": 256,
+      "degenerate_candidate_budget": 256,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Muzzle_Suppressor",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Meshes/SM_M7_Muzzle_Suppressor",
+      "category": "Muzzle",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+          "source_slot": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor.MI_M7_Muzzle_Suppressor"
+        },
+        {
+          "slot": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor.MI_M7_Muzzle_Suppressor"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Muzzle_Suppressor.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          0.20000311732292175,
+          -2.3499999046325684,
+          -2.3499999046325684
+        ],
+        "max": [
+          15.017498970031738,
+          2.3500003814697266,
+          2.3499999046325684
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          0.20000338554382324,
+          -2.3499999195337296,
+          -2.3499999195337296
+        ],
+        "max": [
+          15.017499029636383,
+          2.3499999195337296,
+          2.3499999195337296
+        ]
+      },
+      "maximum_bound_error_cm": 4.6193599700927734e-07,
+      "triangles": 58472,
+      "source_triangles": 58696,
+      "triangulation_triangle_delta": 224,
+      "degenerate_candidate_budget": 256,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 2,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Sights_Iron",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Meshes/SM_M7_Sights_Iron",
+      "category": "Sights",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Sights_Iron_coated_receiver_da39a",
+          "source_slot": "M7M_Sights_Iron_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Materials/MI_M7_Sights_Iron.MI_M7_Sights_Iron"
+        },
+        {
+          "slot": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Materials/MI_M7_Sights_Iron.MI_M7_Sights_Iron"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Sights_Iron.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -9.550000190734863,
+          -1.514001488685608,
+          -0.6999999284744263
+        ],
+        "max": [
+          53.95000076293945,
+          1.5139987468719482,
+          4.564999580383301
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -9.549999982118607,
+          -1.5140000730752945,
+          -0.6999999284744263
+        ],
+        "max": [
+          53.94999980926514,
+          1.5140000730752945,
+          4.5649997889995575
+        ]
+      },
+      "maximum_bound_error_cm": 1.4156103134155273e-06,
+      "triangles": 64680,
+      "source_triangles": 65256,
+      "triangulation_triangle_delta": 576,
+      "degenerate_candidate_budget": 576,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Barrel_Default",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Meshes/SM_M7_Barrel_Default",
+      "category": "Barrel",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Barrel_Default_coated_handguard_da39a",
+          "source_slot": "M7M_Barrel_Default_coated_handguard_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+          "source_slot": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Barrel_Default_coated_handguard_6cfb7",
+          "source_slot": "M7M_Barrel_Default_coated_handguard_6cfb7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        }
+      ],
+      "sockets_cm": {
+        "Foregrip": [
+          14.95,
+          0.0,
+          -4.35
+        ],
+        "Muzzle": [
+          44.0,
+          0.0,
+          0.0
+        ],
+        "FrontIron": [
+          35.949999999999996,
+          0.0,
+          5.5
+        ]
+      },
+      "source_fbx": "Exports/SM_M7_Barrel_Default.fbx",
+      "saved": true,
+      "reused_unchanged_import": true,
+      "bounds_cm": {
+        "min": [
+          -0.10000063478946686,
+          -3.4868481159210205,
+          -4.924999713897705
+        ],
+        "max": [
+          44.19999694824219,
+          3.4868595600128174,
+          5.449999809265137
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -0.10000020265579224,
+          -3.486853837966919,
+          -4.924999922513962
+        ],
+        "max": [
+          44.19999718666077,
+          3.486853837966919,
+          5.4499998688697815
+        ]
+      },
+      "maximum_bound_error_cm": 5.7220458984375e-06,
+      "triangles": 163494,
+      "source_triangles": 163494,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Barrel_Tidal",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Meshes/SM_M7_Barrel_Tidal",
+      "category": "Barrel",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Barrel_Tidal_Guard_coated_handguard_001",
+          "source_slot": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal.MI_M7_Barrel_Tidal"
+        },
+        {
+          "slot": "M7M_Barrel_Tidal_Guard_dark_steel_hardware_001",
+          "source_slot": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal.MI_M7_Barrel_Tidal"
+        },
+        {
+          "slot": "M7M_Barrel_Tidal_Guard_fine_grid_001",
+          "source_slot": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal.MI_M7_Barrel_Tidal"
+        }
+      ],
+      "sockets_cm": {
+        "Foregrip": [
+          28.33003763959756,
+          0.0,
+          -4.95
+        ],
+        "Muzzle": [
+          64.58988764044943,
+          0.0,
+          0.0
+        ],
+        "FrontIron": [
+          43.640449438202246,
+          0.0,
+          5.45
+        ]
+      },
+      "source_fbx": "Exports/SM_M7_Barrel_Tidal.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -0.4000009298324585,
+          -3.7919998168945312,
+          -4.949999809265137
+        ],
+        "max": [
+          64.58988952636719,
+          3.7920045852661133,
+          5.449999809265137
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -0.40000081062316895,
+          -3.7919998168945312,
+          -4.94999997317791
+        ],
+        "max": [
+          64.58988785743713,
+          3.7919998168945312,
+          5.4499998688697815
+        ]
+      },
+      "maximum_bound_error_cm": 4.76837158203125e-06,
+      "triangles": 418480,
+      "source_triangles": 418480,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Foregrip_ResonanceGen1",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Meshes/SM_M7_Foregrip_ResonanceGen1",
+      "category": "Foregrip",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Foregrip_ResonanceGen1.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -8.592127799987793,
+          -2.059999465942383,
+          -9.644840240478516
+        ],
+        "max": [
+          8.40000057220459,
+          2.0600006580352783,
+          0.3999996781349182
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -8.59212726354599,
+          -2.0600000396370888,
+          -9.64483991265297
+        ],
+        "max": [
+          8.400000631809235,
+          2.0600000396370888,
+          0.3999996930360794
+        ]
+      },
+      "maximum_bound_error_cm": 6.183981895446777e-07,
+      "triangles": 78420,
+      "source_triangles": 78544,
+      "triangulation_triangle_delta": 124,
+      "degenerate_candidate_budget": 124,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Stock_ShadowRail",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Meshes/SM_M7_Stock_ShadowRail",
+      "category": "Stock",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Stock_ShadowRail_coat_001",
+          "source_slot": "M7M_Stock_ShadowRail_coat.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_hardware_001",
+          "source_slot": "M7M_Stock_ShadowRail_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_dark_001",
+          "source_slot": "M7M_Stock_ShadowRail_dark.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_polymer_001",
+          "source_slot": "M7M_Stock_ShadowRail_polymer.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_rubber_001",
+          "source_slot": "M7M_Stock_ShadowRail_rubber.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Stock_ShadowRail.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -24.735872268676758,
+          -2.0200037956237793,
+          -8.722164154052734
+        ],
+        "max": [
+          0.37500134110450745,
+          2.019996166229248,
+          4.084757328033447
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -24.735872447490692,
+          -2.019999921321869,
+          -8.72216448187828
+        ],
+        "max": [
+          0.37500113248825073,
+          2.019999921321869,
+          4.0847573429346085
+        ]
+      },
+      "maximum_bound_error_cm": 3.874301910400391e-06,
+      "triangles": 55872,
+      "source_triangles": 55872,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Grip_Phantom",
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Meshes/SM_M7_Grip_Phantom",
+      "category": "RearGrip",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Grip_Phantom_polymer_001",
+          "source_slot": "M7M_Grip_Phantom_polymer.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_coat_001",
+          "source_slot": "M7M_Grip_Phantom_coat.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_rubber_001",
+          "source_slot": "M7M_Grip_Phantom_rubber.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_dark_001",
+          "source_slot": "M7M_Grip_Phantom_dark.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_hardware_001",
+          "source_slot": "M7M_Grip_Phantom_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Grip_Phantom.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -7.580849647521973,
+          -1.8097903728485107,
+          -12.427130699157715
+        ],
+        "max": [
+          2.306778907775879,
+          1.8097907304763794,
+          1.797729730606079
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -7.580849528312683,
+          -1.8097905442118645,
+          -12.427130341529846
+        ],
+        "max": [
+          2.3067787289619446,
+          1.8097905442118645,
+          1.797729730606079
+        ]
+      },
+      "maximum_bound_error_cm": 3.5762786865234375e-07,
+      "triangles": 62344,
+      "source_triangles": 62344,
+      "triangulation_triangle_delta": 0,
+      "degenerate_candidate_budget": 0,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1
+    },
+    {
+      "name": "SM_M7_Default_Assembled",
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Presets/SM_M7_Default_Assembled",
+      "category": "Preset",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Core_Reference_coat",
+          "source_slot": "M7M_Core_Reference_coat",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_dark",
+          "source_slot": "M7M_Core_Reference_dark",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_hardware",
+          "source_slot": "M7M_Core_Reference_hardware",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Barrel_Default_coated_handguard_da39a",
+          "source_slot": "M7M_Barrel_Default_coated_handguard_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+          "source_slot": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Barrel_Default_coated_handguard_6cfb7",
+          "source_slot": "M7M_Barrel_Default_coated_handguard_6cfb7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_coated_receiver_da39a",
+          "source_slot": "M7M_Stock_Default_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Stock_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_polymer_stock_dbcb1",
+          "source_slot": "M7M_Stock_Default_polymer_stock_dbcb1",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_polymer_stock_da39a",
+          "source_slot": "M7M_Stock_Default_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_polymer_stock_2c9f3",
+          "source_slot": "M7M_Stock_Default_polymer_stock_2c9f3",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Stock_Default_rubber_black_7a08d",
+          "source_slot": "M7M_Stock_Default_rubber_black_7a08d",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default.MI_M7_Stock_Default"
+        },
+        {
+          "slot": "M7M_Mag_20_coated_magazine_0f2a7",
+          "source_slot": "M7M_Mag_20_coated_magazine_0f2a7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_coated_magazine_fade7",
+          "source_slot": "M7M_Mag_20_coated_magazine_fade7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_coated_magazine_9d76e",
+          "source_slot": "M7M_Mag_20_coated_magazine_9d76e",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_rubber_black_9d76e",
+          "source_slot": "M7M_Mag_20_rubber_black_9d76e",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Mag_20_polymer_stock_da39a",
+          "source_slot": "M7M_Mag_20_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20.MI_M7_Mag_20"
+        },
+        {
+          "slot": "M7M_Grip_Default_polymer_grip_da39a",
+          "source_slot": "M7M_Grip_Default_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_polymer_grip_f0ba0",
+          "source_slot": "M7M_Grip_Default_polymer_grip_f0ba0",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_rubber_black_da39a",
+          "source_slot": "M7M_Grip_Default_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Grip_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Grip_Default_coated_receiver_da39a",
+          "source_slot": "M7M_Grip_Default_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default.MI_M7_Grip_Default"
+        },
+        {
+          "slot": "M7M_Muzzle_Standard_coated_receiver_da39a",
+          "source_slot": "M7M_Muzzle_Standard_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Standard.MI_M7_Muzzle_Standard"
+        },
+        {
+          "slot": "M7M_Muzzle_Standard_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Muzzle_Standard_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Standard.MI_M7_Muzzle_Standard"
+        },
+        {
+          "slot": "M7M_Sights_Iron_coated_receiver_da39a",
+          "source_slot": "M7M_Sights_Iron_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Materials/MI_M7_Sights_Iron.MI_M7_Sights_Iron"
+        },
+        {
+          "slot": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Sights_Iron_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Materials/MI_M7_Sights_Iron.MI_M7_Sights_Iron"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Default_Assembled.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -36.775001525878906,
+          -3.4868454933166504,
+          -22.750207901000977
+        ],
+        "max": [
+          61.20000076293945,
+          3.4868621826171875,
+          10.0649995803833
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -36.775001883506775,
+          -3.486853837966919,
+          -22.750207781791687
+        ],
+        "max": [
+          61.19999885559082,
+          3.486853837966919,
+          10.064999759197235
+        ]
+      },
+      "maximum_bound_error_cm": 8.344650268554688e-06,
+      "triangles": 834600,
+      "source_triangles": 835530,
+      "triangulation_triangle_delta": 930,
+      "degenerate_candidate_budget": 1019,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 1,
+      "lod_count": 1,
+      "parts": [
+        "SM_M7_Core",
+        "SM_M7_Barrel_Default",
+        "SM_M7_Stock_Default",
+        "SM_M7_Mag_20",
+        "SM_M7_Grip_Default",
+        "SM_M7_Muzzle_Standard",
+        "SM_M7_Sights_Iron"
+      ],
+      "part_mounts_cm": {
+        "SM_M7_Core": [
+          0,
+          0,
+          0
+        ],
+        "SM_M7_Barrel_Default": [
+          15.8,
+          0,
+          0
+        ],
+        "SM_M7_Stock_Default": [
+          -17.9,
+          0,
+          -0.25
+        ],
+        "SM_M7_Mag_20": [
+          8.0,
+          0,
+          -10.0
+        ],
+        "SM_M7_Grip_Default": [
+          -6.25,
+          0,
+          -6.5
+        ],
+        "SM_M7_Muzzle_Standard": [
+          59.8,
+          0,
+          0
+        ],
+        "SM_M7_Sights_Iron": [
+          0,
+          0,
+          5.5
+        ]
+      }
+    },
+    {
+      "name": "SM_M7_Equipped_Tidal",
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Presets/SM_M7_Equipped_Tidal",
+      "category": "Preset",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Core_Reference_coat",
+          "source_slot": "M7M_Core_Reference_coat",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_dark",
+          "source_slot": "M7M_Core_Reference_dark",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_hardware",
+          "source_slot": "M7M_Core_Reference_hardware",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Barrel_Tidal_Guard_coated_handguard_001",
+          "source_slot": "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal.MI_M7_Barrel_Tidal"
+        },
+        {
+          "slot": "M7M_Barrel_Tidal_Guard_dark_steel_hardware_001",
+          "source_slot": "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal.MI_M7_Barrel_Tidal"
+        },
+        {
+          "slot": "M7M_Barrel_Tidal_Guard_fine_grid_001",
+          "source_slot": "M7M_Barrel_Tidal_Guard_fine_grid.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal.MI_M7_Barrel_Tidal"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_coat_001",
+          "source_slot": "M7M_Stock_ShadowRail_coat.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_hardware_001",
+          "source_slot": "M7M_Stock_ShadowRail_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_dark_001",
+          "source_slot": "M7M_Stock_ShadowRail_dark.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_polymer_001",
+          "source_slot": "M7M_Stock_ShadowRail_polymer.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_rubber_001",
+          "source_slot": "M7M_Stock_ShadowRail_rubber.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_0f2a7",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_0f2a7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_fade7",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_fade7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_f05bd",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_f05bd",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_rubber_black_f05bd",
+          "source_slot": "M7M_Mag_Extended_rubber_black_f05bd",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_polymer_stock_da39a",
+          "source_slot": "M7M_Mag_Extended_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_polymer_001",
+          "source_slot": "M7M_Grip_Phantom_polymer.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_coat_001",
+          "source_slot": "M7M_Grip_Phantom_coat.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_rubber_001",
+          "source_slot": "M7M_Grip_Phantom_rubber.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_dark_001",
+          "source_slot": "M7M_Grip_Phantom_dark.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_hardware_001",
+          "source_slot": "M7M_Grip_Phantom_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_da39a",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_rubber_black_da39a",
+          "source_slot": "M7M_Optic_LPVO_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7R_09_CoatedLens",
+          "source_slot": "M7R_09_CoatedLens",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_09_CoatedLens.M_M7R_09_CoatedLens"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_da39a",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_00723",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7R_07_EngravingGray",
+          "source_slot": "M7R_07_EngravingGray",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_07_EngravingGray.M_M7R_07_EngravingGray"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_00723",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_rubber_black_00723",
+          "source_slot": "M7M_Optic_LPVO_rubber_black_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_6d968",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_6d968",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_6d968",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_6d968",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_133e8",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_133e8",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+          "source_slot": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+          "source_slot": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor.MI_M7_Muzzle_Suppressor"
+        },
+        {
+          "slot": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor.MI_M7_Muzzle_Suppressor"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Equipped_Tidal.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -42.63587188720703,
+          -3.791997194290161,
+          -28.250213623046875
+        ],
+        "max": [
+          95.40738677978516,
+          3.7920072078704834,
+          13.240499496459961
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -42.63587296009064,
+          -3.7919998168945312,
+          -28.250214457511902
+        ],
+        "max": [
+          95.40738463401794,
+          3.7919998168945312,
+          13.240499794483185
+        ]
+      },
+      "maximum_bound_error_cm": 7.3909759521484375e-06,
+      "triangles": 1396489,
+      "source_triangles": 1397184,
+      "triangulation_triangle_delta": 695,
+      "degenerate_candidate_budget": 715,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 2,
+      "lod_count": 1,
+      "parts": [
+        "SM_M7_Core",
+        "SM_M7_Barrel_Tidal",
+        "SM_M7_Stock_ShadowRail",
+        "SM_M7_Mag_Extended",
+        "SM_M7_Grip_Phantom",
+        "SM_M7_Optic_LPVO",
+        "SM_M7_Foregrip_ResonanceGen1",
+        "SM_M7_Muzzle_Suppressor"
+      ],
+      "part_mounts_cm": {
+        "SM_M7_Core": [
+          0,
+          0,
+          0
+        ],
+        "SM_M7_Barrel_Tidal": [
+          15.8,
+          0,
+          0
+        ],
+        "SM_M7_Stock_ShadowRail": [
+          -17.9,
+          0,
+          -0.25
+        ],
+        "SM_M7_Mag_Extended": [
+          8.0,
+          0,
+          -10.0
+        ],
+        "SM_M7_Grip_Phantom": [
+          -6.25,
+          0,
+          -6.5
+        ],
+        "SM_M7_Optic_LPVO": [
+          0,
+          0,
+          5.5
+        ],
+        "SM_M7_Foregrip_ResonanceGen1": [
+          44.13003763959756,
+          0.0,
+          -4.95
+        ],
+        "SM_M7_Muzzle_Suppressor": [
+          80.38988764044944,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_M7_Equipped_Standard",
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Presets/SM_M7_Equipped_Standard",
+      "category": "Preset",
+      "class": "StaticMesh",
+      "materials": [
+        {
+          "slot": "M7M_Core_Reference_coat",
+          "source_slot": "M7M_Core_Reference_coat",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_dark",
+          "source_slot": "M7M_Core_Reference_dark",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Core_Reference_hardware",
+          "source_slot": "M7M_Core_Reference_hardware",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core.MI_M7_Core"
+        },
+        {
+          "slot": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Barrel_Default_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Barrel_Default_coated_handguard_da39a",
+          "source_slot": "M7M_Barrel_Default_coated_handguard_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+          "source_slot": "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7R_06_RecessBlack",
+          "source_slot": "M7R_06_RecessBlack",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack.M_M7R_06_RecessBlack"
+        },
+        {
+          "slot": "M7M_Barrel_Default_coated_handguard_6cfb7",
+          "source_slot": "M7M_Barrel_Default_coated_handguard_6cfb7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default.MI_M7_Barrel_Default"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_coat_001",
+          "source_slot": "M7M_Stock_ShadowRail_coat.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_hardware_001",
+          "source_slot": "M7M_Stock_ShadowRail_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_dark_001",
+          "source_slot": "M7M_Stock_ShadowRail_dark.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_polymer_001",
+          "source_slot": "M7M_Stock_ShadowRail_polymer.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Stock_ShadowRail_rubber_001",
+          "source_slot": "M7M_Stock_ShadowRail_rubber.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail.MI_M7_Stock_ShadowRail"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_0f2a7",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_0f2a7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_fade7",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_fade7",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_coated_magazine_f05bd",
+          "source_slot": "M7M_Mag_Extended_coated_magazine_f05bd",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_rubber_black_f05bd",
+          "source_slot": "M7M_Mag_Extended_rubber_black_f05bd",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Mag_Extended_polymer_stock_da39a",
+          "source_slot": "M7M_Mag_Extended_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended.MI_M7_Mag_Extended"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_polymer_001",
+          "source_slot": "M7M_Grip_Phantom_polymer.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_coat_001",
+          "source_slot": "M7M_Grip_Phantom_coat.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_rubber_001",
+          "source_slot": "M7M_Grip_Phantom_rubber.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_dark_001",
+          "source_slot": "M7M_Grip_Phantom_dark.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Grip_Phantom_hardware_001",
+          "source_slot": "M7M_Grip_Phantom_hardware.001",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom.MI_M7_Grip_Phantom"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_da39a",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_rubber_black_da39a",
+          "source_slot": "M7M_Optic_LPVO_rubber_black_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7R_09_CoatedLens",
+          "source_slot": "M7R_09_CoatedLens",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_09_CoatedLens.M_M7R_09_CoatedLens"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_da39a",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_00723",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7R_07_EngravingGray",
+          "source_slot": "M7R_07_EngravingGray",
+          "material": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_07_EngravingGray.M_M7R_07_EngravingGray"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_00723",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_rubber_black_00723",
+          "source_slot": "M7M_Optic_LPVO_rubber_black_00723",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_polymer_stock_6d968",
+          "source_slot": "M7M_Optic_LPVO_polymer_stock_6d968",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_6d968",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_6d968",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_coated_optic_133e8",
+          "source_slot": "M7M_Optic_LPVO_coated_optic_133e8",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+          "source_slot": "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO.MI_M7_Optic_LPVO"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+          "source_slot": "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1.MI_M7_Foregrip_ResonanceGen1"
+        },
+        {
+          "slot": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+          "source_slot": "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor.MI_M7_Muzzle_Suppressor"
+        },
+        {
+          "slot": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+          "source_slot": "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a",
+          "material": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor.MI_M7_Muzzle_Suppressor"
+        }
+      ],
+      "sockets_cm": {},
+      "source_fbx": "Exports/SM_M7_Equipped_Standard.fbx",
+      "saved": true,
+      "reused_unchanged_import": false,
+      "bounds_cm": {
+        "min": [
+          -42.63587188720703,
+          -3.4868454933166504,
+          -28.250213623046875
+        ],
+        "max": [
+          74.81749725341797,
+          3.4868621826171875,
+          13.240499496459961
+        ]
+      },
+      "expected_bounds_cm": {
+        "min": [
+          -42.63587296009064,
+          -3.486853837966919,
+          -28.250214457511902
+        ],
+        "max": [
+          74.81749653816223,
+          3.486853837966919,
+          13.240499794483185
+        ]
+      },
+      "maximum_bound_error_cm": 8.344650268554688e-06,
+      "triangles": 1141497,
+      "source_triangles": 1142198,
+      "triangulation_triangle_delta": 701,
+      "degenerate_candidate_budget": 719,
+      "needs_surface_review": false,
+      "triangle_validation": "Counts recorded; n-gon tessellation is not topology invariant. Differences beyond measured degeneracy candidates require render-surface area review.",
+      "geometry_preflight": "UEGeometryPreflight.json",
+      "uv_channels": 2,
+      "lod_count": 1,
+      "parts": [
+        "SM_M7_Core",
+        "SM_M7_Barrel_Default",
+        "SM_M7_Stock_ShadowRail",
+        "SM_M7_Mag_Extended",
+        "SM_M7_Grip_Phantom",
+        "SM_M7_Optic_LPVO",
+        "SM_M7_Foregrip_ResonanceGen1",
+        "SM_M7_Muzzle_Suppressor"
+      ],
+      "part_mounts_cm": {
+        "SM_M7_Core": [
+          0,
+          0,
+          0
+        ],
+        "SM_M7_Barrel_Default": [
+          15.8,
+          0,
+          0
+        ],
+        "SM_M7_Stock_ShadowRail": [
+          -17.9,
+          0,
+          -0.25
+        ],
+        "SM_M7_Mag_Extended": [
+          8.0,
+          0,
+          -10.0
+        ],
+        "SM_M7_Grip_Phantom": [
+          -6.25,
+          0,
+          -6.5
+        ],
+        "SM_M7_Optic_LPVO": [
+          0,
+          0,
+          5.5
+        ],
+        "SM_M7_Foregrip_ResonanceGen1": [
+          30.75,
+          0,
+          -4.35
+        ],
+        "SM_M7_Muzzle_Suppressor": [
+          59.8,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "textures": [
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Textures/T_M7_Core_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Core_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        4096,
+        4096
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Textures/T_M7_Core_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Core_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        4096,
+        4096
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Textures/T_M7_Core_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Core_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        4096,
+        4096
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Default_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_Default_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Default_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_Default_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Default_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_Default_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Skeleton_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_Skeleton_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Skeleton_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_Skeleton_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Skeleton_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_Skeleton_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_20_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Mag_20_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_20_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Mag_20_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_20_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Mag_20_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_Extended_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Mag_Extended_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_Extended_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Mag_Extended_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_Extended_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Mag_Extended_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Default_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_Default_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Default_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_Default_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Default_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_Default_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_D2_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_D2_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_D2_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_D2_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_D2_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_D2_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_LPVO_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Optic_LPVO_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_LPVO_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Optic_LPVO_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_LPVO_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Optic_LPVO_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_Combat_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Optic_Combat_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_Combat_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Optic_Combat_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_Combat_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Optic_Combat_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_Vertical_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Foregrip_Vertical_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_Vertical_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Foregrip_Vertical_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_Vertical_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Foregrip_Vertical_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Standard_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Standard_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Standard_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Standard_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Standard_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Standard_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Brake_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Brake_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Brake_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Brake_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Brake_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Brake_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Suppressor_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Suppressor_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Suppressor_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Suppressor_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Suppressor_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Muzzle_Suppressor_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Textures/T_M7_Sights_Iron_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Sights_Iron_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Textures/T_M7_Sights_Iron_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Sights_Iron_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Textures/T_M7_Sights_Iron_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Sights_Iron_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        1024,
+        1024
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Default_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Barrel_Default_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Default_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Barrel_Default_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Default_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Barrel_Default_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Tidal_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Barrel_Tidal_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        4096,
+        4096
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Tidal_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Barrel_Tidal_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        4096,
+        4096
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Tidal_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Barrel_Tidal_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        4096,
+        4096
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_ResonanceGen1_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Foregrip_ResonanceGen1_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_ResonanceGen1_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Foregrip_ResonanceGen1_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_ResonanceGen1_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Foregrip_ResonanceGen1_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_ShadowRail_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_ShadowRail_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_ShadowRail_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_ShadowRail_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_ShadowRail_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Stock_ShadowRail_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Phantom_BaseColor",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_Phantom_BaseColor.png",
+      "channel": "BaseColor",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flip_green_channel": false,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Phantom_Normal",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_Phantom_Normal.png",
+      "channel": "Normal",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flip_green_channel": true,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Phantom_ORM",
+      "source": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Textures\\Baked\\SM_M7_Grip_Phantom_ORM.png",
+      "channel": "ORM",
+      "source_resolution": [
+        2048,
+        2048
+      ],
+      "srgb": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flip_green_channel": false,
+      "saved": true
+    }
+  ],
+  "materials": [
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "type": "baked_master",
+      "parameters": [
+        "BaseColor",
+        "Normal",
+        "ORM"
+      ],
+      "orm_channels": {
+        "R": "AmbientOcclusion",
+        "G": "Roughness",
+        "B": "Metallic"
+      },
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/MI_M7_Core",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Core",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Textures/T_M7_Core_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Textures/T_M7_Core_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Textures/T_M7_Core_ORM"
+      },
+      "source_slots": [
+        "M7M_Core_Reference_coat",
+        "M7M_Core_Reference_dark",
+        "M7M_Core_Reference_hardware"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Default",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Stock_Default",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Default_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Default_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Default_ORM"
+      },
+      "source_slots": [
+        "M7M_Stock_Default_coated_receiver_da39a",
+        "M7M_Stock_Default_dark_steel_hardware_da39a",
+        "M7M_Stock_Default_polymer_stock_2c9f3",
+        "M7M_Stock_Default_polymer_stock_da39a",
+        "M7M_Stock_Default_polymer_stock_dbcb1",
+        "M7M_Stock_Default_rubber_black_7a08d"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_Skeleton",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Stock_Skeleton",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Skeleton_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Skeleton_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_Skeleton_ORM"
+      },
+      "source_slots": [
+        "M7M_Stock_Skeleton_coated_receiver_da39a",
+        "M7M_Stock_Skeleton_dark_steel_hardware_da39a",
+        "M7M_Stock_Skeleton_polymer_stock_da39a",
+        "M7M_Stock_Skeleton_polymer_stock_dbcb1",
+        "M7M_Stock_Skeleton_rubber_black_7a08d"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_20",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Mag_20",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_20_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_20_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_20_ORM"
+      },
+      "source_slots": [
+        "M7M_Mag_20_coated_magazine_0f2a7",
+        "M7M_Mag_20_coated_magazine_9d76e",
+        "M7M_Mag_20_coated_magazine_fade7",
+        "M7M_Mag_20_polymer_stock_da39a",
+        "M7M_Mag_20_rubber_black_9d76e"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Materials/MI_M7_Mag_Extended",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Mag_Extended",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_Extended_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_Extended_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Magazines/M7/Textures/T_M7_Mag_Extended_ORM"
+      },
+      "source_slots": [
+        "M7M_Mag_Extended_coated_magazine_0f2a7",
+        "M7M_Mag_Extended_coated_magazine_f05bd",
+        "M7M_Mag_Extended_coated_magazine_fade7",
+        "M7M_Mag_Extended_polymer_stock_da39a",
+        "M7M_Mag_Extended_rubber_black_f05bd"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Default",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Grip_Default",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Default_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Default_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Default_ORM"
+      },
+      "source_slots": [
+        "M7M_Grip_Default_coated_receiver_da39a",
+        "M7M_Grip_Default_dark_steel_hardware_da39a",
+        "M7M_Grip_Default_polymer_grip_da39a",
+        "M7M_Grip_Default_polymer_grip_f0ba0",
+        "M7M_Grip_Default_rubber_black_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_D2",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Grip_D2",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_D2_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_D2_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_D2_ORM"
+      },
+      "source_slots": [
+        "M7M_Grip_D2_coated_receiver_da39a",
+        "M7M_Grip_D2_dark_steel_hardware_da39a",
+        "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+        "M7M_Grip_D2_polymer_grip_da39a",
+        "M7M_Grip_D2_polymer_grip_f0ba0",
+        "M7M_Grip_D2_rubber_black_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_LPVO",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Optic_LPVO",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_LPVO_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_LPVO_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_LPVO_ORM"
+      },
+      "source_slots": [
+        "M7M_Optic_LPVO_coated_optic_00723",
+        "M7M_Optic_LPVO_coated_optic_133e8",
+        "M7M_Optic_LPVO_coated_optic_6d968",
+        "M7M_Optic_LPVO_coated_optic_da39a",
+        "M7M_Optic_LPVO_dark_steel_hardware_133e8",
+        "M7M_Optic_LPVO_dark_steel_hardware_da39a",
+        "M7M_Optic_LPVO_polymer_stock_00723",
+        "M7M_Optic_LPVO_polymer_stock_6d968",
+        "M7M_Optic_LPVO_polymer_stock_da39a",
+        "M7M_Optic_LPVO_rubber_black_00723",
+        "M7M_Optic_LPVO_rubber_black_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Materials/MI_M7_Optic_Combat",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Optic_Combat",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_Combat_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_Combat_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Optics/M7/Textures/T_M7_Optic_Combat_ORM"
+      },
+      "source_slots": [
+        "M7M_Optic_Combat_coated_optic_da39a",
+        "M7M_Optic_Combat_dark_steel_hardware_da39a",
+        "M7M_Optic_Combat_polymer_stock_da39a",
+        "M7M_Optic_Combat_rubber_black_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_Vertical",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Foregrip_Vertical",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_Vertical_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_Vertical_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_Vertical_ORM"
+      },
+      "source_slots": [
+        "M7M_Foregrip_Vertical_coated_receiver_da39a",
+        "M7M_Foregrip_Vertical_dark_steel_hardware_da39a",
+        "M7M_Foregrip_Vertical_polymer_grip_da39a",
+        "M7M_Foregrip_Vertical_rubber_black_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Standard",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Muzzle_Standard",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Standard_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Standard_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Standard_ORM"
+      },
+      "source_slots": [
+        "M7M_Muzzle_Standard_coated_receiver_da39a",
+        "M7M_Muzzle_Standard_dark_steel_hardware_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Brake",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Muzzle_Brake",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Brake_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Brake_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Brake_ORM"
+      },
+      "source_slots": [
+        "M7M_Muzzle_Brake_coated_receiver_da39a",
+        "M7M_Muzzle_Brake_dark_steel_hardware_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Materials/MI_M7_Muzzle_Suppressor",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Muzzle_Suppressor",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Suppressor_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Suppressor_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Muzzles/M7/Textures/T_M7_Muzzle_Suppressor_ORM"
+      },
+      "source_slots": [
+        "M7M_Muzzle_Suppressor_coated_receiver_da39a",
+        "M7M_Muzzle_Suppressor_dark_steel_hardware_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Materials/MI_M7_Sights_Iron",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Sights_Iron",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Textures/T_M7_Sights_Iron_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Textures/T_M7_Sights_Iron_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Sights/M7/Textures/T_M7_Sights_Iron_ORM"
+      },
+      "source_slots": [
+        "M7M_Sights_Iron_coated_receiver_da39a",
+        "M7M_Sights_Iron_dark_steel_hardware_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Default",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Barrel_Default",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Default_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Default_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Default_ORM"
+      },
+      "source_slots": [
+        "M7M_Barrel_Default_coated_handguard_6cfb7",
+        "M7M_Barrel_Default_coated_handguard_da39a",
+        "M7M_Barrel_Default_dark_steel_hardware_d5c31",
+        "M7M_Barrel_Default_dark_steel_hardware_da39a"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Materials/MI_M7_Barrel_Tidal",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Barrel_Tidal",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Tidal_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Tidal_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Barrels/M7/Textures/T_M7_Barrel_Tidal_ORM"
+      },
+      "source_slots": [
+        "M7M_Barrel_Tidal_Guard_coated_handguard.001",
+        "M7M_Barrel_Tidal_Guard_dark_steel_hardware.001",
+        "M7M_Barrel_Tidal_Guard_fine_grid.001"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Materials/MI_M7_Foregrip_ResonanceGen1",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Foregrip_ResonanceGen1",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_ResonanceGen1_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_ResonanceGen1_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Foregrips/M7/Textures/T_M7_Foregrip_ResonanceGen1_ORM"
+      },
+      "source_slots": [
+        "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
+        "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
+        "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
+        "M7M_Foregrip_ResonanceGen1_polymer_grip_a1db4",
+        "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
+        "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
+        "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Materials/MI_M7_Stock_ShadowRail",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Stock_ShadowRail",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_ShadowRail_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_ShadowRail_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/Stocks/M7/Textures/T_M7_Stock_ShadowRail_ORM"
+      },
+      "source_slots": [
+        "M7M_Stock_ShadowRail_coat.001",
+        "M7M_Stock_ShadowRail_dark.001",
+        "M7M_Stock_ShadowRail_hardware.001",
+        "M7M_Stock_ShadowRail_polymer.001",
+        "M7M_Stock_ShadowRail_rubber.001"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Materials/MI_M7_Grip_Phantom",
+      "type": "baked_instance",
+      "source_asset": "SM_M7_Grip_Phantom",
+      "parent": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7_BakedPBR",
+      "parameters": {
+        "BaseColor": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Phantom_BaseColor",
+        "Normal": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Phantom_Normal",
+        "ORM": "/Game/FPSDemo/Art/Weapons/Attachments/RearGrips/M7/Textures/T_M7_Grip_Phantom_ORM"
+      },
+      "source_slots": [
+        "M7M_Grip_Phantom_coat.001",
+        "M7M_Grip_Phantom_dark.001",
+        "M7M_Grip_Phantom_hardware.001",
+        "M7M_Grip_Phantom_polymer.001",
+        "M7M_Grip_Phantom_rubber.001"
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_06_RecessBlack",
+      "type": "preserved_constant",
+      "source_slot": "M7R_06_RecessBlack",
+      "glb_source": "Exports/SM_M7_Foregrip_ResonanceGen1.glb",
+      "base_color_linear": [
+        0.001934984466060996,
+        0.0021671827416867018,
+        0.0023219813592731953,
+        1
+      ],
+      "metallic": 0.18000000715255737,
+      "roughness": 0.6700000166893005,
+      "transmission": 0,
+      "ior": 1.5,
+      "two_sided": true,
+      "specular_f0": 0.04000000000000001,
+      "shading": "DefaultLit",
+      "transmittance_color_linear": null,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_07_EngravingGray",
+      "type": "preserved_constant",
+      "source_slot": "M7R_07_EngravingGray",
+      "glb_source": "Exports/SM_M7_Optic_Combat.glb",
+      "base_color_linear": [
+        0.07323895394802094,
+        0.07828831672668457,
+        0.08353512734174728,
+        1
+      ],
+      "metallic": 0.30000001192092896,
+      "roughness": 0.5,
+      "transmission": 0,
+      "ior": 1.5,
+      "two_sided": true,
+      "specular_f0": 0.04000000000000001,
+      "shading": "DefaultLit",
+      "transmittance_color_linear": null,
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_08_Glass",
+      "type": "preserved_constant",
+      "source_slot": "M7R_08_Glass",
+      "glb_source": "Exports/SM_M7_Optic_Combat.glb",
+      "base_color_linear": [
+        0.02451501414179802,
+        0.03310476616024971,
+        0.043233636766672134,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.11999999731779099,
+      "transmission": 0.9599999785423279,
+      "ior": 1.4500000476837158,
+      "two_sided": true,
+      "specular_f0": 0.03373594919332527,
+      "shading": "ThinTranslucent/SurfaceForwardShading",
+      "transmittance_color_linear": [
+        0.023534413050090963,
+        0.031780574803488504,
+        0.04150429036831205
+      ],
+      "saved": true
+    },
+    {
+      "path": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Materials/M_M7R_09_CoatedLens",
+      "type": "preserved_constant",
+      "source_slot": "M7R_09_CoatedLens",
+      "glb_source": "Exports/SM_M7_Optic_Combat.glb",
+      "base_color_linear": [
+        0.00854038167744875,
+        0.0134117491543293,
+        0.018478473648428917,
+        1
+      ],
+      "metallic": 0.05000000074505806,
+      "roughness": 0.12999999523162842,
+      "transmission": 0.9599999785423279,
+      "ior": 1.4500000476837158,
+      "two_sided": true,
+      "specular_f0": 0.03373594919332527,
+      "shading": "ThinTranslucent/SurfaceForwardShading",
+      "transmittance_color_linear": [
+        0.00819876622709409,
+        0.012875278900371212,
+        0.01773933430598673
+      ],
+      "saved": true
+    }
+  ],
+  "errors": [],
+  "import_settings": {
+    "coordinate_system_policy": "MATCH_UP_FORWARD_AXES",
+    "import_yaw_degrees": 90,
+    "convert_scene_unit": true,
+    "uniform_scale": 1,
+    "target_units": "centimetres",
+    "target_forward_axis": "+X",
+    "normal_method": "ImportNormals/MikkTSpaceTangents",
+    "generate_lightmap_uv": false,
+    "auto_generate_collision": false,
+    "rigged": false,
+    "gameplay_integration": false
+  },
+  "source_blend_sha256": "b08e552e7f94415713b75324f59e7165123d7cac5c2edbd898ee4c27fdf8669e",
+  "blender_validation_source_sha256": "21f698013df491db83fa22b8c0da49b03e2b20b01ba680806707599a82cb7987",
+  "source_inputs": {
+    "AssetManifest.json": "14ae2a420fca52428e99fe1ad6d4acdf061b1737dbcc21716724af27687d1d45",
+    "AttachmentRegistry.json": "caf30afb6cee02cb59a8cf5dea6ed895fe4241a219f05867380ca7ec135d5c61",
+    "Exports/SM_M7_Barrel_Default.fbx": "67031be74cc4683098517395a11f6eec550f7be232362fe403705ced8a9bd600",
+    "Exports/SM_M7_Barrel_Default.glb": "3bc1615be5e92cf5ae6b3fb45231f414227ce3de889a3bb80cab7ae34117fe08",
+    "Exports/SM_M7_Barrel_Tidal.fbx": "82776af30c594260f08675d363cdae19a59355ca138d58d73011cdcbdc18960a",
+    "Exports/SM_M7_Barrel_Tidal.glb": "dcfe29af550470826382abd989e79ded7fb9e6c6e9ce34c6dc157515bdeb0feb",
+    "Exports/SM_M7_Core.fbx": "f0ab6e6ce1b08ccbee84c96c2cab973cb87f9d9f9c9d19f42c4805a79a803785",
+    "Exports/SM_M7_Core.glb": "1339e4d7c8bf5a72200118c97b592c2d929ebdd2b00ff4cab0d52ed28f3b4365",
+    "Exports/SM_M7_Default_Assembled.fbx": "115d9c5d989ee8a2504931196da75e3e8dffa81758bfe0c717d57a834b973e95",
+    "Exports/SM_M7_Default_Assembled.glb": "0f6cc7b20bed205077817ed8ae4e27a71557c5984c912825796b7c12386c0180",
+    "Exports/SM_M7_Equipped_Standard.fbx": "c7bf9edc2c193ac0251631f1c906f4e4af09de45c83e4cddc373055170a111f6",
+    "Exports/SM_M7_Equipped_Standard.glb": "a6f237cae5293be8e0ffa616bf47296c9cea2de3b81a99ec282410d6c40a7846",
+    "Exports/SM_M7_Equipped_Tidal.fbx": "6423c7a7a14ec4b1da9c30bed4f9889c3c17a285f7249ff509310e296e07e5f5",
+    "Exports/SM_M7_Equipped_Tidal.glb": "8d941a182f699513e2e57e7a1e0c6d0cd264ab6b68f1625ea82aa7e6c145105e",
+    "Exports/SM_M7_Foregrip_ResonanceGen1.fbx": "ba6e25992c1249d92167471ec66a2ae0f8bc770ecd30e51d2051081e7525c890",
+    "Exports/SM_M7_Foregrip_ResonanceGen1.glb": "7a7b52c9fb3a9bd0f122a6c26b4466f0bc8e79c20e067f721780e50179cf14df",
+    "Exports/SM_M7_Foregrip_Vertical.fbx": "70d027b9874a3100a40a8693da34f79489f0957fd0e048ce5173ae146767c301",
+    "Exports/SM_M7_Foregrip_Vertical.glb": "cd5b2c408d212b017f840f37ce95d559fdb049bac3d903c0115568d156036e03",
+    "Exports/SM_M7_Grip_D2.fbx": "5ab7073d7abec444aa43a210557f1c926bb56b55acb94f026574d004604288f9",
+    "Exports/SM_M7_Grip_D2.glb": "0b57da01b7139a50fcda2cd7f695cc44f6f03745da30369e6391368ff6c337b8",
+    "Exports/SM_M7_Grip_Default.fbx": "f5a714951bef5d69035caa51f5b7ad72a5dd5a416169c5ff95cf35c52ac04094",
+    "Exports/SM_M7_Grip_Default.glb": "dfc5d57dc4076570a6e54b648f1af97d005c630f48833250da7643cc29b3f684",
+    "Exports/SM_M7_Grip_Phantom.fbx": "1e998ffe1d94ebcb69ad51c19ced8624645277c68b4052b2092e1810c964bbd7",
+    "Exports/SM_M7_Grip_Phantom.glb": "8b03100bea32642ff2f16a9c4906a8eeb977cccfbb48929fa0efcad57b6bcea3",
+    "Exports/SM_M7_Mag_20.fbx": "03d88bb517f1f4d6d7ae46a7a71261f46008359faf44e43f510d29abfcd6e2cb",
+    "Exports/SM_M7_Mag_20.glb": "a895f89ef9d86b624e84ef8788a84e8040332440c1b2fe95b34b2ecdc77fddbd",
+    "Exports/SM_M7_Mag_Extended.fbx": "99d2eb6b6a5e9d3497cc8cd42aa3abf40b36d4f42ceff557d842995e403c367d",
+    "Exports/SM_M7_Mag_Extended.glb": "ba5fac9d17714870617975eeccdb3abe1c1cd00a97eade1e724f2e0305a1a8a0",
+    "Exports/SM_M7_Muzzle_Brake.fbx": "778424fe7db6a898ffe26720daeeb840632b859ededb170bad6e638b94fcb5ff",
+    "Exports/SM_M7_Muzzle_Brake.glb": "fdf3c2da6215dba1f6bbfc4d1ba31079c28efac636b15ab82339aa4e4bde2961",
+    "Exports/SM_M7_Muzzle_Standard.fbx": "f534f96dfac4c4c6e9947eeac2cf89afca52c33ab178ff12f41fba112ba13f6f",
+    "Exports/SM_M7_Muzzle_Standard.glb": "24272c1f7dc9a87033ffff6326b9f19b62e03b3041c0886743d774eb5a6b3a58",
+    "Exports/SM_M7_Muzzle_Suppressor.fbx": "cf43ad046304dbd7051ea3f09399fabd87f80e9060bb3ca723a44f8eb498481c",
+    "Exports/SM_M7_Muzzle_Suppressor.glb": "d5e76da13bb72cb18897975a49e28a6f168e1d1bfe024756397d1e45fa2f55af",
+    "Exports/SM_M7_Optic_Combat.fbx": "206b6721af500936e5dae9c3a5637780e6237cd0d2f7e2bc29c932a60f7775cd",
+    "Exports/SM_M7_Optic_Combat.glb": "bac0a824e41ccc034bd4fb3f0e91b32f79a3ada83cd714411bc347ee6b0ca1d0",
+    "Exports/SM_M7_Optic_LPVO.fbx": "8dc04d646d82ceba10244dd8dc331356b7f8ab240baaf2664f4e0bb80c9dc0e3",
+    "Exports/SM_M7_Optic_LPVO.glb": "164273f2e116083e655a3d4060bbfc52a958635cd7369d3d27a6848444ef069e",
+    "Exports/SM_M7_Sights_Iron.fbx": "463619335d5c36c31f29f10765312af2f04b2bf303a7861edfbb271c29e2fa66",
+    "Exports/SM_M7_Sights_Iron.glb": "d4c8a1f772d6dae7b474814605604a47920b2daab885e6232853ad482d08cbf1",
+    "Exports/SM_M7_Stock_Default.fbx": "b272f0afabcbac8c8bd68f1e892f6d684f6d018aa4975aaa86fec76a3c344d00",
+    "Exports/SM_M7_Stock_Default.glb": "252b092c891e5d9073a6b37cd380298ba3392881b6dcd5b0998e12d4c2ae85b3",
+    "Exports/SM_M7_Stock_ShadowRail.fbx": "5a905b85c88922a963c06bb02508acc194445068b3ec3bb3e20c724ccbf5b18d",
+    "Exports/SM_M7_Stock_ShadowRail.glb": "ece709e430be97524fc525b7aa321bf737cf05be98e9a2437f0db5dac04047ec",
+    "Exports/SM_M7_Stock_Skeleton.fbx": "312d7ab7b76f824e854c42d5b4743f27d35cb4b20719683b772b1496fe83eb7c",
+    "Exports/SM_M7_Stock_Skeleton.glb": "8b369325a5c1dd40bb0668f77c513d828fc4fac3fa46460eb2a70c21c758a941",
+    "MaterialReport.json": "cb1e8d8c0fb9c73a8a5f73a5087a60ce688efa052f4d0bc4017fdd211d8ecc0e",
+    "Textures/Baked/SM_M7_Barrel_Default_BaseColor.png": "40566958ce5608e0d3b7e2236ed2ca682ce14b1bbaad1b40b143038e95f40969",
+    "Textures/Baked/SM_M7_Barrel_Default_Normal.png": "fa5c94dffebe072d91c9df55e54f7afe2a933b20fc8705dd1dd3326ee8c9a4f2",
+    "Textures/Baked/SM_M7_Barrel_Default_ORM.png": "e53ff4b602fd65195e3928cd61d5fa3532f982386cdfe8466d9a7c34a1116872",
+    "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png": "cb0f765a5bf456ca4fd07558ab6f59c32b1215485fbd1e58eab92dc4ffa9a160",
+    "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png": "988a6793e4888698da817ef47a322427c27e18ce1df7f750c3bdf80136223eda",
+    "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png": "3ba8d2ae517db1d606e4ebaf8de049773d4882311c3b7af9fa7e786e12970e0c",
+    "Textures/Baked/SM_M7_Core_BaseColor.png": "ca34119d3347b912fdaf654c10e1e9d96f83227e7a3fbde33e6649be98b4a501",
+    "Textures/Baked/SM_M7_Core_Normal.png": "9877827ce507646346b3a2f7de5c4e7c16ed35406bb025cfef5f2c5ce65bf064",
+    "Textures/Baked/SM_M7_Core_ORM.png": "af53870747d0037babfa9c552d0b84147840357da7aff7e690ff50c8f1e8c584",
+    "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_BaseColor.png": "56010b4fa7a1c47a487fbb1a6a343c51051835936abcc14b28851992983718fc",
+    "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_Normal.png": "f53e9d6374c678ff0866e45c7172bf85426440ae0bce7553b3e4fd140fa45713",
+    "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_ORM.png": "1d3b9d7feff2ab7abc38fa5b5d5c7a9a9ffa02d065fc48c40a87c8b352df7fac",
+    "Textures/Baked/SM_M7_Foregrip_Vertical_BaseColor.png": "e9507c29099f0a162a554b4e60734ab0b64626fa418996e91f662054d8f6fe84",
+    "Textures/Baked/SM_M7_Foregrip_Vertical_Normal.png": "61ad7ce0d6611f73a1e2acc9f3cba4c351a1799c13b589009d25e703ded974a5",
+    "Textures/Baked/SM_M7_Foregrip_Vertical_ORM.png": "49e8ca23383aa76d1544d6df7a82f054efd32775461f301b936c6f81763c5a03",
+    "Textures/Baked/SM_M7_Grip_D2_BaseColor.png": "b86ced0859f007a0725399869e7f83662602135bb16d01dc0bb2a72f5d236b48",
+    "Textures/Baked/SM_M7_Grip_D2_Normal.png": "3c12ed4f027802eef527dac8d805201b68018dfcbe12327c14fffb7a3b8e5de4",
+    "Textures/Baked/SM_M7_Grip_D2_ORM.png": "ec2dbd299d643d789bc7451a45e183c0d751adb6ef52cdd492000bd27e209717",
+    "Textures/Baked/SM_M7_Grip_Default_BaseColor.png": "3c7dfe743d13b2ae3e5e2d86400ddcb816ca90149001e2c786b0ddaf040c3c55",
+    "Textures/Baked/SM_M7_Grip_Default_Normal.png": "f30c9fb91337e816955955e2030057bdded1076bb5d883a40e599cbf1876db3a",
+    "Textures/Baked/SM_M7_Grip_Default_ORM.png": "c26f753119636210f1e78299aa0b5a4b231452e136cceb32b1e02f2f04ea2207",
+    "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png": "a3740f37be8794eaf2dde9d3da50e1849c8150da782a69933c45cfa158a96770",
+    "Textures/Baked/SM_M7_Grip_Phantom_Normal.png": "59de986bd9fae95c36df98de4ee5f9d493d3e7a7900205c95fff44d1ebc8965d",
+    "Textures/Baked/SM_M7_Grip_Phantom_ORM.png": "36e438859817b5455e9c7e0b00f6875497d6d8e14c044fbdf43348d72bd49934",
+    "Textures/Baked/SM_M7_Mag_20_BaseColor.png": "71994c70d486a1e85e7f60814cfca44d5ff11d1b858ce54367fc7379b577c2e9",
+    "Textures/Baked/SM_M7_Mag_20_Normal.png": "b956523f07ef9391fcc9fb88fd9b42a3791ad69699103cf7ec0144276c700830",
+    "Textures/Baked/SM_M7_Mag_20_ORM.png": "ac5aebe628a5eeb531e2420f434321e36a72835a704fb44aaa551b365ef9076e",
+    "Textures/Baked/SM_M7_Mag_Extended_BaseColor.png": "1ae34daf73413242665a20b23333ad4176852216b99775053c3a507aeb8e25cd",
+    "Textures/Baked/SM_M7_Mag_Extended_Normal.png": "9d5884cee1413334f75807a94ec7a56308d0fb0f14463ed28c5ade4b9a31b244",
+    "Textures/Baked/SM_M7_Mag_Extended_ORM.png": "4cb0b986c9f07034a9faf9ce6d2865492a1dbf1d72b789998dbaacc5818082ff",
+    "Textures/Baked/SM_M7_Muzzle_Brake_BaseColor.png": "b4e67269daf9cebe6304680cd2a2a1297cad37db302f2d953f92d478f9f29de1",
+    "Textures/Baked/SM_M7_Muzzle_Brake_Normal.png": "6ce34a2ddafba42eb9fbdaffc20cfc2449647cf018a6854fa89fad90c44a55c9",
+    "Textures/Baked/SM_M7_Muzzle_Brake_ORM.png": "f63054a04062c7ac20677f5342aa7983e5b8b2e232d24d6e7fdca4e874ca454d",
+    "Textures/Baked/SM_M7_Muzzle_Standard_BaseColor.png": "b69b3fa791cfc74481d7ddff7d71413d5967ad8148210cb79900e900f56a0778",
+    "Textures/Baked/SM_M7_Muzzle_Standard_Normal.png": "5f3a6816b5a6ed80e441dcfacc07ff8b985d4220e873ff2522eebd152e292301",
+    "Textures/Baked/SM_M7_Muzzle_Standard_ORM.png": "ca6cd8d84dd1b097f7d3e656057adb0eab6af08833409a00e6697b0d2dd96ba2",
+    "Textures/Baked/SM_M7_Muzzle_Suppressor_BaseColor.png": "35b1dde4502a0cc9eb50bc0992b4dd256e8ec84ddb9584c699b0179c9e46391a",
+    "Textures/Baked/SM_M7_Muzzle_Suppressor_Normal.png": "ea4adb476cdf61118cc748e94dee8a00a399a51aa967746b5f4d7ddc4ae57831",
+    "Textures/Baked/SM_M7_Muzzle_Suppressor_ORM.png": "183dca9238811324eed7872e6bf30ec159d3101737c87083c0217f91bfc9c75b",
+    "Textures/Baked/SM_M7_Optic_Combat_BaseColor.png": "c360033becdcddbebadec9b5750d2f99ed2d38862efe163fedbd2c2ecd58bad0",
+    "Textures/Baked/SM_M7_Optic_Combat_Normal.png": "92af7b0ebb05ecd9cc131a4815c37d7321bcdb30849f8eca8777b926ee40d9af",
+    "Textures/Baked/SM_M7_Optic_Combat_ORM.png": "023f6db70db789a7a98efe54ca9163634951c1eaa58fdad017f1bec8aa4f5ca8",
+    "Textures/Baked/SM_M7_Optic_LPVO_BaseColor.png": "bcf819ad1bc6ee468b6718a0df7baaa6cf75d2a6f7c9044a7968c31af24affc9",
+    "Textures/Baked/SM_M7_Optic_LPVO_Normal.png": "ef3ef49dbd3dbade4ceec1c88446e7ea0d7de8353eeb114e7e391ceb4c9a919d",
+    "Textures/Baked/SM_M7_Optic_LPVO_ORM.png": "85436f6576a39d09cce7b010192e05cdb68244b6f55f880db7551a54716809d9",
+    "Textures/Baked/SM_M7_Sights_Iron_BaseColor.png": "70ae7312565e51ae51765cab2d0ff38b759c5c11f7c57cc877ea55f741301b98",
+    "Textures/Baked/SM_M7_Sights_Iron_Normal.png": "1497b8b993ac43521a3dd74fb7ebf1212dbb1772bafb380021a068570a650fd7",
+    "Textures/Baked/SM_M7_Sights_Iron_ORM.png": "2efe0f78681c29c7c8256f82d3c76546ad1ca7b765b2e28055544b04f4261d9b",
+    "Textures/Baked/SM_M7_Stock_Default_BaseColor.png": "f32958841622d7e9e528752d9cf1bb67e5add4645fa646d01f43e563489554f3",
+    "Textures/Baked/SM_M7_Stock_Default_Normal.png": "b4a6e7b852a929e3f8bac13e02da2dbb641c917b53a11310074857a9fd4c7320",
+    "Textures/Baked/SM_M7_Stock_Default_ORM.png": "da29869cd0daa6a2d320b9ef02c4c7d83231989f2deeddd1e0f3f0207ea4cde1",
+    "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png": "a2e7607252ca470ef37f461708ac2bc2c1be145a749159ca179df4d4441c6a0f",
+    "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png": "c907063126ecfacd993e82019a08a70e9d4868f8ad88bbc6deecfa8129fc0924",
+    "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png": "4ba715a8e6ac17af3ae8d16e434996ed8e8d23cde46d4461f3412bcc81400e65",
+    "Textures/Baked/SM_M7_Stock_Skeleton_BaseColor.png": "7fe7afcbb04414db9a423871f3cc520353effca0b6b53a1a0ca9589cb30ea948",
+    "Textures/Baked/SM_M7_Stock_Skeleton_Normal.png": "1c06b035d0ac483294c3ba71ba70f6d406671d2986c6e55481e5cd2011182da2",
+    "Textures/Baked/SM_M7_Stock_Skeleton_ORM.png": "879b6633f1c7af6ef294feb84756cadd7c400144542d4fda6569c612f42cc693"
+  },
+  "source_content_comparison": {
+    "report": "SourceContentComparison.json",
+    "sha256": "2174c7a94fe617716213be1585357cba2a202446719cdbebf6b15137bcacac53",
+    "asset_geometry_uv_modifiers_materials_images_scenes_equal": true,
+    "note": "Byte-level source differs; checked asset contents match the archived validated source."
+  },
+  "geometry_preflight": {
+    "file": "UEGeometryPreflight.json",
+    "sha256": "d8a30e49b45ba6b9d85657849bdf9e2c9d89677361ef738ff4cf9820d2a003ef"
+  },
+  "summary": {
+    "meshes": 22,
+    "independent_components": 19,
+    "assembled_presets": 3,
+    "textures": 57,
+    "materials": 24,
+    "socket_meshes": 3,
+    "surface_reviews_required": 1
+  }
+}

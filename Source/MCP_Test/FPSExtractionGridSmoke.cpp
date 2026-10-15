@@ -25,8 +25,9 @@ bool FFPSExtractionSmoke::GridChecks(UFPSExtractionSubsystem* Loop)
     if(!Loop->TryAdd(Seed->Warehouse,TEXT("Wire"),25,64) || !Loop->Commit(Seed))return false;
     const auto Source=Loop->Profile->Warehouse[0].StackId, Target=Loop->Profile->Warehouse[1].StackId;
     if(!Loop->MoveStack(EFPSExtractionContainer::Warehouse,Source,EFPSExtractionContainer::Backpack,0,0,false))return false;
-    // Full stack cannot merge into a partial stack beyond the definition's limit.
-    if(Loop->MoveStack(EFPSExtractionContainer::Backpack,Source,EFPSExtractionContainer::Warehouse,1,0,false))return false;
+    // Partial merge fills the target and retains excess at the source.
+    if(!Loop->MoveStack(EFPSExtractionContainer::Backpack,Source,EFPSExtractionContainer::Warehouse,1,0,false) ||
+        Loop->Count(Loop->Profile->PreparedBackpack,TEXT("Wire"))!=5 || Loop->Count(Loop->Profile->Warehouse,TEXT("Wire"))!=20)return false;
     if(!Loop->SellStack(Target) || Loop->Count(Loop->Profile->Warehouse,TEXT("Wire"))!=0)return false;
     auto* Restore=DuplicateObject<UFPSExtractionSave>(Original,Loop); Restore->Revision=Loop->Profile->Revision;
     return Loop->Commit(Restore);

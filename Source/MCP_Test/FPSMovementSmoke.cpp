@@ -20,6 +20,7 @@
 #include "Components/CapsuleComponent.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerInput.h"
+#include "GameFramework/InputSettings.h"
 #include "HAL/IConsoleManager.h"
 #include "HAL/PlatformTime.h"
 #include "HAL/FileManager.h"
@@ -66,7 +67,7 @@ enum EScene : int32
     Speeds, SprintCost, Wall, RetainedTwelve, Directions, Exhaustion, NormalJump, WeakJump,
     HeldJump, CrouchNormal, CrouchLow, LowRoof, AirMomentum, FailedRecovery, InputModes,
     WeaponPriority, AutomaticPreparation, SemiPreparation, BurstPreparation, WeaponDeadlines,
-    Lifecycle, BaseAndMenu, EmptyInventory, TrainingAI, RoundEnd, SceneCount
+    Lifecycle, BaseAndMenu, EmptyInventory, TrainingAI, GroundResponse, AirSteering, RoundEnd, SceneCount
 };
 const TCHAR* SceneName(int32 Scene)
 {
@@ -75,12 +76,12 @@ const TCHAR* SceneName(int32 Scene)
         TEXT("crouch-normal"), TEXT("crouch-low"), TEXT("low-roof"), TEXT("air-momentum"), TEXT("failed-recovery"),
         TEXT("input-modes"), TEXT("weapon-priority"), TEXT("automatic-preparation"), TEXT("semi-preparation"),
         TEXT("burst-preparation"), TEXT("weapon-deadlines"), TEXT("lifecycle"), TEXT("base-menu"),
-        TEXT("empty-inventory"), TEXT("training-ai"), TEXT("round-end") };
+        TEXT("empty-inventory"), TEXT("training-ai"), TEXT("ground-response"), TEXT("air-steering"), TEXT("round-end") };
     return Scene >= 0 && Scene < SceneCount ? Names[Scene] : TEXT("invalid");
 }
 double Duration(int32 Scene)
 {
-    static const double Values[] = { 7,5,4,5,5,8,4,4,5,4,5,5,5,4,6,6,6,6,4,6,8,5,4,4,3 };
+    static const double Values[] = { 7,5,4,5,5,8,4,4,5,4,5,5,5,4,6,6,6,6,4,6,8,5,4,4,9,8,3 };
     return Scene >= 0 && Scene < SceneCount ? Values[Scene] : 0;
 }
 float Seed(int32 Scene)
@@ -107,6 +108,21 @@ void ReleaseKeys(APlayerController* PC)
     for (const FKey& Value : { EKeys::LeftShift, EKeys::LeftControl, EKeys::SpaceBar, EKeys::LeftMouseButton,
         EKeys::RightMouseButton, EKeys::R, EKeys::Q, EKeys::One, EKeys::Two }) Key(PC, Value, IE_Released);
 }
+struct FGroundResponseMeasure
+{
+    FString Name;
+    FVector Position = FVector::ZeroVector, Direction = FVector::ForwardVector;
+    double Started = -1, Elapsed = 0;
+    float SecondsLimit = 0, MinimumSeconds = 0, DistanceLimit = 0, MinSpeed = 0, MaxSpeed = 0, AngleLimit = 5;
+    uint32 Corrections = 0;
+    bool Reported = false;
+};
+struct FAirLandingSample
+{
+    double At = 0;
+    float Speed = 0;
+    bool Falling = false;
+};
 struct FSceneProgress
 {
     int32 Index = -1;
@@ -122,6 +138,18 @@ struct FSceneProgress
     int32 Magazine = 0;
     FGuid Gun;
     TWeakObjectPtr<AFPSDemoCharacter> InitialBody;
+    TArray<FGroundResponseMeasure> GroundMeasures;
+    float TurnStartedYaw = 0;
+    int32 AirSteeringPhase = 0;
+    double AirTurnAt = -1, AirCoastAt = -1, AirReverseAt = -1, AirLandedAt = -1;
+    double SecondTakeoffAt = -1;
+    FVector AirTurnVelocity = FVector::ZeroVector, AirCoastVelocity = FVector::ZeroVector;
+    FVector SecondTakeoffPosition = FVector::ZeroVector;
+    float AirHighestSpeed = 0;
+    float SecondJumpBaseZ = 0, SecondJumpApex = 0;
+    uint32 SecondTakeoffCorrections = 0;
+    bool SawSecondFlight = false, SecondWasFalling = false, LandingCurveReported = false;
+    TArray<FAirLandingSample> LandingCurve;
 };
 struct FProgress
 {
@@ -133,7 +161,7 @@ struct FProgress
     TMap<TWeakObjectPtr<APlayerController>, FTransform> SpawnTransforms;
     TWeakObjectPtr<AFPSDemoCharacter> AI;
     uint32 AIJumps = 0, AICrouches = 0;
-    double AIMoveSeconds = 0;
+    double AIMoveSeconds = 0, AIJumpRequestedAt = -1;
 };
 AFPSMovementSmokeState* Fixture(UWorld* World)
 {
@@ -378,7 +406,7 @@ void FFPSMovementSmoke::Tick(AFPSFrontController* PC, float DeltaSeconds)
     case NormalJump:
     case WeakJump:
         At(.25,1,Jump); At(.4,2,[&]() { Release(EKeys::SpaceBar); Check(Move->IsFalling() && Move->GetJumpCharges()==S.Jumps+1,TEXT("actual successful jump consumes once")); Check(Move->IsWeakJump()==(State->Scene==WeakJump),TEXT("jump strength reflects pre-action stamina")); Check(FMath::Abs(Move->GetStamina()-(State->Scene==WeakJump ? 0.f : 80.f))<1,TEXT("normal jump costs twenty and weak jump consumes remaining stamina")); if (State->Scene==WeakJump) { const auto View=UFPSInterface::ReadStaminaHUD(Body); Check(View.Visible && View.Alert && View.Exhausted && View.Status.Contains(TEXT("弱跳")) && View.Status.Contains(TEXT("体力耗尽")) && FMath::IsNearlyEqual(View.Value,Move->GetStamina()),TEXT("shared stamina HUD reports actual airborne weak jump and exhaustion")); CaptureHUD(TEXT("MovementWeakJump.png")); } });
-        At(2,3,[&]() { Check(S.WasAirborne && S.FirstLanding>0 && S.Apex>30,TEXT("actual vertical trajectory rose and landed")); if (State->Scene==NormalJump) { P.NormalApex=S.Apex; Check(S.Apex>110 && S.Apex<140,TEXT("normal JumpZ500 observed apex")); } else { P.WeakApex=S.Apex; Check(P.NormalApex>0 && FMath::Abs(S.Apex/P.NormalApex-.5f)<.09f,TEXT("weak jump apex is half normal height, not half velocity")); } UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s normal_apex_cm=%.3f weak_apex_cm=%.3f landing=%.3f"),Role,P.NormalApex,P.WeakApex,S.FirstLanding); });
+        At(2,3,[&]() { Check(S.WasAirborne && S.FirstLanding>0 && S.Apex>0,TEXT("actual vertical trajectory rose and landed")); if (State->Scene==NormalJump) { P.NormalApex=S.Apex; Check(S.Apex>=60 && S.Apex<=72,TEXT("normal JumpZ360 observed apex is within sixty to seventy two centimeters")); } else { P.WeakApex=S.Apex; Check(S.Apex>=28 && S.Apex<=38,TEXT("weak JumpZ360 observed apex is within twenty eight to thirty eight centimeters")); Check(P.NormalApex>0 && FMath::Abs(S.Apex/P.NormalApex-.5f)<.09f,TEXT("weak jump apex is half normal height, not half velocity")); } UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s normal_apex_cm=%.3f weak_apex_cm=%.3f landing=%.3f configured_jump_velocity=%.3f gravity_z=%.3f"),Role,P.NormalApex,P.WeakApex,S.FirstLanding,GetDefault<UFPSMovementSettings>()->JumpVelocity,Move->GetGravityZ()); });
         break;
     case HeldJump:
         At(.25,1,Jump);
@@ -411,7 +439,8 @@ void FFPSMovementSmoke::Tick(AFPSFrontController* PC, float DeltaSeconds)
         At(2.8,7,[&]() { Check(Move->GetStamina()>S.StaminaSample+8 && Move->IsRecovering(),TEXT("failed low roof jump does not postpone stamina recovery")); });
         break;
     case AirMomentum:
-        At(.1,1,Sprint); if (Time<1) Forward(1); At(1,2,Jump); At(1.15,3,[&]() { Release(EKeys::SpaceBar); S.WallSprintSeconds=Move->DebugSprintConsumedSeconds; Check(Move->IsFalling() && Move->Velocity.Size2D()>550,TEXT("sprint jump preserves horizontal takeoff momentum")); });
+        At(.1,1,Sprint); if (Time<1.08) Forward(1); At(1,2,Jump); At(1.15,3,[&]() { Release(EKeys::SpaceBar); S.WallSprintSeconds=Move->DebugSprintConsumedSeconds; Check(Move->IsFalling() && Move->Velocity.Size2D()>550,TEXT("sprint jump preserves horizontal takeoff momentum")); });
+        if (Time>=1 && Move->IsFalling() && !S.Done.Contains(10)) { S.Done.Add(10); Check(Move->Acceleration.Size()>0 && Move->Acceleration.Size()<=1201.f,TEXT("first observed airborne tick with held direction uses the air acceleration limit")); UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s first_observed_air_acceleration=%.3f air_acceleration_limit=1200 analog=%.3f"),Role,Move->Acceleration.Size(),Move->GetAnalogInputModifier()); }
         if (Time>=1.2 && Time<1.5) { Forward(-1); if (Move->IsFalling() && !S.ObservedAirBackward) { S.ObservedAirBackward=true; Check(Move->Velocity.X>100,TEXT("air backward input does not instantly reverse takeoff velocity")); } }
         At(1.6,4,[&]() { Check(!Move->HasSprintIntent() && Move->DebugSprintConsumedSeconds-S.WallSprintSeconds<.08,TEXT("air backward clears intent and air has no ground sprint charge")); });
         At(2.7,5,[&]() { Check(!Move->HasSprintIntent() && !Move->IsSprinting() && Move->Velocity.Size2D()<=730,TEXT("landing does not restore interrupted sprint or add horizontal speed")); });
@@ -509,12 +538,170 @@ void FFPSMovementSmoke::Tick(AFPSFrontController* PC, float DeltaSeconds)
         {
             At(.1,1,[&]() { for (TActorIterator<AFPSBotController> It(World);It;++It) if (auto* Target=Cast<AFPSDemoCharacter>(It->GetPawn())) { P.AI=Target; auto* AI=CastChecked<UFPSMovementComponent>(Target->GetCharacterMovement()); AI->ClearMovementIntents(); AI->StopMovementImmediately(); Target->SetActorLocation(FVector(-3000,1000,GroundZ+90)); Target->SetActorRotation(FRotator::ZeroRotator); AI->SetStaminaForTest(0); P.AIJumps=AI->GetJumpCharges(); P.AICrouches=AI->GetCrouchCharges(); P.AIMoveSeconds=AI->DebugSprintConsumedSeconds; AI->RequestSprint(true); break; } Check(P.AI.IsValid(),TEXT("training contains actual bot controller fixture")); });
             if (P.AI.IsValid() && Time>=.1 && Time<1.2) P.AI->AddMovementInput(FVector::ForwardVector,1);
-            At(1,2,[&]() { auto* AI=P.AI.IsValid()?Cast<UFPSMovementComponent>(P.AI->GetCharacterMovement()):nullptr; Check(AI && AI->UsesMovementRules() && !AI->UsesStamina() && AI->Velocity.Size2D()>600 && AI->DebugSprintConsumedSeconds==P.AIMoveSeconds,TEXT("actual AI ground sprint bypasses stamina consumption only")); if(AI) AI->RequestJump(); });
-            At(1.15,3,[&]() { auto* AI=P.AI.IsValid()?Cast<UFPSMovementComponent>(P.AI->GetCharacterMovement()):nullptr; Check(AI && AI->IsFalling() && !AI->IsWeakJump() && AI->Velocity.Z>300,TEXT("zero stamina actual AI has ordinary jump without weak penalty")); });
+            At(1,2,[&]() { auto* AI=P.AI.IsValid()?Cast<UFPSMovementComponent>(P.AI->GetCharacterMovement()):nullptr; Check(AI && AI->UsesMovementRules() && !AI->UsesStamina() && AI->Velocity.Size2D()>600 && AI->DebugSprintConsumedSeconds==P.AIMoveSeconds,TEXT("actual AI ground sprint bypasses stamina consumption only")); if(AI) { P.AIJumpRequestedAt=World->GetTimeSeconds(); AI->RequestJump(); } });
+            At(1.15,3,[&]() { auto* AI=P.AI.IsValid()?Cast<UFPSMovementComponent>(P.AI->GetCharacterMovement()):nullptr; Check(AI && AI->IsFalling() && !AI->UsesStamina() && !AI->IsWeakJump() && FMath::IsNearlyEqual(AI->JumpZVelocity,360.f) && AI->Velocity.Z>=180 && AI->Velocity.Z<=240 && AI->GetStamina()==0,TEXT("zero stamina actual AI has ordinary JumpZ360 trajectory without weak penalty or stamina cost")); UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE SERVER ai_jump vertical_velocity=%.3f jump_velocity=%.3f weak=%d observed_seconds_after_request=%.4f vertical_velocity_limits=180..240 frame_seconds=%.4f"),AI?AI->Velocity.Z:-1.f,AI?AI->JumpZVelocity:-1.f,AI?AI->IsWeakJump():true,World->GetTimeSeconds()-P.AIJumpRequestedAt,DeltaSeconds); });
             At(2.5,4,[&]() { if(P.AI.IsValid()) { auto* AI=CastChecked<UFPSMovementComponent>(P.AI->GetCharacterMovement()); AI->RequestCrouch(true); } });
             At(2.7,5,[&]() { auto* AI=P.AI.IsValid()?Cast<UFPSMovementComponent>(P.AI->GetCharacterMovement()):nullptr; Check(AI && P.AI->bIsCrouched && AI->GetCrouchCooldownRemaining()<.36f,TEXT("AI crouch avoids low stamina penalty while retaining posture rules")); });
         }
         break;
+    case GroundResponse:
+    {
+        if (S.GroundMeasures.IsEmpty()) S.GroundMeasures.SetNum(7);
+        auto BeginMeasure = [&](int32 Index,const TCHAR* Name,float SecondsLimit,float MinSpeed,float MaxSpeed,
+            const FVector& Direction,float DistanceLimit=0.f,float MinimumSeconds=0.f,float AngleLimit=5.f)
+        {
+            auto& Measurement=S.GroundMeasures[Index]; Measurement.Name=Name;
+            Measurement.Started=World->GetTimeSeconds(); Measurement.Position=Body->GetActorLocation(); Measurement.Direction=Direction;
+            Measurement.SecondsLimit=SecondsLimit; Measurement.MinSpeed=MinSpeed; Measurement.MaxSpeed=MaxSpeed;
+            Measurement.DistanceLimit=DistanceLimit; Measurement.MinimumSeconds=MinimumSeconds; Measurement.AngleLimit=AngleLimit;
+            Measurement.Corrections=Move->DebugCorrectionCount;
+            UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s ground_begin=%s local_time=%.4f native_stamp=%.4f speed=%.3f speed_limit=%.3f grounded=%d limit_seconds=%.3f limit_distance=%.3f angle_limit=%.1f"),
+                Role,Name,Measurement.Started,Server?-1.f:Move->GetPredictionData_Client_Character()->CurrentTimeStamp,Move->Velocity.Size2D(),Move->Resource.SpeedLimit,Move->IsMovingOnGround(),SecondsLimit,DistanceLimit,AngleLimit);
+        };
+        At(.1,1,[&]() { Check(Move->Velocity.Size2D()<5,TEXT("ground start measurement begins from actual rest")); BeginMeasure(0,TEXT("walk-start"),.10f,460,500,FVector::ForwardVector); });
+        if ((Time>=.1 && Time<.8) || (Time>=1.3 && Time<1.9) || (Time>=3 && Time<4.1) || (Time>=5 && Time<7.8)) Forward(1);
+        At(.8,2,[&]() { Check(FMath::IsNearlyEqual(Move->Velocity.Size2D(),480.f,20.f),TEXT("ordinary release begins at actual walking speed")); BeginMeasure(1,TEXT("walk-stop"),.10f,0,5,FVector::ForwardVector,20); });
+        At(1.9,3,[&]() { Check(Move->Velocity.X>460,TEXT("ordinary reverse begins from actual forward walking")); BeginMeasure(2,TEXT("walk-reverse"),.15f,460,500,-FVector::ForwardVector); });
+        if (Time>=1.9 && Time<2.6) Forward(-1);
+        At(3,4,Sprint);
+        At(4.1,5,[&]() { Check(Move->IsSprinting() && FMath::IsNearlyEqual(Move->Velocity.Size2D(),720.f,20.f),TEXT("sprint release begins at actual full sprint speed")); BeginMeasure(3,TEXT("sprint-stop"),.12f,0,5,FVector::ForwardVector,40); });
+        At(4.6,6,[&]() { Release(EKeys::LeftShift); });
+        At(5.2,7,[&]() { Check(!Move->IsSprinting() && FMath::IsNearlyEqual(Move->Velocity.Size2D(),480.f,20.f),TEXT("sprint ramp begins from actual ordinary walking")); BeginMeasure(4,TEXT("walk-to-sprint"),.28f,700,740,FVector::ForwardVector,0,.10f); Sprint(); });
+        At(6.4,8,[&]()
+        {
+            Check(Move->IsSprinting() && Move->Velocity.X>680,TEXT("ninety degree look turn begins from actual forward sprint"));
+            S.TurnStartedYaw=Body->GetActorRotation().Yaw;
+            BeginMeasure(5,TEXT("sprint-look-turn90"),.15f,660,740,FVector::RightVector,0,0,10);
+            float YawScale=1.f;
+            PRAGMA_DISABLE_DEPRECATION_WARNINGS
+            if(GetDefault<UInputSettings>()->bEnableLegacyInputScales) YawScale=PC->GetDeprecatedInputYawScale();
+            PRAGMA_ENABLE_DEPRECATION_WARNINGS
+            Check(FMath::Abs(YawScale)>KINDA_SMALL_NUMBER,TEXT("real yaw input has a nonzero configured scale"));
+            if(FMath::Abs(YawScale)>KINDA_SMALL_NUMBER)
+            {
+                Body->LookYaw(FInputActionValue(90.f/YawScale));
+                // The opt-in hook runs after PlayerController's normal UpdateRotation.
+                // Consume this real yaw input before TickActor clears RotationInput,
+                // then replace only this frame's already accumulated old forward input.
+                PC->UpdateRotation(0.f);
+                Body->ConsumeMovementInputVector();
+                Forward(1);
+            }
+        });
+        At(6.6,9,[&]() { const float Turn=FMath::FindDeltaAngleDegrees(S.TurnStartedYaw,Body->GetActorRotation().Yaw); Check(FMath::Abs(Turn-90.f)<1.f && Move->HasSprintIntent(),TEXT("real look input rotates the actual actor ninety degrees while preserving forward sprint intent")); UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s actual_look_turn_degrees=%.3f"),Role,Turn); });
+        At(6.9,10,[&]() { Check(Move->IsSprinting() && Move->Velocity.Y>680,TEXT("sprint exit measurement starts at actual turned sprint speed")); BeginMeasure(6,TEXT("sprint-to-walk"),.17f,450,500,FVector::RightVector,0,.08f); Release(EKeys::LeftShift); });
+        for (auto& Measurement:S.GroundMeasures)
+        {
+            if(Measurement.Started<0 || Measurement.Reported) continue;
+            const float Speed=Move->Velocity.Size2D();
+            const float Angle=Speed<5 ? 0.f : FMath::RadiansToDegrees(FMath::Acos(FMath::Clamp(FVector::DotProduct(Move->Velocity.GetSafeNormal2D(),Measurement.Direction),-1.,1.)));
+            const bool Reached=Move->IsMovingOnGround() && Speed>=Measurement.MinSpeed && Speed<=Measurement.MaxSpeed && Angle<=Measurement.AngleLimit;
+            Measurement.Elapsed=World->GetTimeSeconds()-Measurement.Started;
+            if(!Reached && Measurement.Elapsed<.75) continue;
+            Measurement.Reported=true;
+            const float Distance=FVector::Dist2D(Measurement.Position,Body->GetActorLocation());
+            UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s ground_response=%s elapsed=%.4f distance_cm=%.3f speed=%.3f angle_degrees=%.3f elapsed_limit=%.3f distance_limit=%.3f angle_limit=%.1f minimum_seconds=%.3f frame_seconds=%.4f native_stamp=%.4f corrections=%u reached=%d"),
+                Role,*Measurement.Name,Measurement.Elapsed,Distance,Speed,Angle,Measurement.SecondsLimit,Measurement.DistanceLimit,Measurement.AngleLimit,Measurement.MinimumSeconds,DeltaSeconds,Server?-1.f:Move->GetPredictionData_Client_Character()->CurrentTimeStamp,Move->DebugCorrectionCount-Measurement.Corrections,Reached);
+            Check(Reached && Measurement.Elapsed<=Measurement.SecondsLimit && Measurement.Elapsed>=Measurement.MinimumSeconds && (Measurement.DistanceLimit<=0 || Distance<=Measurement.DistanceLimit),*FString::Printf(TEXT("actual ground response %s meets measured time distance and direction limits"),*Measurement.Name));
+        }
+        At(8.5,11,[&]() { bool Complete=true; for(const auto& Measurement:S.GroundMeasures) Complete &= Measurement.Reported; Check(Complete,TEXT("all seven actual ground response measurements completed")); });
+        break;
+    }
+    case AirSteering:
+    {
+        const double LocalNow=World->GetTimeSeconds();
+        auto FlatVelocity=[&]() { FVector Value=Move->Velocity; Value.Z=0; return Value; };
+        auto AngleBetween=[&](const FVector& A,const FVector& B)
+        { return FMath::RadiansToDegrees(FMath::Acos(FMath::Clamp(FVector::DotProduct(A.GetSafeNormal(),B.GetSafeNormal()),-1.,1.))); };
+        auto LookTo=[&](float DesiredYaw)
+        {
+            const float DeltaYaw=FMath::FindDeltaAngleDegrees(Body->GetActorRotation().Yaw,DesiredYaw);
+            float YawScale=1.f;
+            PRAGMA_DISABLE_DEPRECATION_WARNINGS
+            if(GetDefault<UInputSettings>()->bEnableLegacyInputScales) YawScale=PC->GetDeprecatedInputYawScale();
+            PRAGMA_ENABLE_DEPRECATION_WARNINGS
+            Check(FMath::Abs(YawScale)>KINDA_SMALL_NUMBER,TEXT("air steering real yaw input has a nonzero configured scale"));
+            if(FMath::Abs(YawScale)>KINDA_SMALL_NUMBER)
+            {
+                Body->LookYaw(FInputActionValue(DeltaYaw/YawScale)); PC->UpdateRotation(0.f);
+                Body->ConsumeMovementInputVector();
+            }
+            Check(FMath::Abs(FMath::FindDeltaAngleDegrees(Body->GetActorRotation().Yaw,DesiredYaw))<1.f,TEXT("air steering actual actor heading follows real look input"));
+        };
+        At(.1,1,Sprint);
+        At(1,2,[&]() { Check(Move->IsSprinting() && Move->Velocity.X>700 && !Move->IsFalling(),TEXT("air steering first normal jump begins at actual full ground sprint")); Jump(); });
+        At(1.06,3,[&]() { Check(Move->IsFalling() && Move->Velocity.Size2D()>700 && !Move->IsWeakJump(),TEXT("air steering fixture observes actual normal airborne sprint momentum")); S.AirTurnAt=LocalNow; S.AirTurnVelocity=FlatVelocity(); S.AirSteeringPhase=1; LookTo(90); });
+        At(1.12,4,[&]() { Release(EKeys::SpaceBar); });
+        if(S.AirSteeringPhase==1 && LocalNow-S.AirTurnAt>=.25)
+        {
+            const FVector Velocity=FlatVelocity(); const float SideGain=Velocity.Y-S.AirTurnVelocity.Y;
+            const float Angle=AngleBetween(S.AirTurnVelocity,Velocity);
+            UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s air_steering elapsed=%.4f lateral_gain=%.3f angle_degrees=%.3f speed=%.3f acceleration=%.3f effective_air_control=%.3f lateral_gain_limits=120..300 angle_limits=10..30 speed_limit=722 native_stamp=%.4f corrections=%u"),Role,LocalNow-S.AirTurnAt,SideGain,Angle,Velocity.Size(),Move->Acceleration.Size(),Move->AirControl,Server?-1.f:Move->GetPredictionData_Client_Character()->CurrentTimeStamp,Move->DebugCorrectionCount);
+            Check(Move->IsFalling() && SideGain>=120 && SideGain<=300 && Angle>=10 && Angle<=30 && Velocity.Size()<=722,TEXT("real airborne look turn gains useful gradual lateral control without exceeding takeoff speed"));
+            S.AirCoastAt=LocalNow; S.AirCoastVelocity=Velocity; S.AirSteeringPhase=2; Body->ConsumeMovementInputVector();
+        }
+        if(S.AirSteeringPhase==2 && LocalNow-S.AirCoastAt>=.10)
+        {
+            const FVector Velocity=FlatVelocity(); const float Drift=(Velocity-S.AirCoastVelocity).Size();
+            const float Angle=AngleBetween(S.AirCoastVelocity,Velocity);
+            UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s air_coast elapsed=%.4f velocity_drift=%.3f angle_degrees=%.3f speed=%.3f drift_limit=5 angle_limit=1"),Role,LocalNow-S.AirCoastAt,Drift,Angle,Velocity.Size());
+            Check(Move->IsFalling() && Drift<=5 && Angle<=1,TEXT("releasing airborne direction preserves actual horizontal momentum"));
+            LookTo(0); S.AirReverseAt=LocalNow; S.AirSteeringPhase=3;
+        }
+        if(S.AirSteeringPhase==3 && LocalNow-S.AirReverseAt>=.10)
+        {
+            UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s air_reverse elapsed=%.4f vx=%.3f vy=%.3f speed=%.3f intent=%d retained_x_limit=400 speed_limit=722"),Role,LocalNow-S.AirReverseAt,Move->Velocity.X,Move->Velocity.Y,Move->Velocity.Size2D(),Move->HasSprintIntent());
+            Check(Move->IsFalling() && Move->Velocity.X>400 && FVector::DotProduct(FlatVelocity(),-FVector::ForwardVector)<0 && !Move->HasSprintIntent() && Move->Velocity.Size2D()<=722,TEXT("real airborne backward input clears sprint intent and cannot instantly reverse horizontal momentum"));
+            S.AirSteeringPhase=4; Body->ConsumeMovementInputVector();
+        }
+        At(2.7,5,[&]() { Release(EKeys::LeftShift); });
+        At(3,6,[&]() { Check(Move->IsMovingOnGround(),TEXT("second air fixture begins after actual first landing")); LookTo(0); });
+        At(3.3,7,Sprint);
+        At(4.2,8,[&]() { Check(Move->IsSprinting() && Move->Velocity.X>700 && Move->HasSprintIntent(),TEXT("continuous landing fixture begins from actual seven twenty forward sprint")); S.SecondJumpBaseZ=Body->GetActorLocation().Z; Jump(); });
+        At(4.32,9,[&]() { Release(EKeys::SpaceBar); });
+        if((Time>=.05 && Time<1.06) || S.AirSteeringPhase==1 || (Time>=3 && Time<6.2)) Forward(1);
+        if(S.AirSteeringPhase==3) Forward(-1);
+        if(Move->IsFalling()) S.AirHighestSpeed=FMath::Max(S.AirHighestSpeed,Move->Velocity.Size2D());
+        if(Time>=4.2 && !S.LandingCurveReported)
+        {
+            if(Move->IsFalling() && !S.SawSecondFlight)
+            {
+                S.SawSecondFlight=true; S.SecondTakeoffAt=LocalNow; S.SecondTakeoffPosition=Body->GetActorLocation();
+                S.SecondTakeoffCorrections=Move->DebugCorrectionCount;
+                UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s flight_takeoff first_observed_falling_time=%.4f speed=%.3f vertical_velocity=%.3f frame_seconds=%.4f native_stamp=%.4f"),Role,LocalNow,Move->Velocity.Size2D(),Move->Velocity.Z,DeltaSeconds,Server?-1.f:Move->GetPredictionData_Client_Character()->CurrentTimeStamp);
+            }
+            if(S.SawSecondFlight)
+            {
+                S.SecondJumpApex=FMath::Max(S.SecondJumpApex,float(Body->GetActorLocation().Z-S.SecondJumpBaseZ));
+                S.LandingCurve.Add({LocalNow,float(Move->Velocity.Size2D()),Move->IsFalling()});
+                if(S.SecondWasFalling && Move->IsMovingOnGround() && S.AirLandedAt<0)
+                {
+                    S.AirLandedAt=LocalNow;
+                    const double AirTime=LocalNow-S.SecondTakeoffAt;
+                    const float Distance=FVector::Dist2D(S.SecondTakeoffPosition,Body->GetActorLocation());
+                    UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s sprint_jump360 airtime=%.4f horizontal_distance=%.3f apex_cm=%.3f airtime_limits=0.68..0.79 distance_limits=490..570 apex_limits=60..72 sampling=first_observed_Falling_to_first_observed_Walking frame_seconds=%.4f native_stamp=%.4f corrections=%u"),Role,AirTime,Distance,S.SecondJumpApex,DeltaSeconds,Server?-1.f:Move->GetPredictionData_Client_Character()->CurrentTimeStamp,Move->DebugCorrectionCount-S.SecondTakeoffCorrections);
+                    Check(AirTime>=.68 && AirTime<=.79 && Distance>=490 && Distance<=570 && S.SecondJumpApex>=60 && S.SecondJumpApex<=72,TEXT("actual full sprint JumpZ360 has shortened airborne time range and independently measured height"));
+                }
+                S.SecondWasFalling=Move->IsFalling();
+                if(S.AirLandedAt>=0 && LocalNow-S.AirLandedAt>=.15)
+                {
+                    float Minimum=BIG_NUMBER,Maximum=0; int32 Samples=0,AirSamples=0,GroundSamples=0;
+                    for(const auto& Sample:S.LandingCurve)
+                    {
+                        if(Sample.At<S.AirLandedAt-.10 || Sample.At>S.AirLandedAt+.17) continue;
+                        Minimum=FMath::Min(Minimum,Sample.Speed); Maximum=FMath::Max(Maximum,Sample.Speed); ++Samples;
+                        Sample.Falling?++AirSamples:++GroundSamples;
+                        UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s air_landing_curve relative_time=%.4f speed=%.3f falling=%d"),Role,Sample.At-S.AirLandedAt,Sample.Speed,Sample.Falling);
+                    }
+                    UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE %s air_landing_summary minimum=%.3f maximum=%.3f samples=%d air=%d ground=%d minimum_limit=680 maximum_limit=722 native_stamp=%.4f corrections=%u"),Role,Minimum,Maximum,Samples,AirSamples,GroundSamples,Server?-1.f:Move->GetPredictionData_Client_Character()->CurrentTimeStamp,Move->DebugCorrectionCount);
+                    Check(Samples>=6 && AirSamples>0 && GroundSamples>0 && Minimum>=680 && Maximum<=722 && Move->HasSprintIntent(),TEXT("held forward sprint has no seven twenty to four eighty speed dip across actual landing"));
+                    S.LandingCurveReported=true;
+                }
+            }
+        }
+        At(6.3,10,[&]() { Release(EKeys::LeftShift); Check(S.AirSteeringPhase==4 && S.LandingCurveReported && S.AirHighestSpeed<=722,TEXT("both actual air steering flights finish with horizontal speed cap and landing evidence")); });
+        break;
+    }
     case RoundEnd:
         At(.1,1,Sprint); if (Time<.6) Forward(1); At(.6,4,Fire);
         if (Server && !Training) At(.66,2,[&]() { Check(W->HasPendingSprintFire(),TEXT("actual prepared GAS shot exists before round end")); World->GetAuthGameMode<AFPSMatchMode>()->FinishRound(); });

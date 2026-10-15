@@ -7,6 +7,7 @@ from pathlib import Path
 from datetime import datetime
 import hashlib
 import json
+import runpy
 import unreal
 
 ROOT = Path(__file__).resolve().parents[5]
@@ -18,6 +19,7 @@ def digest(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 existing = {p: digest(p) for p in (ROOT / 'Content/FPSDemo/Art').rglob('*.uasset')}
+runpy.run_path(str(Path(__file__).with_name('lobby_assets.py')))['ensure_assets']()
 result = unreal.FPSExtractionUIBuilder.build_assets()
 assert result.startswith('PASS'), result
 # Create-only: even existing files inside our own directory must remain unchanged.

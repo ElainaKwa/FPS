@@ -45,6 +45,12 @@ void UFPSExtractionSubsystem::CreateCatalog()
     Item(TEXT("Optic"), TEXT("M4 固定倍率瞄具"), TEXT("改变瞄准视野；仅适用于兼容 M4 接口。"), 55, TEXT("Attachment.M4_OpticFixed"), 2, 1);
     Item(TEXT("Brake"), TEXT("M4 制退器"), TEXT("降低后坐力。"), 45, TEXT("Attachment.M4_MuzzleBrake"));
     Item(TEXT("Magazine"), TEXT("M4 扩容弹匣"), TEXT("提高容量，换弹耗时增加。"), 60, TEXT("Attachment.M4_MagazineExtended"), 1, 2);
+    Item(TEXT("RearGripErgo"), TEXT("M4 灵巧后握把"), TEXT("加快开镜，后坐力控制略有取舍。"), 35, TEXT("Attachment.M4_RearGripErgo"));
+    Item(TEXT("RearGripControl"), TEXT("M4 控制后握把"), TEXT("改善后坐力控制，开镜略慢。"), 40, TEXT("Attachment.M4_RearGripControl"));
+    Item(TEXT("StockLight"), TEXT("M4 轻型枪托"), TEXT("提升开镜速度，稳定性略有取舍。"), 50, TEXT("Attachment.M4_StockLight"), 2, 1);
+    Item(TEXT("StockStable"), TEXT("M4 稳定枪托"), TEXT("改善后坐力控制，开镜略慢。"), 55, TEXT("Attachment.M4_StockStable"), 2, 1);
+    Item(TEXT("BarrelLight"), TEXT("M4 轻型枪管"), TEXT("开镜更快，最大射程略短。"), 55, TEXT("Attachment.M4_BarrelLight"), 3, 1);
+    Item(TEXT("BarrelHeavy"), TEXT("M4 重型枪管"), TEXT("增加最大射程、改善后坐力，开镜较慢。"), 65, TEXT("Attachment.M4_BarrelHeavy"), 3, 1);
     auto Recipe = [this](const TCHAR* Id, const TCHAR* Name, FName Input, int32 Amount, FName Output, int32 Count, float Seconds, int32 Cost, bool Wire)
     {
         FFPSExtractionRecipe R; R.RecipeId = Id; R.Name = FText::FromString(Name); R.Inputs.Add({Input, Amount});
@@ -55,6 +61,11 @@ void UFPSExtractionSubsystem::CreateCatalog()
     Recipe(TEXT("CraftBrake"), TEXT("制作 M4 制退器"), TEXT("Parts"), 2, TEXT("Brake"), 1, 8, 5, true);
     Recipe(TEXT("CraftOptic"), TEXT("制作 M4 瞄具"), TEXT("Parts"), 3, TEXT("Optic"), 1, 10, 8, true);
     Recipe(TEXT("CraftMagazine"), TEXT("制作 M4 扩容弹匣"), TEXT("Parts"), 3, TEXT("Magazine"), 1, 10, 8, true);
+    for (const TCHAR* Id : {TEXT("RearGripErgo"), TEXT("RearGripControl"), TEXT("StockLight"), TEXT("StockStable"), TEXT("BarrelLight"), TEXT("BarrelHeavy")})
+    {
+        const auto* Part = FindItem(Id);
+        Recipe(*(FString(TEXT("Craft"))+Id), *(FString(TEXT("制作 "))+Part->Name.ToString()), TEXT("Parts"), 3, Id, 1, 10, 8, true);
+    }
 }
 const FFPSExtractionItem* UFPSExtractionSubsystem::FindItem(FName Id) const { return Items.FindByPredicate([Id](const auto& I) { return I.ItemId == Id; }); }
 const FFPSExtractionRecipe* UFPSExtractionSubsystem::FindRecipe(FName Id) const { return Recipes.FindByPredicate([Id](const auto& R) { return R.RecipeId == Id; }); }
@@ -133,6 +144,11 @@ bool UFPSExtractionSubsystem::EnterWorld(bool bRaid)
 }
 void UFPSExtractionSubsystem::Travel(bool bRaid)
 {
+    if(!bRaid&&bFactoryBase)
+    {
+        UGameplayStatics::OpenLevel(this,TEXT("/Game/FPSDemo/Maps/Gameplay/FactoryBase/LV_FPSFactoryBase"),true,TEXT("game=/Script/MCP_Test.FPSFactoryMode?Mode=Solo?Bots=0?LabPhase=Base"));
+        return;
+    }
     UGameplayStatics::OpenLevel(this, FName(LabMap), true,
         FString(TEXT("game=/Script/MCP_Test.FPSExtractionMode?Mode=Solo?Bots=0?LabPhase=")) + (bRaid ? TEXT("Raid") : TEXT("Base")));
 }
@@ -240,7 +256,7 @@ bool UFPSExtractionSubsystem::InstallAttachment(FName Id)
     if (!Catalog->Resolve(Gun.WeaponId, Gun.AttachmentIds, Stats, Errors) || Gun.ConfigurationRevision == MAX_uint32) return Fail(TEXT("配件不兼容或配置版本无效。"));
     const int64 Total = int64(Gun.Magazine) + Gun.Reserve;
     // Base assembly redistributes existing rounds; it never manufactures ammunition.
-    Gun.Magazine = int32(FMath::Min<int64>(Total, Stats.MagazineSize));
+    if (Part->Category == EFPSAttachmentCategory::Magazine) Gun.Magazine = int32(FMath::Min<int64>(Total, Stats.MagazineSize));
     if (Total - Gun.Magazine > MAX_int32) return Fail(TEXT("备弹超出范围。"));
     Gun.Reserve = int32(Total - Gun.Magazine); ++Gun.ConfigurationRevision;
     if (!Commit(C)) return false; Feedback = TEXT("配件已安装，下次出征使用新配置。" ); return true;
@@ -253,7 +269,9 @@ bool UFPSExtractionSubsystem::RemoveAttachment(FName Id)
     if (!I || !TryAdd(C->Warehouse, I->ItemId, 1, StoreCapacity)) return Fail(TEXT("仓库空间不足，拆卸未提交。"));
     Gun.AttachmentIds.Remove(Id); FFPSResolvedWeaponStats Stats; TArray<FString> Errors;
     if (!GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>()->Resolve(Gun.WeaponId, Gun.AttachmentIds, Stats, Errors) || Gun.ConfigurationRevision == MAX_uint32) return Fail(TEXT("拆卸后组合无效。"));
-    const int64 Total = int64(Gun.Magazine) + Gun.Reserve; Gun.Magazine = int32(FMath::Min<int64>(Total, Stats.MagazineSize));
+    const int64 Total = int64(Gun.Magazine) + Gun.Reserve;
+    const auto* Removed = GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>()->FindAttachment(Id);
+    if (Removed && Removed->Category == EFPSAttachmentCategory::Magazine) Gun.Magazine = int32(FMath::Min<int64>(Total, Stats.MagazineSize));
     if (Total - Gun.Magazine > MAX_int32) return Fail(TEXT("备弹超出范围。"));
     Gun.Reserve = int32(Total - Gun.Magazine); ++Gun.ConfigurationRevision;
     if (!Commit(C)) return false; Feedback = TEXT("配件已退回仓库。" ); return true;

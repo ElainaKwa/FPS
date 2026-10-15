@@ -148,7 +148,7 @@ void UFPSMovementComponent::InitializeRules()
     const auto* S=GetDefault<UFPSMovementSettings>();
     Resource.Stamina=S->MaxStamina; Resource.SpeedLimit=Resource.AirSpeedLimit=S->WalkSpeed;
     MaxWalkSpeed=S->WalkSpeed; MaxWalkSpeedCrouched=S->CrouchSpeed; JumpZVelocity=S->JumpVelocity;
-    CharacterOwner->JumpMaxHoldTime=0; AirControl=.15f; FallingLateralFriction=0; BrakingDecelerationFalling=0;
+    CharacterOwner->JumpMaxHoldTime=0; AirControl=S->AirControl; FallingLateralFriction=0; BrakingDecelerationFalling=0;
     bUseSeparateBrakingFriction=true; BrakingFriction=0;
     if (auto* P=Cast<AFPSDemoCharacter>(CharacterOwner); P && P->HasAuthority())
     {
@@ -300,16 +300,41 @@ void UFPSMovementComponent::ProcessLanded(const FHitResult& H,float R,int32 I)
 void UFPSMovementComponent::OnMovementModeChanged(EMovementMode PreviousMode,uint8 PreviousCustomMode)
 {
     Super::OnMovementModeChanged(PreviousMode,PreviousCustomMode);
+    if (UsesMovementRules() && PreviousMode==MOVE_Falling && IsMovingOnGround())
+    {
+        // Native falling may continue ground physics in the same move. Restore
+        // ground input strength for that remainder instead of carrying air input.
+        Acceleration=ConstrainInputAcceleration(Acceleration).GetSafeNormal()*
+            GetDefault<UFPSMovementSettings>()->WalkAcceleration*FMath::Clamp(AnalogInputModifier,0.f,1.f);
+        AnalogInputModifier=ComputeAnalogInputModifier();
+    }
     if (UsesMovementRules() && IsFalling() && PreviousMode!=MOVE_Falling)
+    {
         Resource.AirSpeedLimit=FMath::Max(GetDefault<UFPSMovementSettings>()->WalkSpeed,Velocity.Size2D());
+        if (PreviousMode==MOVE_Walking || PreviousMode==MOVE_NavWalking)
+        {
+            // Jump requests run after CMC scales this frame's ground input. Preserve
+            // its analog fraction before native AirControl, including repeated
+            // ground/air transitions within one movement's collision substeps.
+            const auto* S=GetDefault<UFPSMovementSettings>();
+            Acceleration=ConstrainInputAcceleration(Acceleration).GetSafeNormal()*
+                S->AirAcceleration*FMath::Clamp(AnalogInputModifier,0.f,1.f);
+            AnalogInputModifier=ComputeAnalogInputModifier();
+#if !UE_BUILD_SHIPPING
+            if (FParse::Param(FCommandLine::Get(),TEXT("FPSMovementSmoke")))
+                UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_SMOKE MEASURE air_entry local=%d acceleration=%.3f native_air_acceleration=%.3f analog=%.3f previous_mode=%d"),
+                    CharacterOwner->IsLocallyControlled(),Acceleration.Size(),GetFallingLateralAcceleration(0.f).Size(),AnalogInputModifier,int32(PreviousMode));
+#endif
+        }
+    }
 }
 float UFPSMovementComponent::GetMaxAcceleration() const
 {
     if (!UsesMovementRules()) return Super::GetMaxAcceleration();
     const auto* S=GetDefault<UFPSMovementSettings>();
     if (IsFalling()) return S->AirAcceleration;
-    if (CanGroundSprint() && Velocity.Size2D()>=S->WalkSpeed-1.f)
-        return (S->SprintSpeed-S->WalkSpeed)/FMath::Max(.01f,S->SprintAccelerationTime);
+    // SpeedLimit supplies the sprint ramp. Reducing acceleration here also slows
+    // steering/reversals, and CMC can clamp a new input using the previous input.
     return S->WalkAcceleration;
 }
 float UFPSMovementComponent::GetMaxSpeed() const
@@ -342,9 +367,15 @@ void UFPSMovementComponent::PerformMovement(float D)
     const bool WantsRun=CanGroundSprint();
     const float Target=WantsRun ? S->SprintSpeed : S->WalkSpeed;
     const float Rate=(S->SprintSpeed-S->WalkSpeed)/FMath::Max(.01f,WantsRun ? S->SprintAccelerationTime : S->SprintDecelerationTime);
-    Resource.SpeedLimit=FMath::FInterpConstantTo(Resource.SpeedLimit,Target,D,Rate);
-    GroundFriction=WantsRun || Resource.SpeedLimit>S->WalkSpeed ? 0.f : 8.f;
-    BrakingDecelerationWalking=Acceleration.IsNearlyZero() ? (Resource.SpeedLimit>S->WalkSpeed ? S->SprintSpeed/S->SprintDecelerationTime : S->WalkAcceleration) : Rate;
+    // AirSpeedLimit preserves takeoff momentum. Keep the corresponding ground
+    // limit while the run intent survives so landing does not briefly clamp to walk.
+    if (!IsFalling() || !Resource.SprintIntent)
+        Resource.SpeedLimit=FMath::FInterpConstantTo(Resource.SpeedLimit,Target,D,Rate);
+    // Native CMC friction steers velocity toward input; keep it during sprinting.
+    // The speed limit still eases a forward sprint back to walking in 0.15 s,
+    // while stopping, reversing and stance changes use responsive ground braking.
+    GroundFriction=8.f;
+    BrakingDecelerationWalking=S->WalkAcceleration;
     const FVector Old=UpdatedComponent->GetComponentLocation();
     const bool StartedOnGround=IsMovingOnGround();
     Super::PerformMovement(D);

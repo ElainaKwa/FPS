@@ -8,6 +8,7 @@ the world coordinates resolved by the selected Barrel combo.
 """
 
 import bpy
+import importlib.util
 import json
 import math
 import secrets
@@ -19,6 +20,15 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "Exports"
 MANIFEST_PATH = ROOT / "AssetManifest.json"
 DEPENDENT_MOUNT_KEYS = ("Foregrip", "Muzzle", "FrontIron")
+REQUIRED_ATTACHMENTS = {"SM_M7_Stock_ShadowRail", "SM_M7_Grip_Phantom"}
+
+
+def frozen_attachment_api():
+    path = ROOT / "Scripts/freeze_tidal_attachment.py"
+    spec = importlib.util.spec_from_file_location("m7_frozen_attachment_export", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def fixed_mounts(manifest):
@@ -132,8 +142,10 @@ def main():
         # count includes the authored root/socket empties exactly as verifier.
         row["editable_objects"] = len(collection.objects)
 
-    if len(rows) != 17 or len(preset_definitions) != 3:
-        raise RuntimeError("This sample requires 17 independent assets and three assembly presets.")
+    if len(rows) != 19 or len(preset_definitions) != 3:
+        raise RuntimeError("This sample requires 19 independent assets and three assembly presets.")
+    if not REQUIRED_ATTACHMENTS.issubset(row_by_name):
+        raise RuntimeError("The sample must include independent ShadowRail stock and Phantom grip assets.")
     OUT.mkdir(parents=True, exist_ok=True)
     token = secrets.token_hex(5)
     temp = bpy.data.scenes.new("M7_EXPORT_TEMP_" + token)
@@ -422,6 +434,10 @@ def main():
         source_layer.update()
         depsgraph = bpy.context.evaluated_depsgraph_get()
         depsgraph.update()
+        # Check the authored Ti definition before writing any existing file.
+        # It still supplies evaluated copies for all assembled presets below.
+        freeze = frozen_attachment_api()
+        frozen_assets = freeze.guard_source(ROOT, manifest, source, depsgraph)
         raw_assets = {}
         for row in rows:
             name = row["name"]
@@ -470,8 +486,11 @@ def main():
                 sockets = dict(row["local_mounts_m"])
             row["glb_mount_nodes"] = ["Mount_" + key for key in sockets]
             row["glb_mount_positions_m"] = sockets
-            row["exports"] = {"glb": export_glb(name, root, [mesh], sockets),
-                              "fbx": export_fbx(name, mesh)}
+            if name not in frozen_assets:
+                row["exports"] = {"glb": export_glb(name, root, [mesh], sockets),
+                                  "fbx": export_fbx(name, mesh)}
+            # Retain the frozen row's existing paths and bytes (including FBX
+            # timestamps). All row statistics and preset copies remain current.
         manifest["presets"] = [export_preset(preset) for preset in preset_definitions]
         preset_scenes = [ensure_preset_scene(preset) for preset in manifest["presets"]]
         manifest["export_origin"] = "Individual assets: authored local mount; presets: selected barrel resolves dependent attachment origins."
@@ -480,6 +499,8 @@ def main():
         manifest["textures"] = "Independent baked BaseColor / Normal / ORM PNGs in Textures/Baked; embedded in GLB and FBX COPY exports."
         manifest["saved_scenes"] = list(dict.fromkeys([source.name, catalog.name] + [scene.name for scene in preset_scenes]))
         manifest["expected_asset_count"] = len(rows)
+        freeze.check_frozen_files(ROOT, manifest)
+        manifest["attachment_registry"] = freeze.REGISTRY_NAME
         export_ok = True
     finally:
         # Restore edit visibility before serializing the library.  Unrelated
@@ -521,7 +542,9 @@ def main():
         "source_file": str(source_path),
         "source_scenes": manifest["saved_scenes"],
         "source_geometry_modified": False,
+        "frozen_standalone_exports_preserved": sorted(frozen_assets),
     }, ensure_ascii=False))
 
 
-main()
+if __name__ == '__main__':
+    main()

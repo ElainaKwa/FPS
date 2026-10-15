@@ -31,7 +31,6 @@ private:
     UPROPERTY() TObjectPtr<UStaticMeshComponent> Core;
     UPROPERTY() TObjectPtr<UStaticMeshComponent> Backdrop;
     UPROPERTY() TArray<TObjectPtr<UStaticMeshComponent>> Parts;
-    UPROPERTY() TArray<TObjectPtr<UStaticMesh>> PreviewMeshes;
     UPROPERTY() TObjectPtr<USceneCaptureComponent2D> Capture;
     UPROPERTY() TObjectPtr<UTextureRenderTarget2D> Target;
     FString Configuration;
@@ -39,6 +38,7 @@ private:
     TArray<FString> PartLabels;
     bool bIconsDirty=true;
     float ModelWidth=128;
+    TMap<FName, FVector> MountLocations;
 };
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnFPSPreviewSlotSelected, EFPSAttachmentCategory);
@@ -74,7 +74,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<AFPSExtractionPreviewStage> Stage;
     UPROPERTY(Transient) TObjectPtr<class UFont> LabelFont;
     FSlateBrush ImageBrush;
-    FSlateBrush IconBrushes[3];
+    FSlateBrush IconBrushes[FPSAttachments::CategoryCount];
     FFPSWeaponInstance PendingInstance;
     EFPSAttachmentCategory Selected=EFPSAttachmentCategory::Optic;
     bool bActive=false,bOrbiting=false,bFrameDirty=true;

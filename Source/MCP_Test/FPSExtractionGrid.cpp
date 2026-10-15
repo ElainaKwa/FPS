@@ -107,9 +107,16 @@ bool UFPSExtractionSubsystem::MutateGrid(EFPSExtractionContainer From,FGuid Id,E
     if(Index==INDEX_NONE) return Fail(TEXT("物品已移动或不在该容器中。"));
     auto Stack=Source[Index]; Source.RemoveAt(Index);
     const int32 Capacity=To==EFPSExtractionContainer::Backpack?20:64;
+    const int32 OriginalQuantity=Stack.Quantity;
+    int32 MovedQuantity=OriginalQuantity;
     if(Auto)
     {
+        // Preserve the physical ID when a whole stack occupies a new slot. Merging
+        // into existing stacks retains their IDs, just like a manual drop.
+        TSet<FGuid> Existing;
+        for(const auto& S:Target)Existing.Add(S.StackId);
         if(!TryAdd(Target,Stack.ItemId,Stack.Quantity,Capacity)) return Fail(TEXT("目标容器没有可容纳物品的连续空间。"));
+        for(auto& S:Target)if(!Existing.Contains(S.StackId)){S.StackId=Stack.StackId;break;}
     }
     else
     {
@@ -119,9 +126,16 @@ bool UFPSExtractionSubsystem::MutateGrid(EFPSExtractionContainer From,FGuid Id,E
             const auto* Other=FindItem(S.ItemId);
             return Other && X>=S.X && Y>=S.Y && X<S.X+(S.bRotated?Other->Height:Other->Width) && Y<S.Y+(S.bRotated?Other->Width:Other->Height);
         });
-        if(Under && Under->ItemId==Stack.ItemId && Item && Stack.Quantity<=Item->StackLimit-Under->Quantity)
+        if(Under && Under->ItemId==Stack.ItemId && Item)
         {
-            for(auto& S:Target) if(S.StackId==Under->StackId) {S.Quantity+=Stack.Quantity; break;}
+            MovedQuantity=FMath::Min(Stack.Quantity,Item->StackLimit-Under->Quantity);
+            if(MovedQuantity<=0)return Fail(TEXT("目标堆叠已满，物资留在原处。"));
+            const FGuid TargetId=Under->StackId;
+            for(auto& S:Target)if(S.StackId==TargetId){S.Quantity+=MovedQuantity;break;}
+            Stack.Quantity-=MovedQuantity;
+            // Source and Target may alias. Reinsert only after finishing the target
+            // mutation, retaining the remainder's original ID, position and rotation.
+            if(Stack.Quantity>0)Source.Insert(Stack,Index);
         }
         else
         {
@@ -136,7 +150,42 @@ bool UFPSExtractionSubsystem::MutateGrid(EFPSExtractionContainer From,FGuid Id,E
         Candidate->PreparedBackpack=MoveTemp(Bag); Candidate->Warehouse=MoveTemp(Store);
         if(!Commit(Candidate)) return false;
     }
-    Feedback=TEXT("物资已整理。" ); return true;
+    Feedback=MovedQuantity<OriginalQuantity?FString::Printf(TEXT("已合并 %d 件，余下 %d 件保留原位。"),MovedQuantity,OriginalQuantity-MovedQuantity):TEXT("物资已整理。");return true;
+}
+bool UFPSExtractionSubsystem::SplitStack(EFPSExtractionContainer Container,FGuid Id,int32 Quantity)
+{
+    if(!IsAuthorized() || !bStorageHealthy || !Profile ||
+        (Container!=EFPSExtractionContainer::Warehouse && Container!=EFPSExtractionContainer::Backpack) ||
+        (Phase!=EFPSExtractionPhase::Base && Phase!=EFPSExtractionPhase::Raid))return Fail(TEXT("当前不能拆分物资。"));
+    const bool Raid=Phase==EFPSExtractionPhase::Raid;
+    if(Raid && Container!=EFPSExtractionContainer::Backpack)return Fail(TEXT("行动中无法访问基地仓库。"));
+    auto* Candidate=Raid?nullptr:CopyProfile();
+    auto Inventory=Raid?Backpack:Container==EFPSExtractionContainer::Warehouse?Candidate->Warehouse:Candidate->PreparedBackpack;
+    const int32 Index=Inventory.IndexOfByPredicate([Id](const auto& S){return S.StackId==Id;});
+    if(Index==INDEX_NONE)return Fail(TEXT("物品已移动或不在该容器中。"));
+    if(Quantity<=0 || Quantity>=Inventory[Index].Quantity)return Fail(TEXT("拆分数量须大于 0 且小于当前数量。"));
+    auto NewStack=Inventory[Index];NewStack.Quantity=Quantity;NewStack.StackId=FGuid::NewGuid();
+    const int32 Capacity=Container==EFPSExtractionContainer::Warehouse?64:20;
+    const auto Size=Dimensions(Capacity);
+    bool Placed=false;
+    for(int32 Rotation=0;Rotation<2 && !Placed;++Rotation)
+        for(int32 Y=0;Y<Size.Y && !Placed;++Y)
+            for(int32 X=0;X<Size.X && !Placed;++X)
+            {
+                const bool Rotated=Rotation==0?NewStack.bRotated:!NewStack.bRotated;
+                if(CanPlace(Inventory,NewStack.ItemId,X,Y,Rotated,Capacity))
+                {NewStack.X=X;NewStack.Y=Y;NewStack.bRotated=Rotated;Placed=true;}
+            }
+    if(!Placed)return Fail(TEXT("没有可容纳新堆叠的连续空间，拆分未提交。"));
+    Inventory[Index].Quantity-=Quantity;Inventory.Add(NewStack);
+    if(!ValidateGrid(Inventory,Capacity))return Fail(TEXT("容器状态无效，拆分未提交。"));
+    if(Raid)Backpack=MoveTemp(Inventory);
+    else
+    {
+        (Container==EFPSExtractionContainer::Warehouse?Candidate->Warehouse:Candidate->PreparedBackpack)=MoveTemp(Inventory);
+        if(!Commit(Candidate))return false;
+    }
+    Feedback=FString::Printf(TEXT("已拆出 %s ×%d，放在当前容器空位。"),*ItemName(NewStack.ItemId).ToString(),Quantity);return true;
 }
 bool UFPSExtractionSubsystem::SellStack(FGuid Id)
 {

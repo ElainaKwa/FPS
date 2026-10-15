@@ -16,6 +16,7 @@ from bpy_extras.object_utils import world_to_camera_view
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REQUIRED_ATTACHMENTS = {"SM_M7_Stock_ShadowRail", "SM_M7_Grip_Phantom"}
 
 
 def main():
@@ -25,8 +26,10 @@ def main():
     source = (ROOT / manifest.get("source_file", "Source/M7_Material_Study.blend")).resolve()
     if not source.is_relative_to((ROOT / "Source").resolve()) or source.suffix != ".blend":
         raise RuntimeError("The material source must be a .blend inside this sample's Source directory.")
-    if len(manifest["assets"]) != 17:
-        raise RuntimeError("Expected seventeen modular material-study assets.")
+    if len(manifest["assets"]) != 19:
+        raise RuntimeError("Expected nineteen modular material-study assets.")
+    if not REQUIRED_ATTACHMENTS.issubset({asset["name"] for asset in manifest["assets"]}):
+        raise RuntimeError("The sample must include independent ShadowRail stock and Phantom grip assets.")
     if Path(bpy.data.filepath).resolve() != source:
         bpy.ops.wm.open_mainfile(filepath=str(source), load_ui=False)
     settings = manifest.get("scenes", {})
@@ -160,9 +163,28 @@ def main():
         text.clear()
         text.from_string(path.read_text(encoding="utf-8"))
         text.use_fake_user = True
+    core_review=ROOT/'CoreReferenceReview.json'
+    if core_review.is_file():
+        review=json.loads(core_review.read_text(encoding='utf-8'))
+        core=next(row for row in manifest['assets'] if row['name']=='SM_M7_Core')
+        if not core.get('texture_sets'):
+            raise RuntimeError('The revised Core must be freshly baked before finalization.')
+        review['atlas_status']='Baked BaseColor, Normal and ORM; final export proof is in the matching Validation.json'
+        review['atlas_resolution']=core['atlas_resolution']
+        core_review.write_text(json.dumps(review,ensure_ascii=False,indent=2),encoding='utf-8')
+    attachment_review=ROOT/'ShadowPhantomReview.json'
+    if attachment_review.is_file():
+        data=json.loads(attachment_review.read_text(encoding='utf-8'))
+        new_rows=[row for row in manifest['assets'] if row['name'] in ('SM_M7_Stock_ShadowRail','SM_M7_Grip_Phantom')]
+        if len(new_rows)!=2 or not all(row.get('texture_sets') for row in new_rows):
+            raise RuntimeError('Both new attachments require baked portable atlases.')
+        data['baked_atlases']={row['name']:{'resolution':row['atlas_resolution'],
+             'files':next(iter(row['texture_sets'].values()))} for row in new_rows}
+        data['atlas_status']='Baked portable BaseColor, Normal and ORM; final export proof is in matching Validation.json'
+        attachment_review.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
     source.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(source), compress=True)
-    print(json.dumps({"source": str(source), "asset_previews": 17,
+    print(json.dumps({"source": str(source), "asset_previews": len(manifest["assets"]),
                       "marked_materials": len(source_materials), "ordinary_blend_saved": True}))
 
 

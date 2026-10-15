@@ -1,4 +1,6 @@
 #include "FPSExtractionUI.h"
+#include "FPSExtractionLobby.h"
+#include "FPSFactoryBase.h"
 #include "FPSSystemSettings.h"
 #include "FPSDemoPlayerController.h"
 #include "FPSExtractionSubsystem.h"
@@ -25,7 +27,7 @@ void Text(UUserWidget* UI,FName Name,const FString& Value)
 {if(auto* T=Find<UTextBlock>(UI,Name))if(T->GetText().ToString()!=Value)T->SetText(FText::FromString(Value));}
 FString AssetClass(const TCHAR* Name){return FString(Root)+Name+TEXT(".")+Name+TEXT("_C");}
 const TCHAR* CategoryName(EFPSAttachmentCategory Category)
-{return Category==EFPSAttachmentCategory::Optic?TEXT("瞄具"):Category==EFPSAttachmentCategory::Muzzle?TEXT("枪口"):TEXT("弹匣");}
+{return FPSAttachments::Label(Category);}
 bool ResolveVariant(const UFPSWeaponCatalog* Catalog,const FFPSWeaponInstance& Gun,FName AttachmentId,bool Remove,FFPSResolvedWeaponStats& Stats)
 {
     if(!Catalog)return false;const auto* Part=Catalog->FindAttachment(AttachmentId);if(!Part)return false;
@@ -36,9 +38,9 @@ bool ResolveVariant(const UFPSWeaponCatalog* Catalog,const FFPSWeaponInstance& G
     TArray<FString> Errors;return Catalog->Resolve(Gun.WeaponId,Ids,Stats,Errors);
 }
 FString CurrentStats(const FFPSResolvedWeaponStats& S)
-{return FString::Printf(TEXT("容量  %d 发\n换弹  %.2f 秒\n开镜  %.2f 秒\n后坐力倍率  纵 %.2f / 横 %.2f"),S.MagazineSize,S.ReloadDuration,S.AimTransitionTime,S.VerticalRecoilMultiplier,S.HorizontalRecoilMultiplier);}
+{return FString::Printf(TEXT("容量  %d 发\n换弹  %.2f 秒\n开镜  %.2f 秒\n后坐力倍率  纵 %.2f / 横 %.2f"),S.MagazineSize,S.ReloadDuration,S.AimTransitionTime,S.VerticalRecoilMultiplier,S.HorizontalRecoilMultiplier)+FString::Printf(TEXT("\n射程  %.0f 米"),S.Range/100.f);}
 FString CandidateStats(const FFPSResolvedWeaponStats& S,const FFPSResolvedWeaponStats& C)
-{return FString::Printf(TEXT("容量  %d  (%+d)\n换弹  %.2f 秒  (%+.2f)\n开镜  %.2f 秒  (%+.2f)\n后坐力  纵 %+.2f / 横 %+.2f"),S.MagazineSize,S.MagazineSize-C.MagazineSize,S.ReloadDuration,S.ReloadDuration-C.ReloadDuration,S.AimTransitionTime,S.AimTransitionTime-C.AimTransitionTime,S.VerticalRecoilMultiplier-C.VerticalRecoilMultiplier,S.HorizontalRecoilMultiplier-C.HorizontalRecoilMultiplier);}
+{return FString::Printf(TEXT("容量  %d  (%+d)\n换弹  %.2f 秒  (%+.2f)\n开镜  %.2f 秒  (%+.2f)\n后坐力  纵 %+.2f / 横 %+.2f"),S.MagazineSize,S.MagazineSize-C.MagazineSize,S.ReloadDuration,S.ReloadDuration-C.ReloadDuration,S.AimTransitionTime,S.AimTransitionTime-C.AimTransitionTime,S.VerticalRecoilMultiplier-C.VerticalRecoilMultiplier,S.HorizontalRecoilMultiplier-C.HorizontalRecoilMultiplier)+FString::Printf(TEXT("\n射程  %.0f 米  (%+.0f)"),S.Range/100.f,(S.Range-C.Range)/100.f);}
 }
 void UFPSExtractionButton::Bind(UFPSExtractionUI* Target)
 {OwnerUI=Target;OnClicked.AddUniqueDynamic(this,&UFPSExtractionButton::Activate);OnHovered.AddUniqueDynamic(this,&UFPSExtractionButton::HoverCandidate);OnUnhovered.AddUniqueDynamic(this,&UFPSExtractionButton::LeaveCandidate);}
@@ -67,6 +69,7 @@ void UFPSExtractionUI::NativeConstruct()
 }
 void UFPSExtractionUI::NativeDestruct()
 {
+    if(LobbyScene)LobbyScene->Release();
     if(auto* Preview=ExtractionUI::Find<UFPSExtractionWeaponViewport>(this,TEXT("WeaponViewport")))
     {Preview->OnSlotSelected.RemoveAll(this);Preview->SetPreviewActive(false);}
     Super::NativeDestruct();
@@ -106,7 +109,12 @@ void UFPSExtractionUI::EndInventoryDrag(){ActiveDrag=nullptr;LocalFeedback.Empty
 void UFPSExtractionUI::CommitInventoryDrag(UFPSExtractionGridDrag* Drag,EFPSExtractionContainer To,int32 X,int32 Y)
 {
     if(!Drag||Drag->OwnerUI!=this)return;
-    auto* S=Model();if(S&&S->MoveStack(Drag->From,Drag->StackId,To,X,Y,Drag->bRotated)){SelectedContainer=To;SelectedStack=Drag->StackId;}
+    auto* S=Model();if(S&&S->MoveStack(Drag->From,Drag->StackId,To,X,Y,Drag->bRotated))
+    {
+        const auto View=S->GetView();const auto& Source=Drag->From==EFPSExtractionContainer::Warehouse?View.Warehouse:View.Backpack;
+        const bool Remainder=Source.ContainsByPredicate([Drag](const auto& Stack){return Stack.StackId==Drag->StackId;});
+        SelectedContainer=Remainder?Drag->From:To;SelectedStack=Drag->StackId;
+    }
     EndInventoryDrag();Refresh();
 }
 void UFPSExtractionUI::InventoryFeedback(const FString& Text)
@@ -114,7 +122,7 @@ void UFPSExtractionUI::InventoryFeedback(const FString& Text)
 void UFPSExtractionUI::SelectAttachmentCategory(EFPSAttachmentCategory Category)
 {
     if(Phase!=EFPSExtractionPhase::Base||Tab!=3||!bWeaponEditing||bViewSecondary)return;
-    if(Category!=EFPSAttachmentCategory::Optic&&Category!=EFPSAttachmentCategory::Muzzle&&Category!=EFPSAttachmentCategory::Magazine)return;
+    if(!FPSAttachments::IsCategory(Category))return;
     if(SelectedCategory==Category&&bAttachmentDrawer)return;
     SelectedCategory=Category;bAttachmentDrawer=true;ComparedAction=NAME_None;ComparedId=NAME_None;LastRows.Empty();Refresh();
 }
@@ -164,7 +172,7 @@ void UFPSExtractionUI::RefreshWeaponOverview(const FFPSExtractionView& V)
     {SetText(TEXT("OverviewWeaponStats"),TEXT("武器参数尚未就绪"));return;}
     const TCHAR* FireMode=Definition->FireMode==EFPSFireMode::Single?TEXT("单发"):Definition->FireMode==EFPSFireMode::Burst?TEXT("点射"):TEXT("自动");
     SetText(TEXT("OverviewWeaponStats"),FString::Printf(TEXT("%.0f\n%.0f 米\n%.0f 发/分\n%d 发\n%.2f 秒\n%.2f 秒\n%s\n纵 %.2f / 横 %.2f"),
-        Definition->Damage,Definition->Range/100.f,Definition->FireInterval>0?60.f/Definition->FireInterval:0.f,Stats.MagazineSize,Stats.ReloadDuration,Stats.AimTransitionTime,FireMode,Stats.VerticalRecoilMultiplier,Stats.HorizontalRecoilMultiplier));
+        Definition->Damage,Stats.Range/100.f,Definition->FireInterval>0?60.f/Definition->FireInterval:0.f,Stats.MagazineSize,Stats.ReloadDuration,Stats.AimTransitionTime,FireMode,Stats.VerticalRecoilMultiplier,Stats.HorizontalRecoilMultiplier));
 }
 void UFPSExtractionUI::PreviewAttachmentStats(FName Action,FName Id)
 {if(Phase==EFPSExtractionPhase::Base&&Tab==3&&bWeaponEditing&&bAttachmentDrawer){ComparedAction=Action;ComparedId=Id;if(auto* S=Model())RefreshAttachmentStats(S->GetView());}}
@@ -232,6 +240,8 @@ void UFPSExtractionUI::RebuildAttachmentRows(const FFPSExtractionView& V)
 void UFPSExtractionUI::Dispatch(FName Action,FName ItemId,int32 Quantity)
 {
     auto* S=Model();if(!S)return;
+    if(Action==TEXT("LobbySettings")){if(auto* PC=Cast<AFPSDemoPlayerController>(GetOwningPlayer()))PC->OpenSettings(this);return;}
+    if(Action==TEXT("LobbyFactory")){if(auto* PC=Cast<AFPSFactoryController>(GetOwningPlayer()))PC->CloseTerminal();return;}
     if(Action==TEXT("WorkbenchBack")){WorkbenchBack();return;}
     if(Action==TEXT("CloseAttachmentDrawer")){if(Tab==3){bAttachmentDrawer=false;ComparedAction=NAME_None;ComparedId=NAME_None;Refresh();}return;}
     if(Action==TEXT("WorkbenchOverview")){if(Tab==3){bWeaponEditing=false;bAttachmentDrawer=false;ComparedAction=NAME_None;ComparedId=NAME_None;Refresh();}return;}
@@ -297,7 +307,11 @@ void UFPSExtractionUI::Refresh()
     if(Phase!=V.Phase){if(ActiveDrag){UWidgetBlueprintLibrary::CancelDragDrop();EndInventoryDrag();}SelectedStack.Invalidate();LocalFeedback.Empty();bWeaponEditing=false;bAttachmentDrawer=false;bViewSecondary=false;}
     Phase=V.Phase;
     const bool Base=Phase==EFPSExtractionPhase::Base,Raid=Phase==EFPSExtractionPhase::Raid,Result=Phase==EFPSExtractionPhase::Result;
-    SetShown(TEXT("BasePanel"),Base&&Tab!=3);SetShown(TEXT("RaidHUD"),Raid);
+    const bool HasLobby=WidgetTree->FindWidget(TEXT("LobbyLayoutVersion"))!=nullptr;
+    const bool Lobby=HasLobby&&Base&&Tab==0;
+    SetShown(TEXT("BasePanel"),Base&&Tab!=3&&!Lobby);SetShown(TEXT("RaidHUD"),Raid);
+    if(!LobbyScene)LobbyScene=NewObject<UFPSExtractionLobbyScene>(this);
+    LobbyScene->SetActive(GetOwningPlayer(),LobbyPresentation,Lobby);
     SetShown(TEXT("OverviewPanel"),Base&&Tab==0);SetShown(TEXT("InventoryPanel"),Base&&Tab==1);
     SetShown(TEXT("WorkbenchPanel"),Base&&Tab==2);
     SetShown(TEXT("EquipmentPanel"),Base&&Tab!=3);
@@ -319,10 +333,15 @@ void UFPSExtractionUI::Refresh()
     }
     if(Base&&Tab==3){RefreshWeaponOverview(V);if(bWeaponEditing&&bAttachmentDrawer)RefreshAttachmentStats(V);}
     SetShown(TEXT("BagPanel"),Raid&&bBagOpen);SetShown(TEXT("ResultPanel"),Result);
-    SetShown(TEXT("FullBackdrop"),!Raid);SetShown(TEXT("BagBackdrop"),Raid&&bBagOpen);
+    SetShown(TEXT("FullBackdrop"),!Raid&&!Lobby);SetShown(TEXT("BagBackdrop"),Raid&&bBagOpen);
     SetShown(TEXT("AbortConfirm"),Raid&&bBagOpen&&bConfirmAbort);
     SetEnabled(TEXT("RaidBackpackGrid"),!bConfirmAbort);SetEnabled(TEXT("RaidSelectionPanel"),!bConfirmAbort);SetEnabled(TEXT("Abort"),!bConfirmAbort);SetEnabled(TEXT("CloseBag"),!bConfirmAbort);
     SetText(TEXT("Credits"),FString::Printf(TEXT("%d"),V.Credits));
+    SetText(TEXT("LobbyCredits"),FText::AsNumber(V.Credits).ToString());
+    SetText(TEXT("LobbyLoadout"),FString::Printf(TEXT("整备背包  %d / %d 格  ·  主武器配件 %d 件"),V.BackpackUsed,V.BackpackSlots,V.Loadout.Primary.AttachmentIds.Num()));
+    SetText(TEXT("LobbyFeedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，暂时无法出征。 ")+V.Feedback);
+    SetEnabled(TEXT("LobbyDepart"),Base&&V.bStorageHealthy);
+    SetEnabled(TEXT("LobbyFactory"),Base&&GetOwningPlayer()&&GetOwningPlayer()->IsA<AFPSFactoryController>());
     SetText(TEXT("Storage"),FString::Printf(TEXT("仓库  %d / %d 格"),V.WarehouseUsed,V.WarehouseSlots));
     SetText(TEXT("Feedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，请检查后重试。\n")+V.Feedback);
     SetText(TEXT("WorkbenchFeedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，请检查后重试。 ")+V.Feedback);
@@ -350,6 +369,7 @@ void UFPSExtractionUI::Refresh()
     if(!V.ProductionRecipe.IsNone())
     {const auto* R=S->FindRecipe(V.ProductionRecipe);Production=(R?R->Name.ToString():TEXT("生产任务"))+(V.bProductionReady?TEXT(" · 待领取"):FString::Printf(TEXT(" · %.0f 秒"),FMath::CeilToFloat(V.ProductionRemaining)));}
     SetText(TEXT("HomeProduction"),Production);SetText(TEXT("ProductionStatus"),Production);SetEnabled(TEXT("Claim"),Base&&V.bProductionReady&&V.bStorageHealthy);
+    SetText(TEXT("LobbyProductionStatus"),Production);
     SetEnabled(TEXT("Depart"),Base&&V.bStorageHealthy);SetEnabled(TEXT("Resupply"),Base&&V.bStorageHealthy);
     SetText(TEXT("ResultTitle"),V.bLastSuccess?TEXT("撤离成功"):TEXT("行动失败"));
     SetText(TEXT("ResultNote"),V.bLastSuccess?TEXT("当前背包全部入库。出征枪械与已装配件保留。"):TEXT("本次搜获遗失；出征前整备背包已恢复。枪械与已装配件保留，无维修费。"));
@@ -510,7 +530,8 @@ struct FLayout
         for(auto It=BP->WidgetVariableNameToGuidMap.CreateIterator();It;++It)if(!Names.Contains(It.Key()))It.RemoveCurrent();
         Tree->ForEachWidget([&](UWidget* W){if(!BP->WidgetVariableNameToGuidMap.Contains(W->GetFName()))BP->OnVariableAdded(W->GetFName());});
         FKismetEditorUtilities::CompileBlueprint(BP);if(BP->Status==BS_Error||!BP->GeneratedClass)return false;
-        if(auto* UI=Cast<UFPSExtractionUI>(BP->GeneratedClass->GetDefaultObject()))UI->Theme=Theme;
+        if(auto* UI=Cast<UFPSExtractionUI>(BP->GeneratedClass->GetDefaultObject()))
+        {UI->Theme=Theme;UI->LobbyPresentation=LoadObject<UFPSExtractionLobbyPresentation>(nullptr,TEXT("/Game/FPSDemo/Art/UI/ExtractionTerminal/DA_LobbyPresentation.DA_LobbyPresentation"));}
         BP->MarkPackageDirty();FSavePackageArgs A;A.TopLevelFlags=RF_Public|RF_Standalone;A.SaveFlags=SAVE_NoError;
         return UPackage::SavePackage(BP->GetOutermost(),BP,*FPackageName::LongPackageNameToFilename(BP->GetOutermost()->GetName(),FPackageName::GetAssetPackageExtension()),A);
     }
@@ -604,17 +625,70 @@ void AddReferenceWorkbench(FLayout& P)
     P.Button(TEXT("SlotOptic"),TEXT("瞄具"),14,67,102,43,Drawer);
     P.Button(TEXT("SlotMuzzle"),TEXT("枪口"),124,67,102,43,Drawer);
     P.Button(TEXT("SlotMagazine"),TEXT("弹匣"),234,67,102,43,Drawer);
-    P.Rows(TEXT("AttachmentRows"),8,125,334,224,Drawer);
-    P.Surface(TEXT("DrawerStatsRule"),16,358,318,1,Line,Drawer);
-    P.Label(TEXT("CurrentStatsTitle"),TEXT("当前参数"),16,368,318,27,17,Drawer,true);
-    P.Label(TEXT("CurrentWeaponStats"),TEXT(""),16,399,318,101,16,Drawer)->SetAutoWrapText(false);
-    P.Label(TEXT("CandidateStatsTitle"),TEXT("候选差异"),16,510,318,43,16,Drawer,true,P.Theme->Accent);
-    P.Label(TEXT("CandidateWeaponStats"),TEXT(""),16,555,318,91,15,Drawer)->SetAutoWrapText(false);
+    // Categories are selected on the six model cards; retain legacy names for saved UI compatibility.
+    for(const TCHAR* Name:{TEXT("SlotOptic"),TEXT("SlotMuzzle"),TEXT("SlotMagazine")})P.Tree->FindWidget(Name)->SetVisibility(ESlateVisibility::Collapsed);
+    P.Rows(TEXT("AttachmentRows"),8,70,334,204,Drawer);
+    P.Surface(TEXT("DrawerStatsRule"),16,286,318,1,Line,Drawer);
+    P.Label(TEXT("CurrentStatsTitle"),TEXT("当前参数"),16,298,318,27,17,Drawer,true);
+    P.Label(TEXT("CurrentWeaponStats"),TEXT(""),16,328,318,146,16,Drawer)->SetAutoWrapText(false);
+    P.Label(TEXT("CandidateStatsTitle"),TEXT("候选差异"),16,482,318,27,16,Drawer,true,P.Theme->Accent)->SetAutoWrapText(false);
+    P.Label(TEXT("CandidateWeaponStats"),TEXT(""),16,514,318,130,15,Drawer)->SetAutoWrapText(false);
     Drawer->SetVisibility(ESlateVisibility::Collapsed);
     P.Label(TEXT("WorkbenchHelp"),TEXT("右键拖动旋转 / 滚轮缩放"),40,815,950,30,17,Work,false,Muted);
     P.Label(TEXT("WorkbenchFeedback"),TEXT(""),40,850,1070,40,16,Work,false,P.Theme->Accent);
     P.Button(TEXT("ResetWorkbenchView"),TEXT("重置视角"),1120,824,180,52,Work);
     Work->SetVisibility(ESlateVisibility::Collapsed);
+}
+void AddLobby(FLayout& P)
+{
+    const auto Paper=P.Theme->Paper,Yellow=P.Theme->Accent,Ink=P.Theme->Ink;
+    const auto Muted=FLinearColor(.47f,.52f,.53f,1),Line=FLinearColor(.30f,.36f,.37f,.35f),Panel=FLinearColor(.012f,.019f,.022f,.9f);
+    P.Label(TEXT("LobbyLayoutVersion"),TEXT("1"),0,0,1,1,1)->SetVisibility(ESlateVisibility::Collapsed);
+    auto* Home=P.Group(TEXT("OverviewPanel"),0,0,1600,900);
+    auto Image=[&](const TCHAR* Name,const TCHAR* Asset,float X,float Y,float W,float H)
+    {auto* I=P.Make<UImage>(Name);I->SetBrushFromTexture(LoadObject<UTexture2D>(nullptr,*(FString(Root)+TEXT("Textures/")+Asset+TEXT(".")+Asset)));I->SetVisibility(ESlateVisibility::HitTestInvisible);P.Place(Home,I,X,Y,W,H);return I;};
+    Image(TEXT("LobbyVignette"),TEXT("T_LobbyVignette"),0,0,1600,900);
+    P.Surface(TEXT("LobbyHeader"),0,0,1600,108,FLinearColor(.009f,.014f,.017f,.78f),Home);
+    P.Surface(TEXT("LobbyTopRule"),40,27,1520,1,Line,Home);
+    P.Surface(TEXT("LobbyBottomRule"),40,105,1520,1,Line,Home);
+    P.Label(TEXT("LobbyBrand"),TEXT("FOUNDRY"),40,41,186,40,27,Home,true,Paper)->SetAutoWrapText(false);
+    P.Label(TEXT("LobbyBrandSub"),TEXT("个人工厂"),42,79,160,20,11,Home,false,Muted);
+    const TCHAR* Names[]={TEXT("LobbyOverview"),TEXT("LobbyWarehouse"),TEXT("LobbyFactory"),TEXT("LobbyModification")};
+    const TCHAR* Labels[]={TEXT("出征"),TEXT("仓库"),TEXT("工厂"),TEXT("改枪台")};
+    const TCHAR* Actions[]={TEXT("Overview"),TEXT("Warehouse"),TEXT("LobbyFactory"),TEXT("Modification")};
+    for(int32 I=0;I<4;++I)
+    {
+        auto* B=P.Button(Names[I],Labels[I],250+I*142,44,134,54,Home,I==0);B->Action=Actions[I];
+        FButtonStyle Style=B->GetStyle();Style.Normal=FSlateColorBrush(I==0?FLinearColor(.10f,.12f,.11f,.9f):FLinearColor::Transparent);Style.Hovered=FSlateColorBrush(FLinearColor(.16f,.19f,.19f,.9f));Style.Pressed=FSlateColorBrush(FLinearColor(.23f,.23f,.17f,1));B->SetStyle(Style);
+        auto* Label=Cast<UTextBlock>(B->GetChildAt(0));Label->SetColorAndOpacity(I==0?Yellow:Paper);
+    }
+    P.Surface(TEXT("LobbyNavActive"),250,102,134,3,Yellow,Home);
+    P.Label(TEXT("LobbyFundsLabel"),TEXT("可用资金"),1138,55,96,28,14,Home,false,Muted)->SetAutoWrapText(false);
+    auto* Credits=P.Label(TEXT("LobbyCredits"),TEXT("0"),1232,44,178,44,28,Home,true,Paper);
+    Credits->SetFont(FSlateFontInfo(P.NumberFont,28,TEXT("Bold")));Credits->SetJustification(ETextJustify::Right);Credits->SetAutoWrapText(false);
+    P.Surface(TEXT("LobbyFundsRule"),1430,51,1,35,Line,Home);
+    P.Button(TEXT("LobbySettings"),TEXT("设置"),1450,44,110,54,Home);
+    P.Label(TEXT("LobbyModeTag"),TEXT("单人  /  PVE"),43,143,300,25,14,Home,false,Yellow);
+    P.Label(TEXT("LobbyTitle"),TEXT("回收行动"),40,178,390,68,42,Home,true,Paper);
+    P.Surface(TEXT("LobbyTitleRule"),42,264,76,3,Yellow,Home);
+    P.Label(TEXT("LobbySubtitle"),TEXT("整备、搜寻，安全带回。"),42,287,400,35,17,Home,false,Muted);
+    P.Label(TEXT("LobbyRobotLabel"),TEXT("驻地机器人"),42,675,390,37,24,Home,true,Paper);
+    P.Label(TEXT("LobbyRobotCode"),TEXT("FACTORY / READY"),43,718,390,25,13,Home,false,Muted);
+    P.Surface(TEXT("LobbyProductionRule"),42,754,310,1,Line,Home);
+    P.Label(TEXT("LobbyProductionStatus"),TEXT("生产槽空闲"),43,768,300,30,15,Home,false,Muted);
+    P.Button(TEXT("LobbyProduction"),TEXT("查看加工  →"),42,808,230,42,Home)->Action=TEXT("Production");
+    // The one supported destination is shown honestly; no placeholder map selector.
+    P.Surface(TEXT("LobbyMissionBG"),1172,524,388,288,Panel,Home,true);
+    Image(TEXT("LobbyMapImage"),TEXT("T_LobbyIndustrialCrossing"),1180,532,372,154);
+    P.Surface(TEXT("LobbyMapTagBG"),1192,544,130,27,Panel,Home);
+    P.Label(TEXT("LobbyMapTag"),TEXT("行动区域 / 01"),1202,545,140,25,12,Home,false,Paper);
+    P.Label(TEXT("LobbyMapName"),TEXT("工业关隘"),1192,700,340,43,28,Home,true,Paper);
+    P.Label(TEXT("LobbyMapMode"),TEXT("单人回收  ·  搜索物资并撤离"),1194,751,340,30,14,Home,false,Muted);
+    P.Label(TEXT("LobbyLoadout"),TEXT(""),1174,483,386,28,13,Home,false,Paper)->SetAutoWrapText(false);
+    P.Button(TEXT("LobbyPrepare"),TEXT("整备"),1172,826,152,52,Home)->Action=TEXT("Warehouse");
+    P.Button(TEXT("LobbyDepart"),TEXT("出发  →"),1336,826,224,52,Home,true)->Action=TEXT("Depart");
+    P.Label(TEXT("LobbyFeedback"),TEXT(""),400,812,714,65,15,Home,false,Yellow);
+    P.Label(TEXT("LobbySceneNote"),TEXT("PERSONAL BASE / FOUNDRY"),1150,152,410,24,11,Home,false,Muted)->SetJustification(ETextJustify::Right);
 }
 bool BuildInventoryTerminal(bool Replace)
 {
@@ -629,7 +703,7 @@ bool BuildInventoryTerminal(bool Replace)
     P.Label(TEXT("BaseSubtitle"),TEXT("机器人驻地  /  行动整备"),62,122,700,35,17,Base,false,Muted);
     P.Label(TEXT("FundsLabel"),TEXT("可用资金"),1360,67,180,25,15,Base,false,Muted);
     P.Label(TEXT("Credits"),TEXT("0"),1360,96,180,45,32,Base,true);
-    P.Button(TEXT("Overview"),TEXT("01  工厂总览"),40,184,222,55,Base);
+    P.Button(TEXT("Overview"),TEXT("01  行动大厅"),40,184,222,55,Base);
     P.Button(TEXT("Warehouse"),TEXT("02  仓库与整备"),40,252,222,55,Base);
     P.Button(TEXT("Production"),TEXT("03  加工制造"),40,320,222,55,Base);
     P.Button(TEXT("Modification"),TEXT("04  枪械改装"),40,388,222,55,Base);
@@ -637,24 +711,7 @@ bool BuildInventoryTerminal(bool Replace)
     P.Label(TEXT("FactoryRule"),TEXT("成功：背包全部入库\n失败：恢复出征整备\n仅丢本次搜获"),48,573,210,126,16,Base,false,Muted)->SetAutoWrapText(false);
     P.Surface(TEXT("MainSurface"),286,177,1008,615,Panel,Base,true);
     P.Label(TEXT("SectionTitle"),TEXT("个人工厂总览"),308,193,850,44,29,Base,true);
-    auto* Home=P.Group(TEXT("OverviewPanel"),0,0,1600,900,Base);
-    P.Label(TEXT("HomeGuide"),TEXT("整理物资，生产配件，准备下一次回收行动。"),310,252,930,46,19,Home,false,Muted);
-    const float Xs[]={310,632,954};
-    const TCHAR* TileNames[]={TEXT("StoreFacility"),TEXT("ProductionFacility"),TEXT("WorkshopFacility")};
-    for(int32 I=0;I<3;++I)
-    {
-        P.Surface(*(FString(TileNames[I])+TEXT("BG")),Xs[I],320,298,348,Dark,Home,true);
-        P.Surface(*(FString(TileNames[I])+TEXT("Rule")),Xs[I]+22,343,254,2,I==0?Yellow:Muted,Home);
-        // Simple original facility silhouettes built from saved geometry, no borrowed art.
-        for(int32 K=0;K<3;++K)P.Surface(*FString::Printf(TEXT("FacilityShape%d_%d"),I,K),Xs[I]+30+K*78,382+(I==1?K*9:0),60,I==2?26:50,FLinearColor(.17f,.21f,.21f,1),Home,true);
-    }
-    P.Label(TEXT("HomeStorage"),TEXT("仓库 / 背包"),332,468,254,83,21,Home,true);
-    P.Label(TEXT("HomeProduction"),TEXT("生产槽空闲"),654,468,254,91,21,Home,true);
-    P.Label(TEXT("HomeEquipment"),TEXT("M4 / M9"),976,468,254,91,21,Home,true);
-    P.Button(TEXT("EnterWarehouse"),TEXT("进入仓库与整备"),332,581,254,60,Home)->Action=TEXT("Warehouse");
-    P.Button(TEXT("EnterProduction"),TEXT("进入加工制造"),654,581,254,60,Home)->Action=TEXT("Production");
-    P.Button(TEXT("EnterModification"),TEXT("进入枪械改装"),976,581,254,60,Home)->Action=TEXT("Modification");
-    P.Label(TEXT("HomePolicy"),TEXT("设施状态来自实际仓库与生产任务。整备背包中的物资会随本次出征携带。"),310,703,950,63,18,Home,false,Muted);
+    AddLobby(P);
     auto Grid=[&](const TCHAR* Name,EFPSExtractionContainer Container,float X,float Y,float W,float H,float Cell,UCanvasPanel* Parent)
     {auto* G=P.Make<UFPSExtractionGridUI>(Name);G->Container=Container;G->CellSize=Cell;G->TextFont=P.Font;G->NumberFont=P.NumberFont;G->SetVisibility(ESlateVisibility::Visible);P.Place(Parent,G,X,Y,W,H);};
     auto* Inventory=P.Group(TEXT("InventoryPanel"),0,0,1600,900,Base);
@@ -819,6 +876,33 @@ FString UFPSExtractionUIBuilder::UpgradeWeaponWorkbenchReferenceAssets(bool Rebu
     }
     AddReferenceWorkbench(P);
     return P.Save()?TEXT("PASS reference workbench v3 migrated to v4; other panels preserved"):TEXT("FAIL reference workbench save");
+#else
+    return TEXT("FAIL editor required");
+#endif
+}
+
+FString UFPSExtractionUIBuilder::UpgradeLobbyAssets(bool Rebuild)
+{
+#if WITH_EDITOR
+    using namespace ExtractionUI;
+    auto* BP=LoadObject<UWidgetBlueprint>(nullptr,TEXT("/Game/FPSDemo/Art/UI/ExtractionTerminal/WBP_ExtractionTerminal.WBP_ExtractionTerminal"));
+    if(!BP||!BP->WidgetTree)return TEXT("FAIL missing terminal");
+    auto* Version=Cast<UTextBlock>(BP->WidgetTree->FindWidget(TEXT("LobbyLayoutVersion")));
+    if(Version&&!Rebuild)return TEXT("PASS lobby already present; Designer edits preserved");
+    auto* Workbench=Cast<UTextBlock>(BP->WidgetTree->FindWidget(TEXT("WeaponWorkbenchLayoutVersion")));
+    if(!Workbench||Workbench->GetText().ToString()!=TEXT("4"))return TEXT("FAIL lobby requires v4 workbench");
+    auto* Old=BP->WidgetTree->FindWidget(TEXT("OverviewPanel"));if(!Old)return TEXT("FAIL old overview missing");
+    FLayout P(BP);if(!P.Canvas||!P.Theme||!P.Font||!P.NumberFont)return TEXT("FAIL layout/theme/fonts missing");
+    TArray<UWidget*> Retired;UWidgetTree::ForWidgetAndChildren(Old,[&](UWidget* Widget){Retired.Add(Widget);});if(Version)Retired.Add(Version);
+    BP->Modify();P.Tree->Modify();Old->RemoveFromParent();if(Version)Version->RemoveFromParent();
+    for(auto* Widget:Retired)
+    {
+        const FName Name=MakeUniqueObjectName(GetTransientPackage(),Widget->GetClass(),FName(*(TEXT("Retired_")+Widget->GetName())));
+        if(!Widget->Rename(*Name.ToString(),GetTransientPackage(),REN_DontCreateRedirectors|REN_NonTransactional))return TEXT("FAIL retiring old lobby widget");
+    }
+    AddLobby(P);
+    if(auto* Label=Cast<UTextBlock>(P.Tree->FindWidget(TEXT("OverviewLabel"))))Label->SetText(FText::FromString(TEXT("01  行动大厅")));
+    return P.Save()?TEXT("PASS lobby saved; inventory and workbench preserved"):TEXT("FAIL lobby save");
 #else
     return TEXT("FAIL editor required");
 #endif

@@ -3,8 +3,8 @@
   "success": true,
   "blender_version": "5.2.2 LTS",
   "tolerance_m": 5e-05,
-  "source_sha256_before": "eec775593944caca84b35392fb00a662ffae224121b8091e65e2da1272d23ae1",
-  "source_sha256_after": "eec775593944caca84b35392fb00a662ffae224121b8091e65e2da1272d23ae1",
+  "source_sha256_before": "21f698013df491db83fa22b8c0da49b03e2b20b01ba680806707599a82cb7987",
+  "source_sha256_after": "21f698013df491db83fa22b8c0da49b03e2b20b01ba680806707599a82cb7987",
   "source_unchanged": true,
   "library": {
     "obsolete_data": {
@@ -160,7 +160,7 @@
           }
         },
         {
-          "collection": "SM_M7_Stock_Default",
+          "collection": "SM_M7_Stock_ShadowRail",
           "position_m": [
             -0.17900000512599945,
             0.0,
@@ -192,7 +192,7 @@
           }
         },
         {
-          "collection": "SM_M7_Grip_D2",
+          "collection": "SM_M7_Grip_Phantom",
           "position_m": [
             -0.0625,
             0.0,
@@ -290,7 +290,7 @@
           }
         },
         {
-          "collection": "SM_M7_Stock_Default",
+          "collection": "SM_M7_Stock_ShadowRail",
           "position_m": [
             -0.17900000512599945,
             0.0,
@@ -322,7 +322,7 @@
           }
         },
         {
-          "collection": "SM_M7_Grip_D2",
+          "collection": "SM_M7_Grip_Phantom",
           "position_m": [
             -0.0625,
             0.0,
@@ -399,9 +399,9 @@
       {
         "collection": "SM_M7_Barrel_Tidal",
         "position_m": [
-          0.15274998545646667,
+          0.14905056357383728,
           0.0,
-          0.6468749642372131
+          0.6474999785423279
         ]
       },
       {
@@ -409,7 +409,7 @@
         "position_m": [
           -0.580621063709259,
           0.0,
-          0.34447938203811646
+          0.344480037689209
         ]
       },
       {
@@ -417,29 +417,29 @@
         "position_m": [
           -0.11274999380111694,
           0.0,
-          0.332420289516449
+          0.3324175477027893
         ]
       },
       {
         "collection": "SM_M7_Mag_20",
         "position_m": [
-          0.23098944127559662,
+          0.23101423680782318,
           0.0,
-          0.35206538438796997
+          0.35205864906311035
         ]
       },
       {
         "collection": "SM_M7_Mag_Extended",
         "position_m": [
-          0.6809894442558289,
+          0.6810142397880554,
           0.0,
-          0.37956535816192627
+          0.3795586824417114
         ]
       },
       {
         "collection": "SM_M7_Grip_Default",
         "position_m": [
-          -0.6402572989463806,
+          -0.6402550935745239,
           0.0,
           0.05155699700117111
         ]
@@ -447,9 +447,9 @@
       {
         "collection": "SM_M7_Grip_D2",
         "position_m": [
-          -0.19007417559623718,
+          -0.19007188081741333,
           0.0,
-          0.05423633009195328
+          0.05423707515001297
         ]
       },
       {
@@ -514,6 +514,22 @@
           -0.22403934597969055,
           0.0,
           -0.5837758183479309
+        ]
+      },
+      {
+        "collection": "SM_M7_Stock_ShadowRail",
+        "position_m": [
+          0.34680435061454773,
+          0.0,
+          -0.6068129539489746
+        ]
+      },
+      {
+        "collection": "SM_M7_Grip_Phantom",
+        "position_m": [
+          0.701370358467102,
+          0.0,
+          -0.5768529772758484
         ]
       }
     ],
@@ -605,7 +621,7 @@
         "file_format": "PNG",
         "colorspace": "sRGB",
         "packed_files": 1,
-        "packed_bytes": 743256,
+        "packed_bytes": 658950,
         "packed_png": true,
         "role": "BaseColor"
       },
@@ -618,7 +634,7 @@
         "file_format": "PNG",
         "colorspace": "Non-Color",
         "packed_files": 1,
-        "packed_bytes": 1210098,
+        "packed_bytes": 998009,
         "packed_png": true,
         "role": "Normal"
       },
@@ -631,7 +647,7 @@
         "file_format": "PNG",
         "colorspace": "Non-Color",
         "packed_files": 1,
-        "packed_bytes": 10659422,
+        "packed_bytes": 8308171,
         "packed_png": true,
         "role": "ORM"
       },
@@ -788,6 +804,45 @@
         "colorspace": "Non-Color",
         "packed_files": 1,
         "packed_bytes": 3194949,
+        "packed_png": true,
+        "role": "ORM"
+      },
+      {
+        "name": "SM_M7_Grip_Phantom_BaseColor",
+        "size": [
+          2048,
+          2048
+        ],
+        "file_format": "PNG",
+        "colorspace": "sRGB",
+        "packed_files": 1,
+        "packed_bytes": 367219,
+        "packed_png": true,
+        "role": "BaseColor"
+      },
+      {
+        "name": "SM_M7_Grip_Phantom_Normal",
+        "size": [
+          2048,
+          2048
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 727528,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "SM_M7_Grip_Phantom_ORM",
+        "size": [
+          2048,
+          2048
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 3232259,
         "packed_png": true,
         "role": "ORM"
       },
@@ -1143,6 +1198,45 @@
         "role": "ORM"
       },
       {
+        "name": "SM_M7_Stock_ShadowRail_BaseColor",
+        "size": [
+          2048,
+          2048
+        ],
+        "file_format": "PNG",
+        "colorspace": "sRGB",
+        "packed_files": 1,
+        "packed_bytes": 286136,
+        "packed_png": true,
+        "role": "BaseColor"
+      },
+      {
+        "name": "SM_M7_Stock_ShadowRail_Normal",
+        "size": [
+          2048,
+          2048
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 408301,
+        "packed_png": true,
+        "role": "Normal"
+      },
+      {
+        "name": "SM_M7_Stock_ShadowRail_ORM",
+        "size": [
+          2048,
+          2048
+        ],
+        "file_format": "PNG",
+        "colorspace": "Non-Color",
+        "packed_files": 1,
+        "packed_bytes": 2768187,
+        "packed_png": true,
+        "role": "ORM"
+      },
+      {
         "name": "SM_M7_Stock_Skeleton_BaseColor",
         "size": [
           2048,
@@ -1188,52 +1282,43 @@
       "name": "SM_M7_Core",
       "category": "Core",
       "source": {
-        "geometry_objects": 327,
-        "mesh_objects": 327,
-        "vertices": 131291,
-        "triangles": 261298,
+        "geometry_objects": 160,
+        "mesh_objects": 160,
+        "vertices": 191356,
+        "triangles": 382180,
         "nonfinite_vertices": 0,
-        "uv_layers": 327,
-        "uv_coordinates": 571352,
+        "uv_layers": 160,
+        "uv_coordinates": 1146540,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.18000000715255737,
-            -0.0348999984562397,
-            -0.12387695163488388
+            -0.17949999868869781,
+            -0.029500000178813934,
+            -0.10577201843261719
           ],
           "max": [
-            0.16500000655651093,
-            0.04440000280737877,
+            0.16499584913253784,
+            0.029500000178813934,
             0.054499998688697815
           ]
         },
         "dimensions_m": [
-          0.3450000137090683,
-          0.07930000126361847,
-          0.1783769503235817
+          0.34449584782123566,
+          0.05900000035762787,
+          0.160272017121315
         ],
         "used_materials": [
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
-          "M7R_06_RecessBlack",
-          "M7R_07_EngravingGray"
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware"
         ],
         "uv_finite": true,
         "uv_present": true,
         "missing_uv_examples": []
       },
       "asset_marked": true,
-      "editable_objects": 334,
+      "editable_objects": 167,
       "collection_offset_m": [
         0.0,
         0.0,
@@ -1241,68 +1326,59 @@
       ],
       "expected_export_bounds_m": {
         "min": [
-          -0.18000000715255737,
-          -0.0348999984562397,
-          -0.12387695163488388
+          -0.17949999868869781,
+          -0.029500000178813934,
+          -0.10577201843261719
         ],
         "max": [
-          0.16500000655651093,
-          0.04440000280737877,
+          0.16499584913253784,
+          0.029500000178813934,
           0.054499998688697815
         ]
       },
       "fbx": {
         "geometry_objects": 1,
         "mesh_objects": 1,
-        "vertices": 131291,
-        "triangles": 261298,
+        "vertices": 191356,
+        "triangles": 382180,
         "nonfinite_vertices": 0,
         "uv_layers": 1,
-        "uv_coordinates": 571352,
+        "uv_coordinates": 1146540,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.18000000715255737,
-            -0.034900013357400894,
-            -0.12387695163488388
+            -0.17949999868869781,
+            -0.029500005766749382,
+            -0.10577201843261719
           ],
           "max": [
-            0.16500000655651093,
-            0.044399987906217575,
+            0.16499584913253784,
+            0.029499996453523636,
             0.054499998688697815
           ]
         },
         "dimensions_m": [
-          0.3450000137090683,
-          0.07930000126361847,
-          0.1783769503235817
+          0.34449584782123566,
+          0.05900000222027302,
+          0.160272017121315
         ],
         "used_materials": [
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
-          "M7R_06_RecessBlack",
-          "M7R_07_EngravingGray"
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware"
         ],
         "uv_finite": true,
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Core.fbx",
-        "file_bytes": 8462108,
+        "file_bytes": 20446284,
         "comparison": {
           "min": {
             "pass": true,
             "absolute_error_m": [
               0.0,
-              1.4901161193847656e-08,
+              5.587935447692871e-09,
               0.0
             ]
           },
@@ -1310,7 +1386,7 @@
             "pass": true,
             "absolute_error_m": [
               0.0,
-              1.4901161193847656e-08,
+              3.725290298461914e-09,
               0.0
             ]
           },
@@ -1318,7 +1394,7 @@
             "pass": true,
             "absolute_error_m": [
               0.0,
-              0.0,
+              1.862645149230957e-09,
               0.0
             ]
           }
@@ -1327,49 +1403,40 @@
       "glb": {
         "geometry_objects": 1,
         "mesh_objects": 1,
-        "vertices": 408910,
-        "triangles": 261298,
+        "vertices": 721249,
+        "triangles": 382180,
         "nonfinite_vertices": 0,
         "uv_layers": 1,
-        "uv_coordinates": 783894,
+        "uv_coordinates": 1146540,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.18000000715255737,
-            -0.0348999984562397,
-            -0.12387695163488388
+            -0.17949999868869781,
+            -0.029500000178813934,
+            -0.10577201843261719
           ],
           "max": [
-            0.16500000655651093,
-            0.04440000280737877,
+            0.16499584913253784,
+            0.029500000178813934,
             0.054499998688697815
           ]
         },
         "dimensions_m": [
-          0.3450000137090683,
-          0.07930000126361847,
-          0.1783769503235817
+          0.34449584782123566,
+          0.05900000035762787,
+          0.160272017121315
         ],
         "used_materials": [
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
-          "M7R_06_RecessBlack",
-          "M7R_07_EngravingGray"
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware"
         ],
         "uv_finite": true,
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Core.glb",
-        "file_bytes": 28317392,
+        "file_bytes": 37637472,
         "scene_graph": {
           "roots": [
             {
@@ -1973,7 +2040,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Stock_Skeleton.fbx",
-        "file_bytes": 1827596,
+        "file_bytes": 1827612,
         "comparison": {
           "min": {
             "pass": true,
@@ -2198,7 +2265,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Mag_20.fbx",
-        "file_bytes": 2170460,
+        "file_bytes": 2170476,
         "comparison": {
           "min": {
             "pass": true,
@@ -2423,7 +2490,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Mag_Extended.fbx",
-        "file_bytes": 2237964,
+        "file_bytes": 2237996,
         "comparison": {
           "min": {
             "pass": true,
@@ -2648,7 +2715,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Grip_Default.fbx",
-        "file_bytes": 2335388,
+        "file_bytes": 2335404,
         "comparison": {
           "min": {
             "pass": true,
@@ -2875,7 +2942,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Grip_D2.fbx",
-        "file_bytes": 2327804,
+        "file_bytes": 2327820,
         "comparison": {
           "min": {
             "pass": true,
@@ -2906,7 +2973,7 @@
       "glb": {
         "geometry_objects": 1,
         "mesh_objects": 1,
-        "vertices": 78965,
+        "vertices": 78966,
         "triangles": 49686,
         "nonfinite_vertices": 0,
         "uv_layers": 1,
@@ -2943,7 +3010,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Grip_D2.glb",
-        "file_bytes": 6059108,
+        "file_bytes": 6059140,
         "scene_graph": {
           "roots": [
             {
@@ -3117,7 +3184,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Optic_LPVO.fbx",
-        "file_bytes": 11735724,
+        "file_bytes": 11735868,
         "comparison": {
           "min": {
             "pass": true,
@@ -3354,7 +3421,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Optic_Combat.fbx",
-        "file_bytes": 6530204,
+        "file_bytes": 6530220,
         "comparison": {
           "min": {
             "pass": true,
@@ -3579,7 +3646,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Foregrip_Vertical.fbx",
-        "file_bytes": 2325532,
+        "file_bytes": 2325484,
         "comparison": {
           "min": {
             "pass": true,
@@ -4011,7 +4078,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Muzzle_Brake.fbx",
-        "file_bytes": 1425276,
+        "file_bytes": 1425292,
         "comparison": {
           "min": {
             "pass": true,
@@ -4226,7 +4293,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Muzzle_Suppressor.fbx",
-        "file_bytes": 1940108,
+        "file_bytes": 1940140,
         "comparison": {
           "min": {
             "pass": true,
@@ -4442,7 +4509,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Sights_Iron.fbx",
-        "file_bytes": 2683884,
+        "file_bytes": 2683916,
         "comparison": {
           "min": {
             "pass": true,
@@ -4662,7 +4729,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Barrel_Default.fbx",
-        "file_bytes": 6599452,
+        "file_bytes": 6599404,
         "comparison": {
           "min": {
             "pass": true,
@@ -5326,7 +5393,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Foregrip_ResonanceGen1.fbx",
-        "file_bytes": 3275820,
+        "file_bytes": 3275836,
         "comparison": {
           "min": {
             "pass": true,
@@ -5452,6 +5519,450 @@
         },
         "mount_comparison": []
       }
+    },
+    {
+      "name": "SM_M7_Stock_ShadowRail",
+      "category": "Stock",
+      "source": {
+        "geometry_objects": 56,
+        "mesh_objects": 56,
+        "vertices": 28002,
+        "triangles": 55872,
+        "nonfinite_vertices": 0,
+        "uv_layers": 56,
+        "uv_coordinates": 167616,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.42635872960090637,
+            -0.02019999921321869,
+            -0.08972164243459702
+          ],
+          "max": [
+            -0.17524999380111694,
+            0.02019999921321869,
+            0.03834757208824158
+          ]
+        },
+        "dimensions_m": [
+          0.25110873579978943,
+          0.04039999842643738,
+          0.1280692145228386
+        ],
+        "used_materials": [
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 57,
+      "collection_offset_m": [
+        -0.17900000512599945,
+        0.0,
+        -0.0024999999441206455
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.24735872960090638,
+          -0.02019999921321869,
+          -0.08722164243459701
+        ],
+        "max": [
+          0.003750006198883049,
+          0.02019999921321869,
+          0.04084757208824158
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 28002,
+        "triangles": 55872,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 167616,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.24735872447490692,
+            -0.020199961960315704,
+            -0.0872216448187828
+          ],
+          "max": [
+            0.0037500131875276566,
+            0.020200038328766823,
+            0.040847573429346085
+          ]
+        },
+        "dimensions_m": [
+          0.2511087376624346,
+          0.04040000028908253,
+          0.1280692182481289
+        ],
+        "used_materials": [
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Stock_ShadowRail.fbx",
+        "file_bytes": 3365724,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              3.725290298461914e-08,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              6.988644607464067e-09,
+              3.91155481338501e-08,
+              1.341104505225843e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              1.862645149230957e-09,
+              1.862645149230957e-09,
+              3.725290298461914e-09
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 119863,
+        "triangles": 55872,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 167616,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.24735872447490692,
+            -0.02019999921321869,
+            -0.0872216448187828
+          ],
+          "max": [
+            0.0037500113248825073,
+            0.02019999921321869,
+            0.040847573429346085
+          ]
+        },
+        "dimensions_m": [
+          0.25110873579978943,
+          0.04039999842643738,
+          0.1280692182481289
+        ],
+        "used_materials": [
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Stock_ShadowRail.glb",
+        "file_bytes": 7641404,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Stock_ShadowRail_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": [],
+          "component_nodes": [
+            {
+              "name": "SM_M7_Stock_ShadowRail",
+              "source_asset": "SM_M7_Stock_ShadowRail",
+              "position_m": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "parent_name": "SM_M7_Stock_ShadowRail_Root.001"
+            }
+          ]
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              5.12599945823311e-09,
+              0.0,
+              1.341104505225843e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              3.725290298461914e-09
+            ]
+          }
+        },
+        "mount_comparison": []
+      }
+    },
+    {
+      "name": "SM_M7_Grip_Phantom",
+      "category": "RearGrip",
+      "source": {
+        "geometry_objects": 52,
+        "mesh_objects": 52,
+        "vertices": 31270,
+        "triangles": 62344,
+        "nonfinite_vertices": 0,
+        "uv_layers": 52,
+        "uv_coordinates": 187032,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.13830849528312683,
+            -0.018097905442118645,
+            -0.18927130103111267
+          ],
+          "max": [
+            -0.039432212710380554,
+            0.018097905442118645,
+            -0.04702270030975342
+          ]
+        },
+        "dimensions_m": [
+          0.09887628257274628,
+          0.03619581088423729,
+          0.14224860072135925
+        ],
+        "used_materials": [
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": []
+      },
+      "asset_marked": true,
+      "editable_objects": 53,
+      "collection_offset_m": [
+        -0.0625,
+        0.0,
+        -0.06499999761581421
+      ],
+      "expected_export_bounds_m": {
+        "min": [
+          -0.07580849528312683,
+          -0.018097905442118645,
+          -0.12427130103111267
+        ],
+        "max": [
+          0.023067787289619446,
+          0.018097905442118645,
+          0.017977299690246584
+        ]
+      },
+      "fbx": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 31270,
+        "triangles": 62344,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 187032,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.07580849528312683,
+            -0.018097907304763794,
+            -0.12427130341529846
+          ],
+          "max": [
+            0.023067789152264595,
+            0.018097903579473495,
+            0.01797729730606079
+          ]
+        },
+        "dimensions_m": [
+          0.09887628443539143,
+          0.03619581088423729,
+          0.14224860072135925
+        ],
+        "used_materials": [
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Grip_Phantom.fbx",
+        "file_bytes": 3919228,
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              1.862645149230957e-09,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              1.862645149230957e-09,
+              1.862645149230957e-09,
+              2.384185793236071e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              1.862645149230957e-09,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "glb": {
+        "geometry_objects": 1,
+        "mesh_objects": 1,
+        "vertices": 116656,
+        "triangles": 62344,
+        "nonfinite_vertices": 0,
+        "uv_layers": 1,
+        "uv_coordinates": 187032,
+        "nonfinite_uv_coordinates": 0,
+        "missing_uv_objects": 0,
+        "bounds_m": {
+          "min": [
+            -0.07580849528312683,
+            -0.018097905442118645,
+            -0.12427130341529846
+          ],
+          "max": [
+            0.023067787289619446,
+            0.018097905442118645,
+            0.01797729730606079
+          ]
+        },
+        "dimensions_m": [
+          0.09887628257274628,
+          0.03619581088423729,
+          0.14224860072135925
+        ],
+        "used_materials": [
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber"
+        ],
+        "uv_finite": true,
+        "uv_present": true,
+        "missing_uv_examples": [],
+        "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Grip_Phantom.glb",
+        "file_bytes": 8674840,
+        "scene_graph": {
+          "roots": [
+            {
+              "name": "SM_M7_Grip_Phantom_Root.001",
+              "translation_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "origin_at_zero": true
+            }
+          ],
+          "root_origin_at_zero": true,
+          "mesh_definitions": 1,
+          "mount_nodes": [],
+          "component_nodes": [
+            {
+              "name": "SM_M7_Grip_Phantom",
+              "source_asset": "SM_M7_Grip_Phantom",
+              "position_m": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "parent_name": "SM_M7_Grip_Phantom_Root.001"
+            }
+          ]
+        },
+        "comparison": {
+          "min": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "max": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              2.384185793236071e-09
+            ]
+          },
+          "dimensions": {
+            "pass": true,
+            "absolute_error_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "mount_comparison": []
+      }
     }
   ],
   "presets": {
@@ -5470,36 +5981,29 @@
         "bounds_m": {
           "min": [
             -0.36775001883506775,
-            -0.0348999984562397,
+            -0.03486853837966919,
             -0.22750209271907806
           ],
           "max": [
             0.6119999885559082,
-            0.04440000280737877,
+            0.03486853837966919,
             0.10064999759197235
           ]
         },
         "dimensions_m": [
           0.979750007390976,
-          0.07930000126361847,
+          0.06973707675933838,
           0.3281520903110504
         ],
-        "triangles": 714648,
+        "triangles": 835530,
         "used_materials": [
           "M7M_Barrel_Default_coated_handguard_6cfb7",
           "M7M_Barrel_Default_coated_handguard_da39a",
           "M7M_Barrel_Default_dark_steel_hardware_d5c31",
           "M7M_Barrel_Default_dark_steel_hardware_da39a",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Grip_Default_coated_receiver_da39a",
           "M7M_Grip_Default_dark_steel_hardware_da39a",
           "M7M_Grip_Default_polymer_grip_da39a",
@@ -5520,8 +6024,7 @@
           "M7M_Stock_Default_polymer_stock_da39a",
           "M7M_Stock_Default_polymer_stock_dbcb1",
           "M7M_Stock_Default_rubber_black_7a08d",
-          "M7R_06_RecessBlack",
-          "M7R_07_EngravingGray"
+          "M7R_06_RecessBlack"
         ]
       },
       "resolved": {
@@ -5631,28 +6134,28 @@
       "fbx": {
         "geometry_objects": 1,
         "mesh_objects": 1,
-        "vertices": 361823,
-        "triangles": 714648,
+        "vertices": 421888,
+        "triangles": 835530,
         "nonfinite_vertices": 0,
         "uv_layers": 1,
-        "uv_coordinates": 1588778,
+        "uv_coordinates": 2163966,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
             -0.36775001883506775,
-            -0.034900013357400894,
+            -0.034868624061346054,
             -0.22750207781791687
           ],
           "max": [
             0.6119999885559082,
-            0.044399987906217575,
+            0.03486845642328262,
             0.10064999759197235
           ]
         },
         "dimensions_m": [
           0.979750007390976,
-          0.07930000126361847,
+          0.06973708048462868,
           0.3281520754098892
         ],
         "used_materials": [
@@ -5660,16 +6163,9 @@
           "M7M_Barrel_Default_coated_handguard_da39a",
           "M7M_Barrel_Default_dark_steel_hardware_d5c31",
           "M7M_Barrel_Default_dark_steel_hardware_da39a",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Grip_Default_coated_receiver_da39a",
           "M7M_Grip_Default_dark_steel_hardware_da39a",
           "M7M_Grip_Default_polymer_grip_da39a",
@@ -5690,20 +6186,19 @@
           "M7M_Stock_Default_polymer_stock_da39a",
           "M7M_Stock_Default_polymer_stock_dbcb1",
           "M7M_Stock_Default_rubber_black_7a08d",
-          "M7R_06_RecessBlack",
-          "M7R_07_EngravingGray"
+          "M7R_06_RecessBlack"
         ],
         "uv_finite": true,
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Default_Assembled.fbx",
-        "file_bytes": 27507116,
+        "file_bytes": 39661548,
         "comparison": {
           "min": {
             "pass": true,
             "absolute_error_m": [
               0.0,
-              1.4901161193847656e-08,
+              8.568167686462402e-08,
               1.4901161193847656e-08
             ]
           },
@@ -5711,7 +6206,7 @@
             "pass": true,
             "absolute_error_m": [
               0.0,
-              1.4901161193847656e-08,
+              8.195638656616211e-08,
               0.0
             ]
           },
@@ -5719,7 +6214,7 @@
             "pass": true,
             "absolute_error_m": [
               0.0,
-              0.0,
+              3.725290298461914e-09,
               1.4901161193847656e-08
             ]
           }
@@ -5728,28 +6223,28 @@
       "glb": {
         "geometry_objects": 7,
         "mesh_objects": 7,
-        "vertices": 1026555,
-        "triangles": 714648,
+        "vertices": 1338894,
+        "triangles": 835530,
         "nonfinite_vertices": 0,
         "uv_layers": 7,
-        "uv_coordinates": 2143944,
+        "uv_coordinates": 2506590,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
             -0.36775001883506775,
-            -0.0348999984562397,
+            -0.03486853837966919,
             -0.22750207781791687
           ],
           "max": [
             0.6119999885559082,
-            0.04440000280737877,
+            0.03486853837966919,
             0.10064999759197235
           ]
         },
         "dimensions_m": [
           0.979750007390976,
-          0.07930000126361847,
+          0.06973707675933838,
           0.3281520754098892
         ],
         "used_materials": [
@@ -5757,16 +6252,9 @@
           "M7M_Barrel_Default_coated_handguard_da39a",
           "M7M_Barrel_Default_dark_steel_hardware_d5c31",
           "M7M_Barrel_Default_dark_steel_hardware_da39a",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Grip_Default_coated_receiver_da39a",
           "M7M_Grip_Default_dark_steel_hardware_da39a",
           "M7M_Grip_Default_polymer_grip_da39a",
@@ -5787,14 +6275,13 @@
           "M7M_Stock_Default_polymer_stock_da39a",
           "M7M_Stock_Default_polymer_stock_dbcb1",
           "M7M_Stock_Default_rubber_black_7a08d",
-          "M7R_06_RecessBlack",
-          "M7R_07_EngravingGray"
+          "M7R_06_RecessBlack"
         ],
         "uv_finite": true,
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Default_Assembled.glb",
-        "file_bytes": 67322584,
+        "file_bytes": 76642792,
         "scene_graph": {
           "roots": [
             {
@@ -6243,9 +6730,9 @@
       "parts": [
         "SM_M7_Core",
         "SM_M7_Barrel_Tidal",
-        "SM_M7_Stock_Default",
+        "SM_M7_Stock_ShadowRail",
         "SM_M7_Mag_Extended",
-        "SM_M7_Grip_D2",
+        "SM_M7_Grip_Phantom",
         "SM_M7_Optic_LPVO",
         "SM_M7_Foregrip_ResonanceGen1",
         "SM_M7_Muzzle_Suppressor"
@@ -6253,36 +6740,29 @@
       "expected": {
         "bounds_m": {
           "min": [
-            -0.36775001883506775,
+            -0.42635872960090637,
             -0.03791999816894531,
             -0.282502144575119
           ],
           "max": [
             0.9540738417861168,
-            0.04440000280737877,
+            0.03791999816894531,
             0.13240499794483185
           ]
         },
         "dimensions_m": [
-          1.3218238606211845,
-          0.08232000097632408,
+          1.3804325713870231,
+          0.07583999633789062,
           0.41490714251995087
         ],
-        "triangles": 1268790,
+        "triangles": 1397184,
         "used_materials": [
           "M7M_Barrel_Tidal_Guard_coated_handguard",
           "M7M_Barrel_Tidal_Guard_dark_steel_hardware",
           "M7M_Barrel_Tidal_Guard_fine_grid",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
           "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
           "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
@@ -6290,12 +6770,11 @@
           "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
           "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
           "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
-          "M7M_Grip_D2_coated_receiver_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-          "M7M_Grip_D2_polymer_grip_da39a",
-          "M7M_Grip_D2_polymer_grip_f0ba0",
-          "M7M_Grip_D2_rubber_black_da39a",
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber",
           "M7M_Mag_Extended_coated_magazine_0f2a7",
           "M7M_Mag_Extended_coated_magazine_f05bd",
           "M7M_Mag_Extended_coated_magazine_fade7",
@@ -6314,12 +6793,11 @@
           "M7M_Optic_LPVO_polymer_stock_da39a",
           "M7M_Optic_LPVO_rubber_black_00723",
           "M7M_Optic_LPVO_rubber_black_da39a",
-          "M7M_Stock_Default_coated_receiver_da39a",
-          "M7M_Stock_Default_dark_steel_hardware_da39a",
-          "M7M_Stock_Default_polymer_stock_2c9f3",
-          "M7M_Stock_Default_polymer_stock_da39a",
-          "M7M_Stock_Default_polymer_stock_dbcb1",
-          "M7M_Stock_Default_rubber_black_7a08d",
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber",
           "M7R_06_RecessBlack",
           "M7R_07_EngravingGray",
           "M7R_09_CoatedLens"
@@ -6355,7 +6833,7 @@
             0,
             0
           ],
-          "SM_M7_Stock_Default": [
+          "SM_M7_Stock_ShadowRail": [
             -0.179,
             0,
             -0.0025
@@ -6365,7 +6843,7 @@
             0,
             -0.1
           ],
-          "SM_M7_Grip_D2": [
+          "SM_M7_Grip_Phantom": [
             -0.0625,
             0,
             -0.065
@@ -6437,44 +6915,37 @@
       "fbx": {
         "geometry_objects": 1,
         "mesh_objects": 1,
-        "vertices": 643547,
-        "triangles": 1268790,
+        "vertices": 705608,
+        "triangles": 1397184,
         "nonfinite_vertices": 0,
         "uv_layers": 2,
-        "uv_coordinates": 6002504,
+        "uv_coordinates": 7423648,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.36775001883506775,
+            -0.42635872960090637,
             -0.03792007267475128,
             -0.282502144575119
           ],
           "max": [
             0.9540738463401794,
-            0.044399987906217575,
+            0.03791997209191322,
             0.13240499794483185
           ]
         },
         "dimensions_m": [
-          1.3218238651752472,
-          0.08232006058096886,
+          1.3804325759410858,
+          0.0758400447666645,
           0.41490714251995087
         ],
         "used_materials": [
           "M7M_Barrel_Tidal_Guard_coated_handguard",
           "M7M_Barrel_Tidal_Guard_dark_steel_hardware",
           "M7M_Barrel_Tidal_Guard_fine_grid",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
           "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
           "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
@@ -6482,12 +6953,11 @@
           "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
           "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
           "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
-          "M7M_Grip_D2_coated_receiver_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-          "M7M_Grip_D2_polymer_grip_da39a",
-          "M7M_Grip_D2_polymer_grip_f0ba0",
-          "M7M_Grip_D2_rubber_black_da39a",
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber",
           "M7M_Mag_Extended_coated_magazine_0f2a7",
           "M7M_Mag_Extended_coated_magazine_f05bd",
           "M7M_Mag_Extended_coated_magazine_fade7",
@@ -6506,12 +6976,11 @@
           "M7M_Optic_LPVO_polymer_stock_da39a",
           "M7M_Optic_LPVO_rubber_black_00723",
           "M7M_Optic_LPVO_rubber_black_da39a",
-          "M7M_Stock_Default_coated_receiver_da39a",
-          "M7M_Stock_Default_dark_steel_hardware_da39a",
-          "M7M_Stock_Default_polymer_stock_2c9f3",
-          "M7M_Stock_Default_polymer_stock_da39a",
-          "M7M_Stock_Default_polymer_stock_dbcb1",
-          "M7M_Stock_Default_rubber_black_7a08d",
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber",
           "M7R_06_RecessBlack",
           "M7R_07_EngravingGray",
           "M7R_09_CoatedLens"
@@ -6520,7 +6989,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Equipped_Tidal.fbx",
-        "file_bytes": 55996556,
+        "file_bytes": 71323452,
         "comparison": {
           "min": {
             "pass": true,
@@ -6534,7 +7003,7 @@
             "pass": true,
             "absolute_error_m": [
               4.5540626825157915e-09,
-              1.4901161193847656e-08,
+              2.60770320892334e-08,
               0.0
             ]
           },
@@ -6542,7 +7011,7 @@
             "pass": true,
             "absolute_error_m": [
               4.5540626825157915e-09,
-              5.960464477539063e-08,
+              4.842877388000488e-08,
               0.0
             ]
           }
@@ -6551,44 +7020,37 @@
       "glb": {
         "geometry_objects": 8,
         "mesh_objects": 8,
-        "vertices": 1925558,
-        "triangles": 1268790,
+        "vertices": 2297446,
+        "triangles": 1397184,
         "nonfinite_vertices": 0,
         "uv_layers": 10,
-        "uv_coordinates": 4817250,
+        "uv_coordinates": 5202432,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.36775001883506775,
+            -0.42635872960090637,
             -0.03791999816894531,
             -0.282502144575119
           ],
           "max": [
             0.9540738463401794,
-            0.04440000280737877,
+            0.03791999816894531,
             0.13240499794483185
           ]
         },
         "dimensions_m": [
-          1.3218238651752472,
-          0.08232000097632408,
+          1.3804325759410858,
+          0.07583999633789062,
           0.41490714251995087
         ],
         "used_materials": [
           "M7M_Barrel_Tidal_Guard_coated_handguard",
           "M7M_Barrel_Tidal_Guard_dark_steel_hardware",
           "M7M_Barrel_Tidal_Guard_fine_grid",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
           "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
           "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
@@ -6596,12 +7058,11 @@
           "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
           "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
           "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
-          "M7M_Grip_D2_coated_receiver_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-          "M7M_Grip_D2_polymer_grip_da39a",
-          "M7M_Grip_D2_polymer_grip_f0ba0",
-          "M7M_Grip_D2_rubber_black_da39a",
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber",
           "M7M_Mag_Extended_coated_magazine_0f2a7",
           "M7M_Mag_Extended_coated_magazine_f05bd",
           "M7M_Mag_Extended_coated_magazine_fade7",
@@ -6620,12 +7081,11 @@
           "M7M_Optic_LPVO_polymer_stock_da39a",
           "M7M_Optic_LPVO_rubber_black_00723",
           "M7M_Optic_LPVO_rubber_black_da39a",
-          "M7M_Stock_Default_coated_receiver_da39a",
-          "M7M_Stock_Default_dark_steel_hardware_da39a",
-          "M7M_Stock_Default_polymer_stock_2c9f3",
-          "M7M_Stock_Default_polymer_stock_da39a",
-          "M7M_Stock_Default_polymer_stock_dbcb1",
-          "M7M_Stock_Default_rubber_black_7a08d",
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber",
           "M7R_06_RecessBlack",
           "M7R_07_EngravingGray",
           "M7R_09_CoatedLens"
@@ -6634,7 +7094,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Equipped_Tidal.glb",
-        "file_bytes": 119136656,
+        "file_bytes": 132223564,
         "scene_graph": {
           "roots": [
             {
@@ -6847,8 +7307,8 @@
               "parent_name": "Mount_Optic"
             },
             {
-              "name": "SM_M7_Grip_D2.001",
-              "source_asset": "SM_M7_Grip_D2",
+              "name": "SM_M7_Grip_Phantom.001",
+              "source_asset": "SM_M7_Grip_Phantom",
               "position_m": [
                 -0.0625,
                 -0.0,
@@ -6857,8 +7317,8 @@
               "parent_name": "Mount_RearGrip"
             },
             {
-              "name": "SM_M7_Stock_Default.001",
-              "source_asset": "SM_M7_Stock_Default",
+              "name": "SM_M7_Stock_ShadowRail.001",
+              "source_asset": "SM_M7_Stock_ShadowRail",
               "position_m": [
                 -0.17900000512599945,
                 -0.0,
@@ -7093,9 +7553,9 @@
       "parts": [
         "SM_M7_Core",
         "SM_M7_Barrel_Default",
-        "SM_M7_Stock_Default",
+        "SM_M7_Stock_ShadowRail",
         "SM_M7_Mag_Extended",
-        "SM_M7_Grip_D2",
+        "SM_M7_Grip_Phantom",
         "SM_M7_Optic_LPVO",
         "SM_M7_Foregrip_ResonanceGen1",
         "SM_M7_Muzzle_Suppressor"
@@ -7103,37 +7563,30 @@
       "expected": {
         "bounds_m": {
           "min": [
-            -0.36775001883506775,
-            -0.0348999984562397,
+            -0.42635872960090637,
+            -0.03486853837966919,
             -0.282502144575119
           ],
           "max": [
             0.7481749653816223,
-            0.04440000280737877,
+            0.03486853837966919,
             0.13240499794483185
           ]
         },
         "dimensions_m": [
-          1.11592498421669,
-          0.07930000126361847,
+          1.1745336949825287,
+          0.06973707675933838,
           0.41490714251995087
         ],
-        "triangles": 1013804,
+        "triangles": 1142198,
         "used_materials": [
           "M7M_Barrel_Default_coated_handguard_6cfb7",
           "M7M_Barrel_Default_coated_handguard_da39a",
           "M7M_Barrel_Default_dark_steel_hardware_d5c31",
           "M7M_Barrel_Default_dark_steel_hardware_da39a",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
           "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
           "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
@@ -7141,12 +7594,11 @@
           "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
           "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
           "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
-          "M7M_Grip_D2_coated_receiver_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-          "M7M_Grip_D2_polymer_grip_da39a",
-          "M7M_Grip_D2_polymer_grip_f0ba0",
-          "M7M_Grip_D2_rubber_black_da39a",
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber",
           "M7M_Mag_Extended_coated_magazine_0f2a7",
           "M7M_Mag_Extended_coated_magazine_f05bd",
           "M7M_Mag_Extended_coated_magazine_fade7",
@@ -7165,12 +7617,11 @@
           "M7M_Optic_LPVO_polymer_stock_da39a",
           "M7M_Optic_LPVO_rubber_black_00723",
           "M7M_Optic_LPVO_rubber_black_da39a",
-          "M7M_Stock_Default_coated_receiver_da39a",
-          "M7M_Stock_Default_dark_steel_hardware_da39a",
-          "M7M_Stock_Default_polymer_stock_2c9f3",
-          "M7M_Stock_Default_polymer_stock_da39a",
-          "M7M_Stock_Default_polymer_stock_dbcb1",
-          "M7M_Stock_Default_rubber_black_7a08d",
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber",
           "M7R_06_RecessBlack",
           "M7R_07_EngravingGray",
           "M7R_09_CoatedLens"
@@ -7206,7 +7657,7 @@
             0,
             0
           ],
-          "SM_M7_Stock_Default": [
+          "SM_M7_Stock_ShadowRail": [
             -0.179,
             0,
             -0.0025
@@ -7216,7 +7667,7 @@
             0,
             -0.1
           ],
-          "SM_M7_Grip_D2": [
+          "SM_M7_Grip_Phantom": [
             -0.0625,
             0,
             -0.065
@@ -7288,28 +7739,28 @@
       "fbx": {
         "geometry_objects": 1,
         "mesh_objects": 1,
-        "vertices": 516033,
-        "triangles": 1013804,
+        "vertices": 578094,
+        "triangles": 1142198,
         "nonfinite_vertices": 0,
         "uv_layers": 2,
-        "uv_coordinates": 4372220,
+        "uv_coordinates": 5793364,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.36775001883506775,
-            -0.034900013357400894,
+            -0.42635872960090637,
+            -0.034868624061346054,
             -0.282502144575119
           ],
           "max": [
             0.7481749653816223,
-            0.044399987906217575,
+            0.03486845642328262,
             0.13240499794483185
           ]
         },
         "dimensions_m": [
-          1.11592498421669,
-          0.07930000126361847,
+          1.1745336949825287,
+          0.06973708048462868,
           0.41490714251995087
         ],
         "used_materials": [
@@ -7317,16 +7768,9 @@
           "M7M_Barrel_Default_coated_handguard_da39a",
           "M7M_Barrel_Default_dark_steel_hardware_d5c31",
           "M7M_Barrel_Default_dark_steel_hardware_da39a",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
           "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
           "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
@@ -7334,12 +7778,11 @@
           "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
           "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
           "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
-          "M7M_Grip_D2_coated_receiver_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-          "M7M_Grip_D2_polymer_grip_da39a",
-          "M7M_Grip_D2_polymer_grip_f0ba0",
-          "M7M_Grip_D2_rubber_black_da39a",
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber",
           "M7M_Mag_Extended_coated_magazine_0f2a7",
           "M7M_Mag_Extended_coated_magazine_f05bd",
           "M7M_Mag_Extended_coated_magazine_fade7",
@@ -7358,12 +7801,11 @@
           "M7M_Optic_LPVO_polymer_stock_da39a",
           "M7M_Optic_LPVO_rubber_black_00723",
           "M7M_Optic_LPVO_rubber_black_da39a",
-          "M7M_Stock_Default_coated_receiver_da39a",
-          "M7M_Stock_Default_dark_steel_hardware_da39a",
-          "M7M_Stock_Default_polymer_stock_2c9f3",
-          "M7M_Stock_Default_polymer_stock_da39a",
-          "M7M_Stock_Default_polymer_stock_dbcb1",
-          "M7M_Stock_Default_rubber_black_7a08d",
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber",
           "M7R_06_RecessBlack",
           "M7R_07_EngravingGray",
           "M7R_09_CoatedLens"
@@ -7372,13 +7814,13 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Equipped_Standard.fbx",
-        "file_bytes": 41873644,
+        "file_bytes": 57187868,
         "comparison": {
           "min": {
             "pass": true,
             "absolute_error_m": [
               0.0,
-              1.4901161193847656e-08,
+              8.568167686462402e-08,
               0.0
             ]
           },
@@ -7386,7 +7828,7 @@
             "pass": true,
             "absolute_error_m": [
               0.0,
-              1.4901161193847656e-08,
+              8.195638656616211e-08,
               0.0
             ]
           },
@@ -7394,7 +7836,7 @@
             "pass": true,
             "absolute_error_m": [
               0.0,
-              0.0,
+              3.725290298461914e-09,
               0.0
             ]
           }
@@ -7403,28 +7845,28 @@
       "glb": {
         "geometry_objects": 8,
         "mesh_objects": 8,
-        "vertices": 1442393,
-        "triangles": 1013804,
+        "vertices": 1814281,
+        "triangles": 1142198,
         "nonfinite_vertices": 0,
         "uv_layers": 10,
-        "uv_coordinates": 4052292,
+        "uv_coordinates": 4437474,
         "nonfinite_uv_coordinates": 0,
         "missing_uv_objects": 0,
         "bounds_m": {
           "min": [
-            -0.36775001883506775,
-            -0.0348999984562397,
+            -0.42635872960090637,
+            -0.03486853837966919,
             -0.282502144575119
           ],
           "max": [
             0.7481749653816223,
-            0.04440000280737877,
+            0.03486853837966919,
             0.13240499794483185
           ]
         },
         "dimensions_m": [
-          1.11592498421669,
-          0.07930000126361847,
+          1.1745336949825287,
+          0.06973707675933838,
           0.41490714251995087
         ],
         "used_materials": [
@@ -7432,16 +7874,9 @@
           "M7M_Barrel_Default_coated_handguard_da39a",
           "M7M_Barrel_Default_dark_steel_hardware_d5c31",
           "M7M_Barrel_Default_dark_steel_hardware_da39a",
-          "M7M_Core_coated_receiver_2089a",
-          "M7M_Core_coated_receiver_24391",
-          "M7M_Core_coated_receiver_4722f",
-          "M7M_Core_coated_receiver_da39a",
-          "M7M_Core_dark_steel_hardware_2089a",
-          "M7M_Core_dark_steel_hardware_24391",
-          "M7M_Core_dark_steel_hardware_4722f",
-          "M7M_Core_dark_steel_hardware_da39a",
-          "M7M_Core_polymer_inner_da39a",
-          "M7M_Core_polymer_stock_24391",
+          "M7M_Core_Reference_coat",
+          "M7M_Core_Reference_dark",
+          "M7M_Core_Reference_hardware",
           "M7M_Foregrip_ResonanceGen1_coated_handguard_da39a",
           "M7M_Foregrip_ResonanceGen1_coated_receiver_da39a",
           "M7M_Foregrip_ResonanceGen1_dark_steel_hardware_da39a",
@@ -7449,12 +7884,11 @@
           "M7M_Foregrip_ResonanceGen1_polymer_grip_da39a",
           "M7M_Foregrip_ResonanceGen1_polymer_inner_a1db4",
           "M7M_Foregrip_ResonanceGen1_rubber_black_a1db4",
-          "M7M_Grip_D2_coated_receiver_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_da39a",
-          "M7M_Grip_D2_dark_steel_hardware_f0ba0",
-          "M7M_Grip_D2_polymer_grip_da39a",
-          "M7M_Grip_D2_polymer_grip_f0ba0",
-          "M7M_Grip_D2_rubber_black_da39a",
+          "M7M_Grip_Phantom_coat",
+          "M7M_Grip_Phantom_dark",
+          "M7M_Grip_Phantom_hardware",
+          "M7M_Grip_Phantom_polymer",
+          "M7M_Grip_Phantom_rubber",
           "M7M_Mag_Extended_coated_magazine_0f2a7",
           "M7M_Mag_Extended_coated_magazine_f05bd",
           "M7M_Mag_Extended_coated_magazine_fade7",
@@ -7473,12 +7907,11 @@
           "M7M_Optic_LPVO_polymer_stock_da39a",
           "M7M_Optic_LPVO_rubber_black_00723",
           "M7M_Optic_LPVO_rubber_black_da39a",
-          "M7M_Stock_Default_coated_receiver_da39a",
-          "M7M_Stock_Default_dark_steel_hardware_da39a",
-          "M7M_Stock_Default_polymer_stock_2c9f3",
-          "M7M_Stock_Default_polymer_stock_da39a",
-          "M7M_Stock_Default_polymer_stock_dbcb1",
-          "M7M_Stock_Default_rubber_black_7a08d",
+          "M7M_Stock_ShadowRail_coat",
+          "M7M_Stock_ShadowRail_dark",
+          "M7M_Stock_ShadowRail_hardware",
+          "M7M_Stock_ShadowRail_polymer",
+          "M7M_Stock_ShadowRail_rubber",
           "M7R_06_RecessBlack",
           "M7R_07_EngravingGray",
           "M7R_09_CoatedLens"
@@ -7487,7 +7920,7 @@
         "uv_present": true,
         "missing_uv_examples": [],
         "file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Exports\\SM_M7_Equipped_Standard.glb",
-        "file_bytes": 92064608,
+        "file_bytes": 105151552,
         "scene_graph": {
           "roots": [
             {
@@ -7700,8 +8133,8 @@
               "parent_name": "Mount_Optic"
             },
             {
-              "name": "SM_M7_Grip_D2.001",
-              "source_asset": "SM_M7_Grip_D2",
+              "name": "SM_M7_Grip_Phantom.001",
+              "source_asset": "SM_M7_Grip_Phantom",
               "position_m": [
                 -0.0625,
                 -0.0,
@@ -7710,8 +8143,8 @@
               "parent_name": "Mount_RearGrip"
             },
             {
-              "name": "SM_M7_Stock_Default.001",
-              "source_asset": "SM_M7_Stock_Default",
+              "name": "SM_M7_Stock_ShadowRail.001",
+              "source_asset": "SM_M7_Stock_ShadowRail",
               "position_m": [
                 -0.17900000512599945,
                 -0.0,
@@ -7951,11 +8384,11 @@
         4096
       ],
       "channels": {
-        "R": "67867690437b885cc6b09ee0d82d2d1c78460f129794071a32824ca5a5308731",
-        "G": "e484a28bd1c349768a4b022e79f6ea3b3c3ef06edc290bb5154e416d407896f9",
-        "B": "a74e994acfd8ed071dda37ea346c50a72cc24916a9019ea0c034b56891aa09e2",
+        "R": "86bd9b17fb3a1a44598cf54b7af36258e6539a15cfa6a24e5fef044834ddcaa3",
+        "G": "14eb0e6f0174ea93704d77c37bfccc14e3dc634af14dc5eb58716254dcc83cf4",
+        "B": "9f347e827794d71f3ba11558e71d089b5439141c1310d1566d6cfb4e26d4c5f3",
         "A": "dffab0dd410657cb30c7b2fd7f2586a4792e8472e58882b3532581f8111a646d",
-        "RGB": "171ac3d8563c8a9e7ac3704b89263618e696ebbb238ac8ec3666cc94d634887c"
+        "RGB": "e2de18f668b6b55befe9e3dc42c1a493570aec8da854afd0e79f7757303f17e9"
       }
     },
     "Textures/Baked/SM_M7_Core_Normal.png": {
@@ -7966,11 +8399,11 @@
         4096
       ],
       "channels": {
-        "R": "e883c88596042ea81ccdd8f17b9babdd9a9b192eff9bc1f721d8ae5ad4ef83d4",
-        "G": "93fdf44bb86b857c2f4f5bd0fbbda562dc15716725ba3e1a6696f07345336372",
-        "B": "a35bdfdfdcaeef0757c8352454fdf0c1b8fc26a79fbb004ba7e8a37338c89dd8",
+        "R": "1257425a302a5dd04c0a37a9a3ed1a05127d78604d2973d0153eb50350bcbcaf",
+        "G": "4543f3cd207bc61f31209f7db00c62e4c8e45dcb49d08e6c538c19d7f24d239a",
+        "B": "ed2b6445c93145ea9c919315d36cc3a31137706263efce4effdb47f9c253fa94",
         "A": "dffab0dd410657cb30c7b2fd7f2586a4792e8472e58882b3532581f8111a646d",
-        "RGB": "b28c6873ac70d9209070a211d04c472fed2df18357295560fb2af3074852702f"
+        "RGB": "cbd6d1e8f78b02f77421e15a9a8201a9363dcdd118159c467386744d901635dc"
       }
     },
     "Textures/Baked/SM_M7_Core_ORM.png": {
@@ -7981,11 +8414,11 @@
         4096
       ],
       "channels": {
-        "R": "dd04fb113397c027c6856cdfe5d61a46c0101b3a4ef926b5896affd837e38798",
-        "G": "e5d94c0a6d4828b06533f1d6f6217ad7090c5ffec90e1f8d3757e9fc8a419ca3",
-        "B": "adfadbc44fd67f1945382f07ed8314c3e945337685d78b5dd2fc4da063405d4e",
+        "R": "cd583a39840309cc1ddce7f3b97b76a2016269a35d297034f6e1c9e535cc52d9",
+        "G": "e0443475a66c9510e6ef47c1b06b17c35a97d9868256bba625b894bdb8314f29",
+        "B": "06a684e1702de736578bd28b17b80db505ee39590a4c830e35390ffc3a40f4b6",
         "A": "dffab0dd410657cb30c7b2fd7f2586a4792e8472e58882b3532581f8111a646d",
-        "RGB": "daf6abd645d55ee34001592ab833e126526e4efeb7f0b775255f41dfb106a50f"
+        "RGB": "d55726dc335f6f4fd7e924724d2682d6e78cbe1fb3921fa39f1e6a51e66545ab"
       }
     },
     "Textures/Baked/SM_M7_Stock_Default_BaseColor.png": {
@@ -8707,96 +9140,207 @@
         "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
         "RGB": "1ecb803b164e2742b90f518ca9cd2488389e30b689b7efff3171aabed104dd73"
       }
+    },
+    "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png": {
+      "owner_asset": "SM_M7_Stock_ShadowRail",
+      "role": "BaseColor",
+      "size": [
+        2048,
+        2048
+      ],
+      "channels": {
+        "R": "adf0d0fbe044524e963ef2653cd93427d0b66ab77983911ea67dc5900b7cfbc0",
+        "G": "a4dcf988dd17d9210b809b2bc95a94cf3cefcdfd5b948f00855bf839bd076226",
+        "B": "f7b325c45ad9f4fbd9f687165dc9f465cf1453ed13460bee20115c573b521068",
+        "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
+        "RGB": "4effa2a47b5f44ecf71366a8a6bb93ebf0cbb3f0e5f03ebf23e761eca232f286"
+      }
+    },
+    "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png": {
+      "owner_asset": "SM_M7_Stock_ShadowRail",
+      "role": "Normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "channels": {
+        "R": "d960818841f62060efc7c5a382298abb88d0e561f960cc1d1eca3e8c2b67ac49",
+        "G": "ea5e9be18c01c20a04ecec3de0fb09efe046bb8fd6e031c7dcd663bdd6c0d4d3",
+        "B": "fdcf19e7dae13a711ab30a46451c39cd247d9db4c87621838d8ec063a5968c50",
+        "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
+        "RGB": "316c97819c4d873aabcfdb18cc6d8e8ebaeab902b0a748e59eafefa8a1d216f3"
+      }
+    },
+    "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png": {
+      "owner_asset": "SM_M7_Stock_ShadowRail",
+      "role": "ORM",
+      "size": [
+        2048,
+        2048
+      ],
+      "channels": {
+        "R": "37c21d7ccb84178660484e1ee198bc3dcdf878d5d60666ffc98be2125075a82d",
+        "G": "9aafbd3c3f2e0bf6551f4b3a39ccfdb8cd8795f7a7e2418302be57712b9f8c4c",
+        "B": "422eb77e6acf0b65cc59c5ae4e7b20accdce66096d3efa2d65410496b6357abf",
+        "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
+        "RGB": "5cb7768a8452a76949b4fd7967f455b652477e24c91e93c03e0cddce8f795eb2"
+      }
+    },
+    "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png": {
+      "owner_asset": "SM_M7_Grip_Phantom",
+      "role": "BaseColor",
+      "size": [
+        2048,
+        2048
+      ],
+      "channels": {
+        "R": "e5a4f6c5a79e9c36201a6f7948435ae6b368a1eef1fd3751c588e7b9f0a67cef",
+        "G": "914bad2c41e011d58fd36cfb7e17aa9d67715fb997f9be82e45f8840d61b1b7e",
+        "B": "ae0fcaf32748472e37dc5abdd6a39e766063a91979ce50ccb06c28467dd7e4cf",
+        "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
+        "RGB": "8b1c8e7f23d295acfa4eaabd6629c5624674c85b0aa7a0186eb7e835458f6071"
+      }
+    },
+    "Textures/Baked/SM_M7_Grip_Phantom_Normal.png": {
+      "owner_asset": "SM_M7_Grip_Phantom",
+      "role": "Normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "channels": {
+        "R": "9fe0a15db09457773d8b9d1b3ebed22873e16f06bc9cbe8c9b21b069ffce687d",
+        "G": "46a5d0340c84ba3390250f2cc19067059b0d11b1fc56d5dab1deccb0c99f3eb6",
+        "B": "9d3ed06f764422f9973e865185b6481c8009cae1aa5d40ca4836c00be6e0721b",
+        "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
+        "RGB": "7311ea9c58593fc583df9e0bbf4fa89b757b05a0f2dd87bc0becca2783057e5b"
+      }
+    },
+    "Textures/Baked/SM_M7_Grip_Phantom_ORM.png": {
+      "owner_asset": "SM_M7_Grip_Phantom",
+      "role": "ORM",
+      "size": [
+        2048,
+        2048
+      ],
+      "channels": {
+        "R": "d328f120c337afdf4e8c43b135c1a809d18d55ec02f910ae0f014ed61bd463a4",
+        "G": "b873ca9db2cb5a0e7935eeccae0acfc086d55987f68d20d5c5c7de47bd3bfa26",
+        "B": "397466825895e9d85f211e8b6574a517c45af13dcb00907119c71e3a545675fe",
+        "A": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08",
+        "RGB": "e6fc8b15c688ad0028347ec3df29b9cb61fd474bbd38053a551dc18abe43b980"
+      }
     }
   },
   "validated_files": {
-    "AssetManifest.json": "f29ac6735908d95f065705243ca72bc22ba21beb500a18f971d304672959b8ed",
-    "Exports/SM_M7_Barrel_Default.fbx": "dadd652ca8b29d0e913a689bf838d7939b214d62e826c0bc84d2b8c0ed132a0a",
-    "Exports/SM_M7_Barrel_Default.glb": "5913585ffd2e93a95a16cfd0735e6e64bbd5e573dcd8fc92215839769e00656c",
+    "AssetManifest.json": "14ae2a420fca52428e99fe1ad6d4acdf061b1737dbcc21716724af27687d1d45",
+    "AttachmentRegistry.json": "caf30afb6cee02cb59a8cf5dea6ed895fe4241a219f05867380ca7ec135d5c61",
+    "CoreReferenceReview.json": "12423dc1817b2d8437ad8503759f26783c57620fc0be883bb7c859e9cb89ebb8",
+    "Exports/SM_M7_Barrel_Default.fbx": "67031be74cc4683098517395a11f6eec550f7be232362fe403705ced8a9bd600",
+    "Exports/SM_M7_Barrel_Default.glb": "3bc1615be5e92cf5ae6b3fb45231f414227ce3de889a3bb80cab7ae34117fe08",
     "Exports/SM_M7_Barrel_Tidal.fbx": "82776af30c594260f08675d363cdae19a59355ca138d58d73011cdcbdc18960a",
     "Exports/SM_M7_Barrel_Tidal.glb": "dcfe29af550470826382abd989e79ded7fb9e6c6e9ce34c6dc157515bdeb0feb",
-    "Exports/SM_M7_Core.fbx": "0045ace1e85ac46c204b83c5ce410b91429b488fb8947aecda033d53786cefc2",
-    "Exports/SM_M7_Core.glb": "1ef5ed812acb563866496f525b857d3d10b3719c1d675880010ef76d9a2c7c02",
-    "Exports/SM_M7_Default_Assembled.fbx": "994341a1186ee43ad34a80a0174d605d83b7868e7894c6ba2ccbf6973ab88a9d",
-    "Exports/SM_M7_Default_Assembled.glb": "0fe72bd1e222aa52dfe8472383b4c8b46d8fcf0e9bebf814340233cc3ef244a1",
-    "Exports/SM_M7_Equipped_Standard.fbx": "3caec5983073e12e0cc27eb7d147f8237e2e924596a0b9f8d1c5bac5a871ffc1",
-    "Exports/SM_M7_Equipped_Standard.glb": "2479be5812ee549a89ba3d8a1a3e2ce1aafacd8ad9273917b2c2a0f99bcf5d0f",
-    "Exports/SM_M7_Equipped_Tidal.fbx": "3c291de0cccb47be1a5d74e4830d0900ff57c1ed40454253b06d2d0c6c84a898",
-    "Exports/SM_M7_Equipped_Tidal.glb": "fb06c3318d3976b706cdfa288dcdcd839273e7e1d97bb796e9c1e88dfd55737a",
-    "Exports/SM_M7_Foregrip_ResonanceGen1.fbx": "47c32584a7ffda6d102952faa673be103215d29279f6754b43e2e7cea6280f12",
-    "Exports/SM_M7_Foregrip_ResonanceGen1.glb": "b38efdf9b1ecd5879e019b3805c0cac043642f1c017e3773f8aa2eff3ce36401",
-    "Exports/SM_M7_Foregrip_Vertical.fbx": "e5efc18e5031735430c1376bea3d6a604e0be66f27f5f62b364a2ecafc515cd3",
-    "Exports/SM_M7_Foregrip_Vertical.glb": "1a266280d239864e704312e03467a5cfde3f4d19a114e9c8c1946bad10d13cfe",
-    "Exports/SM_M7_Grip_D2.fbx": "0e5454cddfa54bdf3c93a5c86fbe48ce17b6636c0dd0b031ef3df62592dcbc24",
-    "Exports/SM_M7_Grip_D2.glb": "90c6330d5f5a66313ef2a8bd77021e003b1e00f71f4ff76f70d8f30bb0265f2a",
-    "Exports/SM_M7_Grip_Default.fbx": "8df8c77da8fdb29b1e92226c0c6137ce3fd6bf1df74a0949a0ea3d39c5c15f3b",
-    "Exports/SM_M7_Grip_Default.glb": "5185c09925047f74d0c5d0afce8d02f216f755721a4c79008b13716cc676d585",
-    "Exports/SM_M7_Mag_20.fbx": "9a4fe11f34ff581988d52bc9b83bed73fa675bd18e26204ad4665ec822253dea",
-    "Exports/SM_M7_Mag_20.glb": "daaba839d461e1599b1c2edae7f192759ce0297bfbcacda015285b56bbace199",
-    "Exports/SM_M7_Mag_Extended.fbx": "8b54ef123f056f03b5b0a1c6cdd633e82b14ca1d122a1035cd90791e38521ded",
-    "Exports/SM_M7_Mag_Extended.glb": "73f712ff64dfcc9082a8a5ecd0a0bb79381060d6bc953d5d33878fecaae6aeab",
-    "Exports/SM_M7_Muzzle_Brake.fbx": "c8eff719e7b67d0ad501da41a3485a84a259d405a46616c4f659240783d5c862",
-    "Exports/SM_M7_Muzzle_Brake.glb": "dc7c1c5f4cab51c6d8c05dede4b402d48b4a332569960bd9286c79e10bda756d",
-    "Exports/SM_M7_Muzzle_Standard.fbx": "748cbd975a86ae3b60e4d6745d4946148e58cdb39ce70173cc8bd541cf59cdbb",
-    "Exports/SM_M7_Muzzle_Standard.glb": "78946e3ac16d203bb7e95eb85d052b5e53c2041e46968f2d21b0748cd7f99770",
-    "Exports/SM_M7_Muzzle_Suppressor.fbx": "fb0cc25849e9df5bc1ee2052d565f6d3b572e2774babf9691b0e07b93e346c67",
-    "Exports/SM_M7_Muzzle_Suppressor.glb": "d770f63770e6d4e5887a6671a58db3e57816d8ad4768e80148f06b13f7082ea7",
-    "Exports/SM_M7_Optic_Combat.fbx": "74c886564e43b800e0704e4c1233613811ddf979ed213d1e6cc1b82607bcb1e8",
-    "Exports/SM_M7_Optic_Combat.glb": "627683044b68995e7bc4a7c05ab4d5f4b5e31db520438c4ae0477f2fef360917",
-    "Exports/SM_M7_Optic_LPVO.fbx": "c77d6683293488ed8c28fd47daeacaf824fec24e2e56c81b23041dc839bb8484",
-    "Exports/SM_M7_Optic_LPVO.glb": "957745ac1d0daded6bc8005ec677a9891403fe2c217c5132ae397b366f842522",
-    "Exports/SM_M7_Sights_Iron.fbx": "e543a9f93e2889450a187be8ddf70901df385e18edbbc259e310b195a5652deb",
-    "Exports/SM_M7_Sights_Iron.glb": "ee1ec4ee19e16ef7f908d894235d089d1c34127dcfd11a9c92b3817eb4c18f90",
-    "Exports/SM_M7_Stock_Default.fbx": "a39e764725e5948de1ff65b38a9895a1b88c0684b4bd81fe8337938eae4f2290",
-    "Exports/SM_M7_Stock_Default.glb": "7985cc0f7a562c0ef4aef48de1a0c3c82bb91afeb5c55203eb7f276b064464b1",
-    "Exports/SM_M7_Stock_Skeleton.fbx": "4da72f4adaafb929d2406ac432dd70c32d4559bd40405d5d654045ea91fe3197",
-    "Exports/SM_M7_Stock_Skeleton.glb": "e230bfc9622cec8dd8b66aeda85c3f5caab53b73c5f7307d8f20f070458fb5c3",
+    "Exports/SM_M7_Core.fbx": "f0ab6e6ce1b08ccbee84c96c2cab973cb87f9d9f9c9d19f42c4805a79a803785",
+    "Exports/SM_M7_Core.glb": "1339e4d7c8bf5a72200118c97b592c2d929ebdd2b00ff4cab0d52ed28f3b4365",
+    "Exports/SM_M7_Default_Assembled.fbx": "115d9c5d989ee8a2504931196da75e3e8dffa81758bfe0c717d57a834b973e95",
+    "Exports/SM_M7_Default_Assembled.glb": "0f6cc7b20bed205077817ed8ae4e27a71557c5984c912825796b7c12386c0180",
+    "Exports/SM_M7_Equipped_Standard.fbx": "c7bf9edc2c193ac0251631f1c906f4e4af09de45c83e4cddc373055170a111f6",
+    "Exports/SM_M7_Equipped_Standard.glb": "a6f237cae5293be8e0ffa616bf47296c9cea2de3b81a99ec282410d6c40a7846",
+    "Exports/SM_M7_Equipped_Tidal.fbx": "6423c7a7a14ec4b1da9c30bed4f9889c3c17a285f7249ff509310e296e07e5f5",
+    "Exports/SM_M7_Equipped_Tidal.glb": "8d941a182f699513e2e57e7a1e0c6d0cd264ab6b68f1625ea82aa7e6c145105e",
+    "Exports/SM_M7_Foregrip_ResonanceGen1.fbx": "ba6e25992c1249d92167471ec66a2ae0f8bc770ecd30e51d2051081e7525c890",
+    "Exports/SM_M7_Foregrip_ResonanceGen1.glb": "7a7b52c9fb3a9bd0f122a6c26b4466f0bc8e79c20e067f721780e50179cf14df",
+    "Exports/SM_M7_Foregrip_Vertical.fbx": "70d027b9874a3100a40a8693da34f79489f0957fd0e048ce5173ae146767c301",
+    "Exports/SM_M7_Foregrip_Vertical.glb": "cd5b2c408d212b017f840f37ce95d559fdb049bac3d903c0115568d156036e03",
+    "Exports/SM_M7_Grip_D2.fbx": "5ab7073d7abec444aa43a210557f1c926bb56b55acb94f026574d004604288f9",
+    "Exports/SM_M7_Grip_D2.glb": "0b57da01b7139a50fcda2cd7f695cc44f6f03745da30369e6391368ff6c337b8",
+    "Exports/SM_M7_Grip_Default.fbx": "f5a714951bef5d69035caa51f5b7ad72a5dd5a416169c5ff95cf35c52ac04094",
+    "Exports/SM_M7_Grip_Default.glb": "dfc5d57dc4076570a6e54b648f1af97d005c630f48833250da7643cc29b3f684",
+    "Exports/SM_M7_Grip_Phantom.fbx": "1e998ffe1d94ebcb69ad51c19ced8624645277c68b4052b2092e1810c964bbd7",
+    "Exports/SM_M7_Grip_Phantom.glb": "8b03100bea32642ff2f16a9c4906a8eeb977cccfbb48929fa0efcad57b6bcea3",
+    "Exports/SM_M7_Mag_20.fbx": "03d88bb517f1f4d6d7ae46a7a71261f46008359faf44e43f510d29abfcd6e2cb",
+    "Exports/SM_M7_Mag_20.glb": "a895f89ef9d86b624e84ef8788a84e8040332440c1b2fe95b34b2ecdc77fddbd",
+    "Exports/SM_M7_Mag_Extended.fbx": "99d2eb6b6a5e9d3497cc8cd42aa3abf40b36d4f42ceff557d842995e403c367d",
+    "Exports/SM_M7_Mag_Extended.glb": "ba5fac9d17714870617975eeccdb3abe1c1cd00a97eade1e724f2e0305a1a8a0",
+    "Exports/SM_M7_Muzzle_Brake.fbx": "778424fe7db6a898ffe26720daeeb840632b859ededb170bad6e638b94fcb5ff",
+    "Exports/SM_M7_Muzzle_Brake.glb": "fdf3c2da6215dba1f6bbfc4d1ba31079c28efac636b15ab82339aa4e4bde2961",
+    "Exports/SM_M7_Muzzle_Standard.fbx": "f534f96dfac4c4c6e9947eeac2cf89afca52c33ab178ff12f41fba112ba13f6f",
+    "Exports/SM_M7_Muzzle_Standard.glb": "24272c1f7dc9a87033ffff6326b9f19b62e03b3041c0886743d774eb5a6b3a58",
+    "Exports/SM_M7_Muzzle_Suppressor.fbx": "cf43ad046304dbd7051ea3f09399fabd87f80e9060bb3ca723a44f8eb498481c",
+    "Exports/SM_M7_Muzzle_Suppressor.glb": "d5e76da13bb72cb18897975a49e28a6f168e1d1bfe024756397d1e45fa2f55af",
+    "Exports/SM_M7_Optic_Combat.fbx": "206b6721af500936e5dae9c3a5637780e6237cd0d2f7e2bc29c932a60f7775cd",
+    "Exports/SM_M7_Optic_Combat.glb": "bac0a824e41ccc034bd4fb3f0e91b32f79a3ada83cd714411bc347ee6b0ca1d0",
+    "Exports/SM_M7_Optic_LPVO.fbx": "8dc04d646d82ceba10244dd8dc331356b7f8ab240baaf2664f4e0bb80c9dc0e3",
+    "Exports/SM_M7_Optic_LPVO.glb": "164273f2e116083e655a3d4060bbfc52a958635cd7369d3d27a6848444ef069e",
+    "Exports/SM_M7_Sights_Iron.fbx": "463619335d5c36c31f29f10765312af2f04b2bf303a7861edfbb271c29e2fa66",
+    "Exports/SM_M7_Sights_Iron.glb": "d4c8a1f772d6dae7b474814605604a47920b2daab885e6232853ad482d08cbf1",
+    "Exports/SM_M7_Stock_Default.fbx": "b272f0afabcbac8c8bd68f1e892f6d684f6d018aa4975aaa86fec76a3c344d00",
+    "Exports/SM_M7_Stock_Default.glb": "252b092c891e5d9073a6b37cd380298ba3392881b6dcd5b0998e12d4c2ae85b3",
+    "Exports/SM_M7_Stock_ShadowRail.fbx": "5a905b85c88922a963c06bb02508acc194445068b3ec3bb3e20c724ccbf5b18d",
+    "Exports/SM_M7_Stock_ShadowRail.glb": "ece709e430be97524fc525b7aa321bf737cf05be98e9a2437f0db5dac04047ec",
+    "Exports/SM_M7_Stock_Skeleton.fbx": "312d7ab7b76f824e854c42d5b4743f27d35cb4b20719683b772b1496fe83eb7c",
+    "Exports/SM_M7_Stock_Skeleton.glb": "8b369325a5c1dd40bb0668f77c513d828fc4fac3fa46460eb2a70c21c758a941",
     "FrontRefinement.json": "5e96b420ec6a2c1e814569036a926009087306bbf0354d1e7ccd248dd0f1f6bc",
-    "MaterialReport.json": "aa9595b62952b58aec52af5673860a05e6b7694bda86f8a099c82ff1a8b5e248",
+    "MaterialReport.json": "cb1e8d8c0fb9c73a8a5f73a5087a60ce688efa052f4d0bc4017fdd211d8ecc0e",
+    "Previews/Before_Core_Reference_Side.png": "0ca86e3f4860a11bb738ea872e174cc919f05bd34f2ecec84cd799c6ca4d390d",
     "Previews/Before_Equipped_Tidal.png": "f0747b0200e3761f5e0f45c954460e824462614d4addabd3356365a84986aad4",
     "Previews/Before_Receiver_Magazine_Detail.png": "f96b3c1ba1bf660f029ebec060e41b376c1e4ffaa9d396d00d48c6ebc606efa7",
     "Previews/Before_ResonanceGen1_Detail.png": "097cb1ddba34a30c946a84bcbc25969aaa67d4b674a92c62831bf49f4de3cc04",
     "Previews/Before_UpperRail_Detail.png": "68f48bcdf6b55dc0e07ea93ccb0191fb4fb9ffeba74bbd0f4b3d278d26adad0b",
-    "Previews/Compare.html": "758310a25565f3d085de7c8424a98ff18d6b7924c358f4e5a9d2ebb5ad75ff30",
-    "Previews/Preview_Attachments.png": "116797e3809323d580aebf7529f6f6583096aecf3d429e8f4aec1969a1461d43",
+    "Previews/Compare.html": "38aa11a5868bf7acaacff5565f61796a29dd8f17bf7d294888e843d07d2571eb",
+    "Previews/Preview_Attachments.png": "fe564ac83a88bb42b00e2043d965890a73c238ab4d726da99dac0c221013b3ce",
     "Previews/Preview_Barrel_Comparison.png": "43a4c1c6c3be651ffe8cbd2bf53afef285d1e264861498b2fd5ca3d7d9324574",
-    "Previews/Preview_Default.png": "79edce3e51c0044c961d30baedc5cb8ca858fe21be83c12d01579145c8742787",
-    "Previews/Preview_Equipped_Standard.png": "07c2f922ef5ec7c4e303dc8ee6c3c2184bb26a908cfb823e8f9cc7cb1bf461ab",
-    "Previews/Preview_Equipped_Tidal.png": "958b7fd057e8cdd6df8099686889b3c472baeef858fe5c4f96ab099c3f1b9c8c",
-    "Previews/Preview_Equipped_Tidal_Side.png": "3ae2dc05b09b2b7d5fc380dd8c063c6dfebc16ae3081d93c1d02d0bc7e8e186a",
-    "Previews/Preview_Receiver_Magazine_Detail.png": "361c961dd4296da3084566abdcfd269d54e1f9ffdf1ad9899c575cbe06cd762a",
+    "Previews/Preview_Core_Reference_Side.png": "3b9098e3af6ec767e671fb66e162d0206c380abfca2cdb54e73889837b0d8aa8",
+    "Previews/Preview_Default.png": "929de5d318b40acc166e06871b4080e43dadc700818496991da194fac7538804",
+    "Previews/Preview_Equipped_Standard.png": "d687dcf0b6e2c7e4535c8b3ae2b1273f024e7bd93795831fec1339ad1c2e22d9",
+    "Previews/Preview_Equipped_Tidal.png": "88a2e7a6569d3fab2d8f2eb8297dc4a546903c3951a42ca03da3dc16fec035d2",
+    "Previews/Preview_Equipped_Tidal_Side.png": "48b55ce33197080b526d0a5b72157c0e4a1181610bfe0389a8efdbbd48efd96e",
+    "Previews/Preview_Phantom_Side.png": "d767cb0821ccfc0c2ad290c4be49b9bbb66b34fa1f35826f37a8e90456f28b87",
+    "Previews/Preview_Phantom_ThreeQuarter.png": "3f4250251728e57338e351c308acfde788cc3b744997afc3e48d35f7e39d3313",
+    "Previews/Preview_RearRail_Detail.png": "588cbb072780e7dbf135dc3bc7c231111c3b7372e8079120b892bfa71d3ac588",
+    "Previews/Preview_Receiver_Magazine_Detail.png": "3145d467bb36f7eca4e501804fd75907a786b24557c96d6e61af0e153f4a7a8c",
     "Previews/Preview_ResonanceGen1_Detail.png": "0643e38d5e42ed4b8dc6cf2a38727622a59682ad2e0f9d6c992d354a20db1de7",
+    "Previews/Preview_Shadow_Phantom_Installed_Side.png": "9ebee3fe7a4980a987d62ea04dc6282d6fed4389c62ba489c489cd53416d4c55",
+    "Previews/Preview_Shadow_Phantom_Side.png": "6f21443c35e7e7ce54b8cd9b7a0bd5bd5285f4e79e1410f6768a5f5abe6f9667",
+    "Previews/Preview_ShadowRail_Side.png": "769fe407af9963bc196a6b53183db9fe76eaf6a2128135630b97a6f12fe8b445",
+    "Previews/Preview_ShadowRail_ThreeQuarter.png": "87f8d67b2c5a9fe7199b78e2e75c054d64fe13bd4e1da6812f6026a836fc40d3",
     "Previews/Preview_Tidal_Front_Profile.png": "d22b91c88940053b83b35d48a6796933465db0ed1ee5c3678c60c241d67a2ff9",
     "Previews/Preview_Tidal_Nose_Detail.png": "eac761fc2d36202c15aa65c122f161d80b88ed4a7a873b773e02f4ab664fffc0",
     "Previews/Preview_Tidal_Nose_Side.png": "dc3b0d6068909a838db5a0cde93b913984f384c1916eeb324df599394378e0cb",
     "Previews/Preview_Tidal_Reference.png": "20a1498eec7b1e4417d985194c16937ed66efbf65ee13427129c313b95f9085f",
     "Previews/Preview_Tidal_ThreeQuarter.png": "0cf047c1a58c3dbee0b9a94d0e5967228e5de0aa9e2d23d0d0da0533a0008089",
     "Previews/Preview_UpperRail_Detail.png": "067c918e20a525e972b898f4172265b4f3f52724c360e9c133aac61d2d66ec6b",
-    "README.md": "ceb968aecab4cd6968bb28f793dbb14fdc3b33156e3642b9acb3db92c42712d9",
+    "README.md": "b7c95519af48ce5da1803f7a387e3fe5a1c4496e5b98890099ce15a5668d5d60",
     "Revisions/GeometryV2/Source/M7_PreMaterial.blend": "ae695232801d74990b8b1b6fdef87deb6654dfd8267b57df5612acce4f26ecff",
+    "Scripts/add_shadow_phantom.py": "baa7dc70e5278d087956ba63fc88f3d44dc677b10c3eb2da36fc829992a9227d",
     "Scripts/align_style.py": "79afbeecd12146e07bec06c57fdecce8ef9f11ee1204310a4f2f536815205083",
     "Scripts/bake_atlases.py": "6e45e8d5d39ede07833c5ed45bf2201922dcab002a5794a2da2d129035ac9438",
     "Scripts/build_materials.py": "61b6b2821e8868010ecf87fd71de8b3137896fb2c65bafa3a4d0af349950fe3a",
-    "Scripts/export_library.py": "c26d5c7d0d8f2d3ee24f571c5d01f943f5b6e71f95ba1eb32ebde8615c6bf248",
-    "Scripts/finalize_material.py": "c114a91c07249a600f51f232ec96fd36d25a069e6104117c812047de8f9a3d9b",
+    "Scripts/build_phantom_grip.py": "573d10dfff219b5f9f2b6c9a727d2b2916f894db541a740d9ac842e7a7eb41e6",
+    "Scripts/build_shadow_stock.py": "7b3cd0e8e86b607cb5fb828401087ed43552c16ee0ecc2ebfe10ec5f30bb0eeb",
+    "Scripts/export_library.py": "b2ff14edd8177054af840271ecec70f63f985e4d190c299f5b13a68cc3a64d80",
+    "Scripts/finalize_material.py": "e7b650bf12173b439b03bc163b25542a22974e485e930c84789b5e784adcacd9",
+    "Scripts/freeze_tidal_attachment.py": "33d024adf8c422c1574fe02d8683a54bbed425ae992ba913dc014af0e16827f6",
     "Scripts/material_settings.json": "f310c4facc6ec947ea06731b290d815ff25f5daba8bdd3fc59af57a57d1f52dc",
-    "Scripts/package_sample.py": "688b18dede52ad7628a91c129ef0cc57c49c1fee2f594a4fefa6240197e2cb4f",
+    "Scripts/package_sample.py": "861ad0727e355d7f811341d87457381ae80fb2df46a697c08ab0ee5d87d4599d",
     "Scripts/prepare_sample.py": "422659b6c1b36e474bc4c68836525fc289ce6df2cd2a1743f7b4bfcad2326da7",
+    "Scripts/rebuild_core_reference.py": "98ea72280beb417b81ac0902e684bf1ba307e52c870f7eefa9c6e744f84fc2ec",
     "Scripts/rebuild_tidal_reference.py": "a5273c8c0a9a95e59f3eb4259b337789d47aabb25ccdae55e6765eb21464496d",
     "Scripts/refine_front.py": "7d2b479ebd48bd69ec4e313d651523dd7c8ffc3296710c9a6b65efcf8c2524a0",
-    "Scripts/render_sample.py": "12d5cdb7439e86414b2da099c44afe05d2031004d749545a2adb461f93bf98cc",
+    "Scripts/render_sample.py": "9e676e1e7c0f992148b3d92a9114bc4381b697de99b5b30380d845964e236b66",
     "Scripts/switch_barrel.py": "34d4db041a8584182d4c3445c186255735f17c6c1f331791c2e0855a510f5b2f",
-    "Scripts/verify_library.py": "259eb302c8f798cac55a90d2b5d16fde6f9d510e89b67441912815b561cd86d0",
-    "Source/M7_Material_Study.blend": "eec775593944caca84b35392fb00a662ffae224121b8091e65e2da1272d23ae1",
+    "Scripts/verify_library.py": "60622f62dd862df94ff4a148af2c38c2e254380dc2688ca85f20b86fac1f6662",
+    "ShadowPhantomReview.json": "ea6b9a2df5781b89acabd75ea836ca295265799fe6cce09895ef516d3fb0d96e",
+    "Source/M7_Material_Study.blend": "21f698013df491db83fa22b8c0da49b03e2b20b01ba680806707599a82cb7987",
     "Textures/Baked/SM_M7_Barrel_Default_BaseColor.png": "40566958ce5608e0d3b7e2236ed2ca682ce14b1bbaad1b40b143038e95f40969",
     "Textures/Baked/SM_M7_Barrel_Default_Normal.png": "fa5c94dffebe072d91c9df55e54f7afe2a933b20fc8705dd1dd3326ee8c9a4f2",
     "Textures/Baked/SM_M7_Barrel_Default_ORM.png": "e53ff4b602fd65195e3928cd61d5fa3532f982386cdfe8466d9a7c34a1116872",
     "Textures/Baked/SM_M7_Barrel_Tidal_BaseColor.png": "cb0f765a5bf456ca4fd07558ab6f59c32b1215485fbd1e58eab92dc4ffa9a160",
     "Textures/Baked/SM_M7_Barrel_Tidal_Normal.png": "988a6793e4888698da817ef47a322427c27e18ce1df7f750c3bdf80136223eda",
     "Textures/Baked/SM_M7_Barrel_Tidal_ORM.png": "3ba8d2ae517db1d606e4ebaf8de049773d4882311c3b7af9fa7e786e12970e0c",
-    "Textures/Baked/SM_M7_Core_BaseColor.png": "d8ab08e28b790d0f613b398e4bb0c8d8aed3a2ea885883ebfa47aaaa45164f03",
-    "Textures/Baked/SM_M7_Core_Normal.png": "161f9a1afd1ac83bd3724fbfb50f6d5856036c1345d57819326ce65c21fb8940",
-    "Textures/Baked/SM_M7_Core_ORM.png": "785f2631470683029f2bb411ac8d8ca36f3d95cbc14ed0f9f81ff74546b2156c",
+    "Textures/Baked/SM_M7_Core_BaseColor.png": "ca34119d3347b912fdaf654c10e1e9d96f83227e7a3fbde33e6649be98b4a501",
+    "Textures/Baked/SM_M7_Core_Normal.png": "9877827ce507646346b3a2f7de5c4e7c16ed35406bb025cfef5f2c5ce65bf064",
+    "Textures/Baked/SM_M7_Core_ORM.png": "af53870747d0037babfa9c552d0b84147840357da7aff7e690ff50c8f1e8c584",
     "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_BaseColor.png": "56010b4fa7a1c47a487fbb1a6a343c51051835936abcc14b28851992983718fc",
     "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_Normal.png": "f53e9d6374c678ff0866e45c7172bf85426440ae0bce7553b3e4fd140fa45713",
     "Textures/Baked/SM_M7_Foregrip_ResonanceGen1_ORM.png": "1d3b9d7feff2ab7abc38fa5b5d5c7a9a9ffa02d065fc48c40a87c8b352df7fac",
@@ -8809,6 +9353,9 @@
     "Textures/Baked/SM_M7_Grip_Default_BaseColor.png": "3c7dfe743d13b2ae3e5e2d86400ddcb816ca90149001e2c786b0ddaf040c3c55",
     "Textures/Baked/SM_M7_Grip_Default_Normal.png": "f30c9fb91337e816955955e2030057bdded1076bb5d883a40e599cbf1876db3a",
     "Textures/Baked/SM_M7_Grip_Default_ORM.png": "c26f753119636210f1e78299aa0b5a4b231452e136cceb32b1e02f2f04ea2207",
+    "Textures/Baked/SM_M7_Grip_Phantom_BaseColor.png": "a3740f37be8794eaf2dde9d3da50e1849c8150da782a69933c45cfa158a96770",
+    "Textures/Baked/SM_M7_Grip_Phantom_Normal.png": "59de986bd9fae95c36df98de4ee5f9d493d3e7a7900205c95fff44d1ebc8965d",
+    "Textures/Baked/SM_M7_Grip_Phantom_ORM.png": "36e438859817b5455e9c7e0b00f6875497d6d8e14c044fbdf43348d72bd49934",
     "Textures/Baked/SM_M7_Mag_20_BaseColor.png": "71994c70d486a1e85e7f60814cfca44d5ff11d1b858ce54367fc7379b577c2e9",
     "Textures/Baked/SM_M7_Mag_20_Normal.png": "b956523f07ef9391fcc9fb88fd9b42a3791ad69699103cf7ec0144276c700830",
     "Textures/Baked/SM_M7_Mag_20_ORM.png": "ac5aebe628a5eeb531e2420f434321e36a72835a704fb44aaa551b365ef9076e",
@@ -8836,6 +9383,9 @@
     "Textures/Baked/SM_M7_Stock_Default_BaseColor.png": "f32958841622d7e9e528752d9cf1bb67e5add4645fa646d01f43e563489554f3",
     "Textures/Baked/SM_M7_Stock_Default_Normal.png": "b4a6e7b852a929e3f8bac13e02da2dbb641c917b53a11310074857a9fd4c7320",
     "Textures/Baked/SM_M7_Stock_Default_ORM.png": "da29869cd0daa6a2d320b9ef02c4c7d83231989f2deeddd1e0f3f0207ea4cde1",
+    "Textures/Baked/SM_M7_Stock_ShadowRail_BaseColor.png": "a2e7607252ca470ef37f461708ac2bc2c1be145a749159ca179df4d4441c6a0f",
+    "Textures/Baked/SM_M7_Stock_ShadowRail_Normal.png": "c907063126ecfacd993e82019a08a70e9d4868f8ad88bbc6deecfa8129fc0924",
+    "Textures/Baked/SM_M7_Stock_ShadowRail_ORM.png": "4ba715a8e6ac17af3ae8d16e434996ed8e8d23cde46d4461f3412bcc81400e65",
     "Textures/Baked/SM_M7_Stock_Skeleton_BaseColor.png": "7fe7afcbb04414db9a423871f3cc520353effca0b6b53a1a0ca9589cb30ea948",
     "Textures/Baked/SM_M7_Stock_Skeleton_Normal.png": "1c06b035d0ac483294c3ba71ba70f6d406671d2986c6e55481e5cd2011182da2",
     "Textures/Baked/SM_M7_Stock_Skeleton_ORM.png": "879b6633f1c7af6ef294feb84756cadd7c400144542d4fda6569c612f42cc693",
@@ -8843,14 +9393,20 @@
   },
   "failures": [],
   "source_file": "D:\\Unreal Projects\\MCP_Test\\ArtSource\\FPSDemo\\Samples\\Weapons\\M7\\Source\\M7_Material_Study.blend",
+  "frozen_attachments": {
+    "SM_M7_Barrel_Tidal": {
+      "source_sha256": "9f7b8c90c97a6a786d8cb1d5ed360dfc38d76297da173d0a7b591c36ad6822d7",
+      "files_unchanged": true
+    }
+  },
   "image_decode_cache": {
-    "directory": "D:\\Unreal Projects\\MCP_Test\\Saved\\M7MaterialStudy\\ValidationImages\\run_37252_d2272dcf02444d8eb277771719b6b0e4",
-    "owner_pid": 37252,
+    "directory": "D:\\Unreal Projects\\MCP_Test\\Saved\\M7MaterialStudy\\ValidationImages\\run_34620_b459b712fe804786aa63a011b1ce0e90",
+    "owner_pid": 34620,
     "cleanup_after_process_exit": true,
     "files": [
-      "d8ab08e28b790d0f613b398e4bb0c8d8aed3a2ea885883ebfa47aaaa45164f03.png",
-      "161f9a1afd1ac83bd3724fbfb50f6d5856036c1345d57819326ce65c21fb8940.png",
-      "785f2631470683029f2bb411ac8d8ca36f3d95cbc14ed0f9f81ff74546b2156c.png",
+      "ca34119d3347b912fdaf654c10e1e9d96f83227e7a3fbde33e6649be98b4a501.png",
+      "9877827ce507646346b3a2f7de5c4e7c16ed35406bb025cfef5f2c5ce65bf064.png",
+      "af53870747d0037babfa9c552d0b84147840357da7aff7e690ff50c8f1e8c584.png",
       "f32958841622d7e9e528752d9cf1bb67e5add4645fa646d01f43e563489554f3.png",
       "b4a6e7b852a929e3f8bac13e02da2dbb641c917b53a11310074857a9fd4c7320.png",
       "da29869cd0daa6a2d320b9ef02c4c7d83231989f2deeddd1e0f3f0207ea4cde1.png",
@@ -8898,13 +9454,19 @@
       "3ba8d2ae517db1d606e4ebaf8de049773d4882311c3b7af9fa7e786e12970e0c.png",
       "56010b4fa7a1c47a487fbb1a6a343c51051835936abcc14b28851992983718fc.png",
       "f53e9d6374c678ff0866e45c7172bf85426440ae0bce7553b3e4fd140fa45713.png",
-      "1d3b9d7feff2ab7abc38fa5b5d5c7a9a9ffa02d065fc48c40a87c8b352df7fac.png"
+      "1d3b9d7feff2ab7abc38fa5b5d5c7a9a9ffa02d065fc48c40a87c8b352df7fac.png",
+      "a2e7607252ca470ef37f461708ac2bc2c1be145a749159ca179df4d4441c6a0f.png",
+      "c907063126ecfacd993e82019a08a70e9d4868f8ad88bbc6deecfa8129fc0924.png",
+      "4ba715a8e6ac17af3ae8d16e434996ed8e8d23cde46d4461f3412bcc81400e65.png",
+      "a3740f37be8794eaf2dde9d3da50e1849c8150da782a69933c45cfa158a96770.png",
+      "59de986bd9fae95c36df98de4ee5f9d493d3e7a7900205c95fff44d1ebc8965d.png",
+      "36e438859817b5455e9c7e0b00f6875497d6d8e14c044fbdf43348d72bd49934.png"
     ]
   },
   "glb_pbr": {
     "SM_M7_Core:glb": [
       {
-        "material": "M7M_Core_coated_receiver_da39a",
+        "material": "M7M_Core_Reference_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -8954,11 +9516,7 @@
         ]
       },
       {
-        "material": "M7R_06_RecessBlack",
-        "preserved_constant": true
-      },
-      {
-        "material": "M7M_Core_coated_receiver_4722f",
+        "material": "M7M_Core_Reference_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -9008,361 +9566,7 @@
         ]
       },
       {
-        "material": "M7M_Core_dark_steel_hardware_da39a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_polymer_stock_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_4722f",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7R_07_EngravingGray",
-        "preserved_constant": true
-      },
-      {
-        "material": "M7M_Core_polymer_inner_da39a",
+        "material": "M7M_Core_Reference_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -13170,6 +13374,510 @@
         ]
       }
     ],
+    "SM_M7_Stock_ShadowRail:glb": [
+      {
+        "material": "M7M_Stock_ShadowRail_coat",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Stock_ShadowRail_hardware",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Stock_ShadowRail_dark",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Stock_ShadowRail_polymer",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Stock_ShadowRail_rubber",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      }
+    ],
+    "SM_M7_Grip_Phantom:glb": [
+      {
+        "material": "M7M_Grip_Phantom_polymer",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Grip_Phantom_coat",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Grip_Phantom_rubber",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Grip_Phantom_dark",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      },
+      {
+        "material": "M7M_Grip_Phantom_hardware",
+        "channels": [
+          {
+            "role": "BaseColor",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "Normal",
+            "channel": "RGB",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "G",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "B",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          },
+          {
+            "role": "ORM",
+            "channel": "R",
+            "size": [
+              2048,
+              2048
+            ],
+            "pixels_match": true
+          }
+        ]
+      }
+    ],
     "SM_M7_Default_Assembled:glb": [
       {
         "material": "M7M_Muzzle_Standard_coated_receiver_da39a",
@@ -14376,7 +15084,7 @@
         ]
       },
       {
-        "material": "M7M_Core_coated_receiver_da39a",
+        "material": "M7M_Core_Reference_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -14426,7 +15134,7 @@
         ]
       },
       {
-        "material": "M7M_Core_coated_receiver_4722f",
+        "material": "M7M_Core_Reference_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -14476,361 +15184,7 @@
         ]
       },
       {
-        "material": "M7M_Core_dark_steel_hardware_da39a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_polymer_stock_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_4722f",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7R_07_EngravingGray",
-        "preserved_constant": true
-      },
-      {
-        "material": "M7M_Core_polymer_inner_da39a",
+        "material": "M7M_Core_Reference_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -16294,7 +16648,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_polymer_grip_da39a",
+        "material": "M7M_Grip_Phantom_polymer",
         "channels": [
           {
             "role": "BaseColor",
@@ -16344,7 +16698,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_rubber_black_da39a",
+        "material": "M7M_Grip_Phantom_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -16394,7 +16748,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+        "material": "M7M_Grip_Phantom_rubber",
         "channels": [
           {
             "role": "BaseColor",
@@ -16444,7 +16798,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_dark_steel_hardware_da39a",
+        "material": "M7M_Grip_Phantom_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -16494,7 +16848,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_coated_receiver_da39a",
+        "material": "M7M_Grip_Phantom_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -16544,7 +16898,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+        "material": "M7M_Stock_ShadowRail_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -16594,7 +16948,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_coated_receiver_da39a",
+        "material": "M7M_Stock_ShadowRail_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -16644,7 +16998,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+        "material": "M7M_Stock_ShadowRail_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -16694,7 +17048,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_polymer_stock_dbcb1",
+        "material": "M7M_Stock_ShadowRail_polymer",
         "channels": [
           {
             "role": "BaseColor",
@@ -16744,7 +17098,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_polymer_stock_da39a",
+        "material": "M7M_Stock_ShadowRail_rubber",
         "channels": [
           {
             "role": "BaseColor",
@@ -16794,107 +17148,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_polymer_stock_2c9f3",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Stock_Default_rubber_black_7a08d",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_da39a",
+        "material": "M7M_Core_Reference_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -16944,7 +17198,7 @@
         ]
       },
       {
-        "material": "M7M_Core_coated_receiver_4722f",
+        "material": "M7M_Core_Reference_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -16994,357 +17248,7 @@
         ]
       },
       {
-        "material": "M7M_Core_dark_steel_hardware_da39a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_polymer_stock_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_4722f",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_polymer_inner_da39a",
+        "material": "M7M_Core_Reference_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -18858,7 +18762,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_polymer_grip_da39a",
+        "material": "M7M_Grip_Phantom_polymer",
         "channels": [
           {
             "role": "BaseColor",
@@ -18908,7 +18812,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_rubber_black_da39a",
+        "material": "M7M_Grip_Phantom_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -18958,7 +18862,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_dark_steel_hardware_f0ba0",
+        "material": "M7M_Grip_Phantom_rubber",
         "channels": [
           {
             "role": "BaseColor",
@@ -19008,7 +18912,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_dark_steel_hardware_da39a",
+        "material": "M7M_Grip_Phantom_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -19058,7 +18962,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_coated_receiver_da39a",
+        "material": "M7M_Grip_Phantom_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -19108,7 +19012,7 @@
         ]
       },
       {
-        "material": "M7M_Grip_D2_polymer_grip_f0ba0",
+        "material": "M7M_Stock_ShadowRail_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -19158,7 +19062,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_coated_receiver_da39a",
+        "material": "M7M_Stock_ShadowRail_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -19208,7 +19112,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_dark_steel_hardware_da39a",
+        "material": "M7M_Stock_ShadowRail_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -19258,7 +19162,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_polymer_stock_dbcb1",
+        "material": "M7M_Stock_ShadowRail_polymer",
         "channels": [
           {
             "role": "BaseColor",
@@ -19308,7 +19212,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_polymer_stock_da39a",
+        "material": "M7M_Stock_ShadowRail_rubber",
         "channels": [
           {
             "role": "BaseColor",
@@ -19358,107 +19262,7 @@
         ]
       },
       {
-        "material": "M7M_Stock_Default_polymer_stock_2c9f3",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Stock_Default_rubber_black_7a08d",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              2048,
-              2048
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_da39a",
+        "material": "M7M_Core_Reference_coat",
         "channels": [
           {
             "role": "BaseColor",
@@ -19508,7 +19312,7 @@
         ]
       },
       {
-        "material": "M7M_Core_coated_receiver_4722f",
+        "material": "M7M_Core_Reference_dark",
         "channels": [
           {
             "role": "BaseColor",
@@ -19558,357 +19362,7 @@
         ]
       },
       {
-        "material": "M7M_Core_dark_steel_hardware_da39a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_polymer_stock_24391",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_coated_receiver_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_2089a",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_dark_steel_hardware_4722f",
-        "channels": [
-          {
-            "role": "BaseColor",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "Normal",
-            "channel": "RGB",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "G",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "B",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          },
-          {
-            "role": "ORM",
-            "channel": "R",
-            "size": [
-              4096,
-              4096
-            ],
-            "pixels_match": true
-          }
-        ]
-      },
-      {
-        "material": "M7M_Core_polymer_inner_da39a",
+        "material": "M7M_Core_Reference_hardware",
         "channels": [
           {
             "role": "BaseColor",
@@ -19960,8 +19414,8 @@
     ]
   },
   "summary": {
-    "assets_checked": 17,
-    "asset_exports_imported": 34,
+    "assets_checked": 19,
+    "asset_exports_imported": 38,
     "assembly_exports_imported": 6,
     "failure_count": 0,
     "source_unchanged": true

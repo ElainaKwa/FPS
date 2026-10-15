@@ -1,4 +1,5 @@
 #include "FPSDemoCharacter.h"
+#include "FPSHitRegions.h"
 #include "FPSCharacterSmoke.h"
 #include "FPSMovementSmoke.h"
 #include "FPSLifeComponent.h"
@@ -47,6 +48,7 @@
 AFPSDemoCharacter::AFPSDemoCharacter(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UFPSMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
+    HitRegions = CreateDefaultSubobject<UFPSHitRegions>(TEXT("HitRegions"));
 	Life = CreateDefaultSubobject<UFPSLifeComponent>(TEXT("Life"));
 	BaseMembership = CreateDefaultSubobject<UFPSBaseMembership>(TEXT("BaseMembership"));
 	ActionPolicy = CreateDefaultSubobject<UFPSActionPolicy>(TEXT("ActionPolicy"));
@@ -59,6 +61,7 @@ AFPSDemoCharacter::AFPSDemoCharacter(const FObjectInitializer& ObjectInitializer
 	SetReplicateMovement(true);
 	GetCapsuleComponent()->InitCapsuleSize(38.0f, 88.0f);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
+    GetCapsuleComponent()->SetCollisionResponseToChannel(UFPSHitRegions::ShotChannel, ECR_Ignore);
 	GetCharacterMovement()->MaxWalkSpeed = 570.0f;
 	GetCharacterMovement()->JumpZVelocity = 650.0f;
 	GetCharacterMovement()->AirControl = 0.3f;
@@ -276,7 +279,7 @@ void AFPSDemoCharacter::ResolveShot(float Range, USoundBase* FireSound, const FF
 	FCollisionQueryParams Query(SCENE_QUERY_STAT(FPSDemoShot), true, this);
 	Query.AddIgnoredActor(this);
 	FHitResult Hit;
-	GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Query);
+	GetWorld()->LineTraceSingleByChannel(Hit, Start, End, WeaponShot ? UFPSHitRegions::ShotChannel : ECC_Visibility, Query);
 #if !UE_BUILD_SHIPPING
     if (WeaponShot && FParse::Param(FCommandLine::Get(), TEXT("FPSRecoilSmoke")))
         UE_LOG(LogTemp, Display, TEXT("FPS_RECOIL_SAMPLE AUTH serial=%u time=%.6f pitch=%.6f yaw=%.6f hitPawn=%d target=%s"),
@@ -292,16 +295,17 @@ void AFPSDemoCharacter::ResolveShot(float Range, USoundBase* FireSound, const FF
 			if (const auto* Rules = GetWorld()->GetAuthGameMode<AFPSMatchMode>())
 				if (!Rules->CanDamage(this, Target)) return;
 			const float BeforeHealth = Target->GetHealth();
-			if (WeaponShot) ApplyDamageEffectTo(Target, *WeaponShot);
+			const auto Region = WeaponShot ? Target->GetHitRegions()->Classify(Hit) : EFPSHitRegion::None;
+            if (WeaponShot) ApplyDamageEffectTo(Target, *WeaponShot, Region, &Hit);
 			else ApplyTeachingDamageEffectTo(Target);
 			if (Target->GetHealth() >= BeforeHealth) return;
 			const bool bKilled = Target->GetHealth() <= 0.0f;
-			if (AFPSDemoPlayerController* PC = Cast<AFPSDemoPlayerController>(Controller)) PC->ConfirmHit(bKilled);
+			if (AFPSDemoPlayerController* PC = Cast<AFPSDemoPlayerController>(Controller)) PC->ConfirmHit(bKilled, Region == EFPSHitRegion::Head);
 		}
 	}
 }
 
-void AFPSDemoCharacter::ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot)
+void AFPSDemoCharacter::ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFPSWeaponShotContext& Shot, EFPSHitRegion Region, const FHitResult* Hit)
 {
 	if (!HasAuthority() || Shot.Source.Get() != this || !Shot.InstanceId.IsValid() || Shot.WeaponId.IsNone() ||
 		!FMath::IsFinite(Shot.BaseDamage) || Shot.BaseDamage < 0 || !Target || Target->IsEliminated() || !Target->AbilitySystem) return;
@@ -312,11 +316,18 @@ void AFPSDemoCharacter::ApplyDamageEffectTo(AFPSDemoCharacter* Target, const FFP
         FVector End = Target->GetPawnViewLocation();
         if (!ActionPolicy->CanAttack() || UFPSBaseMembership::ClipAttack(GetWorld(), GetPawnViewLocation(), End)) return;
     }
-	FGameplayEffectSpecHandle Spec = AbilitySystem->MakeOutgoingSpec(UFPSWeaponDamageEffect::StaticClass(), 1.0f, AbilitySystem->MakeEffectContext());
+	if (!Shot.HitMultipliers.IsValid() || Region == EFPSHitRegion::None) return;
+    if (Hit && Target->GetHitRegions()->Classify(*Hit) != Region) return;
+    const float RegionDamage = Shot.BaseDamage * Shot.HitMultipliers.ForRegion(Region);
+    if (!FMath::IsFinite(RegionDamage) || RegionDamage <= 0) return;
+    auto Context = AbilitySystem->MakeEffectContext();
+    if (Hit) Context.AddHitResult(*Hit);
+    FGameplayEffectSpecHandle Spec = AbilitySystem->MakeOutgoingSpec(UFPSWeaponDamageEffect::StaticClass(), 1.0f, Context);
 	if (!Spec.IsValid()) return;
 	// Target-dependent match policy is evaluated at impact; weapon values were captured at commit.
 	const float Multiplier = Rules ? Rules->DamageMultiplier(this, Target) : 1.f;
-	Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WeaponDamage")), -Shot.BaseDamage * Multiplier);
+    if (!FMath::IsFinite(RegionDamage * Multiplier) || Multiplier <= 0) return;
+	Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WeaponDamage")), -RegionDamage * Multiplier);
 	Target->AbilitySystem->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
 }
 
@@ -423,5 +434,6 @@ void AFPSDemoCharacter::OnRep_Eliminated()
 		if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->ClearMovementIntents();
 		GetCharacterMovement()->DisableMovement();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        HitRegions->SetEnabled(false);
 	}
 }

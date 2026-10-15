@@ -20,6 +20,7 @@
 void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
 {
 #if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("FPSModularPartsNetwork"))) { ModularTick(W); return; }
     const bool Observer = FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentObserver"));
     if ((!Observer && !FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentSmoke"))) || !W->IsEnabled()) return;
     auto* Pawn = W->Character(); const bool Server = Pawn->HasAuthority();
@@ -97,13 +98,14 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
     At(22, [&]() { if (!Server) { if (PointerTest) Check(FPSCustomizationSmokePointer(W, TEXT("Attachment.M4_MagazineExtended"), 0), TEXT("Slate mouse down on extended magazine")); else W->ModifyAttachment(EFPSAttachmentCategory::Magazine, TEXT("Attachment.M4_MagazineExtended")); } });
     At(23, [&]() { if (!Server && PointerTest) Check(FPSCustomizationSmokePointer(W, TEXT("Attachment.M4_MagazineExtended"), 1), TEXT("Slate drag detected")); });
     At(24, [&]() { if (!Server && PointerTest) Check(FPSCustomizationSmokePointer(W, TEXT("Attachment.M4_MagazineExtended"), 2), TEXT("Slate magazine drop routed to weapon")); });
-    At(26, [&]()
+    // Allow the request to reach authority before checking, while the reload is still pending.
+    At(28, [&]()
     {
         P.OldAction = W->ActionTicket; P.OldToken = W->Loadout.ActionToken;
         Check(W->Loadout.Action == EFPSWeaponAction::Reloading && W->Equipped().Magazine == 20 && W->Equipped().ConfigurationRevision == 2 && W->EffectiveStats().MagazineSize == 30, TEXT("magazine remains pending during reload"));
         Check(!W->CanStart(EFPSWeaponRequest::Modify) && !W->CanStart(EFPSWeaponRequest::ModifyMagazine), TEXT("same gun blocks overlapping assembly"));
     });
-    At(27, [&]()
+    At(29, [&]()
     {
         if (Server) return;
         if (PointerTest) Check(FPSCustomizationSmokePointer(W, NAME_None, 3) && FPSCustomizationSmokePointer(W, NAME_None, 4), TEXT("Slate click cancels reloading weapon"));
@@ -134,11 +136,14 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
         }
         else Check(!ASC->TryActivateAbilityByClass(UFPSFireAbility::StaticClass()) && !ASC->TryActivateAbilityByClass(UFPSAimAbility::StaticClass()), TEXT("open menu blocks actual GAS fire and ADS"));
     });
-    At(83, [&]() { if (!Server) { PC->HideCustomization(); W->StartFire(); W->StopFire(); W->AimOn(); } });
+    At(83, [&]() { if (!Server) PC->HideCustomization(); });
+    // Character input synchronizes the menu lock each frame. Send new gameplay input after that boundary.
+    At(84, [&]() { if (!Server) { W->StartFire(); W->StopFire(); W->AimOn(); } });
     At(88, [&]() { Check(W->Loadout.bAiming && (Server || FMath::IsNearlyEqual(Pawn->FindComponentByClass<UCameraComponent>()->FieldOfView, 48.f)), TEXT("committed optic drives replicated ADS and actual camera FOV")); });
     At(90, [&]() { Check(W->Equipped().ShotSerial > P.Shots, TEXT("new fire input works after close")); if (!Server) W->Reload(); });
     At(92, [&]() { if (!Server) PC->ToggleCustomization(); });
-    At(94, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Reloading && !W->Loadout.bAiming, TEXT("opening menu retains normal reload and exits ADS")); if (!Server) W->CancelCustomizationReload(); });
+    // Opening the menu must round-trip before the owner's replicated ADS state is checked.
+    At(97, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Reloading && !W->Loadout.bAiming, TEXT("opening menu retains normal reload and exits ADS")); if (!Server) W->CancelCustomizationReload(); });
     At(103, [&]() { Check(W->Loadout.Action == EFPSWeaponAction::Idle && W->Equipped().Magazine < 15, TEXT("normal reload cancelled through same checked action path")); if (!Server) W->ModifyAttachment(EFPSAttachmentCategory::Magazine, TEXT("Attachment.M4_MagazineExtended")); });
     At(106, [&]() { if (!Server) PC->HideCustomization(); });
     At(120, [&]() { Check(!W->IsCustomizationOpen() && W->Equipped().Magazine == 45 && W->Equipped().ConfigurationRevision == 5 && W->Loadout.Action == EFPSWeaponAction::Idle, TEXT("close retains pending reload and atomic commit")); });
@@ -191,7 +196,8 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
     At(265, [&]() { Check(W->Loadout.Primary.InstanceId == P.Gun && W->Loadout.Primary.ConfigurationRevision == 7 && W->Loadout.Primary.Magazine == 4 && W->Loadout.ActiveSlot == EFPSWeaponSlot::Secondary && !W->PendingAttachmentTicket.Sequence, TEXT("switch cancels pending magazine without modifying stored gun")); });
     At(270, [&]() { if (!Server) W->Primary(); });
     At(280, [&]() { if (!Server) W->ModifyAttachment(EFPSAttachmentCategory::Magazine, TEXT("Attachment.M4_MagazineExtended")); });
-    At(283, [&]() { if (!Server) { PC->HideCustomization(); W->Drop(); } });
+    At(283, [&]() { if (!Server) PC->HideCustomization(); });
+    At(284, [&]() { if (!Server) W->Drop(); });
     At(291, [&]()
     {
         bool Found = false;
@@ -210,7 +216,7 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
     At(310, [&]() { if (!Server) W->Primary(); });
     At(320, [&]() { Check(W->Equipped().InstanceId == P.Gun && W->Equipped().ConfigurationRevision == 7 && W->Equipped().Magazine == 4 && W->EffectiveStats().MagazineSize == 15 && W->EffectiveStats().AimFOV == 48, TEXT("pickup restores same instance assembly and effective parameters")); if (!Server) PC->ToggleCustomization(); });
     At(325, [&]() { if (!Server) W->ModifyAttachment(EFPSAttachmentCategory::Magazine, TEXT("Attachment.M4_MagazineExtended")); });
-    At(327, [&]()
+    At(329, [&]()
     {
         Check(W->Loadout.Action == EFPSWeaponAction::Reloading, TEXT("pending modification armed before actual GAS lethal damage"));
         P.OldAction = W->ActionTicket;

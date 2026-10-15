@@ -38,7 +38,7 @@ render('M7_Equipped_Tidal','Preview_ResonanceGen1_Detail.png',(.514,.70,.15),(.4
 render('M7_Equipped_Tidal','Preview_Receiver_Magazine_Detail.png',(.22,.90,.25),(.09,0,-.087),.53,(1800,1350))
 render('M7_Equipped_Tidal','Preview_UpperRail_Detail.png',(.69,.85,.20),(.600,0,.022),.245,(1800,1200))
 render('M7_Default_Assembly','Preview_Default.png',(.89,1.95,.53),(.125,0,-.042),1.13,(2200,1100))
-render('M7_Attachment_Catalog','Preview_Attachments.png',(0,2.6,.10),(0,0,.05),2.12,(2400,1850))
+render('M7_Attachment_Catalog','Preview_Attachments.png',(0,2.6,.10),(0,0,-.07),2.40,(2400,1850))
 # Temporary inspection scene: the barrel interfaces are aligned to compare
 # actual lengths and geometry. It is never included in an asset export.
 scene=bpy.data.scenes.new('M7_RENDER_Barrel_Comparison')
@@ -80,3 +80,72 @@ if not requested or 'Preview_Tidal_Front_Profile.png' in requested:
     fill=bpy.data.objects.new('Profile soft front fill',data);single.collection.objects.link(fill)
     fill.location=(1.05,0,.35);aim(fill,(.46,0,.003))
 render(single.name,'Preview_Tidal_Front_Profile.png',(1.25,0,.003),(.46,0,.003),.160,(1600,1600))
+# Reference-crop inspection: receiver, magazine and rear grip only. This
+# transient scene avoids a cropped optic covering the receiver side detail.
+receiver=bpy.data.scenes.new('M7_RENDER_CoreReference');receiver.world=base.world
+receiver['m7_style_lighting']=style.VERSION
+for key in ('view_transform','look','exposure','gamma'):setattr(receiver.view_settings,key,getattr(base.view_settings,key))
+for obj in base.objects:
+    if obj.type not in ('LIGHT','CAMERA'):continue
+    copy=obj.copy();copy.data=obj.data.copy();receiver.collection.objects.link(copy)
+    if obj==base.camera:receiver.camera=copy
+for name,mount in [('SM_M7_Core',(0,0,0)),('SM_M7_Mag_20',(.08,0,-.1)),('SM_M7_Grip_Default',(-.0625,0,-.065))]:
+    instance=bpy.data.objects.new(name+'_CoreReference',None);receiver.collection.objects.link(instance)
+    instance.instance_type='COLLECTION';instance.instance_collection=bpy.data.collections[name];instance.location=mount
+render(receiver.name,'Preview_Core_Reference_Side.png',(-.004,2.4,-.074),(-.004,0,-.074),.43,(2200,1800))
+render(receiver.name,'Preview_RearRail_Detail.png',(-.13,2.4,.028),(-.13,0,.028),.125,(1600,1100))
+# Standalone collection-instance previews of the two new replaceable assets.
+for asset,mount,target,quarter,scale,res,stem in [
+    ('SM_M7_Stock_ShadowRail',(-.179,0,-.0025),(-.30,0,-.04),(-.12,.70,.14),.35,(2200,1200),'ShadowRail'),
+    ('SM_M7_Grip_Phantom',(-.0625,0,-.065),(-.10,0,-.131),(.08,.62,-.015),.235,(1700,1700),'Phantom')]:
+    if not bpy.data.collections.get(asset):continue
+    part=bpy.data.scenes.new('M7_RENDER_'+stem);part.world=base.world
+    part['m7_style_lighting']=style.VERSION
+    for key in ('view_transform','look','exposure','gamma'):setattr(part.view_settings,key,getattr(base.view_settings,key))
+    for obj in base.objects:
+        if obj.type not in ('LIGHT','CAMERA'):continue
+        copy=obj.copy();copy.data=obj.data.copy();part.collection.objects.link(copy)
+        if obj==base.camera:part.camera=copy
+    instance=bpy.data.objects.new(asset+'_Preview_Only',None);part.collection.objects.link(instance)
+    instance.instance_type='COLLECTION';instance.instance_collection=bpy.data.collections[asset];instance.location=mount
+    render(part.name,'Preview_'+stem+'_ThreeQuarter.png',quarter,target,scale,res)
+    render(part.name,'Preview_'+stem+'_Side.png',(target[0],2.4,target[2]),target,scale,res)
+
+# Both corrected silhouettes in one actual orthographic Blender render.
+# Collection instances keep the source geometry and material graphs intact.
+if 'Preview_Shadow_Phantom_Side.png' in requested or not requested:
+    pair=bpy.data.scenes.new('M7_RENDER_ShadowPhantomSide');pair.world=base.world
+    pair['m7_style_lighting']=style.VERSION
+    for key in ('view_transform','look','exposure','gamma'):setattr(pair.view_settings,key,getattr(base.view_settings,key))
+    for obj in base.objects:
+        if obj.type not in ('LIGHT','CAMERA'):continue
+        copy=obj.copy();copy.data=obj.data.copy();pair.collection.objects.link(copy)
+        if obj==base.camera:pair.camera=copy
+    for name,mount,offset,label,x in [
+        ('SM_M7_Stock_ShadowRail',(-.179,0,-.0025),(.50,0,0),'SHADOW RAIL',.20),
+        ('SM_M7_Grip_Phantom',(-.0625,0,-.065),(-.12,0,.055),'PHANTOM',-.22)]:
+        instance=bpy.data.objects.new(name+'_SideReview',None);pair.collection.objects.link(instance)
+        instance.instance_type='COLLECTION';instance.instance_collection=bpy.data.collections[name]
+        instance.location=Vector(mount)+Vector(offset)
+        curve=bpy.data.curves.new(label+'_ReviewLabel','FONT');curve.body=label
+        curve.size=.011;curve.align_x='CENTER';curve.materials.append(bpy.data.materials['M7R_07_EngravingGray'])
+        text=bpy.data.objects.new(curve.name,curve);pair.collection.objects.link(text)
+        text.location=(x,.08,-.180);text.rotation_euler=(math.pi/2,0,math.pi)
+    render(pair.name,'Preview_Shadow_Phantom_Side.png',(0,2.4,-.06),(0,0,-.06),.72,(2400,1050))
+
+# Compare the exposed accessory silhouettes in their actual receiver sockets.
+# The internal grip tongue is naturally occluded by Core, as in the user crop.
+if 'Preview_Shadow_Phantom_Installed_Side.png' in requested or not requested:
+    installed=bpy.data.scenes.new('M7_RENDER_ShadowPhantomInstalled');installed.world=base.world
+    installed['m7_style_lighting']=style.VERSION
+    for key in ('view_transform','look','exposure','gamma'):setattr(installed.view_settings,key,getattr(base.view_settings,key))
+    for obj in base.objects:
+        if obj.type not in ('LIGHT','CAMERA'):continue
+        copy=obj.copy();copy.data=obj.data.copy();installed.collection.objects.link(copy)
+        if obj==base.camera:installed.camera=copy
+    for name,mount in [('SM_M7_Core',(0,0,0)),
+        ('SM_M7_Stock_ShadowRail',(-.179,0,-.0025)),
+        ('SM_M7_Grip_Phantom',(-.0625,0,-.065))]:
+        instance=bpy.data.objects.new(name+'_InstalledSideReview',None);installed.collection.objects.link(instance)
+        instance.instance_type='COLLECTION';instance.instance_collection=bpy.data.collections[name];instance.location=mount
+    render(installed.name,'Preview_Shadow_Phantom_Installed_Side.png',(-.214,2.4,-.063),(-.214,0,-.063),.455,(2400,1600))

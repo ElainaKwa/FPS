@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "renderer": "Unreal Editor RHI",
+  "screenshots": [
+    {
+      "name": "Default_Side",
+      "path": "D:\\Unreal Projects\\MCP_Test\\Saved\\M7UnrealImport\\Previews\\UE_M7_Default_Side.png",
+      "bytes": 512321
+    },
+    {
+      "name": "Tidal_Side",
+      "path": "D:\\Unreal Projects\\MCP_Test\\Saved\\M7UnrealImport\\Previews\\UE_M7_Tidal_Side.png",
+      "bytes": 379777
+    },
+    {
+      "name": "Receiver_Detail",
+      "path": "D:\\Unreal Projects\\MCP_Test\\Saved\\M7UnrealImport\\Previews\\UE_M7_Receiver_Detail.png",
+      "bytes": 869104
+    },
+    {
+      "name": "Standard_Side",
+      "path": "D:\\Unreal Projects\\MCP_Test\\Saved\\M7UnrealImport\\Previews\\UE_M7_Standard_Side.png",
+      "bytes": 456007
+    }
+  ],
+  "error": null
+}

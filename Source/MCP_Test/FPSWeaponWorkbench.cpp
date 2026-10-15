@@ -68,7 +68,7 @@ FString ColumnLabel(FName Field)
         {TEXT("ReloadDuration"), TEXT("换弹时长（秒）")}, {TEXT("AimTransitionTime"), TEXT("ADS 时长（秒）")},
         {TEXT("AimFOV"), TEXT("瞄准 FOV（度）")}, {TEXT("CapacityDelta"), TEXT("容量增量（发）")},
         {TEXT("ReloadTimeMultiplier"), TEXT("换弹时长倍率")}, {TEXT("VerticalRecoilMultiplier"), TEXT("垂直后坐力倍率")},
-        {TEXT("HorizontalRecoilMultiplier"), TEXT("水平后坐力倍率")}, {TEXT("AimTimeMultiplier"), TEXT("ADS 时长倍率")}
+        {TEXT("HorizontalRecoilMultiplier"), TEXT("水平后坐力倍率")}, {TEXT("AimTimeMultiplier"), TEXT("ADS 时长倍率")}, {TEXT("RangeMultiplier"), TEXT("最大射程倍率")}
     };
     const auto* Label = Labels.Find(Field); return Label ? *Label : Field.ToString();
 }
@@ -79,7 +79,7 @@ FText ColumnHelp(FName Field)
     else if (Field == TEXT("MagazineSize")) Help += TEXT("；正整数，基础后坐力曲线需覆盖此容量。");
     else if (Field == TEXT("AimFOV")) Help += TEXT("；1–179 度，瞄具需启用 Override Aim。");
     else if (Field == TEXT("AimTransitionTime")) Help += TEXT("；有限且 ≥ 0，0 表示立即切换。");
-    else if (Field == TEXT("VerticalRecoilMultiplier") || Field == TEXT("HorizontalRecoilMultiplier")) Help += TEXT("；有限且 ≥ 0，仅枪口可修改。");
+    else if (Field == TEXT("VerticalRecoilMultiplier") || Field == TEXT("HorizontalRecoilMultiplier")) Help += TEXT("；有限且 ≥ 0，枪口、后握把、枪托和枪管可修改。");
     else Help += TEXT("；有限且 > 0，详情页提供字段及资源配置。");
     return FText::FromString(Help);
 }
@@ -167,8 +167,8 @@ private:
     TSharedPtr<SWidgetSwitcher> Switcher;
     TSharedPtr<SHorizontalBox> Header;
     TSharedPtr<SEditableTextBox> BatchField, BatchValue;
-    TArray<TSharedPtr<FString>> WeaponOptions, PartOptions[3];
-    TSharedPtr<STextComboBox> WeaponChoice, PartChoices[3];
+    TArray<TSharedPtr<FString>> WeaponOptions, PartOptions[FPSAttachments::CategoryCount];
+    TSharedPtr<STextComboBox> WeaponChoice, PartChoices[FPSAttachments::CategoryCount];
     UFPSWeaponDefinition* PreviewWeapon = nullptr;
     FString Filter, Status, PreviewText;
     int32 Page = 0;
@@ -273,7 +273,7 @@ private:
             SmokeCheck(Capture(TEXT("Attachments.png")), TEXT("attachment table screenshot"));
             Switcher->SetActiveWidgetIndex(1);
             const TCHAR* SelectedIds[] = { TEXT("Attachment.M4_OpticFixed"), TEXT("Attachment.M4_MuzzleBrake"), TEXT("Attachment.M4_MagazineExtended") };
-            for (int32 Index = 0; Index < 3; ++Index)
+            for (int32 Index = 0; Index < UE_ARRAY_COUNT(SelectedIds); ++Index)
                 if (const auto* Option = PartOptions[Index].FindByPredicate([&](const auto& Item) { return *Item == SelectedIds[Index]; })) PartChoices[Index]->SetSelectedItem(*Option);
             UpdatePreview();
             SmokeCheck(PreviewText.Contains(TEXT("30 → 45")) && PreviewText.Contains(TEXT("48.00")), TEXT("preview resolves saved three-part combination"));
@@ -363,7 +363,7 @@ private:
     {
         Page = NewPage;
         Fields = Page == 0 ? TArray<FName>{TEXT("MagazineSize"), TEXT("Damage"), TEXT("FireInterval"), TEXT("Range"), TEXT("ReloadDuration"), TEXT("AimTransitionTime"), TEXT("AimFOV")} :
-            TArray<FName>{TEXT("CapacityDelta"), TEXT("ReloadTimeMultiplier"), TEXT("VerticalRecoilMultiplier"), TEXT("HorizontalRecoilMultiplier"), TEXT("AimTimeMultiplier"), TEXT("AimFOV")};
+            TArray<FName>{TEXT("CapacityDelta"), TEXT("ReloadTimeMultiplier"), TEXT("VerticalRecoilMultiplier"), TEXT("HorizontalRecoilMultiplier"), TEXT("AimTimeMultiplier"), TEXT("AimFOV"), TEXT("RangeMultiplier")};
         Header->ClearChildren();
         Header->AddSlot().AutoWidth()[SNew(SBox).WidthOverride(270)[SNew(STextBlock).Text(FText::FromString(TEXT("稳定 ID / 未保存 *")))]];
         for (FName Field : Fields)
@@ -423,7 +423,7 @@ private:
             {
                 PreviewWeapon = nullptr;
                 if (Id) for (UObject* Asset : Assets) if (auto* Weapon = Cast<UFPSWeaponDefinition>(Asset)) if (Weapon->WeaponId.ToString() == *Id) PreviewWeapon = Weapon;
-                for (int32 Index = 0; Index < 3; ++Index)
+                for (int32 Index = 0; Index < FPSAttachments::CategoryCount; ++Index)
                 {
                     PartOptions[Index].Empty(); PartOptions[Index].Add(MakeShared<FString>(TEXT("(原装 / 无附加配件)")));
                     if (PreviewWeapon) for (const auto& Ref : PreviewWeapon->AvailableAttachments)
@@ -432,10 +432,10 @@ private:
                 }
                 UpdatePreview();
             })];
-        const TCHAR* Labels[] = {TEXT("瞄具"), TEXT("枪口"), TEXT("弹匣")};
-        for (int32 Index = 0; Index < 3; ++Index)
+
+        for (int32 Index = 0; Index < FPSAttachments::CategoryCount; ++Index)
         {
-            Box->AddSlot().AutoHeight().Padding(5)[SNew(STextBlock).Text(FText::FromString(Labels[Index]))];
+            Box->AddSlot().AutoHeight().Padding(5)[SNew(STextBlock).Text(FText::FromString(FPSAttachments::Label(EFPSAttachmentCategory(Index))))];
             Box->AddSlot().AutoHeight().Padding(5)[SAssignNew(PartChoices[Index], STextComboBox).OptionsSource(&PartOptions[Index])
                 .OnSelectionChanged_Lambda([this](TSharedPtr<FString>, ESelectInfo::Type) { UpdatePreview(); })];
         }
@@ -447,7 +447,7 @@ private:
     {
         if (!PreviewWeapon) { PreviewText = TEXT("请选择武器。"); return; }
         TArray<const UFPSAttachmentDefinition*> Parts;
-        for (int32 Index = 0; Index < 3; ++Index)
+        for (int32 Index = 0; Index < FPSAttachments::CategoryCount; ++Index)
             if (PartChoices[Index]) if (const auto Choice = PartChoices[Index]->GetSelectedItem())
                 if (Choice->StartsWith(TEXT("Attachment.")))
                 {
@@ -460,6 +460,7 @@ private:
         PreviewText = FString::Printf(TEXT("兼容；基础值 → 装配值\n\n容量：%d → %d\n换弹：%.3f → %.3f s\nADS 过渡：%.3f → %.3f s\n瞄准 FOV：%.2f → %.2f deg\n垂直后坐力倍率：1 → %.3f\n水平后坐力倍率：1 → %.3f\n瞄准位置：%s\n"),
             PreviewWeapon->MagazineSize, Stats.MagazineSize, PreviewWeapon->ReloadDuration, Stats.ReloadDuration, PreviewWeapon->AimTransitionTime, Stats.AimTransitionTime,
             PreviewWeapon->AimFOV, Stats.AimFOV, Stats.VerticalRecoilMultiplier, Stats.HorizontalRecoilMultiplier, *Stats.AimLocation.ToString());
+        PreviewText += FString::Printf(TEXT("最大射程：%.2f → %.2f m\n"), PreviewWeapon->Range/100.f, Stats.Range/100.f);
     }
     void ValidateAll()
     {

@@ -1,0 +1,13 @@
+{
+  "map": "/Game/FPSDemo/Art/Weapons/Rifles/M7/Maps/LV_M7Preview",
+  "map_saved": true,
+  "kind": "Unreal renderer evidence; art preview only",
+  "gameplay_changed": false,
+  "cameras": [
+    "Default_Side",
+    "Tidal_Side",
+    "Receiver_Detail",
+    "Standard_Side"
+  ],
+  "source_import_generated_utc": "2026-10-15T07:33:00.433958+00:00"
+}

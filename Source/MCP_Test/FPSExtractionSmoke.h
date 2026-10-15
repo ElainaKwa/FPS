@@ -6,4 +6,6 @@ struct FFPSExtractionSmoke
     static void CombatTick(AFPSExtractionMode* Mode);
     static void CaptureTick(AFPSExtractionMode* Mode);
     static bool GridChecks(class UFPSExtractionSubsystem* Loop);
+    static void InventoryTick(AFPSExtractionMode* Mode);
+    static void ModularPartsTick(AFPSExtractionMode* Mode);
 };
