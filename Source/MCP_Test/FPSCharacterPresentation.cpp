@@ -130,9 +130,10 @@ void UFPSCharacterPresentation::Refresh(AFPSDemoCharacter* Character)
     if (!Character || Character->GetNetMode() == NM_DedicatedServer) return;
 	if (!Character->Weapons->IsEnabled()) return;
 	const auto* Def = Character->Weapons->Definition();
-	Character->GunRoot->SetVisibility(Def != nullptr, true);
-	Character->WorldRifle->SetVisibility(Def != nullptr);
-	if (!Def)
+    const bool Visible = Def && !Character->IsEliminated();
+	Character->GunRoot->SetVisibility(Visible, true);
+	Character->WorldRifle->SetVisibility(Visible, true);
+	if (!Visible)
     {
         for (auto& Part : FirstPersonAttachments) if (Part) Part->SetVisibility(false);
         for (auto& Part : ThirdPersonAttachments) if (Part) Part->SetVisibility(false);
@@ -145,10 +146,17 @@ void UFPSCharacterPresentation::Refresh(AFPSDemoCharacter* Character)
 	Character->FirstPersonRifle->SetRelativeTransform(Def->FirstPerson.Transform);
     RefreshFPSAttachmentMeshes(Character->FirstPersonRifle, Character->Weapons->Catalog(), Def, Character->Weapons->Equipped().AttachmentIds, EFPSAttachmentView::FirstPerson, FirstPersonAttachments);
     RefreshFPSAttachmentMeshes(Character->WorldRifle, Character->Weapons->Catalog(), Def, Character->Weapons->Equipped().AttachmentIds, EFPSAttachmentView::ThirdPerson, ThirdPersonAttachments);
-    if (UFPSWeaponReloadRig::Find(Def->FirstPerson.Mesh.Get()) && FirstPersonAttachments.IsValidIndex(2) && FirstPersonAttachments[2])
+    if (UFPSWeaponReloadRig::Find(Def->FirstPerson.Mesh.Get()) && FirstPersonAttachments.IsValidIndex(2) && FirstPersonAttachments[2] && FirstPersonAttachments[2]->GetStaticMesh())
+    {
         FirstPersonAttachments[2]->AttachToComponent(FirstPersonReloadParts[0], FAttachmentTransformRules::KeepRelativeTransform);
-    if (UFPSWeaponReloadRig::Find(Def->ThirdPerson.Mesh.Get()) && ThirdPersonAttachments.IsValidIndex(2) && ThirdPersonAttachments[2])
+        // Refresh may run after the animation tick; never expose both magazines for one frame.
+        FirstPersonReloadParts[0]->SetVisibility(false);
+    }
+    if (UFPSWeaponReloadRig::Find(Def->ThirdPerson.Mesh.Get()) && ThirdPersonAttachments.IsValidIndex(2) && ThirdPersonAttachments[2] && ThirdPersonAttachments[2]->GetStaticMesh())
+    {
         ThirdPersonAttachments[2]->AttachToComponent(ThirdPersonReloadParts[0], FAttachmentTransformRules::KeepRelativeTransform);
+        ThirdPersonReloadParts[0]->SetVisibility(false);
+    }
 	Character->MuzzleLight->AttachToComponent(Character->FirstPersonRifle, FAttachmentTransformRules::KeepRelativeTransform);
 	Character->MuzzleLight->SetRelativeLocation(Def->MuzzleLocation);
 	Character->RemoteMuzzleLight->AttachToComponent(Character->WorldRifle, FAttachmentTransformRules::KeepRelativeTransform);

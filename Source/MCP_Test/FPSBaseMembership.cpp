@@ -42,7 +42,7 @@ int32 Team(const AActor* Actor)
 bool Structured(const UWorld* World)
 {
     const auto* GS = World ? World->GetGameState<AFPSDemoGameState>() : nullptr;
-    return GS && GS->bStructuredMatch && !GS->bTraining;
+    return GS && GS->bStructuredMatch && !GS->bTraining && GS->bBaseRegionsEnabled;
 }
 bool InOwnBase(const AActor* Actor)
 {
@@ -103,7 +103,7 @@ bool UFPSBaseMembership::CanSelect() const
     const auto* Pawn = Cast<APawn>(GetOwner());
     const auto* Life = GetOwner()->FindComponentByClass<UFPSLifeComponent>();
     const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
-    if (!Pawn || !Pawn->GetController() || !Pawn->GetController()->IsPlayerController() || !Life || Life->IsDead() || !GS || !GS->IsCombatActive()) return false;
+    if (!Pawn || !Pawn->GetController() || !Pawn->GetController()->IsPlayerController() || !Life || Life->IsDead() || !GS || !GS->IsCombatActive() || !GS->bBaseRegionsEnabled) return false;
     const auto* Rules = UFPSModeRules::ForWorld(GetWorld());
     if (!Rules) return false;
     if (Rules->Selection == EFPSSelectionPolicy::Always) return true;
@@ -118,15 +118,17 @@ void UFPSBaseMembership::RefreshAuthority()
     const auto* Rules = UFPSModeRules::ForWorld(GetWorld());
     if (!ASC || !Pawn || !Pawn->GetController() || !Rules || Team(Pawn) < 0) return;
     const bool Alive = Life && !Life->IsDead();
+    const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>();
+    const bool BasesEnabled = GS && GS->bBaseRegionsEnabled;
     if (!bInitialized)
     {
         bInitialized = true;
         for (TActorIterator<AFPSBaseRegion> It(GetWorld()); It; ++It)
-            if (It->TeamId == Team(Pawn) && It->Contains(Pawn->GetActorLocation(), 4)) { SpawnRegion = *It; break; }
+            if (BasesEnabled && It->TeamId == Team(Pawn) && It->Contains(Pawn->GetActorLocation(), 4)) { SpawnRegion = *It; break; }
         if (Rules->Selection != EFPSSelectionPolicy::Always && !SpawnRegion.IsValid()) bHasExited = true;
     }
     if (SpawnRegion.IsValid() && !SpawnRegion->Contains(Pawn->GetActorLocation(), 4)) bHasExited = true;
-    const bool Selection = Alive && (Rules->Selection == EFPSSelectionPolicy::Always || (!bHasExited && SpawnRegion.IsValid()));
+    const bool Selection = Alive && BasesEnabled && (Rules->Selection == EFPSSelectionPolicy::Always || (!bHasExited && SpawnRegion.IsValid()));
     const bool OldSelection = bSelectionAllowed, OldProtection = bProtected;
     bSelectionAllowed = Selection;
     TSet<TWeakObjectPtr<AFPSBaseRegion>> Current;

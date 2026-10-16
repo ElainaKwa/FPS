@@ -8,13 +8,39 @@
 #include "Engine/StaticMesh.h"
 #include "Misc/CommandLine.h"
 #include "UnrealClient.h"
+#include "AbilitySystemComponent.h"
+#include "FPSDemoEffects.h"
+#include "Misc/Paths.h"
 
 void FFPSAttachmentSmoke::ModularTick(UFPSWeaponComponent* W)
 {
 #if !UE_BUILD_SHIPPING
     if (!W->IsEnabled()) return;
     auto* Pawn=W->Character(); const bool Server=Pawn->HasAuthority();
+    auto HiddenWeaponParts=[&]()
+    {
+        TArray<UStaticMeshComponent*> Parts;Pawn->GetComponents(Parts);int32 Count=0;bool Hidden=true;
+        for(const auto* Part:Parts)if(Part->GetStaticMesh())
+            for(const USceneComponent* Parent=Part;Parent;Parent=Parent->GetAttachParent())
+                if(Parent->GetFName()==TEXT("FirstPersonRifle")||Parent->GetFName()==TEXT("WorldRifle"))
+                {++Count;Hidden&=!Part->IsVisible();break;}
+        return Hidden&&Count>=8;
+    };
+    if(FParse::Param(FCommandLine::Get(),TEXT("FPSModularPartsObserver")))
+    {
+        if(Server||Pawn->IsLocallyControlled())return;
+        static TSet<TWeakObjectPtr<UFPSWeaponComponent>> Seen,Checked;
+        if(!Pawn->IsEliminated()&&W->Equipped().AttachmentIds.Contains(TEXT("Attachment.M4_StockLight")))Seen.Add(W);
+        if(Pawn->IsEliminated()&&Seen.Contains(W)&&!Checked.Contains(W))
+        {
+            Pawn->RefreshWeaponPresentation();Checked.Add(W);
+            UE_LOG(LogTemp,Display,TEXT("FPS_MODULAR_NET %s OBSERVER COMPLETE death hides entire replicated assembly even after refresh"),HiddenWeaponParts()?TEXT("PASS"):TEXT("FAIL"));
+        }
+        return;
+    }
     if (Server==Pawn->IsLocallyControlled() || !Cast<APlayerController>(Pawn->GetController())) return;
+    static TMap<TWeakObjectPtr<UWorld>,TWeakObjectPtr<UFPSWeaponComponent>> Drivers;
+    if(Drivers.FindOrAdd(W->GetWorld(),W)!=W)return;
     auto* GS=W->GetWorld()->GetGameState<AFPSDemoGameState>();if(!GS || !GS->bTraining)return;
     struct FRun { TSet<int32> Done; bool Failed=false; FGuid Gun; FFPSWeaponShotContext Shot; };
     static TMap<TWeakObjectPtr<UFPSWeaponComponent>,FRun> Runs;auto& R=Runs.FindOrAdd(W);
@@ -51,6 +77,10 @@ void FFPSAttachmentSmoke::ModularTick(UFPSWeaponComponent* W)
     At(19,[&]{if(!Server)Cast<AFPSFrontController>(Pawn->GetController())->ToggleCustomization();});
     At(20,[&]{Modify(EFPSAttachmentCategory::Barrel,TEXT(""));});
     At(21,[&]{Check(FMath::IsNearlyEqual(W->EffectiveStats().Range,W->Definition()->Range)&&HasMesh(TEXT("SM_M4_ModularBarrelStandard")),TEXT("barrel removal restores range and builtin mesh"));if(Server)Check(R.Shot.Range>W->EffectiveStats().Range,TEXT("old authority shot retains captured modified range"));});
-    At(22,[&]{Check(!R.Failed,TEXT("COMPLETE"));});
+    At(22,[&]{if(!Server)Cast<AFPSFrontController>(Pawn->GetController())->HideCustomization();});
+    At(35,[&]{if(Server){auto* ASC=Pawn->GetAbilitySystemComponent();const auto Spec=ASC->MakeOutgoingSpec(UFPSDemoDamageEffect::StaticClass(),1,ASC->MakeEffectContext());for(int32 I=0;I<4;++I)ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());}});
+    At(36,[&]{Check(Pawn->IsEliminated()&&HiddenWeaponParts(),TEXT("GAS death hides gun body reload pieces and every attachment"));Pawn->RefreshWeaponPresentation();Check(HiddenWeaponParts(),TEXT("late presentation refresh cannot resurrect dead weapon parts"));
+        if(!Server){FString Capture;if(FParse::Value(FCommandLine::Get(),TEXT("FPSModularCapture="),Capture))FScreenshotRequest::RequestScreenshot(FPaths::GetPath(Capture)/TEXT("DeathParts.png"),true,false);}});
+    At(37,[&]{Check(!R.Failed,TEXT("COMPLETE"));});
 #endif
 }

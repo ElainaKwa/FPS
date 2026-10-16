@@ -2,6 +2,8 @@
 #include "FPSExtractionSubsystem.h"
 #include "FPSExtractionSmoke.h"
 #include "FPSExtractionUI.h"
+#include "FPSDemoCharacter.h"
+#include "FPSWeaponComponent.h"
 #include "FPSSystemSettings.h"
 #include "FPSDemoGameState.h"
 #include "FPSWeaponData.h"
@@ -87,23 +89,13 @@ FReply UFPSFactoryTerminalShell::NativeOnPreviewKeyDown(const FGeometry& Geometr
 }
 void AFPSFactoryController::BeginPlay()
 {
-    Super::BeginPlay();bShowMouseCursor=false;SetInputMode(FInputModeGameOnly());SetControlRotation(FRotator(-12,90,0));
-}
-bool AFPSFactoryController::KeyHeld(FName Action) const
-{
-    const auto* Settings=UFPSSystemSettings::Get(this);const auto* Binding=Settings?Settings->Binding(Action):nullptr;
-    return Binding&&((Binding->Primary.IsValid()&&IsInputKeyDown(Binding->Primary))||(Binding->Secondary.IsValid()&&IsInputKeyDown(Binding->Secondary)));
-}
-bool AFPSFactoryController::KeyPressed(FName Action) const
-{
-    const auto* Settings=UFPSSystemSettings::Get(this);const auto* Binding=Settings?Settings->Binding(Action):nullptr;
-    return Binding&&((Binding->Primary.IsValid()&&WasInputKeyJustPressed(Binding->Primary))||(Binding->Secondary.IsValid()&&WasInputKeyJustPressed(Binding->Secondary)));
+    Super::BeginPlay();UseGameplayInput();SetControlRotation(FRotator(0,90,0));
 }
 void AFPSFactoryController::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);if(!IsLocalController())return;
     if(!bLobbyStartupHandled&&GetPawn())
-    {bLobbyStartupHandled=true;if(FParse::Param(FCommandLine::Get(),TEXT("FactoryLobby")))OpenLobby();}
+    {bLobbyStartupHandled=true;if(GetWorld()->URL.HasOption(TEXT("FactoryLobby"))||FParse::Param(FCommandLine::Get(),TEXT("FactoryLobby")))OpenLobby();}
     if(IsSettingsOpen()){if(WasInputKeyJustPressed(EKeys::Escape))SettingsBack();return;}
     if(Shell)
     {
@@ -113,13 +105,7 @@ void AFPSFactoryController::Tick(float DeltaSeconds)
     }
     if(WasInputKeyJustPressed(EKeys::Tab)){OpenLobby();return;}
     if(WasInputKeyJustPressed(EKeys::Escape)){OpenSettings();return;}
-    auto* Body=Cast<AFPSFactoryRobot>(GetPawn());if(!Body)return;
-    const auto* Settings=UFPSSystemSettings::Get(this);float DX=0,DY=0;GetInputMouseDelta(DX,DY);
-    if(!IsLookInputIgnored())
-    {auto Rot=GetControlRotation();Rot.Yaw+=DX*(Settings?Settings->Sensitivity:1.f);Rot.Pitch=FMath::Clamp(FRotator::NormalizeAxis(Rot.Pitch)+DY*(Settings&&Settings->InvertY?1.f:-1.f)*(Settings?Settings->Sensitivity:1.f),-55.f,20.f);SetControlRotation(Rot);}
-    if(!IsMoveInputIgnored())
-    {const FRotator Yaw(0,GetControlRotation().Yaw,0);Body->AddMovementInput(Yaw.Vector(),float(KeyHeld(TEXT("Forward")))-float(KeyHeld(TEXT("Backward"))));Body->AddMovementInput(FRotationMatrix(Yaw).GetUnitAxis(EAxis::Y),float(KeyHeld(TEXT("Right")))-float(KeyHeld(TEXT("Left"))));}
-    if(KeyPressed(TEXT("Interact")))InteractWithStation();
+
 }
 AFPSFactoryStation* AFPSFactoryController::FocusStation() const
 {
@@ -149,44 +135,40 @@ bool AFPSFactoryController::OpenTerminal(FName Page)
     Shell=CreateWidget<UFPSFactoryTerminalShell>(this);Shell->AddToPlayerScreen(40);
     if(!Shell->Terminal){CloseTerminal();return false;}
     Shell->Terminal->Dispatch(Page);GetPawn()->GetMovementComponent()->StopMovementImmediately();
-    SetIgnoreMoveInput(true);SetIgnoreLookInput(true);bShowMouseCursor=true;FInputModeGameAndUI Mode;Mode.SetWidgetToFocus(Shell->TakeWidget());Mode.SetHideCursorDuringCapture(false);SetInputMode(Mode);return true;
+    if(auto* Body=Cast<AFPSDemoCharacter>(GetPawn()))Body->StopCombatInput();
+    SetIgnoreMoveInput(true);SetIgnoreLookInput(true);UseMenuInput(Shell);return true;
 }
 UFPSExtractionUI* AFPSFactoryController::GetTerminal() const{return Shell?Shell->Terminal.Get():nullptr;}
 void AFPSFactoryController::CloseTerminal()
 {
-    if(IsSettingsOpen())return;if(Shell)Shell->RemoveFromParent();Shell=nullptr;ResetIgnoreMoveInput();ResetIgnoreLookInput();bShowMouseCursor=false;SetInputMode(FInputModeGameOnly());
+    if(IsSettingsOpen())return;if(Shell)Shell->RemoveFromParent();Shell=nullptr;ResetIgnoreMoveInput();ResetIgnoreLookInput();UseGameplayInput();
 }
 void AFPSFactoryController::EndPlay(const EEndPlayReason::Type Reason)
 {if(Shell)Shell->RemoveFromParent();Shell=nullptr;Super::EndPlay(Reason);}
 
-void AFPSFactoryHUD::DrawHUD()
-{
-    Super::DrawHUD();auto* PC=Cast<AFPSFactoryController>(PlayerOwner);if(!Canvas||!PC||PC->IsTerminalOpen()||PC->IsSettingsOpen())return;
-    if(!Font)Font=LoadObject<UFont>(nullptr,TEXT("/Game/FPSDemo/Art/Industrial/UI/Fonts/F_UI_Text.F_UI_Text"));
-    const float Scale=Canvas->ClipX/1600.f;
-    DrawRect(FLinearColor(.015f,.022f,.026f,.85f),24*Scale,24*Scale,380*Scale,75*Scale);
-    DrawText(TEXT("个人工厂 · 整备车间"),FLinearColor(.9f,.92f,.9f),40*Scale,31*Scale,Font,1.8f*Scale);
-    DrawText(TEXT("仓储  /  加工  /  改枪  /  出征"),FLinearColor(.7f,.75f,.75f),40*Scale,65*Scale,Font,1.25f*Scale);
-    DrawText(TEXT("Tab 行动大厅 · Esc 设置 · 移动与交互沿用自定义按键"),FLinearColor(.8f,.85f,.85f),30*Scale,Canvas->ClipY-42*Scale,Font,1.25f*Scale);
-    if(auto* Station=PC->FocusStation())
-    {
-        const auto* Settings=UFPSSystemSettings::Get(this);const FString Hint=(Settings?Settings->BindingText(TEXT("Interact")):TEXT("F"))+TEXT("  ")+Station->DisplayName.ToString();
-        DrawRect(FLinearColor(.02f,.025f,.03f,.9f),Canvas->ClipX*.5f-200*Scale,Canvas->ClipY*.78f,400*Scale,54*Scale);
-        DrawText(Hint,FLinearColor(.95f,.72f,.15f),Canvas->ClipX*.5f-175*Scale,Canvas->ClipY*.78f+10*Scale,Font,1.7f*Scale);
-    }
-}
+AFPSFactoryHUD::AFPSFactoryHUD(){bShowHUD=false;}
 AFPSFactoryMode::AFPSFactoryMode()
-{DefaultPawnClass=AFPSFactoryRobot::StaticClass();PlayerControllerClass=AFPSFactoryController::StaticClass();HUDClass=AFPSFactoryHUD::StaticClass();}
+{
+    // Keep the native first-person character inherited from FPSMatchMode.
+    PlayerControllerClass=AFPSFactoryController::StaticClass();HUDClass=nullptr;
+}
 void AFPSFactoryMode::InitGameState()
 {
-    AGameModeBase::InitGameState();auto* GS=GetGameState<AFPSDemoGameState>();GS->bWaiting=true;GS->bStructuredMatch=false;GS->RoundEndsAt=0;
-}
-void AFPSFactoryMode::BeginPlay()
-{
-    AGameModeBase::BeginPlay();auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
-    if(!Catalog->PrepareDependencies({TEXT("Weapon.M4"),TEXT("Weapon.M9")})){GetGameState<AFPSDemoGameState>()->WeaponDataError=Catalog->ValidationError;return;}
+    AGameModeBase::InitGameState();auto* GS=GetGameState<AFPSDemoGameState>();
+    GS->bStructuredMatch=true;GS->bWaiting=false;GS->RoundEndsAt=0;GS->bBaseRegionsEnabled=false;
+    auto* Catalog=GetGameInstance()->GetSubsystem<UFPSWeaponCatalog>();
+    if(!Catalog->PrepareWorld(GetWorld())){GS->WeaponDataError=Catalog->ValidationError;return;}
     auto* Loop=GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>();Loop->bFactoryBase=true;Loop->EnterWorld(false);
+}
+void AFPSFactoryMode::BeginPlay(){AGameModeBase::BeginPlay();SyncPreparedEquipment();}
+void AFPSFactoryMode::SyncPreparedEquipment()
+{
+    auto* Loop=GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>();
+    auto* PC=GetWorld()->GetFirstPlayerController();auto* Body=PC?Cast<AFPSDemoCharacter>(PC->GetPawn()):nullptr;
+    if(!Body||!Body->HasActorBegunPlay()||!Loop->Profile||Loop->GetPhase()!=EFPSExtractionPhase::Base)return;
+    if(EquippedPawn.Get()==Body&&PreparedRevision==Loop->Profile->Revision)return;
+    if(Loop->RestoreEquipment(Body)){EquippedPawn=Body;PreparedRevision=Loop->Profile->Revision;}
 }
 void AFPSFactoryMode::HandleStartingNewPlayer_Implementation(APlayerController* Player){AGameModeBase::HandleStartingNewPlayer_Implementation(Player);}
 void AFPSFactoryMode::RestartPlayer(AController* Player){AGameModeBase::RestartPlayer(Player);}
-void AFPSFactoryMode::Tick(float DeltaSeconds){AGameModeBase::Tick(DeltaSeconds);SmokeTick();FFPSExtractionSmoke::InventoryTick(this);FFPSExtractionSmoke::ModularPartsTick(this);}
+void AFPSFactoryMode::Tick(float DeltaSeconds){AGameModeBase::Tick(DeltaSeconds);SyncPreparedEquipment();SmokeTick();FFPSExtractionSmoke::InventoryTick(this);FFPSExtractionSmoke::ModularPartsTick(this);}

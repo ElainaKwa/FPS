@@ -89,4 +89,5 @@ class MCP_TEST_API UFPSUIAssetBuilder : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintCallable, Category="FPS|Editor") static FString BuildAssets();
     UFUNCTION(BlueprintCallable, Category="FPS|Editor") static FString ExtendMovementAssets();
+    UFUNCTION(BlueprintCallable, Category="FPS|Editor") static FString BuildStartMenuAssets();
 };

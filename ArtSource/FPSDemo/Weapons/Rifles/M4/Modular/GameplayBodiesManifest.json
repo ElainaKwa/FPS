@@ -1,0 +1,64 @@
+{
+  "generator": "ArtSource/FPSDemo/Weapons/Rifles/M4/Modular/Scripts/build_gameplay_bodies.py",
+  "source": "Tools/build_industrial_art.py",
+  "source_sha256": "f7482886c4817094769809fff3d0259c643a9a7a780377f9092882d237d9f7db",
+  "scope": "M4 gameplay bases with detachable muzzle and magazine",
+  "assets": [
+    {
+      "name": "SM_M4_ModularGameplayBody",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularGameplayBody.fbx",
+      "bounds_m": {
+        "min": [
+          -0.29500001668930054,
+          -0.06450000405311584,
+          -0.08650000393390656
+        ],
+        "max": [
+          0.4300000071525574,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 13548,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Modular/Meshes",
+      "sha256": "b7ec794281d84f6691cf809d987381a172f48466a8ca3f07bea9b1bad6106939"
+    },
+    {
+      "name": "SM_M4_ModularGameplayReloadBody",
+      "category": "Modular",
+      "file": "Exports/SM_M4_ModularGameplayReloadBody.fbx",
+      "bounds_m": {
+        "min": [
+          -0.29500001668930054,
+          -0.03200000151991844,
+          -0.08650000393390656
+        ],
+        "max": [
+          0.4300000071525574,
+          0.03200000151991844,
+          0.07700000703334808
+        ]
+      },
+      "triangles": 13296,
+      "materials": [
+        "MI_IND_Graphite",
+        "MI_IND_Steel",
+        "MI_IND_Ceramic",
+        "MI_IND_Rubber",
+        "MI_IND_Yellow"
+      ],
+      "uv_layers": 1,
+      "destination": "/Game/FPSDemo/Art/Weapons/Rifles/M4/Modular/Meshes",
+      "sha256": "31fbffcbaec6c0e22cd4806c298d43540fe615a0edfbd0ea84880311f48b5aaa"
+    }
+  ]
+}

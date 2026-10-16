@@ -101,7 +101,10 @@ void UFPSAvatarVisuals::UpdatePose(AFPSDemoCharacter* Character, USceneComponent
     // Absolute base every frame, including the legacy mesh fallback. Never accumulate aim pitch.
     if (PoseDef) WorldGun->SetRelativeTransform(PoseDef->ThirdPerson.Transform);
     WorldGun->SetRelativeRotation((PoseDef ? PoseDef->ThirdPerson.Transform.Rotator() : FRotator::ZeroRotator) + ActionPose.Rotation);
-    WorldGun->SetVisibility(PoseDef && !Character->IsEliminated());
+    const bool ShowWeapon = PoseDef && !Character->IsEliminated();
+    // Hiding a mesh alone leaves its independent attachment components visible.
+    // Only propagate hiding: reload animation owns visibility of individual parts while alive.
+    WorldGun->SetVisibility(ShowWeapon, !ShowWeapon);
     if (bBuildFailed) return;
     if (!bBuilt && !Build(Character, Camera)) return;
     const bool bAlive = !Character->IsEliminated();
@@ -109,7 +112,7 @@ void UFPSAvatarVisuals::UpdatePose(AFPSDemoCharacter* Character, USceneComponent
     for (const auto& Pair : Parts) Pair.Value->SetVisibility(bAlive);
     if (!bAlive)
     {
-        WorldGun->SetVisibility(false);
+        WorldGun->SetVisibility(false, true);
         Gun->SetVisibility(false, true);
         return;
     }

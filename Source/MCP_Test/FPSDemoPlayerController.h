@@ -17,6 +17,8 @@ public:
     bool IsSettingsOpen() const { return SettingsUI!=nullptr; }
     void SettingsBack();
     void CloseSettingsForTravel();
+    void UseGameplayInput();
+    void UseMenuInput(class UUserWidget* Focus);
 	void ConfirmHit(bool bElimination, bool bHeadshot = false);
     bool WasHeadshot() const { return bLastHitHeadshot; }
 	float GetKillMarkerUntil() const { return KillMarkerUntil; }
@@ -24,6 +26,8 @@ public:
 	float GetHitMarkerUntil() const { return HitMarkerUntil; }
 	bool WasElimination() const { return bLastHitEliminated; }
 
+protected:
+    virtual bool LockMenuMouseToViewport() const { return false; }
 private:
     friend struct FFPSSettingsSmoke;
     UPROPERTY() TObjectPtr<class UFPSSettingsUI> SettingsUI;

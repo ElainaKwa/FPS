@@ -1,4 +1,5 @@
 #include "FPSExtractionSubsystem.h"
+#include "FPSFactoryBase.h"
 #include "FPSExtractionMode.h"
 #include "FPSAttachmentData.h"
 #include "FPSDemoCharacter.h"
@@ -137,7 +138,7 @@ bool UFPSExtractionSubsystem::EnterWorld(bool bRaid)
     {
         auto* C = CopyProfile(); C->bExpeditionActive = false;
         if (!Commit(C)) return false;
-        Feedback = TEXT("上次出征中断：未撤离物资已丢失，出征装备保留。" );
+        Feedback = TEXT("上次行动中断：未撤离物资已丢失，行动装备保留。" );
     }
     else Feedback = TEXT("准备装备，前往工业关隘回收物资。" );
     return !bRaid;
@@ -146,7 +147,7 @@ void UFPSExtractionSubsystem::Travel(bool bRaid)
 {
     if(!bRaid&&bFactoryBase)
     {
-        UGameplayStatics::OpenLevel(this,TEXT("/Game/FPSDemo/Maps/Gameplay/FactoryBase/LV_FPSFactoryBase"),true,TEXT("game=/Script/MCP_Test.FPSFactoryMode?Mode=Solo?Bots=0?LabPhase=Base"));
+        UGameplayStatics::OpenLevel(this,TEXT("/Game/FPSDemo/Maps/Gameplay/FactoryBase/LV_FPSFactoryBase"),true,TEXT("game=/Script/MCP_Test.FPSFactoryMode?Mode=Solo?Bots=0?LabPhase=Base?FactoryLobby=1"));
         return;
     }
     UGameplayStatics::OpenLevel(this, FName(LabMap), true,
@@ -154,14 +155,14 @@ void UFPSExtractionSubsystem::Travel(bool bRaid)
 }
 bool UFPSExtractionSubsystem::StartExpedition()
 {
-    if (!IsBase()) return Fail(TEXT("只能从基地出征。"));
+    if (!IsBase()) return Fail(TEXT("只能从工厂开始行动。"));
     auto* C = CopyProfile(); C->bExpeditionActive = true; ClearRuntime(C->Loadout);
     if (!Commit(C)) return false;
     LastHaul.Reset(); Backpack.Reset(); Phase = EFPSExtractionPhase::Raid; Travel(true); return true;
 }
 bool UFPSExtractionSubsystem::ReturnToBase()
 {
-    if (!IsAuthorized() || Phase != EFPSExtractionPhase::Result) return Fail(TEXT("请先完成撤离或结束本次出征。"));
+    if (!IsAuthorized() || Phase != EFPSExtractionPhase::Result) return Fail(TEXT("请先完成撤离或结束本次行动。"));
     Phase = EFPSExtractionPhase::Base; Travel(false); return true;
 }
 bool UFPSExtractionSubsystem::Collect(FName Id, int32 Quantity)
@@ -190,14 +191,15 @@ bool UFPSExtractionSubsystem::FinishExpedition(bool bSuccess)
             if (Retained > 0) TryRemove(LastHaul, S.ItemId, Retained);
         }
     Backpack.Reset(); Phase = EFPSExtractionPhase::Result; bLastSuccess = bSuccess; ExtractionRemaining = -1;
-    Feedback = bSuccess ? TEXT("撤离成功，背包物资已入库。") : TEXT("本次搜获已丢失；出征枪械、配件保留，原整备物资返回基地背包。" );
+    Feedback = bSuccess ? TEXT("撤离成功，背包物资已入库。") : TEXT("本次搜获已丢失；携带枪械、配件保留，原整备物资已恢复到行动背包。" );
     if (auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>()) GS->bFinished = true;
     return true;
 }
 bool UFPSExtractionSubsystem::AbortExpedition() { return FinishExpedition(false); }
 bool UFPSExtractionSubsystem::RestoreEquipment(AFPSDemoCharacter* Body)
 {
-    if (!IsAuthorized() || !Profile || Phase != EFPSExtractionPhase::Raid || !Body) return false;
+    const bool Factory=GetWorld()&&GetWorld()->GetAuthGameMode<AFPSFactoryMode>()&&Phase==EFPSExtractionPhase::Base;
+    if (!IsAuthorized() || !Profile || (!Factory&&Phase!=EFPSExtractionPhase::Raid) || !Body) return false;
     FString Error;
     if (!Body->GetWeapons()->RestoreExtractionLoadout(Profile->Loadout, Error)) return Fail(Error);
     return true;
@@ -223,7 +225,7 @@ bool UFPSExtractionSubsystem::StartProduction(FName Id)
 }
 bool UFPSExtractionSubsystem::ClaimProduction()
 {
-    if (!IsBase()) return Fail(TEXT("请返回基地领取。"));
+    if (!IsBase()) return Fail(TEXT("请返回工厂领取。"));
     const auto* R = FindRecipe(Profile->ProductionRecipe);
     if (!R || FDateTime::UtcNow() < Profile->ProductionEnds) return Fail(TEXT("没有已完成的产物。"));
     auto* C = CopyProfile();
@@ -259,7 +261,7 @@ bool UFPSExtractionSubsystem::InstallAttachment(FName Id)
     if (Part->Category == EFPSAttachmentCategory::Magazine) Gun.Magazine = int32(FMath::Min<int64>(Total, Stats.MagazineSize));
     if (Total - Gun.Magazine > MAX_int32) return Fail(TEXT("备弹超出范围。"));
     Gun.Reserve = int32(Total - Gun.Magazine); ++Gun.ConfigurationRevision;
-    if (!Commit(C)) return false; Feedback = TEXT("配件已安装，下次出征使用新配置。" ); return true;
+    if (!Commit(C)) return false; Feedback = TEXT("配件已安装，下次行动使用新配置。" ); return true;
 }
 bool UFPSExtractionSubsystem::RemoveAttachment(FName Id)
 {
@@ -278,7 +280,7 @@ bool UFPSExtractionSubsystem::RemoveAttachment(FName Id)
 }
 bool UFPSExtractionSubsystem::Resupply()
 {
-    if (!IsBase()) return Fail(TEXT("请返回基地补给。"));
+    if (!IsBase()) return Fail(TEXT("请返回工厂补给。"));
     auto* C = CopyProfile(); if (C->Credits < 10) return Fail(TEXT("补给需要 10 资金。"));
     if (C->Loadout.Primary.Reserve >= 90 && C->Loadout.Secondary.Reserve >= 45) return Fail(TEXT("备弹充足，无需补给。"));
     C->Credits -= 10; C->Loadout.Primary.Reserve = FMath::Max(C->Loadout.Primary.Reserve, 90); C->Loadout.Secondary.Reserve = FMath::Max(C->Loadout.Secondary.Reserve, 45);

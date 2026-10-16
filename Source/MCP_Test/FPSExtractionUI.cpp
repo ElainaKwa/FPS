@@ -18,6 +18,7 @@
 #include "Engine/GameInstance.h"
 #include "GameFramework/PlayerController.h"
 #include "InputCoreTypes.h"
+#include "Kismet/GameplayStatics.h"
 
 namespace ExtractionUI
 {
@@ -240,6 +241,15 @@ void UFPSExtractionUI::RebuildAttachmentRows(const FFPSExtractionView& V)
 void UFPSExtractionUI::Dispatch(FName Action,FName ItemId,int32 Quantity)
 {
     auto* S=Model();if(!S)return;
+    if(Action==TEXT("Modes") && S->GetPhase()==EFPSExtractionPhase::Base)
+    {
+        if(auto* PC=Cast<AFPSFactoryController>(GetOwningPlayer()))
+        {
+            PC->CloseTerminal();
+            UGameplayStatics::OpenLevel(PC,TEXT("/Engine/Maps/Entry"),true,TEXT("game=/Script/MCP_Test.FPSLobbyMode"));
+        }
+        return;
+    }
     if(Action==TEXT("LobbySettings")){if(auto* PC=Cast<AFPSDemoPlayerController>(GetOwningPlayer()))PC->OpenSettings(this);return;}
     if(Action==TEXT("LobbyFactory")){if(auto* PC=Cast<AFPSFactoryController>(GetOwningPlayer()))PC->CloseTerminal();return;}
     if(Action==TEXT("WorkbenchBack")){WorkbenchBack();return;}
@@ -339,7 +349,7 @@ void UFPSExtractionUI::Refresh()
     SetText(TEXT("Credits"),FString::Printf(TEXT("%d"),V.Credits));
     SetText(TEXT("LobbyCredits"),FText::AsNumber(V.Credits).ToString());
     SetText(TEXT("LobbyLoadout"),FString::Printf(TEXT("整备背包  %d / %d 格  ·  主武器配件 %d 件"),V.BackpackUsed,V.BackpackSlots,V.Loadout.Primary.AttachmentIds.Num()));
-    SetText(TEXT("LobbyFeedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，暂时无法出征。 ")+V.Feedback);
+    SetText(TEXT("LobbyFeedback"),V.bStorageHealthy?V.Feedback:TEXT("存档不可写，暂时无法开始行动。 ")+V.Feedback);
     SetEnabled(TEXT("LobbyDepart"),Base&&V.bStorageHealthy);
     SetEnabled(TEXT("LobbyFactory"),Base&&GetOwningPlayer()&&GetOwningPlayer()->IsA<AFPSFactoryController>());
     SetText(TEXT("Storage"),FString::Printf(TEXT("仓库  %d / %d 格"),V.WarehouseUsed,V.WarehouseSlots));
@@ -348,7 +358,7 @@ void UFPSExtractionUI::Refresh()
     if(LastBackendFeedback!=V.Feedback){LocalFeedback.Empty();LastBackendFeedback=V.Feedback;}
     const FString Feedback=LocalFeedback.IsEmpty()?V.Feedback:LocalFeedback;
     SetText(TEXT("InventoryFeedback"),Feedback);SetText(TEXT("BagFeedback"),Feedback);SetText(TEXT("ResultFeedback"),V.Feedback);
-    SetText(TEXT("BagCapacity"),FString::Printf(TEXT("出征背包  %d / %d 格"),V.BackpackUsed,V.BackpackSlots));
+    SetText(TEXT("BagCapacity"),FString::Printf(TEXT("行动背包  %d / %d 格"),V.BackpackUsed,V.BackpackSlots));
     SetText(TEXT("RaidBagCapacity"),FString::Printf(TEXT("%d / %d 格"),V.BackpackUsed,V.BackpackSlots));
     SetText(TEXT("HomeStorage"),FString::Printf(TEXT("仓库 %d / %d 格\n背包 %d / %d 格"),V.WarehouseUsed,V.WarehouseSlots,V.BackpackUsed,V.BackpackSlots));
     SetText(TEXT("HomeEquipment"),FString::Printf(TEXT("M4  /  M9\n主武器配件 %d 件"),V.Loadout.Primary.AttachmentIds.Num()));
@@ -372,7 +382,7 @@ void UFPSExtractionUI::Refresh()
     SetText(TEXT("LobbyProductionStatus"),Production);
     SetEnabled(TEXT("Depart"),Base&&V.bStorageHealthy);SetEnabled(TEXT("Resupply"),Base&&V.bStorageHealthy);
     SetText(TEXT("ResultTitle"),V.bLastSuccess?TEXT("撤离成功"):TEXT("行动失败"));
-    SetText(TEXT("ResultNote"),V.bLastSuccess?TEXT("当前背包全部入库。出征枪械与已装配件保留。"):TEXT("本次搜获遗失；出征前整备背包已恢复。枪械与已装配件保留，无维修费。"));
+    SetText(TEXT("ResultNote"),V.bLastSuccess?TEXT("当前背包全部入库。携带枪械与已装配件保留。"):TEXT("本次搜获遗失；行动前整备背包已恢复。枪械与已装配件保留，无维修费。"));
     SetText(TEXT("ResultListTitle"),V.bLastSuccess?TEXT("带回物资"):TEXT("遗失物资"));
     if(auto* T=ExtractionUI::Find<UTextBlock>(this,TEXT("ResultTitle")))T->SetColorAndOpacity(V.bLastSuccess?FLinearColor(.94f,.68f,.045f):FLinearColor(.82f,.22f,.18f));
     const auto Items=S->GetItems();
@@ -442,7 +452,7 @@ void UFPSExtractionUI::RebuildRows(const FFPSExtractionView& V)
             Row(Item->Name.ToString(),Detail,FString::Printf(TEXT("× %d"),Stack.Quantity),Action,Stack.ItemId,Label,V.bStorageHealthy,V.bStorageHealthy?TEXT(""):TEXT("存档不可用"));
         }
     }
-    if(List->GetChildrenCount()==0)Row(TEXT("暂无物资"),V.Phase==EFPSExtractionPhase::Base?TEXT("出征搜集物资并成功撤离后，在这里管理与加工。"):TEXT("本次行动尚无记录物资。"),TEXT("—"),NAME_None,NAME_None,TEXT(""),false,TEXT(""));
+    if(List->GetChildrenCount()==0)Row(TEXT("暂无物资"),V.Phase==EFPSExtractionPhase::Base?TEXT("开始行动，搜集物资并成功撤离后，在这里管理与加工。"):TEXT("本次行动尚无记录物资。"),TEXT("—"),NAME_None,NAME_None,TEXT(""),false,TEXT(""));
     List->SetScrollOffset(SavedOffset);
 }
 
@@ -654,7 +664,7 @@ void AddLobby(FLayout& P)
     P.Label(TEXT("LobbyBrand"),TEXT("FOUNDRY"),40,41,186,40,27,Home,true,Paper)->SetAutoWrapText(false);
     P.Label(TEXT("LobbyBrandSub"),TEXT("个人工厂"),42,79,160,20,11,Home,false,Muted);
     const TCHAR* Names[]={TEXT("LobbyOverview"),TEXT("LobbyWarehouse"),TEXT("LobbyFactory"),TEXT("LobbyModification")};
-    const TCHAR* Labels[]={TEXT("出征"),TEXT("仓库"),TEXT("工厂"),TEXT("改枪台")};
+    const TCHAR* Labels[]={TEXT("行动"),TEXT("仓库"),TEXT("工厂"),TEXT("改枪台")};
     const TCHAR* Actions[]={TEXT("Overview"),TEXT("Warehouse"),TEXT("LobbyFactory"),TEXT("Modification")};
     for(int32 I=0;I<4;++I)
     {
@@ -663,6 +673,7 @@ void AddLobby(FLayout& P)
         auto* Label=Cast<UTextBlock>(B->GetChildAt(0));Label->SetColorAndOpacity(I==0?Yellow:Paper);
     }
     P.Surface(TEXT("LobbyNavActive"),250,102,134,3,Yellow,Home);
+    P.Button(TEXT("LobbyModes"),TEXT("模式选择"),856,44,200,54,Home)->Action=TEXT("Modes");
     P.Label(TEXT("LobbyFundsLabel"),TEXT("可用资金"),1138,55,96,28,14,Home,false,Muted)->SetAutoWrapText(false);
     auto* Credits=P.Label(TEXT("LobbyCredits"),TEXT("0"),1232,44,178,44,28,Home,true,Paper);
     Credits->SetFont(FSlateFontInfo(P.NumberFont,28,TEXT("Bold")));Credits->SetJustification(ETextJustify::Right);Credits->SetAutoWrapText(false);
@@ -685,8 +696,8 @@ void AddLobby(FLayout& P)
     P.Label(TEXT("LobbyMapName"),TEXT("工业关隘"),1192,700,340,43,28,Home,true,Paper);
     P.Label(TEXT("LobbyMapMode"),TEXT("单人回收  ·  搜索物资并撤离"),1194,751,340,30,14,Home,false,Muted);
     P.Label(TEXT("LobbyLoadout"),TEXT(""),1174,483,386,28,13,Home,false,Paper)->SetAutoWrapText(false);
-    P.Button(TEXT("LobbyPrepare"),TEXT("整备"),1172,826,152,52,Home)->Action=TEXT("Warehouse");
-    P.Button(TEXT("LobbyDepart"),TEXT("出发  →"),1336,826,224,52,Home,true)->Action=TEXT("Depart");
+    P.Button(TEXT("LobbyPrepare"),TEXT("行动整备"),1144,826,180,52,Home)->Action=TEXT("Warehouse");
+    P.Button(TEXT("LobbyDepart"),TEXT("开始行动  →"),1336,826,224,52,Home,true)->Action=TEXT("Depart");
     P.Label(TEXT("LobbyFeedback"),TEXT(""),400,812,714,65,15,Home,false,Yellow);
     P.Label(TEXT("LobbySceneNote"),TEXT("PERSONAL BASE / FOUNDRY"),1150,152,410,24,11,Home,false,Muted)->SetJustification(ETextJustify::Right);
 }
@@ -708,7 +719,7 @@ bool BuildInventoryTerminal(bool Replace)
     P.Button(TEXT("Production"),TEXT("03  加工制造"),40,320,222,55,Base);
     P.Button(TEXT("Modification"),TEXT("04  枪械改装"),40,388,222,55,Base);
     P.Label(TEXT("Storage"),TEXT("仓库"),48,477,215,60,18,Base);
-    P.Label(TEXT("FactoryRule"),TEXT("成功：背包全部入库\n失败：恢复出征整备\n仅丢本次搜获"),48,573,210,126,16,Base,false,Muted)->SetAutoWrapText(false);
+    P.Label(TEXT("FactoryRule"),TEXT("成功：背包全部入库\n失败：恢复行动整备\n仅丢本次搜获"),48,573,210,126,16,Base,false,Muted)->SetAutoWrapText(false);
     P.Surface(TEXT("MainSurface"),286,177,1008,615,Panel,Base,true);
     P.Label(TEXT("SectionTitle"),TEXT("个人工厂总览"),308,193,850,44,29,Base,true);
     AddLobby(P);
@@ -716,7 +727,7 @@ bool BuildInventoryTerminal(bool Replace)
     {auto* G=P.Make<UFPSExtractionGridUI>(Name);G->Container=Container;G->CellSize=Cell;G->TextFont=P.Font;G->NumberFont=P.NumberFont;G->SetVisibility(ESlateVisibility::Visible);P.Place(Parent,G,X,Y,W,H);};
     auto* Inventory=P.Group(TEXT("InventoryPanel"),0,0,1600,900,Base);
     P.Label(TEXT("WarehouseHeader"),TEXT("仓库  /  8 × 8"),306,243,464,34,18,Inventory,true);
-    P.Label(TEXT("BagCapacity"),TEXT("出征背包"),826,243,450,34,18,Inventory,true);
+    P.Label(TEXT("BagCapacity"),TEXT("行动背包"),826,243,450,34,18,Inventory,true);
     Grid(TEXT("WarehouseGrid"),EFPSExtractionContainer::Warehouse,306,281,464,464,58,Inventory);
     Grid(TEXT("BaseBackpackGrid"),EFPSExtractionContainer::Backpack,826,281,290,232,58,Inventory);
     P.Label(TEXT("InventoryHelp"),TEXT("左键选择 / 拖动放置\n旋转按钮 / R 旋转\n同类物资可整组合并"),1134,287,140,154,15,Inventory,false,Muted);
@@ -732,7 +743,7 @@ bool BuildInventoryTerminal(bool Replace)
     P.Button(TEXT("Claim"),TEXT("领取产物"),1095,730,190,50,Work);
     auto* Equip=P.Group(TEXT("EquipmentPanel"),0,0,1600,900,Base);
     P.Surface(TEXT("LoadoutSurface"),1316,177,244,603,Panel,Equip,true);
-    P.Label(TEXT("LoadoutTitle"),TEXT("出征装备"),1338,199,198,44,24,Equip,true);
+    P.Label(TEXT("LoadoutTitle"),TEXT("行动装备"),1338,199,198,44,24,Equip,true);
     P.Label(TEXT("PrimarySlot"),TEXT("主武器 · 固定槽"),1338,249,198,30,15,Equip,false,Muted);
     P.Label(TEXT("WeaponSummary"),TEXT("M4\n配件 0 件"),1338,283,198,116,27,Equip,true)->SetAutoWrapText(false);
     P.Label(TEXT("AmmoSummary"),TEXT("弹药"),1338,401,198,38,18,Equip)->SetAutoWrapText(false);
@@ -742,7 +753,7 @@ bool BuildInventoryTerminal(bool Replace)
     P.Button(TEXT("Resupply"),TEXT("补给 / 10 资金"),1338,681,200,51,Equip);
     P.Label(TEXT("Feedback"),TEXT(""),304,817,965,63,17,Base,false,Yellow);
     P.Label(TEXT("DeploymentMap"),TEXT("工业关隘 · 单人行动"),1319,785,241,30,16,Base);
-    P.Button(TEXT("Depart"),TEXT("出征  →"),1316,823,244,54,Base,true);
+    P.Button(TEXT("Depart"),TEXT("开始行动  →"),1316,823,244,54,Base,true);
     auto* HUD=P.Group(TEXT("RaidHUD"),0,0,1600,900);
     P.Surface(TEXT("RaidStatusBG"),40,105,380,110,FLinearColor(.01f,.017f,.02f,.8f),HUD,true);
     P.Surface(TEXT("RaidStatusAccent"),40,105,4,110,Yellow,HUD);
@@ -756,11 +767,11 @@ bool BuildInventoryTerminal(bool Replace)
     P.Surface(TEXT("BagSurface"),220,140,1160,700,Dark,Bag,true);
     P.Label(TEXT("BagTitle"),TEXT("行动背包"),250,166,730,64,34,Bag,true);
     P.Label(TEXT("RaidBagCapacity"),TEXT("5 × 4 格"),1040,180,280,45,24,Bag,true);
-    P.Label(TEXT("BagRule"),TEXT("成功后全部入库；失败恢复出征前整备，仅丢本次搜获。"),250,237,1040,44,18,Bag,false,Muted);
+    P.Label(TEXT("BagRule"),TEXT("成功后全部入库；失败恢复行动前整备，仅丢本次搜获。"),250,237,1040,44,18,Bag,false,Muted);
     Grid(TEXT("RaidBackpackGrid"),EFPSExtractionContainer::Backpack,250,295,360,288,72,Bag);
     auto* Selection=P.Group(TEXT("RaidSelectionPanel"),0,0,1600,900,Bag);
     P.Label(TEXT("RaidSelectedInfo"),TEXT("选择格中物资"),665,301,640,138,21,Selection);
-    P.Label(TEXT("RaidEquipment"),TEXT("出征装备  M4 / M9\n行动中不改装，不更换固定枪械槽。"),665,446,640,74,18,Selection,false,Muted);
+    P.Label(TEXT("RaidEquipment"),TEXT("行动装备  M4 / M9\n行动中不改装，不更换固定枪械槽。"),665,446,640,74,18,Selection,false,Muted);
     P.Button(TEXT("RaidRotate"),TEXT("旋转物品"),665,544,250,55,Selection)->Action=TEXT("SelectedRotate");
     P.Button(TEXT("SelectedDrop"),TEXT("丢弃整堆到地面"),939,544,368,55,Selection);
     P.Label(TEXT("BagFeedback"),TEXT(""),250,629,1060,60,18,Bag,false,Yellow);
@@ -769,7 +780,7 @@ bool BuildInventoryTerminal(bool Replace)
     auto* Confirm=P.Group(TEXT("AbortConfirm"),430,300,740,290);
     P.Surface(TEXT("ConfirmBG"),0,0,740,290,Dark,Confirm,true);
     P.Label(TEXT("ConfirmTitle"),TEXT("放弃本次行动？"),30,22,680,53,31,Confirm,true);
-    P.Label(TEXT("ConfirmRule"),TEXT("仅遗失本次搜获，恢复出征前整备背包。枪械与已装配件保留，无维修费。"),30,94,680,83,20,Confirm);
+    P.Label(TEXT("ConfirmRule"),TEXT("仅遗失本次搜获，恢复行动前整备背包。枪械与已装配件保留，无维修费。"),30,94,680,83,20,Confirm);
     P.Button(TEXT("CancelAbort"),TEXT("继续行动"),30,217,320,52,Confirm);
     P.Button(TEXT("ConfirmAbort"),TEXT("确认放弃"),390,217,320,52,Confirm,true);
     auto* Result=P.Group(TEXT("ResultPanel"),0,0,1600,900);
@@ -779,8 +790,8 @@ bool BuildInventoryTerminal(bool Replace)
     P.Label(TEXT("ResultListTitle"),TEXT("本次物资"),310,322,980,45,25,Result,true);
     P.Rows(TEXT("ResultRows"),310,384,980,306,Result);
     P.Label(TEXT("ResultFeedback"),TEXT(""),310,711,980,54,19,Result,false,Yellow);
-    P.Button(TEXT("Return"),TEXT("返回基地"),990,786,300,66,Result,true);
-    P.Label(TEXT("ResultPolicy"),TEXT("出征枪械与已装配件保留"),310,800,660,43,20,Result,false,Muted);
+    P.Button(TEXT("Return"),TEXT("返回工厂"),990,786,300,66,Result,true);
+    P.Label(TEXT("ResultPolicy"),TEXT("携带枪械与已装配件保留"),310,800,660,43,20,Result,false,Muted);
     for(const TCHAR* Name:{TEXT("InventoryPanel"),TEXT("WorkbenchPanel"),TEXT("RaidHUD"),TEXT("BagBackdrop"),TEXT("BagPanel"),TEXT("AbortConfirm"),TEXT("ResultPanel")})P.Tree->FindWidget(Name)->SetVisibility(ESlateVisibility::Collapsed);
     AddReferenceWorkbench(P);
     return P.Save();

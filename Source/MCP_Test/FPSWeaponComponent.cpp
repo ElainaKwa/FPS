@@ -182,7 +182,7 @@ void UFPSWeaponComponent::InitializeSpawnLoadout()
 bool UFPSWeaponComponent::SelectDefinition(FName Id, FString& Failure)
 {
     auto Fail = [&](const TCHAR* Reason) { Failure = Reason; return false; };
-    if (GetWorld()->GetAuthGameMode<AFPSExtractionMode>()) return Fail(TEXT("实验出征使用基地仓库中的装备。"));
+    if (GetWorld()->GetAuthGameMode<AFPSExtractionMode>()) return Fail(TEXT("回收行动使用工厂仓库中的装备。"));
     auto* Membership = Character()->FindComponentByClass<UFPSBaseMembership>();
     if (!GetOwner()->HasAuthority() || !CanAct() || !Membership) return Fail(TEXT("角色或阶段已失效。"));
     Membership->RefreshAuthority();

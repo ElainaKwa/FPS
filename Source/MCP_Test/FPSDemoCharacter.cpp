@@ -429,6 +429,7 @@ void AFPSDemoCharacter::RefreshWeaponPresentation() { Presentation->Refresh(this
 
 void AFPSDemoCharacter::OnRep_Eliminated()
 {
+	RefreshWeaponPresentation();
 	if (bEliminated)
 	{
 		if (auto* Move = Cast<UFPSMovementComponent>(GetCharacterMovement())) Move->ClearMovementIntents();

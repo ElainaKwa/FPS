@@ -43,20 +43,24 @@ try {
             $partsClient=$partsArgs
             if($Visual){$partsClient=@($partsArgs|Where-Object{$_ -ne '-nullrhi'})+@('-RenderOffscreen','-ForceRes','-ResX=1280','-ResY=800',"-FPSModularCapture=`"$partsNet/WorldParts.png`"")}
             $partsOwned+=Start-Process -FilePath $partsExe -ArgumentList ($partsClient+@('127.0.0.1:18864',"-abslog=`"$partsNet/client.log`"")) -WindowStyle Hidden -PassThru
+            Start-Sleep -Seconds 5
+            $partsObserver=@($partsArgs|Where-Object{$_ -ne '-FPSAttachmentSmoke' -and $_ -ne '-FPSModularPartsNetwork'})+@('-FPSModularPartsObserver','127.0.0.1:18864',"-abslog=`"$partsNet/observer.log`"")
+            $partsOwned+=Start-Process -FilePath $partsExe -ArgumentList $partsObserver -WindowStyle Hidden -PassThru
             $partsDeadline=(Get-Date).AddSeconds(110)
             do{
                 Start-Sleep -Seconds 1;$partsComplete=$true
-                foreach($partsSide in @('server','client')){
+                foreach($partsSide in @('server','client','observer')){
                     $partsLog=Join-Path $partsNet "$partsSide.log";$partsText=if(Test-Path $partsLog){Get-Content -LiteralPath $partsLog -Raw}else{''}
                     if($partsText -match 'FPS_MODULAR_NET FAIL|Fatal error:|Assertion failed:|PreLogin failure:'){throw "Network failure: $partsLog"}
-                    $partsComplete=$partsComplete -and ($partsText -match 'FPS_MODULAR_NET PASS (SERVER|CLIENT) COMPLETE')
+                    $partsComplete=$partsComplete -and ($partsText -match 'FPS_MODULAR_NET PASS (SERVER|CLIENT|OBSERVER) COMPLETE')
                 }
                 foreach($partsProcess in $partsOwned){if($partsProcess.HasExited){throw 'Network process exited early'}}
             }while(!$partsComplete -and (Get-Date) -lt $partsDeadline)
             if(!$partsComplete){throw 'Network test incomplete'}
             if($Visual -and !(Test-Path -LiteralPath "$partsNet/WorldParts.png")){throw 'Gameplay screenshot missing'}
-            $partsRecord.runs+=@{type='listen plus client';latency=$Latency;visual=[bool]$Visual;directory=$partsNet;status='passed'}
-            Write-Output 'FPS_MODULAR_NET PASS server and client'
+            if($Visual -and !(Test-Path -LiteralPath "$partsNet/DeathParts.png")){throw 'Death screenshot missing'}
+            $partsRecord.runs+=@{type='listen plus owner and observer';latency=$Latency;visual=[bool]$Visual;directory=$partsNet;status='passed'}
+            Write-Output 'FPS_MODULAR_NET PASS server, owning client and observer'
         }finally{foreach($partsProcess in $partsOwned){if(!$partsProcess.HasExited){Stop-Process -Id $partsProcess.Id}}}
     }
     if((Get-FileHash -LiteralPath (Join-Path $RuntimeRoot 'Binaries/Win64/UnrealEditor-MCP_Test.dll')).Hash -ne $partsHash){throw 'Module changed during verification'}

@@ -160,8 +160,19 @@ void AFPSFrontController::ToggleMenu()
     if(IsSettingsOpen()){SettingsBack();return;}
     if (CustomizationMenu.IsValid()) { HideCustomization(); return; }
     if (LoadoutMenu.IsValid()) { HideLoadout(); return; }
+    if (IsLobby(GetWorld())) { if (bMultiplayerMenu) SelectMultiplayerMenu(false); return; }
     if (bWasWaiting) return;
     if (Menu.IsValid()) HideMenu(); else ShowMenu();
+}
+
+void AFPSFrontController::SelectMultiplayerMenu(bool bShowMultiplayer)
+{
+    if (!IsLobby(GetWorld())) return;
+    HideMenu();
+    bMultiplayerMenu = bShowMultiplayer;
+    Error.Empty();
+    ShowMenu();
+    if (bMultiplayerMenu && MenuAsset) MenuAsset->Dispatch(TEXT("LAN"));
 }
 
 void AFPSFrontController::HideMenu()
@@ -222,7 +233,7 @@ void AFPSFrontController::ShowMenu()
     HideLoadout();
     if (auto* Fighter = Cast<AFPSDemoCharacter>(GetPawn())) Fighter->StopCombatInput();
     const auto* GS=GetWorld()->GetGameState<AFPSDemoGameState>();
-    const TCHAR* Page=IsLobby(GetWorld()) ? TEXT("Lobby") : GS && GS->bFinished ? TEXT("Report") : GS && GS->bWaiting ? TEXT("Waiting") : TEXT("Pause");
+    const TCHAR* Page=IsLobby(GetWorld()) ? (bMultiplayerMenu ? TEXT("Lobby") : TEXT("Start")) : GS && GS->bFinished ? TEXT("Report") : GS && GS->bWaiting ? TEXT("Waiting") : TEXT("Pause");
     MenuAsset=UFPSInterface::Open(this,Page);
     if(!MenuAsset)return;
     Menu=MenuAsset->TakeWidget();
@@ -238,7 +249,7 @@ void AFPSFrontController::ShowMenu()
 #if !UE_BUILD_SHIPPING
     if (FParse::Param(FCommandLine::Get(), TEXT("FPSLobbySmoke")))
     {
-        const bool bCompleteLobby = IsLobby(GetWorld()) && MenuAsset && MenuAsset->HasControl(TEXT("BotInput")) && MenuAsset->HasControl(TEXT("RoomInput")) && MenuAsset->HasControl(TEXT("AddressInput"));
+        const bool bCompleteLobby = IsLobby(GetWorld()) && MenuAsset && (bMultiplayerMenu ? MenuAsset->HasControl(TEXT("BotInput")) && MenuAsset->HasControl(TEXT("RoomInput")) && MenuAsset->HasControl(TEXT("AddressInput")) : MenuAsset->HasControl(TEXT("Multiplayer")) && MenuAsset->HasControl(TEXT("Recovery")));
         UE_LOG(LogTemp, Display, TEXT("FPS_LOBBY_SMOKE %s menu-ready role=%s auth-mode=%d"),
             bCompleteLobby ? TEXT("PASS") : TEXT("FAIL"), HasAuthority() ? TEXT("SERVER") : TEXT("CLIENT"),
             GetWorld()->GetAuthGameMode() != nullptr);

@@ -4,6 +4,7 @@
 #include "FPSContentHash.h"
 #include "FPSModeRules.h"
 #include "FPSMovementSettings.h"
+#include "FPSFactoryBase.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Engine/AssetManager.h"
 #include "Engine/StreamableManager.h"
@@ -180,6 +181,11 @@ bool UFPSWeaponCatalog::PrepareWorld(UWorld* World, bool bRequireStands)
         ModeRules = UFPSModeRules::ForWorld(World, &Errors);
         if (ModeRules) ModeRules->GatherWeaponIds(Ids, Errors);
         if (!StandCount) Errors.Add(TEXT("Map has no explicit weapon stands"));
+    }
+    else if (World->GetAuthGameMode<AFPSFactoryMode>())
+    {
+        // The factory has no free weapon stands, but displays the persistent action loadout.
+        Ids.AddUnique(TEXT("Weapon.M4")); Ids.AddUnique(TEXT("Weapon.M9"));
     }
     else if (World->GetMapName().Contains(TEXT("LV_NetSyncFPS"))) Ids.AddUnique(StartingPrimary);
     PrepareDependencies(Ids);

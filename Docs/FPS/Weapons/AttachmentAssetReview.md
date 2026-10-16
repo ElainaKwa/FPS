@@ -85,10 +85,10 @@ AimFOV=65.000000
 AimLocation=(X=0.000000,Y=0.000000,Z=0.000000)
 AimTimeMultiplier=1.000000
 RangeMultiplier=1.000000
-bUseWeaponPresentation=True
-FirstPerson=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+bUseWeaponPresentation=False
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_MagazineExtended.SM_EXP_M4_MagazineExtended",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_MagazineExtended.SM_EXP_M4_MagazineExtended",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_MagazineExtended.SM_EXP_M4_MagazineExtended",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
 Workbench=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_MagazineExtended.SM_EXP_M4_MagazineExtended",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
 FireSound=None
 SavedResourceVersions=(("/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_MagazineExtended.SM_EXP_M4_MagazineExtended", "159d2a8b39ec7dec600b93b5580be22e98a46a29;17d8b3f132e839cd9a6579aa38d8d5364212aae8;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"))
@@ -143,10 +143,10 @@ AimFOV=65.000000
 AimLocation=(X=0.000000,Y=0.000000,Z=0.000000)
 AimTimeMultiplier=1.000000
 RangeMultiplier=1.000000
-bUseWeaponPresentation=True
-FirstPerson=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+bUseWeaponPresentation=False
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Brake.SM_EXP_M4_Brake",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Brake.SM_EXP_M4_Brake",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Brake.SM_EXP_M4_Brake",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
 Workbench=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Brake.SM_EXP_M4_Brake",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
 FireSound=None
 SavedResourceVersions=(("/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Brake.SM_EXP_M4_Brake", "d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;e1c4699081b079efc2f3bd58aeaa7262d522f329;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3;fe44e162f2c4cd4d0e47460c6ca51b4579ab4b31"))
@@ -201,10 +201,10 @@ AimFOV=48.000000
 AimLocation=(X=38.000000,Y=0.000000,Z=-7.200001)
 AimTimeMultiplier=1.150000
 RangeMultiplier=1.000000
-bUseWeaponPresentation=True
-FirstPerson=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-ThirdPerson=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
-Pickup=(Mesh=None,Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+bUseWeaponPresentation=False
+FirstPerson=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Optic.SM_EXP_M4_Optic",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+ThirdPerson=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Optic.SM_EXP_M4_Optic",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
+Pickup=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Optic.SM_EXP_M4_Optic",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
 Workbench=(Mesh="/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Optic.SM_EXP_M4_Optic",Transform=(Rotation=(X=0.000000,Y=0.000000,Z=0.000000,W=1.000000),Translation=(X=0.000000,Y=0.000000,Z=0.000000),Scale3D=(X=1.000000,Y=1.000000,Z=1.000000)))
 FireSound=None
 SavedResourceVersions=(("/Game/FPSDemo/Art/Weapons/M4/ExtractionPreview/SM_EXP_M4_Optic.SM_EXP_M4_Optic", "17d8b3f132e839cd9a6579aa38d8d5364212aae8;8b4eaec36397230b28c39ad73a41676d5de2ef1f;d310a4dc2655aa6f4ee4d55876b7a4051b1c8ad9;d54319714d74ba83ecec2f27a58fdd656eef39ef;ed16d2410d0ca59c2d27f3cbb774f23790eec6f3"))

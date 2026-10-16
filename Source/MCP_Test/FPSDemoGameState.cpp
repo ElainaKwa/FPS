@@ -6,6 +6,7 @@ void AFPSDemoGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AFPSDemoGameState, bStructuredMatch);
 	DOREPLIFETIME(AFPSDemoGameState, bTraining);
+    DOREPLIFETIME(AFPSDemoGameState, bBaseRegionsEnabled);
 	DOREPLIFETIME(AFPSDemoGameState, bWaiting);
 	DOREPLIFETIME(AFPSDemoGameState, bFinished);
 	DOREPLIFETIME(AFPSDemoGameState, RoundEndsAt);

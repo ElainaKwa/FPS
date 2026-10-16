@@ -1,4 +1,5 @@
 #include "FPSBaseRegion.h"
+#include "FPSDemoGameState.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -62,6 +63,8 @@ void AFPSBaseRegion::BeginPlay()
 {
     Super::BeginPlay();
     OnConstruction(GetActorTransform());
+    if (const auto* GS = GetWorld()->GetGameState<AFPSDemoGameState>(); GS && !GS->bBaseRegionsEnabled)
+        SetActorHiddenInGame(true);
 }
 bool AFPSBaseRegion::Contains(const FVector& Location, float Tolerance) const
 {

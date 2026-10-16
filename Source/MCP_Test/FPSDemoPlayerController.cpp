@@ -8,6 +8,21 @@
 #include "Misc/Paths.h"
 #include "UnrealClient.h"
 
+void AFPSDemoPlayerController::UseGameplayInput()
+{
+    bShowMouseCursor=false;
+    SetInputMode(FInputModeGameOnly());
+}
+void AFPSDemoPlayerController::UseMenuInput(UUserWidget* Focus)
+{
+    bShowMouseCursor=true;
+    FInputModeGameAndUI Mode;
+    if(Focus)Mode.SetWidgetToFocus(Focus->TakeWidget());
+    Mode.SetHideCursorDuringCapture(false);
+    Mode.SetLockMouseToViewportBehavior(LockMenuMouseToViewport()?EMouseLockMode::LockAlways:EMouseLockMode::DoNotLock);
+    SetInputMode(Mode);
+}
+
 void AFPSDemoPlayerController::OpenSettings(UUserWidget* Source)
 {
     if(!IsLocalController()||SettingsUI)return;
@@ -19,10 +34,10 @@ void AFPSDemoPlayerController::OpenSettings(UUserWidget* Source)
     {
         SettingsUI=nullptr;ResetIgnoreMoveInput();ResetIgnoreLookInput();
         SetIgnoreMoveInput(bSettingsWasBlocked);SetIgnoreLookInput(bSettingsWasBlocked);bShowMouseCursor=bSettingsWasBlocked;
-        if(bSettingsWasBlocked){FInputModeGameAndUI Mode;if(SettingsSource.IsValid())Mode.SetWidgetToFocus(SettingsSource->TakeWidget());Mode.SetHideCursorDuringCapture(false);SetInputMode(Mode);}
-        else SetInputMode(FInputModeGameOnly());SettingsSource.Reset();
+        if(bSettingsWasBlocked)UseMenuInput(SettingsSource.Get());
+        else UseGameplayInput();SettingsSource.Reset();
     });
-    FInputModeGameAndUI Mode;Mode.SetWidgetToFocus(SettingsUI->TakeWidget());Mode.SetHideCursorDuringCapture(false);SetInputMode(Mode);
+    UseMenuInput(SettingsUI);
 }
 void AFPSDemoPlayerController::SettingsBack(){if(SettingsUI)SettingsUI->RequestBack();}
 void AFPSDemoPlayerController::CloseSettingsForTravel()

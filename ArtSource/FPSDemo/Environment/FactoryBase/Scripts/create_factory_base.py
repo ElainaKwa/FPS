@@ -120,7 +120,7 @@ for x,y,w,d in ((0,-500,560,6),(0,100,560,6),(-280,-200,6,600),(280,-200,6,600))
 for x in (-120,120):box('DockGuide',(x,-200,1.5),(18,230,.4),'Yellow',False,folder='Wayfinding')
 text('PERSONAL FACTORY',(-0,-1170,455),90,62)
 # Four independent facility markers, positioned in free space above work surfaces.
-for name,page,loc,yaw in [('仓库与整备','Warehouse',(-850,430,145),180),('枪械改装','Modification',(-850,-610,145),180),('加工制造','Production',(850,330,145),0),('出征整备','Overview',(0,850,145),90)]:
+for name,page,loc,yaw in [('仓库与整备','Warehouse',(-850,430,145),180),('枪械改装','Modification',(-850,-610,145),180),('加工制造','Production',(850,330,145),0),('行动整备','Overview',(0,850,145),90)]:
  a=spawn(unreal.FPSFactoryStation,'Station_'+page,loc,unreal.Rotator(yaw=yaw),'Gameplay');a.set_editor_property('page',page);a.set_editor_property('display_name',unreal.Text(name))
 start=spawn(unreal.PlayerStart,'Layout_28x24m',(0,-720,100),unreal.Rotator(yaw=90),'Gameplay')
 # Indoor ambient fill; no combat actors, nav regions or loot spawners.

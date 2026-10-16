@@ -3,38 +3,42 @@
 - 用途：当前使用说明
 - 适用范围：单人 PvE 搜打撤实验的行动大厅、实体格子仓库/整备背包、装备槽、加工、改装、撤离及结果
 - 状态：v4 双层改枪台与 v1 行动大厅已保存；主项目构建、武器数据校验及大厅双分辨率入口验证通过；完整 OS 输入路由、PIE 和打包未验证
-- 最后更新：2026-10-15
+- 最后更新：2026-10-16
 
 ## 当前方向与资产
 
-用户在初版列表终端后明确改为参考《三角洲行动》特勤处的基地结构与背包交互：机器人个人工厂、不同尺寸实体占格、拖放整理、仓库/出征背包/装备栏分离。沿用工业灰黑、有限黄、MiSans 与 Rajdhani，使用自制设施几何与物品名称缩写；不复制商业游戏素材。不增加胸挂、保险箱、负重或未实现的设施升级按钮。
+用户在初版列表终端后明确改为参考《三角洲行动》特勤处的基地结构与背包交互：机器人个人工厂、不同尺寸实体占格、拖放整理、仓库/行动背包/装备栏分离。沿用工业灰黑、有限黄、MiSans 与 Rajdhani，使用自制设施几何与物品名称缩写；不复制商业游戏素材。不增加胸挂、保险箱、负重或未实现的设施升级按钮。
 
 本套件资产位于 `/Game/FPSDemo/Art/UI/ExtractionTerminal/`：`WBP_ExtractionTerminal` 保存终端布局，`WBP_ExtractionRow` 用于配方与结果，`WBP_ExtractionAttachmentRow` 用于配件。v4 改枪台保留；大厅升级另用 LobbyLayoutVersion=1，只替换 OverviewPanel，格子仓库、加工、装备栏、背包及结果页沿用现有内容。格子控件的容器、CellSize、字体、网格色、物品底色均作为 Widget Blueprint 属性保存；占格和文字由真实快照绘制，不每 0.1 秒重建一套物品子控件。
 
 代码归属：[FPSExtractionUI.h](../../../Source/MCP_Test/FPSExtractionUI.h)、[FPSExtractionUI.cpp](../../../Source/MCP_Test/FPSExtractionUI.cpp)、[FPSExtractionGridUI.h](../../../Source/MCP_Test/FPSExtractionGridUI.h)、[FPSExtractionGridUI.cpp](../../../Source/MCP_Test/FPSExtractionGridUI.cpp)。大厅场景展示由 [FPSExtractionLobby](../../../Source/MCP_Test/FPSExtractionLobby.cpp) 管理，通过既有工厂控制器打开和关闭；不修改库存规则或重建工厂地图。[资产源入口](../../../ArtSource/FPSDemo/UI/ExtractionTerminal/README.md)记录生成方式及共享依赖。
 
+车间当前使用第一人称和行动配装，隐藏 HUD 并禁止开火；菜单与行动时的鼠标捕获修复见 [工厂追加记录](../Maps/FactoryBase.md#第一人称与鼠标捕获修复2026-10-16)。
+
 ## 页面与真实状态
 
 | 页面 | 内容与入口 | 数据和动作 |
 | --- | --- | --- |
-| 行动大厅 | 中央真实机器人和工厂背景；顶部出征/仓库/工厂/改枪台，右上实际资金与设置，右下当前地图及整备/出发 | `Overview`、`LobbyWarehouse`、`LobbyFactory`、`LobbyModification`、`LobbySettings`、`LobbyPrepare`、`LobbyDepart`；加工入口 `LobbyProduction` |
-| 仓库与整备 | 左侧 8×8 仓库、右侧 5×4 出征背包；选择详情、旋转、跨容器转移、整堆出售 | `WarehouseGrid`、`BaseBackpackGrid`；`MoveStack`、`AutoTransferStack`、`SellStack` |
+| 行动大厅 | 中央真实机器人和工厂背景；顶部行动/仓库/工厂/改枪台，右上实际资金与设置，右下当前地图及行动整备/开始行动 | `Overview`、`LobbyWarehouse`、`LobbyFactory`、`LobbyModification`、`LobbySettings`、`LobbyPrepare`、`LobbyDepart`；加工入口 `LobbyProduction` |
+| 仓库与整备 | 左侧 8×8 仓库、右侧 5×4 行动背包；选择详情、旋转、跨容器转移、整堆出售 | `WarehouseGrid`、`BaseBackpackGrid`；`MoveStack`、`AutoTransferStack`、`SellStack` |
 | 固定装备栏 | 主武器 M4、副武器 M9，真实弹药、配件数和补给 10 资金；不暗示武器可拖动换槽 | `WeaponSummary`、`PrimarySlot`、`SecondarySlot`、`Resupply`、`Depart` |
 | 加工制造 | 实际配方材料、资金、时间、产物；单生产槽与领取 | `BaseRows`、`Claim`；`StartProduction`、`ClaimProduction` |
 | 枪械改装 | M4/M9 实例概览与真实参数；进入 M4 独占改装画布，点槽位打开配件抽屉 | `WeaponViewport`、`AttachmentDrawer`、`AttachmentRows`；`InstallAttachment(ItemId)`、`RemoveAttachment(AttachmentId)` |
 | 局内轻 HUD | 真实容量、交互文字、撤离米数或倒计时 | `RaidCapacity`、`Interaction`、`ExtractionStatus`；不重复旧生命/弹药/体力 HUD |
 | 局内背包 | 5×4 真实格子、选择详情、旋转、整堆丢到地面、放弃确认 | `RaidBackpackGrid`、`RaidRotate`、`SelectedDrop`；`DropStack`、`AbortExpedition` |
-| 行动结果 | 成功时全部当前背包入库；失败时仅展示实际遗失搜获，恢复出征前整备 | `LastHaul`、`Feedback`、`ReturnToBase` |
+| 行动结果 | 成功时全部当前背包入库；失败时仅展示实际遗失搜获，恢复行动前整备 | `LastHaul`、`Feedback`、`ReturnToBase` |
 
 `Warehouse/Backpack` 是实体堆叠数组，同 ItemId 可以重复。选择、移动、出售、丢弃使用 StackId，不用 ItemId 查找第一项代替。容量直接显示后端已计算的真实占用面积；不重新使用旧“数量除堆叠上限”的格数算法。材料和配件尺寸来自目录 Width/Height；旋转交换实际占格宽高。配件安装仍按已有 ItemId 接口取一件，由后端决定具体扣除。
 
-死亡文案遵循新规则：恢复出征前整备背包，仅丢本次搜获；枪械及已装配件保留，无维修费。成功将当前背包全部自动入库。UI 不自行计算遗失清单，使用后端已扣除出征整备部分的 LastHaul。
+死亡文案遵循新规则：恢复行动前整备背包，仅丢本次搜获；枪械及已装配件保留，无维修费。成功将当前背包全部自动入库。UI 不自行计算遗失清单，使用后端已扣除行动整备部分的 LastHaul。
 
 ## 行动大厅
 
-`Tools/LaunchFPSExtraction.ps1` 现在进入个人工厂地图，并用 `-FactoryLobby` 打开大厅；`Tools/LaunchFPSFactory.ps1` 保持从可走动车间开始。车间中 Tab 打开大厅，终端中 Tab 返回车间。大厅“工厂”同样关闭终端，恢复原机器人、原位置和行走视角；不会用展示角色替换玩家角色。
+统一入口为 `Tools/LaunchFPSDemo.ps1` → **回收行动** → 工厂大厅，规则见 [模式选择](StartMenu.md)。大厅上方的“模式选择”可返回开始界面。
 
-大厅参考用户提供的《三角洲行动》布局，使用本项目工业灰黑、黄色、MiSans/Rajdhani 和既有机器人。`OverviewPanel` 是根 Layout 的子项，显示时隐藏旧 BasePanel；其他页面按原契约访问。右下只显示当前已实现的工业关隘，没有虚构多地图选择器、活动、赛季或社交入口。整备进入已有仓库与背包，出发调用 `StartExpedition`；从此入口出征后，结算仍通过原流程返回工厂大厅。
+`Tools/LaunchFPSExtraction.ps1` 仍可直接进入个人工厂地图，并用 `-FactoryLobby` 打开大厅；`Tools/LaunchFPSFactory.ps1` 保持从可走动车间开始。车间中 Tab 打开大厅，终端中 Tab 返回车间。大厅“工厂”同样关闭终端，恢复玩家原位置和第一人称视角；不会用展示角色替换玩家角色。
+
+大厅参考用户提供的《三角洲行动》布局，使用本项目工业灰黑、黄色、MiSans/Rajdhani 和既有机器人。`OverviewPanel` 是根 Layout 的子项，显示时隐藏旧 BasePanel；其他页面按原契约访问。右下只显示当前已实现的工业关隘，没有虚构多地图选择器、活动、赛季或社交入口。“行动整备”进入已有仓库与背包，“开始行动”调用 `StartExpedition`；从此入口开始行动后，结算仍通过原流程返回工厂大厅。
 
 `DA_LobbyPresentation` 保存工厂相机标签、镜头和目标相对偏移、机器人位置/朝向和 FOV；实际展示读取 FactoryCamera0，临时展示演员在离开大厅时销毁。两张 UI 纹理为 `Textures/T_LobbyVignette` 和 `Textures/T_LobbyIndustrialCrossing`，后一张来自本项目工业关隘既有全景截图。共享字体、机器人网格及工厂地图没有复制或重建。
 
@@ -66,7 +70,7 @@ Open 不自动加入视口或更改输入模式。控制器负责鼠标、移动
 
 用户 2026-10-15 提供两张《三角洲行动》截图，明确要求改为两层结构。参考其大面积武器展示、左侧实例与参数、围绕枪体的槽卡布局；保留本项目 MiSans/Rajdhani、工业灰黄和已接入的槽位能力，不复制 Logo、贴图、皮肤或原游戏功能。
 
-进入改枪台时折叠 BasePanel，显示与它同级的 ModificationPanel；这会临时隐藏工厂侧栏、标题和出征入口，不更改原控件布局。概览展示实际持有的 Primary / Secondary 实例。左侧 M4/M9 卡片复用已有剪影，参数读取对应 WeaponDefinition 和 Catalog.Resolve：伤害、最大射程、射速、容量、换弹、开镜、开火模式和后坐力倍率。右侧真实模型显示当前实际装配，M9 没有受支持的改装接口时明确说明并禁用“进入改装”。不新造枪械实例，不更改玩家活动武器槽。
+进入改枪台时折叠 BasePanel，显示与它同级的 ModificationPanel；这会临时隐藏工厂侧栏、标题和开始行动入口，不更改原控件布局。概览展示实际持有的 Primary / Secondary 实例。左侧 M4/M9 卡片复用已有剪影，参数读取对应 WeaponDefinition 和 Catalog.Resolve：伤害、最大射程、射速、容量、换弹、开镜、开火模式和后坐力倍率。右侧真实模型显示当前实际装配，M9 没有受支持的改装接口时明确说明并禁用“进入改装”。不新造枪械实例，不更改玩家活动武器槽。
 
 M4 进入改装后，左侧卡片和属性退出，保留顶部简洁导航与中央模型。Viewport 绘制瞄具、枪口、弹匣、后握把、枪托、枪管六张槽卡，并通过 OnSlotSelected 通知 UI；点击后打开右侧抽屉，含当前已装配件、兼容仓库库存、当前参数及悬停候选差异。安装/卸下仍立即扣还实际库存，模型只接收操作后的真实快照。枪身、内置部件、已装部件和挂点从武器／配件定义读取，射程加入当前值和候选差异。新增三类的实现及验证边界见 [三部位接入记录](../Weapons/ModularParts.md)。关闭抽屉恢复大画布，不创建待应用试装状态。未加入精校、皮肤、方案导入或空的靶场入口。
 

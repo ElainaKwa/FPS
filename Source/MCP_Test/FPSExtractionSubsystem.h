@@ -67,6 +67,7 @@ public:
     int32 Count(const TArray<FFPSExtractionStack>& Inventory, FName Id) const;
 private:
     friend class AFPSFactoryMode;
+    friend class UFPSStartMenuVerification;
     bool bFactoryBase=false;
     friend struct FFPSExtractionSmoke;
     bool IsAuthorized() const;

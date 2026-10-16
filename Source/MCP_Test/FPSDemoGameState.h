@@ -23,6 +23,8 @@ public:
 	// Used by FPSMatchMode only. The teaching map leaves bStructuredMatch false.
 	UPROPERTY(Replicated) bool bStructuredMatch = false;
 	UPROPERTY(Replicated) bool bTraining = false;
+    // Shared maps retain their spawn geometry; extraction disables all combat-base rules.
+    UPROPERTY(Replicated) bool bBaseRegionsEnabled = true;
 	UPROPERTY(Replicated) bool bWaiting = false;
 	UPROPERTY(Replicated) bool bFinished = false;
 	UPROPERTY(Replicated) double RoundEndsAt = 0;

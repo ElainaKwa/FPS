@@ -2,8 +2,8 @@
 
 - 用途：实施与验证记录
 - 适用范围：实验分支的物品、存档、加工、配件和独立模式集成
-- 状态：实体格子闭环、v4 改枪台与工厂入口仓库数量操作运行通过；PIE、打包与真人完整游玩未验证
-- 最后更新：2026-10-15
+- 状态：实体格子闭环、v4 改枪台、工厂入口仓库数量操作及行动模式取消安全区运行通过；PIE、打包与真人完整游玩未验证
+- 最后更新：2026-10-16
 
 基点为 `c255cf5`，工作分支 `codex/extraction-loop-lab`。开工时工作区已有 M7 美术、移动及武器内容等未提交改动，保留且不归入本轮交付。
 
@@ -30,6 +30,40 @@
 测试中的移动使用确定性位置设置，库存结算调用正式接口；不将其表述为真人游玩。主闭环测试关闭守卫，以隔离库存和结算，不能用该结果证明自然 AI 交战。`-Visual` 生成实际游戏截图用于界面检查。日志、模块哈希与运行状态位于 `Saved/ExtractionTests/`。
 
 共享网络/GAS 代码的旧模式回归须另行运行真实服务器和客户端；编译结果不能代替此项。编辑器 PIE 退出、打包和人工体验仅在有本轮证据时标记通过。
+
+## 西侧出生、东侧撤离与实战配件（2026-10-16）
+
+按用户最终确认，保留原西侧出生区和原有落点验证，撤离位置改为东侧 `(4920, 0, 90)`。撤离标记、距离提示、交互范围和五秒倒计时共用 `FPSExtractionMode::ExitLocation`，不改多人对战出生逻辑。
+
+检查保存资产发现，M4 瞄具、制退器和扩容弹匣原先 `bUseWeaponPresentation=true`，第一人称、第三人称与掉落模型引用为空，只有工作台预览模型。使用原型网格填充三种实战外观引用并关闭回退；后握把、枪托、枪管沿用现有独立模型。通过 Blender 生成额外两份枪身底座，去除内嵌枪口与弹匣；原装件由 `BuiltinParts` 恢复，扩容弹匣沿用已有换弹运动和可见性轨道，避免重叠。
+
+权威入口为 `ArtSource/FPSDemo/Weapons/Rifles/M4/Modular/Scripts/build_gameplay_bodies.py` 和 `import_gameplay_bodies.py`。新增模型、已有四份定义的保存与备份见 `Saved/RaidSpawnAttachments/Authoring/20261016-210655/Report.json`；初始修改前的定义备份在同目录上一级的 `20261016-210343/`。网格导入后刷新 Asset Registry 的磁盘包摘要，再保存定义；武器与配件审阅清单由对应 commandlet 重新导出，未手改清单。
+
+运行验证还发现换弹结束的状态刷新会短暂重新显示原装弹匣。`FPSCharacterPresentation::Refresh` 现在在挂接替换弹匣时立即隐藏原装件，第一／第三人称都处理，不等待下一帧动画 Tick；切到没有独立弹匣的武器时保留其原装件。
+
+- 最终构建：`Saved/RaidSpawnAttachments/BuildReloadFix.log`，Editor Development 编译及七枪数据检查通过；配件数据检查为 12 份定义。模块 SHA256：`14150CBEC08BDBD9145D102DEA9A2A04DFD2260FABF15648A07490488D930BF5`。
+- 实机流程：`Saved/StartMenu/Tests/20261016-212437090/run.json`，1920×1080，102 条 PASS 日志（含结束标记），13 张截图。安装六类配件后从工厂进图，检查身份、配件 ID、第一／第三人称可见网格及原装件隐藏；扩容弹匣随换弹运动／隐藏，容量 45。原西侧出生点距东侧撤离点超过 90 米，实际触发五秒倒计时并成功结算返回工厂；禁火、无安全区、鼠标捕获与开始界面字体提示删除继续通过。
+- 双端回归：`Saved/FPSAttachmentTests/RaidAttachments-Final-20261016-2124/`，同一模块，100 ms 延迟下服务器、拥有者客户端及晚加入观察者全部 COMPLETE，无专项 FAIL。覆盖三类原配件可见网格、装卸事务、扩容换弹、掉落及重新拾取的配件模型、GAS 死亡取消和晚加入状态恢复。
+- 运行目录的临时副本与测试存档自动清理；两份保存失败残留 `.tmp` 经 SHA256 确认与已保存开始界面字节一致后删除，见 `Saved/RaidSpawnAttachments/Cleanup.json`。玩家存档未改动。
+
+已查看 [东侧撤离点与改装枪械实机图](Images/RaidAttachments.png) 和更新后的 [开始界面截图](../UI/Images/StartMenu.png)。上述流程使用实际 standalone 和网络进程，回收测试通过控制器交互触发撤离；未执行 PIE、完整打包、真人硬件输入或自然寻路走完全图。模型仍是现有 M4 原型，未替换 M7 或精细样品。
+
+## 取消行动地图安全区（2026-10-16）
+
+用户明确回收行动不应存在安全区。共享工业关隘地图的出生布局仍用于放置玩家与守卫，但行动模式通过 `AFPSDemoGameState::bBaseRegionsEnabled=false` 关闭基地规则：`FPSBaseMembership` 不授予保护效果或免费配装权限，不限制区域内开火，不裁断穿过基地边界的射线，也不驱离进入对方区域的角色。独立来源的保护效果仍由各自生命周期管理，没有按标签全局删除 GAS 效果。工厂继续遵循其全区禁火规则；多人对战默认开启基地规则。
+
+基地演员在行动模式隐藏自身边界和文字。另通过 Unreal Editor API 为地图现有两处 `SAFE BASE` 标牌添加 `FPSBasePresentation` 标签，由行动模式隐藏；没有重建地图、删除出生点或改动多人对战的布局。增量脚本为 `Tools/tag_fps_base_presentation.py`，生成器 `Tools/create_fps_industrial_crossing.py` 同步标签。地图备份、变更名单与前后摘要见 `Saved/ExtractionSafety/Authoring/20261016-183629097017/Report.json`。
+
+Editor Development 构建通过（`Saved/ExtractionSafety/Build.log`），构建后武器数据检查为 `FPS_WEAPON_DATA PASS definitions=7`。首轮模块 SHA-256：`943292DB98874AA9C03D240E7E5BD9D1E799A613FE3313FCD811E20C82C9EBB5`。
+
+- `Saved/StartMenu/Tests/20261016-183739691/run.json`：1280×800 离屏 standalone，88 条阶段检查及 `PASS COMPLETE` 通过。直接在实际出生位置开火耗弹、敌对 GAS 伤害将生命从 100 降为 75、两处旧基地射线不截断、进入原敌方区域后不被驱离，且没有基地配装权限。两处区域演员与两块保存的标牌均隐藏。工厂禁火、行动配装、鼠标捕获和完整返回继续通过。
+- `Saved/ExtractionSafety/Network/20261016-183831762/run.json`：相同模块运行 `TestFPSLoadout.ps1` 的真实 Listen Server／Client 两进程回归，双方 `COMPLETE` 通过。多人对战的直接敌对 GAS 伤害阻断、敌方区域驱离、保护状态复制、离区配装权限、独立效果生命周期均保持原规则。
+
+区域进入使用测试夹具设置位置；伤害使用带敌对来源的真实 GAS 效果，不声称此次重跑了自然 AI 完整交战。回收行动保持 standalone；多人对战回归使用 nullrhi，未运行 PIE 或打包。回收行动测试副本及其中的临时存档已自动删除，日志和资产摘要保留。
+
+采图人工检查发现首轮原敌方区域截图请求早于相机稳定，不能作为该区域画面证据。验证器已将采图拆到稳定后的一帧、背包延后打开；补验 `Saved/StartMenu/Tests/20261016-184134685/run.json` 的 88 条阶段检查、`PASS COMPLETE` 与十二张采图均通过。最终模块 SHA-256 为 `92A7526A6009C09C57BD35280A239EE5C20C9D6AC1E98490C42418D26D9109F4`，与双端回归模块的差异仅为测试采图时机，玩法代码及地图不变。
+
+已人工检查 [原红队区域实机图](Images/RaidNoSafeZones.png)：角色可留在区域内，安全区标牌和边界隐藏；左下生命 75 来自上述敌对伤害验证。首轮错误时机截图已删除，记录为 `Saved/ExtractionSafety/Cleanup.json`。没有把位置切换同一帧的旧画面作为交付证据。
 
 ## 首版证据（新版修订前）
 

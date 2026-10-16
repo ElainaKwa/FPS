@@ -28,7 +28,7 @@ TArray<FFPSKeyBinding> DefaultBindings()
     {"Fire",TEXT("射击"),EKeys::LeftMouseButton,{}},{"Aim",TEXT("瞄准"),EKeys::RightMouseButton,{}},{"Reload",TEXT("换弹"),EKeys::R,{}},
     {"Inspect",TEXT("检视"),EKeys::Q,{}},{"Primary",TEXT("主武器"),EKeys::One,{}},{"Secondary",TEXT("副武器"),EKeys::Two,{}},
     {"NextWeapon",TEXT("切换武器"),EKeys::MouseScrollUp,EKeys::MouseScrollDown},{"Drop",TEXT("丢弃武器"),EKeys::G,{}},
-    {"Interact",TEXT("交互 / 拾取"),EKeys::F,{}},{"Loadout",TEXT("配装"),EKeys::P,{}},{"Customization",TEXT("靶场改装"),EKeys::B,{}},{"Inventory",TEXT("出征背包"),EKeys::Tab,{}}};
+    {"Interact",TEXT("交互 / 拾取"),EKeys::F,{}},{"Loadout",TEXT("配装"),EKeys::P,{}},{"Customization",TEXT("靶场改装"),EKeys::B,{}},{"Inventory",TEXT("行动背包"),EKeys::Tab,{}}};
 }
 bool ValidKey(FKey Key){return !Key.IsValid() || (!Key.IsGamepadKey() && !Key.IsAxis1D() && !Key.IsAxis2D() && !Key.IsAxis3D() && Key!=EKeys::Escape && Key!=EKeys::LeftCommand && Key!=EKeys::RightCommand);}
 EWindowMode::Type WindowMode(int32 Mode){return Mode==0?EWindowMode::Windowed:Mode==1?EWindowMode::WindowedFullscreen:EWindowMode::Fullscreen;}

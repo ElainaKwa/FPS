@@ -20,7 +20,7 @@ void AFPSFactoryMode::SmokeTick()
 #if !UE_BUILD_SHIPPING
     if(!FParse::Param(FCommandLine::Get(),TEXT("FPSFactorySmoke"))||GetWorld()->GetTimeSeconds()<3)return;
     auto* Probe=GetGameInstance()->GetSubsystem<UFPSFactoryVerification>();if(Probe->bAwaitingReturn)return;
-    auto* PC=Cast<AFPSFactoryController>(GetWorld()->GetFirstPlayerController());auto* Body=PC?Cast<AFPSFactoryRobot>(PC->GetPawn()):nullptr;
+    auto* PC=Cast<AFPSFactoryController>(GetWorld()->GetFirstPlayerController());auto* Body=PC?Cast<AFPSDemoCharacter>(PC->GetPawn()):nullptr;
     if(!Body)return;
     const float Now=GetWorld()->GetTimeSeconds();
     auto Check=[&](bool Good,const TCHAR* Description){UE_LOG(LogTemp,Display,TEXT("FPS_FACTORY %s %s"),Good?TEXT("PASS"):TEXT("FAIL"),Description);bSmokeFailed|=!Good;};
@@ -122,7 +122,7 @@ void UFPSFactoryVerification::Tick(float)
     }
     else if(bResultObserved&&GetWorld()->GetAuthGameMode<AFPSFactoryMode>())
     {
-        const bool Good=Cast<AFPSFactoryRobot>(UGameplayStatics::GetPlayerPawn(this,0))&&Loop->GetPhase()==EFPSExtractionPhase::Base;
+        const bool Good=Cast<AFPSDemoCharacter>(UGameplayStatics::GetPlayerPawn(this,0))&&Loop->GetPhase()==EFPSExtractionPhase::Base;
         UE_LOG(LogTemp,Display,TEXT("FPS_FACTORY %s raid returns to walkable factory"),Good?TEXT("PASS"):TEXT("FAIL"));
         if(Good)UE_LOG(LogTemp,Display,TEXT("FPS_FACTORY COMPLETE"));FPlatformMisc::RequestExit(false);
     }

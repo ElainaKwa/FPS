@@ -43,13 +43,17 @@ void AFPSExtractionMode::InitGameState()
 {
     Super::InitGameState();
     auto* GS = GetGameState<AFPSDemoGameState>(); GS->bWaiting = !bRaid; GS->RoundEndsAt = 0;
+    GS->bBaseRegionsEnabled = false;
+    // Mode-specific presentation: the same saved map still serves team matches.
+    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+        if (It->ActorHasTag(TEXT("FPSBasePresentation"))) It->SetActorHiddenInGame(true);
     if (!GS->WeaponDataError.IsEmpty()) return;
     auto* Loop = GetGameInstance()->GetSubsystem<UFPSExtractionSubsystem>();
     if (!Loop->EnterWorld(bRaid))
     {
         bRaid = false; GS->bWaiting = true;
         if (Loop->GetView().Feedback.IsEmpty())
-            Loop->SetFeedback(TEXT("实验未启动，请检查存档或先从基地出征。"));
+            Loop->SetFeedback(TEXT("实验未启动，请检查存档或先从工厂开始行动。"));
     }
 }
 void AFPSExtractionMode::BeginPlay()
@@ -68,7 +72,7 @@ void AFPSExtractionMode::BeginPlay()
         int32 Bots = 3;
 #if !UE_BUILD_SHIPPING
         // Deterministic inventory/settlement tests do not claim to validate enemy combat.
-        if (FParse::Param(FCommandLine::Get(), TEXT("FPSExtractionSmoke")) || FParse::Param(FCommandLine::Get(), TEXT("FPSInventorySmoke"))) Bots = 0;
+        if (FParse::Param(FCommandLine::Get(), TEXT("FPSExtractionSmoke")) || FParse::Param(FCommandLine::Get(), TEXT("FPSInventorySmoke")) || FParse::Param(FCommandLine::Get(), TEXT("FPSStartMenuSmoke"))) Bots = 0;
 #endif
         for (int32 Index = 0; Index < Bots; ++Index)
         {
@@ -230,15 +234,17 @@ void AFPSExtractionController::Tick(float DeltaSeconds)
         if(auto* Sub=ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer())){FModifyContextOptions O;O.bForceImmediately=true;O.bIgnoreAllPressedKeysUntilRelease=true;Sub->RequestRebuildControlMappings(O,EInputMappingRebuildType::RebuildWithFlush);}
     }
     const bool Open = IsExtractionPanelOpen() || IsSettingsOpen();
-    if (Open != bPreviousPanel)
+    // Viewport capture survives map travel; initialize even when the first frame has no panel.
+    if (!bPanelInputInitialized || Open != bPreviousPanel)
     {
-        bPreviousPanel = Open; SetIgnoreMoveInput(Open); SetIgnoreLookInput(Open); bShowMouseCursor = Open;
+        bPanelInputInitialized=true;bPreviousPanel = Open;
+        ResetIgnoreMoveInput();ResetIgnoreLookInput();SetIgnoreMoveInput(Open);SetIgnoreLookInput(Open);
         if (Open)if (auto* Body = Cast<AFPSDemoCharacter>(GetPawn())) Body->StopCombatInput();
         if (Open)
         {
-            if(!IsSettingsOpen()){FInputModeGameAndUI Input; Input.SetWidgetToFocus(ExtractionUI->TakeWidget()); Input.SetHideCursorDuringCapture(false); SetInputMode(Input);}
+            if(!IsSettingsOpen())UseMenuInput(ExtractionUI);
         }
-        else SetInputMode(FInputModeGameOnly());
+        else UseGameplayInput();
     }
 }
 void AFPSExtractionController::EndPlay(const EEndPlayReason::Type Reason)

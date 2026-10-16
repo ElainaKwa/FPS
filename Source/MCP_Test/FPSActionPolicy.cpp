@@ -2,6 +2,7 @@
 #include "FPSLifeComponent.h"
 #include "FPSDemoGameState.h"
 #include "FPSMatchFlow.h"
+#include "FPSFactoryBase.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
 #include "NativeGameplayTags.h"
@@ -35,5 +36,9 @@ bool UFPSActionPolicy::CanAct() const
     return true;
 }
 bool UFPSActionPolicy::CanMove() const { return CanAct() && !HasRestriction(GetOwner(), TAG_BlockMovement); }
-bool UFPSActionPolicy::CanAttack() const { return CanAct() && !HasRestriction(GetOwner(), TAG_BlockAttack) && !UFPSBaseMembership::BlocksAttack(GetOwner()); }
+bool UFPSActionPolicy::CanAttack() const
+{
+    // The entire personal factory is safe, including direct weapon/GAS requests.
+    return !GetWorld()->GetAuthGameMode<AFPSFactoryMode>() && CanAct() && !HasRestriction(GetOwner(), TAG_BlockAttack) && !UFPSBaseMembership::BlocksAttack(GetOwner());
+}
 bool UFPSActionPolicy::CanDrop() const { return CanAct() && !HasRestriction(GetOwner(), TAG_BlockDrop) && !UFPSBaseMembership::BlocksDrop(GetOwner()); }

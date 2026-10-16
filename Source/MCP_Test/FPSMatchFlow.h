@@ -128,6 +128,7 @@ private:
     void RefreshSettingsMappings();
     UPROPERTY(Replicated) bool bWeaponContentVerified = false;
     friend class UFPSInterface;
+    friend class UFPSStartMenuVerification;
     friend struct FFPSSettingsSmoke;
     friend struct FFPSMovementSmoke;
     UPROPERTY() TObjectPtr<class UFPSInterface> MenuAsset;
@@ -142,6 +143,7 @@ private:
     void ShowMenu();
     void HideMenu();
     void ToggleMenu();
+    void SelectMultiplayerMenu(bool bShowMultiplayer);
     void Travel(const FString& Options);
     FString StatusText() const;
     TSharedPtr<SWidget> Menu;
@@ -156,6 +158,7 @@ private:
     FString Error;
     EFPSDifficulty SelectedDifficulty = EFPSDifficulty::Normal;
     bool bWasWaiting = false;
+    bool bMultiplayerMenu = false;
     double MenuOpenedAt = 0, LoadoutOpenedAt = 0;
     UPROPERTY() TObjectPtr<class UInputMappingContext> MenuContext;
     UPROPERTY() TObjectPtr<class UInputAction> MenuAction;

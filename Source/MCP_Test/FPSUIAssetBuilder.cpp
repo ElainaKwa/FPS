@@ -32,6 +32,7 @@
 #include "UObject/SavePackage.h"
 #include "Misc/PackageName.h"
 #include "FPSUIStyle.h"
+#include "FPSExtractionUI.h"
 
 namespace
 {
@@ -111,9 +112,9 @@ struct FPage
     explicit FPage(UWidgetBlueprint* Existing)
         : BP(Existing), Tree(Existing ? Existing->WidgetTree : nullptr),
           Canvas(Tree ? Cast<UCanvasPanel>(Tree->FindWidget(TEXT("Layout"))) : nullptr) {}
-    explicit FPage(const TCHAR* Page)
+    explicit FPage(const TCHAR* Page, const FString& Directory=TEXT(""))
     {
-        const FString Name=FString(TEXT("WBP_FPS"))+Page,Path=Root+TEXT("Widgets/")+Name;
+        const FString Name=FString(TEXT("WBP_FPS"))+Page,Path=(Directory.IsEmpty()?Root+TEXT("Widgets/"):Directory)+Name;
         BP=LoadObject<UWidgetBlueprint>(nullptr,*(Path+TEXT(".")+Name));
         if(!BP){auto* Factory=NewObject<UWidgetBlueprintFactory>();Factory->ParentClass=UFPSInterface::StaticClass();BP=CastChecked<UWidgetBlueprint>(Factory->FactoryCreateNew(UWidgetBlueprint::StaticClass(),CreatePackage(*Path),*Name,RF_Public|RF_Standalone,nullptr,GWarn));FAssetRegistryModule::AssetCreated(BP);}
         if(BP->WidgetTree)BP->WidgetTree->Rename(nullptr,GetTransientPackage(),REN_DontCreateRedirectors|REN_NonTransactional);
@@ -250,7 +251,8 @@ struct FPage
 void Lobby(FPage& P)
 {
     P.Backdrop();P.Rect(TEXT("SidebarRule"),381,0,1,900,RGB(92,102,103,105));
-    P.Label(TEXT("Title"),TEXT("行动终端"),57,77,320,79,44,Theme->Paper,nullptr,true);
+    P.Button(TEXT("Modes"),TEXT("←  模式选择"),TEXT("Modes"),51,565,305,54);
+    P.Label(TEXT("Title"),TEXT("多人对战"),57,77,320,79,44,Theme->Paper,nullptr,true);
     P.Label(TEXT("Subtitle"),TEXT("O P E R A T I O N S"),63,151,290,36,19,Theme->Muted);
     const TCHAR* Names[]={TEXT("单机训练"),TEXT("联机对局"),TEXT("靶场")};const TCHAR* Actions[]={TEXT("Solo"),TEXT("LAN"),TEXT("Range")};
     for(int I=0;I<3;++I)
@@ -594,6 +596,95 @@ FString UFPSUIAssetBuilder::ExtendMovementAssets()
         UE_LOG(LogTemp,Display,TEXT("FPS_MOVEMENT_UI PASS asset=%s existing_widgets=%d"),*Page.BP->GetPathName(),Before.Num());
     }
     return FString::Printf(TEXT("PASS movement UI saved=%d unchanged=%d existing_widgets_preserved=%d"),Saved,Unchanged,Preserved);
+#else
+    return TEXT("Editor only");
+#endif
+}
+
+FString UFPSUIAssetBuilder::BuildStartMenuAssets()
+{
+#if WITH_EDITOR
+    Root=BaseRoot;
+    Theme=LoadObject<UFPSUITheme>(nullptr,*(Root+TEXT("DA_FPSUITheme.DA_FPSUITheme")));
+    TextFont=LoadObject<UFont>(nullptr,*(Root+TEXT("Fonts/F_UI_Text.F_UI_Text")));
+    NumberFont=LoadObject<UFont>(nullptr,*(Root+TEXT("Fonts/F_UI_Number.F_UI_Number")));
+    if(!Theme||!TextFont||!NumberFont)return TEXT("FAIL missing shared UI theme/fonts");
+    // Create once. Subsequent upgrades preserve Designer edits in the start screen.
+    const FString StartRoot=TEXT("/Game/FPSDemo/Art/UI/StartMenu/");
+    if(!LoadObject<UWidgetBlueprint>(nullptr,*(StartRoot+TEXT("WBP_FPSStart.WBP_FPSStart"))))
+    {
+        FPage P(TEXT("Start"),StartRoot);
+        P.Backdrop();
+        P.Label(TEXT("Brand"),TEXT("FOUNDRY"),66,62,550,50,29,Theme->Muted);
+        P.Label(TEXT("Title"),TEXT("选择模式"),64,120,900,84,48,Theme->Paper,nullptr,true);
+        P.Label(TEXT("Intro"),TEXT("选择你的下一场行动。"),68,208,1000,42,19,Theme->Muted);
+        for(int32 I=0;I<2;++I)
+        {
+            const FString Name=I==0?TEXT("Multiplayer"):TEXT("Recovery");
+            auto* B=P.Button(Name,TEXT(""),FName(*Name),64+I*752,280,720,480);
+            auto* C=CastChecked<UCanvasPanel>(B->GetContent());
+            FButtonStyle Style=Theme->DarkButton;
+            Style.Normal=FSlateColorBrush(RGB(25,32,35));
+            Style.Hovered=FSlateColorBrush(RGB(49,58,60));
+            Style.Pressed=FSlateColorBrush(RGB(64,66,53));B->SetStyle(Style);
+            auto* Picture=P.Rect(Name+TEXT("Image"),2,2,716,260,FLinearColor::White,C);
+            auto* Preview=I==0?Texture(TEXT("Foundry")):LoadObject<UTexture2D>(nullptr,TEXT("/Game/FPSDemo/Art/UI/ExtractionTerminal/Textures/T_LobbyIndustrialCrossing.T_LobbyIndustrialCrossing"));
+            if(!Preview)return TEXT("FAIL missing mode preview");
+            Picture->SetBrushFromTexture(Preview);
+            P.Rect(Name+TEXT("ImageTint"),2,2,716,260,FLinearColor(0,0,0,.14f),C);
+            P.Rect(Name+TEXT("NumberBG"),24,24,66,45,Theme->Ink,C);
+            auto* Number=P.Label(Name+TEXT("Number"),I==0?TEXT("01"):TEXT("02"),38,21,50,45,28,Theme->Accent,C);
+            Number->SetFont(FSlateFontInfo(NumberFont,28,TEXT("Bold")));
+            P.Rect(Name+TEXT("Accent"),28,290,4,45,Theme->Accent,C);
+            P.Label(Name+TEXT("Title"),I==0?TEXT("多人对战"):TEXT("回收行动"),50,280,590,64,34,Theme->Paper,C,true);
+            P.Label(Name+TEXT("Description"),I==0?TEXT("创建或加入房间，与其他玩家交战。\n也可进入单机训练与靶场。 "):TEXT("在个人工厂整备，进入战区搜寻物资。\n成功撤离，把收获带回仓库。"),30,353,650,77,18,Theme->Muted,C);
+            P.Label(Name+TEXT("Enter"),I==0?TEXT("进入对战  →"):TEXT("进入工厂  →"),30,433,650,36,18,Theme->Accent,C,true);
+            P.Frame(Name+TEXT("Border"),0,0,720,480,RGB(105,118,117,130),C);
+        }
+        P.Label(TEXT("Error"),TEXT(""),66,766,1468,46,16,Theme->Accent);
+        P.Button(TEXT("InputSettings"),TEXT("设置"),TEXT("InputSettings"),64,818,172,54);
+        P.Button(TEXT("Quit"),TEXT("退出游戏"),TEXT("Quit"),252,818,206,54);
+        if(!P.Finish(TEXT("Start")))return TEXT("FAIL start widget save");
+    }
+    auto* Lobby=LoadObject<UWidgetBlueprint>(nullptr,*(BaseRoot+TEXT("Widgets/WBP_FPSLobby.WBP_FPSLobby")));
+    if(!Lobby)return TEXT("FAIL missing multiplayer lobby");
+    FPage L(Lobby);if(!L.Canvas)return TEXT("FAIL missing lobby canvas");
+    if(!L.Tree->FindWidget(TEXT("Modes")))L.Button(TEXT("Modes"),TEXT("←  模式选择"),TEXT("Modes"),51,565,305,54);
+    if(auto* T=Cast<UTextBlock>(L.Tree->FindWidget(TEXT("Title"))))T->SetText(FText::FromString(TEXT("多人对战")));
+    if(!L.Finish(TEXT("Lobby")))return TEXT("FAIL multiplayer widget save");
+
+    auto* Terminal=LoadObject<UWidgetBlueprint>(nullptr,TEXT("/Game/FPSDemo/Art/UI/ExtractionTerminal/WBP_ExtractionTerminal.WBP_ExtractionTerminal"));
+    if(!Terminal)return TEXT("FAIL missing factory terminal");
+    FPage E(Terminal);auto* Home=Cast<UCanvasPanel>(E.Tree->FindWidget(TEXT("OverviewPanel")));
+    if(!Home)return TEXT("FAIL missing factory lobby");
+    E.Tree->ForEachWidget([](UWidget* W)
+    {
+        if(auto* T=Cast<UTextBlock>(W))
+        {
+            FString S=T->GetText().ToString();
+            S.ReplaceInline(TEXT("出征前"),TEXT("行动前"));S.ReplaceInline(TEXT("出征背包"),TEXT("行动背包"));
+            S.ReplaceInline(TEXT("出征装备"),TEXT("行动装备"));S.ReplaceInline(TEXT("出征枪械"),TEXT("携带枪械"));
+            S.ReplaceInline(TEXT("出征整备"),TEXT("行动整备"));S.ReplaceInline(TEXT("返回基地"),TEXT("返回工厂"));
+            S.ReplaceInline(TEXT("出征  →"),TEXT("开始行动  →"));S.ReplaceInline(TEXT("出发  →"),TEXT("开始行动  →"));
+            if(S==TEXT("出征"))S=TEXT("行动");
+            if(T->GetFName()==TEXT("LobbyPrepareLabel"))S=TEXT("行动整备");
+            T->SetText(FText::FromString(S));
+        }
+    });
+    if(auto* B=E.Tree->FindWidget(TEXT("LobbyPrepare")))if(auto* Slot=Cast<UCanvasPanelSlot>(B->Slot))
+    {Slot->SetPosition(FVector2D(1144,826));Slot->SetSize(FVector2D(180,52));}
+    if(!E.Tree->FindWidget(TEXT("LobbyModes")))
+    {
+        auto* B=E.Make<UFPSExtractionButton>(TEXT("LobbyModes"));B->Action=TEXT("Modes");B->SetStyle(Theme->DarkButton);
+        auto* T=E.Make<UTextBlock>(TEXT("LobbyModesLabel"));T->SetText(FText::FromString(TEXT("模式选择")));
+        T->SetFont(FSlateFontInfo(TextFont,18,TEXT("Regular")));T->SetColorAndOpacity(Theme->Paper);T->SetVisibility(ESlateVisibility::HitTestInvisible);
+        B->AddChild(T);auto* Slot=CastChecked<UButtonSlot>(T->Slot);Slot->SetHorizontalAlignment(HAlign_Center);Slot->SetVerticalAlignment(VAlign_Center);
+        E.Place(Home,B,856,44,200,54);
+    }
+    E.Tree->ForEachWidget([&](UWidget* W){if(!Terminal->WidgetVariableNameToGuidMap.Contains(W->GetFName()))Terminal->OnVariableAdded(W->GetFName());});
+    FKismetEditorUtilities::CompileBlueprint(Terminal);
+    if(Terminal->Status==BS_Error||!Save(Terminal))return TEXT("FAIL factory terminal save");
+    return TEXT("PASS start menu, multiplayer back entry and factory wording saved");
 #else
     return TEXT("Editor only");
 #endif

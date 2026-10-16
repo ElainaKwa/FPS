@@ -20,7 +20,7 @@ public:
     UPROPERTY(EditAnywhere, Category="Factory") FText DisplayName;
 };
 
-/** Safe-base robot. Independent movement and cosmetic joints; no weapon/GAS input. */
+/** Cosmetic lobby robot. The walkable factory uses the normal first-person pawn. */
 UCLASS()
 class MCP_TEST_API AFPSFactoryRobot : public ACharacter
 {
@@ -63,22 +63,21 @@ public:
     void CloseTerminal();
     bool IsTerminalOpen() const {return Shell!=nullptr;}
     UFPSExtractionUI* GetTerminal() const;
+protected:
+    virtual bool LockMenuMouseToViewport() const override { return true; }
 private:
-    bool KeyHeld(FName Action) const;
-    bool KeyPressed(FName Action) const;
     bool OpenTerminal(FName Page);
     bool bLobbyStartupHandled=false;
     UPROPERTY() TObjectPtr<UFPSFactoryTerminalShell> Shell;
 };
 
+/** Retained for existing serialized references; the factory mode no longer creates a HUD. */
 UCLASS()
 class MCP_TEST_API AFPSFactoryHUD : public AHUD
 {
     GENERATED_BODY()
 public:
-    virtual void DrawHUD() override;
-private:
-    UPROPERTY() TObjectPtr<class UFont> Font;
+    AFPSFactoryHUD();
 };
 
 /** Opt-in playable factory. Existing extraction launcher and combat modes are unchanged. */
@@ -94,6 +93,9 @@ public:
     virtual void HandleStartingNewPlayer_Implementation(APlayerController* Player) override;
     virtual void RestartPlayer(AController* Player) override;
 private:
+    void SyncPreparedEquipment();
+    int32 PreparedRevision=INDEX_NONE;
+    TWeakObjectPtr<class AFPSDemoCharacter> EquippedPawn;
     void SmokeTick();
     int32 SmokeStage=0;
     float SmokeAt=0;

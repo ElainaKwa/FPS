@@ -15,15 +15,28 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 #include "UnrealClient.h"
 
 void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
 {
 #if !UE_BUILD_SHIPPING
-    if (FParse::Param(FCommandLine::Get(), TEXT("FPSModularPartsNetwork"))) { ModularTick(W); return; }
+    if (FParse::Param(FCommandLine::Get(), TEXT("FPSModularPartsNetwork")) || FParse::Param(FCommandLine::Get(), TEXT("FPSModularPartsObserver"))) { ModularTick(W); return; }
     const bool Observer = FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentObserver"));
     if ((!Observer && !FParse::Param(FCommandLine::Get(), TEXT("FPSAttachmentSmoke"))) || !W->IsEnabled()) return;
     auto* Pawn = W->Character(); const bool Server = Pawn->HasAuthority();
+    auto VisualsMatch = [&](AActor* Owner, bool Pickup, const FFPSWeaponInstance* Instance=nullptr)
+    {
+        TArray<UStaticMeshComponent*> Meshes;Owner->GetComponents(Meshes);
+        for(FName Id:(Instance?Instance->AttachmentIds:W->Equipped().AttachmentIds))
+        {
+            const auto* Part=W->Catalog()->FindAttachment(Id);if(!Part)return false;
+            if(Part->bUseWeaponPresentation)continue;
+            const auto* Expected=Pickup?Part->Pickup.Mesh.Get():Pawn->IsLocallyControlled()?Part->FirstPerson.Mesh.Get():Part->ThirdPerson.Mesh.Get();
+            if(!Expected||!Meshes.ContainsByPredicate([&](const auto* Mesh){return Mesh->IsVisible()&&Mesh->GetStaticMesh()==Expected&&(Pickup||(Pawn->IsLocallyControlled()?Mesh->bOnlyOwnerSee:Mesh->bOwnerNoSee));}))return false;
+        }
+        return true;
+    };
     if (Observer)
     {
         if (Server || Pawn->IsLocallyControlled() || W->Equipped().ConfigurationRevision != 7 || !W->Definition()) return;
@@ -38,7 +51,7 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
             W->EffectiveStats().MagazineSize == 15 && W->EffectiveStats().AimFOV == 48 && FMath::IsNearlyEqual(W->EffectiveStats().VerticalRecoilMultiplier, .8f) &&
             W->Equipped().Magazine == 0 && W->Equipped().Reserve == 0 && !W->Loadout.Secondary.IsValid() &&
             W->Loadout.Action == Snapshot.Action && W->Loadout.ActionStartedAt == Snapshot.ActionStartedAt && W->Loadout.ActionEndsAt == Snapshot.ActionEndsAt &&
-            Starts == W->ReloadStartPresentations && Commits == W->ReloadCommitPresentations && Pawn->FindComponentByClass<UStaticMeshComponent>() != nullptr;
+            Starts == W->ReloadStartPresentations && Commits == W->ReloadCommitPresentations && VisualsMatch(Pawn,false);
         UE_LOG(LogTemp, Display, TEXT("FPS_ATTACHMENT_OBSERVER %s CLIENT COMPLETE late join restores committed IDs, effective stats and persistent state without replaying cues or exposing ammo"), Pass ? TEXT("PASS") : TEXT("FAIL"));
         return;
     }
@@ -94,7 +107,7 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
         P.OldRequest = W->NewCustomizationRequest(); P.OldRequest.Attachment = TEXT("Attachment.M4_OpticFixed");
         Send(P.OldRequest, TEXT("Input.Weapon.Modify"));
     });
-    At(20, [&]() { Check(W->Equipped().InstanceId == P.Gun && W->Equipped().ConfigurationRevision == 2 && W->EffectiveStats().AimFOV == 48 && W->Equipped().Magazine == 20 && W->Equipped().Reserve == 90 && W->Equipped().NextShotAt == P.Cooldown && W->Equipped().RecoilIndex == 4, TEXT("optic commits without replacing instance ammo cooldown recoil")); });
+    At(20, [&]() { Check(W->Equipped().InstanceId == P.Gun && W->Equipped().ConfigurationRevision == 2 && W->EffectiveStats().AimFOV == 48 && W->Equipped().Magazine == 20 && W->Equipped().Reserve == 90 && W->Equipped().NextShotAt == P.Cooldown && W->Equipped().RecoilIndex == 4, TEXT("optic commits without replacing instance ammo cooldown recoil"));Check(VisualsMatch(Pawn,false),TEXT("committed optic mesh is visible")); });
     At(22, [&]() { if (!Server) { if (PointerTest) Check(FPSCustomizationSmokePointer(W, TEXT("Attachment.M4_MagazineExtended"), 0), TEXT("Slate mouse down on extended magazine")); else W->ModifyAttachment(EFPSAttachmentCategory::Magazine, TEXT("Attachment.M4_MagazineExtended")); } });
     At(23, [&]() { if (!Server && PointerTest) Check(FPSCustomizationSmokePointer(W, TEXT("Attachment.M4_MagazineExtended"), 1), TEXT("Slate drag detected")); });
     At(24, [&]() { if (!Server && PointerTest) Check(FPSCustomizationSmokePointer(W, TEXT("Attachment.M4_MagazineExtended"), 2), TEXT("Slate magazine drop routed to weapon")); });
@@ -117,6 +130,7 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
     At(53, [&]()
     {
         Check(W->Equipped().Magazine == 45 && W->Equipped().Reserve == 125 && W->Equipped().ConfigurationRevision == 3, TEXT("commit consumes current reserve after independent increase"));
+        Check(VisualsMatch(Pawn,false),TEXT("extended magazine visual matches committed configuration"));
         Check(!W->FinishAction(P.OldAction, false) && !W->FinishAction(P.OldAction, true), TEXT("stale callback and cancellation rejected"));
     });
     At(55, [&]() { if (!Server) Send(P.OldRequest, TEXT("Input.Weapon.Modify")); });
@@ -171,7 +185,7 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
     });
     At(189, [&]() { Check(W->Equipped().ShotSerial == P.Shots && W->Equipped().Magazine == 5 && !W->Loadout.bAiming, TEXT("server rejects fire ADS RPCs even when client bypasses UI flag")); });
     At(193, [&]() { if (!Server) W->ModifyAttachment(EFPSAttachmentCategory::Muzzle, TEXT("Attachment.M4_MuzzleBrake")); });
-    At(201, [&]() { Check(W->Equipped().ConfigurationRevision == 7 && FMath::IsNearlyEqual(W->EffectiveStats().VerticalRecoilMultiplier, .8f) && FMath::IsNearlyEqual(W->EffectiveStats().HorizontalRecoilMultiplier, .85f), TEXT("muzzle commits shared recoil multipliers")); if (!Server) PC->HideCustomization(); else UE_LOG(LogTemp, Display, TEXT("FPS_ATTACHMENT_LATE_WINDOW")); });
+    At(201, [&]() { Check(W->Equipped().ConfigurationRevision == 7 && FMath::IsNearlyEqual(W->EffectiveStats().VerticalRecoilMultiplier, .8f) && FMath::IsNearlyEqual(W->EffectiveStats().HorizontalRecoilMultiplier, .85f), TEXT("muzzle commits shared recoil multipliers"));Check(VisualsMatch(Pawn,false),TEXT("committed muzzle and optic meshes are visible")); if (!Server) PC->HideCustomization(); else UE_LOG(LogTemp, Display, TEXT("FPS_ATTACHMENT_LATE_WINDOW")); });
     At(206, [&]()
     {
         if (Server) return;
@@ -205,7 +219,7 @@ void FFPSAttachmentSmoke::Tick(UFPSWeaponComponent* W)
             if (It->GetInstance().InstanceId == P.Gun)
             {
                 const auto& Gun = It->GetInstance();
-                Found = Gun.ConfigurationRevision == 7 && Gun.Magazine == 4 && Gun.Reserve == 0 && Gun.AttachmentIds.Contains(TEXT("Attachment.M4_MuzzleBrake")) && Gun.AttachmentIds.Contains(TEXT("Attachment.M4_OpticFixed"));
+                Found = Gun.ConfigurationRevision == 7 && Gun.Magazine == 4 && Gun.Reserve == 0 && Gun.AttachmentIds.Contains(TEXT("Attachment.M4_MuzzleBrake")) && Gun.AttachmentIds.Contains(TEXT("Attachment.M4_OpticFixed")) && VisualsMatch(*It,true,&Gun);
             }
         Check(Found && !W->Loadout.Primary.IsValid() && !W->PendingAttachmentTicket.Sequence, TEXT("drop cancels pending action and replicates committed assembly on pickup"));
     });

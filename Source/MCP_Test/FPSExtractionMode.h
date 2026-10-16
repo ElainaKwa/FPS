@@ -36,7 +36,7 @@ private:
     AFPSExtractionLoot* SpawnCargo(FName Id, int32 Quantity, const FVector& Location);
     bool bRaid = false;
     bool bRestored = false;
-    FVector ExitLocation = FVector(-4900, 0, 90);
+    FVector ExitLocation = FVector(4920, 0, 90);
     float ExitStarted = -1;
 };
 
@@ -53,6 +53,8 @@ public:
     void ToggleBackpack();
     void Interact();
     void EscapeMenu();
+protected:
+    virtual bool LockMenuMouseToViewport() const override { return true; }
 private:
     uint32 SettingsMappingRevision=MAX_uint32;
     UPROPERTY() TObjectPtr<class UFPSExtractionUI> ExtractionUI;
@@ -61,4 +63,5 @@ private:
     UPROPERTY() TObjectPtr<class UInputAction> EscapeAction;
     UPROPERTY() TObjectPtr<class UInputAction> InteractAction;
     bool bPreviousPanel = false;
+    bool bPanelInputInitialized = false;
 };

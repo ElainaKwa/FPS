@@ -250,7 +250,8 @@ for team,x in [(0,-4900),(1,4920)]:
     base.set_editor_property('starts',starts)
     base.set_editor_property('fallback_start',starts[2])
     base.set_folder_path('IndustrialCrossing/Gameplay')
-    sign('BLUE  /  SAFE BASE' if team==0 else 'RED  /  SAFE BASE',(x+(-400 if team==0 else 400),0,310),0 if team==0 else 180,55,(70,160,235,255) if team==0 else (235,90,60,255))
+    base_sign = sign('BLUE  /  SAFE BASE' if team==0 else 'RED  /  SAFE BASE',(x+(-400 if team==0 else 400),0,310),0 if team==0 else 180,55,(70,160,235,255) if team==0 else (235,90,60,255))
+    base_sign.set_editor_property('tags', ['FPSBasePresentation'])
     for i,weapon in enumerate(('AK','M4','MP5','UMP45','M9','HeavyPistol','BR3')):
         wx,wy = x+(-470 if team==0 else 410),-1050+i*350
         mesh('WeaponPlinth',(wx,wy,18),(90,100,36),'Graphite',folder='Gameplay')

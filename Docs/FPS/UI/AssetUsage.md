@@ -2,10 +2,12 @@
 
 - 用途：当前使用说明
 - 适用范围：FPS 行动终端、配装、HUD、等待、暂停与结算界面
-- 状态：六个界面均保存为 Widget Blueprint；正式中文字体为 MiSans；体力条改为下方居中的细白条，其余对齐沿用原版
-- 最后更新：2026-10-13
+- 状态：统一开始界面和原六个界面均保存为 Widget Blueprint；正式中文字体为 MiSans；体力条改为下方居中的细白条，其余对齐沿用原版
+- 最后更新：2026-10-16
 
 ## 资产入口
+
+统一开始界面为 `/Game/FPSDemo/Art/UI/StartMenu/WBP_FPSStart`，入口、增量维护与本轮证据见 [模式选择与回收行动入口](StartMenu.md)。它复用下述主题、字体与已有场景预览；原 `WBP_FPSLobby` 现为“多人对战”子页面。
 
 当前已验证运行包为 `MiSans-20261012-v1`，启动路径、实机截图和验证边界统一维护在 [MiSans 实施记录](SampleMatch.md)。日常运行无需传入 `-FPSUIFontVariant`；该参数会加载历史候选目录，不包含正式版的 MiSans 对齐补偿。
 

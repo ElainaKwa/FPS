@@ -5,6 +5,7 @@
 #include "FPSInputSettings.h"
 #include "FPSSystemSettings.h"
 #include "FPSExtractionMode.h"
+#include "FPSFactoryBase.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
@@ -152,7 +153,7 @@ void UFPSCharacterInput::Left(){if(auto* C=InputCharacter.Get())C->MoveRight(FIn
 void UFPSCharacterInput::AimReleased(){if(const auto* S=UFPSSystemSettings::Get(this);!S||!S->AimToggle)AimCanceled();}
 void UFPSCharacterInput::AimCanceled(){if(auto* C=InputCharacter.Get())C->GetWeapons()->AimOff();}
 void UFPSCharacterInput::NextWeapon(){if(auto* C=InputCharacter.Get()){auto* W=C->GetWeapons();if(W->GetLoadout().ActiveSlot==EFPSWeaponSlot::Primary)W->Secondary();else W->Primary();}}
-void UFPSCharacterInput::Interact(){if(auto* C=InputCharacter.Get()){if(auto* PC=Cast<AFPSExtractionController>(C->GetController()))PC->Interact();else C->GetWeapons()->Pickup();}}
+void UFPSCharacterInput::Interact(){if(auto* C=InputCharacter.Get()){if(auto* Factory=Cast<AFPSFactoryController>(C->GetController()))Factory->InteractWithStation();else if(auto* PC=Cast<AFPSExtractionController>(C->GetController()))PC->Interact();else C->GetWeapons()->Pickup();}}
 
 
 void UFPSCharacterInput::Unregister()

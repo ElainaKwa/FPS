@@ -37,7 +37,7 @@ void UFPSActionButton::Preview()
 }
 UFPSInterface* UFPSInterface::Open(APlayerController* Owner, const TCHAR* Page)
 {
-    const FString Path=FPSUI::AssetRoot()+FString::Printf(TEXT("Widgets/WBP_FPS%s.WBP_FPS%s_C"),Page,Page);
+    const FString Path=FString(Page)==TEXT("Start") ? TEXT("/Game/FPSDemo/Art/UI/StartMenu/WBP_FPSStart.WBP_FPSStart_C") : FPSUI::AssetRoot()+FString::Printf(TEXT("Widgets/WBP_FPS%s.WBP_FPS%s_C"),Page,Page);
     auto* Class=LoadClass<UFPSInterface>(nullptr,*Path);
     if(!Class){UE_LOG(LogTemp,Error,TEXT("FPS_UI missing widget asset %s"),*Path);return nullptr;}
     return CreateWidget<UFPSInterface>(Owner,Class);
@@ -115,6 +115,15 @@ void UFPSInterface::NativeTick(const FGeometry& Geometry,float DeltaTime)
 void UFPSInterface::Dispatch(FName Action,FName Id)
 {
     auto* PC=Cast<AFPSFrontController>(GetOwningPlayer());if(!PC)return;
+    if (Action==TEXT("Multiplayer") && Screen==TEXT("Start")) { PC->SelectMultiplayerMenu(true); return; }
+    if (Action==TEXT("Modes") && Screen==TEXT("Lobby")) { PC->SelectMultiplayerMenu(false); return; }
+    if (Action==TEXT("Recovery") && Screen==TEXT("Start") && GetWorld()->GetGameState<AFPSLobbyState>())
+    {
+        if (auto* GI=PC->GetGameInstance<UFPSFrontGameInstance>()) GI->ConnectionError.Empty();
+        PC->HideMenu();
+        UGameplayStatics::OpenLevel(PC,TEXT("/Game/FPSDemo/Maps/Gameplay/FactoryBase/LV_FPSFactoryBase"),true,TEXT("game=/Script/MCP_Test.FPSFactoryMode?Mode=Solo?Bots=0?LabPhase=Base?FactoryLobby=1"));
+        return;
+    }
     if(Action==TEXT("Equip")){ViewedWeapon=Id;PC->RequestSelection(Id);return;}
     if(Action==TEXT("Close")){PC->HideLoadout();return;}
     if(Action==TEXT("Solo")){Tab=0;RefreshMenu();return;}
